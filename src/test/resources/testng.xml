@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="none">
+  <test name="Test">
+    <classes>
+		<class name="de.alpharogroup.layout.CloseWindowTest"/>
+		<class name="de.alpharogroup.layout.DrawMessageTest"/>
+		<class name="de.alpharogroup.layout.ScreenSizeUtilsTest"/>
+		<class name="de.alpharogroup.swing.browser.BrowserControlUtilsTest"/>
+		<class name="de.alpharogroup.swing.img.ImageConcatenationUtilsTest"/>
+		<class name="de.alpharogroup.swing.panels.keypad.KeyPadPanelTest"/>
+		<class name="de.alpharogroup.swing.panels.login.LoginPanelTest"/>
+		<class name="de.alpharogroup.swing.tablemodel.GenericShuffleTableModelTest"/>
+		<class name="de.alpharogroup.swing.tablemodel.GenericTableModelTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
