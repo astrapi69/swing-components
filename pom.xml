@@ -15,7 +15,7 @@
 	<properties>
 		<swingx-all.version>1.6.5-1</swingx-all.version>
 		<imgscalr-lib.version>4.2</imgscalr-lib.version>
-		<!-- PARENT PROJECT versions -->
+		<!-- JAULP PROJECT versions -->
 		<jaulp.core.version>4.4.0</jaulp.core.version>
 		<!-- PROJECT MODULES versions -->
 		<jaulp.email.version>${jaulp.core.version}</jaulp.email.version>
