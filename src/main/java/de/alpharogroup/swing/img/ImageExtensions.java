@@ -36,12 +36,13 @@ import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
 
-import de.alpharogroup.io.StreamUtils;
+import de.alpharogroup.io.StreamExtensions;
+
 
 /**
- * The Class ImageUtils.
+ * The class {@link ImageExtensions}.
  */
-public class ImageUtils
+public class ImageExtensions
 {
 
 	/**
@@ -241,7 +242,7 @@ public class ImageUtils
 		}
 		finally
 		{
-			StreamUtils.close(baos);
+			StreamExtensions.close(baos);
 		}
 	}
 

@@ -32,11 +32,10 @@ import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 
-
 /**
- * The Class BrowserControlUtils helps you to open an url in the standard web-browser.
+ * The class {@link BrowserControlExtensions} helps you to open an url in the standard web-browser.
  */
-public class BrowserControlUtils
+public class BrowserControlExtensions
 {
 
 	/** Constant for the name from the mac file manager. */

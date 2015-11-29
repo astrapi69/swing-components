@@ -27,9 +27,9 @@ package de.alpharogroup.swing.tablemodel;
 import javax.swing.JTable;
 
 /**
- * The Class GenericShuffleTableModelUtils.
+ * The class {@link GenericShuffleTableModelExtensions}.
  */
-public class GenericShuffleTableModelUtils
+public class GenericShuffleTableModelExtensions
 {
 
 	/**

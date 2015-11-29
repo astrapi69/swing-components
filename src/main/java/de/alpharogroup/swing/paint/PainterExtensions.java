@@ -33,9 +33,9 @@ import org.jdesktop.swingx.painter.MattePainter;
 import org.jdesktop.swingx.painter.PinstripePainter;
 
 /**
- * The Class PainterUtils.
+ * The class {@link PainterExtensions}.
  */
-public class PainterUtils
+public class PainterExtensions
 {
 
 	/**

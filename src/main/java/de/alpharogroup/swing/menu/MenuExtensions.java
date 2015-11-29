@@ -22,42 +22,32 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.browser;
+package de.alpharogroup.swing.menu;
 
-import org.testng.AssertJUnit;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import java.awt.Event;
+
+import javax.swing.JMenuItem;
+import javax.swing.KeyStroke;
 
 /**
- * The Class BrowserControlUtilsTest.
+ * The class {@link MenuExtensions}.
  */
-public class BrowserControlUtilsTest
+public final class MenuExtensions
 {
 
 	/**
-	 * Sets the up.
+	 * Sets the accelerator from the given menuitem and the given character with the CTRL. The
+	 * accelerator are combined with the given character and the CTRL.
 	 *
-	 * @throws Exception
-	 *             the exception
+	 * @param jmi
+	 *            The JMenuItem.
+	 * @param accelerator
+	 *            The character that have to push together with the CTRL.
 	 */
-	@BeforeMethod
-	public void setUp() throws Exception
+	public static void setCtrlAccelerator(final JMenuItem jmi, final char accelerator)
 	{
-	}
-
-	/**
-	 * Test display ur lon standard browser.
-	 */
-	@Test
-	public void testDisplayURLonStandardBrowser()
-	{
-
-		final String url = "http://jaulp.sourceforge.net";
-
-		final Object obj = BrowserControlUtils.displayURLonStandardBrowser(null, url);
-
-		AssertJUnit.assertNotNull(obj);
-
+		final KeyStroke ks = KeyStroke.getKeyStroke(accelerator, Event.CTRL_MASK);
+		jmi.setAccelerator(ks);
 	}
 
 }

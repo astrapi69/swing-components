@@ -35,9 +35,9 @@ import javax.swing.SwingUtilities;
 import javax.swing.plaf.ActionMapUIResource;
 
 /**
- * The Class KeyStrokeUtils.
+ * The class {@link KeyStrokeExtensions}.
  */
-public final class KeyStrokeUtils
+public final class KeyStrokeExtensions
 {
 
 	/**
@@ -88,7 +88,7 @@ public final class KeyStrokeUtils
 	/**
 	 * Instantiates a new key stroke utils.
 	 */
-	private KeyStrokeUtils()
+	private KeyStrokeExtensions()
 	{
 	}
 

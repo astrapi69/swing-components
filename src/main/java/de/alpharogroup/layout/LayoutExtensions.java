@@ -33,9 +33,9 @@ import java.awt.Insets;
 import javax.swing.Box;
 
 /**
- * The Class LayoutUtils helps with method for simplify the live with Layouts.
+ * The Class {@link LayoutExtensions} helps with method for simplify the live with Layouts.
  */
-public final class LayoutUtils
+public final class LayoutExtensions
 {
 
 

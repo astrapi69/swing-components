@@ -32,7 +32,7 @@ import java.awt.Insets;
 import java.awt.Panel;
 import java.awt.TextArea;
 
-import de.alpharogroup.layout.LayoutUtils;
+import de.alpharogroup.layout.LayoutExtensions;
 
 /**
  * Panel for a number keypad.
@@ -349,56 +349,56 @@ public class KeyPadPanel extends Panel
 		final GridBagConstraints gbc = new GridBagConstraints();
 		this.setLayout(gbl);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 0, 0, GridBagConstraints.REMAINDER, 1, 0, 0, 1, 1,
 			textAreaDisplay, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 0, 1, 1, 1, 100, 100, button1, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 1, 1, 1, 1, 100, 100, button2, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 2, 1, 1, 1, 100, 100, button3, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 3, 1, 1, 1, 100, 100, buttonTable, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 0, 2, 1, 1, 100, 100, button4, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 1, 2, 1, 1, 100, 100, button5, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 2, 2, 1, 1, 100, 100, button6, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 3, 2, 1, 1, 100, 100, buttonCancel, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 0, 3, 1, 1, 100, 100, button7, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 1, 3, 1, 1, 100, 100, button8, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 2, 3, 1, 1, 100, 100, button9, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 3, 3, 1, 1, 100, 100, buttonStorno, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 0, 4, 1, 1, 100, 100, buttonPlus, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 1, 4, 1, 1, 100, 100, button0, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 2, 4, 1, 1, 100, 100, buttonMinus, this);
 
-		LayoutUtils.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+		LayoutExtensions.addComponent(gbl, gbc, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 			new Insets(2, 2, 2, 2), 3, 4, 1, 1, 100, 100, buttonEnter, this);
 
 	}

@@ -29,7 +29,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import de.alpharogroup.swing.browser.BrowserControlUtils;
+import de.alpharogroup.swing.browser.BrowserControlExtensions;
 
 @SuppressWarnings("serial")
 public class OpenBrowserAction extends AbstractAction
@@ -48,7 +48,7 @@ public class OpenBrowserAction extends AbstractAction
 	@Override
 	public void actionPerformed(final ActionEvent e)
 	{
-		BrowserControlUtils.displayURLonStandardBrowser(component, url);
+		BrowserControlExtensions.displayURLonStandardBrowser(component, url);
 	}
 
 }

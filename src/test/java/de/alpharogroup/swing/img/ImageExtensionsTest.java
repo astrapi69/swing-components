@@ -27,6 +27,8 @@ package de.alpharogroup.swing.img;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -40,12 +42,46 @@ import org.testng.annotations.Test;
 
 import de.alpharogroup.email.messages.Mimetypes;
 import de.alpharogroup.file.search.PathFinder;
+import de.alpharogroup.lang.ClassExtensions;
+import de.alpharogroup.swing.img.ImageExtensions.Direction;
 
 /**
- * The Class ImageUtilsTest.
+ * The class {@link ImageExtensionsTest}.
  */
-public class ImageUtilsTest
+public class ImageExtensionsTest
 {
+
+	@Test(enabled = false)
+	public void testConcatenateImages() throws IOException
+	{
+		final BufferedImage img1 = ImageIO.read(ClassExtensions
+			.getResourceAsStream("img/xmas/bell.png"));
+		final BufferedImage img2 = ImageIO.read(ClassExtensions
+			.getResourceAsStream("img/xmas/greendices.png"));
+		final BufferedImage img3 = ImageIO.read(ClassExtensions
+			.getResourceAsStream("img/xmas/stars.png"));
+
+		final List<BufferedImage> imgCollection = new ArrayList<>();
+		imgCollection.add(img1);
+		imgCollection.add(img2);
+		imgCollection.add(img3);
+		final BufferedImage verticalImage = ImageExtensions.concatenateImages(imgCollection,
+			img1.getWidth(), img1.getHeight() + img2.getHeight() + img3.getHeight(),
+			BufferedImage.TYPE_INT_RGB, Direction.vertical);
+		final BufferedImage horizontalImage = ImageExtensions.concatenateImages(imgCollection,
+			img1.getWidth() + img2.getWidth() + img3.getWidth(), img1.getHeight(),
+			BufferedImage.TYPE_INT_RGB, Direction.horizontal);
+		final File imgDir = new File(PathFinder.getSrcTestResourcesDir(), "img");
+		final File xmasDir = new File(imgDir, "xmas");
+		final File verticalImg = new File(xmasDir, "verticalImg.jpg");
+		ImageIO.write(verticalImage, "jpeg", verticalImg);
+
+		final File horizontalImg = new File(xmasDir, "horizontalImg.jpg");
+		ImageIO.write(horizontalImage, "jpeg", horizontalImg);
+		// comment the following two lines to see the result.
+		// DeleteFileUtils.delete(horizontalImg);
+		// DeleteFileUtils.delete(verticalImg);
+	}
 
 	/**
 	 * Test get resized.
@@ -61,7 +97,7 @@ public class ImageUtilsTest
 		String extension = Mimetypes.getExtension(hImg);
 		extension = Mimetypes.getExtension(hImg.getName());
 		final BufferedImage horizontalImg = ImageIO.read(hImg);
-		final BufferedImage result = ImageUtils.getResized(horizontalImg, Scalr.Method.SPEED,
+		final BufferedImage result = ImageExtensions.getResized(horizontalImg, Scalr.Method.SPEED,
 			Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth(), horizontalImg.getHeight());
 
 		final File verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(),
@@ -86,10 +122,10 @@ public class ImageUtilsTest
 		String extension = Mimetypes.getExtension(hImg);
 		extension = Mimetypes.getExtension(hImg.getName());
 		BufferedImage horizontalImg = ImageIO.read(hImg);
-		byte[] resized = ImageUtils.resize(horizontalImg, Scalr.Method.ULTRA_QUALITY,
+		byte[] resized = ImageExtensions.resize(horizontalImg, Scalr.Method.ULTRA_QUALITY,
 			Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth() / 2,
 			horizontalImg.getHeight() / 2);
-		BufferedImage result = ImageUtils.read(resized);
+		BufferedImage result = ImageExtensions.read(resized);
 		File verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
 			"xmas", "resultImg." + extension);
 		ImageIO.write(result, extension, verticalImg);
@@ -105,10 +141,10 @@ public class ImageUtilsTest
 		extension = Mimetypes.getExtension(hImg);
 		extension = Mimetypes.getExtension(hImg.getName());
 		horizontalImg = ImageIO.read(hImg);
-		resized = ImageUtils.resize(horizontalImg, Scalr.Method.ULTRA_QUALITY,
+		resized = ImageExtensions.resize(horizontalImg, Scalr.Method.ULTRA_QUALITY,
 			Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth() / scale,
 			horizontalImg.getHeight() / scale);
-		result = ImageUtils.read(resized);
+		result = ImageExtensions.read(resized);
 		verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
 			"xmas", "resultImg." + extension);
 		ImageIO.write(result, extension, verticalImg);
@@ -117,10 +153,10 @@ public class ImageUtilsTest
 		extension = Mimetypes.getExtension(verticalImg);
 		extension = Mimetypes.getExtension(verticalImg.getName());
 		final BufferedImage backToOriginalSize = ImageIO.read(verticalImg);
-		resized = ImageUtils.resize(backToOriginalSize, Scalr.Method.ULTRA_QUALITY,
+		resized = ImageExtensions.resize(backToOriginalSize, Scalr.Method.ULTRA_QUALITY,
 			Scalr.Mode.FIT_EXACT, extension, backToOriginalSize.getWidth() * scale,
 			backToOriginalSize.getHeight() * scale);
-		result = ImageUtils.read(resized);
+		result = ImageExtensions.read(resized);
 		verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
 			"xmas", filenameprefix + "_backToOriginalSizeImg." + extension);
 		ImageIO.write(result, extension, verticalImg);
@@ -143,8 +179,8 @@ public class ImageUtilsTest
 
 		final BufferedImage horizontalImg = ImageIO.read(hImg);
 		final String expected = "foo bar";
-		ImageUtils.weaveInto(horizontalImg, expected);
-		final String actual = ImageUtils.unweaveFrom(horizontalImg);
+		ImageExtensions.weaveInto(horizontalImg, expected);
+		final String actual = ImageExtensions.unweaveFrom(horizontalImg);
 		AssertJUnit.assertEquals(expected, actual);
 	}
 

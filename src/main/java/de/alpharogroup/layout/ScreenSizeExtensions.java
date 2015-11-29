@@ -35,7 +35,7 @@ import java.util.List;
  * @version 1.0
  * @author Asterios Raptis
  */
-public class ScreenSizeUtils
+public class ScreenSizeExtensions
 {
 
 	/**
@@ -51,8 +51,8 @@ public class ScreenSizeUtils
 	public static List<Point> computeDialogPositions(final int dialogWidth, final int dialogHeight)
 	{
 		List<Point> dialogPosition = null;
-		final int windowBesides = ScreenSizeUtils.getScreenWidth() / dialogWidth;
-		final int windowBelow = ScreenSizeUtils.getScreenHeight() / dialogHeight;
+		final int windowBesides = ScreenSizeExtensions.getScreenWidth() / dialogWidth;
+		final int windowBelow = ScreenSizeExtensions.getScreenHeight() / dialogHeight;
 		final int listSize = windowBesides * windowBelow;
 		dialogPosition = new ArrayList<>(listSize);
 		int dotWidth = 0;

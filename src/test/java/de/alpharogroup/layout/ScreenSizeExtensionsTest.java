@@ -37,12 +37,12 @@ import org.testng.annotations.Test;
 import de.alpharogroup.BaseTestCase;
 
 /**
- * Test class for the class ScreenSizeUtils.
+ * Test class for the class {@link ScreenSizeExtensions}.
  *
  * @version 1.0
  * @author Asterios Raptis
  */
-public class ScreenSizeUtilsTest extends BaseTestCase
+public class ScreenSizeExtensionsTest extends BaseTestCase
 {
 
 	/**
@@ -68,7 +68,7 @@ public class ScreenSizeUtilsTest extends BaseTestCase
 	/**
 	 * Test method for.
 	 *
-	 * {@link de.alpharogroup.layout.ScreenSizeUtils#computeDialogPositions(int, int)} .
+	 * {@link de.alpharogroup.layout.ScreenSizeExtensions#computeDialogPositions(int, int)} .
 	 */
 	@Test(enabled = false)
 	public void testComputeDialogPositions()
@@ -76,10 +76,10 @@ public class ScreenSizeUtilsTest extends BaseTestCase
 		final List<Point> expected = new ArrayList<Point>();
 		final int dialogHeight = 200;
 		final int dialogWidth = 250;
-		final int windowBesides = ScreenSizeUtils.getScreenWidth() / dialogWidth;
-		final int windowBelow = ScreenSizeUtils.getScreenHeight() / dialogHeight;
+		final int windowBesides = ScreenSizeExtensions.getScreenWidth() / dialogWidth;
+		final int windowBelow = ScreenSizeExtensions.getScreenHeight() / dialogHeight;
 		final int listSize = windowBesides * windowBelow;
-		final List<Point> dialogPositions = ScreenSizeUtils.computeDialogPositions(dialogWidth,
+		final List<Point> dialogPositions = ScreenSizeExtensions.computeDialogPositions(dialogWidth,
 			dialogHeight);
 		this.result = listSize == dialogPositions.size();
 		AssertJUnit.assertTrue("", this.result);
@@ -110,29 +110,29 @@ public class ScreenSizeUtilsTest extends BaseTestCase
 	/**
 	 * Test method for.
 	 *
-	 * {@link de.alpharogroup.layout.ScreenSizeUtils#getPoint()}.
+	 * {@link de.alpharogroup.layout.ScreenSizeExtensions#getPoint()}.
 	 */
 	@Test(enabled = false)
 	public void testGetPoint()
 	{
-		final Point screenpoint = ScreenSizeUtils.getPoint();
-		this.result = screenpoint.x == ScreenSizeUtils.getScreenWidth();
+		final Point screenpoint = ScreenSizeExtensions.getPoint();
+		this.result = screenpoint.x == ScreenSizeExtensions.getScreenWidth();
 		AssertJUnit.assertTrue("", this.result);
 
-		this.result = screenpoint.y == ScreenSizeUtils.getScreenHeight();
+		this.result = screenpoint.y == ScreenSizeExtensions.getScreenHeight();
 		AssertJUnit.assertTrue("", this.result);
 	}
 
 	/**
 	 * Test method for.
 	 *
-	 * {@link de.alpharogroup.layout.ScreenSizeUtils#getScreenHeight()}.
+	 * {@link de.alpharogroup.layout.ScreenSizeExtensions#getScreenHeight()}.
 	 */
 	@Test(enabled = false)
 	public void testGetScreenHeight()
 	{
 		final int expected = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-		final int compare = ScreenSizeUtils.getScreenHeight();
+		final int compare = ScreenSizeExtensions.getScreenHeight();
 		this.result = expected == compare;
 		AssertJUnit.assertTrue("", this.result);
 	}
@@ -140,13 +140,13 @@ public class ScreenSizeUtilsTest extends BaseTestCase
 	/**
 	 * Test method for.
 	 *
-	 * {@link de.alpharogroup.layout.ScreenSizeUtils#getScreenWidth()}.
+	 * {@link de.alpharogroup.layout.ScreenSizeExtensions#getScreenWidth()}.
 	 */
 	@Test(enabled = false)
 	public void testGetScreenWidth()
 	{
 		final int expected = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-		final int compare = ScreenSizeUtils.getScreenWidth();
+		final int compare = ScreenSizeExtensions.getScreenWidth();
 		this.result = expected == compare;
 		AssertJUnit.assertTrue("", this.result);
 	}

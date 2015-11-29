@@ -40,9 +40,9 @@ import javax.swing.JFrame;
 import de.alpharogroup.lang.ClassExtensions;
 
 /**
- * The Class AwtUtils.
+ * The class {@link AwtExtensions}.
  */
-public final class AwtUtils
+public final class AwtExtensions
 {
 	/**
 	 * Gets the root JDialog from the given Component Object.

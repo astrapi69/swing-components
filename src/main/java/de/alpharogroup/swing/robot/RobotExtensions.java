@@ -29,9 +29,9 @@ import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
 
 /**
- * The Class RobotUtils.
+ * The class {@link RobotExtensions}.
  */
-public class RobotUtils
+public class RobotExtensions
 {
 
 	/**
