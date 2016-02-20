@@ -3,6 +3,7 @@ package de.alpharogroup.layout;
 import java.awt.Component;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.util.Optional;
 
 import javax.swing.JFrame;
 
@@ -22,6 +23,20 @@ public class GraphicsDeviceExtensions
 	        .getLocalGraphicsEnvironment();
 	    final GraphicsDevice[] graphicsDevices = graphicsEnvironment.getScreenDevices();
 	    return graphicsDevices;
+	}
+
+	/**
+	 * Gets the {@link Optional} with an {@link GraphicsDevice} in it or if it does not exist the {@link Optional} object is empty.
+	 *
+	 * @param index the index
+	 * @return the {@link Optional} with an {@link GraphicsDevice} in it or if it does not exist the {@link Optional} object is empty.
+	 */
+	public static Optional<GraphicsDevice> getGraphicsDevice(final int index) {
+		if( isScreenAvailableToShow(index) ) {
+			final GraphicsDevice[] graphicsDevices = getAvailableScreens();
+			return Optional.of(graphicsDevices[index]);
+		}
+		return Optional.empty();
 	}
 
 	/**
