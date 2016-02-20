@@ -24,6 +24,7 @@
  */
 package de.alpharogroup.layout;
 
+import java.awt.GraphicsDevice;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -32,8 +33,8 @@ import java.util.List;
 /**
  * Utility class for handle with screensize.
  *
- * @version 1.0
  * @author Asterios Raptis
+ * @version 1.0
  */
 public class ScreenSizeExtensions
 {
@@ -103,4 +104,25 @@ public class ScreenSizeExtensions
 		final int x = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		return x;
 	}
+
+	/**
+	 * Gets the screen width from the given {@link GraphicsDevice} object.
+	 *
+	 * @param graphicsDevice the {@link GraphicsDevice} object.
+	 * @return the screen width from the given {@link GraphicsDevice} object.
+	 */
+	public static int getScreenWidth(final GraphicsDevice graphicsDevice) {
+		return graphicsDevice.getDisplayMode().getWidth();
+	}
+
+	/**
+	 * Gets the screen height from the given {@link GraphicsDevice} object.
+	 *
+	 * @param graphicsDevice the {@link GraphicsDevice} object.
+	 * @return the screen height from the given {@link GraphicsDevice} object.
+	 */
+	public static int getScreenHeight(final GraphicsDevice graphicsDevice) {
+		return graphicsDevice.getDisplayMode().getHeight();
+	}
+
 }
