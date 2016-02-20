@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>swing-components</artifactId>
-	<version>4.9.0</version>
+	<version>4.10.0</version>
 
 	<name>${project.artifactId}</name>
 
