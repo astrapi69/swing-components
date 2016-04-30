@@ -90,8 +90,6 @@ public class SimpleShuffleTablePanel extends JPanel {
 	@Getter
 	private RemoveAllAction<Permission> removeAllAction;
 
-	private GenericShuffleTableModel<Permission> shuffleTableModel;
-
 	/**
 	 * Instantiates a new simple shuffle table panel.
 	 */

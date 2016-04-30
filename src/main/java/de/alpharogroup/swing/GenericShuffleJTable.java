@@ -49,6 +49,8 @@ public class GenericShuffleJTable<T> implements Serializable {
 	@Getter
 	private final GenericJTable<T> rightTable;
 
+	/** The model. */
+	@Getter
 	private final GenericShuffleTableModel<T> model;
 
 	/**
