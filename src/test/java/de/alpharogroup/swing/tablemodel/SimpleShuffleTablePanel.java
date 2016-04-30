@@ -27,195 +27,123 @@ package de.alpharogroup.swing.tablemodel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 
 import de.alpharogroup.swing.GenericJTable;
 import de.alpharogroup.swing.GenericShuffleJTable;
+import de.alpharogroup.swing.components.factories.JComponentFactory;
+import lombok.Getter;
 
 /**
  * The Class SimpleShuffleTablePanel.
  */
-public class SimpleShuffleTablePanel extends JPanel implements ActionListener
-{
+public class SimpleShuffleTablePanel extends JPanel {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The btn add permission. */
+	@Getter
 	private JButton btnAddPermission;
 
 	/** The btn add all permissions. */
+	@Getter
 	private javax.swing.JButton btnAddAllPermissions;
 
 	/** The btn remove all permissions. */
+	@Getter
 	private JButton btnRemoveAllPermissions;
 
 	/** The btn remove permission. */
+	@Getter
 	private JButton btnRemovePermission;
 
 	/** The scr pn tbl available permissions. */
+	@Getter
 	private javax.swing.JScrollPane scrPnTblAvailablePermissions;
 
 	/** The scr pn tbl permissions from role. */
+	@Getter
 	private javax.swing.JScrollPane scrPnTblPermissionsFromRole;
 
 	/** The tbl available permissions. */
+	@Getter
 	private GenericJTable<Permission> tblAvailablePermissions;
 
 	/** The tbl permissions from role. */
+	@Getter
 	private GenericJTable<Permission> tblPermissionsFromRole;
 
 	/** The permissions shuffle table. */
+	@Getter
 	private GenericShuffleJTable<Permission> permissionsShuffleTable;
+	@Getter
+	private AddAction<Permission> addAction;
+	@Getter
+	private AddAllAction<Permission> addAllAction;
+	@Getter
+	private RemoveAction<Permission> removeAction;
+	@Getter
+	private RemoveAllAction<Permission> removeAllAction;
+
+	private GenericShuffleTableModel<Permission> shuffleTableModel;
 
 	/**
 	 * Instantiates a new simple shuffle table panel.
 	 */
-	public SimpleShuffleTablePanel()
-	{
+	public SimpleShuffleTablePanel() {
 		super();
-		initComponents();
-		initializelayout();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
-	@Override
-	public void actionPerformed(final ActionEvent event)
-	{
-
-		if (event.getSource() == getBtnAddPermission())
-		{
-			if (0 < getTblAvailablePermissions().getSelectedRowCount())
-			{
-				getPermissionsShuffleTable().shuffleSelectedLeftRowToRightTable();
-			}
-
-		}
-		else if (event.getSource() == getBtnAddAllPermissions())
-		{
-
-			getPermissionsShuffleTable().addAllLeftRowsToRightTable();
-
-
-		}
-		else if (event.getSource() == getBtnRemoveAllPermissions())
-		{
-
-			getPermissionsShuffleTable().addAllRightRowsToLeftTable();
-
-
-		}
-		else if (event.getSource() == getBtnRemovePermission())
-		{
-			if (0 < getTblPermissionsFromRole().getSelectedRowCount())
-			{
-				getPermissionsShuffleTable().shuffleSelectedRightRowsToLeftTable();
-			}
-		}
-	}
-
-	/**
-	 * Gets the btn add all permissions.
-	 *
-	 * @return the btn add all permissions
-	 */
-	public javax.swing.JButton getBtnAddAllPermissions()
-	{
-		return btnAddAllPermissions;
-	}
-
-	/**
-	 * Gets the btn add permission.
-	 *
-	 * @return the btn add permission
-	 */
-	public JButton getBtnAddPermission()
-	{
-		return btnAddPermission;
-	}
-
-	/**
-	 * Gets the btn remove all permissions.
-	 *
-	 * @return the btn remove all permissions
-	 */
-	public JButton getBtnRemoveAllPermissions()
-	{
-		return btnRemoveAllPermissions;
-	}
-
-	/**
-	 * Gets the btn remove permission.
-	 *
-	 * @return the btn remove permission
-	 */
-	public JButton getBtnRemovePermission()
-	{
-		return btnRemovePermission;
-	}
-
-	/**
-	 * Gets the permissions shuffle table.
-	 *
-	 * @return the permissions shuffle table
-	 */
-	public GenericShuffleJTable<Permission> getPermissionsShuffleTable()
-	{
-		return permissionsShuffleTable;
-	}
-
-	/**
-	 * Gets the tbl available permissions.
-	 *
-	 * @return the tbl available permissions
-	 */
-	public GenericJTable<Permission> getTblAvailablePermissions()
-	{
-		return tblAvailablePermissions;
-	}
-
-	/**
-	 * Gets the tbl permissions from role.
-	 *
-	 * @return the tbl permissions from role
-	 */
-	public GenericJTable<Permission> getTblPermissionsFromRole()
-	{
-		return tblPermissionsFromRole;
+		onInitialize();
+		onLayout();
 	}
 
 	/**
 	 * Inits the components.
 	 */
-	private void initComponents()
-	{
-		// Create the JButtons to move the data...
-		btnAddPermission = new JButton();
-		btnAddPermission.addActionListener(this);
-		btnAddAllPermissions = new JButton();
-		btnAddAllPermissions.addActionListener(this);
-		btnRemovePermission = new JButton();
-		btnRemovePermission.addActionListener(this);
-		btnRemoveAllPermissions = new JButton();
-		btnRemoveAllPermissions.addActionListener(this);
-		btnAddPermission.setText("Add>");
-		btnAddAllPermissions.setText("Add all>>");
-		btnRemovePermission.setText("<Remove");
-		btnRemoveAllPermissions.setText("<<Remove all");
+	protected void onInitialize() {
+
 		// Create the tables and scrollpanes for it...
 		tblPermissionsFromRole = new GenericJTable<>(new PermissionsTableModel());
 		tblAvailablePermissions = new GenericJTable<>(new PermissionsTableModel());
 
-		permissionsShuffleTable = new GenericShuffleJTable<>(tblAvailablePermissions,
-			tblPermissionsFromRole);
+		permissionsShuffleTable = new GenericShuffleJTable<>(tblAvailablePermissions, tblPermissionsFromRole);
+
+		addAction = new AddAction<>(permissionsShuffleTable);
+		removeAction = new RemoveAction<>(permissionsShuffleTable);
+		addAllAction = new AddAllAction<>(permissionsShuffleTable);
+		removeAllAction = new RemoveAllAction<>(permissionsShuffleTable);
+
+		final JMenuItem addMenuItem = new JMenuItem("Selected row to right >");
+		addMenuItem.addActionListener(addAction);
+		final JMenuItem addAllMenuItem = new JMenuItem("All selected rows to right >>");
+		addAllMenuItem.addActionListener(addAllAction);
+		final JPopupMenu leftTablePopupMenu = JComponentFactory.newJPopupMenu(permissionsShuffleTable.getLeftTable(),
+				addMenuItem, addAllMenuItem);
+		permissionsShuffleTable.getLeftTable().add(leftTablePopupMenu);
+
+		final JMenuItem removeMenuItem = new JMenuItem("< Selected row to left");
+		removeMenuItem.addActionListener(removeAction);
+		final JMenuItem removeAllMenuItem = new JMenuItem("<< All selected rows to left");
+		removeAllMenuItem.addActionListener(removeAllAction);
+		final JPopupMenu rightTablePopupMenu = JComponentFactory.newJPopupMenu(permissionsShuffleTable.getRightTable(),
+				removeMenuItem, removeAllMenuItem);
+		permissionsShuffleTable.getRightTable().add(rightTablePopupMenu);
+
+		permissionsShuffleTable.getLeftTable().add(leftTablePopupMenu);
+		// Create the JButtons to move the data...
+		btnAddPermission = new JButton(addAction);
+		btnAddAllPermissions = new JButton(addAllAction);
+		btnRemovePermission = new JButton(removeAction);
+		btnRemoveAllPermissions = new JButton(removeAllAction);
+
+		btnAddPermission.setText("Add>");
+		btnAddAllPermissions.setText("Add all>>");
+		btnRemovePermission.setText("<Remove");
+		btnRemoveAllPermissions.setText("<<Remove all");
 
 		scrPnTblPermissionsFromRole = new javax.swing.JScrollPane();
 		scrPnTblAvailablePermissions = new javax.swing.JScrollPane();
@@ -226,8 +154,7 @@ public class SimpleShuffleTablePanel extends JPanel implements ActionListener
 	/**
 	 * Initializelayout.
 	 */
-	private void initializelayout()
-	{
+	private void onLayout() {
 		final GridBagLayout gbl = new GridBagLayout();
 		final GridBagConstraints gbc = new GridBagConstraints();
 		this.setLayout(gbl);

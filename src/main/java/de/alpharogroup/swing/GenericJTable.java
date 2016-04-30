@@ -27,25 +27,28 @@ package de.alpharogroup.swing;
 import javax.swing.JTable;
 import javax.swing.table.TableRowSorter;
 
+import de.alpharogroup.check.Check;
 import de.alpharogroup.swing.tablemodel.GenericTableModel;
+import lombok.Getter;
 
 /**
  * The Class GenericJTable.
  *
- * @param <TYPE>
+ * @param <T>
  *            the generic type of the model
  */
-@SuppressWarnings("serial")
-public class GenericJTable<TYPE> extends JTable
-{
+public class GenericJTable<T> extends JTable {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
 	/** The generic table model. */
-	private final GenericTableModel<TYPE> genericTableModel;
-
+	@Getter
+	private final GenericTableModel<T> genericTableModel;
 
 	/** The sorter. */
-	private final TableRowSorter<GenericTableModel<TYPE>> sorter;
-
+	@Getter
+	private final TableRowSorter<GenericTableModel<T>> sorter;
 
 	/**
 	 * Instantiates a new generic j table.
@@ -53,9 +56,9 @@ public class GenericJTable<TYPE> extends JTable
 	 * @param genericTableModel
 	 *            the generic table model
 	 */
-	public GenericJTable(final GenericTableModel<TYPE> genericTableModel)
-	{
-		super();
+	public GenericJTable(final GenericTableModel<T> genericTableModel) {
+		super(genericTableModel);
+		Check.get().notNull(genericTableModel, "genericTableModel");
 		this.genericTableModel = genericTableModel;
 
 		this.setModel(this.genericTableModel);
@@ -65,59 +68,44 @@ public class GenericJTable<TYPE> extends JTable
 		this.setRowSorter(this.sorter);
 	}
 
-
 	/**
-	 * Gets the generic table model.
-	 *
-	 * @return the generic table model
-	 */
-	public GenericTableModel<TYPE> getGenericTableModel()
-	{
-		return genericTableModel;
-	}
-
-	/**
-	 * Gets the selected row.
-	 *
-	 * @return the selected row
+	 * {@inheritDoc}
 	 */
 	@Override
-	public int getSelectedRow()
-	{
+	public int getSelectedRow() {
 		int selectedRow = super.getSelectedRow();
-		// find the real selected row. If the rows was sorted the index from the
-		// model does not fit to the table.
-		selectedRow = this.convertRowIndexToModel(selectedRow);
+		if (-1 < selectedRow) {
+			// find the real selected row. If the rows was sorted the index from
+			// the
+			// model does not fit to the table.
+			selectedRow = this.convertRowIndexToModel(selectedRow);
+		}
 		return selectedRow;
 	}
 
 	/**
-	 * Gets the selected rows.
+	 * Checks if any row in this table is selected.
 	 *
-	 * @return the selected rows
+	 * @return true, if any row in this table is selected
 	 */
-	@Override
-	public int[] getSelectedRows()
-	{
-		// find the real selected rows. If the rows was sorted the index from the
-		// model does not fit to the table.
-		final int[] selectedRows = super.getSelectedRows();
-		final int[] sr = new int[selectedRows.length];
-		for (int i = 0; i < selectedRows.length; i++)
-		{
-			sr[i] = this.convertRowIndexToModel(selectedRows[i]);
-		}
-		return sr;
+	public boolean isAnyRowSelected() {
+		return (-1 < super.getSelectedRow());
 	}
 
 	/**
-	 * Gets the sorter.
-	 *
-	 * @return the sorter
+	 * {@inheritDoc}
 	 */
-	public TableRowSorter<GenericTableModel<TYPE>> getSorter()
-	{
-		return sorter;
+	@Override
+	public int[] getSelectedRows() {
+		// find the real selected rows. If the rows was sorted the index from
+		// the
+		// model does not fit to the table.
+		final int[] selectedRows = super.getSelectedRows();
+		final int[] sr = new int[selectedRows.length];
+		for (int i = 0; i < selectedRows.length; i++) {
+			sr[i] = this.convertRowIndexToModel(selectedRows[i]);
+		}
+		return sr;
 	}
 
 }
