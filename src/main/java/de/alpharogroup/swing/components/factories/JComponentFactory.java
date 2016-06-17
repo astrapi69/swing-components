@@ -1,18 +1,42 @@
 package de.alpharogroup.swing.components.factories;
 
 import java.awt.Component;
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
+import de.alpharogroup.swing.menu.MenuItemBean;
 import de.alpharogroup.swing.menu.popup.listeners.PopupListener;
+import de.alpharogroup.swing.splashscreen.SplashScreen;
 
 /**
  * A factory class for create swing Component objects.
  */
 public final class JComponentFactory {
+
+	/**
+	 * Factory method for create a {@link SplashScreen}.
+	 *
+	 * @param image
+	 *            the image
+	 * @param text
+	 *            the text
+	 * @return the new {@link SplashScreen}.
+	 */
+	public static SplashScreen newSplashScreen(final String image, final String text) {
+		final SplashScreen splashscreen = new SplashScreen(image, text);
+		return splashscreen;
+	}
 
 	/**
 	 * Factory method for create a <code>JPopupMenu</code>.
@@ -97,4 +121,47 @@ public final class JComponentFactory {
 		final JInternalFrame internalFrame = new JInternalFrame(title, resizable, closable, maximizable, iconifiable);
 		return internalFrame;
 	}
+
+	/**
+	 * Factory method for create a {@link TrayIcon} object.
+	 *
+	 * @param imgFilename
+	 *            the img filename
+	 * @param appName
+	 *            the app name
+	 * @param systemTrayPopupMenu
+	 *            the system tray popup menu
+	 * @param actionListeners
+	 *            the action listeners
+	 * @return the new {@link TrayIcon}.
+	 */
+	public static TrayIcon newTrayIcon(final String imgFilename, final String appName,
+			final PopupMenu systemTrayPopupMenu, final Map<String, ActionListener> actionListeners) {
+		final Image image = Toolkit.getDefaultToolkit().getImage(imgFilename);
+		final TrayIcon trayIcon = new TrayIcon(image, appName, systemTrayPopupMenu);
+		for (final Map.Entry<String, ActionListener> actionListener : actionListeners.entrySet()) {
+			trayIcon.setActionCommand(actionListener.getKey());
+			trayIcon.addActionListener(actionListener.getValue());
+		}
+		return trayIcon;
+	}
+
+	/**
+	 * Factory method for create a {@link PopupMenu} object.
+	 *
+	 * @param menuItemBeans
+	 *            the menu item beans
+	 * @return the new {@link PopupMenu}.
+	 */
+	public static PopupMenu newPopupMenu(final List<MenuItemBean> menuItemBeans) {
+		final PopupMenu popupMenu = new PopupMenu();
+		for (final MenuItemBean menuItemBean : menuItemBeans) {
+			final MenuItem miBringToFront = new MenuItem(menuItemBean.getLabel());
+			miBringToFront.setActionCommand(menuItemBean.getCommand());
+			miBringToFront.addActionListener(menuItemBean.getActionListener());
+			popupMenu.add(miBringToFront);
+		}
+		return popupMenu;
+	}
+
 }

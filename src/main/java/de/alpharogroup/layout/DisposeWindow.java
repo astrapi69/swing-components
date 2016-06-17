@@ -31,39 +31,28 @@ import java.awt.event.WindowEvent;
  * The Class DisposeWindow.
  */
 /**
- * The Class DisposeWindow is an Adapter class for the WindowAdapter to dispose the window and
- * setVisible to false.
- * 
+ * The Class DisposeWindow is an Adapter class for the WindowAdapter to dispose
+ * the window and setVisible to false.
+ *
  * @version 1.0
  * @author Asterios Raptis
  */
-public class DisposeWindow extends WindowAdapter
-{
+public class DisposeWindow extends WindowAdapter {
 
 	/**
-	 * Window closed.
-	 *
-	 * @param we
-	 *            the we {@inheritDoc}
-	 * @see java.awt.event.WindowAdapter#windowClosed(java.awt.event.WindowEvent)
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void windowClosed(final WindowEvent we)
-	{
+	public void windowClosed(final WindowEvent we) {
 		we.getWindow().setVisible(false);
 		we.getWindow().dispose();
 	}
 
 	/**
-	 * Window closing.
-	 *
-	 * @param we
-	 *            the we {@inheritDoc}
-	 * @see java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void windowClosing(final WindowEvent we)
-	{
+	public void windowClosing(final WindowEvent we) {
 		we.getWindow().setVisible(false);
 		we.getWindow().dispose();
 	}
