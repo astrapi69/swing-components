@@ -8,7 +8,7 @@ import javax.swing.AbstractAction;
 import de.alpharogroup.check.Check;
 
 /**
- * The Class {@link DisposeWindowAction}.
+ * The class {@link DisposeWindowAction}.
  */
 public class DisposeWindowAction extends AbstractAction {
 

@@ -39,7 +39,7 @@ import de.alpharogroup.swing.components.factories.JComponentFactory;
 import lombok.Getter;
 
 /**
- * The Class SimpleShuffleTablePanel.
+ * The class SimpleShuffleTablePanel.
  */
 public class SimpleShuffleTablePanel extends JPanel {
 

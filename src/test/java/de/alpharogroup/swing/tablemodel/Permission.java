@@ -25,7 +25,7 @@
 package de.alpharogroup.swing.tablemodel;
 
 /**
- * The Class Permission.
+ * The class Permission.
  */
 public class Permission
 {

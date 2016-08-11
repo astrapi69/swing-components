@@ -30,7 +30,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
- * The Class GenericTableModel.
+ * The class GenericTableModel.
  *
  * @param <T>
  *            the generic type of the model

@@ -28,7 +28,7 @@ import de.alpharogroup.check.Check;
 import lombok.Getter;
 
 /**
- * The Class GenericShuffleTableModel is a helper class to shuffle between the
+ * The class GenericShuffleTableModel is a helper class to shuffle between the
  * two given GenericTableModel.
  *
  * @param <T>

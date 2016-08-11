@@ -28,7 +28,7 @@ import java.awt.Component;
 
 
 /**
- * The Class AbstractGenericView.
+ * The class AbstractGenericView.
  *
  * @param <C>
  *            the generic type of the controller

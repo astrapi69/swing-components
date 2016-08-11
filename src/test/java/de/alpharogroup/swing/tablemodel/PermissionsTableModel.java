@@ -26,7 +26,7 @@ package de.alpharogroup.swing.tablemodel;
 
 
 /**
- * The Class PermissionsTableModel.
+ * The class PermissionsTableModel.
  */
 public class PermissionsTableModel extends GenericTableModel<Permission>
 {

@@ -27,7 +27,7 @@ package de.alpharogroup.swing.treemodel;
 import de.alpharogroup.swing.treemodel.ifaces.IGenericTreeModel;
 
 /**
- * The Class AbstractGenericTreeModel.
+ * The class AbstractGenericTreeModel.
  *
  * @param <T>
  *            the generic type of the model

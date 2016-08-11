@@ -36,7 +36,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 
 /**
- * The Class NetworkSettingsPanel.
+ * The class NetworkSettingsPanel.
  */
 public class NetworkSettingsPanel extends JPanel
 {

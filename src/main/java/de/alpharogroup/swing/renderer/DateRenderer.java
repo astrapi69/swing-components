@@ -9,7 +9,7 @@ import lombok.Getter;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
- * The Class DateRenderer.
+ * The class DateRenderer.
  */
 public class DateRenderer extends DefaultTableCellRenderer {
 

@@ -28,10 +28,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * The Class DisposeWindow.
+ * The class DisposeWindow.
  */
 /**
- * The Class DisposeWindow is an Adapter class for the WindowAdapter to dispose
+ * The class DisposeWindow is an Adapter class for the WindowAdapter to dispose
  * the window and setVisible to false.
  *
  * @version 1.0

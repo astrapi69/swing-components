@@ -32,7 +32,7 @@ import de.alpharogroup.swing.tablemodel.GenericTableModel;
 import lombok.Getter;
 
 /**
- * The Class GenericJTable.
+ * The class GenericJTable.
  *
  * @param <T>
  *            the generic type of the model

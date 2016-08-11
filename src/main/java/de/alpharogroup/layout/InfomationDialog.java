@@ -39,7 +39,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * The Class InfomationDialog.
+ * The class InfomationDialog.
  * 
  * @version 1.0
  * @author Asterios Raptis

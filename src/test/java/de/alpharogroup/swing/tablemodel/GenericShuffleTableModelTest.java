@@ -32,7 +32,7 @@ import javax.swing.JFrame;
 import de.alpharogroup.layout.CloseWindow;
 
 /**
- * The Class GenericShuffleTableModelTest.
+ * The class GenericShuffleTableModelTest.
  */
 public class GenericShuffleTableModelTest
 {
