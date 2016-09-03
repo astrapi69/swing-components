@@ -1,5 +1,7 @@
 # swing-components
 
+Several swing components and utilities
+
 ## License
 
 The source code comes under the liberal MIT License, making swing-components great for all types of applications.
@@ -20,7 +22,7 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 Than you can add the dependency to your dependencies:
 
 		<!-- swing-components version -->
-		<swing-components.version>4.10.0</swing-components.version>
+		<swing-components.version>4.11.0</swing-components.version>
 
 		<dependencies>
 			...
@@ -51,6 +53,7 @@ Do not hesitate to contact the swing-components developers with your questions, 
 
 # Donate
 
+If you like this library, please consider a donation through 
 <a href="https://flattr.com/submit/auto?fid=r7vp62&url=https%3A%2F%2Fgithub.com%2Flightblueseas%2Fswing-components" target="_blank">
 <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
 </a>
