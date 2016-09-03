@@ -29,7 +29,7 @@ import java.awt.event.ActionListener;
 import java.util.Map;
 
 /**
- * The Class AbstractGenericController.
+ * The class AbstractGenericController.
  *
  * @param <M>
  *            the generic type of the model

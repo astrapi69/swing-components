@@ -25,7 +25,7 @@
 package de.alpharogroup.swing.x;
 
 /**
- * The Class GenericShuffleJXTable.
+ * The class GenericShuffleJXTable.
  *
  * @param <T>
  *            the generic type of the model

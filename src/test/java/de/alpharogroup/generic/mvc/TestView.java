@@ -28,7 +28,7 @@ import de.alpharogroup.generic.mvc.view.AbstractGenericView;
 
 
 /**
- * The Class TestView.
+ * The class TestView.
  */
 public abstract class TestView extends AbstractGenericView<TestController, TestPanel>
 {

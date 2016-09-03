@@ -33,7 +33,7 @@ import java.awt.Insets;
 import javax.swing.Box;
 
 /**
- * The Class {@link LayoutExtensions} helps with method for simplify the live with Layouts.
+ * The class {@link LayoutExtensions} helps with method for simplify the live with Layouts.
  */
 public final class LayoutExtensions
 {

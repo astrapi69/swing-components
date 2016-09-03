@@ -30,7 +30,7 @@ import de.alpharogroup.generic.mvc.model.Model;
 
 
 /**
- * The Class TestModel.
+ * The class TestModel.
  */
 public class TestModel implements Model<File>
 {

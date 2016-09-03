@@ -31,7 +31,7 @@ import org.jdesktop.swingx.JXTable;
 import de.alpharogroup.swing.tablemodel.GenericTableModel;
 
 /**
- * The Class GenericJXTable.
+ * The class GenericJXTable.
  *
  * @param <TYPE>
  *            the generic type of the model

@@ -27,7 +27,7 @@ package de.alpharogroup.generic.mvc;
 import javax.swing.JPanel;
 
 /**
- * The Class TestPanel.
+ * The class TestPanel.
  */
 public class TestPanel extends JPanel
 {
