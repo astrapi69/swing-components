@@ -30,7 +30,7 @@ import de.alpharogroup.generic.mvc.controller.AbstractGenericController;
 
 
 /**
- * The Class TestController.
+ * The class TestController.
  */
 public class TestController extends AbstractGenericController<TestModel, TestView>
 {

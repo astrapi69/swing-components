@@ -34,7 +34,7 @@ import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.swing.GenericJTable;
 
 /**
- * The Class GenericTableModelTest.
+ * The class GenericTableModelTest.
  */
 public class GenericTableModelTest
 {

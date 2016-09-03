@@ -24,21 +24,24 @@
  */
 package de.alpharogroup.swing.tablemodel;
 
+import de.alpharogroup.check.Check;
+import lombok.Getter;
 
 /**
- * The Class GenericShuffleTableModel is a helper class to shuffle between the two given
- * GenericTableModel.
+ * The class GenericShuffleTableModel is a helper class to shuffle between the
+ * two given GenericTableModel.
  *
  * @param <T>
  *            the generic type of the given model
  */
-public class GenericShuffleTableModel<T>
-{
+public class GenericShuffleTableModel<T> {
 
 	/** The left table model. */
+	@Getter
 	private final GenericTableModel<T> leftTableModel;
 
 	/** The right table model. */
+	@Getter
 	private final GenericTableModel<T> rightTableModel;
 
 	/**
@@ -50,9 +53,8 @@ public class GenericShuffleTableModel<T>
 	 *            the right table model
 	 */
 	public GenericShuffleTableModel(final GenericTableModel<T> leftTableModel,
-		final GenericTableModel<T> rightTableModel)
-	{
-		super();
+			final GenericTableModel<T> rightTableModel) {
+		Check.get().notNull(leftTableModel, "leftTableModel").notNull(rightTableModel, "rightTableModel");
 		this.leftTableModel = leftTableModel;
 		this.rightTableModel = rightTableModel;
 	}
@@ -60,8 +62,7 @@ public class GenericShuffleTableModel<T>
 	/**
 	 * Adds the all left rows to right table model.
 	 */
-	public void addAllLeftRowsToRightTableModel()
-	{
+	public void addAllLeftRowsToRightTableModel() {
 		rightTableModel.addList(leftTableModel.getData());
 		leftTableModel.clear();
 	}
@@ -69,8 +70,7 @@ public class GenericShuffleTableModel<T>
 	/**
 	 * Adds the all right rows to left table model.
 	 */
-	public void addAllRightRowsToLeftTableModel()
-	{
+	public void addAllRightRowsToLeftTableModel() {
 		leftTableModel.addList(rightTableModel.getData());
 		rightTableModel.clear();
 	}
@@ -81,11 +81,9 @@ public class GenericShuffleTableModel<T>
 	 * @param selectedRows
 	 *            the selected rows
 	 */
-	public void shuffleSelectedLeftRowsToRightTableModel(final int[] selectedRows)
-	{
+	public void shuffleSelectedLeftRowsToRightTableModel(final int[] selectedRows) {
 		final int lastIndex = selectedRows.length - 1;
-		for (int i = lastIndex; -1 < i; i--)
-		{
+		for (int i = lastIndex; -1 < i; i--) {
 			final int selectedRow = selectedRows[i];
 			final T row = leftTableModel.removeAt(selectedRow);
 			rightTableModel.add(row);
@@ -98,10 +96,11 @@ public class GenericShuffleTableModel<T>
 	 * @param selectedRow
 	 *            the selected row
 	 */
-	public void shuffleSelectedLeftRowToRightTableModel(final int selectedRow)
-	{
-		final T row = leftTableModel.removeAt(selectedRow);
-		rightTableModel.add(row);
+	public void shuffleSelectedLeftRowToRightTableModel(final int selectedRow) {
+		if (-1 < selectedRow) {
+			final T row = leftTableModel.removeAt(selectedRow);
+			rightTableModel.add(row);
+		}
 	}
 
 	/**
@@ -110,11 +109,9 @@ public class GenericShuffleTableModel<T>
 	 * @param selectedRows
 	 *            the selected rows
 	 */
-	public void shuffleSelectedRightRowsToLeftTableModel(final int[] selectedRows)
-	{
+	public void shuffleSelectedRightRowsToLeftTableModel(final int[] selectedRows) {
 		final int lastIndex = selectedRows.length - 1;
-		for (int i = lastIndex; -1 < i; i--)
-		{
+		for (int i = lastIndex; -1 < i; i--) {
 			final int selectedRow = selectedRows[i];
 			final T row = rightTableModel.removeAt(selectedRow);
 			leftTableModel.add(row);
@@ -127,10 +124,11 @@ public class GenericShuffleTableModel<T>
 	 * @param selectedRow
 	 *            the selected row
 	 */
-	public void shuffleSelectedRightRowToLeftTableModel(final int selectedRow)
-	{
-		final T row = rightTableModel.removeAt(selectedRow);
-		leftTableModel.add(row);
+	public void shuffleSelectedRightRowToLeftTableModel(final int selectedRow) {
+		if (-1 < selectedRow) {
+			final T row = rightTableModel.removeAt(selectedRow);
+			leftTableModel.add(row);
+		}
 	}
 
 }

@@ -28,7 +28,7 @@ import de.alpharogroup.swing.tablemodel.GenericTableModel;
 import de.alpharogroup.test.objects.Permission;
 
 /**
- * The Class PermissionsTableModel.
+ * The class PermissionsTableModel.
  */
 public class PermissionsTableModel extends GenericTableModel<Permission>
 {

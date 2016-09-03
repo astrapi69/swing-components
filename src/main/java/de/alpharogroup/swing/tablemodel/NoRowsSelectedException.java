@@ -25,7 +25,7 @@
 package de.alpharogroup.swing.tablemodel;
 
 /**
- * The Class NoRowsSelectedException are thrown when there are no rows from the table selected.
+ * The class NoRowsSelectedException are thrown when there are no rows from the table selected.
  */
 public class NoRowsSelectedException extends Exception
 {

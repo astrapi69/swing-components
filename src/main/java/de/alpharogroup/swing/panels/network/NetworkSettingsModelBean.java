@@ -27,7 +27,7 @@ package de.alpharogroup.swing.panels.network;
 import java.io.Serializable;
 
 /**
- * The Class NetworkSettingsModelBean.
+ * The class NetworkSettingsModelBean.
  */
 public class NetworkSettingsModelBean implements Serializable
 {

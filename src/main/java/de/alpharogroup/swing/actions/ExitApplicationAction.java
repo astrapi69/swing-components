@@ -30,7 +30,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
 /**
- * The Class NewFileAction.
+ * The class NewFileAction.
  */
 public class ExitApplicationAction extends AbstractAction
 {

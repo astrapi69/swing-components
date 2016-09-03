@@ -36,7 +36,7 @@ import java.awt.font.TextLayout;
 import javax.swing.JComponent;
 
 /**
- * The Class DrawMessage draws a message to a JComponent to the given Color. You can use it for
+ * The class DrawMessage draws a message to a JComponent to the given Color. You can use it for
  * JList to put different list items in different colors.
  * 
  * @version 1.0
