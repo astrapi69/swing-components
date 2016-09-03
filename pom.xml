@@ -39,7 +39,7 @@
 
 	<properties>
 		<email-tails.version>4.11.0</email-tails.version>
-		<test-objects.version>4.10.0</test-objects.version>
+		<test-objects.version>4.11.0</test-objects.version>
 		<file-worker.version>4.11.0</file-worker.version>
 		<jcommons-lang.version>4.11.0</jcommons-lang.version>
 		<vintage-time.version>4.9.0</vintage-time.version>
