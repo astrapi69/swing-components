@@ -2,6 +2,8 @@
 
 Several swing components and utilities
 
+- Buffered images to pdf file
+
 ## License
 
 The source code comes under the liberal MIT License, making swing-components great for all types of applications.
@@ -22,7 +24,7 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 Than you can add the dependency to your dependencies:
 
 		<!-- swing-components version -->
-		<swing-components.version>4.13.0</swing-components.version>
+		<swing-components.version>4.14.0</swing-components.version>
 
 		<dependencies>
 			...
