@@ -37,12 +37,12 @@ import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
 
-import de.alpharogroup.io.StreamExtensions;
-
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Image;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import de.alpharogroup.io.StreamExtensions;
 
 /**
  * The class {@link ImageExtensions}.
@@ -60,7 +60,7 @@ public class ImageExtensions
 		/** Indicates the vertical direction. */
 		vertical
 	}
-	
+
 	/**
 	 * Creates from the given Collection of images an pdf file.
 	 * 
@@ -68,19 +68,21 @@ public class ImageExtensions
 	 *            the output stream from the pdf file where the images shell be written.
 	 * @param images
 	 *            the BufferedImage collection to be written in the pdf file.
+	 * @throws DocumentException
+	 * @throws IOException
 	 */
-	public static void createPdf(OutputStream result, List<BufferedImage> images) {
-		Document document = new Document();
+	public static void createPdf(final OutputStream result, final List<BufferedImage> images) throws DocumentException, IOException {
+		final Document document = new Document();
 		PdfWriter.getInstance(document, result);
-		for (BufferedImage image : images) {		
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		for (final BufferedImage image : images) {
+			final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			ImageIO.write(image, "png", baos);
-			Image img = Image.getInstance(baos.toByteArray());			
+			final Image img = Image.getInstance(baos.toByteArray());
 			document.setPageSize(img);
 			document.newPage();
 			img.setAbsolutePosition(0, 0);
 			document.add(img);
-		}		
+		}
 		document.close();
 	}
 
@@ -351,25 +353,25 @@ public class ImageExtensions
 
 					final int a = rgb >> 24 & 0xff;
 
-					int r = (rgb >> 16 & 0xff) >> 3 << 3;
-					r = r | messageBytes[messagePosition] >> 5;
+			int r = (rgb >> 16 & 0xff) >> 3 << 3;
+		r = r | messageBytes[messagePosition] >> 5;
 
-					int g = (rgb >> 8 & 0xff) >> 3 << 3;
-					g = g | messageBytes[messagePosition] >> 2 & 7;
+		int g = (rgb >> 8 & 0xff) >> 3 << 3;
+		g = g | messageBytes[messagePosition] >> 2 & 7;
 
-					int b = (rgb & 0xff) >> 2 << 2;
-					b = b | messageBytes[messagePosition] & 0x3;
+		int b = (rgb & 0xff) >> 2 << 2;
+		b = b | messageBytes[messagePosition] & 0x3;
 
-					rgb = 0;
-					rgb = rgb | a << 24;
-					rgb = rgb | r << 16;
-					rgb = rgb | g << 8;
+		rgb = 0;
+		rgb = rgb | a << 24;
+		rgb = rgb | r << 16;
+		rgb = rgb | g << 8;
 
-					rgb = rgb | b;
+		rgb = rgb | b;
 
-					bufferedImage.setRGB(column, row, rgb);
-					messagePosition++;
-					j++;
+		bufferedImage.setRGB(column, row, rgb);
+		messagePosition++;
+		j++;
 				}
 			}
 		}
