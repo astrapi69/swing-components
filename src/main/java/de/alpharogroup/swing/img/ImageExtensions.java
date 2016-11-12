@@ -28,6 +28,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -38,6 +39,10 @@ import org.imgscalr.Scalr.Mode;
 
 import de.alpharogroup.io.StreamExtensions;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Image;
 
 /**
  * The class {@link ImageExtensions}.
@@ -50,11 +55,33 @@ public class ImageExtensions
 	 */
 	public enum Direction
 	{
-
 		/** Indicates the horizontal direction. */
 		horizontal,
 		/** Indicates the vertical direction. */
 		vertical
+	}
+	
+	/**
+	 * Creates from the given Collection of images an pdf file.
+	 * 
+	 * @param result
+	 *            the output stream from the pdf file where the images shell be written.
+	 * @param images
+	 *            the BufferedImage collection to be written in the pdf file.
+	 */
+	public static void createPdf(OutputStream result, List<BufferedImage> images) {
+		Document document = new Document();
+		PdfWriter.getInstance(document, result);
+		for (BufferedImage image : images) {		
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(image, "png", baos);
+			Image img = Image.getInstance(baos.toByteArray());			
+			document.setPageSize(img);
+			document.newPage();
+			img.setAbsolutePosition(0, 0);
+			document.add(img);
+		}		
+		document.close();
 	}
 
 	/**

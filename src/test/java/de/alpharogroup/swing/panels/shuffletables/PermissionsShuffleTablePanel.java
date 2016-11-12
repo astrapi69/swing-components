@@ -44,8 +44,8 @@ import de.alpharogroup.swing.x.GenericShuffleJXTable;
 import de.alpharogroup.test.objects.Permission;
 
 public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
-	implements
-		ActionListener
+implements
+ActionListener
 {
 
 	/** The Constant serialVersionUID. */
@@ -55,12 +55,14 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 	{
 		// 1. Create a list with data.
 		final List<Permission> permissions = new ArrayList<>();
-		permissions.add(new Permission("read", "Permission to read."));
-		permissions.add(new Permission("write", "Permission to write."));
-		permissions.add(new Permission("delete", "Permission to delete."));
-		permissions.add(new Permission("execute", "Permission to execute."));
-		permissions.add(new Permission("buy", "Permission to buy."));
-		permissions.add(new Permission("sale", "Permission to sale."));
+
+		permissions.add(Permission.builder().name("read").description("Permission to read.").build());
+		permissions.add(Permission.builder().name("write").description("Permission to write.").build());
+		permissions.add(Permission.builder().name("delete").description("Permission to delete.").build());
+		permissions.add(Permission.builder().name("execute").description("Permission to execute.").build());
+		permissions.add(Permission.builder().name("buy").description("Permission to buy.").build());
+		permissions.add(Permission.builder().name("sale").description("Permission to sale.").build());
+
 		final Frame frame = new Frame();
 		frame.addWindowListener(new CloseWindow());
 		frame.setTitle("Shuffle table panel");
@@ -84,65 +86,65 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 	public void actionPerformed(final ActionEvent event)
 	{
 
-		if (event.getSource() == btnAdd)
+		if (event.getSource() == this.btnAdd)
 		{
-			if (0 < tblAvailableElements.getSelectedRowCount())
+			if (0 < this.tblAvailableElements.getSelectedRowCount())
 			{
-				shuffleTable.shuffleSelectedLeftRowToRightTable();
+				this.shuffleTable.shuffleSelectedLeftRowToRightTable();
 			}
 
 		}
-		else if (event.getSource() == btnAddAll)
+		else if (event.getSource() == this.btnAddAll)
 		{
 
-			shuffleTable.addAllLeftRowsToRightTable();
+			this.shuffleTable.addAllLeftRowsToRightTable();
 
 		}
-		else if (event.getSource() == btnRemoveAll)
+		else if (event.getSource() == this.btnRemoveAll)
 		{
 
-			shuffleTable.addAllRightRowsToLeftTable();
+			this.shuffleTable.addAllRightRowsToLeftTable();
 
 		}
-		else if (event.getSource() == btnRemove)
+		else if (event.getSource() == this.btnRemove)
 		{
-			if (0 < tblSelectedElements.getSelectedRowCount())
+			if (0 < this.tblSelectedElements.getSelectedRowCount())
 			{
-				shuffleTable.shuffleSelectedRightRowsToLeftTable();
+				this.shuffleTable.shuffleSelectedRightRowsToLeftTable();
 			}
 		}
 	}
 
 	public List<Permission> getPermissions()
 	{
-		return permissions;
+		return this.permissions;
 	}
 
 	private void initComponents()
 	{
-		btnAddAll = new JXButton("Add all >>");
-		btnAddAll.addActionListener(this);
-		btnAdd = new JXButton("Add >");
-		btnAdd.addActionListener(this);
-		btnRemoveAll = new JXButton("<< Remove all");
-		btnRemoveAll.addActionListener(this);
-		btnRemove = new JXButton("< Remove");
-		btnRemove.addActionListener(this);
-		lblAvailableElements = new JXLabel("Available permissions:");
-		lblSelectedElements = new JXLabel("Selected permissions:");
-		scrPnTblAvailableElements = new JScrollPane();
-		scrPnTblSelectedElements = new JScrollPane();
+		this.btnAddAll = new JXButton("Add all >>");
+		this.btnAddAll.addActionListener(this);
+		this.btnAdd = new JXButton("Add >");
+		this.btnAdd.addActionListener(this);
+		this.btnRemoveAll = new JXButton("<< Remove all");
+		this.btnRemoveAll.addActionListener(this);
+		this.btnRemove = new JXButton("< Remove");
+		this.btnRemove.addActionListener(this);
+		this.lblAvailableElements = new JXLabel("Available permissions:");
+		this.lblSelectedElements = new JXLabel("Selected permissions:");
+		this.scrPnTblAvailableElements = new JScrollPane();
+		this.scrPnTblSelectedElements = new JScrollPane();
 		// 2. Create a generic table model for the class Permission.
 		final PermissionsTableModel permissionsTableModel = new PermissionsTableModel();
 		// 3. Add the data to the model.
-		permissionsTableModel.addList(permissions);
+		permissionsTableModel.addList(this.permissions);
 		// 4. Create the generic table and associate with the generic table
 		// model.
-		tblAvailableElements = new GenericJXTable<>(permissionsTableModel);
-		tblSelectedElements = new GenericJXTable<>(new PermissionsTableModel());
-		shuffleTable = new GenericShuffleJXTable<>(tblAvailableElements, tblSelectedElements);
-		scrPnTblAvailableElements.setViewportView(tblAvailableElements);
-		scrPnTblSelectedElements.setViewportView(tblSelectedElements);
+		this.tblAvailableElements = new GenericJXTable<>(permissionsTableModel);
+		this.tblSelectedElements = new GenericJXTable<>(new PermissionsTableModel());
+		this.shuffleTable = new GenericShuffleJXTable<>(this.tblAvailableElements, this.tblSelectedElements);
+		this.scrPnTblAvailableElements.setViewportView(this.tblAvailableElements);
+		this.scrPnTblSelectedElements.setViewportView(this.tblSelectedElements);
 	}
 
 	private void initLayout()
@@ -160,7 +162,7 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		gbc.gridheight = 10;
 		gbc.weighty = 0;
 		gbc.weightx = 0;
-		add(scrPnTblAvailableElements, gbc);
+		add(this.scrPnTblAvailableElements, gbc);
 
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.fill = GridBagConstraints.BOTH;
@@ -171,7 +173,7 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		gbc.gridheight = 1;
 		gbc.weighty = 0;
 		gbc.weightx = 0;
-		add(btnAdd, gbc);
+		add(this.btnAdd, gbc);
 
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.fill = GridBagConstraints.BOTH;
@@ -182,7 +184,7 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		gbc.gridheight = 1;
 		gbc.weighty = 0;
 		gbc.weightx = 0;
-		add(btnAddAll, gbc);
+		add(this.btnAddAll, gbc);
 
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.fill = GridBagConstraints.BOTH;
@@ -193,7 +195,7 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		gbc.gridheight = 1;
 		gbc.weighty = 0;
 		gbc.weightx = 0;
-		add(btnRemoveAll, gbc);
+		add(this.btnRemoveAll, gbc);
 
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.fill = GridBagConstraints.BOTH;
@@ -204,7 +206,7 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		gbc.gridheight = 1;
 		gbc.weighty = 0;
 		gbc.weightx = 0;
-		add(btnRemove, gbc);
+		add(this.btnRemove, gbc);
 
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.fill = GridBagConstraints.BOTH;
@@ -215,7 +217,7 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		gbc.gridheight = 10;
 		gbc.weighty = 0;
 		gbc.weightx = 0;
-		add(scrPnTblSelectedElements, gbc);
+		add(this.scrPnTblSelectedElements, gbc);
 
 	}
 
