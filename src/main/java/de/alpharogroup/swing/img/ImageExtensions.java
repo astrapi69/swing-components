@@ -59,6 +59,83 @@ public class ImageExtensions
 		horizontal,
 		/** Indicates the vertical direction. */
 		vertical
+	}	
+	  
+        /**
+         * The secure random.
+         */
+        private static SecureRandom secureRandom;
+
+        /**
+         * Generates a random {@link BufferedImage} with the given parameters.
+         *
+         * @param width     the width
+         * @param height    the height
+         * @param imageType the type of the image
+         * 
+         * @return The generated {@link BufferedImage}.
+         */
+        public static BufferedImage randomBufferedImage(int width, int height, int imageType) {        
+            BufferedImage img = new BufferedImage(width, height, imageType);
+            //create random image pixel by pixel
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    img.setRGB(x, y, newRandomPixel());
+                }
+            }
+            return img;
+        }
+
+
+        /**
+         * Generates a random int for use with pixel.
+         *
+         * @return a random int for use with pixel.
+         */
+        public static int newRandomPixel() {
+            return newRandomPixel(randomInt(randomIntBetween(0, 256)), randomInt(randomIntBetween(0, 256)), randomInt(randomIntBetween(0, 256)), randomInt(randomIntBetween(0, 256)));
+        }
+
+        /**
+         * Generates a random int for use with pixel.
+         *
+         * @param red The red value.
+         * @param green The green value.
+         * @param blue The blue value.
+         * @param alpha The alpha value.
+         * @return a random int for use with pixel.
+         */
+        public static int newRandomPixel(int red, int green, int blue, int alpha) {
+            int pixel = (alpha << 24) | (red << 16) | (green << 8) | blue;
+            return pixel;
+        }
+
+        /**
+         * The Method randomInt(int) gets an int to the spezified range. For
+         * example: if you put range to 10 the random int is between 0-9.
+         *
+         * @param range The Range.
+         * @return an int not greater then the range.
+         */
+        public static int randomInt(final int range) {
+            if (secureRandom != null) {
+                return (int) (secureRandom.nextDouble() * range);
+            }
+            return (int) (Math.random() * range);
+        }
+    
+	/**
+	 * Returns a random int between the range from start and end.
+	 *
+	 * @param start
+	 *            The int from where the range starts.
+	 * @param end
+	 *            The int from where the range ends.
+	 * @return A random int between the range from start and end.
+	 */
+	public static int randomIntBetween(final int start, final int end)
+	{
+		return start + randomInt(end - start);
 	}
 
 	/**
