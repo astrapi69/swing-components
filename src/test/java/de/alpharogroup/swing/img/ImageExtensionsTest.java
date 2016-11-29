@@ -58,7 +58,7 @@ public class ImageExtensionsTest
 	 *             Signals that an I/O exception has occurred.
 	 */
 	@Test(enabled = false)
-	public void testWeave() throws IOException
+	public void testRandomBufferedImage() throws IOException
 	{
             //file object
             String filenameprefix = "random-generated";
