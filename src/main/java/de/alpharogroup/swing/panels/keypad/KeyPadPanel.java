@@ -33,315 +33,106 @@ import java.awt.Panel;
 import java.awt.TextArea;
 
 import de.alpharogroup.layout.LayoutExtensions;
+import lombok.Getter;
 
 /**
  * Panel for a number keypad.
- * 
+ *
  * @author Asterios Raptis
  */
 public class KeyPadPanel extends Panel
 {
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = -3996634633232412144L;
-
-	private Button button1 = null;
-	private Button button2 = null;
-	private Button button3 = null;
-	private Button button4 = null;
-	private Button button5 = null;
-	private Button button6 = null;
-	private Button button7 = null;
-	private Button button8 = null;
-	private Button button9 = null;
-	private Button button0 = null;
-	private Button buttonTable = null;
-	private Button buttonCancel = null;
-	private Button buttonStorno = null;
-
-	private Button buttonEnter = null;
-	private Button buttonPlus = null;
-	private Button buttonMinus = null;
-	private TextArea textAreaDisplay = null;
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = -1L;
+	@Getter
+	private Button button1;
+	@Getter
+	private Button button2;
+	@Getter
+	private Button button3;
+	@Getter
+	private Button button4;
+	@Getter
+	private Button button5;
+	@Getter
+	private Button button6;
+	@Getter
+	private Button button7;
+	@Getter
+	private Button button8;
+	@Getter
+	private Button button9;
+	@Getter
+	private Button button0;
+	@Getter
+	private Button buttonTable;
+	@Getter
+	private Button buttonCancel;
+	@Getter
+	private Button buttonStorno;
+	@Getter
+	private Button buttonEnter;
+	@Getter
+	private Button buttonPlus;
+	@Getter
+	private Button buttonMinus;
+	@Getter
+	private TextArea textAreaDisplay;
 
 	public KeyPadPanel()
 	{
 		initialize();
 	}
 
-	/**
-	 * @return Returns the button0.
-	 */
-	public Button getButton0()
-	{
-		if (null == button0)
-		{
-			button0 = new Button("0");
-			button0.setForeground(Color.black);
-			button0.setBackground(Color.lightGray);
-		}
-		return button0;
-	}
-
-	/**
-	 * @return Returns the button1.
-	 */
-	public Button getButton1()
-	{
-		if (null == button1)
-		{
-			button1 = new Button("1");
-			button1.setForeground(Color.black);
-			button1.setBackground(Color.lightGray);
-		}
-		return button1;
-	}
-
-	/**
-	 * @return Returns the button2.
-	 */
-	public Button getButton2()
-	{
-		if (null == button2)
-		{
-			button2 = new Button("2");
-			button2.setForeground(Color.black);
-			button2.setBackground(Color.lightGray);
-		}
-		return button2;
-	}
-
-	/**
-	 * @return Returns the button3.
-	 */
-	public Button getButton3()
-	{
-		if (null == button3)
-		{
-			button3 = new Button("3");
-			button3.setForeground(Color.black);
-			button3.setBackground(Color.lightGray);
-		}
-		return button3;
-	}
-
-	/**
-	 * @return Returns the button4.
-	 */
-	public Button getButton4()
-	{
-		if (null == button4)
-		{
-			button4 = new Button("4");
-			button4.setForeground(Color.black);
-			button4.setBackground(Color.lightGray);
-		}
-		return button4;
-	}
-
-	/**
-	 * @return Returns the button5.
-	 */
-	public Button getButton5()
-	{
-		if (null == button5)
-		{
-			button5 = new Button("5");
-			button5.setForeground(Color.black);
-			button5.setBackground(Color.lightGray);
-		}
-		return button5;
-	}
-
-	/**
-	 * @return Returns the button6.
-	 */
-	public Button getButton6()
-	{
-		if (null == button6)
-		{
-			button6 = new Button("6");
-			button6.setForeground(Color.black);
-			button6.setBackground(Color.lightGray);
-		}
-		return button6;
-	}
-
-	/**
-	 * @return Returns the button7.
-	 */
-	public Button getButton7()
-	{
-		if (null == button7)
-		{
-			button7 = new Button("7");
-			button7.setForeground(Color.black);
-			button7.setBackground(Color.lightGray);
-		}
-		return button7;
-	}
-
-	/**
-	 * @return Returns the button8.
-	 */
-	public Button getButton8()
-	{
-		if (null == button8)
-		{
-			button8 = new Button("8");
-			button8.setForeground(Color.black);
-			button8.setBackground(Color.lightGray);
-		}
-		return button8;
-	}
-
-	/**
-	 * @return Returns the button9.
-	 */
-	public Button getButton9()
-	{
-		if (null == button9)
-		{
-			button9 = new Button("9");
-			button9.setForeground(Color.black);
-			button9.setBackground(Color.lightGray);
-		}
-		return button9;
-	}
-
-	/**
-	 * @return Returns the buttonAbrechnen.
-	 */
-	public Button getButtonCancel()
-	{
-		if (null == buttonCancel)
-		{
-			buttonCancel = new Button("A");
-			buttonCancel.setForeground(Color.black);
-			buttonCancel.setBackground(Color.lightGray);
-		}
-		return buttonCancel;
-	}
-
-	/**
-	 * @return Returns the buttonEnter.
-	 */
-	public Button getButtonEnter()
-	{
-		if (null == buttonEnter)
-		{
-			buttonEnter = new Button("E");
-			buttonEnter.setForeground(Color.black);
-			buttonEnter.setBackground(Color.lightGray);
-		}
-		return buttonEnter;
-	}
-
-	/**
-	 * @return Returns the buttonMinus.
-	 */
-	public Button getButtonMinus()
-	{
-		if (null == buttonMinus)
-		{
-			buttonMinus = new Button("-");
-			buttonMinus.setForeground(Color.black);
-			buttonMinus.setBackground(Color.lightGray);
-		}
-		return buttonMinus;
-	}
-
-	/**
-	 * @return Returns the buttonPlus.
-	 */
-	public Button getButtonPlus()
-	{
-		if (null == buttonPlus)
-		{
-			buttonPlus = new Button("+");
-			buttonPlus.setForeground(Color.black);
-			buttonPlus.setBackground(Color.lightGray);
-		}
-		return buttonPlus;
-	}
-
-	/**
-	 * @return Returns the buttonStorno.
-	 */
-	public Button getButtonStorno()
-	{
-		if (null == buttonStorno)
-		{
-			buttonStorno = new Button("ST");
-			buttonStorno.setForeground(Color.black);
-			buttonStorno.setBackground(Color.lightGray);
-		}
-		return buttonStorno;
-	}
-
-	/**
-	 * @return Returns the buttonTisch.
-	 */
-	public Button getButtonTable()
-	{
-		if (null == buttonTable)
-		{
-			buttonTable = new Button("T");
-			buttonTable.setForeground(Color.black);
-			buttonTable.setBackground(Color.lightGray);
-		}
-		return buttonTable;
-	}
-
-	/**
-	 * @return Returns the textAreaBestellungAuflisten.
-	 */
-	public TextArea getTextAreaDisplay()
-	{
-		if (null == textAreaDisplay)
-		{
-			textAreaDisplay = new TextArea("", 2, 5, TextArea.SCROLLBARS_VERTICAL_ONLY);
-			textAreaDisplay.setBounds(0, 0, 200, 40);
-			textAreaDisplay.setEditable(false);
-		}
-		return textAreaDisplay;
-	}
-
 	private void initialize()
 	{
-		getTextAreaDisplay();
+		textAreaDisplay = new TextArea("", 2, 5, TextArea.SCROLLBARS_VERTICAL_ONLY);
+		textAreaDisplay.setBounds(0, 0, 200, 40);
+		textAreaDisplay.setEditable(false);
+
 		initializeButtons();
+
 		initializeLayout();
 	}
 
 	/**
-	 * Method createButtons
+	 * Initialize the buttons.
 	 */
 	private void initializeButtons()
 	{
-		getButton1();
-		getButton2();
-		getButton3();
-		getButton4();
-		getButton5();
-		getButton6();
-		getButton7();
-		getButton8();
-		getButton9();
-		getButton0();
-		getButtonCancel();
-		getButtonTable();
-		getButtonEnter();
-		getButtonMinus();
-		getButtonPlus();
-		getButtonStorno();
-
+		initializeButton(button1 = new Button("1"), Color.black, Color.lightGray);
+		initializeButton(button2 = new Button("2"), Color.black, Color.lightGray);
+		initializeButton(button3 = new Button("3"), Color.black, Color.lightGray);
+		initializeButton(button4 = new Button("4"), Color.black, Color.lightGray);
+		initializeButton(button5 = new Button("5"), Color.black, Color.lightGray);
+		initializeButton(button6 = new Button("6"), Color.black, Color.lightGray);
+		initializeButton(button7 = new Button("7"), Color.black, Color.lightGray);
+		initializeButton(button8 = new Button("8"), Color.black, Color.lightGray);
+		initializeButton(button9 = new Button("9"), Color.black, Color.lightGray);
+		initializeButton(button0 = new Button("0"), Color.black, Color.lightGray);
+		initializeButton(buttonCancel = new Button("A"), Color.black, Color.lightGray);
+		initializeButton(buttonTable = new Button("T"), Color.black, Color.lightGray);
+		initializeButton(buttonEnter = new Button("E"), Color.black, Color.lightGray);
+		initializeButton(buttonMinus = new Button("-"), Color.black, Color.lightGray);
+		initializeButton(buttonPlus = new Button("+"), Color.black, Color.lightGray);
+		initializeButton(buttonStorno = new Button("ST"), Color.black, Color.lightGray);
 	}
 
 	/**
-	 * Method createLayout
+	 * Initialize a button.
+	 *
+	 * @param button the button
+	 * @param foreground the foreground
+	 * @param background the background
+	 */
+	protected void initializeButton(final Button button, final Color foreground, final Color background ) {
+		button.setForeground(foreground);
+		button.setBackground(background);
+	}
+
+	/**
+	 * Initialize layout.
 	 */
 	private void initializeLayout()
 	{
