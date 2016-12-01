@@ -50,7 +50,25 @@ import de.alpharogroup.swing.img.ImageExtensions.Direction;
  */
 public class ImageExtensionsTest
 {
-
+    
+	/**
+	 * Test for method {@ImageExtensions#randomBufferedImage(int, int, int)}.
+	 *
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	@Test(enabled = false)
+	public void testRandomBufferedImage() throws IOException
+	{
+            //file object
+            String filenameprefix = "random-generated";
+            String ext = "png";
+            File imgFile = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", 
+                    filenameprefix + "." + ext);
+    
+            ImageIO.write(ImageExtensions.randomBufferedImage(640, 320, BufferedImage.TYPE_INT_ARGB), "png", imgFile);
+	}
+	
 	@Test(enabled = false)
 	public void testConcatenateImages() throws IOException
 	{
