@@ -22,29 +22,42 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tablemodel;
+package de.alpharogroup.swing.panels.field;
 
-import java.awt.event.ActionEvent;
+import java.awt.Frame;
 
-import javax.swing.AbstractAction;
+import javax.swing.DefaultComboBoxModel;
 
-import de.alpharogroup.check.Check;
-import de.alpharogroup.swing.GenericShuffleJTable;
+import de.alpharogroup.layout.CloseWindow;
 
-public class RemoveAllAction<T> extends AbstractAction {
+/**
+ * The test class for {@link FieldPanel}.
+ */
+public class FieldPanelTest
+{
 
-	private static final long serialVersionUID = 1L;
+	/**
+	 * Test init layout.
+	 */
 
-	private final GenericShuffleJTable<T> shuffleJTable;
+	public static void main(final String[] args)
+	{
+		final Frame frame = new Frame("FieldPanel");
+		frame.addWindowListener(new CloseWindow());
+		frame.add(new FieldPanel<String>()
+		{
 
-	public RemoveAllAction(final GenericShuffleJTable<T> shuffleJTable) {
-		Check.get().notNull(shuffleJTable, "shuffleJTable");
-		this.shuffleJTable = shuffleJTable;
-	}
+			/** The Constant serialVersionUID. */
+			private static final long serialVersionUID = 1L;
 
-	@Override
-	public void actionPerformed(final ActionEvent e) {
-		shuffleJTable.addAllRightRowsToLeftTable();
+			@Override
+			protected DefaultComboBoxModel<String> newTypeModel()
+			{
+				return new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" });
+			}
+		});
+		frame.pack();
+		frame.setVisible(true);
 	}
 
 }
