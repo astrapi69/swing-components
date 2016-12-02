@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2007 Asterios Raptis
+ * Copyright (C) 2015 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -27,6 +27,7 @@ package de.alpharogroup.swing.img;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
@@ -43,6 +44,7 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import de.alpharogroup.io.StreamExtensions;
+import de.alpharogroup.random.RandomExtensions;
 
 /**
  * The class {@link ImageExtensions}.
@@ -62,8 +64,34 @@ public class ImageExtensions
 	}
 
 	/**
+	 * Generates a random {@link BufferedImage} with the given parameters.
+	 *
+	 * @param width
+	 *            the width
+	 * @param height
+	 *            the height
+	 * @param imageType
+	 *            the type of the image
+	 *
+	 * @return The generated {@link BufferedImage}.
+	 */
+	public static BufferedImage randomBufferedImage(final int width, final int height,
+		final int imageType)
+	{
+		final BufferedImage img = new BufferedImage(width, height, imageType);
+		for (int y = 0; y < height; y++)
+		{
+			for (int x = 0; x < width; x++)
+			{
+				img.setRGB(x, y, RandomExtensions.newRandomPixel());
+			}
+		}
+		return img;
+	}
+
+	/**
 	 * Creates from the given Collection of images an pdf file.
-	 * 
+	 *
 	 * @param result
 	 *            the output stream from the pdf file where the images shell be written.
 	 * @param images
@@ -89,7 +117,7 @@ public class ImageExtensions
 	/**
 	 * Concatenate the given list of BufferedImage objects to one image and returns the concatenated
 	 * BufferedImage object.
-	 * 
+	 *
 	 * @param imgCollection
 	 *            the BufferedImage collection
 	 * @param width
@@ -178,7 +206,7 @@ public class ImageExtensions
 
 	/**
 	 * Gets the buffered image from the given byte array.
-	 * 
+	 *
 	 * @param byteArray
 	 *            the byte array
 	 * @return the buffered image
@@ -376,5 +404,19 @@ public class ImageExtensions
 			}
 		}
 		return bufferedImage;
+	}
+
+	/**
+	 * Convenience method to write the given {@link BufferedImage} object to the given {@link File} object.
+	 *
+	 * @param bufferedImage the {@link BufferedImage} object to be written.
+	 * @param formatName the format name
+	 * @param outputfile the output file
+	 * @return the file
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	public static File write(final BufferedImage bufferedImage, final String formatName, final File outputfile) throws IOException {
+		 ImageIO.write(bufferedImage, formatName, outputfile);
+		 return outputfile;
 	}
 }

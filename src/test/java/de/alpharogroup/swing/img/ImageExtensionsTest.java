@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2007 Asterios Raptis
+ * Copyright (C) 2015 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -32,34 +32,62 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import net.lingala.zip4j.core.ZipFile;
-import net.lingala.zip4j.model.ZipParameters;
-import net.lingala.zip4j.util.Zip4jConstants;
-
 import org.imgscalr.Scalr;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import de.alpharogroup.email.messages.Mimetypes;
+import de.alpharogroup.file.create.CreateFileExtensions;
+import de.alpharogroup.file.delete.DeleteFileExtensions;
 import de.alpharogroup.file.search.PathFinder;
 import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.swing.img.ImageExtensions.Direction;
+import lombok.experimental.ExtensionMethod;
+import net.lingala.zip4j.core.ZipFile;
+import net.lingala.zip4j.model.ZipParameters;
+import net.lingala.zip4j.util.Zip4jConstants;
 
 /**
  * The class {@link ImageExtensionsTest}.
  */
+@ExtensionMethod({ DeleteFileExtensions.class, CreateFileExtensions.class })
 public class ImageExtensionsTest
 {
+
+	/**
+	 * Test for method {@ImageExtensions#randomBufferedImage(int, int, int)}.
+	 *
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	@Test(enabled = true)
+	public void testRandomBufferedImage() throws IOException
+	{
+		// file object
+		final String filenameprefix = "random-generated";
+		final String ext = "png";
+		final File imgFile = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
+			filenameprefix + "." + ext);
+
+		final boolean imgWritten = ImageIO.write(
+			ImageExtensions.randomBufferedImage(340, 120, BufferedImage.TYPE_INT_ARGB), "png",
+			imgFile);
+		AssertJUnit.assertTrue(imgWritten);
+		if (imgWritten)
+		{
+			DeleteFileExtensions.delete(imgFile);
+		}
+	}
 
 	@Test(enabled = false)
 	public void testConcatenateImages() throws IOException
 	{
-		final BufferedImage img1 = ImageIO.read(ClassExtensions
-			.getResourceAsStream("img/xmas/bell.png"));
-		final BufferedImage img2 = ImageIO.read(ClassExtensions
-			.getResourceAsStream("img/xmas/greendices.png"));
-		final BufferedImage img3 = ImageIO.read(ClassExtensions
-			.getResourceAsStream("img/xmas/stars.png"));
+		final BufferedImage img1 = ImageIO
+			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
+		final BufferedImage img2 = ImageIO
+			.read(ClassExtensions.getResourceAsStream("img/xmas/greendices.png"));
+		final BufferedImage img3 = ImageIO
+			.read(ClassExtensions.getResourceAsStream("img/xmas/stars.png"));
 
 		final List<BufferedImage> imgCollection = new ArrayList<>();
 		imgCollection.add(img1);
@@ -145,8 +173,8 @@ public class ImageExtensionsTest
 			Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth() / scale,
 			horizontalImg.getHeight() / scale);
 		result = ImageExtensions.read(resized);
-		verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
-			"xmas", "resultImg." + extension);
+		verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", "xmas",
+			"resultImg." + extension);
 		ImageIO.write(result, extension, verticalImg);
 		System.out.println("Length:" + verticalImg.length());
 
@@ -157,8 +185,8 @@ public class ImageExtensionsTest
 			Scalr.Mode.FIT_EXACT, extension, backToOriginalSize.getWidth() * scale,
 			backToOriginalSize.getHeight() * scale);
 		result = ImageExtensions.read(resized);
-		verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
-			"xmas", filenameprefix + "_backToOriginalSizeImg." + extension);
+		verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", "xmas",
+			filenameprefix + "_backToOriginalSizeImg." + extension);
 		ImageIO.write(result, extension, verticalImg);
 		System.out.println("Length:" + verticalImg.length());
 	}
@@ -180,8 +208,21 @@ public class ImageExtensionsTest
 		final BufferedImage horizontalImg = ImageIO.read(hImg);
 		final String expected = "foo bar";
 		ImageExtensions.weaveInto(horizontalImg, expected);
-		final String actual = ImageExtensions.unweaveFrom(horizontalImg);
+		String actual = ImageExtensions.unweaveFrom(horizontalImg);
 		AssertJUnit.assertEquals(expected, actual);
+
+		final String output = filenameprefix + "output";
+		File outputfile = new File(PathFinder.getSrcTestResourcesDir(), output + ext);
+		outputfile.newFile();
+
+		outputfile = ImageExtensions.write(horizontalImg, ext, outputfile);
+
+		final BufferedImage outputImg = ImageIO.read(outputfile);
+		actual = ImageExtensions.unweaveFrom(outputImg);
+
+		AssertJUnit.assertEquals(expected, actual);
+
+		DeleteFileExtensions.delete(outputfile);
 	}
 
 	/**
@@ -201,8 +242,8 @@ public class ImageExtensionsTest
 		final File imgDir = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
 			"xmas");
 
-		final ZipFile zipFile4j = new ZipFile(imgDir.getAbsolutePath() + File.separator
-			+ "testZip.zip");
+		final ZipFile zipFile4j = new ZipFile(
+			imgDir.getAbsolutePath() + File.separator + "testZip.zip");
 		// Initiate Zip Parameters which define various properties such
 		// as compression method, etc.
 		final ZipParameters parameters = new ZipParameters();
@@ -215,6 +256,7 @@ public class ImageExtensionsTest
 
 		// Add folder to the zip file
 		zipFile4j.addFile(hImg, parameters);
+		DeleteFileExtensions.delete(zipFile4j.getFile());
 
 	}
 
