@@ -27,6 +27,7 @@ package de.alpharogroup.swing.img;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
@@ -43,6 +44,7 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import de.alpharogroup.io.StreamExtensions;
+import de.alpharogroup.random.RandomExtensions;
 
 /**
  * The class {@link ImageExtensions}.
@@ -59,88 +61,37 @@ public class ImageExtensions
 		horizontal,
 		/** Indicates the vertical direction. */
 		vertical
-	}	
-	  
-        /**
-         * The secure random.
-         */
-        private static SecureRandom secureRandom;
+	}
 
-        /**
-         * Generates a random {@link BufferedImage} with the given parameters.
-         *
-         * @param width     the width
-         * @param height    the height
-         * @param imageType the type of the image
-         * 
-         * @return The generated {@link BufferedImage}.
-         */
-        public static BufferedImage randomBufferedImage(int width, int height, int imageType) {        
-            BufferedImage img = new BufferedImage(width, height, imageType);
-            //create random image pixel by pixel
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    img.setRGB(x, y, newRandomPixel());
-                }
-            }
-            return img;
-        }
-
-
-        /**
-         * Generates a random int for use with pixel.
-         *
-         * @return a random int for use with pixel.
-         */
-        public static int newRandomPixel() {
-            return newRandomPixel(randomInt(randomIntBetween(0, 256)), randomInt(randomIntBetween(0, 256)), randomInt(randomIntBetween(0, 256)), randomInt(randomIntBetween(0, 256)));
-        }
-
-        /**
-         * Generates a random int for use with pixel.
-         *
-         * @param red The red value.
-         * @param green The green value.
-         * @param blue The blue value.
-         * @param alpha The alpha value.
-         * @return a random int for use with pixel.
-         */
-        public static int newRandomPixel(int red, int green, int blue, int alpha) {
-            int pixel = (alpha << 24) | (red << 16) | (green << 8) | blue;
-            return pixel;
-        }
-
-        /**
-         * The Method randomInt(int) gets an int to the spezified range. For
-         * example: if you put range to 10 the random int is between 0-9.
-         *
-         * @param range The Range.
-         * @return an int not greater then the range.
-         */
-        public static int randomInt(final int range) {
-            if (secureRandom != null) {
-                return (int) (secureRandom.nextDouble() * range);
-            }
-            return (int) (Math.random() * range);
-        }
-    
 	/**
-	 * Returns a random int between the range from start and end.
+	 * Generates a random {@link BufferedImage} with the given parameters.
 	 *
-	 * @param start
-	 *            The int from where the range starts.
-	 * @param end
-	 *            The int from where the range ends.
-	 * @return A random int between the range from start and end.
+	 * @param width
+	 *            the width
+	 * @param height
+	 *            the height
+	 * @param imageType
+	 *            the type of the image
+	 *
+	 * @return The generated {@link BufferedImage}.
 	 */
-	public static int randomIntBetween(final int start, final int end)
+	public static BufferedImage randomBufferedImage(final int width, final int height,
+		final int imageType)
 	{
-		return start + randomInt(end - start);
+		final BufferedImage img = new BufferedImage(width, height, imageType);
+		for (int y = 0; y < height; y++)
+		{
+			for (int x = 0; x < width; x++)
+			{
+				img.setRGB(x, y, RandomExtensions.newRandomPixel());
+			}
+		}
+		return img;
 	}
 
 	/**
 	 * Creates from the given Collection of images an pdf file.
-	 * 
+	 *
 	 * @param result
 	 *            the output stream from the pdf file where the images shell be written.
 	 * @param images
@@ -166,7 +117,7 @@ public class ImageExtensions
 	/**
 	 * Concatenate the given list of BufferedImage objects to one image and returns the concatenated
 	 * BufferedImage object.
-	 * 
+	 *
 	 * @param imgCollection
 	 *            the BufferedImage collection
 	 * @param width
@@ -255,7 +206,7 @@ public class ImageExtensions
 
 	/**
 	 * Gets the buffered image from the given byte array.
-	 * 
+	 *
 	 * @param byteArray
 	 *            the byte array
 	 * @return the buffered image
@@ -453,5 +404,19 @@ public class ImageExtensions
 			}
 		}
 		return bufferedImage;
+	}
+
+	/**
+	 * Convenience method to write the given {@link BufferedImage} object to the given {@link File} object.
+	 *
+	 * @param bufferedImage the {@link BufferedImage} object to be written.
+	 * @param formatName the format name
+	 * @param outputfile the output file
+	 * @return the file
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	public static File write(final BufferedImage bufferedImage, final String formatName, final File outputfile) throws IOException {
+		 ImageIO.write(bufferedImage, formatName, outputfile);
+		 return outputfile;
 	}
 }
