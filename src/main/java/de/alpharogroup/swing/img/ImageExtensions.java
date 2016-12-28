@@ -97,12 +97,17 @@ public class ImageExtensions
 	 * @param images
 	 *            the BufferedImage collection to be written in the pdf file.
 	 * @throws DocumentException
+	 *             is thrown if an error occurs when trying to get an instance of {@link PdfWriter}.
 	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
-	public static void createPdf(final OutputStream result, final List<BufferedImage> images) throws DocumentException, IOException {
+	public static void createPdf(final OutputStream result, final List<BufferedImage> images)
+		throws DocumentException, IOException
+	{
 		final Document document = new Document();
 		PdfWriter.getInstance(document, result);
-		for (final BufferedImage image : images) {
+		for (final BufferedImage image : images)
+		{
 			final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			ImageIO.write(image, "png", baos);
 			final Image img = Image.getInstance(baos.toByteArray());
@@ -381,25 +386,25 @@ public class ImageExtensions
 
 					final int a = rgb >> 24 & 0xff;
 
-			int r = (rgb >> 16 & 0xff) >> 3 << 3;
-		r = r | messageBytes[messagePosition] >> 5;
+					int r = (rgb >> 16 & 0xff) >> 3 << 3;
+					r = r | messageBytes[messagePosition] >> 5;
 
-		int g = (rgb >> 8 & 0xff) >> 3 << 3;
-		g = g | messageBytes[messagePosition] >> 2 & 7;
+					int g = (rgb >> 8 & 0xff) >> 3 << 3;
+					g = g | messageBytes[messagePosition] >> 2 & 7;
 
-		int b = (rgb & 0xff) >> 2 << 2;
-		b = b | messageBytes[messagePosition] & 0x3;
+					int b = (rgb & 0xff) >> 2 << 2;
+					b = b | messageBytes[messagePosition] & 0x3;
 
-		rgb = 0;
-		rgb = rgb | a << 24;
-		rgb = rgb | r << 16;
-		rgb = rgb | g << 8;
+					rgb = 0;
+					rgb = rgb | a << 24;
+					rgb = rgb | r << 16;
+					rgb = rgb | g << 8;
 
-		rgb = rgb | b;
+					rgb = rgb | b;
 
-		bufferedImage.setRGB(column, row, rgb);
-		messagePosition++;
-		j++;
+					bufferedImage.setRGB(column, row, rgb);
+					messagePosition++;
+					j++;
 				}
 			}
 		}
@@ -407,16 +412,23 @@ public class ImageExtensions
 	}
 
 	/**
-	 * Convenience method to write the given {@link BufferedImage} object to the given {@link File} object.
+	 * Convenience method to write the given {@link BufferedImage} object to the given {@link File}
+	 * object.
 	 *
-	 * @param bufferedImage the {@link BufferedImage} object to be written.
-	 * @param formatName the format name
-	 * @param outputfile the output file
+	 * @param bufferedImage
+	 *            the {@link BufferedImage} object to be written.
+	 * @param formatName
+	 *            the format name
+	 * @param outputfile
+	 *            the output file
 	 * @return the file
-	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
-	public static File write(final BufferedImage bufferedImage, final String formatName, final File outputfile) throws IOException {
-		 ImageIO.write(bufferedImage, formatName, outputfile);
-		 return outputfile;
+	public static File write(final BufferedImage bufferedImage, final String formatName,
+		final File outputfile) throws IOException
+	{
+		ImageIO.write(bufferedImage, formatName, outputfile);
+		return outputfile;
 	}
 }
