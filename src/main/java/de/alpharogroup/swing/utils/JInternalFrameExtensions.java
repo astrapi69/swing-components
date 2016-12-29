@@ -22,18 +22,44 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.plugable.api;
+package de.alpharogroup.swing.utils;
 
-public interface Plugin {
+import java.awt.BorderLayout;
 
-    void load(PluginConfiguration pluginConfiguration);
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 
-    void reload(PluginConfiguration pluginConfiguration);
+import de.alpharogroup.generic.mvc.view.View;
 
-    void start();
+/**
+ * The Class {@link JInternalFrameExtensions}.
+ */
+public class JInternalFrameExtensions {
 
-    void stop();
+	/**
+	 * Sets the view and controller for j internal frame.
+	 *
+	 * @param internalFrame
+	 *            the internal frame
+	 * @param view
+	 *            the view
+	 */
+	public static void setViewAndControllerForJInternalFrame(final JInternalFrame internalFrame,
+			final View<?, ?> view) {
+		internalFrame.add(view.getComponent(), BorderLayout.CENTER);
+		internalFrame.pack();
+	}
 
-    String getName();
+	/**
+	 * Adds the given {@link JInternalFrame} to the given {@link JDesktopPane} and bring it to the front.
+	 *
+	 * @param desktopPane the desktop pane
+	 * @param internalFrame the internal frame
+	 */
+	public static void addJInternalFrame(final JDesktopPane desktopPane, final JInternalFrame internalFrame) {
+		desktopPane.add(internalFrame);
+		internalFrame.setVisible(true);
+		internalFrame.toFront();
+	}
 
 }
