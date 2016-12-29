@@ -17,6 +17,14 @@
 	<description>
 		Several swing components and utilities
 	</description>
+	
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<url>https://github.com/lightblueseas/swing-components</url>
 
