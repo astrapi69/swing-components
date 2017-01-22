@@ -24,6 +24,13 @@
  */
 package de.alpharogroup.swing.panels.login;
 
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
+
 import org.jdesktop.swingx.JXPanel;
 
 /**
@@ -34,16 +41,16 @@ public class LoginPanel extends JXPanel
 {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -1773660900716220066L;
-	private javax.swing.JButton btnCancel;
-	private javax.swing.JButton btnLogin;
-	private javax.swing.JLabel lblPassword;
-	private javax.swing.JLabel lblUsername;
-	private javax.swing.JTextField txtInfo;
-	private javax.swing.JPasswordField txtPassword;
-	private javax.swing.JTextField txtUsername;
+	private JButton btnCancel;
+	private JButton btnLogin;
+	private JLabel lblPassword;
+	private JLabel lblUsername;
+	private JTextField txtInfo;
+	private JPasswordField txtPassword;
+	private JTextField txtUsername;
 
 	/** Creates new form LoginPanel */
 	public LoginPanel()
@@ -54,70 +61,70 @@ public class LoginPanel extends JXPanel
 
 	/**
 	 * Returns the field <code>btnCancel</code>.
-	 * 
+	 *
 	 * @return The field <code>btnCancel</code>.
 	 */
-	public javax.swing.JButton getBtnCancel()
+	public JButton getBtnCancel()
 	{
 		return btnCancel;
 	}
 
 	/**
 	 * Returns the field <code>btnLogin</code>.
-	 * 
+	 *
 	 * @return The field <code>btnLogin</code>.
 	 */
-	public javax.swing.JButton getBtnLogin()
+	public JButton getBtnLogin()
 	{
 		return btnLogin;
 	}
 
 	/**
 	 * Returns the field <code>lblPassword</code>.
-	 * 
+	 *
 	 * @return The field <code>lblPassword</code>.
 	 */
-	public javax.swing.JLabel getLblPassword()
+	public JLabel getLblPassword()
 	{
 		return lblPassword;
 	}
 
 	/**
 	 * Returns the field <code>lblUsername</code>.
-	 * 
+	 *
 	 * @return The field <code>lblUsername</code>.
 	 */
-	public javax.swing.JLabel getLblUsername()
+	public JLabel getLblUsername()
 	{
 		return lblUsername;
 	}
 
 	/**
 	 * Returns the field <code>txtInfo</code>.
-	 * 
+	 *
 	 * @return The field <code>txtInfo</code>.
 	 */
-	public javax.swing.JTextField getTxtInfo()
+	public JTextField getTxtInfo()
 	{
 		return txtInfo;
 	}
 
 	/**
 	 * Returns the field <code>txtPassword</code>.
-	 * 
+	 *
 	 * @return The field <code>txtPassword</code>.
 	 */
-	public javax.swing.JPasswordField getTxtPassword()
+	public JPasswordField getTxtPassword()
 	{
 		return txtPassword;
 	}
 
 	/**
 	 * Returns the field <code>txtUsername</code>.
-	 * 
+	 *
 	 * @return The field <code>txtUsername</code>.
 	 */
-	public javax.swing.JTextField getTxtUsername()
+	public JTextField getTxtUsername()
 	{
 		return txtUsername;
 	}
@@ -125,13 +132,13 @@ public class LoginPanel extends JXPanel
 	private void initComponents()
 	{
 
-		lblUsername = new javax.swing.JLabel();
-		txtUsername = new javax.swing.JTextField();
-		lblPassword = new javax.swing.JLabel();
-		txtPassword = new javax.swing.JPasswordField();
-		btnLogin = new javax.swing.JButton();
-		btnCancel = new javax.swing.JButton();
-		txtInfo = new javax.swing.JTextField();
+		lblUsername = new JLabel();
+		txtUsername = new JTextField();
+		lblPassword = new JLabel();
+		txtPassword = new JPasswordField();
+		btnLogin = new JButton();
+		btnCancel = new JButton();
+		txtInfo = new JTextField();
 
 		lblUsername.setText("Username:");
 
@@ -147,142 +154,142 @@ public class LoginPanel extends JXPanel
 
 	private void initLayout()
 	{
-		final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+		final GroupLayout layout = new GroupLayout(this);
 		this.setLayout(layout);
 		layout.setHorizontalGroup(layout.createParallelGroup(
-			javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-			javax.swing.GroupLayout.Alignment.TRAILING,
+			GroupLayout.Alignment.LEADING).addGroup(
+			GroupLayout.Alignment.TRAILING,
 			layout
 				.createSequentialGroup()
 				.addGap(23, 23, 23)
 				.addGroup(
 					layout
-						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 107,
-							javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 89,
-							javax.swing.GroupLayout.PREFERRED_SIZE))
+						.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(lblUsername, GroupLayout.PREFERRED_SIZE, 107,
+							GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblPassword, GroupLayout.PREFERRED_SIZE, 89,
+							GroupLayout.PREFERRED_SIZE))
 				.addGap(32, 32, 32)
 				.addGroup(
 					layout
-						.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-						.addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING,
-							javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-						.addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING,
-							javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+						.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addComponent(txtPassword, GroupLayout.Alignment.LEADING,
+							GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+						.addComponent(txtUsername, GroupLayout.Alignment.LEADING,
+							GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
 						.addGroup(
 							layout
 								.createSequentialGroup()
-								.addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 92,
+								.addComponent(btnCancel, GroupLayout.DEFAULT_SIZE, 92,
 									Short.MAX_VALUE)
 								.addPreferredGap(
-									javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
-									javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addComponent(txtInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 191,
+									LayoutStyle.ComponentPlacement.UNRELATED)
+								.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 87,
+									GroupLayout.PREFERRED_SIZE))
+						.addComponent(txtInfo, GroupLayout.DEFAULT_SIZE, 191,
 							Short.MAX_VALUE)).addGap(28, 28, 28)));
 		layout.setVerticalGroup(layout.createParallelGroup(
-			javax.swing.GroupLayout.Alignment.LEADING).addGroup(
+			GroupLayout.Alignment.LEADING).addGroup(
 			layout
 				.createSequentialGroup()
 				.addGap(32, 32, 32)
 				.addGroup(
 					layout
-						.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE,
-							javax.swing.GroupLayout.DEFAULT_SIZE,
-							javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(lblUsername))
+						.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(txtUsername, GroupLayout.PREFERRED_SIZE,
+							GroupLayout.DEFAULT_SIZE,
+							GroupLayout.PREFERRED_SIZE).addComponent(lblUsername))
 				.addGap(18, 18, 18)
 				.addGroup(
 					layout
-						.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+						.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(lblPassword)
-						.addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE,
-							javax.swing.GroupLayout.DEFAULT_SIZE,
-							javax.swing.GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-				.addComponent(txtInfo, javax.swing.GroupLayout.PREFERRED_SIZE,
-					javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtPassword, GroupLayout.PREFERRED_SIZE,
+							GroupLayout.DEFAULT_SIZE,
+							GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+				.addComponent(txtInfo, GroupLayout.PREFERRED_SIZE,
+					GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 				.addGap(9, 9, 9)
 				.addGroup(
-					layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+					layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(btnCancel).addComponent(btnLogin))
 				.addContainerGap(27, Short.MAX_VALUE)));
 	}
 
 	/**
 	 * Sets the field <code>btnCancel</code>.
-	 * 
+	 *
 	 * @param btnCancel
 	 *            The <code>btnCancel</code> to set.
 	 */
-	public void setBtnCancel(final javax.swing.JButton btnCancel)
+	public void setBtnCancel(final JButton btnCancel)
 	{
 		this.btnCancel = btnCancel;
 	}
 
 	/**
 	 * Sets the field <code>btnLogin</code>.
-	 * 
+	 *
 	 * @param btnLogin
 	 *            The <code>btnLogin</code> to set.
 	 */
-	public void setBtnLogin(final javax.swing.JButton btnLogin)
+	public void setBtnLogin(final JButton btnLogin)
 	{
 		this.btnLogin = btnLogin;
 	}
 
 	/**
 	 * Sets the field <code>lblPassword</code>.
-	 * 
+	 *
 	 * @param lblPassword
 	 *            The <code>lblPassword</code> to set.
 	 */
-	public void setLblPassword(final javax.swing.JLabel lblPassword)
+	public void setLblPassword(final JLabel lblPassword)
 	{
 		this.lblPassword = lblPassword;
 	}
 
 	/**
 	 * Sets the field <code>lblUsername</code>.
-	 * 
+	 *
 	 * @param lblUsername
 	 *            The <code>lblUsername</code> to set.
 	 */
-	public void setLblUsername(final javax.swing.JLabel lblUsername)
+	public void setLblUsername(final JLabel lblUsername)
 	{
 		this.lblUsername = lblUsername;
 	}
 
 	/**
 	 * Sets the field <code>txtInfo</code>.
-	 * 
+	 *
 	 * @param txtInfo
 	 *            The <code>txtInfo</code> to set.
 	 */
-	public void setTxtInfo(final javax.swing.JTextField txtInfo)
+	public void setTxtInfo(final JTextField txtInfo)
 	{
 		this.txtInfo = txtInfo;
 	}
 
 	/**
 	 * Sets the field <code>txtPassword</code>.
-	 * 
+	 *
 	 * @param txtPassword
 	 *            The <code>txtPassword</code> to set.
 	 */
-	public void setTxtPassword(final javax.swing.JPasswordField txtPassword)
+	public void setTxtPassword(final JPasswordField txtPassword)
 	{
 		this.txtPassword = txtPassword;
 	}
 
 	/**
 	 * Sets the field <code>txtUsername</code>.
-	 * 
+	 *
 	 * @param txtUsername
 	 *            The <code>txtUsername</code> to set.
 	 */
-	public void setTxtUsername(final javax.swing.JTextField txtUsername)
+	public void setTxtUsername(final JTextField txtUsername)
 	{
 		this.txtUsername = txtUsername;
 	}
