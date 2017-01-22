@@ -22,18 +22,33 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.plugable.api;
+package de.alpharogroup.layout;
 
-public interface Plugin {
+import lombok.Builder;
+import lombok.Data;
 
-    void load(PluginConfiguration pluginConfiguration);
+@Data
+@Builder
+public class InsetsModel
+{
 
-    void reload(PluginConfiguration pluginConfiguration);
+    /**
+     * The inset from the top.
+     */
+    private int top;
 
-    void start();
+    /**
+     * The inset from the left.
+     */
+    private int left;
 
-    void stop();
+    /**
+     * The inset from the bottom.
+     */
+    private int bottom;
 
-    String getName();
-
+    /**
+     * The inset from the right.
+     */
+    private int right;
 }

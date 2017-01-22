@@ -22,18 +22,31 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.plugable.api;
+package de.alpharogroup.swing.panels.network;
 
-public interface Plugin {
+import java.io.IOException;
 
-    void load(PluginConfiguration pluginConfiguration);
+import javax.swing.JFrame;
 
-    void reload(PluginConfiguration pluginConfiguration);
+import de.alpharogroup.layout.CloseWindow;
 
-    void start();
+public class NetworkSettingsPanelTest
+{
 
-    void stop();
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws IOException
+	 */
+	public static void main(final String[] args) throws IOException {
+		final JFrame frame = new JFrame();
+		frame.addWindowListener(new CloseWindow());
+		frame.setTitle("NetworkSettingsPanel");
 
-    String getName();
-
+		final NetworkSettingsPanel panel = new NetworkSettingsPanel();
+		frame.add( panel);
+        frame.setBounds(0, 0, 1020, 420);
+        frame.setVisible( true );
+	}
 }
