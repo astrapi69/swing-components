@@ -17,7 +17,7 @@
 	<description>
 		Several swing components and utilities
 	</description>
-	
+
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -52,6 +52,10 @@
 		<jcommons-lang.version>4.19.0-SNAPSHOT</jcommons-lang.version>
 		<vintage-time.version>4.11.0-SNAPSHOT</vintage-time.version>
 		<randomizer.version>4.20.0-SNAPSHOT</randomizer.version>
+		<!-- GENERIC-DESIGN-PATTERN versions -->
+		<design-patterns.version>4.9.0-SNAPSHOT</design-patterns.version>
+		<state.version>${design-patterns.version}</state.version>
+		<observer.version>${design-patterns.version}</observer.version>
 		<!-- EXTERNAL LIBRARIES versions -->
 		<zip4j.version>1.3.2</zip4j.version>
 		<swingx-all.version>1.6.5-1</swingx-all.version>
@@ -123,6 +127,18 @@
 				<version>${itextpdf.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>state</artifactId>
+				<version>${state.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>observer</artifactId>
+				<version>${observer.version}</version>
+			</dependency>
+
 		</dependencies>
 
 	</dependencyManagement>
@@ -171,6 +187,16 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>test-objects</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>state</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>observer</artifactId>
 		</dependency>
 
 		<dependency>
