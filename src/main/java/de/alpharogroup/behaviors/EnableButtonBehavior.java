@@ -42,7 +42,7 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode
 @ToString
-@Builder
+@Builder(toBuilder=true)
 public class EnableButtonBehavior implements DocumentListener
 {
 

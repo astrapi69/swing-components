@@ -38,7 +38,7 @@ import lombok.Data;
  * {@link GridBagLayout}.
  */
 @Data
-@Builder
+@Builder(toBuilder=true)
 public class GridBagLayoutModel implements Serializable
 {
 
