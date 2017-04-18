@@ -31,6 +31,11 @@ public interface ComponentInitialization
 {
 
 	/**
+	 * Initialize all actions from the component.
+	 */
+	void initializeActions();
+
+	/**
 	 * Initialize components from the component.
 	 */
 	void initializeComponents();
@@ -39,9 +44,4 @@ public interface ComponentInitialization
 	 * Initialize layout from the component.
 	 */
 	void initializeLayout();
-
-	/**
-	 * Initialize all actions from the component.
-	 */
-	void initializeActions();
 }

@@ -5,8 +5,8 @@ import javax.swing.JPanel;
 
 public class FirstStepPanel extends JPanel
 {
-  public FirstStepPanel()
-  {
-    add(new JLabel("First step label"));
-  }
+	public FirstStepPanel()
+	{
+		add(new JLabel("First step label"));
+	}
 }

@@ -23,22 +23,26 @@ public class NavigationPanel extends JPanel
 		add(nextButton);
 	}
 
-	protected JButton newNextButton(String label) {
+	protected JButton newNextButton(String label)
+	{
 		JButton button = new JButton(label);
 		button.addActionListener(e -> onNext());
 		return button;
 	}
 
-	protected JButton newPreviousButton(String label) {
+	protected JButton newPreviousButton(String label)
+	{
 		JButton button = new JButton(label);
 		button.addActionListener(e -> onPrevious());
 		return button;
 	}
 
-	protected void onNext() {
+	protected void onNext()
+	{
 	}
 
-	protected void onPrevious() {
+	protected void onPrevious()
+	{
 	}
 
 }

@@ -78,6 +78,62 @@ public class ScreenSizeExtensions
 	}
 
 	/**
+	 * Gets the first screen width.
+	 *
+	 * @return the first screen width.
+	 */
+	public static int getFirstScreenHeight()
+	{
+		final GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment
+			.getLocalGraphicsEnvironment();
+		final GraphicsDevice[] graphicsDevices = graphicsEnvironment.getScreenDevices();
+		int height = getScreenHeight();
+		for (final GraphicsDevice graphicsDevice : graphicsDevices)
+		{
+			final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice
+				.getConfigurations();
+			final GraphicsConfiguration graphicsConfiguration = ArrayExtensions
+				.getFirst(graphicsConfigurations);
+			if (graphicsConfiguration != null)
+			{
+				final Rectangle bounds = graphicsConfiguration.getBounds();
+				final double h = bounds.getHeight();
+				height = (int)h;
+				break;
+			}
+		}
+		return height;
+	}
+
+	/**
+	 * Gets the first screen width.
+	 *
+	 * @return the first screen width.
+	 */
+	public static int getFirstScreenWidth()
+	{
+		final GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment
+			.getLocalGraphicsEnvironment();
+		final GraphicsDevice[] graphicsDevices = graphicsEnvironment.getScreenDevices();
+		int width = getScreenWidth();
+		for (final GraphicsDevice graphicsDevice : graphicsDevices)
+		{
+			final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice
+				.getConfigurations();
+			final GraphicsConfiguration graphicsConfiguration = ArrayExtensions
+				.getFirst(graphicsConfigurations);
+			if (graphicsConfiguration != null)
+			{
+				final Rectangle bounds = graphicsConfiguration.getBounds();
+				final double w = bounds.getWidth();
+				width = (int)w;
+				break;
+			}
+		}
+		return width;
+	}
+
+	/**
 	 * Gets the Screensize and returns it as a Point object.
 	 *
 	 * @return A Point object.
@@ -89,6 +145,18 @@ public class ScreenSizeExtensions
 	}
 
 	/**
+	 * Gets all the screen devices.
+	 *
+	 * @return the screen devices
+	 */
+	public static GraphicsDevice[] getScreenDevices()
+	{
+		final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		final GraphicsDevice[] gs = ge.getScreenDevices();
+		return gs;
+	}
+
+	/**
 	 * Gets the height from the current screen.
 	 *
 	 * @return Returns the height from the current screen.
@@ -97,6 +165,27 @@ public class ScreenSizeExtensions
 	{
 		final int y = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		return y;
+	}
+
+	/**
+	 * Gets the screen height from the given {@link GraphicsDevice} object.
+	 *
+	 * @param graphicsDevice
+	 *            the {@link GraphicsDevice} object.
+	 * @return the screen height from the given {@link GraphicsDevice} object.
+	 */
+	public static int getScreenHeight(final GraphicsDevice graphicsDevice)
+	{
+		final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice.getConfigurations();
+		final GraphicsConfiguration graphicsConfiguration = ArrayExtensions
+			.getFirst(graphicsConfigurations);
+		if (graphicsConfiguration != null)
+		{
+			final Rectangle bounds = graphicsConfiguration.getBounds();
+			final double height = bounds.getHeight();
+			return (int)height;
+		}
+		return getScreenHeight();
 	}
 
 	/**
@@ -113,92 +202,22 @@ public class ScreenSizeExtensions
 	/**
 	 * Gets the screen width from the given {@link GraphicsDevice} object.
 	 *
-	 * @param graphicsDevice the {@link GraphicsDevice} object.
+	 * @param graphicsDevice
+	 *            the {@link GraphicsDevice} object.
 	 * @return the screen width from the given {@link GraphicsDevice} object.
 	 */
-	public static int getScreenWidth(final GraphicsDevice graphicsDevice) {
+	public static int getScreenWidth(final GraphicsDevice graphicsDevice)
+	{
 		final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice.getConfigurations();
-		final GraphicsConfiguration graphicsConfiguration = ArrayExtensions.getFirst(graphicsConfigurations);
-		if(graphicsConfiguration != null) {
+		final GraphicsConfiguration graphicsConfiguration = ArrayExtensions
+			.getFirst(graphicsConfigurations);
+		if (graphicsConfiguration != null)
+		{
 			final Rectangle bounds = graphicsConfiguration.getBounds();
 			final double width = bounds.getWidth();
 			return (int)width;
 		}
 		return getScreenWidth();
-	}
-
-	/**
-	 * Gets the first screen width.
-	 *
-	 * @return the first screen width.
-	 */
-	public static int getFirstScreenWidth() {
-		final GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		final GraphicsDevice[] graphicsDevices = graphicsEnvironment.getScreenDevices();
-		int width = getScreenWidth();
-		for(final GraphicsDevice graphicsDevice : graphicsDevices)
-		{
-			final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice.getConfigurations();
-			final GraphicsConfiguration graphicsConfiguration = ArrayExtensions.getFirst(graphicsConfigurations);
-			if(graphicsConfiguration != null) {
-				final Rectangle bounds = graphicsConfiguration.getBounds();
-				final double w = bounds.getWidth();
-				width = (int)w;
-				break;
-			}
-		 }
-		return width;
-	}
-
-	/**
-	 * Gets the first screen width.
-	 *
-	 * @return the first screen width.
-	 */
-	public static int getFirstScreenHeight() {
-		final GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		final GraphicsDevice[] graphicsDevices = graphicsEnvironment.getScreenDevices();
-		int height = getScreenHeight();
-		for(final GraphicsDevice graphicsDevice : graphicsDevices)
-		{
-			final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice.getConfigurations();
-			final GraphicsConfiguration graphicsConfiguration = ArrayExtensions.getFirst(graphicsConfigurations);
-			if(graphicsConfiguration != null) {
-				final Rectangle bounds = graphicsConfiguration.getBounds();
-				final double h = bounds.getHeight();
-				height = (int)h;
-				break;
-			}
-		 }
-		return height;
-	}
-
-	/**
-	 * Gets the screen height from the given {@link GraphicsDevice} object.
-	 *
-	 * @param graphicsDevice the {@link GraphicsDevice} object.
-	 * @return the screen height from the given {@link GraphicsDevice} object.
-	 */
-	public static int getScreenHeight(final GraphicsDevice graphicsDevice) {
-		final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice.getConfigurations();
-		final GraphicsConfiguration graphicsConfiguration = ArrayExtensions.getFirst(graphicsConfigurations);
-		if(graphicsConfiguration != null) {
-			final Rectangle bounds = graphicsConfiguration.getBounds();
-			final double height = bounds.getHeight();
-			return (int)height;
-		}
-		return getScreenHeight();
-	}
-
-	/**
-	 * Gets all the screen devices.
-	 *
-	 * @return the screen devices
-	 */
-	public static GraphicsDevice[] getScreenDevices() {
-		final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		final GraphicsDevice[] gs = ge.getScreenDevices();
-		return gs;
 	}
 
 }

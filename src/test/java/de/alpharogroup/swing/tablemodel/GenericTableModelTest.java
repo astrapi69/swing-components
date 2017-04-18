@@ -65,7 +65,8 @@ public class GenericTableModelTest
 		// 3. Add the data to the model.
 		permissionsTableModel.addList(permissions);
 		// 4. Create the generic table and associate with the generic table model.
-		final GenericJTable<Permission> permissionTable = new GenericJTable<>(permissionsTableModel);
+		final GenericJTable<Permission> permissionTable = new GenericJTable<>(
+			permissionsTableModel);
 		// 5. Add the table to a JScrollPane.
 		final JScrollPane scrPnTblPermissions = new JScrollPane();
 		scrPnTblPermissions.setViewportView(permissionTable);

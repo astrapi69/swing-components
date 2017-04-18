@@ -40,10 +40,12 @@ public class ImagePanelTest
 	/**
 	 * The main method.
 	 *
-	 * @param args the arguments
+	 * @param args
+	 *            the arguments
 	 * @throws IOException
 	 */
-	public static void main(final String[] args) throws IOException {
+	public static void main(final String[] args) throws IOException
+	{
 		final JFrame frame = new JFrame();
 		frame.addWindowListener(new CloseWindow());
 		frame.setTitle("ImagePanelTest");
@@ -51,9 +53,9 @@ public class ImagePanelTest
 		final BufferedImage img1 = ImageIO
 			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
 		final ImagePanel pnlIconPanel = new ImagePanel(img1);
-		frame.add( pnlIconPanel);
-        frame.setBounds(0, 0, 820, 820);
-        frame.setVisible( true );
+		frame.add(pnlIconPanel);
+		frame.setBounds(0, 0, 820, 820);
+		frame.setVisible(true);
 	}
 
 

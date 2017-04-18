@@ -5,8 +5,8 @@ import javax.swing.JPanel;
 
 public class ThirdStepPanel extends JPanel
 {
-  public ThirdStepPanel()
-  {
-    add(new JLabel("Third step label"));
-  }
+	public ThirdStepPanel()
+	{
+		add(new JLabel("Third step label"));
+	}
 }

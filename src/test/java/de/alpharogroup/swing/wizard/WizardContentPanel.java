@@ -10,13 +10,13 @@ import de.alpharogroup.design.pattern.state.WizardStep;
 
 public class WizardContentPanel extends JPanel
 {
-  public WizardContentPanel()
-  {
-    setLayout(new CardLayout());
-    setBorder(new LineBorder(Color.BLACK));
+	public WizardContentPanel()
+	{
+		setLayout(new CardLayout());
+		setBorder(new LineBorder(Color.BLACK));
 
-    add(new FirstStepPanel(), WizardStep.FIRST.getName());
-    add(new SecondStepPanel(), WizardStep.SECOND.getName());
-    add(new ThirdStepPanel(), WizardStep.THIRD.getName());
-  }
+		add(new FirstStepPanel(), WizardStep.FIRST.getName());
+		add(new SecondStepPanel(), WizardStep.SECOND.getName());
+		add(new ThirdStepPanel(), WizardStep.THIRD.getName());
+	}
 }

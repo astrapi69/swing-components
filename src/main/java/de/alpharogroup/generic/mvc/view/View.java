@@ -38,6 +38,13 @@ public interface View<C, COMP extends Component>
 {
 
 	/**
+	 * Gets the component.
+	 *
+	 * @return the component
+	 */
+	COMP getComponent();
+
+	/**
 	 * Gets the controller.
 	 *
 	 * @return the controller
@@ -45,19 +52,18 @@ public interface View<C, COMP extends Component>
 	C getController();
 
 	/**
-	 * Sets the controller.
+	 * Gets the parent.
 	 *
-	 * @param controller
-	 *            the new controller
+	 * @return the parent
 	 */
-	void setController(final C controller);
+	View<?, ?> getParent();
 
 	/**
-	 * Gets the component.
+	 * Checks for parent.
 	 *
-	 * @return the component
+	 * @return true, if successful
 	 */
-	COMP getComponent();
+	boolean hasParent();
 
 	/**
 	 * Sets the component.
@@ -68,18 +74,12 @@ public interface View<C, COMP extends Component>
 	void setComponent(final COMP component);
 
 	/**
-	 * Checks for parent.
+	 * Sets the controller.
 	 *
-	 * @return true, if successful
+	 * @param controller
+	 *            the new controller
 	 */
-	boolean hasParent();
-
-	/**
-	 * Gets the parent.
-	 *
-	 * @return the parent
-	 */
-	View<?, ?> getParent();
+	void setController(final C controller);
 
 
 }

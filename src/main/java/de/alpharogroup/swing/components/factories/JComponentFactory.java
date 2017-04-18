@@ -51,18 +51,26 @@ public final class JComponentFactory
 {
 
 	/**
-	 * Factory method for create a {@link SplashScreen}.
+	 * Factory method for create a {@link JInternalFrame} object.
 	 *
-	 * @param image
-	 *            the image
-	 * @param text
-	 *            the text
-	 * @return the new {@link SplashScreen}.
+	 * @param title
+	 *            the title
+	 * @param resizable
+	 *            the resizable
+	 * @param closable
+	 *            the closable
+	 * @param maximizable
+	 *            the maximizable
+	 * @param iconifiable
+	 *            the iconifiable
+	 * @return the new {@link JInternalFrame}.
 	 */
-	public static SplashScreen newSplashScreen(final String image, final String text)
+	public static JInternalFrame newInternalFrame(final String title, final boolean resizable,
+		final boolean closable, final boolean maximizable, final boolean iconifiable)
 	{
-		final SplashScreen splashscreen = new SplashScreen(image, text);
-		return splashscreen;
+		final JInternalFrame internalFrame = new JInternalFrame(title, resizable, closable,
+			maximizable, iconifiable);
+		return internalFrame;
 	}
 
 	/**
@@ -73,19 +81,6 @@ public final class JComponentFactory
 	public static JPopupMenu newJPopupMenu()
 	{
 		return newJPopupMenu("");
-	}
-
-	/**
-	 * Factory method for create a <code>JPopupMenu</code> with the specified title.
-	 *
-	 * @param label
-	 *            the string that a UI may use to display as a title for the popup menu.
-	 * @return the new {@link JPopupMenu}.
-	 */
-	public static JPopupMenu newJPopupMenu(final String label)
-	{
-		final JPopupMenu popup = new JPopupMenu(label);
-		return popup;
 	}
 
 	/**
@@ -102,6 +97,19 @@ public final class JComponentFactory
 	public static JPopupMenu newJPopupMenu(final Component component, final JMenuItem... items)
 	{
 		return newJPopupMenu("", component, items);
+	}
+
+	/**
+	 * Factory method for create a <code>JPopupMenu</code> with the specified title.
+	 *
+	 * @param label
+	 *            the string that a UI may use to display as a title for the popup menu.
+	 * @return the new {@link JPopupMenu}.
+	 */
+	public static JPopupMenu newJPopupMenu(final String label)
+	{
+		final JPopupMenu popup = new JPopupMenu(label);
+		return popup;
 	}
 
 	/**
@@ -133,26 +141,48 @@ public final class JComponentFactory
 	}
 
 	/**
-	 * Factory method for create a {@link JInternalFrame} object.
+	 * Factory method for create a {@link JToolBar} object.
 	 *
-	 * @param title
-	 *            the title
-	 * @param resizable
-	 *            the resizable
-	 * @param closable
-	 *            the closable
-	 * @param maximizable
-	 *            the maximizable
-	 * @param iconifiable
-	 *            the iconifiable
-	 * @return the new {@link JInternalFrame}.
+	 * @return the j tool bar
 	 */
-	public static JInternalFrame newInternalFrame(final String title, final boolean resizable,
-		final boolean closable, final boolean maximizable, final boolean iconifiable)
+	public static JToolBar newJToolBar()
 	{
-		final JInternalFrame internalFrame = new JInternalFrame(title, resizable, closable,
-			maximizable, iconifiable);
-		return internalFrame;
+		return new JToolBar();
+	}
+
+	/**
+	 * Factory method for create a {@link PopupMenu} object.
+	 *
+	 * @param menuItemBeans
+	 *            the menu item beans
+	 * @return the new {@link PopupMenu}.
+	 */
+	public static PopupMenu newPopupMenu(final List<MenuItemBean> menuItemBeans)
+	{
+		final PopupMenu popupMenu = new PopupMenu();
+		for (final MenuItemBean menuItemBean : menuItemBeans)
+		{
+			final MenuItem miBringToFront = new MenuItem(menuItemBean.getLabel());
+			miBringToFront.setActionCommand(menuItemBean.getCommand());
+			miBringToFront.addActionListener(menuItemBean.getActionListener());
+			popupMenu.add(miBringToFront);
+		}
+		return popupMenu;
+	}
+
+	/**
+	 * Factory method for create a {@link SplashScreen}.
+	 *
+	 * @param image
+	 *            the image
+	 * @param text
+	 *            the text
+	 * @return the new {@link SplashScreen}.
+	 */
+	public static SplashScreen newSplashScreen(final String image, final String text)
+	{
+		final SplashScreen splashscreen = new SplashScreen(image, text);
+		return splashscreen;
 	}
 
 	/**
@@ -179,36 +209,6 @@ public final class JComponentFactory
 			trayIcon.addActionListener(actionListener.getValue());
 		}
 		return trayIcon;
-	}
-
-	/**
-	 * Factory method for create a {@link PopupMenu} object.
-	 *
-	 * @param menuItemBeans
-	 *            the menu item beans
-	 * @return the new {@link PopupMenu}.
-	 */
-	public static PopupMenu newPopupMenu(final List<MenuItemBean> menuItemBeans)
-	{
-		final PopupMenu popupMenu = new PopupMenu();
-		for (final MenuItemBean menuItemBean : menuItemBeans)
-		{
-			final MenuItem miBringToFront = new MenuItem(menuItemBean.getLabel());
-			miBringToFront.setActionCommand(menuItemBean.getCommand());
-			miBringToFront.addActionListener(menuItemBean.getActionListener());
-			popupMenu.add(miBringToFront);
-		}
-		return popupMenu;
-	}
-
-	/**
-	 * Factory method for create a {@link JToolBar} object.
-	 *
-	 * @return the j tool bar
-	 */
-	public static JToolBar newJToolBar()
-	{
-		return new JToolBar();
 	}
 
 }

@@ -11,10 +11,6 @@ import de.alpharogroup.design.pattern.state.WizardStep;
 
 public class WizardPanel extends JFrame
 {
-	private StateMachine stateMachine;
-	private WizardContentPanel wizardContentPanel;
-	private NavigationPanel navigationPanel;
-
 	public static void main(String[] args)
 	{
 		SwingUtilities.invokeLater(new Runnable()
@@ -27,6 +23,11 @@ public class WizardPanel extends JFrame
 		});
 	}
 
+	private StateMachine stateMachine;
+	private WizardContentPanel wizardContentPanel;
+
+	private NavigationPanel navigationPanel;
+
 	public WizardPanel()
 	{
 		setTitle("Simple Wizard");
@@ -38,18 +39,15 @@ public class WizardPanel extends JFrame
 		setSize(600, 600);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    add(wizardContentPanel, BorderLayout.CENTER);
+		add(wizardContentPanel, BorderLayout.CENTER);
 		add(navigationPanel, BorderLayout.SOUTH);
 	}
 
 
-	protected WizardContentPanel newWizardContentPanel() {
-		WizardContentPanel cardsPanel = new WizardContentPanel();
-		return cardsPanel;
-	}
-
-	protected NavigationPanel newNavigationPanel() {
-		final NavigationPanel navigationPanel = new NavigationPanel() {
+	protected NavigationPanel newNavigationPanel()
+	{
+		final NavigationPanel navigationPanel = new NavigationPanel()
+		{
 			@Override
 			protected void onNext()
 			{
@@ -65,25 +63,34 @@ public class WizardPanel extends JFrame
 		return navigationPanel;
 	}
 
-	protected void onNext() {
+	protected WizardContentPanel newWizardContentPanel()
+	{
+		WizardContentPanel cardsPanel = new WizardContentPanel();
+		return cardsPanel;
+	}
+
+	protected void onNext()
+	{
 		stateMachine.next();
 		updateButtonState();
 		String name = stateMachine.getCurrentState().getName();
-		CardLayout cardLayout = ((CardLayout) wizardContentPanel.getLayout());
+		CardLayout cardLayout = ((CardLayout)wizardContentPanel.getLayout());
 		cardLayout.show(wizardContentPanel, name);
 	}
 
-	protected void onPrevious() {
+	protected void onPrevious()
+	{
 		stateMachine.previous();
 		updateButtonState();
 		String name = stateMachine.getCurrentState().getName();
-		CardLayout cardLayout = ((CardLayout) wizardContentPanel.getLayout());
+		CardLayout cardLayout = ((CardLayout)wizardContentPanel.getLayout());
 		cardLayout.show(wizardContentPanel, name);
 	}
 
 	protected void updateButtonState()
 	{
-		navigationPanel.getPreviousButton().setEnabled(stateMachine.getCurrentState().hasPrevious());
+		navigationPanel.getPreviousButton()
+			.setEnabled(stateMachine.getCurrentState().hasPrevious());
 		navigationPanel.getNextButton().setEnabled(stateMachine.getCurrentState().hasNext());
 	}
 

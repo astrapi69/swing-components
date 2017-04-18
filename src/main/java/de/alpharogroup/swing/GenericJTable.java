@@ -37,7 +37,8 @@ import lombok.Getter;
  * @param <T>
  *            the generic type of the model
  */
-public class GenericJTable<T> extends JTable {
+public class GenericJTable<T> extends JTable
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -56,7 +57,8 @@ public class GenericJTable<T> extends JTable {
 	 * @param genericTableModel
 	 *            the generic table model
 	 */
-	public GenericJTable(final GenericTableModel<T> genericTableModel) {
+	public GenericJTable(final GenericTableModel<T> genericTableModel)
+	{
 		super(genericTableModel);
 		Check.get().notNull(genericTableModel, "genericTableModel");
 		this.genericTableModel = genericTableModel;
@@ -72,9 +74,11 @@ public class GenericJTable<T> extends JTable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getSelectedRow() {
+	public int getSelectedRow()
+	{
 		int selectedRow = super.getSelectedRow();
-		if (-1 < selectedRow) {
+		if (-1 < selectedRow)
+		{
 			// find the real selected row. If the rows was sorted the index from
 			// the
 			// model does not fit to the table.
@@ -84,28 +88,31 @@ public class GenericJTable<T> extends JTable {
 	}
 
 	/**
-	 * Checks if any row in this table is selected.
-	 *
-	 * @return true, if any row in this table is selected
-	 */
-	public boolean isAnyRowSelected() {
-		return (-1 < super.getSelectedRow());
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int[] getSelectedRows() {
+	public int[] getSelectedRows()
+	{
 		// find the real selected rows. If the rows was sorted the index from
 		// the
 		// model does not fit to the table.
 		final int[] selectedRows = super.getSelectedRows();
 		final int[] sr = new int[selectedRows.length];
-		for (int i = 0; i < selectedRows.length; i++) {
+		for (int i = 0; i < selectedRows.length; i++)
+		{
 			sr[i] = this.convertRowIndexToModel(selectedRows[i]);
 		}
 		return sr;
+	}
+
+	/**
+	 * Checks if any row in this table is selected.
+	 *
+	 * @return true, if any row in this table is selected
+	 */
+	public boolean isAnyRowSelected()
+	{
+		return (-1 < super.getSelectedRow());
 	}
 
 }
