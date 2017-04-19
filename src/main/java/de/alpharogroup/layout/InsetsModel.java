@@ -22,41 +22,33 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.img;
+package de.alpharogroup.layout;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+import lombok.Builder;
+import lombok.Data;
 
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-
-import de.alpharogroup.lang.ClassExtensions;
-import de.alpharogroup.layout.CloseWindow;
-
-public class ImagePanelTest
+@Data
+@Builder(toBuilder = true)
+public class InsetsModel
 {
 
+	/**
+	 * The inset from the top.
+	 */
+	private int top;
 
 	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 * @throws IOException
+	 * The inset from the left.
 	 */
-	public static void main(final String[] args) throws IOException
-	{
-		final JFrame frame = new JFrame();
-		frame.addWindowListener(new CloseWindow());
-		frame.setTitle("ImagePanelTest");
+	private int left;
 
-		final BufferedImage img1 = ImageIO
-			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
-		final ImagePanel pnlIconPanel = new ImagePanel(img1);
-		frame.add(pnlIconPanel);
-		frame.setBounds(0, 0, 820, 820);
-		frame.setVisible(true);
-	}
+	/**
+	 * The inset from the bottom.
+	 */
+	private int bottom;
 
-
+	/**
+	 * The inset from the right.
+	 */
+	private int right;
 }

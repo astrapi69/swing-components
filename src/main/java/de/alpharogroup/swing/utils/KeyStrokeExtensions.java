@@ -54,9 +54,8 @@ public final class KeyStrokeExtensions
 	 * @param action
 	 *            the action
 	 */
-	public static void addShortcutToComponent(final JComponent component,
-		final KeyStroke keystroke, final int whenInFocus, final String actionCommand,
-		final Action action)
+	public static void addShortcutToComponent(final JComponent component, final KeyStroke keystroke,
+		final int whenInFocus, final String actionCommand, final Action action)
 	{
 		final InputMap keyMap = new ComponentInputMap(component);
 		keyMap.put(keystroke, actionCommand);
@@ -78,8 +77,8 @@ public final class KeyStrokeExtensions
 	 * @param action
 	 *            the action
 	 */
-	public static void addShortcutToComponent(final JComponent component,
-		final KeyStroke keystroke, final String actionCommand, final Action action)
+	public static void addShortcutToComponent(final JComponent component, final KeyStroke keystroke,
+		final String actionCommand, final Action action)
 	{
 		addShortcutToComponent(component, keystroke, JComponent.WHEN_IN_FOCUSED_WINDOW,
 			actionCommand, action);

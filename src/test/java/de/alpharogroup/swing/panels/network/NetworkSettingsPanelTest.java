@@ -22,20 +22,16 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.img;
+package de.alpharogroup.swing.panels.network;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.layout.CloseWindow;
 
-public class ImagePanelTest
+public class NetworkSettingsPanelTest
 {
-
 
 	/**
 	 * The main method.
@@ -48,15 +44,11 @@ public class ImagePanelTest
 	{
 		final JFrame frame = new JFrame();
 		frame.addWindowListener(new CloseWindow());
-		frame.setTitle("ImagePanelTest");
+		frame.setTitle("NetworkSettingsPanel");
 
-		final BufferedImage img1 = ImageIO
-			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
-		final ImagePanel pnlIconPanel = new ImagePanel(img1);
-		frame.add(pnlIconPanel);
-		frame.setBounds(0, 0, 820, 820);
+		final NetworkSettingsPanel panel = new NetworkSettingsPanel();
+		frame.add(panel);
+		frame.setBounds(0, 0, 1020, 420);
 		frame.setVisible(true);
 	}
-
-
 }

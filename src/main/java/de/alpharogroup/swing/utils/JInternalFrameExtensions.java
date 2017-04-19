@@ -25,38 +25,79 @@
 package de.alpharogroup.swing.utils;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
 import de.alpharogroup.generic.mvc.view.View;
+import lombok.experimental.UtilityClass;
 
 /**
  * The Class {@link JInternalFrameExtensions}.
  */
-public class JInternalFrameExtensions {
+@UtilityClass
+public class JInternalFrameExtensions
+{
 
 	/**
-	 * Sets the view and controller for j internal frame.
+	 * Adds the given {@link View} object to the given {@link JInternalFrame} object.
 	 *
 	 * @param internalFrame
-	 *            the internal frame
+	 *            the {@link JInternalFrame} object.
 	 * @param view
-	 *            the view
+	 *            the {@link View} object to add.
+	 * @deprecated use instead {@link JInternalFrameExtensions#addViewToFrame(JInternalFrame, View)}
 	 */
+	@Deprecated
 	public static void setViewAndControllerForJInternalFrame(final JInternalFrame internalFrame,
-			final View<?, ?> view) {
+		final View<?, ?> view)
+	{
 		internalFrame.add(view.getComponent(), BorderLayout.CENTER);
 		internalFrame.pack();
 	}
 
 	/**
-	 * Adds the given {@link JInternalFrame} to the given {@link JDesktopPane} and bring it to the front.
+	 * Adds the given {@link View} object to the given {@link JInternalFrame} object.
 	 *
-	 * @param desktopPane the desktop pane
-	 * @param internalFrame the internal frame
+	 * @param internalFrame
+	 *            the {@link JInternalFrame} object.
+	 * @param view
+	 *            the {@link View} object to add
 	 */
-	public static void addJInternalFrame(final JDesktopPane desktopPane, final JInternalFrame internalFrame) {
+	public static void addViewToFrame(final JInternalFrame internalFrame, final View<?, ?> view)
+	{
+		internalFrame.add(view.getComponent(), BorderLayout.CENTER);
+		internalFrame.pack();
+	}
+
+	/**
+	 * Adds the given {@link Component} object to the given {@link JInternalFrame} object.
+	 *
+	 * @param internalFrame
+	 *            the {@link JInternalFrame} object.
+	 * @param component
+	 *            the {@link Component} object to add
+	 */
+	public static void addComponentToFrame(final JInternalFrame internalFrame,
+		final Component component)
+	{
+		internalFrame.add(component, BorderLayout.CENTER);
+		internalFrame.pack();
+	}
+
+	/**
+	 * Adds the given {@link JInternalFrame} to the given {@link JDesktopPane} and bring it to the
+	 * front.
+	 *
+	 * @param desktopPane
+	 *            the desktop pane
+	 * @param internalFrame
+	 *            the internal frame
+	 */
+	public static void addJInternalFrame(final JDesktopPane desktopPane,
+		final JInternalFrame internalFrame)
+	{
 		desktopPane.add(internalFrame);
 		internalFrame.setVisible(true);
 		internalFrame.toFront();

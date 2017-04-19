@@ -22,41 +22,25 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.img;
+package de.alpharogroup.swing.wizard;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+import java.awt.CardLayout;
+import java.awt.Color;
 
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
-import de.alpharogroup.lang.ClassExtensions;
-import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.design.pattern.state.WizardStep;
 
-public class ImagePanelTest
+public class WizardContentPanel extends JPanel
 {
-
-
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 * @throws IOException
-	 */
-	public static void main(final String[] args) throws IOException
+	public WizardContentPanel()
 	{
-		final JFrame frame = new JFrame();
-		frame.addWindowListener(new CloseWindow());
-		frame.setTitle("ImagePanelTest");
+		setLayout(new CardLayout());
+		setBorder(new LineBorder(Color.BLACK));
 
-		final BufferedImage img1 = ImageIO
-			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
-		final ImagePanel pnlIconPanel = new ImagePanel(img1);
-		frame.add(pnlIconPanel);
-		frame.setBounds(0, 0, 820, 820);
-		frame.setVisible(true);
+		add(new FirstStepPanel(), WizardStep.FIRST.getName());
+		add(new SecondStepPanel(), WizardStep.SECOND.getName());
+		add(new ThirdStepPanel(), WizardStep.THIRD.getName());
 	}
-
-
 }

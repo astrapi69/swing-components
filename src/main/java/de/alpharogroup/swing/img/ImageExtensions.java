@@ -64,62 +64,6 @@ public class ImageExtensions
 	}
 
 	/**
-	 * Generates a random {@link BufferedImage} with the given parameters.
-	 *
-	 * @param width
-	 *            the width
-	 * @param height
-	 *            the height
-	 * @param imageType
-	 *            the type of the image
-	 *
-	 * @return The generated {@link BufferedImage}.
-	 */
-	public static BufferedImage randomBufferedImage(final int width, final int height,
-		final int imageType)
-	{
-		final BufferedImage img = new BufferedImage(width, height, imageType);
-		for (int y = 0; y < height; y++)
-		{
-			for (int x = 0; x < width; x++)
-			{
-				img.setRGB(x, y, RandomExtensions.newRandomPixel());
-			}
-		}
-		return img;
-	}
-
-	/**
-	 * Creates from the given Collection of images an pdf file.
-	 *
-	 * @param result
-	 *            the output stream from the pdf file where the images shell be written.
-	 * @param images
-	 *            the BufferedImage collection to be written in the pdf file.
-	 * @throws DocumentException
-	 *             is thrown if an error occurs when trying to get an instance of {@link PdfWriter}.
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	public static void createPdf(final OutputStream result, final List<BufferedImage> images)
-		throws DocumentException, IOException
-	{
-		final Document document = new Document();
-		PdfWriter.getInstance(document, result);
-		for (final BufferedImage image : images)
-		{
-			final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ImageIO.write(image, "png", baos);
-			final Image img = Image.getInstance(baos.toByteArray());
-			document.setPageSize(img);
-			document.newPage();
-			img.setAbsolutePosition(0, 0);
-			document.add(img);
-		}
-		document.close();
-	}
-
-	/**
 	 * Concatenate the given list of BufferedImage objects to one image and returns the concatenated
 	 * BufferedImage object.
 	 *
@@ -159,6 +103,36 @@ public class ImageExtensions
 			}
 		}
 		return img;
+	}
+
+	/**
+	 * Creates from the given Collection of images an pdf file.
+	 *
+	 * @param result
+	 *            the output stream from the pdf file where the images shell be written.
+	 * @param images
+	 *            the BufferedImage collection to be written in the pdf file.
+	 * @throws DocumentException
+	 *             is thrown if an error occurs when trying to get an instance of {@link PdfWriter}.
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	public static void createPdf(final OutputStream result, final List<BufferedImage> images)
+		throws DocumentException, IOException
+	{
+		final Document document = new Document();
+		PdfWriter.getInstance(document, result);
+		for (final BufferedImage image : images)
+		{
+			final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(image, "png", baos);
+			final Image img = Image.getInstance(baos.toByteArray());
+			document.setPageSize(img);
+			document.newPage();
+			img.setAbsolutePosition(0, 0);
+			document.add(img);
+		}
+		document.close();
 	}
 
 	/**
@@ -207,6 +181,32 @@ public class ImageExtensions
 		final String formatName, final int targetWidth, final int targetHeight) throws IOException
 	{
 		return read(resize(originalImage, formatName, targetWidth, targetHeight));
+	}
+
+	/**
+	 * Generates a random {@link BufferedImage} with the given parameters.
+	 *
+	 * @param width
+	 *            the width
+	 * @param height
+	 *            the height
+	 * @param imageType
+	 *            the type of the image
+	 *
+	 * @return The generated {@link BufferedImage}.
+	 */
+	public static BufferedImage randomBufferedImage(final int width, final int height,
+		final int imageType)
+	{
+		final BufferedImage img = new BufferedImage(width, height, imageType);
+		for (int y = 0; y < height; y++)
+		{
+			for (int x = 0; x < width; x++)
+			{
+				img.setRGB(x, y, RandomExtensions.newRandomPixel());
+			}
+		}
+		return img;
 	}
 
 	/**

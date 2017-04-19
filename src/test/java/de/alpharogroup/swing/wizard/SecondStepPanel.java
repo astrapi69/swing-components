@@ -22,41 +22,15 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.img;
+package de.alpharogroup.swing.wizard;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-
-import de.alpharogroup.lang.ClassExtensions;
-import de.alpharogroup.layout.CloseWindow;
-
-public class ImagePanelTest
+public class SecondStepPanel extends JPanel
 {
-
-
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 * @throws IOException
-	 */
-	public static void main(final String[] args) throws IOException
+	public SecondStepPanel()
 	{
-		final JFrame frame = new JFrame();
-		frame.addWindowListener(new CloseWindow());
-		frame.setTitle("ImagePanelTest");
-
-		final BufferedImage img1 = ImageIO
-			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
-		final ImagePanel pnlIconPanel = new ImagePanel(img1);
-		frame.add(pnlIconPanel);
-		frame.setBounds(0, 0, 820, 820);
-		frame.setVisible(true);
+		add(new JLabel("Second step label"));
 	}
-
-
 }

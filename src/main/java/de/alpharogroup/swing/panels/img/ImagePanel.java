@@ -34,7 +34,8 @@ import lombok.NonNull;
 /**
  * The class {@link ImagePanel}.
  */
-public class ImagePanel extends JPanel {
+public class ImagePanel extends JPanel
+{
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
@@ -47,7 +48,8 @@ public class ImagePanel extends JPanel {
 	 * @param image
 	 *            the image
 	 */
-	public ImagePanel(@NonNull final BufferedImage image) {
+	public ImagePanel(@NonNull final BufferedImage image)
+	{
 		this.image = image;
 	}
 
@@ -55,7 +57,8 @@ public class ImagePanel extends JPanel {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void paintComponent(final Graphics g) {
+	protected void paintComponent(final Graphics g)
+	{
 		super.paintComponent(g);
 		g.drawImage(image, 0, 0, this);
 	}

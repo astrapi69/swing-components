@@ -87,10 +87,12 @@ public class NetworkSettingsModelBean implements Serializable
 			&& (this.proxyAuthetication == null
 				? castedObj.proxyAuthetication == null
 				: this.proxyAuthetication.equals(castedObj.proxyAuthetication))
-			&& (this.username == null ? castedObj.username == null : this.username
-				.equals(castedObj.username))
-			&& (this.password == null ? castedObj.password == null : this.password
-				.equals(castedObj.password))
+			&& (this.username == null
+				? castedObj.username == null
+				: this.username.equals(castedObj.username))
+			&& (this.password == null
+				? castedObj.password == null
+				: this.password.equals(castedObj.password))
 			&& (this.rememberPassword == null
 				? castedObj.rememberPassword == null
 				: this.rememberPassword.equals(castedObj.rememberPassword));

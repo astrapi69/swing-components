@@ -56,7 +56,7 @@ public enum OS
 
 	/** The Constant WINDOWS_PATTERN. */
 	private static final Pattern WINDOWS_PATTERN = Pattern.compile(".*[W|w]indows.*");
-	
+
 	/** The Constant MAC_PATTERN. */
 	private static final Pattern MAC_PATTERN = Pattern.compile("mac|darwin");
 
@@ -80,11 +80,12 @@ public enum OS
 		else if (LINUX_PATTERN.matcher(osname).matches())
 		{
 			return LINUX;
-		} 
-		else if (MAC_PATTERN.matcher(osname).matches()) {
+		}
+		else if (MAC_PATTERN.matcher(osname).matches())
+		{
 			return MAC;
 		}
-		
+
 		else
 		{
 			return OTHER;

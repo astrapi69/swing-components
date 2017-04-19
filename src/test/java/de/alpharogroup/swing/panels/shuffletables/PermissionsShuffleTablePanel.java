@@ -44,8 +44,8 @@ import de.alpharogroup.swing.x.GenericShuffleJXTable;
 import de.alpharogroup.test.objects.Permission;
 
 public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
-implements
-ActionListener
+	implements
+		ActionListener
 {
 
 	/** The Constant serialVersionUID. */
@@ -56,12 +56,17 @@ ActionListener
 		// 1. Create a list with data.
 		final List<Permission> permissions = new ArrayList<>();
 
-		permissions.add(Permission.builder().name("read").description("Permission to read.").build());
-		permissions.add(Permission.builder().name("write").description("Permission to write.").build());
-		permissions.add(Permission.builder().name("delete").description("Permission to delete.").build());
-		permissions.add(Permission.builder().name("execute").description("Permission to execute.").build());
+		permissions
+			.add(Permission.builder().name("read").description("Permission to read.").build());
+		permissions
+			.add(Permission.builder().name("write").description("Permission to write.").build());
+		permissions
+			.add(Permission.builder().name("delete").description("Permission to delete.").build());
+		permissions.add(
+			Permission.builder().name("execute").description("Permission to execute.").build());
 		permissions.add(Permission.builder().name("buy").description("Permission to buy.").build());
-		permissions.add(Permission.builder().name("sale").description("Permission to sale.").build());
+		permissions
+			.add(Permission.builder().name("sale").description("Permission to sale.").build());
 
 		final Frame frame = new Frame();
 		frame.addWindowListener(new CloseWindow());
@@ -142,7 +147,8 @@ ActionListener
 		// model.
 		this.tblAvailableElements = new GenericJXTable<>(permissionsTableModel);
 		this.tblSelectedElements = new GenericJXTable<>(new PermissionsTableModel());
-		this.shuffleTable = new GenericShuffleJXTable<>(this.tblAvailableElements, this.tblSelectedElements);
+		this.shuffleTable = new GenericShuffleJXTable<>(this.tblAvailableElements,
+			this.tblSelectedElements);
 		this.scrPnTblAvailableElements.setViewportView(this.tblAvailableElements);
 		this.scrPnTblSelectedElements.setViewportView(this.tblSelectedElements);
 	}

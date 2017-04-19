@@ -36,13 +36,6 @@ public class SingletonDesktopPane
 	private static JDesktopPane instance = new JDesktopPane();
 
 	/**
-	 * Instantiates a new singleton desktop pane.
-	 */
-	private SingletonDesktopPane()
-	{
-	}
-
-	/**
 	 * Gets the single instance of SingletonDesktopPane.
 	 *
 	 * @return single instance of SingletonDesktopPane
@@ -50,6 +43,13 @@ public class SingletonDesktopPane
 	public static JDesktopPane getInstance()
 	{
 		return instance;
+	}
+
+	/**
+	 * Instantiates a new singleton desktop pane.
+	 */
+	private SingletonDesktopPane()
+	{
 	}
 
 }
