@@ -41,7 +41,8 @@ import lombok.Getter;
 /**
  * The class SimpleShuffleTablePanel.
  */
-public class SimpleShuffleTablePanel extends JPanel {
+public class SimpleShuffleTablePanel extends JPanel
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -93,7 +94,8 @@ public class SimpleShuffleTablePanel extends JPanel {
 	/**
 	 * Instantiates a new simple shuffle table panel.
 	 */
-	public SimpleShuffleTablePanel() {
+	public SimpleShuffleTablePanel()
+	{
 		super();
 		onInitialize();
 		onLayout();
@@ -102,13 +104,15 @@ public class SimpleShuffleTablePanel extends JPanel {
 	/**
 	 * Inits the components.
 	 */
-	protected void onInitialize() {
+	protected void onInitialize()
+	{
 
 		// Create the tables and scrollpanes for it...
 		tblPermissionsFromRole = new GenericJTable<>(new PermissionsTableModel());
 		tblAvailablePermissions = new GenericJTable<>(new PermissionsTableModel());
 
-		permissionsShuffleTable = new GenericShuffleJTable<>(tblAvailablePermissions, tblPermissionsFromRole);
+		permissionsShuffleTable = new GenericShuffleJTable<>(tblAvailablePermissions,
+			tblPermissionsFromRole);
 
 		addAction = new AddAction<>(permissionsShuffleTable);
 		removeAction = new RemoveAction<>(permissionsShuffleTable);
@@ -119,16 +123,16 @@ public class SimpleShuffleTablePanel extends JPanel {
 		addMenuItem.addActionListener(addAction);
 		final JMenuItem addAllMenuItem = new JMenuItem("All selected rows to right >>");
 		addAllMenuItem.addActionListener(addAllAction);
-		final JPopupMenu leftTablePopupMenu = JComponentFactory.newJPopupMenu(permissionsShuffleTable.getLeftTable(),
-				addMenuItem, addAllMenuItem);
+		final JPopupMenu leftTablePopupMenu = JComponentFactory
+			.newJPopupMenu(permissionsShuffleTable.getLeftTable(), addMenuItem, addAllMenuItem);
 		permissionsShuffleTable.getLeftTable().add(leftTablePopupMenu);
 
 		final JMenuItem removeMenuItem = new JMenuItem("< Selected row to left");
 		removeMenuItem.addActionListener(removeAction);
 		final JMenuItem removeAllMenuItem = new JMenuItem("<< All selected rows to left");
 		removeAllMenuItem.addActionListener(removeAllAction);
-		final JPopupMenu rightTablePopupMenu = JComponentFactory.newJPopupMenu(permissionsShuffleTable.getRightTable(),
-				removeMenuItem, removeAllMenuItem);
+		final JPopupMenu rightTablePopupMenu = JComponentFactory.newJPopupMenu(
+			permissionsShuffleTable.getRightTable(), removeMenuItem, removeAllMenuItem);
 		permissionsShuffleTable.getRightTable().add(rightTablePopupMenu);
 
 		permissionsShuffleTable.getLeftTable().add(leftTablePopupMenu);
@@ -152,7 +156,8 @@ public class SimpleShuffleTablePanel extends JPanel {
 	/**
 	 * Initializelayout.
 	 */
-	private void onLayout() {
+	private void onLayout()
+	{
 		final GridBagLayout gbl = new GridBagLayout();
 		final GridBagConstraints gbc = new GridBagConstraints();
 		this.setLayout(gbl);

@@ -32,19 +32,20 @@ import javax.swing.KeyStroke;
 /**
  * The class {@link MenuExtensions}.
  */
-public final class MenuExtensions {
+public final class MenuExtensions
+{
 
 	/**
-	 * Sets the accelerator from the given menuitem and the given character with
-	 * the CTRL. The accelerator are combined with the given character and the
-	 * CTRL.
+	 * Sets the accelerator from the given menuitem and the given character with the CTRL. The
+	 * accelerator are combined with the given character and the CTRL.
 	 *
 	 * @param jmi
 	 *            The JMenuItem.
 	 * @param accelerator
 	 *            The character that have to push together with the CTRL.
 	 */
-	public static void setCtrlAccelerator(final JMenuItem jmi, final char accelerator) {
+	public static void setCtrlAccelerator(final JMenuItem jmi, final char accelerator)
+	{
 		final KeyStroke ks = KeyStroke.getKeyStroke(accelerator, Event.CTRL_MASK);
 		jmi.setAccelerator(ks);
 	}

@@ -27,4 +27,14 @@ package de.alpharogroup.swing.plugable.api;
 public interface Plugin
 {
 
+	String getName();
+
+	void load(PluginConfiguration pluginConfiguration);
+
+	void reload(PluginConfiguration pluginConfiguration);
+
+	void start();
+
+	void stop();
+
 }

@@ -22,9 +22,41 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.components.factories;
+package de.alpharogroup.swing.panels.img;
 
-public class JDialogExtensions
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+
+import de.alpharogroup.lang.ClassExtensions;
+import de.alpharogroup.layout.CloseWindow;
+
+public class ImagePanelTest
 {
+
+
+	/**
+	 * The main method.
+	 *
+	 * @param args
+	 *            the arguments
+	 * @throws IOException
+	 */
+	public static void main(final String[] args) throws IOException
+	{
+		final JFrame frame = new JFrame();
+		frame.addWindowListener(new CloseWindow());
+		frame.setTitle("ImagePanelTest");
+
+		final BufferedImage img1 = ImageIO
+			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
+		final ImagePanel pnlIconPanel = new ImagePanel(img1);
+		frame.add(pnlIconPanel);
+		frame.setBounds(0, 0, 820, 820);
+		frame.setVisible(true);
+	}
+
 
 }

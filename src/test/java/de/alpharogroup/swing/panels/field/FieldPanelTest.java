@@ -53,7 +53,8 @@ public class FieldPanelTest
 			@Override
 			protected DefaultComboBoxModel<String> newTypeModel()
 			{
-				return new DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" });
+				return new DefaultComboBoxModel<>(
+					new String[] { "Item 1", "Item 2", "Item 3", "Item 4" });
 			}
 		});
 		frame.pack();

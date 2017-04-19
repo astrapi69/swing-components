@@ -22,9 +22,33 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.components.factories;
+package de.alpharogroup.layout;
 
-public class JDialogExtensions
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder(toBuilder = true)
+public class InsetsModel
 {
 
+	/**
+	 * The inset from the top.
+	 */
+	private int top;
+
+	/**
+	 * The inset from the left.
+	 */
+	private int left;
+
+	/**
+	 * The inset from the bottom.
+	 */
+	private int bottom;
+
+	/**
+	 * The inset from the right.
+	 */
+	private int right;
 }

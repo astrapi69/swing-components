@@ -22,9 +22,34 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.components.factories;
+package de.alpharogroup.swing.desktoppane;
 
-public class JDialogExtensions
+import javax.swing.JDesktopPane;
+
+/**
+ * The class {@link SingletonDesktopPane}.
+ */
+public class SingletonDesktopPane
 {
+
+	/** The instance. */
+	private static JDesktopPane instance = new JDesktopPane();
+
+	/**
+	 * Gets the single instance of SingletonDesktopPane.
+	 *
+	 * @return single instance of SingletonDesktopPane
+	 */
+	public static JDesktopPane getInstance()
+	{
+		return instance;
+	}
+
+	/**
+	 * Instantiates a new singleton desktop pane.
+	 */
+	private SingletonDesktopPane()
+	{
+	}
 
 }

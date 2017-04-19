@@ -54,31 +54,6 @@ import net.lingala.zip4j.util.Zip4jConstants;
 public class ImageExtensionsTest
 {
 
-	/**
-	 * Test for method {@ImageExtensions#randomBufferedImage(int, int, int)}.
-	 *
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	@Test(enabled = true)
-	public void testRandomBufferedImage() throws IOException
-	{
-		// file object
-		final String filenameprefix = "random-generated";
-		final String ext = "png";
-		final File imgFile = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
-			filenameprefix + "." + ext);
-
-		final boolean imgWritten = ImageIO.write(
-			ImageExtensions.randomBufferedImage(340, 120, BufferedImage.TYPE_INT_ARGB), "png",
-			imgFile);
-		AssertJUnit.assertTrue(imgWritten);
-		if (imgWritten)
-		{
-			DeleteFileExtensions.delete(imgFile);
-		}
-	}
-
 	@Test(enabled = false)
 	public void testConcatenateImages() throws IOException
 	{
@@ -131,6 +106,31 @@ public class ImageExtensionsTest
 		final File verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(),
 			"img", "xmas", "resultImg." + extension);
 		ImageIO.write(result, extension, verticalImg);
+	}
+
+	/**
+	 * Test for method {@ImageExtensions#randomBufferedImage(int, int, int)}.
+	 *
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
+	@Test(enabled = true)
+	public void testRandomBufferedImage() throws IOException
+	{
+		// file object
+		final String filenameprefix = "random-generated";
+		final String ext = "png";
+		final File imgFile = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
+			filenameprefix + "." + ext);
+
+		final boolean imgWritten = ImageIO.write(
+			ImageExtensions.randomBufferedImage(340, 120, BufferedImage.TYPE_INT_ARGB), "png",
+			imgFile);
+		AssertJUnit.assertTrue(imgWritten);
+		if (imgWritten)
+		{
+			DeleteFileExtensions.delete(imgFile);
+		}
 	}
 
 

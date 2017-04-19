@@ -22,9 +22,44 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.components.factories;
+package de.alpharogroup.swing.panels.img;
 
-public class JDialogExtensions
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
+import javax.swing.JPanel;
+
+import lombok.NonNull;
+
+/**
+ * The class {@link ImagePanel}.
+ */
+public class ImagePanel extends JPanel
 {
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
+	/** The image. */
+	private final BufferedImage image;
+
+	/**
+	 * Instantiates a new {@link ImagePanel}.
+	 *
+	 * @param image
+	 *            the image
+	 */
+	public ImagePanel(@NonNull final BufferedImage image)
+	{
+		this.image = image;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void paintComponent(final Graphics g)
+	{
+		super.paintComponent(g);
+		g.drawImage(image, 0, 0, this);
+	}
 }

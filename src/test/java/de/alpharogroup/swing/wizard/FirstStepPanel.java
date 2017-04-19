@@ -22,9 +22,15 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.components.factories;
+package de.alpharogroup.swing.wizard;
 
-public class JDialogExtensions
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class FirstStepPanel extends JPanel
 {
-
+	public FirstStepPanel()
+	{
+		add(new JLabel("First step label"));
+	}
 }

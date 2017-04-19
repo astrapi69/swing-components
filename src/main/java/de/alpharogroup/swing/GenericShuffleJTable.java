@@ -36,7 +36,8 @@ import lombok.Getter;
  * @param <T>
  *            the generic type of the model
  */
-public class GenericShuffleJTable<T> implements Serializable {
+public class GenericShuffleJTable<T> implements Serializable
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -61,54 +62,61 @@ public class GenericShuffleJTable<T> implements Serializable {
 	 * @param rightTable
 	 *            the right table
 	 */
-	public GenericShuffleJTable(final GenericJTable<T> leftTable, final GenericJTable<T> rightTable) {
+	public GenericShuffleJTable(final GenericJTable<T> leftTable, final GenericJTable<T> rightTable)
+	{
 		Check.get().notNull(leftTable, "leftTable").notNull(rightTable, "rightTable");
 		this.leftTable = leftTable;
 		this.rightTable = rightTable;
 		this.model = new GenericShuffleTableModel<>(leftTable.getGenericTableModel(),
-				rightTable.getGenericTableModel());
+			rightTable.getGenericTableModel());
 
 	}
 
 	/**
 	 * Adds all the left rows to right table.
 	 */
-	public void addAllLeftRowsToRightTable() {
+	public void addAllLeftRowsToRightTable()
+	{
 		model.addAllLeftRowsToRightTableModel();
 	}
 
 	/**
 	 * Adds all the right rows to left table.
 	 */
-	public void addAllRightRowsToLeftTable() {
+	public void addAllRightRowsToLeftTable()
+	{
 		model.addAllRightRowsToLeftTableModel();
 	}
 
 	/**
 	 * Shuffle selected left rows to right table.
 	 */
-	public void shuffleSelectedLeftRowsToRightTable() {
+	public void shuffleSelectedLeftRowsToRightTable()
+	{
 		model.shuffleSelectedLeftRowsToRightTableModel(leftTable.getSelectedRows());
 	}
 
 	/**
 	 * Shuffle selected left row to right table.
 	 */
-	public void shuffleSelectedLeftRowToRightTable() {
+	public void shuffleSelectedLeftRowToRightTable()
+	{
 		model.shuffleSelectedLeftRowToRightTableModel(leftTable.getSelectedRow());
 	}
 
 	/**
 	 * Shuffle selected right rows to left table.
 	 */
-	public void shuffleSelectedRightRowsToLeftTable() {
+	public void shuffleSelectedRightRowsToLeftTable()
+	{
 		model.shuffleSelectedRightRowsToLeftTableModel(rightTable.getSelectedRows());
 	}
 
 	/**
 	 * Shuffle selected right row to left table.
 	 */
-	public void shuffleSelectedRightRowToLeftTable() {
+	public void shuffleSelectedRightRowToLeftTable()
+	{
 		model.shuffleSelectedRightRowToLeftTableModel(rightTable.getSelectedRow());
 	}
 
