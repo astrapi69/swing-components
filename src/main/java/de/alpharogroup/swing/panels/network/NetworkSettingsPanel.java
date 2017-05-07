@@ -285,31 +285,24 @@ public class NetworkSettingsPanel extends JPanel
 	public void initializeLayout()
 	{
 		final GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(
-			groupLayout
-				.createSequentialGroup()
-				.addContainerGap()
-				.addGroup(
-					groupLayout
-						.createParallelGroup(Alignment.LEADING)
-						.addComponent(lpHostOrIpaddress, Alignment.TRAILING,
-							GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
-						.addComponent(lpNoProxy, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 501,
-							Short.MAX_VALUE)
-						.addComponent(lpUseSystemSettings, GroupLayout.PREFERRED_SIZE, 501,
-							GroupLayout.PREFERRED_SIZE)).addContainerGap()));
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+			.addGroup(groupLayout.createSequentialGroup().addContainerGap()
+				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+					.addComponent(lpHostOrIpaddress, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
+						501, Short.MAX_VALUE)
+					.addComponent(lpNoProxy, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 501,
+						Short.MAX_VALUE)
+					.addComponent(lpUseSystemSettings, GroupLayout.PREFERRED_SIZE, 501,
+						GroupLayout.PREFERRED_SIZE))
+				.addContainerGap()));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-			.addGroup(
-				groupLayout
-					.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lpNoProxy, GroupLayout.PREFERRED_SIZE, 42,
-						GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(lpHostOrIpaddress, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-					.addGap(18)
-					.addComponent(lpUseSystemSettings, GroupLayout.PREFERRED_SIZE, 42,
-						GroupLayout.PREFERRED_SIZE).addGap(29)));
+			.addGroup(groupLayout.createSequentialGroup().addContainerGap()
+				.addComponent(lpNoProxy, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+				.addGap(18)
+				.addComponent(lpHostOrIpaddress, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+				.addGap(18).addComponent(lpUseSystemSettings, GroupLayout.PREFERRED_SIZE, 42,
+					GroupLayout.PREFERRED_SIZE)
+				.addGap(29)));
 		setLayout(groupLayout);
 	}
 }

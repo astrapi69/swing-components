@@ -28,6 +28,7 @@ package de.alpharogroup.swing.plugable.api;
  *
  * @author astrapi69
  */
-public interface PluginConfiguration {
-    
+public interface PluginConfiguration
+{
+
 }

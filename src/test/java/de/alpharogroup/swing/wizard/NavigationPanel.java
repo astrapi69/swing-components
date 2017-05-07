@@ -22,41 +22,51 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.img;
+package de.alpharogroup.swing.wizard;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+import java.awt.Color;
 
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
-import de.alpharogroup.lang.ClassExtensions;
-import de.alpharogroup.layout.CloseWindow;
+import lombok.Getter;
 
-public class ImagePanelTest
+@Getter
+public class NavigationPanel extends JPanel
 {
+	private JButton nextButton;
+	private JButton previousButton;
 
-
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 * @throws IOException
-	 */
-	public static void main(final String[] args) throws IOException
+	public NavigationPanel()
 	{
-		final JFrame frame = new JFrame();
-		frame.addWindowListener(new CloseWindow());
-		frame.setTitle("ImagePanelTest");
-
-		final BufferedImage img1 = ImageIO
-			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
-		final ImagePanel pnlIconPanel = new ImagePanel(img1);
-		frame.add(pnlIconPanel);
-		frame.setBounds(0, 0, 820, 820);
-		frame.setVisible(true);
+		setBorder(new LineBorder(Color.BLACK));
+		nextButton = newNextButton("Next");
+		previousButton = newPreviousButton("Previous");
+		add(previousButton);
+		add(nextButton);
 	}
 
+	protected JButton newNextButton(String label)
+	{
+		JButton button = new JButton(label);
+		button.addActionListener(e -> onNext());
+		return button;
+	}
+
+	protected JButton newPreviousButton(String label)
+	{
+		JButton button = new JButton(label);
+		button.addActionListener(e -> onPrevious());
+		return button;
+	}
+
+	protected void onNext()
+	{
+	}
+
+	protected void onPrevious()
+	{
+	}
 
 }

@@ -34,7 +34,8 @@ import de.alpharogroup.check.Check;
 /**
  * The class {@link DisposeWindowAction}.
  */
-public class DisposeWindowAction extends AbstractAction {
+public class DisposeWindowAction extends AbstractAction
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -47,7 +48,8 @@ public class DisposeWindowAction extends AbstractAction {
 	 * @param window
 	 *            the window
 	 */
-	public DisposeWindowAction(final Window window) {
+	public DisposeWindowAction(final Window window)
+	{
 		super("DisposeWindowAction");
 		Check.get().notNull(window, "window");
 		this.window = window;
@@ -57,7 +59,8 @@ public class DisposeWindowAction extends AbstractAction {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void actionPerformed(final ActionEvent e) {
+	public void actionPerformed(final ActionEvent e)
+	{
 		window.setVisible(false);
 		window.dispose();
 	}

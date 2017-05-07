@@ -40,8 +40,9 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class MenuItemBean {
+@Builder(toBuilder = true)
+public class MenuItemBean
+{
 	private String label;
 	private String command;
 	private ActionListener actionListener;

@@ -47,7 +47,7 @@ public class JInternalFrameExtensions
 	 *            the {@link JInternalFrame} object.
 	 * @param view
 	 *            the {@link View} object to add.
-	 *            @deprecated use instead {@link JInternalFrameExtensions#addViewToFrame(JInternalFrame, View)}
+	 * @deprecated use instead {@link JInternalFrameExtensions#addViewToFrame(JInternalFrame, View)}
 	 */
 	@Deprecated
 	public static void setViewAndControllerForJInternalFrame(final JInternalFrame internalFrame,
@@ -65,8 +65,7 @@ public class JInternalFrameExtensions
 	 * @param view
 	 *            the {@link View} object to add
 	 */
-	public static void addViewToFrame(final JInternalFrame internalFrame,
-		final View<?, ?> view)
+	public static void addViewToFrame(final JInternalFrame internalFrame, final View<?, ?> view)
 	{
 		internalFrame.add(view.getComponent(), BorderLayout.CENTER);
 		internalFrame.pack();

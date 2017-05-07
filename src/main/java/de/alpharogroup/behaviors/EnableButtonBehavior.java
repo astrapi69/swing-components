@@ -42,7 +42,7 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode
 @ToString
-@Builder
+@Builder(toBuilder = true)
 public class EnableButtonBehavior implements DocumentListener
 {
 
@@ -58,11 +58,15 @@ public class EnableButtonBehavior implements DocumentListener
 	/**
 	 * Instantiates a new {@link EnableButtonBehavior}.
 	 *
-	 * @param buttonModel the button model
-	 * @param document the document
-	 * @param enabled the enabled
+	 * @param buttonModel
+	 *            the button model
+	 * @param document
+	 *            the document
+	 * @param enabled
+	 *            the enabled
 	 */
-	public EnableButtonBehavior(final ButtonModel buttonModel, final Document document, final boolean enabled)
+	public EnableButtonBehavior(final ButtonModel buttonModel, final Document document,
+		final boolean enabled)
 	{
 		this.buttonModel = buttonModel;
 		this.document = document;
@@ -72,6 +76,24 @@ public class EnableButtonBehavior implements DocumentListener
 		{
 			onChange();
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void changedUpdate(final DocumentEvent e)
+	{
+		onChange();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void insertUpdate(final DocumentEvent e)
+	{
+		onChange();
 	}
 
 	/**
@@ -91,25 +113,7 @@ public class EnableButtonBehavior implements DocumentListener
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void insertUpdate(final DocumentEvent e)
-	{
-		onChange();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public void removeUpdate(final DocumentEvent e)
-	{
-		onChange();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void changedUpdate(final DocumentEvent e)
 	{
 		onChange();
 	}

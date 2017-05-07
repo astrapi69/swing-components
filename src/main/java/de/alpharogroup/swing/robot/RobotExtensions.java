@@ -45,8 +45,8 @@ public class RobotExtensions
 	 * @throws NoSuchFieldException
 	 *             the no such field exception
 	 */
-	public static int getKeyCode(final char character) throws IllegalAccessException,
-		NoSuchFieldException
+	public static int getKeyCode(final char character)
+		throws IllegalAccessException, NoSuchFieldException
 	{
 		final String c = String.valueOf(character).toUpperCase();
 		final String variableName = "VK_" + c;

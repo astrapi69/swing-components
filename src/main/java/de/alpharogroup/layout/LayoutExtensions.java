@@ -41,6 +41,37 @@ public final class LayoutExtensions
 {
 
 
+	public static void add(final GridBagLayoutModel layoutModel)
+	{
+		final GridBagConstraints gbc = layoutModel.getGridBagConstraints();
+		final Component layoutComponent = layoutModel.getLayoutComponent();
+		final Container parent = layoutModel.getParent();
+		gbc.anchor = layoutModel.getAnchor();
+		gbc.fill = layoutModel.getFill();
+		gbc.insets = new Insets(layoutModel.getInsets().getTop(), layoutModel.getInsets().getLeft(),
+			layoutModel.getInsets().getBottom(), layoutModel.getInsets().getRight());
+		gbc.gridx = layoutModel.getGridx();
+		gbc.gridy = layoutModel.getGridy();
+		gbc.gridwidth = layoutModel.getGridwidth();
+		gbc.gridheight = layoutModel.getGridheight();
+		gbc.weightx = layoutModel.getWeightx();
+		gbc.weighty = layoutModel.getWeighty();
+		gbc.ipadx = layoutModel.getIpadx();
+		gbc.ipady = layoutModel.getIpady();
+
+		layoutModel.getGridBagLayout().setConstraints(layoutComponent, gbc);
+		parent.add(layoutComponent);
+
+		if (ObjectExtensions.isNotDefaultValue(layoutModel.getVerticalStrut()))
+		{
+			parent.add(Box.createVerticalStrut(layoutModel.getVerticalStrut()), gbc);
+		}
+		if (ObjectExtensions.isNotDefaultValue(layoutModel.getHorizontalStrut()))
+		{
+			parent.add(Box.createHorizontalStrut(layoutModel.getHorizontalStrut()), gbc);
+		}
+	}
+
 	/**
 	 * Adds the component.
 	 *
@@ -274,36 +305,6 @@ public final class LayoutExtensions
 		gbl.setConstraints(addComponentToPanel, gbc);
 		panelToAdd.add(addComponentToPanel);
 		panelToAdd.add(Box.createVerticalStrut(verticalStrut), gbc);
-	}
-
-	public static void add(final GridBagLayoutModel layoutModel) {
-		final GridBagConstraints gbc = layoutModel.getGridBagConstraints();
-		final Component layoutComponent = layoutModel.getLayoutComponent();
-		final Container parent = layoutModel.getParent();
-		gbc.anchor = layoutModel.getAnchor();
-		gbc.fill = layoutModel.getFill();
-		gbc.insets = new Insets(layoutModel.getInsets().getTop(),
-			layoutModel.getInsets().getLeft(),
-			layoutModel.getInsets().getBottom(),
-			layoutModel.getInsets().getRight());
-		gbc.gridx = layoutModel.getGridx();
-		gbc.gridy = layoutModel.getGridy();
-		gbc.gridwidth = layoutModel.getGridwidth();
-		gbc.gridheight = layoutModel.getGridheight();
-		gbc.weightx = layoutModel.getWeightx();
-		gbc.weighty = layoutModel.getWeighty();
-		gbc.ipadx = layoutModel.getIpadx();
-		gbc.ipady = layoutModel.getIpady();
-
-		layoutModel.getGridBagLayout().setConstraints(layoutComponent, gbc);
-		parent.add(layoutComponent);
-
-		if(ObjectExtensions.isNotDefaultValue(layoutModel.getVerticalStrut())) {
-			parent.add(Box.createVerticalStrut(layoutModel.getVerticalStrut()), gbc);
-		}
-		if(ObjectExtensions.isNotDefaultValue(layoutModel.getHorizontalStrut())) {
-			parent.add(Box.createHorizontalStrut(layoutModel.getHorizontalStrut()), gbc);
-		}
 	}
 
 }

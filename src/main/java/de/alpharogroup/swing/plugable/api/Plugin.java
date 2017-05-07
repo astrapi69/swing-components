@@ -24,16 +24,17 @@
  */
 package de.alpharogroup.swing.plugable.api;
 
-public interface Plugin {
+public interface Plugin
+{
 
-    void load(PluginConfiguration pluginConfiguration);
+	String getName();
 
-    void reload(PluginConfiguration pluginConfiguration);
+	void load(PluginConfiguration pluginConfiguration);
 
-    void start();
+	void reload(PluginConfiguration pluginConfiguration);
 
-    void stop();
+	void start();
 
-    String getName();
+	void stop();
 
 }

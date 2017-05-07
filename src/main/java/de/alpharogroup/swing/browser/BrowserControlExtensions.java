@@ -130,8 +130,8 @@ public class BrowserControlExtensions
 	 * @throws Exception
 	 *             the exception
 	 */
-	private static Boolean openURLinUnixOS(final String url) throws InterruptedException,
-		IOException, Exception
+	private static Boolean openURLinUnixOS(final String url)
+		throws InterruptedException, IOException, Exception
 	{
 		Boolean executed = false;
 		for (final Browsers browser : Browsers.values())
@@ -139,7 +139,8 @@ public class BrowserControlExtensions
 			if (!executed)
 			{
 				executed = Runtime.getRuntime()
-					.exec(new String[] { UNIX_COMMAND_WHICH, browser.getBrowserName() }).waitFor() == 0;
+					.exec(new String[] { UNIX_COMMAND_WHICH, browser.getBrowserName() })
+					.waitFor() == 0;
 				if (executed)
 				{
 					Runtime.getRuntime().exec(new String[] { browser.getBrowserName(), url });

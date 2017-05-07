@@ -32,26 +32,26 @@ public interface Keystrokes
 {
 
 	/** The Constant CTRL_ALT_A. */
-	static final KeyStroke CTRL_ALT_A = KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_MASK
-		+ KeyEvent.ALT_MASK);
+	static final KeyStroke CTRL_ALT_A = KeyStroke.getKeyStroke(KeyEvent.VK_A,
+		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
 
 	/** The Constant CTRL_ALT_B. */
-	static final KeyStroke CTRL_ALT_B = KeyStroke.getKeyStroke(KeyEvent.VK_B, KeyEvent.CTRL_MASK
-		+ KeyEvent.ALT_MASK);
+	static final KeyStroke CTRL_ALT_B = KeyStroke.getKeyStroke(KeyEvent.VK_B,
+		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
 
 	/** The Constant CTRL_ALT_C. */
-	static final KeyStroke CTRL_ALT_C = KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.CTRL_MASK
-		+ KeyEvent.ALT_MASK);
+	static final KeyStroke CTRL_ALT_C = KeyStroke.getKeyStroke(KeyEvent.VK_C,
+		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
 
 	/** The Constant CTRL_ALT_D. */
-	static final KeyStroke CTRL_ALT_D = KeyStroke.getKeyStroke(KeyEvent.VK_D, KeyEvent.CTRL_MASK
-		+ KeyEvent.ALT_MASK);
+	static final KeyStroke CTRL_ALT_D = KeyStroke.getKeyStroke(KeyEvent.VK_D,
+		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
 
 	/** The Constant CTRL_ALT_E. */
-	static final KeyStroke CTRL_ALT_E = KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_MASK
-		+ KeyEvent.ALT_MASK);
+	static final KeyStroke CTRL_ALT_E = KeyStroke.getKeyStroke(KeyEvent.VK_E,
+		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
 
 	/** The Constant CTRL_ALT_F. */
-	static final KeyStroke CTRL_ALT_F = KeyStroke.getKeyStroke(KeyEvent.VK_F, KeyEvent.CTRL_MASK
-		+ KeyEvent.ALT_MASK);
+	static final KeyStroke CTRL_ALT_F = KeyStroke.getKeyStroke(KeyEvent.VK_F,
+		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
 }

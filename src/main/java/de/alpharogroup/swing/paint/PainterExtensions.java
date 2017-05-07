@@ -104,8 +104,8 @@ public class PainterExtensions
 	public static MattePainter getMattePainter(final int width, final int height,
 		final float[] fractions, final Color... colors)
 	{
-		final LinearGradientPaint gradientPaint = new LinearGradientPaint(0.0f, 0.0f, width,
-			height, fractions, colors);
+		final LinearGradientPaint gradientPaint = new LinearGradientPaint(0.0f, 0.0f, width, height,
+			fractions, colors);
 		final MattePainter mattePainter = new MattePainter(gradientPaint);
 		return mattePainter;
 
