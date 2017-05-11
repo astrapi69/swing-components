@@ -39,26 +39,26 @@ import de.alpharogroup.swing.x.GenericJXTable;
 public class CurrentThreadsTablePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private ThreadsTableModel tableModel;
-	
+
 	private GenericJXTable<ThreadDataBean> threadTable;
 
 	public CurrentThreadsTablePanel() {
 		onInitialize();
 	}
-	
+
 	protected void onInitialize() {
 		tableModel = newThreadsTableModel();
 		threadTable = new GenericJXTable<>(tableModel);
-		JScrollPane sp = new JScrollPane(threadTable);
+		final JScrollPane sp = new JScrollPane(threadTable);
 		setLayout(new BorderLayout());
 		add(sp, BorderLayout.CENTER);
-		
+
 	}
-	
+
 	protected ThreadsTableModel newThreadsTableModel() {
-		ThreadsTableModel tableModel = new ThreadsTableModel();
+		final ThreadsTableModel tableModel = new ThreadsTableModel();
 		return tableModel;
 	}
 
