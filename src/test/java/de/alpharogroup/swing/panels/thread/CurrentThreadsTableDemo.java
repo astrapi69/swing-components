@@ -1,14 +1,12 @@
-package de.alpharogroup.swing.panels.threads;
+package de.alpharogroup.swing.panels.thread;
 
 import javax.swing.JFrame;
 
-import de.alpharogroup.swing.panels.thread.CurrentThreadsTablePanel;
-
 public class CurrentThreadsTableDemo {
 
-	public static void main(String[] args) {
-		JFrame f = new JFrame();
-		CurrentThreadsTablePanel viewer = new CurrentThreadsTablePanel();
+	public static void main(final String[] args) {
+		final JFrame f = new JFrame();
+		final CurrentThreadsTablePanel viewer = new CurrentThreadsTablePanel();
 
 		f.setContentPane(viewer);
 		f.setSize(500, 300);
