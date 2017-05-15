@@ -31,42 +31,19 @@ import java.util.Set;
 
 import javax.swing.SwingUtilities;
 
-import de.alpharogroup.swing.tablemodel.GenericTableModel;
+import de.alpharogroup.swing.tablemodel.BaseTableModel;
+import de.alpharogroup.swing.tablemodel.TableColumnsModel;
 
 /**
  * The class {@link ThreadsTableModel} that lists all threads.
  */
-public class ThreadsTableModel extends GenericTableModel<ThreadDataBean> {
+public class ThreadsTableModel extends BaseTableModel<ThreadDataBean> {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	private List<ThreadDataBean> currentThreadData;
-
-	/** The Constant PRIORITY. */
-	public static final String PRIORITY = "Priority";
-
-	/** The Constant ALIVE. */
-	public static final String ALIVE = "Alive";
-
-	/** The Constant DAEMON. */
-	public static final String DAEMON = "Daemon";
-
-	/** The Constant INTERRUPTED. */
-	public static final String INTERRUPTED = "Interrupted";
-
-	/** The Constant NAME. */
-	public static final String THREAD_GROUP = "Thread group";
-
-	/** The Constant NAME. */
-	public static final String NAME = "Name";
-
-	/** The column names. */
-	private final String[] columnNames = { PRIORITY, ALIVE, DAEMON, INTERRUPTED, THREAD_GROUP, NAME };
-
-	/** The can edit. */
-	private boolean[] canEdit = new boolean[] { false, false, false, false, false, false };
-
+	
 	private Object lock;
 
 	private Thread updateRunningThreads;
@@ -77,6 +54,17 @@ public class ThreadsTableModel extends GenericTableModel<ThreadDataBean> {
 	 * Instantiates a new {@link ThreadsTableModel} object.
 	 */
 	public ThreadsTableModel() {
+		this(TableColumnsModel.builder().columnNames(new String[] { "Priority", "Alive", "Daemon", "Interrupted", "Thread group", "Name" })
+				.canEdit(new boolean[] { false, false, false, false, false, false })
+				.columnClasses(new Class<?>[]{Integer.class, Boolean.class, Boolean.class, Boolean.class, String.class, String.class})
+				.build());
+	}
+
+	/**
+	 * Instantiates a new {@link ThreadsTableModel} object.
+	 */
+	public ThreadsTableModel(TableColumnsModel columnsModel) {
+		super(columnsModel);
 		onInitialize();
 	}
 	
@@ -114,7 +102,7 @@ public class ThreadsTableModel extends GenericTableModel<ThreadDataBean> {
 			try {
 				newThreadData();
 				SwingUtilities.invokeAndWait(updateCurrentRunningThreads);
-				Thread.sleep(5000);
+				Thread.sleep(1000);
 			} catch (InterruptedException exception) {
 				Thread.currentThread().interrupt();
 			} catch (InvocationTargetException exception) {
@@ -151,45 +139,6 @@ public class ThreadsTableModel extends GenericTableModel<ThreadDataBean> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Class<?> getColumnClass(final int c) {
-		switch (c) {
-		case 0:
-			return Integer.class;
-		case 1:
-			return Boolean.class;
-		case 2:
-			return Boolean.class;
-		case 3:
-			return Boolean.class;
-		case 4:
-			return String.class;
-		case 5:
-			return String.class;
-		default:
-			return null;
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getColumnCount() {
-		return columnNames.length;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String getColumnName(final int col) {
-		return columnNames[col];
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public Object getValueAt(final int row, final int col) {
 		final ThreadDataBean threadData = getData().get(row);
 		switch (col) {
@@ -208,14 +157,6 @@ public class ThreadsTableModel extends GenericTableModel<ThreadDataBean> {
 		default:
 			return null;
 		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isCellEditable(final int rowIndex, final int columnIndex) {
-		return canEdit[columnIndex];
 	}
 
 	/**
