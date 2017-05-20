@@ -29,7 +29,7 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import de.alpharogroup.swing.tablemodel.thread.ThreadDataBean;
+import de.alpharogroup.lang.thread.ThreadDataBean;
 import de.alpharogroup.swing.tablemodel.thread.ThreadsTableModel;
 import de.alpharogroup.swing.x.GenericJXTable;
 

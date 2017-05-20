@@ -25,12 +25,12 @@
 package de.alpharogroup.swing.tablemodel.thread;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.swing.SwingUtilities;
 
+import de.alpharogroup.lang.thread.ThreadDataBean;
+import de.alpharogroup.lang.thread.ThreadExtensions;
 import de.alpharogroup.swing.tablemodel.BaseTableModel;
 import de.alpharogroup.swing.tablemodel.TableColumnsModel;
 
@@ -43,7 +43,7 @@ public class ThreadsTableModel extends BaseTableModel<ThreadDataBean> {
 	private static final long serialVersionUID = 1L;
 
 	private List<ThreadDataBean> currentThreadData;
-	
+
 	private Object lock;
 
 	private Thread updateRunningThreads;
@@ -63,21 +63,21 @@ public class ThreadsTableModel extends BaseTableModel<ThreadDataBean> {
 	/**
 	 * Instantiates a new {@link ThreadsTableModel} object.
 	 */
-	public ThreadsTableModel(TableColumnsModel columnsModel) {
+	public ThreadsTableModel(final TableColumnsModel columnsModel) {
 		super(columnsModel);
 		onInitialize();
 	}
-	
+
 	protected void onInitialize() {
 		lock = new Object();
 
 		running = true;
-		Runnable updater = new Runnable() {
+		final Runnable updater = new Runnable() {
 			@Override
 			public void run() {
 				try {
 					update();
-				} catch (Exception exception) {
+				} catch (final Exception exception) {
 					exception.printStackTrace();
 				}
 			}
@@ -86,11 +86,11 @@ public class ThreadsTableModel extends BaseTableModel<ThreadDataBean> {
 		updateRunningThreads.setPriority(Thread.MAX_PRIORITY);
 		updateRunningThreads.setDaemon(true);
 		updateRunningThreads.start();
-		
+
 	}
 
 	private void update() {
-		Runnable updateCurrentRunningThreads = new Runnable() {
+		final Runnable updateCurrentRunningThreads = new Runnable() {
 			@Override
 			public void run() {
 				updateCurrentThreadData();
@@ -103,9 +103,9 @@ public class ThreadsTableModel extends BaseTableModel<ThreadDataBean> {
 				newThreadData();
 				SwingUtilities.invokeAndWait(updateCurrentRunningThreads);
 				Thread.sleep(1000);
-			} catch (InterruptedException exception) {
+			} catch (final InterruptedException exception) {
 				Thread.currentThread().interrupt();
-			} catch (InvocationTargetException exception) {
+			} catch (final InvocationTargetException exception) {
 				exception.printStackTrace();
 				interrupt();
 			}
@@ -113,14 +113,8 @@ public class ThreadsTableModel extends BaseTableModel<ThreadDataBean> {
 	}
 
 	private void newThreadData() {
-		Thread[] thread = resolveRunningThreads();
-		List<ThreadDataBean> newCellData = new ArrayList<>(thread.length);
-		for (int i = 0; i < thread.length; i++) {
-			Thread t = thread[i];
-			newCellData.add(ThreadDataBean.of(t));
-		}
 		synchronized (lock) {
-			currentThreadData = newCellData;
+			currentThreadData = ThreadExtensions.newThreadData();
 		}
 	}
 
@@ -159,14 +153,4 @@ public class ThreadsTableModel extends BaseTableModel<ThreadDataBean> {
 		}
 	}
 
-	/**
-	 * Finds all threads the are currently running.
-	 *
-	 * @return An array with all threads the are currently running.
-	 */
-	private Thread[] resolveRunningThreads() {
-		Set<Thread> threadSet = Thread.getAllStackTraces().keySet();
-		Thread[] threadArray = threadSet.toArray(new Thread[threadSet.size()]);
-		return threadArray;
-	}
 }
