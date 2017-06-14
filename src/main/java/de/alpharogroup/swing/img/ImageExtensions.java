@@ -29,6 +29,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
@@ -69,7 +70,25 @@ public class ImageExtensions
 	{
 		BufferedImage img = null;
 		try {
-			img = ImageIO.read(new ByteArrayInputStream(byteArray));
+			img = read(byteArray);
+		} catch (IOException e) {
+			LOG.error("Reading image failed.", e);
+		}
+		return img;
+	}
+	
+	/**
+	 * Gets the buffered image from the given byte array quietly.
+	 *
+	 * @param byteArray
+	 *            the byte array
+	 * @return the buffered image or null if the read process failed.
+	 */
+	public static BufferedImage readQuietly(final InputStream input)
+	{
+		BufferedImage img = null;
+		try {
+			img = ImageIO.read(input);
 		} catch (IOException e) {
 			LOG.error("Reading image failed.", e);
 		}
