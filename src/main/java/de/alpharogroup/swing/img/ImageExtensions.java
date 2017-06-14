@@ -33,10 +33,13 @@ import java.io.OutputStream;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -52,6 +55,27 @@ import de.alpharogroup.random.RandomExtensions;
 public class ImageExtensions
 {
 
+	/** The logger constant. */
+	private static final Logger LOG = LoggerFactory.getLogger(ImageExtensions.class.getName());
+	
+	/**
+	 * Gets the buffered image from the given byte array quietly.
+	 *
+	 * @param byteArray
+	 *            the byte array
+	 * @return the buffered image or null if the read process failed.
+	 */
+	public static BufferedImage readQuietly(final byte[] byteArray)
+	{
+		BufferedImage img = null;
+		try {
+			img = ImageIO.read(new ByteArrayInputStream(byteArray));
+		} catch (IOException e) {
+			LOG.error("Reading image failed.", e);
+		}
+		return img;
+	}
+	
 	/**
 	 * The Enum Direction.
 	 */
