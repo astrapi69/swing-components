@@ -77,6 +77,17 @@ public class ImageExtensions
 	}
 	
 	/**
+	 * Factory method for create a new {@link ImageIcon}.
+	 *
+	 * @param image the file that contains the image 
+	 * @return the new {@link ImageIcon}
+	 */
+	public static ImageIcon newImageIcon(File image) {
+		ImageIcon img = new ImageIcon(image.getAbsolutePath());
+		return img;
+	}
+	
+	/**
 	 * The Enum Direction.
 	 */
 	public enum Direction
