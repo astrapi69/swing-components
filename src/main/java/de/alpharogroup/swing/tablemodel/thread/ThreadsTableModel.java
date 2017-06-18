@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2015 Asterios Raptis
  *
- * Thread is hereby granted, free of charge, to any person obtaining
+ * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
  * without limitation the rights to use, copy, modify, merge, publish,
@@ -11,7 +11,7 @@
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
  *
- * The above copyright notice and this Thread notice shall be
+ * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
@@ -37,7 +37,8 @@ import de.alpharogroup.swing.tablemodel.TableColumnsModel;
 /**
  * The class {@link ThreadsTableModel} that lists all threads.
  */
-public class ThreadsTableModel extends BaseTableModel<ThreadDataBean> {
+public class ThreadsTableModel extends BaseTableModel<ThreadDataBean>
+{
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -53,31 +54,85 @@ public class ThreadsTableModel extends BaseTableModel<ThreadDataBean> {
 	/**
 	 * Instantiates a new {@link ThreadsTableModel} object.
 	 */
-	public ThreadsTableModel() {
-		this(TableColumnsModel.builder().columnNames(new String[] { "Priority", "Alive", "Daemon", "Interrupted", "Thread group", "Name" })
-				.canEdit(new boolean[] { false, false, false, false, false, false })
-				.columnClasses(new Class<?>[]{Integer.class, Boolean.class, Boolean.class, Boolean.class, String.class, String.class})
-				.build());
+	public ThreadsTableModel()
+	{
+		this(TableColumnsModel.builder()
+			.columnNames(new String[] { "Priority", "Alive", "Daemon", "Interrupted",
+					"Thread group", "Name" })
+			.canEdit(new boolean[] { false, false, false, false, false, false })
+			.columnClasses(new Class<?>[] { Integer.class, Boolean.class, Boolean.class,
+					Boolean.class, String.class, String.class })
+			.build());
 	}
 
 	/**
 	 * Instantiates a new {@link ThreadsTableModel} object.
+	 *
+	 * @param columnsModel
+	 *            the columns model
 	 */
-	public ThreadsTableModel(final TableColumnsModel columnsModel) {
+	public ThreadsTableModel(final TableColumnsModel columnsModel)
+	{
 		super(columnsModel);
 		onInitialize();
 	}
 
-	protected void onInitialize() {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Object getValueAt(final int row, final int col)
+	{
+		final ThreadDataBean threadData = getData().get(row);
+		switch (col)
+		{
+			case 0 :
+				return threadData.getPriority();
+			case 1 :
+				return threadData.isAlive();
+			case 2 :
+				return threadData.isDaemon();
+			case 3 :
+				return threadData.isInterrupted();
+			case 4 :
+				return threadData.getThreadGroup();
+			case 5 :
+				return threadData.getName();
+			default :
+				return null;
+		}
+	}
+
+	public void interrupt()
+	{
+		running = false;
+		updateRunningThreads.interrupt();
+	}
+
+	private void newThreadData()
+	{
+		synchronized (lock)
+		{
+			currentThreadData = ThreadExtensions.newThreadData();
+		}
+	}
+
+	protected void onInitialize()
+	{
 		lock = new Object();
 
 		running = true;
-		final Runnable updater = new Runnable() {
+		final Runnable updater = new Runnable()
+		{
 			@Override
-			public void run() {
-				try {
+			public void run()
+			{
+				try
+				{
 					update();
-				} catch (final Exception exception) {
+				}
+				catch (final Exception exception)
+				{
 					exception.printStackTrace();
 				}
 			}
@@ -89,67 +144,43 @@ public class ThreadsTableModel extends BaseTableModel<ThreadDataBean> {
 
 	}
 
-	private void update() {
-		final Runnable updateCurrentRunningThreads = new Runnable() {
+	private void update()
+	{
+		final Runnable updateCurrentRunningThreads = new Runnable()
+		{
 			@Override
-			public void run() {
+			public void run()
+			{
 				updateCurrentThreadData();
 				fireTableDataChanged();
 			}
 		};
 
-		while (running) {
-			try {
+		while (running)
+		{
+			try
+			{
 				newThreadData();
 				SwingUtilities.invokeAndWait(updateCurrentRunningThreads);
 				Thread.sleep(1000);
-			} catch (final InterruptedException exception) {
+			}
+			catch (final InterruptedException exception)
+			{
 				Thread.currentThread().interrupt();
-			} catch (final InvocationTargetException exception) {
+			}
+			catch (final InvocationTargetException exception)
+			{
 				exception.printStackTrace();
 				interrupt();
 			}
 		}
 	}
 
-	private void newThreadData() {
-		synchronized (lock) {
-			currentThreadData = ThreadExtensions.newThreadData();
-		}
-	}
-
-	public void interrupt() {
-		running = false;
-		updateRunningThreads.interrupt();
-	}
-
-	private void updateCurrentThreadData() {
-		synchronized (lock) {
+	private void updateCurrentThreadData()
+	{
+		synchronized (lock)
+		{
 			setData(currentThreadData);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Object getValueAt(final int row, final int col) {
-		final ThreadDataBean threadData = getData().get(row);
-		switch (col) {
-		case 0:
-			return threadData.getPriority();
-		case 1:
-			return threadData.isAlive();
-		case 2:
-			return threadData.isDaemon();
-		case 3:
-			return threadData.isInterrupted();
-		case 4:
-			return threadData.getThreadGroup();
-		case 5:
-			return threadData.getName();
-		default:
-			return null;
 		}
 	}
 

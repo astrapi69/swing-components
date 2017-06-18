@@ -36,7 +36,8 @@ import de.alpharogroup.swing.x.GenericJXTable;
 /**
  * The class {@link CurrentThreadsTablePanel} shows all running threads in an application.
  */
-public class CurrentThreadsTablePanel extends JPanel {
+public class CurrentThreadsTablePanel extends JPanel
+{
 
 	private static final long serialVersionUID = 1L;
 
@@ -44,31 +45,36 @@ public class CurrentThreadsTablePanel extends JPanel {
 
 	private GenericJXTable<ThreadDataBean> threadTable;
 
-	public CurrentThreadsTablePanel() {
+	public CurrentThreadsTablePanel()
+	{
 		onInitialize();
 	}
 
-	protected void onInitialize() {
+	@Override
+	protected void finalize() throws Throwable
+	{
+		interrupt();
+	}
+
+	public void interrupt()
+	{
+		tableModel.interrupt();
+	}
+
+	protected ThreadsTableModel newThreadsTableModel()
+	{
+		final ThreadsTableModel tableModel = new ThreadsTableModel();
+		return tableModel;
+	}
+
+	protected void onInitialize()
+	{
 		tableModel = newThreadsTableModel();
 		threadTable = new GenericJXTable<>(tableModel);
 		final JScrollPane sp = new JScrollPane(threadTable);
 		setLayout(new BorderLayout());
 		add(sp, BorderLayout.CENTER);
 
-	}
-
-	protected ThreadsTableModel newThreadsTableModel() {
-		final ThreadsTableModel tableModel = new ThreadsTableModel();
-		return tableModel;
-	}
-
-	public void interrupt() {
-		tableModel.interrupt();
-	}
-
-	@Override
-	protected void finalize() throws Throwable {
-		interrupt();
 	}
 
 }
