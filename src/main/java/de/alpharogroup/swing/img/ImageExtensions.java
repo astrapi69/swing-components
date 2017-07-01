@@ -29,14 +29,18 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -62,6 +66,9 @@ public class ImageExtensions
 		/** Indicates the vertical direction. */
 		vertical
 	}
+
+	/** The logger constant. */
+	private static final Logger LOG = LoggerFactory.getLogger(ImageExtensions.class.getName());
 
 	/**
 	 * Concatenate the given list of BufferedImage objects to one image and returns the concatenated
@@ -184,6 +191,19 @@ public class ImageExtensions
 	}
 
 	/**
+	 * Factory method for create a new {@link ImageIcon}.
+	 *
+	 * @param image
+	 *            the file that contains the image
+	 * @return the new {@link ImageIcon}
+	 */
+	public static ImageIcon newImageIcon(File image)
+	{
+		ImageIcon img = new ImageIcon(image.getAbsolutePath());
+		return img;
+	}
+
+	/**
 	 * Generates a random {@link BufferedImage} with the given parameters.
 	 *
 	 * @param width
@@ -221,6 +241,48 @@ public class ImageExtensions
 	public static BufferedImage read(final byte[] byteArray) throws IOException
 	{
 		return ImageIO.read(new ByteArrayInputStream(byteArray));
+	}
+
+	/**
+	 * Gets the buffered image from the given byte array quietly.
+	 *
+	 * @param byteArray
+	 *            the byte array
+	 * @return the buffered image or null if the read process failed.
+	 */
+	public static BufferedImage readQuietly(final byte[] byteArray)
+	{
+		BufferedImage img = null;
+		try
+		{
+			img = read(byteArray);
+		}
+		catch (IOException e)
+		{
+			LOG.error("Reading image failed.", e);
+		}
+		return img;
+	}
+
+	/**
+	 * Gets the buffered image from the given byte array quietly.
+	 *
+	 * @param input
+	 *            the input
+	 * @return the buffered image or null if the read process failed.
+	 */
+	public static BufferedImage readQuietly(final InputStream input)
+	{
+		BufferedImage img = null;
+		try
+		{
+			img = ImageIO.read(input);
+		}
+		catch (IOException e)
+		{
+			LOG.error("Reading image failed.", e);
+		}
+		return img;
 	}
 
 	/**
