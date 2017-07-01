@@ -24,7 +24,7 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 Than you can add the dependency to your dependencies:
 
 		<!-- swing-components version -->
-		<swing-components.version>4.18.0</swing-components.version>
+		<swing-components.version>4.19.0</swing-components.version>
 
 		<dependencies>
 			...
