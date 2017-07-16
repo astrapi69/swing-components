@@ -27,30 +27,58 @@ package de.alpharogroup.swing.wizard;
 import java.awt.Color;
 
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import org.jdesktop.swingx.JXPanel;
+
+import de.alpharogroup.swing.panels.ComponentInitialization;
 import lombok.Getter;
 
+/**
+ * The class {@link NavigationPanel}.
+ */
 @Getter
-public class NavigationPanel extends JPanel
+public class NavigationPanel extends JXPanel implements ComponentInitialization
 {
-	private JButton nextButton;
-	private JButton previousButton;
 
+	/** The next button. */
+	private JButton btnNext;
+
+	/** The previous button. */
+	private JButton btnPrevious;
+
+	/** The cancel button. */
+	private JButton btnCancel;
+
+	/** The finish button. */
+	private JButton btnFinish;
+
+	/**
+	 * Instantiates a new navigation panel.
+	 */
 	public NavigationPanel()
 	{
-		setBorder(new LineBorder(Color.BLACK));
-		nextButton = newNextButton("Next");
-		previousButton = newPreviousButton("Previous");
-		add(previousButton);
-		add(nextButton);
+		initialize();
 	}
 
 	protected JButton newNextButton(String label)
 	{
 		JButton button = new JButton(label);
 		button.addActionListener(e -> onNext());
+		return button;
+	}
+
+	protected JButton newCancelButton(String label)
+	{
+		JButton button = new JButton(label);
+		button.addActionListener(e -> onCancel());
+		return button;
+	}
+
+	protected JButton newFinishButton(String label)
+	{
+		JButton button = new JButton(label);
+		button.addActionListener(e -> onFinish());
 		return button;
 	}
 
@@ -61,12 +89,39 @@ public class NavigationPanel extends JPanel
 		return button;
 	}
 
+	protected void onCancel()
+	{
+	}
+
+	protected void onFinish()
+	{
+	}
+
 	protected void onNext()
 	{
 	}
 
 	protected void onPrevious()
 	{
+	}
+
+	@Override
+	public void initializeComponents()
+	{
+		btnNext = newNextButton("Next");
+		btnPrevious = newPreviousButton("Previous");
+		btnCancel = newCancelButton("Cancel");
+		btnFinish = newFinishButton("Finish");
+		add(btnPrevious);
+		add(btnNext);
+		add(btnCancel);
+		add(btnFinish);
+	}
+
+	@Override
+	public void initializeLayout()
+	{
+		setBorder(new LineBorder(Color.BLACK));
 	}
 
 }

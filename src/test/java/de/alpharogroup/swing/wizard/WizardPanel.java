@@ -83,6 +83,18 @@ public class WizardPanel extends JFrame
 			{
 				WizardPanel.this.onPrevious();
 			}
+
+			@Override
+			protected void onCancel()
+			{
+				WizardPanel.this.onCancel();
+			}
+
+			@Override
+			protected void onFinish()
+			{
+				WizardPanel.this.onFinish();
+			}
 		};
 		return navigationPanel;
 	}
@@ -93,12 +105,20 @@ public class WizardPanel extends JFrame
 		return cardsPanel;
 	}
 
+	protected void onCancel()
+	{
+	}
+
+	protected void onFinish()
+	{
+	}
+
 	protected void onNext()
 	{
 		stateMachine.next();
 		updateButtonState();
 		String name = stateMachine.getCurrentState().getName();
-		CardLayout cardLayout = ((CardLayout)wizardContentPanel.getLayout());
+		CardLayout cardLayout = wizardContentPanel.getCardLayout();
 		cardLayout.show(wizardContentPanel, name);
 	}
 
@@ -107,15 +127,15 @@ public class WizardPanel extends JFrame
 		stateMachine.previous();
 		updateButtonState();
 		String name = stateMachine.getCurrentState().getName();
-		CardLayout cardLayout = ((CardLayout)wizardContentPanel.getLayout());
+		CardLayout cardLayout = wizardContentPanel.getCardLayout();
 		cardLayout.show(wizardContentPanel, name);
 	}
 
 	protected void updateButtonState()
 	{
-		navigationPanel.getPreviousButton()
+		navigationPanel.getBtnPrevious()
 			.setEnabled(stateMachine.getCurrentState().hasPrevious());
-		navigationPanel.getNextButton().setEnabled(stateMachine.getCurrentState().hasNext());
+		navigationPanel.getBtnNext().setEnabled(stateMachine.getCurrentState().hasNext());
 	}
 
 }
