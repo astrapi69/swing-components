@@ -8,9 +8,10 @@ Several swing components and utilities
 
 The source code comes under the liberal MIT License, making swing-components great for all types of applications.
 
-# Build status and latest maven version
+## Build status
 [![Build Status](https://travis-ci.org/lightblueseas/swing-components.svg?branch=master)](https://travis-ci.org/lightblueseas/swing-components)
 
+## Maven Central
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components)
 
