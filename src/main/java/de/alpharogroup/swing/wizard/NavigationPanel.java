@@ -41,6 +41,9 @@ import lombok.Getter;
 public class NavigationPanel extends JXPanel implements ComponentInitialization
 {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	/** The next button. */
 	private JButton btnNext;
 
@@ -61,30 +64,49 @@ public class NavigationPanel extends JXPanel implements ComponentInitialization
 		initialize();
 	}
 
-	protected JButton newNextButton(String label)
+	@Override
+	public void initializeComponents()
 	{
-		JButton button = new JButton(label);
-		button.addActionListener(e -> onNext());
-		return button;
+		btnNext = newNextButton("Next");
+		btnPrevious = newPreviousButton("Previous");
+		btnCancel = newCancelButton("Cancel");
+		btnFinish = newFinishButton("Finish");
+		add(btnPrevious);
+		add(btnNext);
+		add(btnCancel);
+		add(btnFinish);
 	}
 
-	protected JButton newCancelButton(String label)
+	@Override
+	public void initializeLayout()
 	{
-		JButton button = new JButton(label);
+		setBorder(new LineBorder(Color.BLACK));
+	}
+
+	protected JButton newCancelButton(final String label)
+	{
+		final JButton button = new JButton(label);
 		button.addActionListener(e -> onCancel());
 		return button;
 	}
 
-	protected JButton newFinishButton(String label)
+	protected JButton newFinishButton(final String label)
 	{
-		JButton button = new JButton(label);
+		final JButton button = new JButton(label);
 		button.addActionListener(e -> onFinish());
 		return button;
 	}
 
-	protected JButton newPreviousButton(String label)
+	protected JButton newNextButton(final String label)
 	{
-		JButton button = new JButton(label);
+		final JButton button = new JButton(label);
+		button.addActionListener(e -> onNext());
+		return button;
+	}
+
+	protected JButton newPreviousButton(final String label)
+	{
+		final JButton button = new JButton(label);
 		button.addActionListener(e -> onPrevious());
 		return button;
 	}
@@ -103,25 +125,6 @@ public class NavigationPanel extends JXPanel implements ComponentInitialization
 
 	protected void onPrevious()
 	{
-	}
-
-	@Override
-	public void initializeComponents()
-	{
-		btnNext = newNextButton("Next");
-		btnPrevious = newPreviousButton("Previous");
-		btnCancel = newCancelButton("Cancel");
-		btnFinish = newFinishButton("Finish");
-		add(btnPrevious);
-		add(btnNext);
-		add(btnCancel);
-		add(btnFinish);
-	}
-
-	@Override
-	public void initializeLayout()
-	{
-		setBorder(new LineBorder(Color.BLACK));
 	}
 
 }

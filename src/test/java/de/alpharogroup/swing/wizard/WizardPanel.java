@@ -77,18 +77,6 @@ public class WizardPanel extends JFrame
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void onNext()
-			{
-				WizardPanel.this.onNext();
-			}
-
-			@Override
-			protected void onPrevious()
-			{
-				WizardPanel.this.onPrevious();
-			}
-
-			@Override
 			protected void onCancel()
 			{
 				WizardPanel.this.onCancel();
@@ -98,6 +86,18 @@ public class WizardPanel extends JFrame
 			protected void onFinish()
 			{
 				WizardPanel.this.onFinish();
+			}
+
+			@Override
+			protected void onNext()
+			{
+				WizardPanel.this.onNext();
+			}
+
+			@Override
+			protected void onPrevious()
+			{
+				WizardPanel.this.onPrevious();
 			}
 		};
 		return navigationPanel;
@@ -145,8 +145,7 @@ public class WizardPanel extends JFrame
 
 	protected void updateButtonState()
 	{
-		navigationPanel.getBtnPrevious()
-			.setEnabled(stateMachine.getCurrentState().hasPrevious());
+		navigationPanel.getBtnPrevious().setEnabled(stateMachine.getCurrentState().hasPrevious());
 		navigationPanel.getBtnNext().setEnabled(stateMachine.getCurrentState().hasNext());
 	}
 

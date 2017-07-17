@@ -39,6 +39,10 @@ import lombok.Getter;
  */
 public class WizardContentPanel extends JXPanel implements ComponentInitialization
 {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	@Getter
 	private CardLayout cardLayout;
 
@@ -69,27 +73,27 @@ public class WizardContentPanel extends JXPanel implements ComponentInitializati
 	}
 
 	/**
-	 * The layout have to initialize before the components!
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onBeforeInitializeComponents()
-	{
-		cardLayout = newCardLayout();
-		setLayout(cardLayout);
-	}
-
-	protected CardLayout newCardLayout() {
-		final CardLayout cardLayout = new CardLayout();
-		return cardLayout;
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void initializeLayout()
 	{
 		setBorder(new LineBorder(Color.BLACK));
+	}
+
+	protected CardLayout newCardLayout()
+	{
+		final CardLayout cardLayout = new CardLayout();
+		return cardLayout;
+	}
+
+	/**
+	 * The layout have to initialize before the components! {@inheritDoc}
+	 */
+	@Override
+	public void onBeforeInitializeComponents()
+	{
+		cardLayout = newCardLayout();
+		setLayout(cardLayout);
 	}
 }

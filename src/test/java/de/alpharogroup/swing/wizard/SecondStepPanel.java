@@ -29,6 +29,10 @@ import javax.swing.JPanel;
 
 public class SecondStepPanel extends JPanel
 {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	public SecondStepPanel()
 	{
 		add(new JLabel("Second step label"));
