@@ -14,6 +14,11 @@ The source code comes under the liberal MIT License, making swing-components gre
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components)
 
+## javadoc
+
+swing-components [![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/swing-components.svg)](http://www.javadoc.io/doc/de.alpharogroup/swing-components-core)
+
+
 ## Maven dependency
 
 Maven dependency is now on sonatype.
