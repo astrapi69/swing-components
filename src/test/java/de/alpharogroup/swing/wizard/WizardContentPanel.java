@@ -31,7 +31,6 @@ import javax.swing.border.LineBorder;
 
 import org.jdesktop.swingx.JXPanel;
 
-import de.alpharogroup.design.pattern.state.WizardStep;
 import de.alpharogroup.swing.panels.ComponentInitialization;
 import lombok.Getter;
 
@@ -63,9 +62,9 @@ public class WizardContentPanel extends JXPanel implements ComponentInitializati
 	@Override
 	public void initializeComponents()
 	{
-		add(new FirstStepPanel(), WizardStep.FIRST.getName());
-		add(new SecondStepPanel(), WizardStep.SECOND.getName());
-		add(new ThirdStepPanel(), WizardStep.THIRD.getName());
+		add(new FirstStepPanel(), CustomState.FIRST.getName());
+		add(new SecondStepPanel(), CustomState.SECOND.getName());
+		add(new ThirdStepPanel(), CustomState.THIRD.getName());
 
 	}
 
@@ -81,7 +80,7 @@ public class WizardContentPanel extends JXPanel implements ComponentInitializati
 	}
 
 	protected CardLayout newCardLayout() {
-		CardLayout cardLayout = new CardLayout();
+		final CardLayout cardLayout = new CardLayout();
 		return cardLayout;
 	}
 

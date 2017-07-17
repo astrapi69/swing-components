@@ -30,12 +30,14 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import de.alpharogroup.design.pattern.state.StateMachine;
-import de.alpharogroup.design.pattern.state.WizardStep;
+import de.alpharogroup.design.pattern.state.wizard.WizardStateMachine;
 
 public class WizardPanel extends JFrame
 {
-	public static void main(String[] args)
+
+	private static final long serialVersionUID = 1L;
+
+	public static void main(final String[] args)
 	{
 		SwingUtilities.invokeLater(new Runnable()
 		{
@@ -47,16 +49,16 @@ public class WizardPanel extends JFrame
 		});
 	}
 
-	private StateMachine stateMachine;
-	private WizardContentPanel wizardContentPanel;
+	private final WizardStateMachine stateMachine;
+	private final WizardContentPanel wizardContentPanel;
 
-	private NavigationPanel navigationPanel;
+	private final NavigationPanel navigationPanel;
 
 	public WizardPanel()
 	{
 		setTitle("Simple Wizard");
 
-		stateMachine = StateMachine.builder().currentState(WizardStep.FIRST).build();
+		stateMachine = WizardStateMachine.builder().currentState(CustomState.FIRST).build();
 		wizardContentPanel = newWizardContentPanel();
 		navigationPanel = newNavigationPanel();
 		updateButtonState();
@@ -72,6 +74,8 @@ public class WizardPanel extends JFrame
 	{
 		final NavigationPanel navigationPanel = new NavigationPanel()
 		{
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			protected void onNext()
 			{
@@ -101,24 +105,32 @@ public class WizardPanel extends JFrame
 
 	protected WizardContentPanel newWizardContentPanel()
 	{
-		WizardContentPanel cardsPanel = new WizardContentPanel();
+		final WizardContentPanel cardsPanel = new WizardContentPanel();
 		return cardsPanel;
 	}
 
 	protected void onCancel()
 	{
+		stateMachine.cancel();
+		// from here application specific behavior...
+		setVisible(false);
+		System.exit(0);
 	}
 
 	protected void onFinish()
 	{
+		stateMachine.finish();
+		// from here application specific behavior...
+		setVisible(false);
+		System.exit(0);
 	}
 
 	protected void onNext()
 	{
 		stateMachine.next();
 		updateButtonState();
-		String name = stateMachine.getCurrentState().getName();
-		CardLayout cardLayout = wizardContentPanel.getCardLayout();
+		final String name = stateMachine.getCurrentState().getName();
+		final CardLayout cardLayout = wizardContentPanel.getCardLayout();
 		cardLayout.show(wizardContentPanel, name);
 	}
 
@@ -126,8 +138,8 @@ public class WizardPanel extends JFrame
 	{
 		stateMachine.previous();
 		updateButtonState();
-		String name = stateMachine.getCurrentState().getName();
-		CardLayout cardLayout = wizardContentPanel.getCardLayout();
+		final String name = stateMachine.getCurrentState().getName();
+		final CardLayout cardLayout = wizardContentPanel.getCardLayout();
 		cardLayout.show(wizardContentPanel, name);
 	}
 

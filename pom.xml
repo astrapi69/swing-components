@@ -53,7 +53,7 @@
 		<vintage-time.version>4.11.0</vintage-time.version>
 		<randomizer.version>4.20.0</randomizer.version>
 		<!-- GENERIC-DESIGN-PATTERN versions -->
-		<design-patterns.version>4.9.0</design-patterns.version>
+		<design-patterns.version>4.10.0</design-patterns.version>
 		<state.version>${design-patterns.version}</state.version>
 		<observer.version>${design-patterns.version}</observer.version>
 		<!-- EXTERNAL LIBRARIES versions -->
