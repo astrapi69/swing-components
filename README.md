@@ -68,6 +68,14 @@ If you like this library, please consider a donation through
 <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
 </a>
 
+# Similar projects
+
+Here is a list of awesome swing projects:
+
+Commercial
+
+ * [JIDE](http://www.jidesoft.com/) JIDE Software is a professional Java UI component provider.
+
 
 
 
