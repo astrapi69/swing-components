@@ -72,10 +72,14 @@ If you like this library, please consider a donation through
 
 Here is a list of awesome swing projects:
 
+Open Source:
+
+ * [OpenSwing](http://oswing.sourceforge.net/) OpenSwing is an open-source suite of advanced graphics components based on Swing toolkit
+ * [JCalendar](https://toedter.com/jcalendar/) JCalendar is a Java date chooser bean for graphically picking a date.
+
 Commercial
 
  * [JIDE](http://www.jidesoft.com/) JIDE Software is a professional Java UI component provider.
- * [OpenSwing](http://oswing.sourceforge.net/) OpenSwing is an open-source suite of advanced graphics components based on Swing toolkit
 
 
 
