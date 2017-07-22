@@ -68,6 +68,19 @@ If you like this library, please consider a donation through
 <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
 </a>
 
+# Similar projects
+
+Here is a list of awesome swing projects:
+
+Open Source:
+
+ * [OpenSwing](http://oswing.sourceforge.net/) OpenSwing is an open-source suite of advanced graphics components based on Swing toolkit
+ * [JCalendar](https://toedter.com/jcalendar/) JCalendar is a Java date chooser bean for graphically picking a date.
+
+Commercial
+
+ * [JIDE](http://www.jidesoft.com/) JIDE Software is a professional Java UI component provider.
+
 
 
 
