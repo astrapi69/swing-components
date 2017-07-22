@@ -63,17 +63,6 @@ public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 		interrupt();
 	}
 
-	public void interrupt()
-	{
-		getModelObject().interrupt();
-	}
-
-	protected ThreadsTableModel newThreadsTableModel()
-	{
-		final ThreadsTableModel tableModel = new ThreadsTableModel();
-		return tableModel;
-	}
-
 	@Override
 	protected void initializeComponents()
 	{
@@ -88,6 +77,17 @@ public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 		super.initializeLayout();
 		setLayout(new BorderLayout());
 		add(scrThreadTable, BorderLayout.CENTER);
+	}
+
+	public void interrupt()
+	{
+		getModelObject().interrupt();
+	}
+
+	protected ThreadsTableModel newThreadsTableModel()
+	{
+		final ThreadsTableModel tableModel = new ThreadsTableModel();
+		return tableModel;
 	}
 
 }

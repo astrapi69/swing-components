@@ -73,7 +73,8 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		final Frame frame = new Frame();
 		frame.addWindowListener(new CloseWindow());
 		frame.setTitle("Shuffle table panel");
-		final PermissionsShuffleTablePanel panel = new PermissionsShuffleTablePanel(GenericModel.ofList(permissions));
+		final PermissionsShuffleTablePanel panel = new PermissionsShuffleTablePanel(
+			GenericModel.ofList(permissions));
 		frame.add(panel);
 		frame.setSize(700, 500);
 		frame.setVisible(true);

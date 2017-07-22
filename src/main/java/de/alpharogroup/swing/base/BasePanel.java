@@ -67,7 +67,20 @@ public class BasePanel<T> extends JXPanel
 	/**
 	 * Instantiates a new {@link BasePanel} object.
 	 *
-	 * @param model the model
+	 * @param isDoubleBuffered
+	 *            the is double buffered
+	 */
+	public BasePanel(final boolean isDoubleBuffered)
+	{
+		super(isDoubleBuffered);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BasePanel} object.
+	 *
+	 * @param model
+	 *            the model
 	 */
 	public BasePanel(final IModel<T> model)
 	{
@@ -78,13 +91,12 @@ public class BasePanel<T> extends JXPanel
 	/**
 	 * Instantiates a new {@link BasePanel} object.
 	 *
-	 * @param isDoubleBuffered
-	 *            the is double buffered
+	 * @param layout
+	 *            the layout
 	 */
-	public BasePanel(final boolean isDoubleBuffered)
+	public BasePanel(final LayoutManager layout)
 	{
-		super(isDoubleBuffered);
-		initialize();
+		super(layout);
 	}
 
 	/**
@@ -102,15 +114,14 @@ public class BasePanel<T> extends JXPanel
 	}
 
 	/**
-	 * Instantiates a new {@link BasePanel} object.
+	 * Getter for the model's object
 	 *
-	 * @param layout
-	 *            the layout
+	 * @return the model object
 	 */
-	public BasePanel(final LayoutManager layout)
+	public final T getModelObject()
 	{
-		super(layout);
-	}
+		return getModel().getObject();
+	};
 
 	/**
 	 * Initialize the component.
@@ -125,7 +136,7 @@ public class BasePanel<T> extends JXPanel
 		initializeLayout();
 		onAfterInitializeLayout();
 		onAfterInitialize();
-	};
+	}
 
 	/**
 	 * Callback method to initialize components from the component.
@@ -141,13 +152,13 @@ public class BasePanel<T> extends JXPanel
 	{
 	}
 
+
 	/**
 	 * Callback method to interact when the initialization of the component is finished.
 	 */
 	protected void onAfterInitialize()
 	{
 	}
-
 
 	/**
 	 * Callback method to interact when the initialization is finished of the components from the
@@ -164,13 +175,13 @@ public class BasePanel<T> extends JXPanel
 	{
 	}
 
+
 	/**
 	 * Callback method to interact on before initialization of the component.
 	 */
 	protected void onBeforeInitialize()
 	{
 	}
-
 
 	/**
 	 * Callback method to interact on before initialization of the components from the component.
@@ -187,19 +198,10 @@ public class BasePanel<T> extends JXPanel
 	}
 
 	/**
-	 * Getter for the model's object
-	 *
-	 * @return the model object
-	 */
-	public final T getModelObject()
-	{
-		return getModel().getObject();
-	}
-
-	/**
 	 * Setter for the model object.
 	 *
-	 * @param modelObject            the new model object
+	 * @param modelObject
+	 *            the new model object
 	 * @return this for chaining
 	 */
 	public final BasePanel<T> setModelObject(final T modelObject)

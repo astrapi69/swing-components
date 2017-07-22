@@ -43,7 +43,8 @@ public class ImagePanel extends BasePanel<BufferedImage>
 	/**
 	 * Instantiates a new {@link ImagePanel}.
 	 *
-	 * @param model the model
+	 * @param model
+	 *            the model
 	 */
 	public ImagePanel(final IModel<BufferedImage> model)
 	{

@@ -35,93 +35,91 @@ import de.alpharogroup.swing.panels.ComponentInitialization;
 /**
  * The class {@link NewPasswordPanel}.
  */
-public class NewPasswordPanel extends JPanel implements ComponentInitialization {
+public class NewPasswordPanel extends JPanel implements ComponentInitialization
+{
 
 	private static final long serialVersionUID = 1L;
 	private JLabel lblPassword;
-    private JLabel lblRepeatPassword;
-    private JLabel lblSetPwHeader;
-    private JLabel lblUsername;
-    private JPasswordField txtPassword;
-    private JPasswordField txtRepeatPassword;
-    private JTextField txtUsername;
+	private JLabel lblRepeatPassword;
+	private JLabel lblSetPwHeader;
+	private JLabel lblUsername;
+	private JPasswordField txtPassword;
+	private JPasswordField txtRepeatPassword;
+	private JTextField txtUsername;
 
-    public NewPasswordPanel() {
-        initialize();
-    }
+	public NewPasswordPanel()
+	{
+		initialize();
+	}
 
 	@Override
 	public void initializeComponents()
 	{
-        lblSetPwHeader = new JLabel();
-        lblUsername = new JLabel();
-        txtUsername = new JTextField();
-        lblPassword = new JLabel();
-        txtPassword = new JPasswordField();
-        lblRepeatPassword = new JLabel();
-        txtRepeatPassword = new JPasswordField();
+		lblSetPwHeader = new JLabel();
+		lblUsername = new JLabel();
+		txtUsername = new JTextField();
+		lblPassword = new JLabel();
+		txtPassword = new JPasswordField();
+		lblRepeatPassword = new JLabel();
+		txtRepeatPassword = new JPasswordField();
 
-        lblSetPwHeader.setText("Set new password");
+		lblSetPwHeader.setText("Set new password");
 
-        lblUsername.setText("Username");
+		lblUsername.setText("Username");
 
 
-        lblPassword.setText("Password");
+		lblPassword.setText("Password");
 
-        txtPassword.setText("");
+		txtPassword.setText("");
 
-        lblRepeatPassword.setText("Repeat password");
+		lblRepeatPassword.setText("Repeat password");
 
-        txtRepeatPassword.setText("");
+		txtRepeatPassword.setText("");
 	}
 
 	@Override
 	public void initializeLayout()
 	{
-        final GroupLayout layout = new GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSetPwHeader, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblRepeatPassword, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtRepeatPassword))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblUsername, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtUsername, GroupLayout.PREFERRED_SIZE, 260, GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblPassword, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPassword, GroupLayout.PREFERRED_SIZE, 260, GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(lblSetPwHeader)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsername)
-                    .addComponent(txtUsername, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtPassword, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRepeatPassword)
-                    .addComponent(txtRepeatPassword, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
+		final GroupLayout layout = new GroupLayout(this);
+		this.setLayout(layout);
+		layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout
+				.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(lblSetPwHeader,
+					GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+					Short.MAX_VALUE)
+				.addGroup(layout.createSequentialGroup()
+					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+						.addGroup(layout.createSequentialGroup()
+							.addComponent(lblRepeatPassword, GroupLayout.PREFERRED_SIZE, 200,
+								GroupLayout.PREFERRED_SIZE)
+							.addGap(18, 18, 18).addComponent(txtRepeatPassword))
+						.addGroup(layout.createSequentialGroup()
+							.addComponent(lblUsername, GroupLayout.PREFERRED_SIZE, 200,
+								GroupLayout.PREFERRED_SIZE)
+							.addGap(18, 18, 18).addComponent(txtUsername,
+								GroupLayout.PREFERRED_SIZE, 260, GroupLayout.PREFERRED_SIZE))
+						.addGroup(layout.createSequentialGroup()
+							.addComponent(lblPassword, GroupLayout.PREFERRED_SIZE, 200,
+								GroupLayout.PREFERRED_SIZE)
+							.addGap(18, 18, 18).addComponent(txtPassword,
+								GroupLayout.PREFERRED_SIZE, 260, GroupLayout.PREFERRED_SIZE)))
+					.addGap(0, 0, Short.MAX_VALUE)))
+				.addContainerGap()));
+		layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup().addGap(26, 26, 26).addComponent(lblSetPwHeader)
+				.addGap(18, 18, 18)
+				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+					.addComponent(lblUsername).addComponent(txtUsername, GroupLayout.PREFERRED_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				.addGap(18, 18, 18)
+				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+					.addComponent(lblPassword).addComponent(txtPassword, GroupLayout.PREFERRED_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				.addGap(18, 18, 18)
+				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+					.addComponent(lblRepeatPassword).addComponent(txtRepeatPassword,
+						GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				.addContainerGap(35, Short.MAX_VALUE)));
 
 	}
 
