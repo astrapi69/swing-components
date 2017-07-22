@@ -29,16 +29,14 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
-import org.jdesktop.swingx.JXPanel;
-
-import de.alpharogroup.swing.panels.ComponentInitialization;
+import de.alpharogroup.swing.base.BasePanel;
 import lombok.Getter;
 
 /**
  * The class {@link NavigationPanel}.
  */
 @Getter
-public class NavigationPanel extends JXPanel implements ComponentInitialization
+public class NavigationPanel<T> extends BasePanel<T>
 {
 
 	/** The Constant serialVersionUID. */
@@ -61,11 +59,10 @@ public class NavigationPanel extends JXPanel implements ComponentInitialization
 	 */
 	public NavigationPanel()
 	{
-		initialize();
 	}
 
 	@Override
-	public void initializeComponents()
+	protected void initializeComponents()
 	{
 		btnNext = newNextButton("Next");
 		btnPrevious = newPreviousButton("Previous");
@@ -78,7 +75,7 @@ public class NavigationPanel extends JXPanel implements ComponentInitialization
 	}
 
 	@Override
-	public void initializeLayout()
+	protected void initializeLayout()
 	{
 		setBorder(new LineBorder(Color.BLACK));
 	}

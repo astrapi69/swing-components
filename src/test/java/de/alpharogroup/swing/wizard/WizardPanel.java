@@ -28,51 +28,74 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 import de.alpharogroup.design.pattern.state.wizard.WizardStateMachine;
+import de.alpharogroup.model.GenericModel;
+import de.alpharogroup.model.IModel;
+import de.alpharogroup.swing.base.BasePanel;
 
-public class WizardPanel extends JFrame
+public class WizardPanel extends BasePanel<WizardStateMachine>
 {
 
 	private static final long serialVersionUID = 1L;
 
 	public static void main(final String[] args)
 	{
-		SwingUtilities.invokeLater(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				new WizardPanel();
-			}
-		});
+		final JFrame f = new JFrame();
+		final WizardPanel viewer = new WizardPanel();
+
+		f.setTitle("Simple Wizard");
+		f.setContentPane(viewer);
+		f.setSize(600, 600);
+		f.setVisible(true);
+
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 
-	private final WizardStateMachine stateMachine;
-	private final WizardContentPanel wizardContentPanel;
+	private WizardContentPanel wizardContentPanel;
 
-	private final NavigationPanel navigationPanel;
+	private NavigationPanel<Void> navigationPanel;
 
 	public WizardPanel()
 	{
-		setTitle("Simple Wizard");
+		this(GenericModel.of(WizardStateMachine.builder().currentState(CustomState.FIRST).build()));
 
-		stateMachine = WizardStateMachine.builder().currentState(CustomState.FIRST).build();
-		wizardContentPanel = newWizardContentPanel();
-		navigationPanel = newNavigationPanel();
+	}
+
+	public WizardPanel(final IModel<WizardStateMachine> model)
+	{
+		super(model);
+	}
+
+	@Override
+	protected void onAfterInitializeComponents()
+	{
+		super.onAfterInitializeComponents();
 		updateButtonState();
-		setSize(600, 600);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	@Override
+	protected void initializeLayout()
+	{
+		super.initializeLayout();
+		setLayout(new BorderLayout());
 		add(wizardContentPanel, BorderLayout.CENTER);
 		add(navigationPanel, BorderLayout.SOUTH);
 	}
 
-
-	protected NavigationPanel newNavigationPanel()
+	@Override
+	protected void initializeComponents()
 	{
-		final NavigationPanel navigationPanel = new NavigationPanel()
+		super.initializeComponents();
+		wizardContentPanel = newWizardContentPanel();
+		navigationPanel = newNavigationPanel();
+	}
+
+
+	protected NavigationPanel<Void> newNavigationPanel()
+	{
+		final NavigationPanel<Void> navigationPanel = new NavigationPanel<Void>()
 		{
 			private static final long serialVersionUID = 1L;
 
@@ -111,42 +134,40 @@ public class WizardPanel extends JFrame
 
 	protected void onCancel()
 	{
-		stateMachine.cancel();
+		getModelObject().cancel();
 		// from here application specific behavior...
-		setVisible(false);
 		System.exit(0);
 	}
 
 	protected void onFinish()
 	{
-		stateMachine.finish();
+		getModelObject().finish();
 		// from here application specific behavior...
-		setVisible(false);
 		System.exit(0);
 	}
 
 	protected void onNext()
 	{
-		stateMachine.next();
+		getModelObject().next();
 		updateButtonState();
-		final String name = stateMachine.getCurrentState().getName();
+		final String name = getModelObject().getCurrentState().getName();
 		final CardLayout cardLayout = wizardContentPanel.getCardLayout();
 		cardLayout.show(wizardContentPanel, name);
 	}
 
 	protected void onPrevious()
 	{
-		stateMachine.previous();
+		getModelObject().previous();
 		updateButtonState();
-		final String name = stateMachine.getCurrentState().getName();
+		final String name = getModelObject().getCurrentState().getName();
 		final CardLayout cardLayout = wizardContentPanel.getCardLayout();
 		cardLayout.show(wizardContentPanel, name);
 	}
 
 	protected void updateButtonState()
 	{
-		navigationPanel.getBtnPrevious().setEnabled(stateMachine.getCurrentState().hasPrevious());
-		navigationPanel.getBtnNext().setEnabled(stateMachine.getCurrentState().hasNext());
+		navigationPanel.getBtnPrevious().setEnabled(getModelObject().getCurrentState().hasPrevious());
+		navigationPanel.getBtnNext().setEnabled(getModelObject().getCurrentState().hasNext());
 	}
 
 }
