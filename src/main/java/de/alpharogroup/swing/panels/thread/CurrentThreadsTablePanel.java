@@ -26,28 +26,35 @@ package de.alpharogroup.swing.panels.thread;
 
 import java.awt.BorderLayout;
 
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import de.alpharogroup.lang.thread.ThreadDataBean;
+import de.alpharogroup.model.GenericModel;
+import de.alpharogroup.model.IModel;
+import de.alpharogroup.swing.base.BasePanel;
 import de.alpharogroup.swing.tablemodel.thread.ThreadsTableModel;
 import de.alpharogroup.swing.x.GenericJXTable;
 
 /**
  * The class {@link CurrentThreadsTablePanel} shows all running threads in an application.
  */
-public class CurrentThreadsTablePanel extends JPanel
+public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 {
 
 	private static final long serialVersionUID = 1L;
 
-	private ThreadsTableModel tableModel;
-
 	private GenericJXTable<ThreadDataBean> threadTable;
+
+	private JScrollPane scrThreadTable;
 
 	public CurrentThreadsTablePanel()
 	{
-		onInitialize();
+		this(GenericModel.of(new ThreadsTableModel()));
+	}
+
+	public CurrentThreadsTablePanel(final IModel<ThreadsTableModel> model)
+	{
+		super(model);
 	}
 
 	@Override
@@ -58,7 +65,7 @@ public class CurrentThreadsTablePanel extends JPanel
 
 	public void interrupt()
 	{
-		tableModel.interrupt();
+		getModelObject().interrupt();
 	}
 
 	protected ThreadsTableModel newThreadsTableModel()
@@ -67,14 +74,20 @@ public class CurrentThreadsTablePanel extends JPanel
 		return tableModel;
 	}
 
-	protected void onInitialize()
+	@Override
+	protected void initializeComponents()
 	{
-		tableModel = newThreadsTableModel();
-		threadTable = new GenericJXTable<>(tableModel);
-		final JScrollPane sp = new JScrollPane(threadTable);
-		setLayout(new BorderLayout());
-		add(sp, BorderLayout.CENTER);
+		super.initializeComponents();
+		threadTable = new GenericJXTable<>(getModelObject());
+		scrThreadTable = new JScrollPane(threadTable);
+	}
 
+	@Override
+	protected void initializeLayout()
+	{
+		super.initializeLayout();
+		setLayout(new BorderLayout());
+		add(scrThreadTable, BorderLayout.CENTER);
 	}
 
 }

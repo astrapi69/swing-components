@@ -52,7 +52,7 @@
 		<jcommons-lang.version>4.20.0</jcommons-lang.version>
 		<vintage-time.version>4.11.0</vintage-time.version>
 		<randomizer.version>4.20.0</randomizer.version>
-		<object-model.version>1.0.0</object-model.version>
+		<object-model.version>1.1.0</object-model.version>
 		<!-- GENERIC-DESIGN-PATTERN versions -->
 		<design-patterns.version>4.10.0</design-patterns.version>
 		<state.version>${design-patterns.version}</state.version>

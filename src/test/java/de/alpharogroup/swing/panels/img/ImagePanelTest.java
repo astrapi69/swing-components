@@ -32,6 +32,7 @@ import javax.swing.JFrame;
 
 import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.model.GenericModel;
 
 public class ImagePanelTest
 {
@@ -52,7 +53,7 @@ public class ImagePanelTest
 
 		final BufferedImage img1 = ImageIO
 			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
-		final ImagePanel pnlIconPanel = new ImagePanel(img1);
+		final ImagePanel pnlIconPanel = new ImagePanel(GenericModel.<BufferedImage>of(img1));
 		frame.add(pnlIconPanel);
 		frame.setBounds(0, 0, 820, 820);
 		frame.setVisible(true);

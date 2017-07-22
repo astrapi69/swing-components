@@ -24,16 +24,25 @@
  */
 package de.alpharogroup.swing.panels.shuffletables;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JScrollPane;
 
 import org.jdesktop.swingx.JXButton;
 import org.jdesktop.swingx.JXLabel;
-import org.jdesktop.swingx.JXPanel;
 
+import de.alpharogroup.model.GenericModel;
+import de.alpharogroup.model.IModel;
+import de.alpharogroup.swing.base.BasePanel;
 import de.alpharogroup.swing.x.GenericJXTable;
 import de.alpharogroup.swing.x.GenericShuffleJXTable;
+import lombok.Getter;
+import lombok.Setter;
 
-public class ShuffleTablePanel<T> extends JXPanel
+@Getter
+@Setter
+public class ShuffleTablePanel<T> extends BasePanel<List<T>>
 {
 
 	/** The Constant serialVersionUID. */
@@ -63,107 +72,12 @@ public class ShuffleTablePanel<T> extends JXPanel
 
 	public ShuffleTablePanel()
 	{
-		super();
+		this(GenericModel.ofList(new ArrayList<>()));
 	}
 
-	public JXButton getBtnAdd()
+	public ShuffleTablePanel(final IModel<List<T>> model)
 	{
-		return btnAdd;
+		super(model);
 	}
 
-	public JXButton getBtnAddAll()
-	{
-		return btnAddAll;
-	}
-
-	public JXButton getBtnRemove()
-	{
-		return btnRemove;
-	}
-
-	public JXButton getBtnRemoveAll()
-	{
-		return btnRemoveAll;
-	}
-
-	public JXLabel getLblAvailableElements()
-	{
-		return lblAvailableElements;
-	}
-
-	public JXLabel getLblSelectedElements()
-	{
-		return lblSelectedElements;
-	}
-
-
-	public JScrollPane getScrPnTblAvailableElements()
-	{
-		return scrPnTblAvailableElements;
-	}
-
-	public JScrollPane getScrPnTblSelectedElements()
-	{
-		return scrPnTblSelectedElements;
-	}
-
-	public GenericJXTable<T> getTblAvailableElements()
-	{
-		return tblAvailableElements;
-	}
-
-	public GenericJXTable<T> getTblSelectedElements()
-	{
-		return tblSelectedElements;
-	}
-
-	public void setBtnAdd(final JXButton btnAdd)
-	{
-		this.btnAdd = btnAdd;
-	}
-
-	public void setBtnAddAll(final JXButton btnAddAll)
-	{
-		this.btnAddAll = btnAddAll;
-	}
-
-	public void setBtnRemove(final JXButton btnRemove)
-	{
-		this.btnRemove = btnRemove;
-	}
-
-	public void setBtnRemoveAll(final JXButton btnRemoveAll)
-	{
-		this.btnRemoveAll = btnRemoveAll;
-	}
-
-	public void setLblAvailableElements(final JXLabel lblAvailableElements)
-	{
-		this.lblAvailableElements = lblAvailableElements;
-	}
-
-	public void setLblSelectedElements(final JXLabel lblSelectedElements)
-	{
-		this.lblSelectedElements = lblSelectedElements;
-	}
-
-	public void setScrPnTblAvailableElements(final JScrollPane scrPnTblAvailableElements)
-	{
-		this.scrPnTblAvailableElements = scrPnTblAvailableElements;
-	}
-
-	public void setScrPnTblSelectedElements(final JScrollPane scrPnTblSelectedElements)
-	{
-		this.scrPnTblSelectedElements = scrPnTblSelectedElements;
-	}
-
-	public void setTblAvailableElements(final GenericJXTable<T> tblAvailableElements)
-	{
-		this.tblAvailableElements = tblAvailableElements;
-	}
-
-	public void setTblSelectedElements(final GenericJXTable<T> tblSelectedElements)
-	{
-		this.tblSelectedElements = tblSelectedElements;
-	}
 }

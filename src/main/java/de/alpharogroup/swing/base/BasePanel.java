@@ -30,7 +30,6 @@ public class BasePanel<T> extends JXPanel
 	 * Initializer block.
 	 */
 	{
-		initialize();
 	}
 
 	/**
@@ -38,6 +37,7 @@ public class BasePanel<T> extends JXPanel
 	 */
 	public BasePanel()
 	{
+		initialize();
 	}
 
 	/**
@@ -48,6 +48,7 @@ public class BasePanel<T> extends JXPanel
 	public BasePanel(final IModel<T> model)
 	{
 		this.model = model;
+		initialize();
 	}
 
 	/**
@@ -59,6 +60,7 @@ public class BasePanel<T> extends JXPanel
 	public BasePanel(final boolean isDoubleBuffered)
 	{
 		super(isDoubleBuffered);
+		initialize();
 	}
 
 	/**
@@ -72,6 +74,7 @@ public class BasePanel<T> extends JXPanel
 	public BasePanel(final LayoutManager layout, final boolean isDoubleBuffered)
 	{
 		super(layout, isDoubleBuffered);
+		initialize();
 	}
 
 	/**
@@ -158,5 +161,28 @@ public class BasePanel<T> extends JXPanel
 	protected void onBeforeInitializeLayout()
 	{
 	}
+
+	/**
+	 * Getter for the model's object
+	 *
+	 * @return the model object
+	 */
+	public final T getModelObject()
+	{
+		return getModel().getObject();
+	}
+
+	/**
+	 * Setter for the model object
+	 *
+	 * @param modelObject
+	 *            the new model object
+	 */
+	public final BasePanel<T> setModelObject(final T modelObject)
+	{
+		getModel().setObject(modelObject);
+		return this;
+	}
+
 
 }
