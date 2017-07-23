@@ -28,7 +28,7 @@ import java.awt.LayoutManager;
 
 import org.jdesktop.swingx.JXPanel;
 
-import de.alpharogroup.model.IModel;
+import de.alpharogroup.model.api.Model;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,7 +37,7 @@ import lombok.Setter;
  * can overwrite the callback methods for interaction.
  *
  * @param <T>
- *            the generic type
+ *            the generic type of the model object
  */
 @Getter
 @Setter
@@ -48,7 +48,7 @@ public class BasePanel<T> extends JXPanel
 	private static final long serialVersionUID = 1L;
 
 	/** The model. */
-	private IModel<T> model;
+	private Model<T> model;
 
 	/**
 	 * Initializer block.
@@ -79,18 +79,6 @@ public class BasePanel<T> extends JXPanel
 	/**
 	 * Instantiates a new {@link BasePanel} object.
 	 *
-	 * @param model
-	 *            the model
-	 */
-	public BasePanel(final IModel<T> model)
-	{
-		this.model = model;
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BasePanel} object.
-	 *
 	 * @param layout
 	 *            the layout
 	 */
@@ -110,6 +98,18 @@ public class BasePanel<T> extends JXPanel
 	public BasePanel(final LayoutManager layout, final boolean isDoubleBuffered)
 	{
 		super(layout, isDoubleBuffered);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BasePanel} object.
+	 *
+	 * @param model
+	 *            the model
+	 */
+	public BasePanel(final Model<T> model)
+	{
+		this.model = model;
 		initialize();
 	}
 

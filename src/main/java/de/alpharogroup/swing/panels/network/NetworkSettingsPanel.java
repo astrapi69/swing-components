@@ -30,15 +30,20 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 
+import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
+import de.alpharogroup.swing.base.BasePanel;
+import lombok.Getter;
+
 /**
  * The class NetworkSettingsPanel.
  */
-public class NetworkSettingsPanel extends JPanel
+@Getter
+public class NetworkSettingsPanel extends BasePanel<NetworkSettingsModelBean>
 {
 
 	/**
@@ -87,130 +92,13 @@ public class NetworkSettingsPanel extends JPanel
 	 */
 	public NetworkSettingsPanel()
 	{
-		initializeComponents();
-		initializeActions();
-		initializeLayout();
-
+		this(BaseModel.of(NetworkSettingsModelBean.builder().build()));
 	}
 
-	/**
-	 * Gets the ButtonGroup proxy settings.
-	 * 
-	 * @return the ButtonGroup proxy settings
-	 */
-	public ButtonGroup getBtngrpProxySettings()
-	{
-		return btngrpProxySettings;
-	}
 
-	/**
-	 * Gets the CheckBox socks proxy.
-	 * 
-	 * @return the CheckBox socks proxy
-	 */
-	public JCheckBox getChckbxSocksProxy()
+	public NetworkSettingsPanel(final Model<NetworkSettingsModelBean> model)
 	{
-		return chckbxSocksProxy;
-	}
-
-	/**
-	 * Gets the Label host or ipaddress.
-	 * 
-	 * @return the Label host or ipaddress
-	 */
-	public JLabel getLblHostOrIpaddress()
-	{
-		return lblHostOrIpaddress;
-	}
-
-	/**
-	 * Gets the Label port.
-	 * 
-	 * @return the Label port
-	 */
-	public JLabel getLblPort()
-	{
-		return lblPort;
-	}
-
-	/**
-	 * Gets the LayeredPane host or ipaddress.
-	 * 
-	 * @return the LayeredPane host or ipaddress
-	 */
-	public JLayeredPane getLpHostOrIpaddress()
-	{
-		return lpHostOrIpaddress;
-	}
-
-	/**
-	 * Gets the LayeredPane no proxy.
-	 * 
-	 * @return the LayeredPane no proxy
-	 */
-	public JLayeredPane getLpNoProxy()
-	{
-		return lpNoProxy;
-	}
-
-	/**
-	 * Gets the LayeredPane use system settings.
-	 * 
-	 * @return the LayeredPane use system settings
-	 */
-	public JLayeredPane getLpUseSystemSettings()
-	{
-		return lpUseSystemSettings;
-	}
-
-	/**
-	 * Gets the RadioButton manual proxy configuration.
-	 * 
-	 * @return the RadioButton manual proxy configuration
-	 */
-	public JRadioButton getRdbtnManualProxyConfiguration()
-	{
-		return rdbtnManualProxyConfiguration;
-	}
-
-	/**
-	 * Gets the RadioButton no proxy.
-	 * 
-	 * @return the RadioButton no proxy
-	 */
-	public JRadioButton getRdbtnNoProxy()
-	{
-		return rdbtnNoProxy;
-	}
-
-	/**
-	 * Gets the RadioButton use system settings.
-	 * 
-	 * @return the RadioButton use system settings
-	 */
-	public JRadioButton getRdbtnUseSystemSettings()
-	{
-		return rdbtnUseSystemSettings;
-	}
-
-	/**
-	 * Gets the JTextField host or ipaddress.
-	 * 
-	 * @return the JTextField host or ipaddress
-	 */
-	public JTextField getTxtHostOrIpaddress()
-	{
-		return txtHostOrIpaddress;
-	}
-
-	/**
-	 * Gets the JTextField port.
-	 * 
-	 * @return the JTextField port
-	 */
-	public JTextField getTxtPort()
-	{
-		return txtPort;
+		super(model);
 	}
 
 	/**
@@ -224,9 +112,9 @@ public class NetworkSettingsPanel extends JPanel
 	/**
 	 * Initialize components.
 	 */
-	public void initializeComponents()
+	@Override
+	protected void initializeComponents()
 	{
-
 		lpNoProxy = new JLayeredPane();
 		lpNoProxy.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 
@@ -282,7 +170,8 @@ public class NetworkSettingsPanel extends JPanel
 	/**
 	 * Initialize layout.
 	 */
-	public void initializeLayout()
+	@Override
+	protected void initializeLayout()
 	{
 		final GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)

@@ -27,7 +27,7 @@ package de.alpharogroup.swing.panels.img;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import de.alpharogroup.model.IModel;
+import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
 
 /**
@@ -46,7 +46,7 @@ public class ImagePanel extends BasePanel<BufferedImage>
 	 * @param model
 	 *            the model
 	 */
-	public ImagePanel(final IModel<BufferedImage> model)
+	public ImagePanel(final Model<BufferedImage> model)
 	{
 		super(model);
 	}
