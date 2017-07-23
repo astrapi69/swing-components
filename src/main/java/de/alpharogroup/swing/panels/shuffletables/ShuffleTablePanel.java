@@ -32,8 +32,8 @@ import javax.swing.JScrollPane;
 import org.jdesktop.swingx.JXButton;
 import org.jdesktop.swingx.JXLabel;
 
-import de.alpharogroup.model.GenericModel;
-import de.alpharogroup.model.IModel;
+import de.alpharogroup.model.api.Model;
+import de.alpharogroup.model.util.WildcardListModel;
 import de.alpharogroup.swing.base.BasePanel;
 import de.alpharogroup.swing.x.GenericJXTable;
 import de.alpharogroup.swing.x.GenericShuffleJXTable;
@@ -72,10 +72,10 @@ public class ShuffleTablePanel<T> extends BasePanel<List<T>>
 
 	public ShuffleTablePanel()
 	{
-		this(GenericModel.ofList(new ArrayList<>()));
+		this(WildcardListModel.<T>ofList(new ArrayList<>()));
 	}
 
-	public ShuffleTablePanel(final IModel<List<T>> model)
+	public ShuffleTablePanel(final Model<List<T>> model)
 	{
 		super(model);
 	}

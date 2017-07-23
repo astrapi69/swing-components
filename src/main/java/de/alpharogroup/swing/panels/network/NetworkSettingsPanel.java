@@ -35,7 +35,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 
 import de.alpharogroup.model.GenericModel;
-import de.alpharogroup.model.IModel;
+import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
 import lombok.Getter;
 
@@ -96,7 +96,7 @@ public class NetworkSettingsPanel extends BasePanel<NetworkSettingsModelBean>
 	}
 
 
-	public NetworkSettingsPanel(final IModel<NetworkSettingsModelBean> model)
+	public NetworkSettingsPanel(final Model<NetworkSettingsModelBean> model)
 	{
 		super(model);
 	}

@@ -28,7 +28,7 @@ import java.awt.LayoutManager;
 
 import org.jdesktop.swingx.JXPanel;
 
-import de.alpharogroup.model.IModel;
+import de.alpharogroup.model.api.Model;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -48,7 +48,7 @@ public class BasePanel<T> extends JXPanel
 	private static final long serialVersionUID = 1L;
 
 	/** The model. */
-	private IModel<T> model;
+	private Model<T> model;
 
 	/**
 	 * Initializer block.
@@ -82,7 +82,7 @@ public class BasePanel<T> extends JXPanel
 	 * @param model
 	 *            the model
 	 */
-	public BasePanel(final IModel<T> model)
+	public BasePanel(final Model<T> model)
 	{
 		this.model = model;
 		initialize();

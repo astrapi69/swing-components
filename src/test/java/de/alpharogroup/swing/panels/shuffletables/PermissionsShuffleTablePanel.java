@@ -40,7 +40,7 @@ import org.jdesktop.swingx.JXLabel;
 
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.model.GenericModel;
-import de.alpharogroup.model.IModel;
+import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.x.GenericJXTable;
 import de.alpharogroup.swing.x.GenericShuffleJXTable;
 import de.alpharogroup.test.objects.Permission;
@@ -74,13 +74,13 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		frame.addWindowListener(new CloseWindow());
 		frame.setTitle("Shuffle table panel");
 		final PermissionsShuffleTablePanel panel = new PermissionsShuffleTablePanel(
-			GenericModel.ofList(permissions));
+			GenericModel.of(permissions));
 		frame.add(panel);
 		frame.setSize(700, 500);
 		frame.setVisible(true);
 	}
 
-	public PermissionsShuffleTablePanel(final IModel<List<Permission>> model)
+	public PermissionsShuffleTablePanel(final Model<List<Permission>> model)
 	{
 		super(model);
 	}

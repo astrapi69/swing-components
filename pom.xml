@@ -52,7 +52,10 @@
 		<jcommons-lang.version>4.20.0</jcommons-lang.version>
 		<vintage-time.version>4.11.0</vintage-time.version>
 		<randomizer.version>4.20.0</randomizer.version>
-		<object-model.version>1.1.0</object-model.version>
+		<!-- MODEL-DATA version -->
+		<model-data.version>1.1.0</model-data.version>
+		<model-api.version>${model-data.version}</model-api.version>
+		<model-object.version>${model-data.version}</model-object.version>
 		<!-- GENERIC-DESIGN-PATTERN versions -->
 		<design-patterns.version>4.10.0</design-patterns.version>
 		<state.version>${design-patterns.version}</state.version>
@@ -142,8 +145,8 @@
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
-				<artifactId>object-model</artifactId>
-				<version>${object-model.version}</version>
+				<artifactId>model-object</artifactId>
+				<version>${model-object.version}</version>
 			</dependency>
 
 		</dependencies>
@@ -213,7 +216,7 @@
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>object-model</artifactId>
+			<artifactId>model-object</artifactId>
 		</dependency>
 
 	</dependencies>

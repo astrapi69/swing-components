@@ -31,7 +31,7 @@ import javax.swing.JFrame;
 
 import de.alpharogroup.design.pattern.state.wizard.WizardStateMachine;
 import de.alpharogroup.model.GenericModel;
-import de.alpharogroup.model.IModel;
+import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
 
 public class WizardPanel extends BasePanel<WizardStateMachine>
@@ -63,7 +63,7 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 
 	}
 
-	public WizardPanel(final IModel<WizardStateMachine> model)
+	public WizardPanel(final Model<WizardStateMachine> model)
 	{
 		super(model);
 	}
