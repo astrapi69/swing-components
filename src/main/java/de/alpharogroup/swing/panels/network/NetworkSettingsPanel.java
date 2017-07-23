@@ -34,7 +34,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 
-import de.alpharogroup.model.GenericModel;
+import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
 import lombok.Getter;
@@ -92,7 +92,7 @@ public class NetworkSettingsPanel extends BasePanel<NetworkSettingsModelBean>
 	 */
 	public NetworkSettingsPanel()
 	{
-		this(GenericModel.of(NetworkSettingsModelBean.builder().build()));
+		this(BaseModel.of(NetworkSettingsModelBean.builder().build()));
 	}
 
 

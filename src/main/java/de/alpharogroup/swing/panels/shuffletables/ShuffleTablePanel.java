@@ -72,7 +72,7 @@ public class ShuffleTablePanel<T> extends BasePanel<List<T>>
 
 	public ShuffleTablePanel()
 	{
-		this(WildcardListModel.<T>ofList(new ArrayList<>()));
+		this(WildcardListModel.<T> ofList(new ArrayList<>()));
 	}
 
 	public ShuffleTablePanel(final Model<List<T>> model)

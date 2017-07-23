@@ -29,7 +29,7 @@ import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 
 import de.alpharogroup.lang.thread.ThreadDataBean;
-import de.alpharogroup.model.GenericModel;
+import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
 import de.alpharogroup.swing.tablemodel.thread.ThreadsTableModel;
@@ -49,7 +49,7 @@ public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 
 	public CurrentThreadsTablePanel()
 	{
-		this(GenericModel.of(new ThreadsTableModel()));
+		this(BaseModel.of(new ThreadsTableModel()));
 	}
 
 	public CurrentThreadsTablePanel(final Model<ThreadsTableModel> model)

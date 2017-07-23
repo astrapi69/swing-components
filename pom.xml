@@ -53,7 +53,7 @@
 		<vintage-time.version>4.11.0</vintage-time.version>
 		<randomizer.version>4.20.0</randomizer.version>
 		<!-- MODEL-DATA version -->
-		<model-data.version>1.1.0</model-data.version>
+		<model-data.version>1.2.0</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
 		<model-object.version>${model-data.version}</model-object.version>
 		<!-- GENERIC-DESIGN-PATTERN versions -->

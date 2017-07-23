@@ -39,7 +39,7 @@ import org.jdesktop.swingx.JXButton;
 import org.jdesktop.swingx.JXLabel;
 
 import de.alpharogroup.layout.CloseWindow;
-import de.alpharogroup.model.GenericModel;
+import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.x.GenericJXTable;
 import de.alpharogroup.swing.x.GenericShuffleJXTable;
@@ -74,7 +74,7 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		frame.addWindowListener(new CloseWindow());
 		frame.setTitle("Shuffle table panel");
 		final PermissionsShuffleTablePanel panel = new PermissionsShuffleTablePanel(
-			GenericModel.of(permissions));
+			BaseModel.of(permissions));
 		frame.add(panel);
 		frame.setSize(700, 500);
 		frame.setVisible(true);

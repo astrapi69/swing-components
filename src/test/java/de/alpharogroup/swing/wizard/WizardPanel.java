@@ -30,7 +30,7 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 
 import de.alpharogroup.design.pattern.state.wizard.WizardStateMachine;
-import de.alpharogroup.model.GenericModel;
+import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
 
@@ -59,29 +59,12 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 
 	public WizardPanel()
 	{
-		this(GenericModel.of(WizardStateMachine.builder().currentState(CustomState.FIRST).build()));
-
+		this(BaseModel.of(WizardStateMachine.builder().currentState(CustomState.FIRST).build()));
 	}
 
 	public WizardPanel(final Model<WizardStateMachine> model)
 	{
 		super(model);
-	}
-
-	@Override
-	protected void onAfterInitializeComponents()
-	{
-		super.onAfterInitializeComponents();
-		updateButtonState();
-	}
-
-	@Override
-	protected void initializeLayout()
-	{
-		super.initializeLayout();
-		setLayout(new BorderLayout());
-		add(wizardContentPanel, BorderLayout.CENTER);
-		add(navigationPanel, BorderLayout.SOUTH);
 	}
 
 	@Override
@@ -92,6 +75,14 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 		navigationPanel = newNavigationPanel();
 	}
 
+	@Override
+	protected void initializeLayout()
+	{
+		super.initializeLayout();
+		setLayout(new BorderLayout());
+		add(wizardContentPanel, BorderLayout.CENTER);
+		add(navigationPanel, BorderLayout.SOUTH);
+	}
 
 	protected NavigationPanel<Void> newNavigationPanel()
 	{
@@ -126,10 +117,18 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 		return navigationPanel;
 	}
 
+
 	protected WizardContentPanel newWizardContentPanel()
 	{
 		final WizardContentPanel cardsPanel = new WizardContentPanel();
 		return cardsPanel;
+	}
+
+	@Override
+	protected void onAfterInitializeComponents()
+	{
+		super.onAfterInitializeComponents();
+		updateButtonState();
 	}
 
 	protected void onCancel()
@@ -166,7 +165,8 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 
 	protected void updateButtonState()
 	{
-		navigationPanel.getBtnPrevious().setEnabled(getModelObject().getCurrentState().hasPrevious());
+		navigationPanel.getBtnPrevious()
+			.setEnabled(getModelObject().getCurrentState().hasPrevious());
 		navigationPanel.getBtnNext().setEnabled(getModelObject().getCurrentState().hasNext());
 	}
 
