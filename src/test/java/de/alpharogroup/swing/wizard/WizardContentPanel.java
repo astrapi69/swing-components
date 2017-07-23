@@ -23,21 +23,18 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 package de.alpharogroup.swing.wizard;
-
 import java.awt.CardLayout;
 import java.awt.Color;
 
 import javax.swing.border.LineBorder;
 
-import org.jdesktop.swingx.JXPanel;
-
-import de.alpharogroup.swing.panels.ComponentInitialization;
+import de.alpharogroup.swing.base.BasePanel;
 import lombok.Getter;
 
 /**
  * The class {@link WizardContentPanel}.
  */
-public class WizardContentPanel extends JXPanel implements ComponentInitialization
+public class WizardContentPanel extends BasePanel<Object>
 {
 
 	/** The Constant serialVersionUID. */
@@ -50,7 +47,6 @@ public class WizardContentPanel extends JXPanel implements ComponentInitializati
 	 * Initializer block.
 	 */
 	{
-		initialize();
 	}
 
 	/**
@@ -64,7 +60,7 @@ public class WizardContentPanel extends JXPanel implements ComponentInitializati
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void initializeComponents()
+	protected void initializeComponents()
 	{
 		add(new FirstStepPanel(), CustomState.FIRST.getName());
 		add(new SecondStepPanel(), CustomState.SECOND.getName());
@@ -76,24 +72,30 @@ public class WizardContentPanel extends JXPanel implements ComponentInitializati
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void initializeLayout()
+	protected void initializeLayout()
 	{
 		setBorder(new LineBorder(Color.BLACK));
-	}
-
-	protected CardLayout newCardLayout()
-	{
-		final CardLayout cardLayout = new CardLayout();
-		return cardLayout;
 	}
 
 	/**
 	 * The layout have to initialize before the components! {@inheritDoc}
 	 */
 	@Override
-	public void onBeforeInitializeComponents()
+	protected void onBeforeInitializeComponents()
 	{
 		cardLayout = newCardLayout();
 		setLayout(cardLayout);
 	}
+
+	/**
+	 * Factory method for create a new {@link CardLayout}.
+	 *
+	 * @return the new {@link CardLayout}.
+	 */
+	protected CardLayout newCardLayout()
+	{
+		final CardLayout cardLayout = new CardLayout();
+		return cardLayout;
+	}
+
 }
