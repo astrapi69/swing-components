@@ -25,15 +25,26 @@
 package de.alpharogroup.swing.panels;
 
 /**
- * The Interface ComponentInitialization contains methods for the initialization for the components.
+ * The interface {@link ComponentInitialization} contains methods for the initialization for the
+ * components.
  */
 public interface ComponentInitialization
 {
 
 	/**
-	 * Initialize all actions from the component.
+	 * Initialize the component.
 	 */
-	void initializeActions();
+	default void initialize()
+	{
+		onBeforeInitialize();
+		onBeforeInitializeComponents();
+		initializeComponents();
+		onAfterInitializeComponents();
+		onBeforeInitializeLayout();
+		initializeLayout();
+		onAfterInitializeLayout();
+		onAfterInitialize();
+	};
 
 	/**
 	 * Initialize components from the component.
@@ -44,4 +55,50 @@ public interface ComponentInitialization
 	 * Initialize layout from the component.
 	 */
 	void initializeLayout();
+
+	/**
+	 * Callback method to interact when the initialization of the component is finished.
+	 */
+	default void onAfterInitialize()
+	{
+	}
+
+
+	/**
+	 * Callback method to interact when the initialization is finished of the components from the
+	 * component.
+	 */
+	default void onAfterInitializeComponents()
+	{
+	}
+
+	/**
+	 * Callback method to interact when the initialization of the layout is finished.
+	 */
+	default void onAfterInitializeLayout()
+	{
+	}
+
+	/**
+	 * Callback method to interact on before initialization of the component.
+	 */
+	default void onBeforeInitialize()
+	{
+	}
+
+
+	/**
+	 * Callback method to interact on before initialization of the components from the component.
+	 */
+	default void onBeforeInitializeComponents()
+	{
+	}
+
+	/**
+	 * Callback method to interact on before initialization of the layout.
+	 */
+	default void onBeforeInitializeLayout()
+	{
+	}
+
 }

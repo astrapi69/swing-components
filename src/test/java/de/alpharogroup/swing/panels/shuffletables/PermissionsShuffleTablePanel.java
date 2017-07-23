@@ -39,6 +39,8 @@ import org.jdesktop.swingx.JXButton;
 import org.jdesktop.swingx.JXLabel;
 
 import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.x.GenericJXTable;
 import de.alpharogroup.swing.x.GenericShuffleJXTable;
 import de.alpharogroup.test.objects.Permission;
@@ -71,20 +73,16 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		final Frame frame = new Frame();
 		frame.addWindowListener(new CloseWindow());
 		frame.setTitle("Shuffle table panel");
-		final PermissionsShuffleTablePanel panel = new PermissionsShuffleTablePanel(permissions);
+		final PermissionsShuffleTablePanel panel = new PermissionsShuffleTablePanel(
+			BaseModel.of(permissions));
 		frame.add(panel);
 		frame.setSize(700, 500);
 		frame.setVisible(true);
 	}
 
-	private final List<Permission> permissions;
-
-	public PermissionsShuffleTablePanel(final List<Permission> permissions)
+	public PermissionsShuffleTablePanel(final Model<List<Permission>> model)
 	{
-		super();
-		this.permissions = permissions;
-		initComponents();
-		initLayout();
+		super(model);
 	}
 
 	@Override
@@ -120,12 +118,8 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		}
 	}
 
-	public List<Permission> getPermissions()
-	{
-		return this.permissions;
-	}
-
-	private void initComponents()
+	@Override
+	protected void initializeComponents()
 	{
 		this.btnAddAll = new JXButton("Add all >>");
 		this.btnAddAll.addActionListener(this);
@@ -142,7 +136,7 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		// 2. Create a generic table model for the class Permission.
 		final PermissionsTableModel permissionsTableModel = new PermissionsTableModel();
 		// 3. Add the data to the model.
-		permissionsTableModel.addList(this.permissions);
+		permissionsTableModel.addList(getModelObject());
 		// 4. Create the generic table and associate with the generic table
 		// model.
 		this.tblAvailableElements = new GenericJXTable<>(permissionsTableModel);
@@ -153,7 +147,8 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 		this.scrPnTblSelectedElements.setViewportView(this.tblSelectedElements);
 	}
 
-	private void initLayout()
+	@Override
+	protected void initializeLayout()
 	{
 		final GridBagLayout gbl = new GridBagLayout();
 		final GridBagConstraints gbc = new GridBagConstraints();

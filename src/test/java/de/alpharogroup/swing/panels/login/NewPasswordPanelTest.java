@@ -22,58 +22,30 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.network;
+package de.alpharogroup.swing.panels.login;
 
-import java.io.Serializable;
+import java.awt.Frame;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import de.alpharogroup.layout.CloseWindow;
 
-/**
- * The class {@link NetworkSettingsModelBean}.
- */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class NetworkSettingsModelBean implements Serializable
+public class NewPasswordPanelTest
 {
 
+
 	/**
-	 * The Constant serialVersionUID.
+	 * @param args
 	 */
-	private static final long serialVersionUID = 3097232755356031060L;
+	public static void main(final String[] args)
+	{
 
-	/** The flag proxy is used. */
-	private Boolean proxy;
-
-	/** The flag if socks is used. */
-	private Boolean socks;
-
-	/** The host. */
-	private String host;
-
-	/** The port. */
-	private Integer port;
-
-	/** The proxy authetication. */
-	private Boolean proxyAuthetication;
-
-	/** The username. */
-	private String username;
-
-	/** The password. */
-	private String password;
-
-	/** The flag if the password should be remembered. */
-	private Boolean rememberPassword;
+		final Frame frame = new Frame();
+		frame.addWindowListener(new CloseWindow());
+		frame.setTitle("Set pw Frame");
+		final NewPasswordPanel newPasswordPanel = new NewPasswordPanel();
+		frame.add(newPasswordPanel);
+		frame.pack();
+		frame.setSize(500, 300);
+		frame.setVisible(true);
+	}
 
 }
