@@ -80,6 +80,7 @@ Open Source:
 Commercial
 
  * [JIDE](http://www.jidesoft.com/) JIDE Software is a professional Java UI component provider.
+ * [Swing Depot: Components Suites](http://www.javadesktop.org/rollups/components/) commercial swing components
 
 
 
