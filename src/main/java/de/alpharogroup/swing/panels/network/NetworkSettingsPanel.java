@@ -113,7 +113,7 @@ public class NetworkSettingsPanel extends BasePanel<NetworkSettingsModelBean>
 	 * Initialize components.
 	 */
 	@Override
-	protected void initializeComponents()
+	protected void onInitializeComponents()
 	{
 		lpNoProxy = new JLayeredPane();
 		lpNoProxy.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
@@ -171,7 +171,7 @@ public class NetworkSettingsPanel extends BasePanel<NetworkSettingsModelBean>
 	 * Initialize layout.
 	 */
 	@Override
-	protected void initializeLayout()
+	protected void onInitializeLayout()
 	{
 		final GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)

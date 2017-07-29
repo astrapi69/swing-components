@@ -119,7 +119,7 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 	}
 
 	@Override
-	protected void initializeComponents()
+	protected void onInitializeComponents()
 	{
 		this.btnAddAll = new JXButton("Add all >>");
 		this.btnAddAll.addActionListener(this);
@@ -148,7 +148,7 @@ public class PermissionsShuffleTablePanel extends ShuffleTablePanel<Permission>
 	}
 
 	@Override
-	protected void initializeLayout()
+	protected void onInitializeLayout()
 	{
 		final GridBagLayout gbl = new GridBagLayout();
 		final GridBagConstraints gbc = new GridBagConstraints();

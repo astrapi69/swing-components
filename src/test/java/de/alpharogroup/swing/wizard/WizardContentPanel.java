@@ -60,7 +60,7 @@ public class WizardContentPanel extends BasePanel<Object>
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void initializeComponents()
+	protected void onInitializeComponents()
 	{
 		add(new FirstStepPanel(), CustomState.FIRST.getName());
 		add(new SecondStepPanel(), CustomState.SECOND.getName());
@@ -72,7 +72,7 @@ public class WizardContentPanel extends BasePanel<Object>
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void initializeLayout()
+	protected void onInitializeLayout()
 	{
 		setBorder(new LineBorder(Color.BLACK));
 	}

@@ -27,6 +27,7 @@ package de.alpharogroup.swing.panels.login;
 import java.awt.Frame;
 
 import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.swing.panels.login.pw.NewPasswordPanel;
 
 public class NewPasswordPanelTest
 {

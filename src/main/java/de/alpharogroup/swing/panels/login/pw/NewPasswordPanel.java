@@ -22,21 +22,23 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.login;
+package de.alpharogroup.swing.panels.login.pw;
 
 import javax.swing.GroupLayout;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import de.alpharogroup.swing.panels.ComponentInitialization;
+import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
+import de.alpharogroup.swing.base.BasePanel;
 
 /**
  * The class {@link NewPasswordPanel}.
  */
-public class NewPasswordPanel extends JPanel implements ComponentInitialization
+public class NewPasswordPanel extends BasePanel<ChangePasswordModelBean>
 {
+
 
 	private static final long serialVersionUID = 1L;
 	private JLabel lblPassword;
@@ -49,11 +51,16 @@ public class NewPasswordPanel extends JPanel implements ComponentInitialization
 
 	public NewPasswordPanel()
 	{
-		initialize();
+		this(BaseModel.of(ChangePasswordModelBean.builder().build()));
+	}
+
+	public NewPasswordPanel(Model<ChangePasswordModelBean> model)
+	{
+		super(model);
 	}
 
 	@Override
-	public void initializeComponents()
+	protected void onInitializeComponents()
 	{
 		lblSetPwHeader = new JLabel();
 		lblUsername = new JLabel();
@@ -78,7 +85,7 @@ public class NewPasswordPanel extends JPanel implements ComponentInitialization
 	}
 
 	@Override
-	public void initializeLayout()
+	protected void onInitializeLayout()
 	{
 		final GroupLayout layout = new GroupLayout(this);
 		this.setLayout(layout);
@@ -120,7 +127,6 @@ public class NewPasswordPanel extends JPanel implements ComponentInitialization
 					.addComponent(lblRepeatPassword).addComponent(txtRepeatPassword,
 						GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 				.addContainerGap(35, Short.MAX_VALUE)));
-
 	}
 
 }

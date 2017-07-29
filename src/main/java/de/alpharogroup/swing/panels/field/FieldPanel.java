@@ -69,7 +69,7 @@ public abstract class FieldPanel<T> extends BasePanel<T>
 	}
 
 	@Override
-	protected void initializeComponents()
+	protected void onInitializeComponents()
 	{
 		txtFieldName = new JTextField();
 		lblFieldName = new JLabel();
@@ -86,7 +86,7 @@ public abstract class FieldPanel<T> extends BasePanel<T>
 	}
 
 	@Override
-	protected void initializeLayout()
+	protected void onInitializeLayout()
 	{
 		final GroupLayout layout = new GroupLayout(this);
 		this.setLayout(layout);
