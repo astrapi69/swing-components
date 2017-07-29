@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>swing-components</artifactId>
-	<version>4.21.0</version>
+	<version>4.22.0-SNAPSHOT</version>
 
 	<name>${project.artifactId}</name>
 
@@ -57,7 +57,7 @@
 		<model-api.version>${model-data.version}</model-api.version>
 		<model-object.version>${model-data.version}</model-object.version>
 		<!-- GENERIC-DESIGN-PATTERN versions -->
-		<design-patterns.version>4.10.0</design-patterns.version>
+		<design-patterns.version>4.11.0</design-patterns.version>
 		<state.version>${design-patterns.version}</state.version>
 		<observer.version>${design-patterns.version}</observer.version>
 		<!-- EXTERNAL LIBRARIES versions -->
