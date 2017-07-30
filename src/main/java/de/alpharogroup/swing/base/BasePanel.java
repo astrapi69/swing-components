@@ -51,12 +51,6 @@ public class BasePanel<T> extends JXPanel
 	private Model<T> model;
 
 	/**
-	 * Initializer block.
-	 */
-	{
-	}
-
-	/**
 	 * Instantiates a new {@link BasePanel} object.
 	 */
 	public BasePanel()
@@ -121,12 +115,12 @@ public class BasePanel<T> extends JXPanel
 	public final T getModelObject()
 	{
 		return getModel().getObject();
-	};
+	}
 
 	/**
-	 * Initialize the component.
+	 * Callback method to initialize the component.
 	 */
-	protected void initialize()
+	protected void onInitialize()
 	{
 		onBeforeInitialize();
 		onBeforeInitializeComponents();
@@ -139,16 +133,40 @@ public class BasePanel<T> extends JXPanel
 	}
 
 	/**
+	 * Initialize the component.
+	 */
+	protected final void initialize()
+	{
+		onInitialize();
+	}
+
+	/**
+	 * Initialize components from the component.
+	 */
+	protected final void initializeComponents()
+	{
+		onInitializeComponents();
+	}
+
+	/**
+	 * Initialize layout from the component.
+	 */
+	protected final void initializeLayout()
+	{
+		onInitializeLayout();
+	}
+
+	/**
 	 * Callback method to initialize components from the component.
 	 */
-	protected void initializeComponents()
+	protected void onInitializeComponents()
 	{
 	}
 
 	/**
 	 * Callback method to initialize layout from the component.
 	 */
-	protected void initializeLayout()
+	protected void onInitializeLayout()
 	{
 	}
 

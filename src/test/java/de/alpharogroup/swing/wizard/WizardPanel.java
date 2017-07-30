@@ -68,7 +68,7 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 	}
 
 	@Override
-	protected void initializeComponents()
+	protected void onInitializeComponents()
 	{
 		super.initializeComponents();
 		wizardContentPanel = newWizardContentPanel();
@@ -76,7 +76,7 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 	}
 
 	@Override
-	protected void initializeLayout()
+	protected void onInitializeLayout()
 	{
 		super.initializeLayout();
 		setLayout(new BorderLayout());

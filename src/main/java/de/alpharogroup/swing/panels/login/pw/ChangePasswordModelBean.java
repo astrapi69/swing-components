@@ -22,31 +22,48 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.login;
+package de.alpharogroup.swing.panels.login.pw;
 
-import java.awt.Frame;
+import java.io.Serializable;
 
-import de.alpharogroup.layout.CloseWindow;
-import de.alpharogroup.swing.panels.login.pw.NewPasswordPanel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-public class NewPasswordPanelTest
+/**
+ * The Class {@link ChangePasswordModelBean} captures the data for change the password of a user.
+ *
+ * @author Asterios Raptis
+ */
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder=true)
+public class ChangePasswordModelBean implements Serializable
 {
 
-
 	/**
-	 * @param args
+	 * The serialVersionUID.
 	 */
-	public static void main(final String[] args)
-	{
+	private static final long serialVersionUID = 1L;
 
-		final Frame frame = new Frame();
-		frame.addWindowListener(new CloseWindow());
-		frame.setTitle("Set pw Frame");
-		final NewPasswordPanel newPasswordPanel = new NewPasswordPanel();
-		frame.add(newPasswordPanel);
-		frame.pack();
-		frame.setSize(500, 300);
-		frame.setVisible(true);
-	}
+	/** The current password of a user. */
+	@Builder.Default
+	private String currentPassword = "";
+
+	/** The new password of a user. */
+	@Builder.Default
+	private String newPassword = "";
+
+	/** The repeated new password of a user. */
+	@Builder.Default
+	private String repeatNewPassword = "";
 
 }

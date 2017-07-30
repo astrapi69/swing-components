@@ -62,7 +62,7 @@ public class NavigationPanel<T> extends BasePanel<T>
 	}
 
 	@Override
-	protected void initializeComponents()
+	protected void onInitializeComponents()
 	{
 		btnNext = newNextButton("Next");
 		btnPrevious = newPreviousButton("Previous");
@@ -75,7 +75,7 @@ public class NavigationPanel<T> extends BasePanel<T>
 	}
 
 	@Override
-	protected void initializeLayout()
+	protected void onInitializeLayout()
 	{
 		setBorder(new LineBorder(Color.BLACK));
 	}

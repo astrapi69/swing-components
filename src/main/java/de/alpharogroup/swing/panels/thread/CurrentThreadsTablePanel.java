@@ -64,7 +64,7 @@ public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 	}
 
 	@Override
-	protected void initializeComponents()
+	protected void onInitializeComponents()
 	{
 		super.initializeComponents();
 		threadTable = new GenericJXTable<>(getModelObject());
@@ -72,7 +72,7 @@ public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 	}
 
 	@Override
-	protected void initializeLayout()
+	protected void onInitializeLayout()
 	{
 		super.initializeLayout();
 		setLayout(new BorderLayout());
