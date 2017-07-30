@@ -118,21 +118,6 @@ public class BasePanel<T> extends JXPanel
 	}
 
 	/**
-	 * Callback method to initialize the component.
-	 */
-	protected void onInitialize()
-	{
-		onBeforeInitialize();
-		onBeforeInitializeComponents();
-		initializeComponents();
-		onAfterInitializeComponents();
-		onBeforeInitializeLayout();
-		initializeLayout();
-		onAfterInitializeLayout();
-		onAfterInitialize();
-	}
-
-	/**
 	 * Initialize the component.
 	 */
 	protected final void initialize()
@@ -155,21 +140,6 @@ public class BasePanel<T> extends JXPanel
 	{
 		onInitializeLayout();
 	}
-
-	/**
-	 * Callback method to initialize components from the component.
-	 */
-	protected void onInitializeComponents()
-	{
-	}
-
-	/**
-	 * Callback method to initialize layout from the component.
-	 */
-	protected void onInitializeLayout()
-	{
-	}
-
 
 	/**
 	 * Callback method to interact when the initialization of the component is finished.
@@ -212,6 +182,36 @@ public class BasePanel<T> extends JXPanel
 	 * Callback method to interact on before initialization of the layout.
 	 */
 	protected void onBeforeInitializeLayout()
+	{
+	}
+
+
+	/**
+	 * Callback method to initialize the component.
+	 */
+	protected void onInitialize()
+	{
+		onBeforeInitialize();
+		onBeforeInitializeComponents();
+		initializeComponents();
+		onAfterInitializeComponents();
+		onBeforeInitializeLayout();
+		initializeLayout();
+		onAfterInitializeLayout();
+		onAfterInitialize();
+	}
+
+	/**
+	 * Callback method to initialize components from the component.
+	 */
+	protected void onInitializeComponents()
+	{
+	}
+
+	/**
+	 * Callback method to initialize layout from the component.
+	 */
+	protected void onInitializeLayout()
 	{
 	}
 

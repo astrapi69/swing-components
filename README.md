@@ -29,7 +29,7 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 Than you can add the dependency to your dependencies:
 
 		<!-- swing-components version -->
-		<swing-components.version>4.20.0</swing-components.version>
+		<swing-components.version>4.22.0</swing-components.version>
 
 		<dependencies>
 			...
@@ -68,7 +68,7 @@ If you like this library, please consider a donation through
 <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
 </a>
 
-# Similar projects
+## Similar projects
 
 Here is a list of awesome swing projects:
 
@@ -80,6 +80,7 @@ Open Source:
 Commercial
 
  * [JIDE](http://www.jidesoft.com/) JIDE Software is a professional Java UI component provider.
+ * [Swing Depot: Components Suites](http://www.javadesktop.org/rollups/components/) commercial swing components
 
 
 

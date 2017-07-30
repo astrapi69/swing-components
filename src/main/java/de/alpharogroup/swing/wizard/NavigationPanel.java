@@ -61,25 +61,6 @@ public class NavigationPanel<T> extends BasePanel<T>
 	{
 	}
 
-	@Override
-	protected void onInitializeComponents()
-	{
-		btnNext = newNextButton("Next");
-		btnPrevious = newPreviousButton("Previous");
-		btnCancel = newCancelButton("Cancel");
-		btnFinish = newFinishButton("Finish");
-		add(btnPrevious);
-		add(btnNext);
-		add(btnCancel);
-		add(btnFinish);
-	}
-
-	@Override
-	protected void onInitializeLayout()
-	{
-		setBorder(new LineBorder(Color.BLACK));
-	}
-
 	protected JButton newCancelButton(final String label)
 	{
 		final JButton button = new JButton(label);
@@ -114,6 +95,25 @@ public class NavigationPanel<T> extends BasePanel<T>
 
 	protected void onFinish()
 	{
+	}
+
+	@Override
+	protected void onInitializeComponents()
+	{
+		btnNext = newNextButton("Next");
+		btnPrevious = newPreviousButton("Previous");
+		btnCancel = newCancelButton("Cancel");
+		btnFinish = newFinishButton("Finish");
+		add(btnPrevious);
+		add(btnNext);
+		add(btnCancel);
+		add(btnFinish);
+	}
+
+	@Override
+	protected void onInitializeLayout()
+	{
+		setBorder(new LineBorder(Color.BLACK));
 	}
 
 	protected void onNext()

@@ -68,6 +68,8 @@ public abstract class FieldPanel<T> extends BasePanel<T>
 	{
 	}
 
+	protected abstract DefaultComboBoxModel<T> newTypeModel();
+
 	@Override
 	protected void onInitializeComponents()
 	{
@@ -112,7 +114,5 @@ public abstract class FieldPanel<T> extends BasePanel<T>
 						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 				.addContainerGap(23, Short.MAX_VALUE)));
 	}
-
-	protected abstract DefaultComboBoxModel<T> newTypeModel();
 
 }
