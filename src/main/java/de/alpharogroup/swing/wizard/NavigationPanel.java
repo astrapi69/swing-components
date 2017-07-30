@@ -29,6 +29,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
+import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
 import lombok.Getter;
 
@@ -55,10 +57,21 @@ public class NavigationPanel<T> extends BasePanel<T>
 	private JButton btnFinish;
 
 	/**
-	 * Instantiates a new navigation panel.
+	 * Instantiates a new {@link NavigationPanel}.
 	 */
 	public NavigationPanel()
 	{
+		this(BaseModel.of());
+	}
+
+	/**
+	 * Instantiates a new {@link NavigationPanel}.
+	 *
+	 * @param model the model
+	 */
+	public NavigationPanel(Model<T> model)
+	{
+		super(model);
 	}
 
 	protected JButton newCancelButton(final String label)
