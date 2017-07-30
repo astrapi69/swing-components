@@ -27,38 +27,93 @@ package de.alpharogroup.swing.wizard;
 import java.awt.Color;
 
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import de.alpharogroup.swing.base.BasePanel;
 import lombok.Getter;
 
+/**
+ * The class {@link NavigationPanel}.
+ */
 @Getter
-public class NavigationPanel extends JPanel
+public class NavigationPanel<T> extends BasePanel<T>
 {
-	private JButton nextButton;
-	private JButton previousButton;
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	/** The next button. */
+	private JButton btnNext;
+
+	/** The previous button. */
+	private JButton btnPrevious;
+
+	/** The cancel button. */
+	private JButton btnCancel;
+
+	/** The finish button. */
+	private JButton btnFinish;
+
+	/**
+	 * Instantiates a new navigation panel.
+	 */
 	public NavigationPanel()
 	{
-		setBorder(new LineBorder(Color.BLACK));
-		nextButton = newNextButton("Next");
-		previousButton = newPreviousButton("Previous");
-		add(previousButton);
-		add(nextButton);
 	}
 
-	protected JButton newNextButton(String label)
+	@Override
+	protected void onInitializeComponents()
 	{
-		JButton button = new JButton(label);
+		btnNext = newNextButton("Next");
+		btnPrevious = newPreviousButton("Previous");
+		btnCancel = newCancelButton("Cancel");
+		btnFinish = newFinishButton("Finish");
+		add(btnPrevious);
+		add(btnNext);
+		add(btnCancel);
+		add(btnFinish);
+	}
+
+	@Override
+	protected void onInitializeLayout()
+	{
+		setBorder(new LineBorder(Color.BLACK));
+	}
+
+	protected JButton newCancelButton(final String label)
+	{
+		final JButton button = new JButton(label);
+		button.addActionListener(e -> onCancel());
+		return button;
+	}
+
+	protected JButton newFinishButton(final String label)
+	{
+		final JButton button = new JButton(label);
+		button.addActionListener(e -> onFinish());
+		return button;
+	}
+
+	protected JButton newNextButton(final String label)
+	{
+		final JButton button = new JButton(label);
 		button.addActionListener(e -> onNext());
 		return button;
 	}
 
-	protected JButton newPreviousButton(String label)
+	protected JButton newPreviousButton(final String label)
 	{
-		JButton button = new JButton(label);
+		final JButton button = new JButton(label);
 		button.addActionListener(e -> onPrevious());
 		return button;
+	}
+
+	protected void onCancel()
+	{
+	}
+
+	protected void onFinish()
+	{
 	}
 
 	protected void onNext()

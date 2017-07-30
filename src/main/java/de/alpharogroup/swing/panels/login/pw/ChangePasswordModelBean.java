@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.network;
+package de.alpharogroup.swing.panels.login.pw;
 
 import java.io.Serializable;
 
@@ -35,7 +35,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * The class {@link NetworkSettingsModelBean}.
+ * The Class {@link ChangePasswordModelBean} captures the data for change the password of a user.
+ *
+ * @author Asterios Raptis
  */
 @Getter
 @Setter
@@ -43,37 +45,25 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(toBuilder = true)
-public class NetworkSettingsModelBean implements Serializable
+@Builder(toBuilder=true)
+public class ChangePasswordModelBean implements Serializable
 {
 
 	/**
-	 * The Constant serialVersionUID.
+	 * The serialVersionUID.
 	 */
-	private static final long serialVersionUID = 3097232755356031060L;
+	private static final long serialVersionUID = 1L;
 
-	/** The flag proxy is used. */
-	private Boolean proxy;
+	/** The current password of a user. */
+	@Builder.Default
+	private String currentPassword = "";
 
-	/** The flag if socks is used. */
-	private Boolean socks;
+	/** The new password of a user. */
+	@Builder.Default
+	private String newPassword = "";
 
-	/** The host. */
-	private String host;
-
-	/** The port. */
-	private Integer port;
-
-	/** The proxy authetication. */
-	private Boolean proxyAuthetication;
-
-	/** The username. */
-	private String username;
-
-	/** The password. */
-	private String password;
-
-	/** The flag if the password should be remembered. */
-	private Boolean rememberPassword;
+	/** The repeated new password of a user. */
+	@Builder.Default
+	private String repeatNewPassword = "";
 
 }

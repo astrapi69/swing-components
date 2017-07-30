@@ -22,9 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.network;
-
-import java.io.Serializable;
+package de.alpharogroup.swing.tablemodel;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,7 +33,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * The class {@link NetworkSettingsModelBean}.
+ * The class {@link TableColumnsModel} encapsulates the column data for a table model like the
+ * column names if they are editable and the column classes.
  */
 @Getter
 @Setter
@@ -44,36 +43,15 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-public class NetworkSettingsModelBean implements Serializable
+public class TableColumnsModel
 {
 
-	/**
-	 * The Constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 3097232755356031060L;
+	/** The column names. */
+	private String[] columnNames;
 
-	/** The flag proxy is used. */
-	private Boolean proxy;
+	/** The flag for the column if they can be edited. */
+	private boolean[] canEdit;
 
-	/** The flag if socks is used. */
-	private Boolean socks;
-
-	/** The host. */
-	private String host;
-
-	/** The port. */
-	private Integer port;
-
-	/** The proxy authetication. */
-	private Boolean proxyAuthetication;
-
-	/** The username. */
-	private String username;
-
-	/** The password. */
-	private String password;
-
-	/** The flag if the password should be remembered. */
-	private Boolean rememberPassword;
-
+	/** The column classes. */
+	private Class<?>[] columnClasses;
 }

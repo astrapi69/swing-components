@@ -22,58 +22,22 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.network;
+package de.alpharogroup.swing.panels.thread;
 
-import java.io.Serializable;
+import javax.swing.JFrame;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
-/**
- * The class {@link NetworkSettingsModelBean}.
- */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class NetworkSettingsModelBean implements Serializable
+public class CurrentThreadsTableDemo
 {
 
-	/**
-	 * The Constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 3097232755356031060L;
+	public static void main(final String[] args)
+	{
+		final JFrame f = new JFrame();
+		final CurrentThreadsTablePanel viewer = new CurrentThreadsTablePanel();
 
-	/** The flag proxy is used. */
-	private Boolean proxy;
+		f.setContentPane(viewer);
+		f.setSize(500, 300);
+		f.setVisible(true);
 
-	/** The flag if socks is used. */
-	private Boolean socks;
-
-	/** The host. */
-	private String host;
-
-	/** The port. */
-	private Integer port;
-
-	/** The proxy authetication. */
-	private Boolean proxyAuthetication;
-
-	/** The username. */
-	private String username;
-
-	/** The password. */
-	private String password;
-
-	/** The flag if the password should be remembered. */
-	private Boolean rememberPassword;
+	}
 
 }

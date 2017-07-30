@@ -8,11 +8,16 @@ Several swing components and utilities
 
 The source code comes under the liberal MIT License, making swing-components great for all types of applications.
 
-# Build status and latest maven version
+## Build status
 [![Build Status](https://travis-ci.org/lightblueseas/swing-components.svg?branch=master)](https://travis-ci.org/lightblueseas/swing-components)
 
+## Maven Central
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components)
+
+## javadoc
+
+swing-components [![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/swing-components.svg)](http://www.javadoc.io/doc/de.alpharogroup/swing-components)
 
 ## Maven dependency
 
@@ -24,7 +29,7 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 Than you can add the dependency to your dependencies:
 
 		<!-- swing-components version -->
-		<swing-components.version>4.18.0</swing-components.version>
+		<swing-components.version>4.20.0</swing-components.version>
 
 		<dependencies>
 			...
@@ -62,6 +67,19 @@ If you like this library, please consider a donation through
 <a href="https://flattr.com/submit/auto?fid=r7vp62&url=https%3A%2F%2Fgithub.com%2Flightblueseas%2Fswing-components" target="_blank">
 <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
 </a>
+
+# Similar projects
+
+Here is a list of awesome swing projects:
+
+Open Source:
+
+ * [OpenSwing](http://oswing.sourceforge.net/) OpenSwing is an open-source suite of advanced graphics components based on Swing toolkit
+ * [JCalendar](https://toedter.com/jcalendar/) JCalendar is a Java date chooser bean for graphically picking a date.
+
+Commercial
+
+ * [JIDE](http://www.jidesoft.com/) JIDE Software is a professional Java UI component provider.
 
 
 

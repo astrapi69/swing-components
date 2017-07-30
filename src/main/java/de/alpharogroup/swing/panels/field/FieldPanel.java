@@ -28,16 +28,16 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 
+import de.alpharogroup.swing.base.BasePanel;
 import lombok.Getter;
 
 /**
  * The class {@link FieldPanel} for create a new field.
  */
-public abstract class FieldPanel<T> extends JPanel
+public abstract class FieldPanel<T> extends BasePanel<T>
 {
 
 	/** The Constant serialVersionUID. */
@@ -66,11 +66,10 @@ public abstract class FieldPanel<T> extends JPanel
 	 */
 	public FieldPanel()
 	{
-		initComponents();
-		initLayout();
 	}
 
-	protected void initComponents()
+	@Override
+	protected void onInitializeComponents()
 	{
 		txtFieldName = new JTextField();
 		lblFieldName = new JLabel();
@@ -86,7 +85,8 @@ public abstract class FieldPanel<T> extends JPanel
 		dropDownType.setModel(newTypeModel());
 	}
 
-	protected void initLayout()
+	@Override
+	protected void onInitializeLayout()
 	{
 		final GroupLayout layout = new GroupLayout(this);
 		this.setLayout(layout);

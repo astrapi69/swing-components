@@ -30,14 +30,22 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.io.Serializable;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * The class {@link GridBagLayoutModel} holds data for layout a component with the
  * {@link GridBagLayout}.
  */
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
 @Builder(toBuilder = true)
 public class GridBagLayoutModel implements Serializable
 {

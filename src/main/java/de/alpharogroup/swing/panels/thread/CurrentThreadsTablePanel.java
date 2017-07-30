@@ -22,80 +22,72 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.wizard;
-import java.awt.CardLayout;
-import java.awt.Color;
+package de.alpharogroup.swing.panels.thread;
 
-import javax.swing.border.LineBorder;
+import java.awt.BorderLayout;
 
+import javax.swing.JScrollPane;
+
+import de.alpharogroup.lang.thread.ThreadDataBean;
+import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
-import lombok.Getter;
+import de.alpharogroup.swing.tablemodel.thread.ThreadsTableModel;
+import de.alpharogroup.swing.x.GenericJXTable;
 
 /**
- * The class {@link WizardContentPanel}.
+ * The class {@link CurrentThreadsTablePanel} shows all running threads in an application.
  */
-public class WizardContentPanel extends BasePanel<Object>
+public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 {
 
-	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	@Getter
-	private CardLayout cardLayout;
+	private GenericJXTable<ThreadDataBean> threadTable;
 
-	/**
-	 * Initializer block.
-	 */
+	private JScrollPane scrThreadTable;
+
+	public CurrentThreadsTablePanel()
 	{
+		this(BaseModel.of(new ThreadsTableModel()));
 	}
 
-	/**
-	 * Instantiates a new wizard content panel.
-	 */
-	public WizardContentPanel()
+	public CurrentThreadsTablePanel(final Model<ThreadsTableModel> model)
 	{
+		super(model);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
+	@Override
+	protected void finalize() throws Throwable
+	{
+		interrupt();
+	}
+
 	@Override
 	protected void onInitializeComponents()
 	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
-
+		super.initializeComponents();
+		threadTable = new GenericJXTable<>(getModelObject());
+		scrThreadTable = new JScrollPane(threadTable);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void onInitializeLayout()
 	{
-		setBorder(new LineBorder(Color.BLACK));
+		super.initializeLayout();
+		setLayout(new BorderLayout());
+		add(scrThreadTable, BorderLayout.CENTER);
 	}
 
-	/**
-	 * The layout have to initialize before the components! {@inheritDoc}
-	 */
-	@Override
-	protected void onBeforeInitializeComponents()
+	public void interrupt()
 	{
-		cardLayout = newCardLayout();
-		setLayout(cardLayout);
+		getModelObject().interrupt();
 	}
 
-	/**
-	 * Factory method for create a new {@link CardLayout}.
-	 *
-	 * @return the new {@link CardLayout}.
-	 */
-	protected CardLayout newCardLayout()
+	protected ThreadsTableModel newThreadsTableModel()
 	{
-		final CardLayout cardLayout = new CardLayout();
-		return cardLayout;
+		final ThreadsTableModel tableModel = new ThreadsTableModel();
+		return tableModel;
 	}
 
 }

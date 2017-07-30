@@ -27,30 +27,28 @@ package de.alpharogroup.swing.panels.img;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import javax.swing.JPanel;
-
-import lombok.NonNull;
+import de.alpharogroup.model.api.Model;
+import de.alpharogroup.swing.base.BasePanel;
 
 /**
  * The class {@link ImagePanel}.
  */
-public class ImagePanel extends JPanel
+public class ImagePanel extends BasePanel<BufferedImage>
 {
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The image. */
-	private final BufferedImage image;
 
 	/**
 	 * Instantiates a new {@link ImagePanel}.
 	 *
-	 * @param image
-	 *            the image
+	 * @param model
+	 *            the model
 	 */
-	public ImagePanel(@NonNull final BufferedImage image)
+	public ImagePanel(final Model<BufferedImage> model)
 	{
-		this.image = image;
+		super(model);
 	}
 
 	/**
@@ -60,6 +58,6 @@ public class ImagePanel extends JPanel
 	protected void paintComponent(final Graphics g)
 	{
 		super.paintComponent(g);
-		g.drawImage(image, 0, 0, this);
+		g.drawImage(getModelObject(), 0, 0, this);
 	}
 }
