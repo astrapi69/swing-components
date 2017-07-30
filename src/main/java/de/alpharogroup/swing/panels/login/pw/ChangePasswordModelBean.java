@@ -45,7 +45,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(toBuilder=true)
+@Builder(toBuilder = true)
 public class ChangePasswordModelBean implements Serializable
 {
 

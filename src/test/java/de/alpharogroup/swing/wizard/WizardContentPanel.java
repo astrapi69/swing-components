@@ -23,6 +23,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 package de.alpharogroup.swing.wizard;
+
 import java.awt.CardLayout;
 import java.awt.Color;
 
@@ -57,6 +58,27 @@ public class WizardContentPanel extends BasePanel<Object>
 	}
 
 	/**
+	 * Factory method for create a new {@link CardLayout}.
+	 *
+	 * @return the new {@link CardLayout}.
+	 */
+	protected CardLayout newCardLayout()
+	{
+		final CardLayout cardLayout = new CardLayout();
+		return cardLayout;
+	}
+
+	/**
+	 * The layout have to initialize before the components! {@inheritDoc}
+	 */
+	@Override
+	protected void onBeforeInitializeComponents()
+	{
+		cardLayout = newCardLayout();
+		setLayout(cardLayout);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -75,27 +97,6 @@ public class WizardContentPanel extends BasePanel<Object>
 	protected void onInitializeLayout()
 	{
 		setBorder(new LineBorder(Color.BLACK));
-	}
-
-	/**
-	 * The layout have to initialize before the components! {@inheritDoc}
-	 */
-	@Override
-	protected void onBeforeInitializeComponents()
-	{
-		cardLayout = newCardLayout();
-		setLayout(cardLayout);
-	}
-
-	/**
-	 * Factory method for create a new {@link CardLayout}.
-	 *
-	 * @return the new {@link CardLayout}.
-	 */
-	protected CardLayout newCardLayout()
-	{
-		final CardLayout cardLayout = new CardLayout();
-		return cardLayout;
 	}
 
 }

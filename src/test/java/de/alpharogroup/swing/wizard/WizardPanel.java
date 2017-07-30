@@ -67,23 +67,6 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 		super(model);
 	}
 
-	@Override
-	protected void onInitializeComponents()
-	{
-		super.initializeComponents();
-		wizardContentPanel = newWizardContentPanel();
-		navigationPanel = newNavigationPanel();
-	}
-
-	@Override
-	protected void onInitializeLayout()
-	{
-		super.initializeLayout();
-		setLayout(new BorderLayout());
-		add(wizardContentPanel, BorderLayout.CENTER);
-		add(navigationPanel, BorderLayout.SOUTH);
-	}
-
 	protected NavigationPanel<Void> newNavigationPanel()
 	{
 		final NavigationPanel<Void> navigationPanel = new NavigationPanel<Void>()
@@ -117,7 +100,6 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 		return navigationPanel;
 	}
 
-
 	protected WizardContentPanel newWizardContentPanel()
 	{
 		final WizardContentPanel cardsPanel = new WizardContentPanel();
@@ -131,6 +113,7 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 		updateButtonState();
 	}
 
+
 	protected void onCancel()
 	{
 		getModelObject().cancel();
@@ -143,6 +126,23 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 		getModelObject().finish();
 		// from here application specific behavior...
 		System.exit(0);
+	}
+
+	@Override
+	protected void onInitializeComponents()
+	{
+		super.initializeComponents();
+		wizardContentPanel = newWizardContentPanel();
+		navigationPanel = newNavigationPanel();
+	}
+
+	@Override
+	protected void onInitializeLayout()
+	{
+		super.initializeLayout();
+		setLayout(new BorderLayout());
+		add(wizardContentPanel, BorderLayout.CENTER);
+		add(navigationPanel, BorderLayout.SOUTH);
 	}
 
 	protected void onNext()
