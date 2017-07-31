@@ -48,7 +48,7 @@ The source code for swing-components are on GitHub. Please feel free to fork and
 
 Create your own fork of [lightblueseas/swing-components/fork](https://github.com/lightblueseas/swing-components/fork)
 
-To share your changes, [submit a pull request](https://github.com/lightblueseas/swing-components/pull/new/master).
+To share your changes, [submit a pull request](https://github.com/lightblueseas/swing-components/pull/new/develop).
 
 Don't forget to add new units tests on your changes.
 
