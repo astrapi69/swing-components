@@ -74,6 +74,7 @@ Here is a list of awesome swing projects:
 
 Open Source:
 
+ * [Java Generic Swing Application Framework](https://github.com/pgdurand/jGAF) Generic Swing Application Framework (jGAF) is a library designed to facilitate the creation of cross-platorm graphical applications for the Oracle Java Platform.
  * [OpenSwing](http://oswing.sourceforge.net/) OpenSwing is an open-source suite of advanced graphics components based on Swing toolkit
  * [JCalendar](https://toedter.com/jcalendar/) JCalendar is a Java date chooser bean for graphically picking a date.
 
