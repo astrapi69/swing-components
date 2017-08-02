@@ -120,7 +120,7 @@ public class BasePanel<T> extends JXPanel
 	/**
 	 * Initialize the component.
 	 */
-	protected final void initialize()
+	private final void initialize()
 	{
 		onInitialize();
 	}
@@ -128,7 +128,7 @@ public class BasePanel<T> extends JXPanel
 	/**
 	 * Initialize components from the component.
 	 */
-	protected final void initializeComponents()
+	private final void initializeComponents()
 	{
 		onInitializeComponents();
 	}
@@ -136,7 +136,7 @@ public class BasePanel<T> extends JXPanel
 	/**
 	 * Initialize layout from the component.
 	 */
-	protected final void initializeLayout()
+	private final void initializeLayout()
 	{
 		onInitializeLayout();
 	}
@@ -184,7 +184,6 @@ public class BasePanel<T> extends JXPanel
 	protected void onBeforeInitializeLayout()
 	{
 	}
-
 
 	/**
 	 * Callback method to initialize the component.

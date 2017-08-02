@@ -30,8 +30,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
 import de.alpharogroup.swing.browser.BrowserControlExtensions;
+import lombok.Getter;
 
-@SuppressWarnings("serial")
+@Getter
 public class OpenBrowserAction extends AbstractAction
 {
 
@@ -49,6 +50,10 @@ public class OpenBrowserAction extends AbstractAction
 	public void actionPerformed(final ActionEvent e)
 	{
 		BrowserControlExtensions.displayURLonStandardBrowser(component, url);
+	}
+
+	public static OpenBrowserAction of(final String name, final Component component, final String url) {
+		return new OpenBrowserAction(name, component, url);
 	}
 
 }

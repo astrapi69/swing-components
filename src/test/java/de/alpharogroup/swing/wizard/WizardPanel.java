@@ -131,7 +131,7 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 	@Override
 	protected void onInitializeComponents()
 	{
-		super.initializeComponents();
+		super.onInitializeComponents();
 		wizardContentPanel = newWizardContentPanel();
 		navigationPanel = newNavigationPanel();
 	}
@@ -139,7 +139,7 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 	@Override
 	protected void onInitializeLayout()
 	{
-		super.initializeLayout();
+		super.onInitializeLayout();
 		setLayout(new BorderLayout());
 		add(wizardContentPanel, BorderLayout.CENTER);
 		add(navigationPanel, BorderLayout.SOUTH);

@@ -133,7 +133,7 @@ public class BaseFrame<T> extends JXFrame
 	/**
 	 * Initialize the component.
 	 */
-	protected final void initialize()
+	private final void initialize()
 	{
 		onInitialize();
 	}
@@ -141,7 +141,7 @@ public class BaseFrame<T> extends JXFrame
 	/**
 	 * Initialize components from the component.
 	 */
-	protected final void initializeComponents()
+	private final void initializeComponents()
 	{
 		onInitializeComponents();
 	}
@@ -149,7 +149,7 @@ public class BaseFrame<T> extends JXFrame
 	/**
 	 * Initialize layout from the component.
 	 */
-	protected final void initializeLayout()
+	private final void initializeLayout()
 	{
 		onInitializeLayout();
 	}

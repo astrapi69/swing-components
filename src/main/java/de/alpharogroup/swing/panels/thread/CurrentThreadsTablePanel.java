@@ -77,7 +77,7 @@ public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 	@Override
 	protected void onInitializeComponents()
 	{
-		super.initializeComponents();
+		super.onInitializeComponents();
 		threadTable = new GenericJXTable<>(getModelObject());
 		scrThreadTable = new JScrollPane(threadTable);
 	}
@@ -85,7 +85,7 @@ public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 	@Override
 	protected void onInitializeLayout()
 	{
-		super.initializeLayout();
+		super.onInitializeComponents();
 		setLayout(new BorderLayout());
 		add(scrThreadTable, BorderLayout.CENTER);
 	}
