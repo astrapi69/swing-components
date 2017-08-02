@@ -1,0 +1,244 @@
+package de.alpharogroup.swing.base;
+
+import java.awt.GraphicsConfiguration;
+
+import org.jdesktop.swingx.JXFrame;
+
+import de.alpharogroup.model.api.Model;
+import lombok.Getter;
+import lombok.Setter;
+
+
+/**
+ * The class {@link BaseFrame} for swing frames to provide an initialization cycle where the user
+ * can overwrite the callback methods for interaction.
+ *
+ * @param <T>
+ *            the generic type of the model object
+ */
+@Getter
+@Setter
+public class BaseFrame<T> extends JXFrame
+{
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	/** The model. */
+	private Model<T> model;
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 */
+	public BaseFrame()
+	{
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param model the model
+	 */
+	public BaseFrame(Model<T> model)
+	{
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param gc the gc
+	 */
+	public BaseFrame(GraphicsConfiguration gc)
+	{
+		super(gc);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title the title
+	 * @param exitOnClose the exit on close
+	 */
+	public BaseFrame(String title, boolean exitOnClose)
+	{
+		super(title, exitOnClose);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title the title
+	 * @param gc the gc
+	 * @param exitOnClose the exit on close
+	 */
+	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose)
+	{
+		super(title, gc, exitOnClose);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title the title
+	 * @param gc the gc
+	 * @param exitOnClose the exit on close
+	 * @param model the model
+	 */
+	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose, Model<T> model)
+	{
+		super(title, gc, exitOnClose);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title the title
+	 * @param gc the gc
+	 */
+	public BaseFrame(String title, GraphicsConfiguration gc)
+	{
+		super(title, gc);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title the title
+	 */
+	public BaseFrame(String title)
+	{
+		super(title);
+		initialize();
+	}
+
+	/**
+	 * Getter for the model's object
+	 *
+	 * @return the model object
+	 */
+	public final T getModelObject()
+	{
+		return getModel().getObject();
+	}
+
+	/**
+	 * Initialize the component.
+	 */
+	protected final void initialize()
+	{
+		onInitialize();
+	}
+
+	/**
+	 * Initialize components from the component.
+	 */
+	protected final void initializeComponents()
+	{
+		onInitializeComponents();
+	}
+
+	/**
+	 * Initialize layout from the component.
+	 */
+	protected final void initializeLayout()
+	{
+		onInitializeLayout();
+	}
+
+	/**
+	 * Callback method to interact when the initialization of the component is finished.
+	 */
+	protected void onAfterInitialize()
+	{
+	}
+
+	/**
+	 * Callback method to interact when the initialization is finished of the components from the
+	 * component.
+	 */
+	protected void onAfterInitializeComponents()
+	{
+	}
+
+	/**
+	 * Callback method to interact when the initialization of the layout is finished.
+	 */
+	protected void onAfterInitializeLayout()
+	{
+	}
+
+
+	/**
+	 * Callback method to interact on before initialization of the component.
+	 */
+	protected void onBeforeInitialize()
+	{
+	}
+
+	/**
+	 * Callback method to interact on before initialization of the components from the component.
+	 */
+	protected void onBeforeInitializeComponents()
+	{
+	}
+
+	/**
+	 * Callback method to interact on before initialization of the layout.
+	 */
+	protected void onBeforeInitializeLayout()
+	{
+	}
+
+
+	/**
+	 * Callback method to initialize the component.
+	 */
+	protected void onInitialize()
+	{
+		onBeforeInitialize();
+		onBeforeInitializeComponents();
+		initializeComponents();
+		onAfterInitializeComponents();
+		onBeforeInitializeLayout();
+		initializeLayout();
+		onAfterInitializeLayout();
+		onAfterInitialize();
+	}
+
+	/**
+	 * Callback method to initialize components from the component.
+	 */
+	protected void onInitializeComponents()
+	{
+	}
+
+	/**
+	 * Callback method to initialize layout from the component.
+	 */
+	protected void onInitializeLayout()
+	{
+	}
+
+	/**
+	 * Setter for the model object.
+	 *
+	 * @param modelObject
+	 *            the new model object
+	 * @return this for chaining
+	 */
+	public final BaseFrame<T> setModelObject(final T modelObject)
+	{
+		getModel().setObject(modelObject);
+		return this;
+	}
+
+}
