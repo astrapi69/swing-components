@@ -24,13 +24,22 @@
  */
 package de.alpharogroup.swing.panels.login;
 
+import static de.alpharogroup.model.typesafe.TypeSafeModel.from;
+import static de.alpharogroup.model.typesafe.TypeSafeModel.model;
+
 import java.awt.Frame;
 
+import javax.swing.event.DocumentEvent;
+
 import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
+import de.alpharogroup.swing.bind.StringBindingListener;
 import de.alpharogroup.swing.panels.login.pw.NewPasswordPanel;
 
 public class NewPasswordPanelTest
 {
+
 
 
 	/**
@@ -43,6 +52,17 @@ public class NewPasswordPanelTest
 		frame.addWindowListener(new CloseWindow());
 		frame.setTitle("Set pw Frame");
 		final NewPasswordPanel newPasswordPanel = new NewPasswordPanel();
+		// example of binding model with a textfield with the class StringBindingListener...
+		Model<String> model = model(from(newPasswordPanel.getModel()).getCurrentPassword());
+			BaseModel.of(newPasswordPanel.getTxtUsername().getText());
+		newPasswordPanel.getTxtPassword().getDocument().addDocumentListener(new StringBindingListener(model) {
+			@Override
+			protected void update(DocumentEvent event)
+			{
+				super.update(event);
+				System.out.println(model.getObject() + "::" + newPasswordPanel.getModelObject().getCurrentPassword());
+			}
+		});
 		frame.add(newPasswordPanel);
 		frame.pack();
 		frame.setSize(500, 300);

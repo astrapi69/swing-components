@@ -150,6 +150,12 @@
 				<version>${model-object.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>model-type-safe</artifactId>
+				<version>${model-type-safe.version}</version>
+			</dependency>
+
 		</dependencies>
 
 	</dependencyManagement>
@@ -218,6 +224,11 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>model-object</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>model-type-safe</artifactId>
 		</dependency>
 
 	</dependencies>
