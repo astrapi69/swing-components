@@ -41,7 +41,6 @@ public class NewPasswordPanelTest
 {
 
 
-
 	/**
 	 * @param args
 	 */
@@ -54,15 +53,18 @@ public class NewPasswordPanelTest
 		final NewPasswordPanel newPasswordPanel = new NewPasswordPanel();
 		// example of binding model with a textfield with the class StringBindingListener...
 		Model<String> model = model(from(newPasswordPanel.getModel()).getCurrentPassword());
-			BaseModel.of(newPasswordPanel.getTxtUsername().getText());
-		newPasswordPanel.getTxtPassword().getDocument().addDocumentListener(new StringBindingListener(model) {
-			@Override
-			protected void update(DocumentEvent event)
+		BaseModel.of(newPasswordPanel.getTxtUsername().getText());
+		newPasswordPanel.getTxtPassword().getDocument()
+			.addDocumentListener(new StringBindingListener(model)
 			{
-				super.update(event);
-				System.out.println(model.getObject() + "::" + newPasswordPanel.getModelObject().getCurrentPassword());
-			}
-		});
+				@Override
+				protected void update(DocumentEvent event)
+				{
+					super.update(event);
+					System.out.println(model.getObject() + "::"
+						+ newPasswordPanel.getModelObject().getCurrentPassword());
+				}
+			});
 		frame.add(newPasswordPanel);
 		frame.pack();
 		frame.setSize(500, 300);

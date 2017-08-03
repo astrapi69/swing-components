@@ -1,3 +1,27 @@
+/**
+ * The MIT License
+ *
+ * Copyright (C) 2015 Asterios Raptis
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 package de.alpharogroup.swing.base;
 
 import java.awt.GraphicsConfiguration;
@@ -38,18 +62,8 @@ public class BaseFrame<T> extends JXFrame
 	/**
 	 * Instantiates a new {@link BaseFrame}.
 	 *
-	 * @param model the model
-	 */
-	public BaseFrame(Model<T> model)
-	{
-		this.model = model;
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BaseFrame}.
-	 *
-	 * @param gc the gc
+	 * @param gc
+	 *            the gc
 	 */
 	public BaseFrame(GraphicsConfiguration gc)
 	{
@@ -60,8 +74,34 @@ public class BaseFrame<T> extends JXFrame
 	/**
 	 * Instantiates a new {@link BaseFrame}.
 	 *
-	 * @param title the title
-	 * @param exitOnClose the exit on close
+	 * @param model
+	 *            the model
+	 */
+	public BaseFrame(Model<T> model)
+	{
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title
+	 *            the title
+	 */
+	public BaseFrame(String title)
+	{
+		super(title);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title
+	 *            the title
+	 * @param exitOnClose
+	 *            the exit on close
 	 */
 	public BaseFrame(String title, boolean exitOnClose)
 	{
@@ -72,36 +112,10 @@ public class BaseFrame<T> extends JXFrame
 	/**
 	 * Instantiates a new {@link BaseFrame}.
 	 *
-	 * @param title the title
-	 * @param gc the gc
-	 * @param exitOnClose the exit on close
-	 */
-	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose)
-	{
-		super(title, gc, exitOnClose);
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BaseFrame}.
-	 *
-	 * @param title the title
-	 * @param gc the gc
-	 * @param exitOnClose the exit on close
-	 * @param model the model
-	 */
-	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose, Model<T> model)
-	{
-		super(title, gc, exitOnClose);
-		this.model = model;
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BaseFrame}.
-	 *
-	 * @param title the title
-	 * @param gc the gc
+	 * @param title
+	 *            the title
+	 * @param gc
+	 *            the gc
 	 */
 	public BaseFrame(String title, GraphicsConfiguration gc)
 	{
@@ -112,11 +126,35 @@ public class BaseFrame<T> extends JXFrame
 	/**
 	 * Instantiates a new {@link BaseFrame}.
 	 *
-	 * @param title the title
+	 * @param title
+	 *            the title
+	 * @param gc
+	 *            the gc
+	 * @param exitOnClose
+	 *            the exit on close
 	 */
-	public BaseFrame(String title)
+	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose)
 	{
-		super(title);
+		super(title, gc, exitOnClose);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title
+	 *            the title
+	 * @param gc
+	 *            the gc
+	 * @param exitOnClose
+	 *            the exit on close
+	 * @param model
+	 *            the model
+	 */
+	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose, Model<T> model)
+	{
+		super(title, gc, exitOnClose);
+		this.model = model;
 		initialize();
 	}
 

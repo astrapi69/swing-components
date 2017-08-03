@@ -36,7 +36,14 @@ import lombok.Getter;
 public class OpenBrowserAction extends AbstractAction
 {
 
+	public static OpenBrowserAction of(final String name, final Component component,
+		final String url)
+	{
+		return new OpenBrowserAction(name, component, url);
+	}
+
 	private final Component component;
+
 	private final String url;
 
 	public OpenBrowserAction(final String name, final Component component, final String url)
@@ -50,10 +57,6 @@ public class OpenBrowserAction extends AbstractAction
 	public void actionPerformed(final ActionEvent e)
 	{
 		BrowserControlExtensions.displayURLonStandardBrowser(component, url);
-	}
-
-	public static OpenBrowserAction of(final String name, final Component component, final String url) {
-		return new OpenBrowserAction(name, component, url);
 	}
 
 }

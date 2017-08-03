@@ -67,7 +67,8 @@ public class NavigationPanel<T> extends BasePanel<T>
 	/**
 	 * Instantiates a new {@link NavigationPanel}.
 	 *
-	 * @param model the model
+	 * @param model
+	 *            the model
 	 */
 	public NavigationPanel(Model<T> model)
 	{

@@ -42,11 +42,9 @@ public class PropertiesTableModel extends BaseTableModel<KeyValuePair<String, St
 	 */
 	public PropertiesTableModel()
 	{
-		this(TableColumnsModel.builder()
-			.columnNames(new String[] { "Key", "Value" })
+		this(TableColumnsModel.builder().columnNames(new String[] { "Key", "Value" })
 			.canEdit(new boolean[] { false, false })
-			.columnClasses(new Class<?>[] { String.class, String.class })
-			.build());
+			.columnClasses(new Class<?>[] { String.class, String.class }).build());
 	}
 
 	/**

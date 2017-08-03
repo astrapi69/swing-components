@@ -65,17 +65,6 @@ public abstract class BaseTableModel<T> extends GenericTableModel<T>
 	/**
 	 * Instantiates a new {@link BaseTableModel}.
 	 *
-	 * @param columnsModel
-	 *            the columns model
-	 */
-	public BaseTableModel(TableColumnsModel columnsModel)
-	{
-		this.columnsModel = columnsModel;
-	}
-
-	/**
-	 * Instantiates a new {@link BaseTableModel}.
-	 *
 	 * @param list
 	 *            the list
 	 * @param columnsModel
@@ -84,6 +73,17 @@ public abstract class BaseTableModel<T> extends GenericTableModel<T>
 	public BaseTableModel(List<T> list, TableColumnsModel columnsModel)
 	{
 		super(list);
+		this.columnsModel = columnsModel;
+	}
+
+	/**
+	 * Instantiates a new {@link BaseTableModel}.
+	 *
+	 * @param columnsModel
+	 *            the columns model
+	 */
+	public BaseTableModel(TableColumnsModel columnsModel)
+	{
 		this.columnsModel = columnsModel;
 	}
 
