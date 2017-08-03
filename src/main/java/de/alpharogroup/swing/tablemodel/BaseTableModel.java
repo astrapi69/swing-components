@@ -27,7 +27,9 @@ package de.alpharogroup.swing.tablemodel;
 import java.util.List;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The abstract class {@link BaseTableModel} holds a {@link TableColumnsModel} for layout the
@@ -36,6 +38,8 @@ import lombok.Setter;
  * @param <T>
  *            the generic type of the model
  */
+@NoArgsConstructor
+@Slf4j
 public abstract class BaseTableModel<T> extends GenericTableModel<T>
 {
 
@@ -49,13 +53,6 @@ public abstract class BaseTableModel<T> extends GenericTableModel<T>
 
 	/**
 	 * Instantiates a new {@link BaseTableModel}.
-	 */
-	public BaseTableModel()
-	{
-	}
-
-	/**
-	 * Instantiates a new {@link BaseTableModel}.
 	 *
 	 * @param list
 	 *            the list
@@ -66,13 +63,27 @@ public abstract class BaseTableModel<T> extends GenericTableModel<T>
 	}
 
 	/**
-	 * Instantiates a new base table model.
+	 * Instantiates a new {@link BaseTableModel}.
 	 *
 	 * @param columnsModel
 	 *            the columns model
 	 */
 	public BaseTableModel(TableColumnsModel columnsModel)
 	{
+		this.columnsModel = columnsModel;
+	}
+
+	/**
+	 * Instantiates a new {@link BaseTableModel}.
+	 *
+	 * @param list
+	 *            the list
+	 * @param columnsModel
+	 *            the columns model
+	 */
+	public BaseTableModel(List<T> list, TableColumnsModel columnsModel)
+	{
+		super(list);
 		this.columnsModel = columnsModel;
 	}
 
@@ -88,9 +99,9 @@ public abstract class BaseTableModel<T> extends GenericTableModel<T>
 		}
 		catch (Exception e)
 		{
-			// ignore and return null...
-			return null;
+			log.error("Error occured on getting column class on index " + c + ".", e);
 		}
+		return null;
 	}
 
 	/**
@@ -114,9 +125,9 @@ public abstract class BaseTableModel<T> extends GenericTableModel<T>
 		}
 		catch (Exception e)
 		{
-			// ignore and return null...
-			return null;
+			log.error("Error occured on getting column name on index " + col + ".", e);
 		}
+		return null;
 	}
 
 	/**
@@ -131,9 +142,11 @@ public abstract class BaseTableModel<T> extends GenericTableModel<T>
 		}
 		catch (Exception e)
 		{
-			// ignore and return the default value...
-			return false;
+			log.error("Error occured on getting flag if the cell is editable at position on row: "
+				+ rowIndex + " and in column: " + columnIndex + ".", e);
+
 		}
+		return false;
 	}
 
 }
