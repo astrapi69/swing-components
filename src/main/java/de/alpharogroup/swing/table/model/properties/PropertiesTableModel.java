@@ -22,36 +22,38 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tablemodel;
+package de.alpharogroup.swing.table.model.properties;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
- * The class {@link TableColumnsModel} encapsulates the column data for a table model like the
- * column names if they are editable and the column classes.
+ * The class {@link PropertiesTableModel} that lists key value pairs.
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class TableColumnsModel
+public class PropertiesTableModel extends KeyValueTableModel<String, String>
 {
 
-	/** The column names. */
-	private String[] columnNames;
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
-	/** The flag for the column if they can be edited. */
-	private boolean[] canEdit;
+	/**
+	 * Instantiates a new {@link PropertiesTableModel} object.
+	 */
+	public PropertiesTableModel()
+	{
+		this(TableColumnsModel.builder().columnNames(new String[] { "Key", "Value" })
+			.canEdit(new boolean[] { false, false })
+			.columnClasses(new Class<?>[] { String.class, String.class }).build());
+	}
 
-	/** The column classes. */
-	private Class<?>[] columnClasses;
+	/**
+	 * Instantiates a new {@link PropertiesTableModel} object.
+	 *
+	 * @param columnsModel
+	 *            the columns model
+	 */
+	public PropertiesTableModel(final TableColumnsModel columnsModel)
+	{
+		super(columnsModel);
+	}
+
 }

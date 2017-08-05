@@ -32,7 +32,7 @@ import de.alpharogroup.lang.thread.ThreadDataBean;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
-import de.alpharogroup.swing.tablemodel.thread.ThreadsTableModel;
+import de.alpharogroup.swing.table.model.thread.ThreadsTableModel;
 import de.alpharogroup.swing.x.GenericJXTable;
 
 /**

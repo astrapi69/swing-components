@@ -27,7 +27,7 @@ package de.alpharogroup.swing;
 import java.io.Serializable;
 
 import de.alpharogroup.check.Check;
-import de.alpharogroup.swing.tablemodel.GenericShuffleTableModel;
+import de.alpharogroup.swing.table.model.suffle.GenericShuffleTableModel;
 import lombok.Getter;
 
 /**

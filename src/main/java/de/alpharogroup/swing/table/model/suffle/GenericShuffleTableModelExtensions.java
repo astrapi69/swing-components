@@ -22,9 +22,11 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tablemodel;
+package de.alpharogroup.swing.table.model.suffle;
 
 import javax.swing.JTable;
+
+import de.alpharogroup.swing.table.model.NoRowsSelectedException;
 
 /**
  * The class {@link GenericShuffleTableModelExtensions}.

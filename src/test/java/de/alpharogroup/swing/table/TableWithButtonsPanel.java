@@ -16,8 +16,8 @@ import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
 import de.alpharogroup.swing.renderer.TableCellButtonRenderer;
 import de.alpharogroup.swing.table.editor.TableCellButtonEditor;
-import de.alpharogroup.swing.tablemodel.TableColumnsModel;
-import de.alpharogroup.swing.tablemodel.properties.PropertiesTableModel;
+import de.alpharogroup.swing.table.model.TableColumnsModel;
+import de.alpharogroup.swing.table.model.properties.PropertiesTableModel;
 import de.alpharogroup.swing.x.GenericJXTable;
 
 public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, String>>>

@@ -22,38 +22,38 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tablemodel.properties;
+package de.alpharogroup.swing.table.model.properties;
 
 import de.alpharogroup.collections.pairs.KeyValuePair;
-import de.alpharogroup.swing.tablemodel.BaseTableModel;
-import de.alpharogroup.swing.tablemodel.TableColumnsModel;
+import de.alpharogroup.swing.table.model.BaseTableModel;
+import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
- * The class {@link PropertiesTableModel} that lists all threads.
+ * The class {@link KeyValueTableModel} that lists key value pairs.
  */
-public class PropertiesTableModel extends BaseTableModel<KeyValuePair<String, String>>
+public class KeyValueTableModel<K, V> extends BaseTableModel<KeyValuePair<K, V>>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Instantiates a new {@link PropertiesTableModel} object.
+	 * Instantiates a new {@link KeyValueTableModel} object.
 	 */
-	public PropertiesTableModel()
+	public KeyValueTableModel()
 	{
 		this(TableColumnsModel.builder().columnNames(new String[] { "Key", "Value" })
 			.canEdit(new boolean[] { false, false })
-			.columnClasses(new Class<?>[] { String.class, String.class }).build());
+			.columnClasses(new Class<?>[] { Object.class, Object.class }).build());
 	}
 
 	/**
-	 * Instantiates a new {@link PropertiesTableModel} object.
+	 * Instantiates a new {@link KeyValueTableModel} object.
 	 *
 	 * @param columnsModel
 	 *            the columns model
 	 */
-	public PropertiesTableModel(final TableColumnsModel columnsModel)
+	public KeyValueTableModel(final TableColumnsModel columnsModel)
 	{
 		super(columnsModel);
 	}
@@ -64,13 +64,13 @@ public class PropertiesTableModel extends BaseTableModel<KeyValuePair<String, St
 	@Override
 	public Object getValueAt(final int rowIndex, final int columnIndex)
 	{
-		final KeyValuePair<String, String> keyValuePair = getData().get(rowIndex);
+		final KeyValuePair<K, V> row = getData().get(rowIndex);
 		switch (columnIndex)
 		{
 			case 0 :
-				return keyValuePair.getKey();
+				return row.getKey();
 			case 1 :
-				return keyValuePair.getValue();
+				return row.getValue();
 			default :
 				return null;
 		}

@@ -22,9 +22,10 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tablemodel;
+package de.alpharogroup.swing.table.model.suffle;
 
 import de.alpharogroup.check.Check;
+import de.alpharogroup.swing.table.model.GenericTableModel;
 import lombok.Getter;
 
 /**

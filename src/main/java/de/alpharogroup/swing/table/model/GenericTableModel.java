@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tablemodel;
+package de.alpharogroup.swing.table.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
- * The class GenericTableModel.
+ * The class {@link GenericTableModel} as the name presume it can take a generic type of the model object.
  *
  * @param <T>
  *            the generic type of the model

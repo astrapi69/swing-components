@@ -24,6 +24,7 @@
  */
 package de.alpharogroup.swing.tablemodel;
 
+import de.alpharogroup.swing.table.model.GenericTableModel;
 
 /**
  * The class PermissionsTableModel.

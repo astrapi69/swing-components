@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tablemodel.thread;
+package de.alpharogroup.swing.table.model.thread;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -31,8 +31,8 @@ import javax.swing.SwingUtilities;
 
 import de.alpharogroup.lang.thread.ThreadDataBean;
 import de.alpharogroup.lang.thread.ThreadExtensions;
-import de.alpharogroup.swing.tablemodel.BaseTableModel;
-import de.alpharogroup.swing.tablemodel.TableColumnsModel;
+import de.alpharogroup.swing.table.model.BaseTableModel;
+import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
  * The class {@link ThreadsTableModel} that lists all threads.

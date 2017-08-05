@@ -28,7 +28,7 @@ import javax.swing.table.TableRowSorter;
 
 import org.jdesktop.swingx.JXTable;
 
-import de.alpharogroup.swing.tablemodel.GenericTableModel;
+import de.alpharogroup.swing.table.model.GenericTableModel;
 
 /**
  * The class GenericJXTable.
