@@ -27,85 +27,90 @@ package de.alpharogroup.swing.tablemodel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 
+import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.GenericJTable;
 import de.alpharogroup.swing.GenericShuffleJTable;
+import de.alpharogroup.swing.base.BasePanel;
 import de.alpharogroup.swing.components.factories.JComponentFactory;
+import de.alpharogroup.swing.table.model.suffle.actions.AddAction;
+import de.alpharogroup.swing.table.model.suffle.actions.AddAllAction;
+import de.alpharogroup.swing.table.model.suffle.actions.RemoveAction;
+import de.alpharogroup.swing.table.model.suffle.actions.RemoveAllAction;
 import lombok.Getter;
 
 /**
  * The class SimpleShuffleTablePanel.
  */
-public class SimpleShuffleTablePanel extends JPanel
+@Getter
+public class SimpleShuffleTablePanel extends BasePanel<List<Permission>>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The btn add permission. */
-	@Getter
 	private JButton btnAddPermission;
 
 	/** The btn add all permissions. */
-	@Getter
-	private javax.swing.JButton btnAddAllPermissions;
+	private JButton btnAddAllPermissions;
 
 	/** The btn remove all permissions. */
-	@Getter
 	private JButton btnRemoveAllPermissions;
 
 	/** The btn remove permission. */
-	@Getter
 	private JButton btnRemovePermission;
 
 	/** The scr pn tbl available permissions. */
-	@Getter
-	private javax.swing.JScrollPane scrPnTblAvailablePermissions;
+	private JScrollPane scrPnTblAvailablePermissions;
 
 	/** The scr pn tbl permissions from role. */
-	@Getter
-	private javax.swing.JScrollPane scrPnTblPermissionsFromRole;
+	private JScrollPane scrPnTblPermissionsFromRole;
 
 	/** The tbl available permissions. */
-	@Getter
 	private GenericJTable<Permission> tblAvailablePermissions;
 
 	/** The tbl permissions from role. */
-	@Getter
 	private GenericJTable<Permission> tblPermissionsFromRole;
 
 	/** The permissions shuffle table. */
-	@Getter
 	private GenericShuffleJTable<Permission> permissionsShuffleTable;
-	@Getter
+
 	private AddAction<Permission> addAction;
-	@Getter
+
 	private AddAllAction<Permission> addAllAction;
-	@Getter
+
 	private RemoveAction<Permission> removeAction;
-	@Getter
+
 	private RemoveAllAction<Permission> removeAllAction;
 
-	/**
-	 * Instantiates a new simple shuffle table panel.
-	 */
+
 	public SimpleShuffleTablePanel()
 	{
-		super();
-		onInitialize();
-		onLayout();
+		this(BaseModel.ofList(new ArrayList<>()));
 	}
 
-	/**
-	 * Inits the components.
-	 */
-	protected void onInitialize()
+	public SimpleShuffleTablePanel(Model<List<Permission>> model)
 	{
+		super(model);
+		final PermissionsTableModel permissionsTableModel =
+			(PermissionsTableModel)tblAvailablePermissions
+			.getModel();
+		permissionsTableModel.addList(getModelObject());
+	}
+
+	@Override
+	protected void onInitializeComponents()
+	{
+		super.onInitializeComponents();
 
 		// Create the tables and scrollpanes for it...
 		tblPermissionsFromRole = new GenericJTable<>(new PermissionsTableModel());
@@ -153,11 +158,10 @@ public class SimpleShuffleTablePanel extends JPanel
 		scrPnTblPermissionsFromRole.setViewportView(tblPermissionsFromRole);
 	}
 
-	/**
-	 * Initializelayout.
-	 */
-	private void onLayout()
+	@Override
+	protected void onInitializeLayout()
 	{
+		super.onInitializeLayout();
 		final GridBagLayout gbl = new GridBagLayout();
 		final GridBagConstraints gbc = new GridBagConstraints();
 		this.setLayout(gbl);

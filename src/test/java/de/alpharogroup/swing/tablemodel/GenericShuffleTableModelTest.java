@@ -30,6 +30,7 @@ import java.util.List;
 import javax.swing.JFrame;
 
 import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.model.BaseModel;
 
 /**
  * The class GenericShuffleTableModelTest.
@@ -54,12 +55,7 @@ public class GenericShuffleTableModelTest
 		permissions.add(new Permission("buy", "Permission to buy."));
 		permissions.add(new Permission("sale", "Permission to sale."));
 		// 2. Create a panel with that encapsulates the two tables and buttons.
-		final SimpleShuffleTablePanel panel = new SimpleShuffleTablePanel();
-		// 3. Get the TableModel from the available permissions table...
-		final PermissionsTableModel permissionsTableModel = (PermissionsTableModel)panel
-			.getTblAvailablePermissions().getModel();
-		// 4. Add the created data as list to the TableModel
-		permissionsTableModel.addList(permissions);
+		final SimpleShuffleTablePanel panel = new SimpleShuffleTablePanel(BaseModel.ofList(permissions));
 
 		// 5. Create a Frame for displaying the shuffle table.
 		final JFrame frame = new JFrame();
