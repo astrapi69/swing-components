@@ -46,6 +46,8 @@
 
 
 	<properties>
+		<!-- JAVAHELP version -->
+		<javahelp.version>2.0.02</javahelp.version>
 		<email-tails.version>4.15.0</email-tails.version>
 		<test-objects.version>4.16.0</test-objects.version>
 		<file-worker.version>4.15.0</file-worker.version>
@@ -71,7 +73,13 @@
 	<dependencyManagement>
 
 		<dependencies>
-
+			<!-- JAVAHELP DEPENDENCIES -->
+			<dependency>
+				<groupId>javax.help</groupId>
+				<artifactId>javahelp</artifactId>
+				<version>${javahelp.version}</version>
+			</dependency>
+			<!-- SWINGX DEPENDENCIES -->
 			<dependency>
 				<groupId>org.swinglabs.swingx</groupId>
 				<artifactId>swingx-all</artifactId>
@@ -161,6 +169,12 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- JAVAHELP DEPENDENCIES -->
+		<dependency>
+			<groupId>javax.help</groupId>
+			<artifactId>javahelp</artifactId>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.swinglabs.swingx</groupId>
 			<artifactId>swingx-all</artifactId>

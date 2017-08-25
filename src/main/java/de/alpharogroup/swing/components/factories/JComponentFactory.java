@@ -32,14 +32,18 @@ import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
+import javax.help.HelpSet;
+import javax.help.HelpSetException;
 import javax.swing.JInternalFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JToolBar;
 
+import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.swing.menu.MenuItemBean;
 import de.alpharogroup.swing.menu.popup.listeners.PopupListener;
 import de.alpharogroup.swing.splashscreen.SplashScreen;
@@ -49,6 +53,26 @@ import de.alpharogroup.swing.splashscreen.SplashScreen;
  */
 public final class JComponentFactory
 {
+
+	/**
+	 * Factory method for create new {@link HelpSet} object.
+	 *
+	 * @param directoryPath
+	 *            the directory path
+	 * @param filename
+	 *            the filename
+	 * @return the new {@link HelpSet} object
+	 * @throws HelpSetException
+	 *             is thrown if there are problems parsing the {@link HelpSet} object.
+	 */
+	public static HelpSet newHelpSet(final String directoryPath, final String filename)
+		throws HelpSetException
+	{
+		String absolutePath = directoryPath + filename;
+		URL hsURL = ClassExtensions.getResource(absolutePath);
+		HelpSet hs = new HelpSet(ClassExtensions.getClassLoader(), hsURL);
+		return hs;
+	}
 
 	/**
 	 * Factory method for create a {@link JInternalFrame} object.
