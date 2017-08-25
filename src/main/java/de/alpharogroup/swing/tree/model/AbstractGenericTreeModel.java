@@ -22,9 +22,9 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.treemodel;
+package de.alpharogroup.swing.tree.model;
 
-import de.alpharogroup.swing.treemodel.ifaces.IGenericTreeModel;
+import de.alpharogroup.swing.tree.model.api.IGenericTreeModel;
 
 /**
  * The class AbstractGenericTreeModel.

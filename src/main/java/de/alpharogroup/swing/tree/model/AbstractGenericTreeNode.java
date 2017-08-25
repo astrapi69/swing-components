@@ -22,12 +22,12 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.treemodel;
+package de.alpharogroup.swing.tree.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import de.alpharogroup.swing.treemodel.ifaces.ITreeNode;
+import de.alpharogroup.swing.tree.model.api.ITreeNode;
 
 public abstract class AbstractGenericTreeNode<T> implements ITreeNode<T>
 {
@@ -166,7 +166,7 @@ public abstract class AbstractGenericTreeNode<T> implements ITreeNode<T>
 	 * (non-Javadoc).
 	 *
 	 * @return true, if successful
-	 * @see de.alpharogroup.swing.treemodel.ifaces.ITreeNode#hasChildren()
+	 * @see de.alpharogroup.swing.tree.model.api.ITreeNode#hasChildren()
 	 */
 	@Override
 	public boolean hasChildren()
@@ -194,7 +194,7 @@ public abstract class AbstractGenericTreeNode<T> implements ITreeNode<T>
 	 * (non-Javadoc).
 	 *
 	 * @return true, if is leaf
-	 * @see de.alpharogroup.swing.treemodel.ifaces.ITreeNode#isLeaf()
+	 * @see de.alpharogroup.swing.tree.model.api.ITreeNode#isLeaf()
 	 */
 	@Override
 	public boolean isLeaf()
@@ -206,7 +206,7 @@ public abstract class AbstractGenericTreeNode<T> implements ITreeNode<T>
 	 * (non-Javadoc).
 	 *
 	 * @return true, if is node
-	 * @see de.alpharogroup.swing.treemodel.ifaces.ITreeNode#isNode()
+	 * @see de.alpharogroup.swing.tree.model.api.ITreeNode#isNode()
 	 */
 	@Override
 	public boolean isNode()
