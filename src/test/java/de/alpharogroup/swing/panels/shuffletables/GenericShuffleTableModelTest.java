@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tablemodel;
+package de.alpharogroup.swing.panels.shuffletables;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +31,10 @@ import javax.swing.JFrame;
 
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.swing.panels.shuffletables.AbstractShuffleTablePanel;
+import de.alpharogroup.swing.table.model.GenericTableModel;
+import de.alpharogroup.swing.tablemodel.Permission;
+import de.alpharogroup.swing.tablemodel.PermissionsTableModel;
 
 /**
  * The class GenericShuffleTableModelTest.
@@ -55,7 +59,21 @@ public class GenericShuffleTableModelTest
 		permissions.add(new Permission("buy", "Permission to buy."));
 		permissions.add(new Permission("sale", "Permission to sale."));
 		// 2. Create a panel with that encapsulates the two tables and buttons.
-		final SimpleShuffleTablePanel panel = new SimpleShuffleTablePanel(BaseModel.ofList(permissions));
+		final AbstractShuffleTablePanel<Permission> panel = new AbstractShuffleTablePanel<Permission>(BaseModel.ofList(permissions)){
+
+			@Override
+			protected GenericTableModel<Permission> newLeftTableModel()
+			{
+				return new PermissionsTableModel();
+			}
+
+			@Override
+			protected GenericTableModel<Permission> newRightTableModel()
+			{
+				return new PermissionsTableModel();
+			}
+
+		};
 
 		// 5. Create a Frame for displaying the shuffle table.
 		final JFrame frame = new JFrame();
