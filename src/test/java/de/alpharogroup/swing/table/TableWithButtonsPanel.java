@@ -41,7 +41,7 @@ import de.alpharogroup.swing.base.BasePanel;
 import de.alpharogroup.swing.renderer.TableCellButtonRenderer;
 import de.alpharogroup.swing.table.editor.TableCellButtonEditor;
 import de.alpharogroup.swing.table.model.TableColumnsModel;
-import de.alpharogroup.swing.table.model.properties.PropertiesTableModel;
+import de.alpharogroup.swing.table.model.properties.StringTableModel;
 import de.alpharogroup.swing.x.GenericJXTable;
 
 public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, String>>>
@@ -79,8 +79,8 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
-		PropertiesTableModel tableModel =
-			new PropertiesTableModel(TableColumnsModel.builder().columnNames(
+		StringTableModel tableModel =
+			new StringTableModel(TableColumnsModel.builder().columnNames(
 				new String[] { "Key", "Value" })
 			.canEdit(new boolean[] { false, true })
 			.columnClasses(new Class<?>[] { String.class, String.class }).build());

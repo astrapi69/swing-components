@@ -32,77 +32,108 @@ import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * The class {@link TableCellButtonEditor}.
+ */
+@Getter
+@Setter
 public class TableCellButtonEditor extends DefaultCellEditor
 {
+
+	/** The button. */
 	private JButton button;
 
+	/** The flag if the button was clicked. */
 	private boolean clicked;
 
+	/** The row index. */
 	private int row;
 
+	/** The value. */
 	private Object value;
 
+	/** The column index. */
 	private int  column;
 
+	/**
+	 * Instantiates a new {@link TableCellButtonEditor} object.
+	 *
+	 * @param checkBox the check box
+	 */
 	public TableCellButtonEditor(JCheckBox checkBox)
 	{
 		super(checkBox);
-		button = new JButton();
-		button.setOpaque(true);
-		button.addActionListener(e -> {onClick(); fireEditingStopped();});
+		setButton(new JButton());
+		getButton().setOpaque(true);
+		getButton().addActionListener(e -> {onClick(); fireEditingStopped();});
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected,
 		int row, int column)
 	{
-		this.row = row;
-		this.column = column;
-		this.value = value;
+		setRow(row);
+		setColumn(column);
+		setValue(value);
 		if (isSelected)
 		{
-			button.setForeground(table.getSelectionForeground());
-			button.setBackground(table.getSelectionBackground());
+			getButton().setForeground(table.getSelectionForeground());
+			getButton().setBackground(table.getSelectionBackground());
 		}
 		else
 		{
-			button.setForeground(table.getForeground());
-			button.setBackground(table.getBackground());
+			getButton().setForeground(table.getForeground());
+			getButton().setBackground(table.getBackground());
 		}
 		String text = "";
 		if (value != null)
 		{
-			text = this.value.toString();
+			text = getValue().toString();
 		}
-		button.setText(text);
-		clicked = true;
-		return button;
+		getButton().setText(text);
+		setClicked(true);
+		return getButton();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Object getCellEditorValue()
 	{
-		if (clicked)
+		if (isClicked())
 		{
 			JOptionPane.showMessageDialog(button, "You clicked the button with the value "
 				+ this.value + " in row index " + row + " and in colunm index " + column +".");
 		}
-		clicked = false;
+		setClicked(false);
 		String text = "";
-		if (value != null)
+		if (getValue() != null)
 		{
-			text = this.value.toString();
+			text = getValue().toString();
 		}
 		return text;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean stopCellEditing()
 	{
-		clicked = false;
+		setClicked(false);
 		return super.stopCellEditing();
 	}
 
+	/**
+	 * Callback method to interact when the button is clicked.
+	 */
 	protected void onClick() {
 
 	}

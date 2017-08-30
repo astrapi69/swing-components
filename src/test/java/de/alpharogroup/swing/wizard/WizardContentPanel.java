@@ -24,25 +24,16 @@
  */
 package de.alpharogroup.swing.wizard;
 
-import java.awt.CardLayout;
-import java.awt.Color;
-
-import javax.swing.border.LineBorder;
-
-import de.alpharogroup.swing.base.BasePanel;
-import lombok.Getter;
+import de.alpharogroup.swing.base.BaseCardLayoutPanel;
 
 /**
  * The class {@link WizardContentPanel}.
  */
-public class WizardContentPanel extends BasePanel<Object>
+public class WizardContentPanel extends BaseCardLayoutPanel<Object>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-
-	@Getter
-	private CardLayout cardLayout;
 
 	/**
 	 * Initializer block.
@@ -58,27 +49,6 @@ public class WizardContentPanel extends BasePanel<Object>
 	}
 
 	/**
-	 * Factory method for create a new {@link CardLayout}.
-	 *
-	 * @return the new {@link CardLayout}.
-	 */
-	protected CardLayout newCardLayout()
-	{
-		final CardLayout cardLayout = new CardLayout();
-		return cardLayout;
-	}
-
-	/**
-	 * The layout have to initialize before the components! {@inheritDoc}
-	 */
-	@Override
-	protected void onBeforeInitializeComponents()
-	{
-		cardLayout = newCardLayout();
-		setLayout(cardLayout);
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -88,15 +58,6 @@ public class WizardContentPanel extends BasePanel<Object>
 		add(new SecondStepPanel(), CustomState.SECOND.getName());
 		add(new ThirdStepPanel(), CustomState.THIRD.getName());
 
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onInitializeLayout()
-	{
-		setBorder(new LineBorder(Color.BLACK));
 	}
 
 }
