@@ -24,7 +24,9 @@
  */
 package de.alpharogroup.swing.combobox.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
@@ -80,6 +82,10 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T> impl
 	public void setSelectedItem(Object anItem)
 	{
 		selectedItem = (T)anItem;
+	}
+
+	public void setComboSet(Set<T> set) {
+		setComboList(new ArrayList<>(set));
 	}
 
 }
