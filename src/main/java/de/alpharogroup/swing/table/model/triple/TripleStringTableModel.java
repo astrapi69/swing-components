@@ -41,8 +41,7 @@ public class TripleStringTableModel extends TripleTableModel<String, String, Str
 	 */
 	public TripleStringTableModel()
 	{
-		this(TableColumnsModel.builder()
-			.columnNames(new String[] { "Left", "Middle", "Right" })
+		this(TableColumnsModel.builder().columnNames(new String[] { "Left", "Middle", "Right" })
 			.canEdit(new boolean[] { true, true, true })
 			.columnClasses(new Class<?>[] { String.class, String.class, String.class }).build());
 	}

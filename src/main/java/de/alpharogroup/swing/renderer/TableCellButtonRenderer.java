@@ -47,6 +47,7 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 	{
 		this(null, null);
 	}
+
 	public TableCellButtonRenderer(Color foreground, Color backround)
 	{
 		setOpaque(true);
@@ -55,9 +56,8 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 	}
 
 	@Override
-	public Component getTableCellRendererComponent(JTable table, Object value,
-        boolean isSelected, boolean hasFocus,
-        int row, int column)
+	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+		boolean hasFocus, int row, int column)
 	{
 		if (isSelected)
 		{
@@ -78,26 +78,32 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 		return this;
 	}
 
-	protected Color newSelectionBackround(JTable table) {
-		return table.getSelectionBackground();
-	}
-
-	protected Color newSelectionForeground(JTable table) {
-		return table.getSelectionForeground();
-	}
-
-	protected Color newBackround(JTable table) {
-		if(this.backround == null) {
+	protected Color newBackround(JTable table)
+	{
+		if (this.backround == null)
+		{
 			this.backround = UIManager.getColor(BUTTON_BACKGROUND_COLOR);
 		}
 		return this.backround;
 	}
 
-	protected Color newForeground(JTable table) {
-		if(this.foreground == null) {
+	protected Color newForeground(JTable table)
+	{
+		if (this.foreground == null)
+		{
 			this.foreground = table.getForeground();
 		}
 		return this.foreground;
+	}
+
+	protected Color newSelectionBackround(JTable table)
+	{
+		return table.getSelectionBackground();
+	}
+
+	protected Color newSelectionForeground(JTable table)
+	{
+		return table.getSelectionForeground();
 	}
 
 }

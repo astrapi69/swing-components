@@ -23,6 +23,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 package de.alpharogroup.swing.table.model.suffle.actions;
+
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;

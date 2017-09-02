@@ -31,7 +31,6 @@ import javax.swing.JFrame;
 
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.swing.panels.shuffletables.AbstractShuffleTablePanel;
 import de.alpharogroup.swing.table.model.GenericTableModel;
 import de.alpharogroup.swing.tablemodel.Permission;
 import de.alpharogroup.swing.tablemodel.PermissionsTableModel;
@@ -59,7 +58,9 @@ public class GenericShuffleTableModelTest
 		permissions.add(new Permission("buy", "Permission to buy."));
 		permissions.add(new Permission("sale", "Permission to sale."));
 		// 2. Create a panel with that encapsulates the two tables and buttons.
-		final AbstractShuffleTablePanel<Permission> panel = new AbstractShuffleTablePanel<Permission>(BaseModel.ofList(permissions)){
+		final AbstractShuffleTablePanel<Permission> panel = new AbstractShuffleTablePanel<Permission>(
+			BaseModel.ofList(permissions))
+		{
 
 			@Override
 			protected GenericTableModel<Permission> newLeftTableModel()

@@ -46,10 +46,6 @@ import de.alpharogroup.swing.x.GenericJXTable;
 
 public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, String>>>
 {
-	private GenericJXTable<KeyValuePair<String, String>> table;
-
-	private JScrollPane scrTable;
-
 	public static void main(final String[] args)
 	{
 		List<KeyValuePair<String, String>> list = new ArrayList<>();
@@ -70,6 +66,10 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 
 	}
 
+	private GenericJXTable<KeyValuePair<String, String>> table;
+
+	private JScrollPane scrTable;
+
 	public TableWithButtonsPanel(Model<List<KeyValuePair<String, String>>> model)
 	{
 		super(model);
@@ -79,10 +79,8 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
-		StringTableModel tableModel =
-			new StringTableModel(TableColumnsModel.builder().columnNames(
-				new String[] { "Key", "Value" })
-			.canEdit(new boolean[] { false, true })
+		StringTableModel tableModel = new StringTableModel(TableColumnsModel.builder()
+			.columnNames(new String[] { "Key", "Value" }).canEdit(new boolean[] { false, true })
 			.columnClasses(new Class<?>[] { String.class, String.class }).build());
 		tableModel.addList(getModelObject());
 		table = new GenericJXTable<>(tableModel);

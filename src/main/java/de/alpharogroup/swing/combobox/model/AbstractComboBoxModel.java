@@ -42,7 +42,9 @@ import lombok.Setter;
  *            the generic type of the Model
  */
 @Getter
-public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T> implements ComboBoxModel<T>
+public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
+	implements
+		ComboBoxModel<T>
 {
 
 	/**
@@ -60,18 +62,23 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T> impl
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int getSize()
+	public T getElementAt(int index)
 	{
-		return comboList.size();
+		return comboList.get(index);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T getElementAt(int index)
+	public int getSize()
 	{
-		return comboList.get(index);
+		return comboList.size();
+	}
+
+	public void setComboSet(Set<T> set)
+	{
+		setComboList(new ArrayList<>(set));
 	}
 
 	/**
@@ -82,10 +89,6 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T> impl
 	public void setSelectedItem(Object anItem)
 	{
 		selectedItem = (T)anItem;
-	}
-
-	public void setComboSet(Set<T> set) {
-		setComboList(new ArrayList<>(set));
 	}
 
 }

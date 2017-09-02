@@ -52,7 +52,8 @@ import lombok.Getter;
 /**
  * The class {@link AbstractShuffleTablePanel}.
  *
- * @param <T> the generic type of the model
+ * @param <T>
+ *            the generic type of the model
  */
 @Getter
 public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
@@ -112,12 +113,27 @@ public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
 	/**
 	 * Instantiates a new {@link AbstractShuffleTablePanel} panel.
 	 *
-	 * @param model the model
+	 * @param model
+	 *            the model
 	 */
 	public AbstractShuffleTablePanel(Model<List<T>> model)
 	{
 		super(model);
 	}
+
+	/**
+	 * Abstract factory method to provide the left table model.
+	 *
+	 * @return the generic table model
+	 */
+	protected abstract GenericTableModel<T> newLeftTableModel();
+
+	/**
+	 * Abstract factory method to provide the right table model.
+	 *
+	 * @return the generic table model
+	 */
+	protected abstract GenericTableModel<T> newRightTableModel();
 
 	/**
 	 * {@inheritDoc}
@@ -134,8 +150,7 @@ public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
 		final GenericTableModel<T> tableModel = (GenericTableModel<T>)tblLeft.getModel();
 		tableModel.addList(getModelObject());
 
-		shuffleTable = new GenericShuffleJTable<>(tblLeft,
-			tblRight);
+		shuffleTable = new GenericShuffleJTable<>(tblLeft, tblRight);
 
 		addAction = new AddAction<>(shuffleTable);
 		removeAction = new RemoveAction<>(shuffleTable);
@@ -154,8 +169,8 @@ public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
 		removeMenuItem.addActionListener(removeAction);
 		final JMenuItem removeAllMenuItem = new JMenuItem("<< All selected rows to left");
 		removeAllMenuItem.addActionListener(removeAllAction);
-		final JPopupMenu rightTablePopupMenu = JComponentFactory.newJPopupMenu(
-			shuffleTable.getRightTable(), removeMenuItem, removeAllMenuItem);
+		final JPopupMenu rightTablePopupMenu = JComponentFactory
+			.newJPopupMenu(shuffleTable.getRightTable(), removeMenuItem, removeAllMenuItem);
 		shuffleTable.getRightTable().add(rightTablePopupMenu);
 
 		shuffleTable.getLeftTable().add(leftTablePopupMenu);
@@ -175,20 +190,6 @@ public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
 		scrPnTblLeft.setViewportView(tblLeft);
 		scrPnTblRight.setViewportView(tblRight);
 	}
-
-	/**
-	 * Abstract factory method to provide the left table model.
-	 *
-	 * @return the generic table model
-	 */
-	protected abstract GenericTableModel<T> newLeftTableModel();
-
-	/**
-	 * Abstract factory method to provide the right table model.
-	 *
-	 * @return the generic table model
-	 */
-	protected abstract GenericTableModel<T> newRightTableModel();
 
 	/**
 	 * {@inheritDoc}

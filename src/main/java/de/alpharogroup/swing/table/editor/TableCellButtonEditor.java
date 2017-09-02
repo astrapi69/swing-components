@@ -56,19 +56,43 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	private Object value;
 
 	/** The column index. */
-	private int  column;
+	private int column;
 
 	/**
 	 * Instantiates a new {@link TableCellButtonEditor} object.
 	 *
-	 * @param checkBox the check box
+	 * @param checkBox
+	 *            the check box
 	 */
 	public TableCellButtonEditor(JCheckBox checkBox)
 	{
 		super(checkBox);
 		setButton(new JButton());
 		getButton().setOpaque(true);
-		getButton().addActionListener(e -> {onClick(); fireEditingStopped();});
+		getButton().addActionListener(e -> {
+			onClick();
+			fireEditingStopped();
+		});
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Object getCellEditorValue()
+	{
+		if (isClicked())
+		{
+			JOptionPane.showMessageDialog(button, "You clicked the button with the value "
+				+ this.value + " in row index " + row + " and in colunm index " + column + ".");
+		}
+		setClicked(false);
+		String text = "";
+		if (getValue() != null)
+		{
+			text = getValue().toString();
+		}
+		return text;
 	}
 
 	/**
@@ -102,23 +126,11 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Callback method to interact when the button is clicked.
 	 */
-	@Override
-	public Object getCellEditorValue()
+	protected void onClick()
 	{
-		if (isClicked())
-		{
-			JOptionPane.showMessageDialog(button, "You clicked the button with the value "
-				+ this.value + " in row index " + row + " and in colunm index " + column +".");
-		}
-		setClicked(false);
-		String text = "";
-		if (getValue() != null)
-		{
-			text = getValue().toString();
-		}
-		return text;
+
 	}
 
 	/**
@@ -129,12 +141,5 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	{
 		setClicked(false);
 		return super.stopCellEditing();
-	}
-
-	/**
-	 * Callback method to interact when the button is clicked.
-	 */
-	protected void onClick() {
-
 	}
 }

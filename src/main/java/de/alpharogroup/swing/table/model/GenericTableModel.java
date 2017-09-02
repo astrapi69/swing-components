@@ -30,7 +30,8 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
- * The class {@link GenericTableModel} as the name presume it can take a generic type of the model object.
+ * The class {@link GenericTableModel} as the name presume it can take a generic type of the model
+ * object.
  *
  * @param <T>
  *            the generic type of the model

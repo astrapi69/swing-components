@@ -29,8 +29,8 @@ import de.alpharogroup.swing.table.model.BaseTableModel;
 import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
- * The class {@link QuattroTableModel} that lists four columns with generic content that can
- * be defined for every column.
+ * The class {@link QuattroTableModel} that lists four columns with generic content that can be
+ * defined for every column.
  */
 public class QuattroTableModel<TL, TR, BL, BR> extends BaseTableModel<Quattro<TL, TR, BL, BR>>
 {
@@ -43,9 +43,11 @@ public class QuattroTableModel<TL, TR, BL, BR> extends BaseTableModel<Quattro<TL
 	 */
 	public QuattroTableModel()
 	{
-		this(TableColumnsModel.builder().columnNames(new String[] { "Top Left", "Top Right", "Bottom Left", "Bottom Right" })
-			.canEdit(new boolean[] { true, true, true})
-			.columnClasses(new Class<?>[] { Object.class, Object.class, Object.class, Object.class }).build());
+		this(TableColumnsModel.builder()
+			.columnNames(new String[] { "Top Left", "Top Right", "Bottom Left", "Bottom Right" })
+			.canEdit(new boolean[] { true, true, true }).columnClasses(
+				new Class<?>[] { Object.class, Object.class, Object.class, Object.class })
+			.build());
 	}
 
 	/**

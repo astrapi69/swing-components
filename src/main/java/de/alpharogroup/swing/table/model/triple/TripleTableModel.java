@@ -29,8 +29,8 @@ import de.alpharogroup.swing.table.model.BaseTableModel;
 import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
- * The class {@link TripleTableModel} that lists three columns with generic content that can
- * be defined for every column.
+ * The class {@link TripleTableModel} that lists three columns with generic content that can be
+ * defined for every column.
  */
 public class TripleTableModel<L, M, R> extends BaseTableModel<Triple<L, M, R>>
 {
@@ -44,7 +44,7 @@ public class TripleTableModel<L, M, R> extends BaseTableModel<Triple<L, M, R>>
 	public TripleTableModel()
 	{
 		this(TableColumnsModel.builder().columnNames(new String[] { "Left", "Middle", "Right" })
-			.canEdit(new boolean[] { true, true, true})
+			.canEdit(new boolean[] { true, true, true })
 			.columnClasses(new Class<?>[] { Object.class, Object.class, Object.class }).build());
 	}
 
