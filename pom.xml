@@ -54,6 +54,7 @@
 		<jcommons-lang.version>4.21.0</jcommons-lang.version>
 		<vintage-time.version>4.11.0</vintage-time.version>
 		<randomizer.version>4.22.0</randomizer.version>
+		<silly-collections.version>4.17.0</silly-collections.version>
 		<!-- MODEL-DATA version -->
 		<model-data.version>1.5.0</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
@@ -121,6 +122,12 @@
 				<artifactId>jcommons-lang</artifactId>
 				<version>${jcommons-lang.version}</version>
 			</dependency>
+			<!-- SILLY-COLLECTIONS DEPENDENCY -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>silly-collections</artifactId>
+				<version>${silly-collections.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
@@ -174,7 +181,7 @@
 			<groupId>javax.help</groupId>
 			<artifactId>javahelp</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.swinglabs.swingx</groupId>
 			<artifactId>swingx-all</artifactId>
@@ -198,6 +205,11 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jcommons-lang</artifactId>
+		</dependency>
+		<!-- SILLY-COLLECTIONS DEPENDENCY -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>silly-collections</artifactId>
 		</dependency>
 
 		<dependency>
