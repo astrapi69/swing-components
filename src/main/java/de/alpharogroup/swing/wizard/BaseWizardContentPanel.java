@@ -24,40 +24,38 @@
  */
 package de.alpharogroup.swing.wizard;
 
+import de.alpharogroup.design.pattern.state.wizard.model.WizardModelStateMachine;
+import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BaseCardLayoutPanel;
 
 /**
- * The class {@link WizardContentPanel}.
+ * The class {@link BaseWizardContentPanel}.
  */
-public class WizardContentPanel extends BaseCardLayoutPanel<Object>
+public class BaseWizardContentPanel<T> extends BaseCardLayoutPanel<WizardModelStateMachine<T>>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Initializer block.
+	 * Instantiates a new {@link BaseWizardContentPanel}.
 	 */
+	public BaseWizardContentPanel()
 	{
+		this(BaseModel
+			.<WizardModelStateMachine<T>> of(WizardModelStateMachine.<T> builder().build()));
 	}
 
 	/**
-	 * Instantiates a new wizard content panel.
+	 * Instantiates a new {@link BaseWizardContentPanel}.
+	 *
+	 * @param model
+	 *            the model
 	 */
-	public WizardContentPanel()
+	public BaseWizardContentPanel(Model<WizardModelStateMachine<T>> model)
 	{
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onInitializeComponents()
-	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
-
+		super(model);
 	}
 
 }

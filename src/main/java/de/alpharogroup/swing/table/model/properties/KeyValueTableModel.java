@@ -22,42 +22,58 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.wizard;
+package de.alpharogroup.swing.table.model.properties;
 
-import de.alpharogroup.swing.base.BaseCardLayoutPanel;
+import de.alpharogroup.collections.pairs.KeyValuePair;
+import de.alpharogroup.swing.table.model.BaseTableModel;
+import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
- * The class {@link WizardContentPanel}.
+ * The class {@link KeyValueTableModel} that lists key value pairs.
  */
-public class WizardContentPanel extends BaseCardLayoutPanel<Object>
+public class KeyValueTableModel<K, V> extends BaseTableModel<KeyValuePair<K, V>>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Initializer block.
+	 * Instantiates a new {@link KeyValueTableModel} object.
 	 */
+	public KeyValueTableModel()
 	{
+		this(TableColumnsModel.builder().columnNames(new String[] { "Key", "Value" })
+			.canEdit(new boolean[] { false, false })
+			.columnClasses(new Class<?>[] { Object.class, Object.class }).build());
 	}
 
 	/**
-	 * Instantiates a new wizard content panel.
+	 * Instantiates a new {@link KeyValueTableModel} object.
+	 *
+	 * @param columnsModel
+	 *            the columns model
 	 */
-	public WizardContentPanel()
+	public KeyValueTableModel(final TableColumnsModel columnsModel)
 	{
+		super(columnsModel);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void onInitializeComponents()
+	public Object getValueAt(final int rowIndex, final int columnIndex)
 	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
-
+		final KeyValuePair<K, V> row = getData().get(rowIndex);
+		switch (columnIndex)
+		{
+			case 0 :
+				return row.getKey();
+			case 1 :
+				return row.getValue();
+			default :
+				return null;
+		}
 	}
 
 }

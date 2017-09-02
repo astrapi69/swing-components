@@ -24,16 +24,17 @@
  */
 package de.alpharogroup.swing.base;
 
-import java.awt.LayoutManager;
+import java.awt.GraphicsConfiguration;
 
-import org.jdesktop.swingx.JXPanel;
+import org.jdesktop.swingx.JXFrame;
 
 import de.alpharogroup.model.api.Model;
 import lombok.Getter;
 import lombok.Setter;
 
+
 /**
- * The class {@link BasePanel} for swing panels to provide an initialization cycle where the user
+ * The class {@link BaseFrame} for swing frames to provide an initialization cycle where the user
  * can overwrite the callback methods for interaction.
  *
  * @param <T>
@@ -41,7 +42,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class BasePanel<T> extends JXPanel
+public class BaseFrame<T> extends JXFrame
 {
 
 	/** The Constant serialVersionUID. */
@@ -51,58 +52,108 @@ public class BasePanel<T> extends JXPanel
 	private Model<T> model;
 
 	/**
-	 * Instantiates a new {@link BasePanel} object.
+	 * Instantiates a new {@link BaseFrame}.
 	 */
-	public BasePanel()
+	public BaseFrame()
 	{
 		initialize();
 	}
 
 	/**
-	 * Instantiates a new {@link BasePanel} object.
+	 * Instantiates a new {@link BaseFrame}.
 	 *
-	 * @param isDoubleBuffered
-	 *            the is double buffered
+	 * @param gc
+	 *            the gc
 	 */
-	public BasePanel(final boolean isDoubleBuffered)
+	public BaseFrame(GraphicsConfiguration gc)
 	{
-		super(isDoubleBuffered);
+		super(gc);
 		initialize();
 	}
 
 	/**
-	 * Instantiates a new {@link BasePanel} object.
-	 *
-	 * @param layout
-	 *            the layout
-	 */
-	public BasePanel(final LayoutManager layout)
-	{
-		super(layout);
-	}
-
-	/**
-	 * Instantiates a new {@link BasePanel} object.
-	 *
-	 * @param layout
-	 *            the layout
-	 * @param isDoubleBuffered
-	 *            the is double buffered
-	 */
-	public BasePanel(final LayoutManager layout, final boolean isDoubleBuffered)
-	{
-		super(layout, isDoubleBuffered);
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BasePanel} object.
+	 * Instantiates a new {@link BaseFrame}.
 	 *
 	 * @param model
 	 *            the model
 	 */
-	public BasePanel(final Model<T> model)
+	public BaseFrame(Model<T> model)
 	{
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title
+	 *            the title
+	 */
+	public BaseFrame(String title)
+	{
+		super(title);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title
+	 *            the title
+	 * @param exitOnClose
+	 *            the exit on close
+	 */
+	public BaseFrame(String title, boolean exitOnClose)
+	{
+		super(title, exitOnClose);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title
+	 *            the title
+	 * @param gc
+	 *            the gc
+	 */
+	public BaseFrame(String title, GraphicsConfiguration gc)
+	{
+		super(title, gc);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title
+	 *            the title
+	 * @param gc
+	 *            the gc
+	 * @param exitOnClose
+	 *            the exit on close
+	 */
+	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose)
+	{
+		super(title, gc, exitOnClose);
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseFrame}.
+	 *
+	 * @param title
+	 *            the title
+	 * @param gc
+	 *            the gc
+	 * @param exitOnClose
+	 *            the exit on close
+	 * @param model
+	 *            the model
+	 */
+	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose, Model<T> model)
+	{
+		super(title, gc, exitOnClose);
 		this.model = model;
 		initialize();
 	}
@@ -185,6 +236,7 @@ public class BasePanel<T> extends JXPanel
 	{
 	}
 
+
 	/**
 	 * Callback method to initialize the component.
 	 */
@@ -221,11 +273,10 @@ public class BasePanel<T> extends JXPanel
 	 *            the new model object
 	 * @return this for chaining
 	 */
-	public final BasePanel<T> setModelObject(final T modelObject)
+	public final BaseFrame<T> setModelObject(final T modelObject)
 	{
 		getModel().setObject(modelObject);
 		return this;
 	}
-
 
 }

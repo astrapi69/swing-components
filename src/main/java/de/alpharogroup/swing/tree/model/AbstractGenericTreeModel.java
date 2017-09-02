@@ -22,41 +22,20 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.actions;
+package de.alpharogroup.swing.tree.model;
 
-import java.awt.Component;
-import java.awt.event.ActionEvent;
+import de.alpharogroup.swing.tree.model.api.IGenericTreeModel;
 
-import javax.swing.AbstractAction;
-
-import de.alpharogroup.swing.browser.BrowserControlExtensions;
-import lombok.Getter;
-
-@Getter
-public class OpenBrowserAction extends AbstractAction
+/**
+ * The class AbstractGenericTreeModel.
+ *
+ * @param <T>
+ *            the generic type of the model
+ */
+public abstract class AbstractGenericTreeModel<T> implements IGenericTreeModel<T>
 {
 
-	public static OpenBrowserAction of(final String name, final Component component,
-		final String url)
-	{
-		return new OpenBrowserAction(name, component, url);
-	}
-
-	private final Component component;
-
-	private final String url;
-
-	public OpenBrowserAction(final String name, final Component component, final String url)
-	{
-		super(name);
-		this.component = component;
-		this.url = url;
-	}
-
-	@Override
-	public void actionPerformed(final ActionEvent e)
-	{
-		BrowserControlExtensions.displayURLonStandardBrowser(component, url);
-	}
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
 }

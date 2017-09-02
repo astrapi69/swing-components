@@ -22,42 +22,61 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.wizard;
+package de.alpharogroup.swing.table.model.triple;
 
-import de.alpharogroup.swing.base.BaseCardLayoutPanel;
+import de.alpharogroup.collections.pairs.Triple;
+import de.alpharogroup.swing.table.model.BaseTableModel;
+import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
- * The class {@link WizardContentPanel}.
+ * The class {@link TripleTableModel} that lists three columns with generic content that can be
+ * defined for every column.
  */
-public class WizardContentPanel extends BaseCardLayoutPanel<Object>
+public class TripleTableModel<L, M, R> extends BaseTableModel<Triple<L, M, R>>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Initializer block.
+	 * Instantiates a new {@link TripleTableModel} object.
 	 */
+	public TripleTableModel()
 	{
+		this(TableColumnsModel.builder().columnNames(new String[] { "Left", "Middle", "Right" })
+			.canEdit(new boolean[] { true, true, true })
+			.columnClasses(new Class<?>[] { Object.class, Object.class, Object.class }).build());
 	}
 
 	/**
-	 * Instantiates a new wizard content panel.
+	 * Instantiates a new {@link TripleTableModel} object.
+	 *
+	 * @param columnsModel
+	 *            the columns model
 	 */
-	public WizardContentPanel()
+	public TripleTableModel(final TableColumnsModel columnsModel)
 	{
+		super(columnsModel);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void onInitializeComponents()
+	public Object getValueAt(final int rowIndex, final int columnIndex)
 	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
-
+		final Triple<L, M, R> row = getData().get(rowIndex);
+		switch (columnIndex)
+		{
+			case 0 :
+				return row.getLeft();
+			case 1 :
+				return row.getMiddle();
+			case 2 :
+				return row.getRight();
+			default :
+				return null;
+		}
 	}
 
 }

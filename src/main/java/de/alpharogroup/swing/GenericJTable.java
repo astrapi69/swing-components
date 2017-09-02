@@ -28,7 +28,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableRowSorter;
 
 import de.alpharogroup.check.Check;
-import de.alpharogroup.swing.tablemodel.GenericTableModel;
+import de.alpharogroup.swing.table.model.GenericTableModel;
 import lombok.Getter;
 
 /**

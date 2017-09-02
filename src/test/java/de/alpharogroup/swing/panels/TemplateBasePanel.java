@@ -22,42 +22,34 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.wizard;
+package de.alpharogroup.swing.panels;
 
-import de.alpharogroup.swing.base.BaseCardLayoutPanel;
+import de.alpharogroup.model.api.Model;
+import de.alpharogroup.swing.base.BasePanel;
 
-/**
- * The class {@link WizardContentPanel}.
- */
-public class WizardContentPanel extends BaseCardLayoutPanel<Object>
+public class TemplateBasePanel extends BasePanel<Object>
 {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * Initializer block.
-	 */
+	public TemplateBasePanel()
 	{
+		super();
 	}
 
-	/**
-	 * Instantiates a new wizard content panel.
-	 */
-	public WizardContentPanel()
+	public TemplateBasePanel(Model<Object> model)
 	{
+		super(model);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void onInitializeComponents()
 	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
+		super.onInitializeComponents();
+	}
 
+	@Override
+	protected void onInitializeLayout()
+	{
+		super.onInitializeLayout();
 	}
 
 }

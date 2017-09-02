@@ -22,42 +22,73 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.wizard;
+package de.alpharogroup.swing.combobox.model;
 
-import de.alpharogroup.swing.base.BaseCardLayoutPanel;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import javax.swing.AbstractListModel;
+import javax.swing.ComboBoxModel;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
- * The class {@link WizardContentPanel}.
+ * The class {@link AbstractComboBoxModel} contains the data for a combo list and the current
+ * selected item.
+ *
+ * @param <T>
+ *            the generic type of the Model
  */
-public class WizardContentPanel extends BaseCardLayoutPanel<Object>
+@Getter
+public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
+	implements
+		ComboBoxModel<T>
 {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+	/**
+	 * The generic combo list.
+	 */
+	@Setter
+	private List<T> comboList;
 
 	/**
-	 * Initializer block.
+	 * The the current selected item.
 	 */
-	{
-	}
+	private T selectedItem = null;
 
 	/**
-	 * Instantiates a new wizard content panel.
+	 * {@inheritDoc}
 	 */
-	public WizardContentPanel()
+	@Override
+	public T getElementAt(int index)
 	{
+		return comboList.get(index);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void onInitializeComponents()
+	public int getSize()
 	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
+		return comboList.size();
+	}
 
+	public void setComboSet(Set<T> set)
+	{
+		setComboList(new ArrayList<>(set));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void setSelectedItem(Object anItem)
+	{
+		selectedItem = (T)anItem;
 	}
 
 }

@@ -22,41 +22,59 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.actions;
+package de.alpharogroup.swing.table.model;
 
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
-
-import de.alpharogroup.swing.browser.BrowserControlExtensions;
-import lombok.Getter;
-
-@Getter
-public class OpenBrowserAction extends AbstractAction
+/**
+ * The class NoRowsSelectedException are thrown when there are no rows from the table selected.
+ */
+public class NoRowsSelectedException extends Exception
 {
 
-	public static OpenBrowserAction of(final String name, final Component component,
-		final String url)
+	/**
+	 * The serialVersionUID.
+	 */
+	private static final long serialVersionUID = 237525465952351371L;
+
+	/**
+	 * Instantiates a new no rows selected exception.
+	 */
+	public NoRowsSelectedException()
 	{
-		return new OpenBrowserAction(name, component, url);
 	}
 
-	private final Component component;
-
-	private final String url;
-
-	public OpenBrowserAction(final String name, final Component component, final String url)
+	/**
+	 * Instantiates a new no rows selected exception.
+	 *
+	 * @param message
+	 *            the message
+	 */
+	public NoRowsSelectedException(final String message)
 	{
-		super(name);
-		this.component = component;
-		this.url = url;
+		super(message);
 	}
 
-	@Override
-	public void actionPerformed(final ActionEvent e)
+	/**
+	 * Instantiates a new no rows selected exception.
+	 *
+	 * @param message
+	 *            the message
+	 * @param cause
+	 *            the cause
+	 */
+	public NoRowsSelectedException(final String message, final Throwable cause)
 	{
-		BrowserControlExtensions.displayURLonStandardBrowser(component, url);
+		super(message, cause);
+	}
+
+	/**
+	 * Instantiates a new no rows selected exception.
+	 *
+	 * @param cause
+	 *            the cause
+	 */
+	public NoRowsSelectedException(final Throwable cause)
+	{
+		super(cause);
 	}
 
 }

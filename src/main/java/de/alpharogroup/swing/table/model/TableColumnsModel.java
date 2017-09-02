@@ -22,42 +22,36 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.wizard;
+package de.alpharogroup.swing.table.model;
 
-import de.alpharogroup.swing.base.BaseCardLayoutPanel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
- * The class {@link WizardContentPanel}.
+ * The class {@link TableColumnsModel} encapsulates the column data for a table model like the
+ * column names if they are editable and the column classes.
  */
-public class WizardContentPanel extends BaseCardLayoutPanel<Object>
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+public class TableColumnsModel
 {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+	/** The column names. */
+	private String[] columnNames;
 
-	/**
-	 * Initializer block.
-	 */
-	{
-	}
+	/** The flag for the column if they can be edited. */
+	private boolean[] canEdit;
 
-	/**
-	 * Instantiates a new wizard content panel.
-	 */
-	public WizardContentPanel()
-	{
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onInitializeComponents()
-	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
-
-	}
-
+	/** The column classes. */
+	private Class<?>[] columnClasses;
 }

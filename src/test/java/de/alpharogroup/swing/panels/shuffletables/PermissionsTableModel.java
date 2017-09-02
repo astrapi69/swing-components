@@ -24,7 +24,7 @@
  */
 package de.alpharogroup.swing.panels.shuffletables;
 
-import de.alpharogroup.swing.tablemodel.GenericTableModel;
+import de.alpharogroup.swing.table.model.GenericTableModel;
 import de.alpharogroup.test.objects.Permission;
 
 /**

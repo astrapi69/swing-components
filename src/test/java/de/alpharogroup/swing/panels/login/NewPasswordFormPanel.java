@@ -24,10 +24,13 @@
  */
 package de.alpharogroup.swing.panels.login;
 
+import lombok.Getter;
+
 /**
  *
  * @author astrapi69
  */
+@Getter
 public class NewPasswordFormPanel extends javax.swing.JPanel
 {
 
@@ -76,6 +79,7 @@ public class NewPasswordFormPanel extends javax.swing.JPanel
 
 		txtUsername.addActionListener(new java.awt.event.ActionListener()
 		{
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				txtUsernameActionPerformed(evt);

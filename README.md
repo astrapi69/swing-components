@@ -29,7 +29,7 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 Than you can add the dependency to your dependencies:
 
 		<!-- swing-components version -->
-		<swing-components.version>4.22.0</swing-components.version>
+		<swing-components.version>4.23.0</swing-components.version>
 
 		<dependencies>
 			...
@@ -48,7 +48,7 @@ The source code for swing-components are on GitHub. Please feel free to fork and
 
 Create your own fork of [lightblueseas/swing-components/fork](https://github.com/lightblueseas/swing-components/fork)
 
-To share your changes, [submit a pull request](https://github.com/lightblueseas/swing-components/pull/new/master).
+To share your changes, [submit a pull request](https://github.com/lightblueseas/swing-components/pull/new/develop).
 
 Don't forget to add new units tests on your changes.
 
@@ -74,6 +74,7 @@ Here is a list of awesome swing projects:
 
 Open Source:
 
+ * [Java Generic Swing Application Framework](https://github.com/pgdurand/jGAF) Generic Swing Application Framework (jGAF) is a library designed to facilitate the creation of cross-platorm graphical applications for the Oracle Java Platform.
  * [OpenSwing](http://oswing.sourceforge.net/) OpenSwing is an open-source suite of advanced graphics components based on Swing toolkit
  * [JCalendar](https://toedter.com/jcalendar/) JCalendar is a Java date chooser bean for graphically picking a date.
 

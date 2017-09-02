@@ -22,42 +22,38 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.wizard;
+package de.alpharogroup.swing.table.model.properties;
 
-import de.alpharogroup.swing.base.BaseCardLayoutPanel;
+import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
- * The class {@link WizardContentPanel}.
+ * The class {@link StringTableModel} that lists key value pairs.
  */
-public class WizardContentPanel extends BaseCardLayoutPanel<Object>
+public class StringTableModel extends KeyValueTableModel<String, String>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Initializer block.
+	 * Instantiates a new {@link StringTableModel} object.
 	 */
+	public StringTableModel()
 	{
+		this(TableColumnsModel.builder().columnNames(new String[] { "Key", "Value" })
+			.canEdit(new boolean[] { false, false })
+			.columnClasses(new Class<?>[] { String.class, String.class }).build());
 	}
 
 	/**
-	 * Instantiates a new wizard content panel.
+	 * Instantiates a new {@link StringTableModel} object.
+	 *
+	 * @param columnsModel
+	 *            the columns model
 	 */
-	public WizardContentPanel()
+	public StringTableModel(final TableColumnsModel columnsModel)
 	{
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onInitializeComponents()
-	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
-
+		super(columnsModel);
 	}
 
 }

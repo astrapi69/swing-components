@@ -22,42 +22,39 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.wizard;
+package de.alpharogroup.swing.table.model.triple;
 
-import de.alpharogroup.swing.base.BaseCardLayoutPanel;
+import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
- * The class {@link WizardContentPanel}.
+ * The class {@link TripleStringTableModel} that lists three columns with String content for every
+ * column.
  */
-public class WizardContentPanel extends BaseCardLayoutPanel<Object>
+public class TripleStringTableModel extends TripleTableModel<String, String, String>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Initializer block.
+	 * Instantiates a new {@link TripleStringTableModel} object.
 	 */
+	public TripleStringTableModel()
 	{
+		this(TableColumnsModel.builder().columnNames(new String[] { "Left", "Middle", "Right" })
+			.canEdit(new boolean[] { true, true, true })
+			.columnClasses(new Class<?>[] { String.class, String.class, String.class }).build());
 	}
 
 	/**
-	 * Instantiates a new wizard content panel.
+	 * Instantiates a new {@link TripleStringTableModel} object.
+	 *
+	 * @param columnsModel
+	 *            the columns model
 	 */
-	public WizardContentPanel()
+	public TripleStringTableModel(final TableColumnsModel columnsModel)
 	{
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onInitializeComponents()
-	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
-
+		super(columnsModel);
 	}
 
 }

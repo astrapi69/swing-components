@@ -33,16 +33,15 @@ import javax.swing.LayoutStyle;
 
 import org.jdesktop.swingx.JXPanel;
 
-/**
- *
- * @author admin
- */
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Getter
+@Setter
 public class LoginPanel extends JXPanel
 {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = -1773660900716220066L;
 	private JButton btnCancel;
 	private JButton btnLogin;
@@ -52,81 +51,10 @@ public class LoginPanel extends JXPanel
 	private JPasswordField txtPassword;
 	private JTextField txtUsername;
 
-	/** Creates new form LoginPanel */
 	public LoginPanel()
 	{
 		initComponents();
 		initLayout();
-	}
-
-	/**
-	 * Returns the field <code>btnCancel</code>.
-	 *
-	 * @return The field <code>btnCancel</code>.
-	 */
-	public JButton getBtnCancel()
-	{
-		return btnCancel;
-	}
-
-	/**
-	 * Returns the field <code>btnLogin</code>.
-	 *
-	 * @return The field <code>btnLogin</code>.
-	 */
-	public JButton getBtnLogin()
-	{
-		return btnLogin;
-	}
-
-	/**
-	 * Returns the field <code>lblPassword</code>.
-	 *
-	 * @return The field <code>lblPassword</code>.
-	 */
-	public JLabel getLblPassword()
-	{
-		return lblPassword;
-	}
-
-	/**
-	 * Returns the field <code>lblUsername</code>.
-	 *
-	 * @return The field <code>lblUsername</code>.
-	 */
-	public JLabel getLblUsername()
-	{
-		return lblUsername;
-	}
-
-	/**
-	 * Returns the field <code>txtInfo</code>.
-	 *
-	 * @return The field <code>txtInfo</code>.
-	 */
-	public JTextField getTxtInfo()
-	{
-		return txtInfo;
-	}
-
-	/**
-	 * Returns the field <code>txtPassword</code>.
-	 *
-	 * @return The field <code>txtPassword</code>.
-	 */
-	public JPasswordField getTxtPassword()
-	{
-		return txtPassword;
-	}
-
-	/**
-	 * Returns the field <code>txtUsername</code>.
-	 *
-	 * @return The field <code>txtUsername</code>.
-	 */
-	public JTextField getTxtUsername()
-	{
-		return txtUsername;
 	}
 
 	private void initComponents()
@@ -195,83 +123,5 @@ public class LoginPanel extends JXPanel
 					.addComponent(btnCancel).addComponent(btnLogin))
 				.addContainerGap(27, Short.MAX_VALUE)));
 	}
-
-	/**
-	 * Sets the field <code>btnCancel</code>.
-	 *
-	 * @param btnCancel
-	 *            The <code>btnCancel</code> to set.
-	 */
-	public void setBtnCancel(final JButton btnCancel)
-	{
-		this.btnCancel = btnCancel;
-	}
-
-	/**
-	 * Sets the field <code>btnLogin</code>.
-	 *
-	 * @param btnLogin
-	 *            The <code>btnLogin</code> to set.
-	 */
-	public void setBtnLogin(final JButton btnLogin)
-	{
-		this.btnLogin = btnLogin;
-	}
-
-	/**
-	 * Sets the field <code>lblPassword</code>.
-	 *
-	 * @param lblPassword
-	 *            The <code>lblPassword</code> to set.
-	 */
-	public void setLblPassword(final JLabel lblPassword)
-	{
-		this.lblPassword = lblPassword;
-	}
-
-	/**
-	 * Sets the field <code>lblUsername</code>.
-	 *
-	 * @param lblUsername
-	 *            The <code>lblUsername</code> to set.
-	 */
-	public void setLblUsername(final JLabel lblUsername)
-	{
-		this.lblUsername = lblUsername;
-	}
-
-	/**
-	 * Sets the field <code>txtInfo</code>.
-	 *
-	 * @param txtInfo
-	 *            The <code>txtInfo</code> to set.
-	 */
-	public void setTxtInfo(final JTextField txtInfo)
-	{
-		this.txtInfo = txtInfo;
-	}
-
-	/**
-	 * Sets the field <code>txtPassword</code>.
-	 *
-	 * @param txtPassword
-	 *            The <code>txtPassword</code> to set.
-	 */
-	public void setTxtPassword(final JPasswordField txtPassword)
-	{
-		this.txtPassword = txtPassword;
-	}
-
-	/**
-	 * Sets the field <code>txtUsername</code>.
-	 *
-	 * @param txtUsername
-	 *            The <code>txtUsername</code> to set.
-	 */
-	public void setTxtUsername(final JTextField txtUsername)
-	{
-		this.txtUsername = txtUsername;
-	}
-
 
 }

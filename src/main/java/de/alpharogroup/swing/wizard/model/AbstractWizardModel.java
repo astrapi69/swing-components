@@ -22,42 +22,57 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.wizard;
+package de.alpharogroup.swing.wizard.model;
 
-import de.alpharogroup.swing.base.BaseCardLayoutPanel;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
- * The class {@link WizardContentPanel}.
+ * The abstract class {@link AbstractWizardModel} act as a base wizard model.<br>
  */
-public class WizardContentPanel extends BaseCardLayoutPanel<Object>
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public abstract class AbstractWizardModel
 {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+	/** The flag that signals if next is valid or not. */
+	private boolean validNext;
+
+	/** The flag that signals if previous is valid or not. */
+	private boolean validPrevious;
+
+	/** The flag that signals if cancel is valid or not. */
+	private boolean validCancel;
+
+	/** The flag that signals if finish is valid or not. */
+	private boolean validFinish;
 
 	/**
-	 * Initializer block.
+	 * Reset all flags to false.
 	 */
+	public void reset()
 	{
+		validNext = false;
+		validPrevious = false;
+		validCancel = false;
+		validFinish = false;
 	}
 
 	/**
-	 * Instantiates a new wizard content panel.
+	 * Sets all valid states to true.
 	 */
-	public WizardContentPanel()
+	public void setAllValid()
 	{
+		validNext = true;
+		validPrevious = true;
+		validCancel = true;
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onInitializeComponents()
-	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
-
-	}
-
 }

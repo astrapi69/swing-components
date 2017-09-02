@@ -22,42 +22,41 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.wizard;
+package de.alpharogroup.swing.table.model.suffle.actions;
 
-import de.alpharogroup.swing.base.BaseCardLayoutPanel;
+import java.awt.event.ActionEvent;
 
-/**
- * The class {@link WizardContentPanel}.
- */
-public class WizardContentPanel extends BaseCardLayoutPanel<Object>
+import javax.swing.AbstractAction;
+import javax.swing.JOptionPane;
+
+import de.alpharogroup.check.Check;
+import de.alpharogroup.swing.GenericShuffleJTable;
+
+public class RemoveAction<T> extends AbstractAction
 {
 
-	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Initializer block.
-	 */
+	private final GenericShuffleJTable<T> shuffleJTable;
+
+	public RemoveAction(final GenericShuffleJTable<T> shuffleJTable)
 	{
+		Check.get().notNull(shuffleJTable, "shuffleJTable");
+		this.shuffleJTable = shuffleJTable;
 	}
 
-	/**
-	 * Instantiates a new wizard content panel.
-	 */
-	public WizardContentPanel()
-	{
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	protected void onInitializeComponents()
+	public void actionPerformed(final ActionEvent e)
 	{
-		add(new FirstStepPanel(), CustomState.FIRST.getName());
-		add(new SecondStepPanel(), CustomState.SECOND.getName());
-		add(new ThirdStepPanel(), CustomState.THIRD.getName());
-
+		final int[] selectedRows = shuffleJTable.getRightTable().getSelectedRows();
+		if (selectedRows.length == 0)
+		{
+			JOptionPane.showMessageDialog(null, "You have to selected at least one row.");
+		}
+		else
+		{
+			shuffleJTable.shuffleSelectedRightRowsToLeftTable();
+		}
 	}
 
 }
