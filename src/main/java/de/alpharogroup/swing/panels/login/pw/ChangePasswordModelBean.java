@@ -54,6 +54,10 @@ public class ChangePasswordModelBean implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/** The users name of a user. */
+	@Builder.Default
+	private String username = "";
+
 	/** The current password of a user. */
 	@Builder.Default
 	private String currentPassword = "";
