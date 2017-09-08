@@ -53,7 +53,6 @@ public class NewPasswordPanelTest
 		final NewPasswordPanel newPasswordPanel = new NewPasswordPanel();
 		// example of binding model with a textfield with the class StringBindingListener...
 		Model<String> model = model(from(newPasswordPanel.getModel()).getCurrentPassword());
-		BaseModel.of(newPasswordPanel.getTxtUsername().getText());
 		newPasswordPanel.getTxtPassword().getDocument()
 			.addDocumentListener(new StringBindingListener(model)
 			{
