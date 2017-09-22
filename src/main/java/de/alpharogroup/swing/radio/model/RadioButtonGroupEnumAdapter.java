@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.radiomodel;
+package de.alpharogroup.swing.radio.model;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -30,24 +30,24 @@ import java.util.Map;
 import javax.swing.JRadioButton;
 
 /**
- * The class {@link RadioButtonGroupEnumModel} can be used with {@link JRadioButton}.
+ * The class {@link RadioButtonGroupEnumAdapter} can be used with {@link JRadioButton}.
  *
  * @param <E>
  *            the generic enum type
  */
-public class RadioButtonGroupEnumModel<E extends Enum<E>>
+public class RadioButtonGroupEnumAdapter<E extends Enum<E>>
 {
 
 	/** The button map. */
 	private final Map<E, JRadioButton> buttonMap;
 
 	/**
-	 * Instantiates a new {@link RadioButtonGroupEnumModel}.
+	 * Instantiates a new {@link RadioButtonGroupEnumAdapter}.
 	 *
 	 * @param enumClass
 	 *            the enum class
 	 */
-	public RadioButtonGroupEnumModel(Class<E> enumClass)
+	public RadioButtonGroupEnumAdapter(Class<E> enumClass)
 	{
 		this.buttonMap = new EnumMap<>(enumClass);
 	}
@@ -72,9 +72,9 @@ public class RadioButtonGroupEnumModel<E extends Enum<E>>
 	 */
 	public E getValue()
 	{
-		for (E e : this.buttonMap.keySet())
+		for (final E e : this.buttonMap.keySet())
 		{
-			JRadioButton btn = this.buttonMap.get(e);
+			final JRadioButton btn = this.buttonMap.get(e);
 			if (btn.isSelected())
 			{
 				return e;
@@ -91,7 +91,7 @@ public class RadioButtonGroupEnumModel<E extends Enum<E>>
 	 */
 	public void importMap(Map<E, JRadioButton> map)
 	{
-		for (E e : map.keySet())
+		for (final E e : map.keySet())
 		{
 			this.buttonMap.put(e, map.get(e));
 		}
@@ -105,12 +105,12 @@ public class RadioButtonGroupEnumModel<E extends Enum<E>>
 	 */
 	public void setValue(E e)
 	{
-		JRadioButton btn = (e == null) ? null : this.buttonMap.get(e);
+		final JRadioButton btn = (e == null) ? null : this.buttonMap.get(e);
 		if (btn == null)
 		{
 			// the following doesn't seem efficient...
 			// but since when do we have more than say 10 radiobuttons?
-			for (JRadioButton b : this.buttonMap.values())
+			for (final JRadioButton b : this.buttonMap.values())
 			{
 				b.setSelected(false);
 			}
