@@ -32,8 +32,6 @@ import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -43,8 +41,6 @@ import lombok.ToString;
  * @param <E>
  *            the generic enum type
  */
-@Getter
-@Setter
 @EqualsAndHashCode
 @ToString
 @Builder(toBuilder=true)
@@ -120,7 +116,7 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	 *
 	 * @return the selected enum or null if none is selected.
 	 */
-	public E getSelectedEnumFromRadioButtons() {
+	protected E getSelectedEnumFromRadioButtons() {
 		for (final E enumValue : this.radioButtonMap.keySet())
 		{
 			final JRadioButton btn = this.radioButtonMap.get(enumValue);
@@ -176,6 +172,17 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 				radioButton.setSelected(false);
 			}
 		}
+	}
+
+	public Model<E> getSelected()
+	{
+		selected.setObject(getSelectedEnumFromRadioButtons());
+		return selected;
+	}
+
+	public E getSelectedEnum()
+	{
+		return getSelected().getObject();
 	}
 
 }
