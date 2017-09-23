@@ -24,7 +24,6 @@
  */
 package de.alpharogroup.swing.radio.model;
 
-import java.util.EnumMap;
 import java.util.Map;
 
 import javax.swing.JRadioButton;
