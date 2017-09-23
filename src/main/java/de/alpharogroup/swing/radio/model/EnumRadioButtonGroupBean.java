@@ -29,7 +29,6 @@ import java.util.Map;
 
 import javax.swing.JRadioButton;
 
-import de.alpharogroup.lang.TypeArgumentsExtensions;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import lombok.Builder;
@@ -45,6 +44,8 @@ import lombok.ToString;
  * @param <E>
  *            the generic enum type
  */
+@Getter
+@Setter
 @EqualsAndHashCode
 @ToString
 @Builder(toBuilder=true)
@@ -111,16 +112,25 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	 */
 	public E getValue()
 	{
-		if(selected.getObject() == null) {
-			for (final E key : this.radioButtonMap.keySet())
+		selected.setObject(getSelectedEnumFromRadioButtons());
+		return selected.getObject();
+	}
+
+	/**
+	 * Resolves the selected enum from the radio buttons.
+	 *
+	 * @return the selected enum or null if none is selected.
+	 */
+	public E getSelectedEnumFromRadioButtons() {
+		for (final E enumValue : this.radioButtonMap.keySet())
+		{
+			final JRadioButton btn = this.radioButtonMap.get(enumValue);
+			if (btn.isSelected())
 			{
-				final JRadioButton radioButton = this.radioButtonMap.get(key);
-				if(radioButton.isSelected()) {
-					selected.setObject(key);
-				}
+				return enumValue;
 			}
 		}
-		return selected.getObject();
+		return null;
 	}
 
 	/**
