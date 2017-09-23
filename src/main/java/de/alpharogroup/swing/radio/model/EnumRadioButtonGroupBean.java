@@ -29,7 +29,14 @@ import java.util.Map;
 
 import javax.swing.JRadioButton;
 
+import de.alpharogroup.lang.TypeArgumentsExtensions;
+import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * The class {@link EnumRadioButtonGroupBean} represents a model object that can be used with
@@ -38,37 +45,49 @@ import de.alpharogroup.model.api.Model;
  * @param <E>
  *            the generic enum type
  */
+@EqualsAndHashCode
+@ToString
+@Builder(toBuilder=true)
 public class EnumRadioButtonGroupBean<E extends Enum<E>>
 {
 
-	/** The map with the {@linkplain JRadioButton} objects. */
-	private final Map<E, JRadioButton> radioButtonMap;
+	/** The map with the mapped {@linkplain JRadioButton} objects. */
+	@Builder.Default
+	private Map<E, JRadioButton> radioButtonMap;
 
 	/** The model of the selected enum. */
 	private Model<E> selected;
 
 	/**
 	 * Instantiates a new {@link EnumRadioButtonGroupBean}.
-	 *
-	 * @param enumClass
-	 *            the enum class
 	 */
-	public EnumRadioButtonGroupBean(Class<E> enumClass)
+	public EnumRadioButtonGroupBean()
 	{
-		this.radioButtonMap = new EnumMap<>(enumClass);
+		this(BaseModel.<E> of());
 	}
 
 	/**
 	 * Instantiates a new {@link EnumRadioButtonGroupBean}.
 	 *
-	 * @param enumClass
-	 *            the enum class
 	 * @param selected
 	 *            the model where the selected enum is kept.
 	 */
-	public EnumRadioButtonGroupBean(Class<E> enumClass, Model<E> selected)
+	public EnumRadioButtonGroupBean(final Model<E> selected)
 	{
-		this.radioButtonMap = new EnumMap<>(enumClass);
+		this.selected = selected;
+	}
+
+	/**
+	 * Instantiates a new {@link EnumRadioButtonGroupBean}.
+	 *
+	 * @param radioButtonMap
+	 *            The map with the mapped {@linkplain JRadioButton} objects.
+	 * @param selected
+	 *            the model where the selected enum is kept.
+	 */
+	public EnumRadioButtonGroupBean(final Map<E, JRadioButton> radioButtonMap, final Model<E> selected)
+	{
+		this.radioButtonMap = radioButtonMap;
 		this.selected = selected;
 	}
 
@@ -80,7 +99,7 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	 * @param radioButton
 	 *            the radio button
 	 */
-	public void associate(E enumValue, JRadioButton radioButton)
+	public void associate(final E enumValue, final JRadioButton radioButton)
 	{
 		this.radioButtonMap.put(enumValue, radioButton);
 	}
@@ -92,17 +111,26 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	 */
 	public E getValue()
 	{
+		if(selected.getObject() == null) {
+			for (final E key : this.radioButtonMap.keySet())
+			{
+				final JRadioButton radioButton = this.radioButtonMap.get(key);
+				if(radioButton.isSelected()) {
+					selected.setObject(key);
+				}
+			}
+		}
 		return selected.getObject();
 	}
 
 	/**
-	 * Import the given {@linkplain Map} with the {@linkplain JRadioButton} objects as values and
+	 * Associate the given {@linkplain Map} with the {@linkplain JRadioButton} objects as values and
 	 * the enum values as keys and associates them.
 	 *
 	 * @param map
 	 *            the map
 	 */
-	public void importMap(Map<E, JRadioButton> map)
+	public void associateMap(final Map<E, JRadioButton> map)
 	{
 		this.radioButtonMap.putAll(map);
 	}
@@ -113,7 +141,7 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	 * @param enumValue
 	 *            the new enum value to set
 	 */
-	public void setValue(E enumValue)
+	public void setValue(final E enumValue)
 	{
 		selected.setObject(enumValue);
 		setSelectedRadioButton(enumValue);
@@ -125,7 +153,7 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	 * @param enumValue
 	 *            the new enum value to set
 	 */
-	private void setSelectedRadioButton(E enumValue)
+	private void setSelectedRadioButton(final E enumValue)
 	{
 		if (enumValue != null)
 		{
