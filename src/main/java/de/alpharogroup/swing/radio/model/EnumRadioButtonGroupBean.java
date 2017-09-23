@@ -174,12 +174,22 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 		}
 	}
 
+	/**
+	 * Gets the selected.
+	 *
+	 * @return the selected
+	 */
 	public Model<E> getSelected()
 	{
 		selected.setObject(getSelectedEnumFromRadioButtons());
 		return selected;
 	}
 
+	/**
+	 * Gets the selected enum.
+	 *
+	 * @return the selected enum
+	 */
 	public E getSelectedEnum()
 	{
 		return getSelected().getObject();
