@@ -80,9 +80,9 @@ public class LoginController extends AbstractGenericController<LoginModel, Login
 		{
 
 			final LoginModel model = getModel();
-			model.getModelObject().setUsername(getView().getComponent().getTxtUsername().getText());
+			model.getObject().setUsername(getView().getComponent().getTxtUsername().getText());
 			final String pw = new String(getView().getComponent().getTxtPassword().getPassword());
-			model.getModelObject().setPassword(pw);
+			model.getObject().setPassword(pw);
 			// AuthorisationService authorisationService = new AuthorisationServiceImpl();
 			// Users user = authorisationService.authenticateUser( getModel() );
 			// if(null != user){
