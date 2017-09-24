@@ -32,14 +32,10 @@ import de.alpharogroup.model.api.Model;
 import lombok.Getter;
 
 /**
- * The listener interface for receiving itemBind events. The class that is interested in processing
- * a itemBind event implements this interface, and the object created with that class is registered
- * with a component using the component's <code>addItemListener<code> method. When the itemBind
- * event occurs, that object's appropriate method is invoked.
+ * The listener interface {@link SingleItemModelListener} receives itemBind events.
  *
  * @param <T>
  *            the generic type
- * @see ItemBindEvent
  */
 @Getter
 public class SingleItemModelListener<T> implements ItemListener
@@ -54,7 +50,7 @@ public class SingleItemModelListener<T> implements ItemListener
 	 * @param model
 	 *            the model
 	 */
-	public SingleItemModelListener(Model<T> model)
+	public SingleItemModelListener(final Model<T> model)
 	{
 		this.model = model;
 	}
@@ -64,7 +60,7 @@ public class SingleItemModelListener<T> implements ItemListener
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void itemStateChanged(ItemEvent e)
+	public void itemStateChanged(final ItemEvent e)
 	{
 		final ItemSelectable is = e.getItemSelectable();
 		final Object selected[] = is.getSelectedObjects();

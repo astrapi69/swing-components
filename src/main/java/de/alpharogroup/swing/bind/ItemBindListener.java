@@ -31,20 +31,16 @@ import java.awt.event.ItemListener;
 import javax.swing.ComboBoxModel;
 
 /**
- * The listener interface for receiving itemBind events. The class that is interested in processing
- * a itemBind event implements this interface, and the object created with that class is registered
- * with a component using the component's <code>addItemBindListener<code> method. When the itemBind
- * event occurs, that object's appropriate method is invoked.
+ * The listener interface {@link ItemBindListener} receives itemBind events.
  *
  * @param <T>
  *            the generic type
- * @see ItemBindEvent
  */
 public class ItemBindListener<T> implements ItemListener
 {
 
 	/** The model. */
-	private ComboBoxModel<T> model;
+	private final ComboBoxModel<T> model;
 
 	/**
 	 * Instantiates a new {@link ItemBindListener}.
@@ -52,7 +48,7 @@ public class ItemBindListener<T> implements ItemListener
 	 * @param model
 	 *            the model
 	 */
-	public ItemBindListener(ComboBoxModel<T> model)
+	public ItemBindListener(final ComboBoxModel<T> model)
 	{
 		this.model = model;
 	}
@@ -62,11 +58,11 @@ public class ItemBindListener<T> implements ItemListener
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void itemStateChanged(ItemEvent e)
+	public void itemStateChanged(final ItemEvent e)
 	{
-		ItemSelectable is = e.getItemSelectable();
-		Object selected[] = is.getSelectedObjects();
-		T sel = (selected.length == 0) ? null : (T)selected[0];
+		final ItemSelectable is = e.getItemSelectable();
+		final Object selected[] = is.getSelectedObjects();
+		final T sel = (selected.length == 0) ? null : (T)selected[0];
 		model.setSelectedItem(sel);
 	}
 

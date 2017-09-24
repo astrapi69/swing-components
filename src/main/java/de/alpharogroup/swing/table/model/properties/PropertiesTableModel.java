@@ -74,10 +74,12 @@ public class PropertiesTableModel extends AbstractTableModel
 	}
 
 	/**
-	 * Adds the row.
+	 * Adds the row from the given key and value.
 	 *
-	 * @param row
-	 *            the row to add.
+	 * @param key
+	 *            the key
+	 * @param value
+	 *            the value
 	 */
 	public void add(final String key, final String value)
 	{
