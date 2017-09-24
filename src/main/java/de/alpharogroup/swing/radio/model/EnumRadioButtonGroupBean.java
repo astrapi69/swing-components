@@ -43,7 +43,7 @@ import lombok.ToString;
  */
 @EqualsAndHashCode
 @ToString
-@Builder(toBuilder=true)
+@Builder(toBuilder = true)
 public class EnumRadioButtonGroupBean<E extends Enum<E>>
 {
 
@@ -65,25 +65,26 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	/**
 	 * Instantiates a new {@link EnumRadioButtonGroupBean}.
 	 *
+	 * @param radioButtonMap
+	 *            The map with the mapped {@linkplain JRadioButton} objects.
 	 * @param selected
 	 *            the model where the selected enum is kept.
 	 */
-	public EnumRadioButtonGroupBean(final Model<E> selected)
+	public EnumRadioButtonGroupBean(final Map<E, JRadioButton> radioButtonMap,
+		final Model<E> selected)
 	{
+		this.radioButtonMap = radioButtonMap;
 		this.selected = selected;
 	}
 
 	/**
 	 * Instantiates a new {@link EnumRadioButtonGroupBean}.
 	 *
-	 * @param radioButtonMap
-	 *            The map with the mapped {@linkplain JRadioButton} objects.
 	 * @param selected
 	 *            the model where the selected enum is kept.
 	 */
-	public EnumRadioButtonGroupBean(final Map<E, JRadioButton> radioButtonMap, final Model<E> selected)
+	public EnumRadioButtonGroupBean(final Model<E> selected)
 	{
-		this.radioButtonMap = radioButtonMap;
 		this.selected = selected;
 	}
 
@@ -101,34 +102,6 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	}
 
 	/**
-	 * Gets the value.
-	 *
-	 * @return the value
-	 */
-	public E getValue()
-	{
-		selected.setObject(getSelectedEnumFromRadioButtons());
-		return selected.getObject();
-	}
-
-	/**
-	 * Resolves the selected enum from the radio buttons.
-	 *
-	 * @return the selected enum or null if none is selected.
-	 */
-	protected E getSelectedEnumFromRadioButtons() {
-		for (final E enumValue : this.radioButtonMap.keySet())
-		{
-			final JRadioButton btn = this.radioButtonMap.get(enumValue);
-			if (btn.isSelected())
-			{
-				return enumValue;
-			}
-		}
-		return null;
-	}
-
-	/**
 	 * Associate the given {@linkplain Map} with the {@linkplain JRadioButton} objects as values and
 	 * the enum values as keys and associates them.
 	 *
@@ -141,15 +114,53 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	}
 
 	/**
-	 * Sets the value.
+	 * Gets the selected.
 	 *
-	 * @param enumValue
-	 *            the new enum value to set
+	 * @return the selected
 	 */
-	public void setValue(final E enumValue)
+	public Model<E> getSelected()
 	{
-		selected.setObject(enumValue);
-		setSelectedRadioButton(enumValue);
+		selected.setObject(getSelectedEnumFromRadioButtons());
+		return selected;
+	}
+
+	/**
+	 * Gets the selected enum.
+	 *
+	 * @return the selected enum
+	 */
+	public E getSelectedEnum()
+	{
+		return getSelected().getObject();
+	}
+
+	/**
+	 * Resolves the selected enum from the radio buttons.
+	 *
+	 * @return the selected enum or null if none is selected.
+	 */
+	protected E getSelectedEnumFromRadioButtons()
+	{
+		for (final E enumValue : this.radioButtonMap.keySet())
+		{
+			final JRadioButton btn = this.radioButtonMap.get(enumValue);
+			if (btn.isSelected())
+			{
+				return enumValue;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Gets the value.
+	 *
+	 * @return the value
+	 */
+	public E getValue()
+	{
+		selected.setObject(getSelectedEnumFromRadioButtons());
+		return selected.getObject();
 	}
 
 	/**
@@ -175,24 +186,15 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	}
 
 	/**
-	 * Gets the selected.
+	 * Sets the value.
 	 *
-	 * @return the selected
+	 * @param enumValue
+	 *            the new enum value to set
 	 */
-	public Model<E> getSelected()
+	public void setValue(final E enumValue)
 	{
-		selected.setObject(getSelectedEnumFromRadioButtons());
-		return selected;
-	}
-
-	/**
-	 * Gets the selected enum.
-	 *
-	 * @return the selected enum
-	 */
-	public E getSelectedEnum()
-	{
-		return getSelected().getObject();
+		selected.setObject(enumValue);
+		setSelectedRadioButton(enumValue);
 	}
 
 }

@@ -66,8 +66,10 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	/**
 	 * Instantiates a new {@link AbstractComboBoxModel} from the given arguments.
 	 *
-	 * @param comboList the combo list
-	 * @param selectedItem the selected item
+	 * @param comboList
+	 *            the combo list
+	 * @param selectedItem
+	 *            the selected item
 	 */
 	public AbstractComboBoxModel(List<T> comboList, T selectedItem)
 	{

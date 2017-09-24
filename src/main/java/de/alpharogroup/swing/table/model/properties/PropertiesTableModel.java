@@ -24,16 +24,11 @@
  */
 package de.alpharogroup.swing.table.model.properties;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Properties;
 
 import javax.swing.table.AbstractTableModel;
 
-import de.alpharogroup.collections.ListExtensions;
-import de.alpharogroup.collections.SortedProperties;
+import de.alpharogroup.collections.IndexSortedProperties;
 
 /**
  * The class {@link PropertiesTableModel}.
@@ -44,21 +39,15 @@ public class PropertiesTableModel extends AbstractTableModel
 	/** The serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The keys. */
-	private List<Object> keys;
-
 	/** The data. */
-	private SortedProperties data;
-
-	/** The comparator. */
-	private Comparator<Object> comparator;
+	private IndexSortedProperties data;
 
 	/**
 	 * Instantiates a new {@link PropertiesTableModel}.
 	 */
 	public PropertiesTableModel()
 	{
-		this(new SortedProperties());
+		this(new IndexSortedProperties());
 	}
 
 	/**
@@ -72,21 +61,16 @@ public class PropertiesTableModel extends AbstractTableModel
 		setProperties(properties);
 	}
 
-	public void setProperties(final Properties properties)
+	/**
+	 * Adds the given Properties.
+	 *
+	 * @param properties
+	 *            the properties to add.
+	 */
+	public void add(final Properties properties)
 	{
-		data = new SortedProperties(properties)
-		{
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			protected Comparator<Object> newComparator()
-			{
-				comparator = super.newComparator();
-				return comparator;
-			}
-		};
-		keys = new ArrayList<Object>(data.keySet());
-		Collections.sort(keys, comparator);
+		data.putAll(properties);
+		fireTableDataChanged();
 	}
 
 	/**
@@ -98,22 +82,6 @@ public class PropertiesTableModel extends AbstractTableModel
 	public void add(final String key, final String value)
 	{
 		data.setProperty(key, value);
-		keys.add(key);
-		Collections.sort(keys, comparator);
-		fireTableDataChanged();
-	}
-
-	/**
-	 * Adds the given Properties.
-	 *
-	 * @param properties
-	 *            the properties to add.
-	 */
-	public void add(final Properties properties)
-	{
-		data.putAll(properties);
-		keys = new ArrayList<Object>(data.keySet());
-		Collections.sort(keys, comparator);
 		fireTableDataChanged();
 	}
 
@@ -125,11 +93,21 @@ public class PropertiesTableModel extends AbstractTableModel
 		if (null != data && !data.isEmpty())
 		{
 			data.clear();
-			if(ListExtensions.isNotEmpty(keys)) {
-				keys.clear();
-			}
 			fireTableDataChanged();
 		}
+	}
+
+	/**
+	 * Gets the value from the given index.
+	 *
+	 * @param row
+	 *            The index from the row to get.
+	 *
+	 * @return the row from the given index.
+	 */
+	public String get(final int row)
+	{
+		return data.getProperty(row);
 	}
 
 	/**
@@ -143,6 +121,41 @@ public class PropertiesTableModel extends AbstractTableModel
 	public String get(final String key)
 	{
 		return data.getProperty(key);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Class<?> getColumnClass(final int columnIndex)
+	{
+		return String.class;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getColumnCount()
+	{
+		return PropertiesColumns.values().length;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getColumnName(final int columnIndex)
+	{
+		final PropertiesColumns column = PropertiesColumns.values()[columnIndex];
+		switch (column)
+		{
+			case KEY :
+				return "Key";
+			case VALUE :
+				return "Value";
+		}
+		return "";
 	}
 
 	/**
@@ -162,6 +175,24 @@ public class PropertiesTableModel extends AbstractTableModel
 	public int getRowCount()
 	{
 		return data.size();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Object getValueAt(final int rowIndex, final int columnIndex)
+	{
+		final String key = (String)data.get(rowIndex);
+		final PropertiesColumns column = PropertiesColumns.values()[columnIndex];
+		switch (column)
+		{
+			case KEY :
+				return key;
+			case VALUE :
+				return data.get(key);
+		}
+		return null;
 	}
 
 	/**
@@ -189,68 +220,14 @@ public class PropertiesTableModel extends AbstractTableModel
 	}
 
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getColumnCount()
-	{
-		return PropertiesColumns.values().length;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Object getValueAt(final int rowIndex, final int columnIndex)
-	{
-		final String key = (String)keys.get(rowIndex);
-		final PropertiesColumns column = PropertiesColumns.values()[columnIndex];
-		switch (column)
-		{
-			case KEY :
-				return key;
-			case VALUE :
-				return data.get(key);
-		}
-		return null;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String getColumnName(final int columnIndex) {
-		final PropertiesColumns column = PropertiesColumns.values()[columnIndex];
-		switch (column)
-		{
-			case KEY :
-				return "Key";
-			case VALUE :
-				return "Value";
-		}
-		return "";
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Class<?> getColumnClass(final int columnIndex)
-	{
-		return String.class;
-	}
-
-	/**
-	 * Gets the value from the given index.
+	 * Sets the properties.
 	 *
-	 * @param row
-	 *            The index from the row to get.
-	 *
-	 * @return the row from the given index.
+	 * @param properties
+	 *            the new properties
 	 */
-	public String get(final int row)
+	protected void setProperties(final Properties properties)
 	{
-		return get((String)keys.get(row));
+		data = new IndexSortedProperties(properties);
 	}
 
 }

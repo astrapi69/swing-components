@@ -59,19 +59,20 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 	}
 
 	@Override
-    protected void onInitializeComponents()
-    {
-    	super.onInitializeComponents();
+	protected void onInitializeComponents()
+	{
+		super.onInitializeComponents();
 
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+		jLabel1 = new javax.swing.JLabel();
+		jComboBox1 = new javax.swing.JComboBox<>();
 
-        jLabel1.setText("Combo label");
+		jLabel1.setText("Combo label");
 
-        jComboBox1.setModel(new StringComboBoxModel(getModelObject().getComboList(), getModelObject().getSelectedItem()));
-        final Model<String> selectedItemModel = model(from(getModel()).getSelectedItem());
-        jComboBox1.addItemListener(new ItemBindListener<>(jComboBox1.getModel()));
-    }
+		jComboBox1.setModel(new StringComboBoxModel(getModelObject().getComboList(),
+			getModelObject().getSelectedItem()));
+		final Model<String> selectedItemModel = model(from(getModel()).getSelectedItem());
+		jComboBox1.addItemListener(new ItemBindListener<>(jComboBox1.getModel()));
+	}
 
 	@Override
 	protected void onInitializeLayout()

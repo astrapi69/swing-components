@@ -79,9 +79,10 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
-		StringKeyValueTableModel tableModel = new StringKeyValueTableModel(TableColumnsModel.builder()
-			.columnNames(new String[] { "Key", "Value" }).canEdit(new boolean[] { false, true })
-			.columnClasses(new Class<?>[] { String.class, String.class }).build());
+		StringKeyValueTableModel tableModel = new StringKeyValueTableModel(
+			TableColumnsModel.builder().columnNames(new String[] { "Key", "Value" })
+				.canEdit(new boolean[] { false, true })
+				.columnClasses(new Class<?>[] { String.class, String.class }).build());
 		tableModel.addList(getModelObject());
 		table = new GenericJXTable<>(tableModel);
 		final TableColumn valueColumn = table.getColumn("Value");

@@ -37,5 +37,4 @@ public class StringComboBoxModel extends AbstractComboBoxModel<String>
 	}
 
 
-
 }

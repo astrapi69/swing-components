@@ -32,7 +32,6 @@ import java.awt.Frame;
 import javax.swing.event.DocumentEvent;
 
 import de.alpharogroup.layout.CloseWindow;
-import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.bind.StringBindingListener;
 import de.alpharogroup.swing.panels.login.pw.NewPasswordPanel;
