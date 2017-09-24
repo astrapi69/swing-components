@@ -50,7 +50,6 @@ public abstract class GenericTableModel<T> extends AbstractTableModel
 	 */
 	public GenericTableModel()
 	{
-		super();
 	}
 
 	/**
@@ -61,7 +60,6 @@ public abstract class GenericTableModel<T> extends AbstractTableModel
 	 */
 	public GenericTableModel(final List<T> list)
 	{
-		super();
 		data.addAll(list);
 	}
 
