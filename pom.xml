@@ -54,7 +54,7 @@
 		<jcommons-lang.version>4.21.0</jcommons-lang.version>
 		<vintage-time.version>4.11.0</vintage-time.version>
 		<randomizer.version>4.22.0</randomizer.version>
-		<silly-collections.version>4.18.0</silly-collections.version>
+		<silly-collections.version>4.19.0-SNAPSHOT</silly-collections.version>
 		<!-- MODEL-DATA version -->
 		<model-data.version>1.5.0</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
