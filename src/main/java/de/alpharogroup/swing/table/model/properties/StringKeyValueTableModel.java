@@ -27,18 +27,18 @@ package de.alpharogroup.swing.table.model.properties;
 import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
- * The class {@link StringTableModel} that lists key value pairs.
+ * The class {@link StringKeyValueTableModel} that lists key value pairs.
  */
-public class StringTableModel extends KeyValueTableModel<String, String>
+public class StringKeyValueTableModel extends KeyValueTableModel<String, String>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Instantiates a new {@link StringTableModel} object.
+	 * Instantiates a new {@link StringKeyValueTableModel} object.
 	 */
-	public StringTableModel()
+	public StringKeyValueTableModel()
 	{
 		this(TableColumnsModel.builder().columnNames(new String[] { "Key", "Value" })
 			.canEdit(new boolean[] { false, false })
@@ -46,12 +46,12 @@ public class StringTableModel extends KeyValueTableModel<String, String>
 	}
 
 	/**
-	 * Instantiates a new {@link StringTableModel} object.
+	 * Instantiates a new {@link StringKeyValueTableModel} object.
 	 *
 	 * @param columnsModel
 	 *            the columns model
 	 */
-	public StringTableModel(final TableColumnsModel columnsModel)
+	public StringKeyValueTableModel(final TableColumnsModel columnsModel)
 	{
 		super(columnsModel);
 	}
