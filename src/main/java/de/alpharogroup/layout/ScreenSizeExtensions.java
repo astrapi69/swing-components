@@ -33,7 +33,8 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.alpharogroup.collections.ArrayExtensions;
+import de.alpharogroup.collections.array.ArrayExtensions;
+
 
 /**
  * Utility class for handle with screensize.
