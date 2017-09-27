@@ -51,7 +51,7 @@
 		<email-tails.version>4.15.0</email-tails.version>
 		<test-objects.version>4.16.0</test-objects.version>
 		<file-worker.version>4.15.0</file-worker.version>
-		<jcommons-lang.version>4.21.0</jcommons-lang.version>
+		<jcommons-lang.version>4.22.0</jcommons-lang.version>
 		<vintage-time.version>4.11.0</vintage-time.version>
 		<randomizer.version>4.22.0</randomizer.version>
 		<silly-collections.version>4.19.0-SNAPSHOT</silly-collections.version>
