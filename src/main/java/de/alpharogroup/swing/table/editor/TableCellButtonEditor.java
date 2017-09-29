@@ -43,6 +43,9 @@ import lombok.Setter;
 public class TableCellButtonEditor extends DefaultCellEditor
 {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	/** The button. */
 	private JButton button;
 
@@ -64,7 +67,7 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	 * @param checkBox
 	 *            the check box
 	 */
-	public TableCellButtonEditor(JCheckBox checkBox)
+	public TableCellButtonEditor(final JCheckBox checkBox)
 	{
 		super(checkBox);
 		setButton(new JButton());
@@ -99,8 +102,8 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected,
-		int row, int column)
+	public Component getTableCellEditorComponent(final JTable table, final Object value, final boolean isSelected,
+		final int row, final int column)
 	{
 		setRow(row);
 		setColumn(column);
