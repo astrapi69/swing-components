@@ -24,13 +24,13 @@
  */
 package de.alpharogroup.swing.combobox.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
+import de.alpharogroup.collections.list.ListExtensions;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -97,7 +97,7 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 
 	public void setComboSet(Set<T> set)
 	{
-		setComboList(new ArrayList<>(set));
+		setComboList(ListExtensions.newArrayList(set));
 	}
 
 	/**
