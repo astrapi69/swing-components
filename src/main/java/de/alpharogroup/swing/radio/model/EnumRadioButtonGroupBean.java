@@ -48,7 +48,6 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 {
 
 	/** The map with the mapped {@linkplain JRadioButton} objects. */
-	@Builder.Default
 	private Map<E, JRadioButton> radioButtonMap;
 
 	/** The model of the selected enum. */
