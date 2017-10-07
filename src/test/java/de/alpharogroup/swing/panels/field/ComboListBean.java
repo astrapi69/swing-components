@@ -22,9 +22,10 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.login.pw;
+package de.alpharogroup.swing.panels.field;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,11 +35,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * The Class {@link ChangePasswordModelBean} captures the data for change the password of a user.
- *
- * @author Asterios Raptis
- */
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -46,28 +42,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-public class ChangePasswordModelBean implements Serializable
+public class ComboListBean implements Serializable
 {
 
-	/**
-	 * The serialVersionUID.
-	 */
 	private static final long serialVersionUID = 1L;
 
-	/** The users name of a user. */
-	@Builder.Default
-	private String username = "";
+	String selectedItem;
 
-	/** The current password of a user. */
-	@Builder.Default
-	private String currentPassword = "";
-
-	/** The new password of a user. */
-	@Builder.Default
-	private String newPassword = "";
-
-	/** The repeated new password of a user. */
-	@Builder.Default
-	private String repeatNewPassword = "";
+	List<String> comboList;
 
 }

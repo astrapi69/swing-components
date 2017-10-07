@@ -22,52 +22,27 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.login.pw;
+package de.alpharogroup.swing.panels.field;
 
-import java.io.Serializable;
+import java.awt.Frame;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import de.alpharogroup.layout.CloseWindow;
 
-/**
- * The Class {@link ChangePasswordModelBean} captures the data for change the password of a user.
- *
- * @author Asterios Raptis
- */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class ChangePasswordModelBean implements Serializable
+public class LabeledComboboxPanelTest
 {
 
+
 	/**
-	 * The serialVersionUID.
+	 * Test init layout.
 	 */
-	private static final long serialVersionUID = 1L;
 
-	/** The users name of a user. */
-	@Builder.Default
-	private String username = "";
-
-	/** The current password of a user. */
-	@Builder.Default
-	private String currentPassword = "";
-
-	/** The new password of a user. */
-	@Builder.Default
-	private String newPassword = "";
-
-	/** The repeated new password of a user. */
-	@Builder.Default
-	private String repeatNewPassword = "";
+	public static void main(final String[] args)
+	{
+		final Frame frame = new Frame("ComboboxPanel");
+		frame.addWindowListener(new CloseWindow());
+		frame.add(new LabeledComboboxPanel());
+		frame.pack();
+		frame.setVisible(true);
+	}
 
 }

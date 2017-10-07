@@ -22,52 +22,52 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.login.pw;
+package de.alpharogroup.swing.bind;
 
-import java.io.Serializable;
+import java.awt.ItemSelectable;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
+import de.alpharogroup.model.api.Model;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 /**
- * The Class {@link ChangePasswordModelBean} captures the data for change the password of a user.
+ * The listener interface {@link SingleItemModelListener} receives itemBind events.
  *
- * @author Asterios Raptis
+ * @param <T>
+ *            the generic type
  */
 @Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class ChangePasswordModelBean implements Serializable
+public class SingleItemModelListener<T> implements ItemListener
 {
 
+	/** The model. */
+	private final Model<T> model;
+
 	/**
-	 * The serialVersionUID.
+	 * Instantiates a new {@link SingleItemModelListener}.
+	 *
+	 * @param model
+	 *            the model
 	 */
-	private static final long serialVersionUID = 1L;
+	public SingleItemModelListener(final Model<T> model)
+	{
+		this.model = model;
+	}
 
-	/** The users name of a user. */
-	@Builder.Default
-	private String username = "";
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void itemStateChanged(final ItemEvent e)
+	{
+		final ItemSelectable is = e.getItemSelectable();
+		final Object selected[] = is.getSelectedObjects();
+		final T selectedItem = (selected.length == 0) ? null : (T)selected[0];
+		System.out.println(selectedItem);
 
-	/** The current password of a user. */
-	@Builder.Default
-	private String currentPassword = "";
-
-	/** The new password of a user. */
-	@Builder.Default
-	private String newPassword = "";
-
-	/** The repeated new password of a user. */
-	@Builder.Default
-	private String repeatNewPassword = "";
+		model.setObject(selectedItem);
+	}
 
 }

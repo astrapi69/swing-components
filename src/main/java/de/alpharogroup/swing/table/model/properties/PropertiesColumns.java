@@ -22,52 +22,12 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.login.pw;
-
-import java.io.Serializable;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+package de.alpharogroup.swing.table.model.properties;
 
 /**
- * The Class {@link ChangePasswordModelBean} captures the data for change the password of a user.
- *
- * @author Asterios Raptis
+ * The enum {@link PropertiesColumns}.
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class ChangePasswordModelBean implements Serializable
+public enum PropertiesColumns
 {
-
-	/**
-	 * The serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-
-	/** The users name of a user. */
-	@Builder.Default
-	private String username = "";
-
-	/** The current password of a user. */
-	@Builder.Default
-	private String currentPassword = "";
-
-	/** The new password of a user. */
-	@Builder.Default
-	private String newPassword = "";
-
-	/** The repeated new password of a user. */
-	@Builder.Default
-	private String repeatNewPassword = "";
-
+	KEY, VALUE;
 }

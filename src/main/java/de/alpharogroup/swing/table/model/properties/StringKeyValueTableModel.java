@@ -22,52 +22,38 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.login.pw;
+package de.alpharogroup.swing.table.model.properties;
 
-import java.io.Serializable;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import de.alpharogroup.swing.table.model.TableColumnsModel;
 
 /**
- * The Class {@link ChangePasswordModelBean} captures the data for change the password of a user.
- *
- * @author Asterios Raptis
+ * The class {@link StringKeyValueTableModel} that lists key value pairs.
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class ChangePasswordModelBean implements Serializable
+public class StringKeyValueTableModel extends KeyValueTableModel<String, String>
 {
 
-	/**
-	 * The serialVersionUID.
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The users name of a user. */
-	@Builder.Default
-	private String username = "";
+	/**
+	 * Instantiates a new {@link StringKeyValueTableModel} object.
+	 */
+	public StringKeyValueTableModel()
+	{
+		this(TableColumnsModel.builder().columnNames(new String[] { "Key", "Value" })
+			.canEdit(new boolean[] { false, false })
+			.columnClasses(new Class<?>[] { String.class, String.class }).build());
+	}
 
-	/** The current password of a user. */
-	@Builder.Default
-	private String currentPassword = "";
-
-	/** The new password of a user. */
-	@Builder.Default
-	private String newPassword = "";
-
-	/** The repeated new password of a user. */
-	@Builder.Default
-	private String repeatNewPassword = "";
+	/**
+	 * Instantiates a new {@link StringKeyValueTableModel} object.
+	 *
+	 * @param columnsModel
+	 *            the columns model
+	 */
+	public StringKeyValueTableModel(final TableColumnsModel columnsModel)
+	{
+		super(columnsModel);
+	}
 
 }

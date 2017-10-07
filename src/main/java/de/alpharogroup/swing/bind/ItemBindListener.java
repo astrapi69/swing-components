@@ -22,52 +22,48 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.login.pw;
+package de.alpharogroup.swing.bind;
 
-import java.io.Serializable;
+import java.awt.ItemSelectable;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import javax.swing.ComboBoxModel;
 
 /**
- * The Class {@link ChangePasswordModelBean} captures the data for change the password of a user.
+ * The listener interface {@link ItemBindListener} receives itemBind events.
  *
- * @author Asterios Raptis
+ * @param <T>
+ *            the generic type
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class ChangePasswordModelBean implements Serializable
+public class ItemBindListener<T> implements ItemListener
 {
 
+	/** The model. */
+	private final ComboBoxModel<T> model;
+
 	/**
-	 * The serialVersionUID.
+	 * Instantiates a new {@link ItemBindListener}.
+	 *
+	 * @param model
+	 *            the model
 	 */
-	private static final long serialVersionUID = 1L;
+	public ItemBindListener(final ComboBoxModel<T> model)
+	{
+		this.model = model;
+	}
 
-	/** The users name of a user. */
-	@Builder.Default
-	private String username = "";
-
-	/** The current password of a user. */
-	@Builder.Default
-	private String currentPassword = "";
-
-	/** The new password of a user. */
-	@Builder.Default
-	private String newPassword = "";
-
-	/** The repeated new password of a user. */
-	@Builder.Default
-	private String repeatNewPassword = "";
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void itemStateChanged(final ItemEvent e)
+	{
+		final ItemSelectable is = e.getItemSelectable();
+		final Object selected[] = is.getSelectedObjects();
+		final T sel = (selected.length == 0) ? null : (T)selected[0];
+		model.setSelectedItem(sel);
+	}
 
 }

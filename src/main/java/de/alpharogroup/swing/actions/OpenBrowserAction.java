@@ -36,6 +36,9 @@ import lombok.Getter;
 public class OpenBrowserAction extends AbstractAction
 {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	public static OpenBrowserAction of(final String name, final Component component,
 		final String url)
 	{

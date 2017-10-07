@@ -22,52 +22,37 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.login.pw;
+package de.alpharogroup.swing.wizard.model;
 
-import java.io.Serializable;
-
+import de.alpharogroup.swing.wizard.NavigationPanel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 /**
- * The Class {@link ChangePasswordModelBean} captures the data for change the password of a user.
- *
- * @author Asterios Raptis
+ * The enum {@link NavigationState} holds several navigation states that can occur. Can be used for
+ * validate and set the {@link NavigationPanel}.
  */
 @Getter
-@Setter
-@EqualsAndHashCode
 @ToString
-@NoArgsConstructor
 @AllArgsConstructor
-@Builder(toBuilder = true)
-public class ChangePasswordModelBean implements Serializable
+public enum NavigationState
 {
+	RESET(false, false, false, false), CANCEL(false, false, true, false), CANCEL_FINISH(false,
+		false, true, true), NEXT_CANCEL_FINISH(false, true, true,
+			true), PREVIOUS_NEXT_CANCEL_FINISH(true, true, true, true);
 
-	/**
-	 * The serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/** The users name of a user. */
-	@Builder.Default
-	private String username = "";
+	/** The flag that signals if next is valid or not. */
+	private final boolean validNext;
 
-	/** The current password of a user. */
-	@Builder.Default
-	private String currentPassword = "";
+	/** The flag that signals if previous is valid or not. */
+	private final boolean validPrevious;
 
-	/** The new password of a user. */
-	@Builder.Default
-	private String newPassword = "";
+	/** The flag that signals if cancel is valid or not. */
+	private final boolean validCancel;
 
-	/** The repeated new password of a user. */
-	@Builder.Default
-	private String repeatNewPassword = "";
+	/** The flag that signals if finish is valid or not. */
+	private final boolean validFinish;
 
 }

@@ -28,7 +28,7 @@ import java.awt.event.ActionEvent;
 
 import de.alpharogroup.generic.mvc.controller.AbstractGenericController;
 
-public class KeypadController extends AbstractGenericController<KeypadModel, KeypadView>
+public class KeypadController extends AbstractGenericController<KeypadModel<?>, KeypadView>
 {
 
 	KeyPadPanel keyPadPanel = null;

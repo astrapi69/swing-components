@@ -24,14 +24,15 @@
  */
 package de.alpharogroup.swing.combobox.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
+import de.alpharogroup.collections.list.ListExtensions;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -42,10 +43,14 @@ import lombok.Setter;
  *            the generic type of the Model
  */
 @Getter
+@NoArgsConstructor
 public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	implements
 		ComboBoxModel<T>
 {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * The generic combo list.
@@ -56,7 +61,21 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	/**
 	 * The the current selected item.
 	 */
-	private T selectedItem = null;
+	private T selectedItem;
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given arguments.
+	 *
+	 * @param comboList
+	 *            the combo list
+	 * @param selectedItem
+	 *            the selected item
+	 */
+	public AbstractComboBoxModel(List<T> comboList, T selectedItem)
+	{
+		this.comboList = comboList;
+		this.selectedItem = selectedItem;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -78,7 +97,7 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 
 	public void setComboSet(Set<T> set)
 	{
-		setComboList(new ArrayList<>(set));
+		setComboList(ListExtensions.newArrayList(set));
 	}
 
 	/**

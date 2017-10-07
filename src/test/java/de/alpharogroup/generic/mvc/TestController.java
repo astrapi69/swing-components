@@ -25,14 +25,16 @@
 package de.alpharogroup.generic.mvc;
 
 import java.awt.event.ActionEvent;
+import java.io.File;
 
 import de.alpharogroup.generic.mvc.controller.AbstractGenericController;
+import de.alpharogroup.model.GenericModel;
 
 
 /**
  * The class TestController.
  */
-public class TestController extends AbstractGenericController<TestModel, TestView>
+public class TestController extends AbstractGenericController<GenericModel<File>, TestView>
 {
 
 	@Override

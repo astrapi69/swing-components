@@ -25,6 +25,7 @@
 package de.alpharogroup.swing.wizard;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 
 import de.alpharogroup.design.pattern.state.wizard.model.WizardModelStateMachine;
 import de.alpharogroup.model.BaseModel;
@@ -43,6 +44,9 @@ import lombok.Setter;
 @Setter
 public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
 	/** The state machine. */
 	private WizardModelStateMachine<T> stateMachine;
@@ -84,26 +88,40 @@ public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 	{
 		final NavigationPanel<WizardModelStateMachine<T>> navigationPanel = new NavigationPanel<WizardModelStateMachine<T>>()
 		{
+
+			/** The Constant serialVersionUID. */
 			private static final long serialVersionUID = 1L;
 
+			/**
+			 * {@inheritDoc}
+			 */
 			@Override
 			protected void onCancel()
 			{
 				AbstractWizardPanel.this.onCancel();
 			}
 
+			/**
+			 * {@inheritDoc}
+			 */
 			@Override
 			protected void onFinish()
 			{
 				AbstractWizardPanel.this.onFinish();
 			}
 
+			/**
+			 * {@inheritDoc}
+			 */
 			@Override
 			protected void onNext()
 			{
 				AbstractWizardPanel.this.onNext();
 			}
 
+			/**
+			 * {@inheritDoc}
+			 */
 			@Override
 			protected void onPrevious()
 			{
@@ -170,8 +188,11 @@ public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 	protected void onNext()
 	{
 		stateMachine.next();
+		updateButtonState();
+		final String name = getStateMachine().getCurrentState().getName();
+		final CardLayout cardLayout = getWizardContentPanel().getCardLayout();
+		cardLayout.show(getWizardContentPanel(), name);
 	}
-
 
 	/**
 	 * Callback method for the previous action.
@@ -179,6 +200,10 @@ public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 	protected void onPrevious()
 	{
 		stateMachine.previous();
+		updateButtonState();
+		final String name = getStateMachine().getCurrentState().getName();
+		final CardLayout cardLayout = getWizardContentPanel().getCardLayout();
+		cardLayout.show(getWizardContentPanel(), name);
 	}
 
 	/**
