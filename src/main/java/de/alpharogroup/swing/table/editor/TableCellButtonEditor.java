@@ -102,8 +102,8 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Component getTableCellEditorComponent(final JTable table, final Object value, final boolean isSelected,
-		final int row, final int column)
+	public Component getTableCellEditorComponent(final JTable table, final Object value,
+		final boolean isSelected, final int row, final int column)
 	{
 		setRow(row);
 		setColumn(column);
