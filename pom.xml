@@ -49,12 +49,12 @@
 		<!-- JAVAHELP version -->
 		<javahelp.version>2.0.02</javahelp.version>
 		<email-tails.version>4.15.0</email-tails.version>
-		<test-objects.version>4.16.0</test-objects.version>
-		<file-worker.version>4.16.1</file-worker.version>
-		<jcommons-lang.version>4.23.0</jcommons-lang.version>
+		<test-objects.version>4.17.0</test-objects.version>
+		<file-worker.version>4.17.0</file-worker.version>
+		<jcommons-lang.version>4.26.0</jcommons-lang.version>
 		<vintage-time.version>4.11.0</vintage-time.version>
 		<randomizer.version>4.22.0</randomizer.version>
-		<silly-collections.version>4.19.0</silly-collections.version>
+		<silly-collections.version>4.20.0</silly-collections.version>
 		<!-- MODEL-DATA version -->
 		<model-data.version>1.5.0</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
