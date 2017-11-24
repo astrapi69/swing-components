@@ -33,6 +33,7 @@ Than you can add the dependency to your dependencies:
 
 		<dependencies>
 			...
+            <!-- SWING-COMPONENTS DEPENDENCY -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>swing-components</artifactId>
