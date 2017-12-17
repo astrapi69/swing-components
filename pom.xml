@@ -26,11 +26,11 @@
 		<javahelp.version>2.0.05</javahelp.version>
 		<email-tails.version>4.15.0</email-tails.version>
 		<test-objects.version>4.17.0</test-objects.version>
-		<file-worker.version>4.17.0</file-worker.version>
-		<jcommons-lang.version>4.26.0</jcommons-lang.version>
+		<file-worker.version>4.18.0</file-worker.version>
+		<jcommons-lang.version>4.28.0</jcommons-lang.version>
 		<vintage-time.version>4.11.0</vintage-time.version>
-		<randomizer.version>4.22.0</randomizer.version>
-		<silly-collections.version>4.20.0</silly-collections.version>
+		<randomizer.version>4.23.1</randomizer.version>
+		<silly-collections.version>4.21.0</silly-collections.version>
 		<!-- MODEL-DATA version -->
 		<model-data.version>1.5.0</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
@@ -44,7 +44,7 @@
 		<zip4j.version>1.3.2</zip4j.version>
 		<swingx-all.version>1.6.5-1</swingx-all.version>
 		<imgscalr-lib.version>4.2</imgscalr-lib.version>
-		<itextpdf.version>5.5.10</itextpdf.version>
+		<itextpdf.version>5.5.12</itextpdf.version>
 	</properties>
 
 	<licenses>
