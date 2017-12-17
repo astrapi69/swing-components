@@ -36,34 +36,6 @@ public final class MenuExtensions
 {
 
 	/**
-	 * Sets the accelerator for the given menuitem and the given character with the CTRL. The
-	 * accelerator are combined with the given character and the CTRL.
-	 *
-	 * @param jmi
-	 *            The JMenuItem.
-	 * @param accelerator
-	 *            The character that have to push together with the CTRL.
-	 */
-	public static void setCtrlAccelerator(final JMenuItem jmi, final char accelerator)
-	{
-		setAccelerator(jmi, accelerator, Event.CTRL_MASK);
-	}
-
-	/**
-	 * Sets the accelerator for the given menuitem and the given character with the ALT. The
-	 * accelerator are combined with the given character and the ALT.
-	 *
-	 * @param jmi
-	 *            The JMenuItem.
-	 * @param accelerator
-	 *            The character that have to push together with the ALT.
-	 */
-	public static void setAltAccelerator(final JMenuItem jmi, final char accelerator)
-	{
-		setAccelerator(jmi, accelerator, Event.ALT_MASK);
-	}
-
-	/**
 	 * Sets the accelerator for the given menuitem and the given key char.
 	 *
 	 * @param jmi
@@ -74,19 +46,6 @@ public final class MenuExtensions
 	public static void setAccelerator(final JMenuItem jmi, final char keyChar)
 	{
 		jmi.setAccelerator(KeyStroke.getKeyStroke(keyChar));
-	}
-
-	/**
-	 * Sets the accelerator for the given menuitem and the given parsable keystroke string.
-	 *
-	 * @param jmi
-	 *            The JMenuItem.
-	 * @param parsableKeystrokeString
-	 *            the parsable keystroke string
-	 */
-	public static void setAccelerator(final JMenuItem jmi, final String parsableKeystrokeString)
-	{
-		jmi.setAccelerator(KeyStroke.getKeyStroke(parsableKeystrokeString));
 	}
 
 	/**
@@ -136,6 +95,47 @@ public final class MenuExtensions
 		final boolean onKeyRelease)
 	{
 		jmi.setAccelerator(KeyStroke.getKeyStroke(keyCode, modifiers, onKeyRelease));
+	}
+
+	/**
+	 * Sets the accelerator for the given menuitem and the given parsable keystroke string.
+	 *
+	 * @param jmi
+	 *            The JMenuItem.
+	 * @param parsableKeystrokeString
+	 *            the parsable keystroke string
+	 */
+	public static void setAccelerator(final JMenuItem jmi, final String parsableKeystrokeString)
+	{
+		jmi.setAccelerator(KeyStroke.getKeyStroke(parsableKeystrokeString));
+	}
+
+	/**
+	 * Sets the accelerator for the given menuitem and the given character with the ALT. The
+	 * accelerator are combined with the given character and the ALT.
+	 *
+	 * @param jmi
+	 *            The JMenuItem.
+	 * @param accelerator
+	 *            The character that have to push together with the ALT.
+	 */
+	public static void setAltAccelerator(final JMenuItem jmi, final char accelerator)
+	{
+		setAccelerator(jmi, accelerator, Event.ALT_MASK);
+	}
+
+	/**
+	 * Sets the accelerator for the given menuitem and the given character with the CTRL. The
+	 * accelerator are combined with the given character and the CTRL.
+	 *
+	 * @param jmi
+	 *            The JMenuItem.
+	 * @param accelerator
+	 *            The character that have to push together with the CTRL.
+	 */
+	public static void setCtrlAccelerator(final JMenuItem jmi, final char accelerator)
+	{
+		setAccelerator(jmi, accelerator, Event.CTRL_MASK);
 	}
 
 }
