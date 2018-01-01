@@ -83,6 +83,13 @@ Commercial
 
  * [JIDE](http://www.jidesoft.com/) JIDE Software is a professional Java UI component provider.
  * [Swing Depot: Components Suites](http://www.javadesktop.org/rollups/components/) commercial swing components
+ 
+## Credits
+
+|Travis CI|
+|:-:|
+|![Travis CI](https://travis-ci.com/images/logos/TravisCI-Full-Color.png)|
+|Many thanks to [Travis CI](https://travis-ci.org) for providing a free continuous integration service for open source projects.|
 
 
 
