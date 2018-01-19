@@ -62,11 +62,11 @@ public final class LayoutExtensions
 		layoutModel.getGridBagLayout().setConstraints(layoutComponent, gbc);
 		parent.add(layoutComponent);
 
-		if (ObjectExtensions.isNotDefaultValue(layoutModel.getVerticalStrut()))
+		if (!ObjectExtensions.isDefaultValue(int.class, layoutModel.getVerticalStrut()))
 		{
 			parent.add(Box.createVerticalStrut(layoutModel.getVerticalStrut()), gbc);
 		}
-		if (ObjectExtensions.isNotDefaultValue(layoutModel.getHorizontalStrut()))
+		if (!ObjectExtensions.isDefaultValue(int.class, layoutModel.getHorizontalStrut()))
 		{
 			parent.add(Box.createHorizontalStrut(layoutModel.getHorizontalStrut()), gbc);
 		}
