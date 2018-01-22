@@ -1,0 +1,193 @@
+package de.alpharogroup.swing.base;
+
+import java.awt.Dialog;
+import java.awt.Frame;
+import java.awt.Window;
+
+import javax.swing.JComponent;
+
+import org.jdesktop.swingx.JXDialog;
+
+import de.alpharogroup.model.api.Model;
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * The class {@link BaseDialog}.
+ *
+ * @param <T> the generic type
+ */
+@Getter
+@Setter
+public class BaseDialog<T> extends JXDialog
+{
+
+	/** The serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	/** The model. */
+	private Model<T> model;
+
+	/**
+	 * Instantiates a new {@link BaseDialog}.
+	 *
+	 * @param dialog the dialog
+	 * @param content the content
+	 * @param model the model
+	 */
+	public BaseDialog(final Dialog dialog, final JComponent content, final Model<T> model)
+	{
+		super(dialog, content);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseDialog}.
+	 *
+	 * @param content the content
+	 * @param model the model
+	 */
+	public BaseDialog(final JComponent content, final Model<T> model)
+	{
+		super(content);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseDialog}.
+	 *
+	 * @param window the window
+	 * @param content the content
+	 * @param model the model
+	 */
+	public BaseDialog(final Window window, final JComponent content, final Model<T> model)
+	{
+		super(window, content);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseDialog}.
+	 *
+	 * @param frame the frame
+	 * @param content the content
+	 * @param model the model
+	 */
+	public BaseDialog(final Frame frame, final JComponent content, final Model<T> model)
+	{
+		super(frame, content);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Getter for the model's object
+	 *
+	 * @return the model object
+	 */
+	public final T getModelObject()
+	{
+		return getModel().getObject();
+	}
+
+	/**
+	 * Initialize the component.
+	 */
+	private final void initialize()
+	{
+		onInitialize();
+	}
+
+	/**
+	 * Initialize components from the component.
+	 */
+	private final void initializeComponents()
+	{
+		onInitializeComponents();
+	}
+
+	/**
+	 * Initialize layout from the component.
+	 */
+	private final void initializeLayout()
+	{
+		onInitializeLayout();
+	}
+
+	/**
+	 * Callback method to interact when the initialization of the component is finished.
+	 */
+	protected void onAfterInitialize()
+	{
+	}
+
+	/**
+	 * Callback method to interact when the initialization is finished of the components from the
+	 * component.
+	 */
+	protected void onAfterInitializeComponents()
+	{
+	}
+
+	/**
+	 * Callback method to interact when the initialization of the layout is finished.
+	 */
+	protected void onAfterInitializeLayout()
+	{
+	}
+
+
+	/**
+	 * Callback method to interact on before initialization of the component.
+	 */
+	protected void onBeforeInitialize()
+	{
+	}
+
+	/**
+	 * Callback method to interact on before initialization of the components from the component.
+	 */
+	protected void onBeforeInitializeComponents()
+	{
+	}
+
+	/**
+	 * Callback method to interact on before initialization of the layout.
+	 */
+	protected void onBeforeInitializeLayout()
+	{
+	}
+
+	/**
+	 * Callback method to initialize the component.
+	 */
+	protected void onInitialize()
+	{
+		onBeforeInitialize();
+		onBeforeInitializeComponents();
+		initializeComponents();
+		onAfterInitializeComponents();
+		onBeforeInitializeLayout();
+		initializeLayout();
+		onAfterInitializeLayout();
+		onAfterInitialize();
+	}
+
+	/**
+	 * Callback method to initialize components from the component.
+	 */
+	protected void onInitializeComponents()
+	{
+	}
+
+	/**
+	 * Callback method to initialize layout from the component.
+	 */
+	protected void onInitializeLayout()
+	{
+	}
+
+}
