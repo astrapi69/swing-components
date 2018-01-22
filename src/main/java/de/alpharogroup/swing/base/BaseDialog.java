@@ -15,7 +15,8 @@ import lombok.Setter;
 /**
  * The class {@link BaseDialog}.
  *
- * @param <T> the generic type
+ * @param <T>
+ *            the generic type
  */
 @Getter
 @Setter
@@ -31,9 +32,12 @@ public class BaseDialog<T> extends JXDialog
 	/**
 	 * Instantiates a new {@link BaseDialog}.
 	 *
-	 * @param dialog the dialog
-	 * @param content the content
-	 * @param model the model
+	 * @param dialog
+	 *            the dialog
+	 * @param content
+	 *            the content
+	 * @param model
+	 *            the model
 	 */
 	public BaseDialog(final Dialog dialog, final JComponent content, final Model<T> model)
 	{
@@ -45,8 +49,27 @@ public class BaseDialog<T> extends JXDialog
 	/**
 	 * Instantiates a new {@link BaseDialog}.
 	 *
-	 * @param content the content
-	 * @param model the model
+	 * @param frame
+	 *            the frame
+	 * @param content
+	 *            the content
+	 * @param model
+	 *            the model
+	 */
+	public BaseDialog(final Frame frame, final JComponent content, final Model<T> model)
+	{
+		super(frame, content);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseDialog}.
+	 *
+	 * @param content
+	 *            the content
+	 * @param model
+	 *            the model
 	 */
 	public BaseDialog(final JComponent content, final Model<T> model)
 	{
@@ -58,27 +81,16 @@ public class BaseDialog<T> extends JXDialog
 	/**
 	 * Instantiates a new {@link BaseDialog}.
 	 *
-	 * @param window the window
-	 * @param content the content
-	 * @param model the model
+	 * @param window
+	 *            the window
+	 * @param content
+	 *            the content
+	 * @param model
+	 *            the model
 	 */
 	public BaseDialog(final Window window, final JComponent content, final Model<T> model)
 	{
 		super(window, content);
-		this.model = model;
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BaseDialog}.
-	 *
-	 * @param frame the frame
-	 * @param content the content
-	 * @param model the model
-	 */
-	public BaseDialog(final Frame frame, final JComponent content, final Model<T> model)
-	{
-		super(frame, content);
 		this.model = model;
 		initialize();
 	}
