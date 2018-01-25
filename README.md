@@ -1,5 +1,9 @@
 # swing-components
 
+[![Build Status](https://travis-ci.org/lightblueseas/swing-components.svg?branch=master)](https://travis-ci.org/lightblueseas/swing-components)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components)
+[![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/swing-components.svg)](http://www.javadoc.io/doc/de.alpharogroup/swing-components)
+
 Several swing components and utilities
 
 - Buffered images to pdf file
@@ -7,17 +11,6 @@ Several swing components and utilities
 ## License
 
 The source code comes under the liberal MIT License, making swing-components great for all types of applications.
-
-## Build status
-[![Build Status](https://travis-ci.org/lightblueseas/swing-components.svg?branch=master)](https://travis-ci.org/lightblueseas/swing-components)
-
-## Maven Central
-
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components)
-
-## javadoc
-
-swing-components [![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/swing-components.svg)](http://www.javadoc.io/doc/de.alpharogroup/swing-components)
 
 ## Maven dependency
 
