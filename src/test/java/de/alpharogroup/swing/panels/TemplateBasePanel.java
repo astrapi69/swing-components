@@ -30,12 +30,14 @@ import de.alpharogroup.swing.base.BasePanel;
 public class TemplateBasePanel extends BasePanel<Object>
 {
 
+	private static final long serialVersionUID = 1L;
+
 	public TemplateBasePanel()
 	{
 		super();
 	}
 
-	public TemplateBasePanel(Model<Object> model)
+	public TemplateBasePanel(final Model<Object> model)
 	{
 		super(model);
 	}

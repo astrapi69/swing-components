@@ -46,14 +46,17 @@ import de.alpharogroup.swing.x.GenericJXTable;
 
 public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, String>>>
 {
+
+	private static final long serialVersionUID = 1L;
+
 	public static void main(final String[] args)
 	{
-		List<KeyValuePair<String, String>> list = new ArrayList<>();
+		final List<KeyValuePair<String, String>> list = new ArrayList<>();
 		list.add(KeyValuePair.<String, String> builder().key("foo").value("overview").build());
 		list.add(KeyValuePair.<String, String> builder().key("bar").value("overview").build());
 		list.add(KeyValuePair.<String, String> builder().key("bla").value("overview").build());
 
-		TableWithButtonsPanel panel = new TableWithButtonsPanel(BaseModel.ofList(list));
+		final TableWithButtonsPanel panel = new TableWithButtonsPanel(BaseModel.ofList(list));
 
 		final JFrame frame = new JFrame();
 		frame.addWindowListener(new CloseWindow());
@@ -70,7 +73,7 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 
 	private JScrollPane scrTable;
 
-	public TableWithButtonsPanel(Model<List<KeyValuePair<String, String>>> model)
+	public TableWithButtonsPanel(final Model<List<KeyValuePair<String, String>>> model)
 	{
 		super(model);
 	}
@@ -79,7 +82,7 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
-		StringKeyValueTableModel tableModel = new StringKeyValueTableModel(
+		final StringKeyValueTableModel tableModel = new StringKeyValueTableModel(
 			TableColumnsModel.builder().columnNames(new String[] { "Key", "Value" })
 				.canEdit(new boolean[] { false, true })
 				.columnClasses(new Class<?>[] { String.class, String.class }).build());
@@ -95,7 +98,7 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
-		BorderLayout layout = new BorderLayout();
+		final BorderLayout layout = new BorderLayout();
 		setLayout(layout);
 		add(BorderLayout.CENTER, scrTable);
 	}
