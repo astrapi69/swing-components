@@ -29,41 +29,35 @@ import java.awt.Container;
 import java.awt.Frame;
 import java.awt.Panel;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-import de.alpharogroup.actions.DisposeWindowAction;
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.panels.login.pw.ChangePasswordModelBean;
 import de.alpharogroup.swing.panels.login.pw.NewPasswordPanel;
 
-public class BaseDialogTest extends BaseDialog<ChangePasswordModelBean>
+public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 {
 
 	private static final long serialVersionUID = 1L;
 
 	NewPasswordPanel newPasswordPanel;
 
-
 	/** The button close. */
 	private JButton buttonClose;
-
-	/** The label placeholder. */
-	private JLabel labelPlaceholder;
 
 	Panel buttons;
 
 	Container container;
 
-	public BaseDialogTest(final Frame frame, final JComponent content,
+
+	public BaseDialogExample(final Frame owner, final String title, final boolean modal,
 		final Model<ChangePasswordModelBean> model)
 	{
-		super(frame, content, model);
+		super(owner, title, modal, model);
 	}
 
 	@Override
@@ -73,10 +67,14 @@ public class BaseDialogTest extends BaseDialog<ChangePasswordModelBean>
 		setModal(true);
 		newPasswordPanel = new NewPasswordPanel(BaseModel.<ChangePasswordModelBean> of());
 		buttonClose = new JButton("Close");
-		buttonClose.addActionListener(new DisposeWindowAction(this));
-		labelPlaceholder = new JLabel("Password");
+		buttonClose.addActionListener(e -> onClose(e));
 		buttons = new Panel();
+	}
 
+	private void onClose(final ActionEvent e)
+	{
+		this.setVisible(false);
+		System.exit(0);
 	}
 
 	@Override
@@ -84,7 +82,6 @@ public class BaseDialogTest extends BaseDialog<ChangePasswordModelBean>
 	{
 		super.onInitializeLayout();
 		buttons.add(buttonClose, BorderLayout.EAST);
-		buttons.add(labelPlaceholder, BorderLayout.CENTER);
 
 		container = getContentPane();
 		container.add(newPasswordPanel, BorderLayout.CENTER);
@@ -98,16 +95,14 @@ public class BaseDialogTest extends BaseDialog<ChangePasswordModelBean>
 
 	public static void main(final String[] a)
 	{
-
 		final Frame frame = new Frame("FieldPanel");
 		frame.addWindowListener(new CloseWindow());
-		final BaseDialogTest dialog = new BaseDialogTest(frame, new JPanel(),
+		final BaseDialogExample dialog = new BaseDialogExample(frame, "Password title", true,
 			BaseModel.<ChangePasswordModelBean> of());
 
-		dialog.setSize(300, 150);
+		dialog.setSize(500, 250);
 
-		frame.pack();
-		frame.setVisible(true);
+		dialog.setVisible(true);
 	}
 
 

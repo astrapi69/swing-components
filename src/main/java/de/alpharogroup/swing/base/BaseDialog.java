@@ -24,13 +24,9 @@
  */
 package de.alpharogroup.swing.base;
 
-import java.awt.Dialog;
 import java.awt.Frame;
-import java.awt.Window;
 
-import javax.swing.JComponent;
-
-import org.jdesktop.swingx.JXDialog;
+import javax.swing.JDialog;
 
 import de.alpharogroup.model.api.Model;
 import lombok.Getter;
@@ -44,7 +40,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class BaseDialog<T> extends JXDialog
+public class BaseDialog<T> extends JDialog
 {
 
 	/** The serialVersionUID. */
@@ -56,66 +52,35 @@ public class BaseDialog<T> extends JXDialog
 	/**
 	 * Instantiates a new {@link BaseDialog}.
 	 *
-	 * @param dialog
-	 *            the dialog
-	 * @param content
-	 *            the content
+	 * @param owner
+	 *            the owner
+	 * @param title
+	 *            the title
+	 * @param modal
+	 *            the modal
 	 * @param model
 	 *            the model
 	 */
-	public BaseDialog(final Dialog dialog, final JComponent content, final Model<T> model)
+	public BaseDialog(final Frame owner, final String title, final boolean modal,
+		final Model<T> model)
 	{
-		super(dialog, content);
-		this.model = model;
+		super(owner, title, modal);
 		initialize();
 	}
 
 	/**
 	 * Instantiates a new {@link BaseDialog}.
 	 *
-	 * @param frame
-	 *            the frame
-	 * @param content
-	 *            the content
+	 * @param owner
+	 *            the owner
+	 * @param title
+	 *            the title
 	 * @param model
 	 *            the model
 	 */
-	public BaseDialog(final Frame frame, final JComponent content, final Model<T> model)
+	public BaseDialog(final Frame owner, final String title, final Model<T> model)
 	{
-		super(frame, content);
-		this.model = model;
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BaseDialog}.
-	 *
-	 * @param content
-	 *            the content
-	 * @param model
-	 *            the model
-	 */
-	public BaseDialog(final JComponent content, final Model<T> model)
-	{
-		super(content);
-		this.model = model;
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BaseDialog}.
-	 *
-	 * @param window
-	 *            the window
-	 * @param content
-	 *            the content
-	 * @param model
-	 *            the model
-	 */
-	public BaseDialog(final Window window, final JComponent content, final Model<T> model)
-	{
-		super(window, content);
-		this.model = model;
+		super(owner, title);
 		initialize();
 	}
 
