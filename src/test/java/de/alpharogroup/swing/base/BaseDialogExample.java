@@ -44,6 +44,18 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 
 	private static final long serialVersionUID = 1L;
 
+	public static void main(final String[] a)
+	{
+		final Frame frame = new Frame("FieldPanel");
+		frame.addWindowListener(new CloseWindow());
+		final BaseDialogExample dialog = new BaseDialogExample(frame, "Password title", true,
+			BaseModel.<ChangePasswordModelBean> of());
+
+		dialog.setSize(500, 250);
+
+		dialog.setVisible(true);
+	}
+
 	NewPasswordPanel newPasswordPanel;
 
 	/** The button close. */
@@ -51,13 +63,19 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 
 	Panel buttons;
 
-	Container container;
 
+	Container container;
 
 	public BaseDialogExample(final Frame owner, final String title, final boolean modal,
 		final Model<ChangePasswordModelBean> model)
 	{
 		super(owner, title, modal, model);
+	}
+
+	private void onClose(final ActionEvent e)
+	{
+		this.setVisible(false);
+		System.exit(0);
 	}
 
 	@Override
@@ -71,11 +89,6 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		buttons = new Panel();
 	}
 
-	private void onClose(final ActionEvent e)
-	{
-		this.setVisible(false);
-		System.exit(0);
-	}
 
 	@Override
 	protected void onInitializeLayout()
@@ -90,19 +103,6 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		final int y = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		setLocation((x / 3), (y / 3));
 		setSize((x / 3), (y / 3));
-	}
-
-
-	public static void main(final String[] a)
-	{
-		final Frame frame = new Frame("FieldPanel");
-		frame.addWindowListener(new CloseWindow());
-		final BaseDialogExample dialog = new BaseDialogExample(frame, "Password title", true,
-			BaseModel.<ChangePasswordModelBean> of());
-
-		dialog.setSize(500, 250);
-
-		dialog.setVisible(true);
 	}
 
 
