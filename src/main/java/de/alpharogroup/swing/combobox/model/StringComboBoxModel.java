@@ -26,15 +26,31 @@ package de.alpharogroup.swing.combobox.model;
 
 import java.util.List;
 
+import de.alpharogroup.collections.array.ArrayExtensions;
+
 public class StringComboBoxModel extends AbstractComboBoxModel<String>
 {
 
 	private static final long serialVersionUID = 1L;
 
-	public StringComboBoxModel(List<String> comboList, String selectedItem)
+	public StringComboBoxModel(final List<String> comboList, final String selectedItem)
 	{
 		super(comboList, selectedItem);
 	}
 
+	public StringComboBoxModel(final List<String> comboList)
+	{
+		super(comboList);
+	}
+
+	public StringComboBoxModel(final String[] comboArray, final String selectedItem)
+	{
+		super(ArrayExtensions.asList(comboArray), selectedItem);
+	}
+
+	public StringComboBoxModel(final String[] comboArray)
+	{
+		super(ArrayExtensions.asList(comboArray));
+	}
 
 }
