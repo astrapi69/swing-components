@@ -6,7 +6,11 @@ Version 4.26.0-SNAPSHOT
 
 ADDED:
  
-- 
+- created new class EnumComboBoxModel for enums
+
+CHANGED:
+
+- new constructors for class AbstractComboBoxModel and added null check and not empty check for given collections
 
 Version 4.25.0
 -------------
