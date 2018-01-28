@@ -32,6 +32,7 @@ import java.util.Set;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
+import de.alpharogroup.check.Argument;
 import de.alpharogroup.collections.array.ArrayExtensions;
 import de.alpharogroup.collections.list.ListExtensions;
 import lombok.Getter;
@@ -93,10 +94,9 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	 */
 	public AbstractComboBoxModel(final List<T> comboList, final T selectedItem)
 	{
-		this.comboList = comboList;
+		this.comboList = Argument.notEmpty(comboList, "comboList");
 		this.selectedItem = selectedItem;
 	}
-
 
 	/**
 	 * Instantiates a new {@link AbstractComboBoxModel} from the given array.

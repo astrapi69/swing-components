@@ -26,6 +26,10 @@ package de.alpharogroup.swing.combobox.model;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
+
+import de.alpharogroup.check.Argument;
 
 
 /**
@@ -40,6 +44,10 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+
+	private final Map<String, E> valueMap;
+	private final Class<E> enumClass;
+
 	/**
 	 * Instantiates a new {@link EnumComboBoxModel} from the given enum class.
 	 *
@@ -48,11 +56,15 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	 */
 	public EnumComboBoxModel(final Class<E> enumClass)
 	{
-		super(new ArrayList<E>(EnumSet.allOf(enumClass)));
+		super(new ArrayList<E>(EnumSet.allOf(Argument.notNull(enumClass, "enumClass"))));
+		this.enumClass = enumClass;
+		this.valueMap = new HashMap<String, E>();
+		initValueMap();
 	}
 
 	/**
-	 * Instantiates a new {@link EnumComboBoxModel} from the given enum class and set as selected item the given value.
+	 * Instantiates a new {@link EnumComboBoxModel} from the given enum class and set as selected
+	 * item the given value.
 	 *
 	 * @param enumClass
 	 *            the enum class
@@ -61,31 +73,46 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	 */
 	public EnumComboBoxModel(final Class<E> enumClass, final E selectedItem)
 	{
-		super(new ArrayList<E>(EnumSet.allOf(enumClass)), selectedItem);
+		super(new ArrayList<E>(EnumSet.allOf(Argument.notNull(enumClass, "enumClass"))), selectedItem);
+		this.enumClass = enumClass;
+		this.valueMap = new HashMap<String, E>();
+		initValueMap();
 	}
 
 	/**
-	 * Instantiates a new {@link EnumComboBoxModel} from the given enum values.
-	 *
-	 * @param enumValues
-	 *            the enum values
+	 * Inits the value map.
 	 */
-	public EnumComboBoxModel(final E[] enumValues)
+	private void initValueMap()
 	{
-		super(enumValues);
+		for (final E enumValue : comboList)
+		{
+			valueMap.put(enumValue.name(), enumValue);
+		}
 	}
 
 	/**
-	 * Instantiates a new {@link EnumComboBoxModel} from the given arguments.
-	 *
-	 * @param enumValues
-	 *            the enum values
-	 * @param selectedItem
-	 *            the selected item
+	 * {@inheritDoc}
 	 */
-	public EnumComboBoxModel(final E[] enumValues, final E selectedItem)
+	@Override
+	@SuppressWarnings("unchecked")
+	public void setSelectedItem(final Object anItem)
 	{
-		super(enumValues, selectedItem);
-	}
+		E input = null;
+
+		if (enumClass.isInstance(anItem))
+		{
+			input = (E)anItem;
+		}
+		else
+		{
+			input = valueMap.get(anItem);
+		}
+
+		if (input != null || anItem == null)
+		{
+			selectedItem = input;
+		}
+		this.fireContentsChanged(this, 0, getSize());
+	};
 
 }
