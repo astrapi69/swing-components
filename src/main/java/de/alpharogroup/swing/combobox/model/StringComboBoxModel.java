@@ -28,29 +28,64 @@ import java.util.List;
 
 import de.alpharogroup.collections.array.ArrayExtensions;
 
+/**
+ * The class {@link StringComboBoxModel} is an implementation of the abstract class
+ * {@link AbstractComboBoxModel} for {@link String} values.
+ */
 public class StringComboBoxModel extends AbstractComboBoxModel<String>
 {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	public StringComboBoxModel(final List<String> comboList, final String selectedItem)
-	{
-		super(comboList, selectedItem);
-	}
-
+	/**
+	 * Instantiates a new {@link StringComboBoxModel} from the given list
+	 *
+	 * @param comboList
+	 *            the combo list
+	 */
 	public StringComboBoxModel(final List<String> comboList)
 	{
 		super(comboList);
 	}
 
-	public StringComboBoxModel(final String[] comboArray, final String selectedItem)
+	/**
+	 * Instantiates a new {@link StringComboBoxModel} from the given list and set as selected item
+	 * the given value
+	 *
+	 * @param comboList
+	 *            the combo list
+	 * @param selectedItem
+	 *            the selected item
+	 */
+	public StringComboBoxModel(final List<String> comboList, final String selectedItem)
 	{
-		super(ArrayExtensions.asList(comboArray), selectedItem);
+		super(comboList, selectedItem);
 	}
 
+	/**
+	 * Instantiates a new {@link StringComboBoxModel} from the given array
+	 *
+	 * @param comboArray
+	 *            the combo array
+	 */
 	public StringComboBoxModel(final String[] comboArray)
 	{
 		super(ArrayExtensions.asList(comboArray));
+	}
+
+	/**
+	 * Instantiates a new {@link StringComboBoxModel} from the given array and set as selected item
+	 * the given value
+	 *
+	 * @param comboArray
+	 *            the combo array
+	 * @param selectedItem
+	 *            the selected item
+	 */
+	public StringComboBoxModel(final String[] comboArray, final String selectedItem)
+	{
+		super(ArrayExtensions.asList(comboArray), selectedItem);
 	}
 
 }

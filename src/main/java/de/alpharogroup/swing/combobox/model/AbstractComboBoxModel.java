@@ -39,7 +39,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * The class {@link AbstractComboBoxModel} contains the data for a combo list and the current
+ * The abstract class {@link AbstractComboBoxModel} contains the data for a combo list and the current
  * selected item.
  *
  * @param <T>
@@ -48,7 +48,8 @@ import lombok.Setter;
 @Getter
 public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	implements
-		ComboBoxModel<T>, ActionListener
+		ComboBoxModel<T>,
+		ActionListener
 {
 
 	/** The Constant serialVersionUID. */
@@ -101,7 +102,8 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	/**
 	 * Instantiates a new {@link AbstractComboBoxModel} from the given array.
 	 *
-	 * @param comboArray the combo array
+	 * @param comboArray
+	 *            the combo array
 	 */
 	public AbstractComboBoxModel(final T[] comboArray)
 	{
@@ -111,12 +113,26 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	/**
 	 * Instantiates a new {@link AbstractComboBoxModel} from the given arguments.
 	 *
-	 * @param comboArray the combo array
-	 * @param selectedItem the selected item
+	 * @param comboArray
+	 *            the combo array
+	 * @param selectedItem
+	 *            the selected item
 	 */
 	public AbstractComboBoxModel(final T[] comboArray, final T selectedItem)
 	{
 		this(ArrayExtensions.asList(comboArray), selectedItem);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void actionPerformed(final ActionEvent evt)
+	{
+		if (evt.getActionCommand().equals("update"))
+		{
+			this.fireContentsChanged(this, 0, getSize() - 1);
+		}
 	}
 
 	/**
@@ -150,17 +166,7 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	public void setSelectedItem(final Object anItem)
 	{
 		selectedItem = (T)anItem;
-        this.fireContentsChanged(this, 0, getSize());
+		this.fireContentsChanged(this, 0, getSize());
 	}
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void actionPerformed(final ActionEvent evt) {
-        if(evt.getActionCommand().equals("update")) {
-            this.fireContentsChanged(this, 0, getSize() - 1);
-        }
-    }
 
 }

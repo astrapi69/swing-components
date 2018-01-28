@@ -31,7 +31,6 @@ import java.util.Map;
 
 import de.alpharogroup.check.Argument;
 
-
 /**
  * The class {@link EnumComboBoxModel} is an implementation that safely wraps an {@link Enum}.
  *
@@ -44,8 +43,10 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-
+	/** The value map for the enum values. */
 	private final Map<String, E> valueMap;
+
+	/** The enum class. */
 	private final Class<E> enumClass;
 
 	/**
@@ -73,7 +74,8 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	 */
 	public EnumComboBoxModel(final Class<E> enumClass, final E selectedItem)
 	{
-		super(new ArrayList<E>(EnumSet.allOf(Argument.notNull(enumClass, "enumClass"))), selectedItem);
+		super(new ArrayList<E>(EnumSet.allOf(Argument.notNull(enumClass, "enumClass"))),
+			selectedItem);
 		this.enumClass = enumClass;
 		this.valueMap = new HashMap<String, E>();
 		initValueMap();
