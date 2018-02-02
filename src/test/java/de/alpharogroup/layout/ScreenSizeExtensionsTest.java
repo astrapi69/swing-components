@@ -37,7 +37,7 @@ import org.testng.annotations.Test;
 import de.alpharogroup.BaseTestCase;
 
 /**
- * Test class for the class {@link ScreenSizeExtensions}.
+ * The unit test class for the class {@link ScreenSizeExtensions}.
  *
  * @version 1.0
  * @author Asterios Raptis

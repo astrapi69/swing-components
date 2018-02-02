@@ -37,7 +37,7 @@ import org.testng.annotations.Test;
 import de.alpharogroup.BaseTestCase;
 
 /**
- * Test class for the class CloseWindow.
+ * The unit test class for the class CloseWindow.
  *
  * @version 1.0
  * @author Asterios Raptis
