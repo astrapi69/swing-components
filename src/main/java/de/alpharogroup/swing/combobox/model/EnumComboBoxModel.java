@@ -24,12 +24,11 @@
  */
 package de.alpharogroup.swing.combobox.model;
 
-import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.alpharogroup.check.Argument;
+import lombok.NonNull;
 
 /**
  * The class {@link EnumComboBoxModel} is an implementation that safely wraps an {@link Enum}.
@@ -55,11 +54,11 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	 * @param enumClass
 	 *            the enum class
 	 */
-	public EnumComboBoxModel(final Class<E> enumClass)
+	public EnumComboBoxModel(@NonNull final Class<E> enumClass)
 	{
-		super(new ArrayList<E>(EnumSet.allOf(Argument.notNull(enumClass, "enumClass"))));
+		super(EnumSet.allOf(enumClass));
 		this.enumClass = enumClass;
-		this.valueMap = new HashMap<String, E>();
+		this.valueMap = new HashMap<>();
 		initValueMap();
 	}
 
@@ -74,10 +73,10 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	 */
 	public EnumComboBoxModel(final Class<E> enumClass, final E selectedItem)
 	{
-		super(new ArrayList<E>(EnumSet.allOf(Argument.notNull(enumClass, "enumClass"))),
+		super(EnumSet.allOf(enumClass),
 			selectedItem);
 		this.enumClass = enumClass;
-		this.valueMap = new HashMap<String, E>();
+		this.valueMap = new HashMap<>();
 		initValueMap();
 	}
 
