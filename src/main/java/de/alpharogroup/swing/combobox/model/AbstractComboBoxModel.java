@@ -39,8 +39,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * The abstract class {@link AbstractComboBoxModel} contains the data for a combo list and the current
- * selected item.
+ * The abstract class {@link AbstractComboBoxModel} contains the data for a combo list and the
+ * current selected item.
  *
  * @param <T>
  *            the generic type of the Model
@@ -121,6 +121,30 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	public AbstractComboBoxModel(final T[] comboArray, final T selectedItem)
 	{
 		this(ArrayExtensions.asList(comboArray), selectedItem);
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given {@link Set}.
+	 *
+	 * @param set
+	 *            the combo set
+	 */
+	public AbstractComboBoxModel(final Set<T> set)
+	{
+		this(ListExtensions.toList(set));
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given {@link Set}.
+	 *
+	 * @param set
+	 *            the combo set
+	 * @param selectedItem
+	 *            the selected item
+	 */
+	public AbstractComboBoxModel(final Set<T> set, final T selectedItem)
+	{
+		this(ListExtensions.toList(set), selectedItem);
 	}
 
 	/**
