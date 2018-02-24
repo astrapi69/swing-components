@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-java-parent</artifactId>
-		<version>3.5.0</version>
+		<version>3.7.0</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -25,12 +25,12 @@
 		<!-- JAVAHELP version -->
 		<javahelp.version>2.0.05</javahelp.version>
 		<email-tails.version>4.16.0</email-tails.version>
-		<test-objects.version>4.21.0</test-objects.version>
+		<test-objects.version>4.22.0</test-objects.version>
 		<file-worker.version>4.19.0</file-worker.version>
 		<jcommons-lang.version>4.29.0</jcommons-lang.version>
 		<vintage-time.version>4.11.0</vintage-time.version>
-		<randomizer.version>5.0.0</randomizer.version>
-		<silly-collections.version>4.23.0</silly-collections.version>
+		<randomizer-core.version>5.1.0</randomizer-core.version>
+		<silly-collections.version>4.25.0</silly-collections.version>
 		<!-- MODEL-DATA version -->
 		<model-data.version>1.5.0</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
@@ -146,8 +146,8 @@
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
-				<artifactId>randomizer</artifactId>
-				<version>${randomizer.version}</version>
+				<artifactId>randomizer-core</artifactId>
+				<version>${randomizer-core.version}</version>
 			</dependency>
 
 			<dependency>
@@ -238,7 +238,7 @@
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>randomizer</artifactId>
+			<artifactId>randomizer-core</artifactId>
 		</dependency>
 
 		<dependency>
