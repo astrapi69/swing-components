@@ -10,6 +10,7 @@ ADDED:
 
 CHANGED:
 
+- update of parent version to 3.9.0
 - new constructors for class AbstractComboBoxModel and added null check and not empty check for given collections
 
 Version 4.25.0
