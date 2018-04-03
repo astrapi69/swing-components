@@ -74,7 +74,6 @@ public class TableCellButtonEditor extends DefaultCellEditor
 		getButton().setOpaque(true);
 		getButton().addActionListener(e -> {
 			onClick();
-			fireEditingStopped();
 		});
 	}
 
@@ -133,7 +132,7 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	 */
 	protected void onClick()
 	{
-
+		fireEditingStopped();
 	}
 
 	/**
@@ -142,7 +141,8 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	@Override
 	public boolean stopCellEditing()
 	{
+		boolean stopCellEditing = super.stopCellEditing();
 		setClicked(false);
-		return super.stopCellEditing();
+		return stopCellEditing;
 	}
 }
