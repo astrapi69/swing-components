@@ -95,7 +95,7 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	 */
 	public AbstractComboBoxModel(final List<T> comboList, final T selectedItem)
 	{
-		this.comboList = Argument.notEmpty(comboList, "comboList");
+		this.comboList = Argument.notNull(comboList, "comboList");
 		this.selectedItem = selectedItem;
 	}
 
@@ -177,6 +177,11 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 		return comboList.size();
 	}
 
+	/**
+	 * Sets the combo list from the given set.
+	 *
+	 * @param set the new combo set
+	 */
 	public void setComboSet(final Set<T> set)
 	{
 		setComboList(ListExtensions.newArrayList(set));
