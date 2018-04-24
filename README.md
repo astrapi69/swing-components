@@ -22,7 +22,7 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 Than you can add the dependency to your dependencies:
 
 		<!-- SWING-COMPONENTS version -->
-		<swing-components.version>4.24.0</swing-components.version>
+		<swing-components.version>4.25.0</swing-components.version>
 
 		<dependencies>
 			...
@@ -83,6 +83,7 @@ Open Source:
  * [Java Generic Swing Application Framework](https://github.com/pgdurand/jGAF) Generic Swing Application Framework (jGAF) is a library designed to facilitate the creation of cross-platorm graphical applications for the Oracle Java Platform.
  * [OpenSwing](http://oswing.sourceforge.net/) OpenSwing is an open-source suite of advanced graphics components based on Swing toolkit
  * [JCalendar](https://toedter.com/jcalendar/) JCalendar is a Java date chooser bean for graphically picking a date.
+ * [FlexDock](https://github.com/opencollab/flexdock) FlexDock is a Java docking framework for use in cross-platform Swing applications
 
 Commercial
 
