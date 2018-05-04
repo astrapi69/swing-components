@@ -100,30 +100,6 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	}
 
 	/**
-	 * Instantiates a new {@link AbstractComboBoxModel} from the given array.
-	 *
-	 * @param comboArray
-	 *            the combo array
-	 */
-	public AbstractComboBoxModel(final T[] comboArray)
-	{
-		this(ArrayExtensions.asList(comboArray));
-	}
-
-	/**
-	 * Instantiates a new {@link AbstractComboBoxModel} from the given arguments.
-	 *
-	 * @param comboArray
-	 *            the combo array
-	 * @param selectedItem
-	 *            the selected item
-	 */
-	public AbstractComboBoxModel(final T[] comboArray, final T selectedItem)
-	{
-		this(ArrayExtensions.asList(comboArray), selectedItem);
-	}
-
-	/**
 	 * Instantiates a new {@link AbstractComboBoxModel} from the given {@link Set}.
 	 *
 	 * @param set
@@ -145,6 +121,30 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	public AbstractComboBoxModel(final Set<T> set, final T selectedItem)
 	{
 		this(ListExtensions.toList(set), selectedItem);
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given array.
+	 *
+	 * @param comboArray
+	 *            the combo array
+	 */
+	public AbstractComboBoxModel(final T[] comboArray)
+	{
+		this(ArrayExtensions.asList(comboArray));
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given arguments.
+	 *
+	 * @param comboArray
+	 *            the combo array
+	 * @param selectedItem
+	 *            the selected item
+	 */
+	public AbstractComboBoxModel(final T[] comboArray, final T selectedItem)
+	{
+		this(ArrayExtensions.asList(comboArray), selectedItem);
 	}
 
 	/**
@@ -180,7 +180,8 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	/**
 	 * Sets the combo list from the given set.
 	 *
-	 * @param set the new combo set
+	 * @param set
+	 *            the new combo set
 	 */
 	public void setComboSet(final Set<T> set)
 	{

@@ -73,8 +73,7 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	 */
 	public EnumComboBoxModel(final Class<E> enumClass, final E selectedItem)
 	{
-		super(EnumSet.allOf(enumClass),
-			selectedItem);
+		super(EnumSet.allOf(enumClass), selectedItem);
 		this.enumClass = enumClass;
 		this.valueMap = new HashMap<>();
 		initValueMap();
