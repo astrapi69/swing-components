@@ -24,19 +24,23 @@
  */
 package de.alpharogroup.swing.combobox.model;
 
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Set;
 
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
+import de.alpharogroup.check.Argument;
+import de.alpharogroup.collections.array.ArrayExtensions;
+import de.alpharogroup.collections.list.ListExtensions;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * The class {@link AbstractComboBoxModel} contains the data for a combo list and the current
- * selected item.
+ * The abstract class {@link AbstractComboBoxModel} contains the data for a combo list and the
+ * current selected item.
  *
  * @param <T>
  *            the generic type of the Model
@@ -44,25 +48,122 @@ import lombok.Setter;
 @Getter
 public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	implements
-		ComboBoxModel<T>
+		ComboBoxModel<T>,
+		ActionListener
 {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * The generic combo list.
 	 */
 	@Setter
-	private List<T> comboList;
+	protected List<T> comboList;
 
 	/**
 	 * The the current selected item.
 	 */
-	private T selectedItem = null;
+	protected T selectedItem;
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} with a new list.
+	 */
+	public AbstractComboBoxModel()
+	{
+		this(ListExtensions.newArrayList());
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given list.
+	 *
+	 * @param comboList
+	 *            the list
+	 */
+	public AbstractComboBoxModel(final List<T> comboList)
+	{
+		this(comboList, ListExtensions.getFirst(comboList));
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given arguments.
+	 *
+	 * @param comboList
+	 *            the combo list
+	 * @param selectedItem
+	 *            the selected item
+	 */
+	public AbstractComboBoxModel(final List<T> comboList, final T selectedItem)
+	{
+		this.comboList = Argument.notNull(comboList, "comboList");
+		this.selectedItem = selectedItem;
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given {@link Set}.
+	 *
+	 * @param set
+	 *            the combo set
+	 */
+	public AbstractComboBoxModel(final Set<T> set)
+	{
+		this(ListExtensions.toList(set));
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given {@link Set}.
+	 *
+	 * @param set
+	 *            the combo set
+	 * @param selectedItem
+	 *            the selected item
+	 */
+	public AbstractComboBoxModel(final Set<T> set, final T selectedItem)
+	{
+		this(ListExtensions.toList(set), selectedItem);
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given array.
+	 *
+	 * @param comboArray
+	 *            the combo array
+	 */
+	public AbstractComboBoxModel(final T[] comboArray)
+	{
+		this(ArrayExtensions.asList(comboArray));
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given arguments.
+	 *
+	 * @param comboArray
+	 *            the combo array
+	 * @param selectedItem
+	 *            the selected item
+	 */
+	public AbstractComboBoxModel(final T[] comboArray, final T selectedItem)
+	{
+		this(ArrayExtensions.asList(comboArray), selectedItem);
+	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public T getElementAt(int index)
+	public void actionPerformed(final ActionEvent evt)
+	{
+		if (evt.getActionCommand().equals("update"))
+		{
+			this.fireContentsChanged(this, 0, getSize() - 1);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public T getElementAt(final int index)
 	{
 		return comboList.get(index);
 	}
@@ -76,9 +177,15 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 		return comboList.size();
 	}
 
-	public void setComboSet(Set<T> set)
+	/**
+	 * Sets the combo list from the given set.
+	 *
+	 * @param set
+	 *            the new combo set
+	 */
+	public void setComboSet(final Set<T> set)
 	{
-		setComboList(new ArrayList<>(set));
+		setComboList(ListExtensions.newArrayList(set));
 	}
 
 	/**
@@ -86,9 +193,10 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void setSelectedItem(Object anItem)
+	public void setSelectedItem(final Object anItem)
 	{
 		selectedItem = (T)anItem;
+		this.fireContentsChanged(this, 0, getSize());
 	}
 
 }

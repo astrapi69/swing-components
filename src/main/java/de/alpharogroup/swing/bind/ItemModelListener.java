@@ -22,38 +22,49 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.table.model.properties;
+package de.alpharogroup.swing.bind;
 
-import de.alpharogroup.swing.table.model.TableColumnsModel;
+import java.awt.ItemSelectable;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import de.alpharogroup.model.api.Model;
+import lombok.Getter;
 
 /**
- * The class {@link StringTableModel} that lists key value pairs.
+ * The listener interface {@link ItemModelListener} receives itemBind events.
+ *
+ * @param <T>
+ *            the generic type
  */
-public class StringTableModel extends KeyValueTableModel<String, String>
+@Getter
+public class ItemModelListener<T> implements ItemListener
 {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+	/** The model. */
+	private final Model<T[]> model;
 
 	/**
-	 * Instantiates a new {@link StringTableModel} object.
+	 * Instantiates a new {@link ItemModelListener}.
+	 *
+	 * @param model
+	 *            the model
 	 */
-	public StringTableModel()
+	public ItemModelListener(final Model<T[]> model)
 	{
-		this(TableColumnsModel.builder().columnNames(new String[] { "Key", "Value" })
-			.canEdit(new boolean[] { false, false })
-			.columnClasses(new Class<?>[] { String.class, String.class }).build());
+		this.model = model;
 	}
 
 	/**
-	 * Instantiates a new {@link StringTableModel} object.
-	 *
-	 * @param columnsModel
-	 *            the columns model
+	 * {@inheritDoc}
 	 */
-	public StringTableModel(final TableColumnsModel columnsModel)
+	@SuppressWarnings("unchecked")
+	@Override
+	public void itemStateChanged(final ItemEvent e)
 	{
-		super(columnsModel);
+		final ItemSelectable is = e.getItemSelectable();
+		final T selected[] = (T[])is.getSelectedObjects();
+		model.setObject(selected);
 	}
 
 }

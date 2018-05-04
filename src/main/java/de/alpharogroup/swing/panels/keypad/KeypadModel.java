@@ -24,29 +24,12 @@
  */
 package de.alpharogroup.swing.panels.keypad;
 
-import java.io.Serializable;
+import de.alpharogroup.model.GenericModel;
 
-import de.alpharogroup.generic.mvc.model.Model;
-
-public class KeypadModel implements Model<Serializable>
+public class KeypadModel<T> extends GenericModel<T>
 {
 
-	/**
-	 * The generated serialVersionUID.
-	 */
-	private static final long serialVersionUID = 5159026497330756557L;
-	private Serializable modelObject;
+	private static final long serialVersionUID = 1828404750933192250L;
 
-	@Override
-	public Serializable getModelObject()
-	{
-		return modelObject;
-	}
-
-	@Override
-	public void setModelObject(final Serializable modelObject)
-	{
-		this.modelObject = modelObject;
-	}
 
 }

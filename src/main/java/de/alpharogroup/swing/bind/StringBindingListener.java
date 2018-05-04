@@ -104,7 +104,6 @@ public class StringBindingListener implements DocumentListener
 		{
 			log.error("some portion of the given range was not a valid part of the document. "
 				+ "The location in the exception is the first bad position encountered.", e1);
-			e1.printStackTrace();
 		}
 	}
 

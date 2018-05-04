@@ -24,27 +24,15 @@
  */
 package de.alpharogroup.swing.panels.login;
 
-import de.alpharogroup.generic.mvc.model.Model;
+import de.alpharogroup.model.GenericModel;
 
-public class LoginModel implements Model<LoginModelBean>
+public class LoginModel extends GenericModel<LoginModelBean>
 {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -7923815348599190631L;
-	LoginModelBean modelObject = new LoginModelBean();
 
-	@Override
-	public LoginModelBean getModelObject()
-	{
-		return modelObject;
-	}
-
-	@Override
-	public void setModelObject(final LoginModelBean modelObject)
-	{
-		this.modelObject = modelObject;
-	}
 
 }

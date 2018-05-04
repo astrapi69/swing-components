@@ -38,6 +38,9 @@ import javax.swing.table.TableCellRenderer;
 public class TableCellButtonRenderer extends JButton implements TableCellRenderer
 {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	private static final String BUTTON_BACKGROUND_COLOR = "Button.background";
 
 	private Color foreground;
@@ -48,7 +51,7 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 		this(null, null);
 	}
 
-	public TableCellButtonRenderer(Color foreground, Color backround)
+	public TableCellButtonRenderer(final Color foreground, final Color backround)
 	{
 		setOpaque(true);
 		this.foreground = foreground;
@@ -56,8 +59,8 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 	}
 
 	@Override
-	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-		boolean hasFocus, int row, int column)
+	public Component getTableCellRendererComponent(final JTable table, final Object value,
+		final boolean isSelected, final boolean hasFocus, final int row, final int column)
 	{
 		if (isSelected)
 		{
@@ -78,7 +81,7 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 		return this;
 	}
 
-	protected Color newBackround(JTable table)
+	protected Color newBackround(final JTable table)
 	{
 		if (this.backround == null)
 		{
@@ -87,7 +90,7 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 		return this.backround;
 	}
 
-	protected Color newForeground(JTable table)
+	protected Color newForeground(final JTable table)
 	{
 		if (this.foreground == null)
 		{
@@ -96,12 +99,12 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 		return this.foreground;
 	}
 
-	protected Color newSelectionBackround(JTable table)
+	protected Color newSelectionBackround(final JTable table)
 	{
 		return table.getSelectionBackground();
 	}
 
-	protected Color newSelectionForeground(JTable table)
+	protected Color newSelectionForeground(final JTable table)
 	{
 		return table.getSelectionForeground();
 	}

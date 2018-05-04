@@ -43,6 +43,9 @@ import lombok.Setter;
 public class TableCellButtonEditor extends DefaultCellEditor
 {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	/** The button. */
 	private JButton button;
 
@@ -64,14 +67,13 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	 * @param checkBox
 	 *            the check box
 	 */
-	public TableCellButtonEditor(JCheckBox checkBox)
+	public TableCellButtonEditor(final JCheckBox checkBox)
 	{
 		super(checkBox);
 		setButton(new JButton());
 		getButton().setOpaque(true);
 		getButton().addActionListener(e -> {
 			onClick();
-			fireEditingStopped();
 		});
 	}
 
@@ -99,8 +101,8 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected,
-		int row, int column)
+	public Component getTableCellEditorComponent(final JTable table, final Object value,
+		final boolean isSelected, final int row, final int column)
 	{
 		setRow(row);
 		setColumn(column);
@@ -130,7 +132,7 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	 */
 	protected void onClick()
 	{
-
+		fireEditingStopped();
 	}
 
 	/**
@@ -139,7 +141,8 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	@Override
 	public boolean stopCellEditing()
 	{
+		boolean stopCellEditing = super.stopCellEditing();
 		setClicked(false);
-		return super.stopCellEditing();
+		return stopCellEditing;
 	}
 }
