@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-java-parent</artifactId>
-		<version>3.9.0</version>
+		<version>3.10.0</version>
 		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>swing-components</artifactId>
-	<version>4.26.0-SNAPSHOT</version>
+	<version>4.26.0</version>
 
 	<name>${project.artifactId}</name>
 
@@ -25,11 +25,11 @@
 		<!-- JAVAHELP version -->
 		<javahelp.version>2.0.05</javahelp.version>
 		<email-tails.version>4.16.0</email-tails.version>
-		<test-objects.version>4.22.0</test-objects.version>
+		<test-objects.version>4.24.0</test-objects.version>
 		<file-worker.version>4.19.0</file-worker.version>
-		<jcommons-lang.version>4.29.0</jcommons-lang.version>
+		<jcommons-lang.version>4.30.0</jcommons-lang.version>
 		<vintage-time.version>4.11.0</vintage-time.version>
-		<randomizer-core.version>5.1.0</randomizer-core.version>
+		<randomizer-core.version>5.2.0</randomizer-core.version>
 		<silly-collections.version>4.27.0</silly-collections.version>
 		<!-- MODEL-DATA version -->
 		<model-data.version>1.5.0</model-data.version>
@@ -46,7 +46,7 @@
 		<imgscalr-lib.version>4.2</imgscalr-lib.version>
 		<itextpdf.version>5.5.12</itextpdf.version>
 		<!-- JOBJECT-EXTENSIONS versions -->
-		<jobject-extensions.version>1.8.0</jobject-extensions.version>
+		<jobject-extensions.version>1.10.0</jobject-extensions.version>
 		<jobject-core.version>${jobject-extensions.version}</jobject-core.version>
 	</properties>
 

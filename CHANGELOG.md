@@ -1,7 +1,7 @@
 ## Change log
 ----------------------
 
-Version 4.26.0-SNAPSHOT
+Version 4.26.0
 -------------
 
 ADDED:
@@ -10,8 +10,12 @@ ADDED:
 
 CHANGED:
 
-- update of parent version to 3.9.0
+- update of parent version to 3.10.0
 - new constructors for class AbstractComboBoxModel and added null check and not empty check for given collections
+- update of test-objects version to 4.24.0
+- update of jcommons-lang version to 4.30.0
+- update of randomizer-core version to 5.2.0
+- update of jobject-extensions version to 1.10.0
 
 Version 4.25.0
 -------------
