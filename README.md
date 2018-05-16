@@ -22,7 +22,7 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 Than you can add the dependency to your dependencies:
 
 		<!-- SWING-COMPONENTS version -->
-		<swing-components.version>4.26.0</swing-components.version>
+		<swing-components.version>4.27</swing-components.version>
 
 		<dependencies>
 			...

@@ -102,7 +102,7 @@ public class EnableButtonBehavior implements DocumentListener
 	protected void onChange()
 	{
 		enabled = false;
-		if (this.document.getLength() > 0)
+		if (getDocument().getLength() > 0)
 		{
 			enabled = true;
 		}
