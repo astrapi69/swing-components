@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-java-parent</artifactId>
-		<version>3.10.0</version>
+		<version>3.11</version>
 		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>swing-components</artifactId>
-	<version>4.27.0-SNAPSHOT</version>
+	<version>4.27</version>
 
 	<name>${project.artifactId}</name>
 
@@ -24,13 +24,13 @@
 	<properties>
 		<!-- JAVAHELP version -->
 		<javahelp.version>2.0.05</javahelp.version>
-		<email-tails.version>4.16.0</email-tails.version>
+		<email-tails.version>4.17</email-tails.version>
 		<test-objects.version>4.24.0</test-objects.version>
-		<file-worker.version>4.19.0</file-worker.version>
-		<jcommons-lang.version>4.30.0</jcommons-lang.version>
+		<file-worker.version>4.20</file-worker.version>
+		<jcommons-lang.version>4.31.0</jcommons-lang.version>
 		<vintage-time.version>4.11.0</vintage-time.version>
-		<randomizer-core.version>5.2.0</randomizer-core.version>
-		<silly-collections.version>4.27.0</silly-collections.version>
+		<randomizer-core.version>5.3</randomizer-core.version>
+		<silly-collections.version>4.28.0</silly-collections.version>
 		<!-- MODEL-DATA version -->
 		<model-data.version>1.5.0</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>

@@ -1,9 +1,18 @@
 ## Change log
 ----------------------
 
-Version 4.27.0-SNAPSHOT
+Version 4.27
 -------------
 
+CHANGED:
+
+- update of parent version to 3.11
+- removed unneeded .0 at the end of version
+- update of email-tails version to 4.17
+- update of file-worker version to 4.20
+- update of jcommons-lang version to 4.31.0
+- update of randomizer-core version to 5.3
+- update of silly-collections version to 4.28.0
 
 Version 4.26.0
 -------------
