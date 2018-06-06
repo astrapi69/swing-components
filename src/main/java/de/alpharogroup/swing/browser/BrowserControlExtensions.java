@@ -98,13 +98,14 @@ public class BrowserControlExtensions
 	 * @return the object
 	 * 
 	 * @throws ClassNotFoundException
-	 *             the class not found exception
+	 *             occurs if a given class cannot be located by the specified class loader
 	 * @throws NoSuchMethodException
-	 *             the no such method exception
+	 *             is thrown if a matching method is not found
 	 * @throws IllegalAccessException
-	 *             the illegal access exception
+	 *             is thrown if this {@code Method} object is enforcing Java language access control
+	 *             and the underlying method is inaccessible
 	 * @throws InvocationTargetException
-	 *             the invocation target exception
+	 *             is thrown if the underlying method throws an exception.
 	 */
 	private static Object openURLinMacOS(final String url) throws ClassNotFoundException,
 		NoSuchMethodException, IllegalAccessException, InvocationTargetException
