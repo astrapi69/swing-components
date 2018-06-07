@@ -4,6 +4,10 @@
 Version 4.28-SNAPSHOT
 -------------
 
+CHANGED:
+
+- update of jcommons-lang version to 4.34
+
 Version 4.27
 -------------
 

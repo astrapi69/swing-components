@@ -47,7 +47,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import de.alpharogroup.io.StreamExtensions;
 import de.alpharogroup.random.RandomExtensions;
 
 /**
@@ -352,21 +351,11 @@ public class ImageExtensions
 	public static byte[] toByteArray(final BufferedImage bi, final String formatName)
 		throws IOException
 	{
-		final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		try
-		{
+		try(ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
 			ImageIO.write(bi, formatName, baos);
 			baos.flush();
 			final byte[] byteArray = baos.toByteArray();
 			return byteArray;
-		}
-		catch (final IOException e)
-		{
-			throw e;
-		}
-		finally
-		{
-			StreamExtensions.close(baos);
 		}
 	}
 
