@@ -85,26 +85,25 @@ public class LoginPanel extends JXPanel
 		final GroupLayout layout = new GroupLayout(this);
 		this.setLayout(layout);
 		layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-			.addGroup(GroupLayout.Alignment.TRAILING,
-				layout.createSequentialGroup().addGap(23, 23, 23)
-					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(lblUsername, GroupLayout.PREFERRED_SIZE,
-							107, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblPassword, GroupLayout.PREFERRED_SIZE, 89,
-							GroupLayout.PREFERRED_SIZE))
-					.addGap(32, 32, 32)
-					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(txtPassword, GroupLayout.Alignment.LEADING,
-							GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-						.addComponent(txtUsername, GroupLayout.Alignment.LEADING,
-							GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-						.addGroup(layout.createSequentialGroup()
-							.addComponent(btnCancel, GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-							.addComponent(btnLogin, GroupLayout.PREFERRED_SIZE, 87,
-								GroupLayout.PREFERRED_SIZE))
-						.addComponent(txtInfo, GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
-					.addGap(28, 28, 28)));
+			.addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+				.addGap(23, 23, 23)
+				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(lblUsername, GroupLayout.PREFERRED_SIZE, 107,
+						GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblPassword, GroupLayout.PREFERRED_SIZE, 89,
+						GroupLayout.PREFERRED_SIZE))
+				.addGap(32, 32, 32)
+				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+					.addComponent(txtPassword, GroupLayout.Alignment.LEADING,
+						GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+					.addComponent(txtUsername, GroupLayout.Alignment.LEADING,
+						GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+					.addGroup(layout.createSequentialGroup()
+						.addComponent(btnCancel, GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED).addComponent(
+							btnLogin, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE))
+					.addComponent(txtInfo, GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
+				.addGap(28, 28, 28)));
 		layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 			.addGroup(layout.createSequentialGroup().addGap(32, 32, 32)
 				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)

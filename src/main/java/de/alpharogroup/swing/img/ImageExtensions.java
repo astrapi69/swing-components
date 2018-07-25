@@ -60,10 +60,10 @@ public class ImageExtensions
 	 */
 	public enum Direction
 	{
-		/** Indicates the horizontal direction. */
-		horizontal,
-		/** Indicates the vertical direction. */
-		vertical
+	/** Indicates the horizontal direction. */
+	horizontal,
+	/** Indicates the vertical direction. */
+	vertical
 	}
 
 	/** The logger constant. */
@@ -351,7 +351,8 @@ public class ImageExtensions
 	public static byte[] toByteArray(final BufferedImage bi, final String formatName)
 		throws IOException
 	{
-		try(ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+		try (ByteArrayOutputStream baos = new ByteArrayOutputStream())
+		{
 			ImageIO.write(bi, formatName, baos);
 			baos.flush();
 			final byte[] byteArray = baos.toByteArray();

@@ -27,7 +27,7 @@ package de.alpharogroup.swing.panels.field;
 import static de.alpharogroup.model.typesafe.TypeSafeModel.from;
 import static de.alpharogroup.model.typesafe.TypeSafeModel.model;
 
-import de.alpharogroup.collections.list.ListExtensions;
+import de.alpharogroup.collections.list.ListFactory;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
@@ -48,9 +48,8 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 
 	public LabeledComboboxPanel()
 	{
-		this(BaseModel.<ComboListBean> of(
-			ComboListBean.builder().comboList(ListExtensions.newArrayList("foo", "bar", "bla"))
-				.selectedItem("foo").build()));
+		this(BaseModel.<ComboListBean> of(ComboListBean.builder()
+			.comboList(ListFactory.newArrayList("foo", "bar", "bla")).selectedItem("foo").build()));
 	}
 
 	public LabeledComboboxPanel(final Model<ComboListBean> model)

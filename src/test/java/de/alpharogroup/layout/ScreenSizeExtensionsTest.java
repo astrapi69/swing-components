@@ -73,7 +73,7 @@ public class ScreenSizeExtensionsTest extends BaseTestCase
 	@Test(enabled = false)
 	public void testComputeDialogPositions()
 	{
-		final List<Point> expected = new ArrayList<Point>();
+		final List<Point> expected = new ArrayList<>();
 		final int dialogHeight = 200;
 		final int dialogWidth = 250;
 		final int windowBesides = ScreenSizeExtensions.getScreenWidth() / dialogWidth;
@@ -81,8 +81,8 @@ public class ScreenSizeExtensionsTest extends BaseTestCase
 		final int listSize = windowBesides * windowBelow;
 		final List<Point> dialogPositions = ScreenSizeExtensions.computeDialogPositions(dialogWidth,
 			dialogHeight);
-		this.result = listSize == dialogPositions.size();
-		AssertJUnit.assertTrue("", this.result);
+		actual = listSize == dialogPositions.size();
+		AssertJUnit.assertTrue("", actual);
 		int dotWidth = 0;
 		int dotHeight = 0;
 
@@ -100,8 +100,8 @@ public class ScreenSizeExtensionsTest extends BaseTestCase
 
 		for (final Point point : dialogPositions)
 		{
-			this.result = expected.contains(point);
-			AssertJUnit.assertTrue("", this.result);
+			actual = expected.contains(point);
+			AssertJUnit.assertTrue("", actual);
 
 		}
 
@@ -116,11 +116,11 @@ public class ScreenSizeExtensionsTest extends BaseTestCase
 	public void testGetPoint()
 	{
 		final Point screenpoint = ScreenSizeExtensions.getPoint();
-		this.result = screenpoint.x == ScreenSizeExtensions.getScreenWidth();
-		AssertJUnit.assertTrue("", this.result);
+		actual = screenpoint.x == ScreenSizeExtensions.getScreenWidth();
+		AssertJUnit.assertTrue("", actual);
 
-		this.result = screenpoint.y == ScreenSizeExtensions.getScreenHeight();
-		AssertJUnit.assertTrue("", this.result);
+		actual = screenpoint.y == ScreenSizeExtensions.getScreenHeight();
+		AssertJUnit.assertTrue("", actual);
 	}
 
 	/**
@@ -133,8 +133,8 @@ public class ScreenSizeExtensionsTest extends BaseTestCase
 	{
 		final int expected = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		final int compare = ScreenSizeExtensions.getScreenHeight();
-		this.result = expected == compare;
-		AssertJUnit.assertTrue("", this.result);
+		actual = expected == compare;
+		AssertJUnit.assertTrue("", actual);
 	}
 
 	/**
@@ -147,8 +147,8 @@ public class ScreenSizeExtensionsTest extends BaseTestCase
 	{
 		final int expected = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		final int compare = ScreenSizeExtensions.getScreenWidth();
-		this.result = expected == compare;
-		AssertJUnit.assertTrue("", this.result);
+		actual = expected == compare;
+		AssertJUnit.assertTrue("", actual);
 	}
 
 }
