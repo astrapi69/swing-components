@@ -4,6 +4,10 @@
 Version 4.28-SNAPSHOT
 -------------
 
+ADDED:
+ 
+- new DocumentFilter for integer arrays created
+
 CHANGED:
 
 - update of jcommons-lang version to 4.34

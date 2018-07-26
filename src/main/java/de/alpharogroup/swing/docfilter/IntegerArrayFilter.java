@@ -42,7 +42,6 @@ public class IntegerArrayFilter extends DocumentFilter
 	public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr)
 		throws BadLocationException
 	{
-
 		Document doc = fb.getDocument();
 		StringBuilder sb = new StringBuilder();
 		sb.append(doc.getText(0, doc.getLength()));
@@ -131,4 +130,5 @@ public class IntegerArrayFilter extends DocumentFilter
 			return false;
 		}
 	}
+
 }
