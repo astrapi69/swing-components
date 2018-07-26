@@ -58,7 +58,10 @@ public class IntegerArrayFilter extends DocumentFilter
 	}
 
 	/**
-	 * Callback method when an validation error occurs
+	 * Callback method when an validation error occurs.
+	 *
+	 * @param text
+	 *            the text to validate
 	 */
 	public void onValidationError(String text)
 	{
