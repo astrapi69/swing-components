@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/lightblueseas/swing-components.svg?branch=master)](https://travis-ci.org/lightblueseas/swing-components)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components)
 [![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/swing-components.svg)](http://www.javadoc.io/doc/de.alpharogroup/swing-components)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 Several swing components and utilities
 
@@ -21,9 +22,13 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 
 Than you can add the dependency to your dependencies:
 
+	<properties>
+			...
 		<!-- SWING-COMPONENTS version -->
-		<swing-components.version>4.27</swing-components.version>
-
+		<swing-components.version>4.28</swing-components.version>
+			...
+	</properties>
+			...
 		<dependencies>
 			...
             <!-- SWING-COMPONENTS DEPENDENCY -->
@@ -35,6 +40,15 @@ Than you can add the dependency to your dependencies:
 			...
 		</dependencies>
 
+## Semantic Versioning
+
+The versions of swing-components are maintained with the Semantic Versioning guidelines.
+
+Release version numbers will be incremented in the following format:
+
+`<major>.<minor>.<patch>`
+
+For detailed information on versioning you can visit the [wiki page](https://github.com/lightblueseas/mvn-parent-projects/wiki/Semantic-Versioning).
 
 ## Want to Help and improve it? ###
 
@@ -96,7 +110,3 @@ Commercial
 |:-:|
 |![Travis CI](https://travis-ci.com/images/logos/TravisCI-Full-Color.png)|
 |Many thanks to [Travis CI](https://travis-ci.org) for providing a free continuous integration service for open source projects.|
-
-
-
-

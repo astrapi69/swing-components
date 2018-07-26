@@ -101,8 +101,7 @@ public class NewPasswordFormPanel extends javax.swing.JPanel
 			.addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout
 				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addComponent(lblSetPwHeader, javax.swing.GroupLayout.DEFAULT_SIZE,
-					javax.swing.GroupLayout.DEFAULT_SIZE,
-					Short.MAX_VALUE)
+					javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 				.addGroup(layout.createSequentialGroup()
 					.addGroup(layout
 						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

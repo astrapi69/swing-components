@@ -112,13 +112,12 @@ public class NewAddressFormPanel extends javax.swing.JPanel
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
-		layout.setHorizontalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
-				.createSequentialGroup().addContainerGap().addGroup(layout
-					.createParallelGroup(
-						javax.swing.GroupLayout.Alignment.LEADING)
-					.addGroup(layout.createSequentialGroup().addGroup(layout
-						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+		layout.setHorizontalGroup(layout
+			.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+					.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 						.addGroup(layout
 							.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 							.addComponent(lblNewAddressHeader, javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -135,28 +134,27 @@ public class NewAddressFormPanel extends javax.swing.JPanel
 								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addComponent(lblCity, javax.swing.GroupLayout.DEFAULT_SIZE, 220,
 							Short.MAX_VALUE))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(layout
-							.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-							.addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-							.addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-							.addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-							.addComponent(txtStreetnumber, javax.swing.GroupLayout.PREFERRED_SIZE,
-								250, javax.swing.GroupLayout.PREFERRED_SIZE)
-							.addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-							.addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING,
-								javax.swing.GroupLayout.PREFERRED_SIZE, 250,
-								javax.swing.GroupLayout.PREFERRED_SIZE)))
-					.addGroup(layout.createSequentialGroup()
-						.addComponent(lblCountry, javax.swing.GroupLayout.DEFAULT_SIZE, 220,
-							Short.MAX_VALUE)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
+					.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
+							javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
+							javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
+							javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtStreetnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
+							javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
+							javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtCity, javax.swing.GroupLayout.Alignment.TRAILING,
+							javax.swing.GroupLayout.PREFERRED_SIZE, 250,
 							javax.swing.GroupLayout.PREFERRED_SIZE)))
+				.addGroup(layout.createSequentialGroup()
+					.addComponent(lblCountry, javax.swing.GroupLayout.DEFAULT_SIZE, 220,
+						Short.MAX_VALUE)
+					.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
+						javax.swing.GroupLayout.PREFERRED_SIZE)))
 				.addContainerGap()));
 		layout
 			.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -104,14 +104,14 @@ public class CloseWindowTest extends BaseTestCase
 		final WindowEvent we = new WindowEvent(this.frame, this.frame.getY());
 
 		this.disposeWindow.windowClosed(we);
-		this.result = this.frame.isVisible();
-		AssertJUnit.assertFalse("", this.result);
+		actual = this.frame.isVisible();
+		AssertJUnit.assertFalse("", actual);
 
-		this.result = this.frame.isShowing();
-		AssertJUnit.assertFalse("", this.result);
+		actual = this.frame.isShowing();
+		AssertJUnit.assertFalse("", actual);
 
-		this.result = this.frame.isActive();
-		AssertJUnit.assertFalse("", this.result);
+		actual = this.frame.isActive();
+		AssertJUnit.assertFalse("", actual);
 	}
 
 	/**
@@ -142,17 +142,17 @@ public class CloseWindowTest extends BaseTestCase
 		final WindowEvent we = new WindowEvent(this.frame, this.frame.getX());
 
 		this.disposeWindow.windowClosing(we);
-		this.result = this.frame.isVisible();
-		AssertJUnit.assertFalse("", this.result);
+		actual = this.frame.isVisible();
+		AssertJUnit.assertFalse("", actual);
 
-		this.result = this.frame.isShowing();
-		AssertJUnit.assertFalse("", this.result);
+		actual = this.frame.isShowing();
+		AssertJUnit.assertFalse("", actual);
 
-		this.result = this.frame.isFocused();
-		AssertJUnit.assertFalse("", this.result);
+		actual = this.frame.isFocused();
+		AssertJUnit.assertFalse("", actual);
 
-		this.result = this.frame.isActive();
-		AssertJUnit.assertFalse("", this.result);
+		actual = this.frame.isActive();
+		AssertJUnit.assertFalse("", actual);
 
 	}
 

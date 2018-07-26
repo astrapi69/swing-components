@@ -1,6 +1,25 @@
 ## Change log
 ----------------------
 
+Version 4.28
+-------------
+
+ADDED:
+ 
+- new DocumentFilter for integer arrays created
+
+CHANGED:
+
+- update of parent version to 4
+- update of jcommons-lang version to 4.34
+- update of email-tails version to 4.18
+- update of file-worker version to 4.22
+- update of test-objects version to 4.28
+- update of vintage-time version to 4.12
+- update of randomizer-core version to 5.4
+- update of silly-collections version to 4.33
+- update of jobject-extensions version to 1.12
+
 Version 4.27
 -------------
 

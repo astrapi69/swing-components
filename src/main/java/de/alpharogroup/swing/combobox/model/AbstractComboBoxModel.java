@@ -35,6 +35,7 @@ import javax.swing.ComboBoxModel;
 import de.alpharogroup.check.Argument;
 import de.alpharogroup.collections.array.ArrayExtensions;
 import de.alpharogroup.collections.list.ListExtensions;
+import de.alpharogroup.collections.list.ListFactory;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -71,7 +72,7 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	 */
 	public AbstractComboBoxModel()
 	{
-		this(ListExtensions.newArrayList());
+		this(ListFactory.newArrayList());
 	}
 
 	/**
@@ -185,7 +186,7 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	 */
 	public void setComboSet(final Set<T> set)
 	{
-		setComboList(ListExtensions.newArrayList(set));
+		setComboList(ListFactory.newArrayList(set));
 	}
 
 	/**
