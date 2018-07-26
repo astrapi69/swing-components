@@ -1,7 +1,7 @@
 ## Change log
 ----------------------
 
-Version 4.28-SNAPSHOT
+Version 4.28
 -------------
 
 ADDED:
@@ -10,6 +10,7 @@ ADDED:
 
 CHANGED:
 
+- update of parent version to 4
 - update of jcommons-lang version to 4.34
 - update of email-tails version to 4.18
 - update of file-worker version to 4.22
