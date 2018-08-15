@@ -32,33 +32,33 @@ import java.util.regex.Pattern;
 public enum OS
 {
 
-	/** The WINDOWS. */
-	WINDOWS("Windows"),
+	/** The LINUX. */
+	LINUX("Linux"),
 
 	/** The MAC. */
 	MAC("Mac OS"),
 
-	/** The LINUX. */
-	LINUX("Linux"),
+	/** The OTHER. */
+	OTHER("Other"),
 
 	/** The UNIX. */
 	UNIX("Unix"),
 
-	/** The OTHER. */
-	OTHER("Other");
+	/** The WINDOWS. */
+	WINDOWS("Windows");
 
-
-	/** The Constant OS_NAME. */
-	private static final String OS_NAME = "os.name";
 
 	/** The Constant LINUX_PATTERN. */
 	private static final Pattern LINUX_PATTERN = Pattern.compile(".*[L|l]inux.*");
 
-	/** The Constant WINDOWS_PATTERN. */
-	private static final Pattern WINDOWS_PATTERN = Pattern.compile(".*[W|w]indows.*");
-
 	/** The Constant MAC_PATTERN. */
 	private static final Pattern MAC_PATTERN = Pattern.compile("mac|darwin");
+
+	/** The Constant OS_NAME. */
+	private static final String OS_NAME = "os.name";
+
+	/** The Constant WINDOWS_PATTERN. */
+	private static final Pattern WINDOWS_PATTERN = Pattern.compile(".*[W|w]indows.*");
 
 	public static OS get()
 	{

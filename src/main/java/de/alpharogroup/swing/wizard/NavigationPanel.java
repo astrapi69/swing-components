@@ -44,17 +44,17 @@ public class NavigationPanel<T> extends BasePanel<T>
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The next button. */
-	private JButton btnNext;
-
-	/** The previous button. */
-	private JButton btnPrevious;
-
 	/** The cancel button. */
 	private JButton btnCancel;
 
 	/** The finish button. */
 	private JButton btnFinish;
+
+	/** The next button. */
+	private JButton btnNext;
+
+	/** The previous button. */
+	private JButton btnPrevious;
 
 	/**
 	 * Instantiates a new {@link NavigationPanel}.

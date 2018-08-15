@@ -47,9 +47,9 @@ public class ThreadsTableModel extends BaseTableModel<ThreadDataBean>
 
 	private Object lock;
 
-	private Thread updateRunningThreads;
-
 	private volatile boolean running;
+
+	private Thread updateRunningThreads;
 
 	/**
 	 * Instantiates a new {@link ThreadsTableModel} object.

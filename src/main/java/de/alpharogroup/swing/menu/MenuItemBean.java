@@ -43,7 +43,7 @@ import lombok.ToString;
 @Builder(toBuilder = true)
 public class MenuItemBean
 {
-	private String label;
-	private String command;
 	private ActionListener actionListener;
+	private String command;
+	private String label;
 }

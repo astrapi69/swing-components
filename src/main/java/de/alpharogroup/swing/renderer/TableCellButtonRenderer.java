@@ -38,13 +38,13 @@ import javax.swing.table.TableCellRenderer;
 public class TableCellButtonRenderer extends JButton implements TableCellRenderer
 {
 
+	private static final String BUTTON_BACKGROUND_COLOR = "Button.background";
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	private static final String BUTTON_BACKGROUND_COLOR = "Button.background";
-
-	private Color foreground;
 	private Color backround;
+	private Color foreground;
 
 	public TableCellButtonRenderer()
 	{

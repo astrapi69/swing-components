@@ -48,13 +48,13 @@ public class ShuffleTablePanel<T> extends BasePanel<List<T>>
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	protected JXButton btnAddAll;
-
 	protected JXButton btnAdd;
 
-	protected JXButton btnRemoveAll;
+	protected JXButton btnAddAll;
 
 	protected JXButton btnRemove;
+
+	protected JXButton btnRemoveAll;
 
 	protected JXLabel lblAvailableElements;
 
@@ -64,11 +64,11 @@ public class ShuffleTablePanel<T> extends BasePanel<List<T>>
 
 	protected JScrollPane scrPnTblSelectedElements;
 
+	protected GenericShuffleJXTable<T> shuffleTable;
+
 	protected GenericJXTable<T> tblAvailableElements;
 
 	protected GenericJXTable<T> tblSelectedElements;
-
-	protected GenericShuffleJXTable<T> shuffleTable;
 
 	public ShuffleTablePanel()
 	{

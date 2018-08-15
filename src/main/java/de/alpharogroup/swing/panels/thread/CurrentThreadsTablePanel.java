@@ -43,9 +43,9 @@ public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 
 	private static final long serialVersionUID = 1L;
 
-	private GenericJXTable<ThreadDataBean> threadTable;
-
 	private JScrollPane scrThreadTable;
+
+	private GenericJXTable<ThreadDataBean> threadTable;
 
 	public CurrentThreadsTablePanel()
 	{

@@ -53,20 +53,23 @@ public class GridBagLayoutModel implements Serializable
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The gbl. */
-	private final GridBagLayout gridBagLayout;
-
-	/** The gbc. */
-	private final GridBagConstraints gridBagConstraints;
-
 	/** The anchor. */
 	private final int anchor;
 
 	/** The fill. */
 	private final int fill;
 
-	/** The insets. */
-	private final InsetsModel insets;
+	/** The gbc. */
+	private final GridBagConstraints gridBagConstraints;
+
+	/** The gbl. */
+	private final GridBagLayout gridBagLayout;
+
+	/** The gridheight. */
+	private final int gridheight;
+
+	/** The gridwidth. */
+	private final int gridwidth;
 
 	/** The gridx. */
 	private final int gridx;
@@ -74,17 +77,11 @@ public class GridBagLayoutModel implements Serializable
 	/** The gridy. */
 	private final int gridy;
 
-	/** The gridwidth. */
-	private final int gridwidth;
+	/** The horizontal strut. */
+	private final int horizontalStrut;
 
-	/** The gridheight. */
-	private final int gridheight;
-
-	/** The weightx. */
-	private final double weightx;
-
-	/** The weighty. */
-	private final double weighty;
+	/** The insets. */
+	private final InsetsModel insets;
 
 	/** The ipadx. */
 	private final int ipadx;
@@ -92,15 +89,18 @@ public class GridBagLayoutModel implements Serializable
 	/** The ipady. */
 	private final int ipady;
 
-	/** The horizontal strut. */
-	private final int horizontalStrut;
-
-	/** The vertical strut. */
-	private final int verticalStrut;
-
 	/** The layout component. */
 	private final Component layoutComponent;
 
 	/** The panel to add. */
 	private final Container parent;
+
+	/** The vertical strut. */
+	private final int verticalStrut;
+
+	/** The weightx. */
+	private final double weightx;
+
+	/** The weighty. */
+	private final double weighty;
 }

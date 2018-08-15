@@ -34,9 +34,9 @@ public class LoginModelBean implements Serializable
 	 */
 	private static final long serialVersionUID = -1018790761657962672L;
 
-	private String username;
-
 	private String password;
+
+	private String username;
 
 	public String getPassword()
 	{

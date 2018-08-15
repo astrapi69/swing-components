@@ -46,6 +46,8 @@ public class KeyPadPanel extends Panel
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -1L;
 	@Getter
+	private Button button0;
+	@Getter
 	private Button button1;
 	@Getter
 	private Button button2;
@@ -64,19 +66,17 @@ public class KeyPadPanel extends Panel
 	@Getter
 	private Button button9;
 	@Getter
-	private Button button0;
-	@Getter
-	private Button buttonTable;
-	@Getter
 	private Button buttonCancel;
-	@Getter
-	private Button buttonStorno;
 	@Getter
 	private Button buttonEnter;
 	@Getter
+	private Button buttonMinus;
+	@Getter
 	private Button buttonPlus;
 	@Getter
-	private Button buttonMinus;
+	private Button buttonStorno;
+	@Getter
+	private Button buttonTable;
 	@Getter
 	private TextArea textAreaDisplay;
 
