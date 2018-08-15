@@ -4,6 +4,15 @@
 Version 4.29-SNAPSHOT
 -------------
 
+ADDED:
+ 
+- new JTreePanel class created for JTree
+
+CHANGED:
+
+- update of parent version to 4.1
+- update of jcommons-lang version to 4.35
+- update of file-worker version to 4.23
 
 Version 4.28
 -------------
