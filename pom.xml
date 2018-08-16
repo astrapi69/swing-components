@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -48,6 +49,8 @@
 		<!-- JOBJECT-EXTENSIONS versions -->
 		<jobject-extensions.version>1.12</jobject-extensions.version>
 		<jobject-core.version>${jobject-extensions.version}</jobject-core.version>
+		<!-- GEN-TREE version -->
+		<gen-tree.version>4.11</gen-tree.version>
 	</properties>
 
 	<licenses>
@@ -179,6 +182,12 @@
 				<artifactId>jobject-core</artifactId>
 				<version>${jobject-core.version}</version>
 			</dependency>
+			<!-- GEN-TREE DEPENDENCY -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>gen-tree</artifactId>
+				<version>${gen-tree.version}</version>
+			</dependency>
 
 		</dependencies>
 
@@ -269,6 +278,12 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jobject-core</artifactId>
+		</dependency>
+		<!-- GEN-TREE DEPENDENCY -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>gen-tree</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tree.panel;
+package de.alpharogroup.swing.panels.tree;
 
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
