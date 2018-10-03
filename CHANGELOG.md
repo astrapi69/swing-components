@@ -7,6 +7,7 @@ Version 4.29-SNAPSHOT
 ADDED:
  
 - new JTreePanel class created for JTree
+- new RangeDocument class created for constraint the range of a document
 
 CHANGED:
 
