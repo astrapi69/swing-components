@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.docfilter;
+package de.alpharogroup.swing.document.filter;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -31,8 +31,6 @@ import javax.swing.text.DocumentFilter;
 
 /**
  * The class {@link IntegerArrayFilter} provide a document filter that accepts only int arrays
- * @deprecated use instead the same name class in package de.alpharogroup.swing.document.filter
- * Note: will be removed with next minor release
  */
 public class IntegerArrayFilter extends DocumentFilter
 {
