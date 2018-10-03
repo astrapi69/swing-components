@@ -43,7 +43,6 @@ import javax.swing.tree.TreePath;
 
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
-import de.alpharogroup.swing.panels.tree.JTreePanel;
 import de.alpharogroup.tree.TreeElement;
 
 public class TestTreePanel extends JTreePanel<TreeElement>

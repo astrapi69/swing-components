@@ -30,37 +30,35 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
-import de.alpharogroup.math.MathExtensions;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 
 /**
- * The class {@link RangeDocument} can take any character in the range of the given minimum and
- * maximum
+ * The class {@link RegularExpressionDocument} can take any character that is specified in the given
+ * regular expression
  */
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class RangeDocument extends PlainDocument
+public class RegularExpressionDocument extends PlainDocument
 {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	int maximum;
-	int minimum;
+	/** The regular expression */
+	String regex;
 
 	/**
-	 * Instantiates a new {@link RangeDocument} object
+	 * Instantiates a new {@link RegularExpressionDocument} object.
 	 *
-	 * @param minimum
-	 *            the minimum
-	 * @param maximum
-	 *            the maximum
+	 * @param regex
+	 *            the regular expression
 	 */
-	public RangeDocument(int minimum, int maximum)
+	public RegularExpressionDocument(@NonNull String regex)
 	{
-		this.minimum = minimum;
-		this.maximum = maximum;
+		this.regex = regex;
 	}
 
 	/**
@@ -122,7 +120,7 @@ public class RangeDocument extends PlainDocument
 	}
 
 	/**
-	 * Validate the given value by this {@link RangeDocument} object
+	 * Validate the given value by this {@link RegularExpressionDocument} object
 	 * 
 	 * @param proposedValue
 	 *            the proposed value
@@ -132,7 +130,7 @@ public class RangeDocument extends PlainDocument
 	 */
 	public String validate(String proposedValue) throws IllegalArgumentException
 	{
-		if (MathExtensions.isBetween(minimum, maximum, proposedValue.length(), true, true))
+		if (proposedValue.matches(getRegex()))
 		{
 			return proposedValue;
 		}
