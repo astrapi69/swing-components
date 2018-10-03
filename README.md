@@ -98,6 +98,7 @@ Open Source:
  * [OpenSwing](http://oswing.sourceforge.net/) OpenSwing is an open-source suite of advanced graphics components based on Swing toolkit
  * [JCalendar](https://toedter.com/jcalendar/) JCalendar is a Java date chooser bean for graphically picking a date.
  * [FlexDock](https://github.com/opencollab/flexdock) FlexDock is a Java docking framework for use in cross-platform Swing applications
+ * [oxbow](https://github.com/eugener/oxbow) Swing UI Enhacements
 
 Commercial
 
