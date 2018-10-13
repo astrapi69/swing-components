@@ -10,6 +10,8 @@ ADDED:
 - new RangeDocument class created for constraint the range of a document
 - new RegularExpressionDocument class created for constraint the input of a document with the given regular expression
 - new NumberValuesDocument class created for constraint the input of a document only for numbers separated with comma or semicolon
+- new Table Editor for delete rows created
+- new lombok configuration file created
 
 CHANGED:
 
