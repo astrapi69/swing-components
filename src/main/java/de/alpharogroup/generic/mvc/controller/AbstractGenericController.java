@@ -39,17 +39,17 @@ import java.util.Map;
 public abstract class AbstractGenericController<M, V> implements Controller<M, V>, ActionListener
 {
 
+	/** The children. */
+	private Map<String, Controller<M, V>> children;
+
 	/** The model. */
 	private M model;
-
-	/** The view. */
-	private V view;
 
 	/** The parent. */
 	private Controller<M, V> parent;
 
-	/** The children. */
-	private Map<String, Controller<M, V>> children;
+	/** The view. */
+	private V view;
 
 	/**
 	 * Instantiates a new abstract generic controller.

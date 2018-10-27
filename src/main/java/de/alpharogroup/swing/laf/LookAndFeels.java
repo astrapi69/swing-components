@@ -42,16 +42,16 @@ public enum LookAndFeels
 	/** The MOTIF. */
 	MOTIF(LookAndFeels.LOOK_AND_FEEL_MOTIF),
 
-	/** The WINDOWS. */
-	WINDOWS(LookAndFeels.LOOK_AND_FEEL_WINDOWS),
-
 	/** The SYSTEM. */
-	SYSTEM(UIManager.getSystemLookAndFeelClassName());
+	SYSTEM(UIManager.getSystemLookAndFeelClassName()),
 
-	private static final String LOOK_AND_FEEL_WINDOWS = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+	/** The WINDOWS. */
+	WINDOWS(LookAndFeels.LOOK_AND_FEEL_WINDOWS);
+
+	private static final String LOOK_AND_FEEL_METAL = "javax.swing.plaf.metal.MetalLookAndFeel";
 
 	private static final String LOOK_AND_FEEL_MOTIF = "com.sun.java.swing.plaf.motif.MotifLookAndFeel";
-	private static final String LOOK_AND_FEEL_METAL = "javax.swing.plaf.metal.MetalLookAndFeel";
+	private static final String LOOK_AND_FEEL_WINDOWS = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
 
 	public static void setLookAndFeel(final String aLook, final Component component)
 		throws ClassNotFoundException, InstantiationException, IllegalAccessException,

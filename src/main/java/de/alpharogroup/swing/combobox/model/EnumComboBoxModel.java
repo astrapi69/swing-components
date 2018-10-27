@@ -42,11 +42,11 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The value map for the enum values. */
-	private final Map<String, E> valueMap;
-
 	/** The enum class. */
 	private final Class<E> enumClass;
+
+	/** The value map for the enum values. */
+	private final Map<String, E> valueMap;
 
 	/**
 	 * Instantiates a new {@link EnumComboBoxModel} from the given enum class.

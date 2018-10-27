@@ -51,26 +51,11 @@ public class NetworkSettingsPanel extends BasePanel<NetworkSettingsModelBean>
 	 */
 	private static final long serialVersionUID = 1185900387188091319L;
 
-	/** The TextField host or ipaddress. */
-	private JTextField txtHostOrIpaddress;
+	/** The ButtonGroup proxy settings. */
+	private ButtonGroup btngrpProxySettings;
 
-	/** The TextField port. */
-	private JTextField txtPort;
-
-	/** The LayeredPane for no proxy. */
-	private JLayeredPane lpNoProxy;
-
-	/** The LayeredPane for the host or ipaddress. */
-	private JLayeredPane lpHostOrIpaddress;
-
-	/** The LayeredPane for use system settings. */
-	private JLayeredPane lpUseSystemSettings;
-
-	/** The RadioButton manual proxy configuration. */
-	private JRadioButton rdbtnManualProxyConfiguration;
-
-	/** The RadioButton use system settings. */
-	private JRadioButton rdbtnUseSystemSettings;
+	/** The CheckBox socks proxy. */
+	private JCheckBox chckbxSocksProxy;
 
 	/** The Label host or ipaddress. */
 	private JLabel lblHostOrIpaddress;
@@ -78,14 +63,29 @@ public class NetworkSettingsPanel extends BasePanel<NetworkSettingsModelBean>
 	/** The Label port. */
 	private JLabel lblPort;
 
+	/** The LayeredPane for the host or ipaddress. */
+	private JLayeredPane lpHostOrIpaddress;
+
+	/** The LayeredPane for no proxy. */
+	private JLayeredPane lpNoProxy;
+
+	/** The LayeredPane for use system settings. */
+	private JLayeredPane lpUseSystemSettings;
+
+	/** The RadioButton manual proxy configuration. */
+	private JRadioButton rdbtnManualProxyConfiguration;
+
 	/** The RadioButton no proxy. */
 	private JRadioButton rdbtnNoProxy;
 
-	/** The ButtonGroup proxy settings. */
-	private ButtonGroup btngrpProxySettings;
+	/** The RadioButton use system settings. */
+	private JRadioButton rdbtnUseSystemSettings;
 
-	/** The CheckBox socks proxy. */
-	private JCheckBox chckbxSocksProxy;
+	/** The TextField host or ipaddress. */
+	private JTextField txtHostOrIpaddress;
+
+	/** The TextField port. */
+	private JTextField txtPort;
 
 	/**
 	 * Create a new instance from the NetworkSettingsPanel.

@@ -35,9 +35,9 @@ public class LoginController extends AbstractGenericController<LoginModel, Login
 		WindowListener
 {
 
-	private LoginPanel loginPanel;
-
 	private final LoginDialog dialog;
+
+	private LoginPanel loginPanel;
 
 	public LoginController(final LoginDialog dialog)
 	{

@@ -69,9 +69,9 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 
 	}
 
-	private GenericJXTable<KeyValuePair<String, String>> table;
-
 	private JScrollPane scrTable;
+
+	private GenericJXTable<KeyValuePair<String, String>> table;
 
 	public TableWithButtonsPanel(final Model<List<KeyValuePair<String, String>>> model)
 	{

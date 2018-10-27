@@ -30,8 +30,20 @@ package de.alpharogroup.swing.browser;
 public enum Browsers
 {
 
+	/** The EPIPHANY. */
+	EPIPHANY("epiphany"),
+
 	/** The FIREFOX. */
 	FIREFOX("firefox"),
+
+	/** The GALEON. */
+	GALEON("galeon"),
+
+	/** The KAZEHAKASE. */
+	KAZEHAKASE("kazehakase"),
+
+	/** The KONQUEROR. */
+	KONQUEROR("konqueror"),
 
 	/** The MOZILLA. */
 	MOZILLA("mozilla"),
@@ -42,20 +54,8 @@ public enum Browsers
 	/** The OPERA. */
 	OPERA("opera"),
 
-	/** The KONQUEROR. */
-	KONQUEROR("konqueror"),
-
-	/** The EPIPHANY. */
-	EPIPHANY("epiphany"),
-
 	/** The SEAMONKEY. */
-	SEAMONKEY("seamonkey"),
-
-	/** The GALEON. */
-	GALEON("galeon"),
-
-	/** The KAZEHAKASE. */
-	KAZEHAKASE("kazehakase");
+	SEAMONKEY("seamonkey");
 
 	/** The name from the browser. */
 	private final String browserName;

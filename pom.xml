@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-java-parent</artifactId>
-		<version>4</version>
+		<version>4.1</version>
 		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>swing-components</artifactId>
-	<version>4.28</version>
+	<version>4.29</version>
 
 	<name>${project.artifactId}</name>
 
@@ -26,13 +27,13 @@
 		<javahelp.version>2.0.05</javahelp.version>
 		<email-tails.version>4.18</email-tails.version>
 		<test-objects.version>4.28</test-objects.version>
-		<file-worker.version>4.22</file-worker.version>
-		<jcommons-lang.version>4.34</jcommons-lang.version>
+		<file-worker.version>4.23</file-worker.version>
+		<jcommons-lang.version>4.35</jcommons-lang.version>
 		<vintage-time.version>4.12</vintage-time.version>
 		<randomizer-core.version>5.4</randomizer-core.version>
-		<silly-collections.version>4.33</silly-collections.version>
+		<silly-collections.version>4.34.1</silly-collections.version>
 		<!-- MODEL-DATA version -->
-		<model-data.version>1.5.0</model-data.version>
+		<model-data.version>1.6</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
 		<model-object.version>${model-data.version}</model-object.version>
 		<model-type-safe.version>${model-data.version}</model-type-safe.version>
@@ -48,6 +49,8 @@
 		<!-- JOBJECT-EXTENSIONS versions -->
 		<jobject-extensions.version>1.12</jobject-extensions.version>
 		<jobject-core.version>${jobject-extensions.version}</jobject-core.version>
+		<!-- GEN-TREE version -->
+		<gen-tree.version>4.11</gen-tree.version>
 	</properties>
 
 	<licenses>
@@ -179,6 +182,12 @@
 				<artifactId>jobject-core</artifactId>
 				<version>${jobject-core.version}</version>
 			</dependency>
+			<!-- GEN-TREE DEPENDENCY -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>gen-tree</artifactId>
+				<version>${gen-tree.version}</version>
+			</dependency>
 
 		</dependencies>
 
@@ -269,6 +278,12 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jobject-core</artifactId>
+		</dependency>
+		<!-- GEN-TREE DEPENDENCY -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>gen-tree</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

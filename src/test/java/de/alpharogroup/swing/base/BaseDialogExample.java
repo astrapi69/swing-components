@@ -56,15 +56,15 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		dialog.setVisible(true);
 	}
 
-	NewPasswordPanel newPasswordPanel;
-
 	/** The button close. */
 	private JButton buttonClose;
 
 	Panel buttons;
 
-
 	Container container;
+
+
+	NewPasswordPanel newPasswordPanel;
 
 	public BaseDialogExample(final Frame owner, final String title, final boolean modal,
 		final Model<ChangePasswordModelBean> model)

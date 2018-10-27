@@ -46,13 +46,13 @@ public class GenericShuffleJTable<T> implements Serializable
 	@Getter
 	private final GenericJTable<T> leftTable;
 
-	/** The right table. */
-	@Getter
-	private final GenericJTable<T> rightTable;
-
 	/** The model. */
 	@Getter
 	private final GenericShuffleTableModel<T> model;
+
+	/** The right table. */
+	@Getter
+	private final GenericJTable<T> rightTable;
 
 	/**
 	 * Instantiates a new {@link GenericShuffleJTable}.

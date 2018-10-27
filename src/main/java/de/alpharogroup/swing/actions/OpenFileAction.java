@@ -43,13 +43,13 @@ public abstract class OpenFileAction extends AbstractAction
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The parent component. */
-	@Getter
-	private final Component parent;
-
 	/** The file chooser. */
 	@Getter
 	private JFileChooser fileChooser;
+
+	/** The parent component. */
+	@Getter
+	private final Component parent;
 
 	/**
 	 * Instantiates a new {@link OpenFileAction} object.

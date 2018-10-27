@@ -32,22 +32,22 @@ import de.alpharogroup.swing.table.model.GenericTableModel;
 public class PermissionsTableModel extends GenericTableModel<Permission>
 {
 
+	/** The Constant DESCRIPTION. */
+	public static final String DESCRIPTION = "Description";
+
+	/** The Constant NAME. */
+	public static final String NAME = "Name";
+
 	/**
 	 * The generated constant serialVersionUID.
 	 */
 	private static final long serialVersionUID = 4876488625090262508L;
 
-	/** The Constant NAME. */
-	public static final String NAME = "Name";
-
-	/** The Constant DESCRIPTION. */
-	public static final String DESCRIPTION = "Description";
+	/** The can edit. */
+	boolean[] canEdit = new boolean[] { false, false };
 
 	/** The column names. */
 	private final String[] columnNames = { NAME, DESCRIPTION };
-
-	/** The can edit. */
-	boolean[] canEdit = new boolean[] { false, false };
 
 	/**
 	 * (non-Javadoc).

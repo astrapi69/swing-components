@@ -22,58 +22,32 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.network;
+package de.alpharogroup.swing.panels.tree;
 
-import java.io.Serializable;
+import java.awt.Frame;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import de.alpharogroup.layout.CloseWindow;
 
 /**
- * The class {@link NetworkSettingsModelBean}.
+ * The test class for {@link JTreePanel}
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class NetworkSettingsModelBean implements Serializable
+public class JTreePanelTest
 {
 
+
 	/**
-	 * The Constant serialVersionUID.
+	 * The main method.
+	 *
+	 * @param args
+	 *            the arguments
 	 */
-	private static final long serialVersionUID = 3097232755356031060L;
-
-	/** The host. */
-	private String host;
-
-	/** The password. */
-	private String password;
-
-	/** The port. */
-	private Integer port;
-
-	/** The flag proxy is used. */
-	private Boolean proxy;
-
-	/** The proxy authetication. */
-	private Boolean proxyAuthetication;
-
-	/** The flag if the password should be remembered. */
-	private Boolean rememberPassword;
-
-	/** The flag if socks is used. */
-	private Boolean socks;
-
-	/** The username. */
-	private String username;
+	public static void main(final String[] args)
+	{
+		final Frame frame = new Frame("JTreePanel");
+		frame.addWindowListener(new CloseWindow());
+		frame.add(new TestTreePanel());
+		frame.pack();
+		frame.setVisible(true);
+	}
 
 }

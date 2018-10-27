@@ -54,10 +54,6 @@ public class ChangePasswordModelBean implements Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/** The users name of a user. */
-	@Builder.Default
-	private String username = "";
-
 	/** The current password of a user. */
 	@Builder.Default
 	private String currentPassword = "";
@@ -69,5 +65,9 @@ public class ChangePasswordModelBean implements Serializable
 	/** The repeated new password of a user. */
 	@Builder.Default
 	private String repeatNewPassword = "";
+
+	/** The users name of a user. */
+	@Builder.Default
+	private String username = "";
 
 }

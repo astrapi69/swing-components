@@ -48,14 +48,14 @@ public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The navigation panel. */
+	private NavigationPanel<WizardModelStateMachine<T>> navigationPanel;
+
 	/** The state machine. */
 	private WizardModelStateMachine<T> stateMachine;
 
 	/** The wizard content panel. */
 	private BaseWizardContentPanel<T> wizardContentPanel;
-
-	/** The navigation panel. */
-	private NavigationPanel<WizardModelStateMachine<T>> navigationPanel;
 
 	/**
 	 * Instantiates a new {@link AbstractWizardPanel}.

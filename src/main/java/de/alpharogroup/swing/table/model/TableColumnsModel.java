@@ -46,12 +46,12 @@ import lombok.ToString;
 public class TableColumnsModel
 {
 
-	/** The column names. */
-	private String[] columnNames;
-
 	/** The flag for the column if they can be edited. */
 	private boolean[] canEdit;
 
 	/** The column classes. */
 	private Class<?>[] columnClasses;
+
+	/** The column names. */
+	private String[] columnNames;
 }

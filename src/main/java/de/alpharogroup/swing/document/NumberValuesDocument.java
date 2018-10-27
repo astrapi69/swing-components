@@ -22,58 +22,53 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.network;
+package de.alpharogroup.swing.document;
 
-import java.io.Serializable;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.NonNull;
 
 /**
- * The class {@link NetworkSettingsModelBean}.
+ * The class {@link NumberValuesDocument} can take any character that is specified in the given
+ * regular expression
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class NetworkSettingsModelBean implements Serializable
+public class NumberValuesDocument extends RegularExpressionDocument
 {
 
+	/** The Constant for the default regular expression. */
+	public static final String DEFAULT_REGEX = "^[0-9,;]+$";
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	/**
-	 * The Constant serialVersionUID.
+	 * Instantiates a new {@link NumberValuesDocument} object with the default regular expression
 	 */
-	private static final long serialVersionUID = 3097232755356031060L;
+	public NumberValuesDocument()
+	{
+		this(NumberValuesDocument.DEFAULT_REGEX);
+	}
 
-	/** The host. */
-	private String host;
+	/**
+	 * Instantiates a new {@link NumberValuesDocument} object
+	 *
+	 * @param regex
+	 *            the regular expression
+	 */
+	public NumberValuesDocument(@NonNull String regex)
+	{
+		super(regex);
+	}
 
-	/** The password. */
-	private String password;
-
-	/** The port. */
-	private Integer port;
-
-	/** The flag proxy is used. */
-	private Boolean proxy;
-
-	/** The proxy authetication. */
-	private Boolean proxyAuthetication;
-
-	/** The flag if the password should be remembered. */
-	private Boolean rememberPassword;
-
-	/** The flag if socks is used. */
-	private Boolean socks;
-
-	/** The username. */
-	private String username;
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String validate(String proposedValue) throws IllegalArgumentException
+	{
+		if (proposedValue.isEmpty())
+		{
+			return proposedValue;
+		}
+		return super.validate(proposedValue);
+	}
 
 }
