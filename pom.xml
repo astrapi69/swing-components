@@ -12,7 +12,7 @@
 	</parent>
 
 	<artifactId>swing-components</artifactId>
-	<version>4.29-SNAPSHOT</version>
+	<version>4.29</version>
 
 	<name>${project.artifactId}</name>
 
@@ -31,9 +31,9 @@
 		<jcommons-lang.version>4.35</jcommons-lang.version>
 		<vintage-time.version>4.12</vintage-time.version>
 		<randomizer-core.version>5.4</randomizer-core.version>
-		<silly-collections.version>4.33</silly-collections.version>
+		<silly-collections.version>4.34.1</silly-collections.version>
 		<!-- MODEL-DATA version -->
-		<model-data.version>1.5.0</model-data.version>
+		<model-data.version>1.6</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
 		<model-object.version>${model-data.version}</model-object.version>
 		<model-type-safe.version>${model-data.version}</model-type-safe.version>
