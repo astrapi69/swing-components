@@ -22,59 +22,19 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.laf.actions;
+package de.alpharogroup.swing.plaf.actions;
 
 import java.awt.Component;
-import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.UnsupportedLookAndFeelException;
+import de.alpharogroup.swing.plaf.LookAndFeels;
 
-import de.alpharogroup.swing.laf.LookAndFeels;
-
-public class LookAndFeelAction extends AbstractAction
+public class LookAndFeelSynthAction extends LookAndFeelAction
 {
 
 	private static final long serialVersionUID = 1L;
-	private final Component component;
-	private final LookAndFeels lookAndFeel;
 
-	public LookAndFeelAction(final String name, final Component component,
-		final LookAndFeels lookAndFeel)
+	public LookAndFeelSynthAction(final String name, final Component component)
 	{
-		super(name);
-		this.component = component;
-		this.lookAndFeel = lookAndFeel;
+		super(name, component, LookAndFeels.SYNTH);
 	}
-
-	@Override
-	public void actionPerformed(final ActionEvent event)
-	{
-		try
-		{
-			LookAndFeels.setLookAndFeel(this.lookAndFeel.getLookAndFeelName(), this.component);
-		}
-		catch (final ClassNotFoundException exception)
-		{
-			throw new RuntimeException(exception);
-		}
-		catch (final InstantiationException exception)
-		{
-			throw new RuntimeException(exception);
-		}
-		catch (final IllegalAccessException exception)
-		{
-			throw new RuntimeException(exception);
-		}
-		catch (final UnsupportedLookAndFeelException exception)
-		{
-			throw new RuntimeException(exception);
-		}
-	}
-
-	protected Component getComponent()
-	{
-		return component;
-	}
-
 }

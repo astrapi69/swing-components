@@ -4,6 +4,15 @@
 Version 4.30-SNAPSHOT
 -------------
 
+ADDED:
+ 
+- new 'look and feel'action classes created
+
+CHANGED:
+
+- moved 'look and feel' enum and action classes to new package
+- new enum constants added to LookAndFeels enum
+
 Version 4.29
 -------------
 

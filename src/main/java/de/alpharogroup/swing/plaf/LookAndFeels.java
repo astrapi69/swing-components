@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.laf;
+package de.alpharogroup.swing.plaf;
 
 import java.awt.Component;
 
@@ -30,41 +30,63 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.experimental.FieldDefaults;
+
 /**
  * The enum class {@link LookAndFeels} provides constants with the fully qualified Names of look and
  * feel classes.
- * 
- * @deprecated use instead the same name enum class in the new package de.alpharogroup.swing.plaf
- *             <br>
- *             Note: will be removed in the next minor release
  */
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@AllArgsConstructor
 public enum LookAndFeels
 {
 
-	/** The METAL. */
+	/** The GTK look and feel class */
+	GTK(LookAndFeels.LOOK_AND_FEEL_GTK),
+
+	/** The METAL look and feel class */
 	METAL(LookAndFeels.LOOK_AND_FEEL_METAL),
 
-	/** The MOTIF. */
+	/** The MOTIF look and feel class */
 	MOTIF(LookAndFeels.LOOK_AND_FEEL_MOTIF),
 
-	/** The SYSTEM. */
+	/** The MULTI look and feel class */
+	MULTI(LookAndFeels.LOOK_AND_FEEL_MULTI),
+
+	/** The NIMBUS look and feel class */
+	NIMBUS(LookAndFeels.LOOK_AND_FEEL_NIMBUS),
+
+	/** The SYNTH look and feel class */
+	SYNTH(LookAndFeels.LOOK_AND_FEEL_SYNTH),
+
+	/** The SYSTEM look and feel class */
 	SYSTEM(UIManager.getSystemLookAndFeelClassName()),
 
-	/** The WINDOWS. */
+	/** The WINDOWS look and feel class */
 	WINDOWS(LookAndFeels.LOOK_AND_FEEL_WINDOWS);
 
+	private static final String LOOK_AND_FEEL_GTK = "com.sun.java.swing.plaf.gtk.GTKLookAndFeel";
 	private static final String LOOK_AND_FEEL_METAL = "javax.swing.plaf.metal.MetalLookAndFeel";
-
 	private static final String LOOK_AND_FEEL_MOTIF = "com.sun.java.swing.plaf.motif.MotifLookAndFeel";
+	private static final String LOOK_AND_FEEL_MULTI = "javax.swing.plaf.multi.MultiLookAndFeel";
+
+	private static final String LOOK_AND_FEEL_NIMBUS = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
+	private static final String LOOK_AND_FEEL_SYNTH = "javax.swing.plaf.synth.SynthLookAndFeel";
 	private static final String LOOK_AND_FEEL_WINDOWS = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
 
 	/**
-	 * Sets the given {@link LookAndFeels} to the given {@link Component}
+	 * Sets the given {@link LookAndFeels} to the given {@link Component} and returns given
+	 * {@link LookAndFeels}
 	 *
-	 * @param aLook
-	 *            the a look
+	 * @param lookAndFeels
+	 *            the look and feels
 	 * @param component
 	 *            the component
+	 * @return the look and feels
 	 * @throws ClassNotFoundException
 	 *             the class not found exception
 	 * @throws InstantiationException
@@ -73,39 +95,18 @@ public enum LookAndFeels
 	 *             the illegal access exception
 	 * @throws UnsupportedLookAndFeelException
 	 *             the unsupported look and feel exception
-	 * @deprecated use instead {@link LookAndFeels#setLookAndFeel(LookAndFeels, Component)}. <br>
-	 *             Note: will be removed in the next minor release
 	 */
-	public static void setLookAndFeel(final String aLook, final Component component)
-		throws ClassNotFoundException, InstantiationException, IllegalAccessException,
-		UnsupportedLookAndFeelException
+	public static LookAndFeels setLookAndFeel(final @NonNull LookAndFeels lookAndFeels,
+		final @NonNull Component component) throws ClassNotFoundException, InstantiationException,
+		IllegalAccessException, UnsupportedLookAndFeelException
 	{
-		UIManager.setLookAndFeel(aLook);
+		UIManager.setLookAndFeel(lookAndFeels.getLookAndFeelName());
 		SwingUtilities.updateComponentTreeUI(component);
+		return lookAndFeels;
 	}
 
 	/** The look and feel name. */
-	private final String lookAndFeelName;
-
-	/**
-	 * Instantiates a new look and feels.
-	 *
-	 * @param name
-	 *            the name
-	 */
-	LookAndFeels(final String name)
-	{
-		lookAndFeelName = name;
-	}
-
-	/**
-	 * Gets the look and feel name.
-	 *
-	 * @return the look and feel name
-	 */
-	public String getLookAndFeelName()
-	{
-		return lookAndFeelName;
-	}
+	@Getter
+	String lookAndFeelName;
 
 }

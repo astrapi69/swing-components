@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.laf.actions;
+package de.alpharogroup.swing.plaf.actions;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -30,14 +30,19 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import de.alpharogroup.swing.laf.LookAndFeels;
+import de.alpharogroup.swing.plaf.LookAndFeels;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 
+@Getter(AccessLevel.PROTECTED)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class LookAndFeelAction extends AbstractAction
 {
 
 	private static final long serialVersionUID = 1L;
-	private final Component component;
-	private final LookAndFeels lookAndFeel;
+	Component component;
+	LookAndFeels lookAndFeel;
 
 	public LookAndFeelAction(final String name, final Component component,
 		final LookAndFeels lookAndFeel)
@@ -52,7 +57,7 @@ public class LookAndFeelAction extends AbstractAction
 	{
 		try
 		{
-			LookAndFeels.setLookAndFeel(this.lookAndFeel.getLookAndFeelName(), this.component);
+			LookAndFeels.setLookAndFeel(this.lookAndFeel, this.component);
 		}
 		catch (final ClassNotFoundException exception)
 		{

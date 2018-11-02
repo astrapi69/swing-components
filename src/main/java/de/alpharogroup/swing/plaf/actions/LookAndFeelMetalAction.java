@@ -22,37 +22,49 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.laf.actions;
+package de.alpharogroup.swing.plaf.actions;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.metal.DefaultMetalTheme;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+import javax.swing.plaf.metal.OceanTheme;
 
-import de.alpharogroup.swing.laf.LookAndFeels;
+import de.alpharogroup.swing.plaf.LookAndFeels;
 
-public class LookAndFeelAction extends AbstractAction
+public class LookAndFeelMetalAction extends LookAndFeelAction
 {
 
+	private static final String OCEAN_THEME_NAME = "Ocean";
 	private static final long serialVersionUID = 1L;
-	private final Component component;
-	private final LookAndFeels lookAndFeel;
 
-	public LookAndFeelAction(final String name, final Component component,
-		final LookAndFeels lookAndFeel)
+	public LookAndFeelMetalAction(final String name, final Component component)
 	{
-		super(name);
-		this.component = component;
-		this.lookAndFeel = lookAndFeel;
+		super(name, component, LookAndFeels.METAL);
 	}
 
 	@Override
-	public void actionPerformed(final ActionEvent event)
+	public void actionPerformed(final ActionEvent e)
 	{
 		try
 		{
-			LookAndFeels.setLookAndFeel(this.lookAndFeel.getLookAndFeelName(), this.component);
+			UIManager.setLookAndFeel(LookAndFeels.METAL.getLookAndFeelName());
+			SwingUtilities.updateComponentTreeUI(getComponent());
+
+			if (NAME.equals(OCEAN_THEME_NAME))
+			{
+				MetalLookAndFeel.setCurrentTheme(new OceanTheme());
+			}
+			else
+			{
+				MetalLookAndFeel.setCurrentTheme(new DefaultMetalTheme());
+			}
+			UIManager.setLookAndFeel(new MetalLookAndFeel());
+
 		}
 		catch (final ClassNotFoundException exception)
 		{
@@ -70,11 +82,6 @@ public class LookAndFeelAction extends AbstractAction
 		{
 			throw new RuntimeException(exception);
 		}
-	}
 
-	protected Component getComponent()
-	{
-		return component;
 	}
-
 }
