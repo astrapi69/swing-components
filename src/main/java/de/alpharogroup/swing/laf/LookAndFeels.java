@@ -73,8 +73,6 @@ public enum LookAndFeels
 	 *             the illegal access exception
 	 * @throws UnsupportedLookAndFeelException
 	 *             the unsupported look and feel exception
-	 * @deprecated use instead {@link LookAndFeels#setLookAndFeel(LookAndFeels, Component)}. <br>
-	 *             Note: will be removed in the next minor release
 	 */
 	public static void setLookAndFeel(final String aLook, final Component component)
 		throws ClassNotFoundException, InstantiationException, IllegalAccessException,
