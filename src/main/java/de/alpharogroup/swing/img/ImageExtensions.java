@@ -42,14 +42,14 @@ import org.imgscalr.Scalr.Mode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import de.alpharogroup.random.RandomExtensions;
 
@@ -72,28 +72,7 @@ public class ImageExtensions
 
 	/** The logger constant. */
 	private static final Logger LOG = LoggerFactory.getLogger(ImageExtensions.class.getName());
-	
-	    
-    /**
-     * Factory method for create a new {@link PdfPTable} with the given count of columns and the column header names
-     *
-     * @param numColumns
-     *            the count of columns of the table
-     * @param headerNames
-     *            the column header names
-     * @return the new {@link PdfPTable}
-     */
-    public static PdfPTable newPdfPTable(int numColumns, List<String> headerNames) {
-        PdfPTable table = new PdfPTable(numColumns);
-        headerNames.stream().forEach(columnHeaderName -> {
-            PdfPCell header = new PdfPCell();
-            header.setBackgroundColor(BaseColor.LIGHT_GRAY);
-            header.setBorderWidth(2);
-            header.setPhrase(new Phrase(columnHeaderName));
-            table.addCell(header);
-        });
-        return table;
-    }
+
 
 	/**
 	 * Concatenate the given list of BufferedImage objects to one image and returns the concatenated
@@ -226,6 +205,29 @@ public class ImageExtensions
 	{
 		ImageIcon img = new ImageIcon(image.getAbsolutePath());
 		return img;
+	}
+
+	/**
+	 * Factory method for create a new {@link PdfPTable} with the given count of columns and the
+	 * column header names
+	 *
+	 * @param numColumns
+	 *            the count of columns of the table
+	 * @param headerNames
+	 *            the column header names
+	 * @return the new {@link PdfPTable}
+	 */
+	public static PdfPTable newPdfPTable(int numColumns, List<String> headerNames)
+	{
+		PdfPTable table = new PdfPTable(numColumns);
+		headerNames.stream().forEach(columnHeaderName -> {
+			PdfPCell header = new PdfPCell();
+			header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+			header.setBorderWidth(2);
+			header.setPhrase(new Phrase(columnHeaderName));
+			table.addCell(header);
+		});
+		return table;
 	}
 
 	/**

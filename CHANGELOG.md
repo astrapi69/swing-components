@@ -4,6 +4,16 @@
 Version 4.31-SNAPSHOT
 -------------
 
+ADDED:
+ 
+- new base class for application frame
+- new base class for desktop menu
+
+CHANGED:
+
+- update of parent version to 4.2
+- update of silly-collections version to 4.35
+
 Version 4.30
 -------------
 

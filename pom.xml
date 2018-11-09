@@ -31,10 +31,11 @@
 		<jcommons-lang.version>4.35</jcommons-lang.version>
 		<vintage-time.version>4.12</vintage-time.version>
 		<randomizer-core.version>5.4</randomizer-core.version>
-		<silly-collections.version>4.34.1</silly-collections.version>
+		<silly-collections.version>4.35</silly-collections.version>
 		<!-- MODEL-DATA version -->
 		<model-data.version>1.6</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
+		<model-core.version>${model-data.version}</model-core.version>
 		<model-object.version>${model-data.version}</model-object.version>
 		<model-type-safe.version>${model-data.version}</model-type-safe.version>
 		<!-- GENERIC-DESIGN-PATTERN versions -->
@@ -173,6 +174,12 @@
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
+				<artifactId>model-core</artifactId>
+				<version>${model-core.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
 				<artifactId>model-type-safe</artifactId>
 				<version>${model-type-safe.version}</version>
 			</dependency>
@@ -269,6 +276,11 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>model-object</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>model-core</artifactId>
 		</dependency>
 
 		<dependency>
