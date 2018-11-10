@@ -8,7 +8,8 @@ ADDED:
  
 - new base class for application frame
 - new base class for desktop menu
-- new action classes created for help, donate, info and license
+- new action classes created for help, donate, info and license created
+- new factory method for JMenuItem created 
 
 CHANGED:
 
