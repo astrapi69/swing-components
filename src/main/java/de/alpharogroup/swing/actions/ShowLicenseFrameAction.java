@@ -47,13 +47,13 @@ public abstract class ShowLicenseFrameAction extends AbstractAction
 	 *
 	 * @param name
 	 *            the name
+	 * @param title
+	 *            the title
 	 */
-	public ShowLicenseFrameAction(final String name,
-		final @NonNull String title)
+	public ShowLicenseFrameAction(final String name, final @NonNull String title)
 	{
 		super(name);
 		this.title = title;
-
 	}
 
 	/**

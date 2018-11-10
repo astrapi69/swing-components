@@ -8,6 +8,7 @@ ADDED:
  
 - new base class for application frame
 - new base class for desktop menu
+- new action classes created for help, donate, info and license
 
 CHANGED:
 

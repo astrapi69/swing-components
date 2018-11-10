@@ -33,9 +33,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
- * The abstract class {@link InfoPanel} for display a simple info message. Provides abstract callback methods
- * for the text values.
+ * The abstract class {@link InfoPanel} for display a simple info message. Provides abstract
+ * callback methods for the text values.
  */
+@SuppressWarnings("serial")
 public abstract class InfoPanel extends JPanel
 {
 
@@ -64,12 +65,24 @@ public abstract class InfoPanel extends JPanel
 	private String warning;
 
 	/**
-	 * Instantiates a new {@link InfoPanel}.
+	 * Instantiates a new {@link InfoPanel}
 	 */
 	public InfoPanel()
 	{
 		newLayout();
 	}
+
+	protected abstract String newLabelTextApplicationName();
+
+	protected abstract String newLabelTextCopyright();
+
+	protected abstract String newLabelTextLabelApplicationName();
+
+	protected abstract String newLabelTextLabelCopyright();
+
+	protected abstract String newLabelTextLabelVersion();
+
+	protected abstract String newLabelTextVersion();
 
 	/**
 	 * Creates the layout.
@@ -177,18 +190,6 @@ public abstract class InfoPanel extends JPanel
 		add(copyright);
 
 	}
-
-	protected abstract String newLabelTextLabelApplicationName();
-
-	protected abstract String newLabelTextApplicationName();
-
-	protected abstract String newLabelTextLabelCopyright();
-
-	protected abstract String newLabelTextCopyright();
-
-	protected abstract String newLabelTextLabelVersion();
-
-	protected abstract String newLabelTextVersion();
 
 	protected abstract String newTextWarning();
 }

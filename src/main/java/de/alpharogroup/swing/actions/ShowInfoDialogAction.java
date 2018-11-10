@@ -30,24 +30,33 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
 import de.alpharogroup.swing.dialog.info.InfoDialog;
+import lombok.AccessLevel;
 import lombok.NonNull;
+import lombok.experimental.FieldDefaults;
 
 /**
  * The abstract class {@link ShowInfoDialogAction}
  */
+@SuppressWarnings("serial")
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public abstract class ShowInfoDialogAction extends AbstractAction
 {
 
-	final Frame owner;
-	final String title;
+	Frame owner;
+	String title;
 
 	/**
-	 * Instantiates a new {@link ShowInfoDialogAction}
+	 * Instantiates a new {@link ShowInfoDialogAction}.
 	 *
 	 * @param name
 	 *            the name
+	 * @param owner
+	 *            the owner
+	 * @param title
+	 *            the title
 	 */
-	public ShowInfoDialogAction(final String name, final @NonNull Frame owner, final @NonNull String title)
+	public ShowInfoDialogAction(final String name, final @NonNull Frame owner,
+		final @NonNull String title)
 	{
 		super(name);
 		this.owner = owner;

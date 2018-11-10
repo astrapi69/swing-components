@@ -31,8 +31,7 @@ import de.alpharogroup.swing.laf.LookAndFeels;
 /**
  * The class {@link LookAndFeelWindowsAction}.
  * 
- * @deprecated use instead the same name class in the new package de.alpharogroup.swing.plaf
- *             <br>
+ * @deprecated use instead the same name class in the new package de.alpharogroup.swing.plaf <br>
  *             Note: will be removed in the next minor release
  */
 public class LookAndFeelWindowsAction extends LookAndFeelAction

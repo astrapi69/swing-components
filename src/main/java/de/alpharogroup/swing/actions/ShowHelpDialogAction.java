@@ -42,7 +42,7 @@ import lombok.extern.slf4j.Slf4j;
  * The class {@link ShowHelpDialogAction} shows the help window of an application
  */
 @Slf4j
-@FieldDefaults(level=AccessLevel.PRIVATE, makeFinal=true)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Getter
 public class ShowHelpDialogAction extends AbstractAction
 {
@@ -54,16 +54,21 @@ public class ShowHelpDialogAction extends AbstractAction
 	LookAndFeels lookAndFeels;
 
 	/**
-	 * Instantiates a new show help dialog action.
+	 * Instantiates a new {@link ShowHelpDialogAction}
 	 *
 	 * @param name
 	 *            the name
+	 * @param helpWindow
+	 *            the help window
+	 * @param lookAndFeels
+	 *            the look and feels
 	 */
-	public ShowHelpDialogAction(final String name, final @NonNull Window helpWindow, final @NonNull LookAndFeels lookAndFeels)
+	public ShowHelpDialogAction(final String name, final @NonNull Window helpWindow,
+		final @NonNull LookAndFeels lookAndFeels)
 	{
 		super(name);
 		this.helpWindow = helpWindow;
-		this.lookAndFeels =lookAndFeels;
+		this.lookAndFeels = lookAndFeels;
 	}
 
 	/**

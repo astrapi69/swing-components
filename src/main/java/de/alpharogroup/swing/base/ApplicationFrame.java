@@ -56,7 +56,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * The class {@link ApplicationFrame}
  *
- * @param <T> 
+ * @param <T>
  *            the generic type of the model object
  */
 @SuppressWarnings("serial")
@@ -122,34 +122,11 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 		return optional;
 	}
 
-	@Override
-	protected void onInitializeComponents()
-	{
-		super.onInitializeComponents();
-		menu = newDesktopMenu(this);
-		setJMenuBar(menu.getMenubar());
-		setToolBar(toolbar = newJToolBar());
-		getContentPane().add(desktopPane = newJDesktopPane());
-		Optional<BufferedImage> optionalIcon = getIcon(newIconPath());
-		if (optionalIcon.isPresent())
-		{
-			setIconImage(icon = optionalIcon.get());
-		}
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		final GraphicsDevice[] gs = ge.getScreenDevices();
-		setSize(ScreenSizeExtensions.getScreenWidth(gs[0]),
-			ScreenSizeExtensions.getScreenHeight(gs[0]));
-		setVisible(true);
-
-		// Set default look and feel...
-		setDefaultLookAndFeel(newLookAndFeels(), this);
-	}
-
 	/**
-	 * Factory method for create a new {@link BaseDesktopMenu} object
+	 * Factory method for create a new {@link BaseDesktopMenu} object.
 	 *
+	 * @param applicationFrame
+	 *            the application frame
 	 * @return the new {@link BaseDesktopMenu} object
 	 */
 	protected BaseDesktopMenu newDesktopMenu(@NonNull Component applicationFrame)
@@ -192,6 +169,31 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 	protected LookAndFeels newLookAndFeels()
 	{
 		return LookAndFeels.SYSTEM;
+	}
+
+	@Override
+	protected void onInitializeComponents()
+	{
+		super.onInitializeComponents();
+		menu = newDesktopMenu(this);
+		setJMenuBar(menu.getMenubar());
+		setToolBar(toolbar = newJToolBar());
+		getContentPane().add(desktopPane = newJDesktopPane());
+		Optional<BufferedImage> optionalIcon = getIcon(newIconPath());
+		if (optionalIcon.isPresent())
+		{
+			setIconImage(icon = optionalIcon.get());
+		}
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		final GraphicsDevice[] gs = ge.getScreenDevices();
+		setSize(ScreenSizeExtensions.getScreenWidth(gs[0]),
+			ScreenSizeExtensions.getScreenHeight(gs[0]));
+		setVisible(true);
+
+		// Set default look and feel...
+		setDefaultLookAndFeel(newLookAndFeels(), this);
 	}
 
 	/**

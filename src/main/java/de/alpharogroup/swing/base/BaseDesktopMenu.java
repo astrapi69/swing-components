@@ -25,6 +25,7 @@
 package de.alpharogroup.swing.base;
 
 import java.awt.Component;
+import java.awt.Frame;
 import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.net.URL;
@@ -42,6 +43,12 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
 import de.alpharogroup.lang.ClassExtensions;
+import de.alpharogroup.swing.actions.OpenBrowserToDonateAction;
+import de.alpharogroup.swing.actions.ShowInfoDialogAction;
+import de.alpharogroup.swing.actions.ShowLicenseFrameAction;
+import de.alpharogroup.swing.components.factories.JComponentFactory;
+import de.alpharogroup.swing.dialog.info.InfoDialog;
+import de.alpharogroup.swing.dialog.info.InfoPanel;
 import de.alpharogroup.swing.menu.MenuExtensions;
 import de.alpharogroup.swing.plaf.actions.LookAndFeelGTKAction;
 import de.alpharogroup.swing.plaf.actions.LookAndFeelMetalAction;
@@ -58,7 +65,7 @@ import lombok.extern.slf4j.Slf4j;
  * The class {@link BaseDesktopMenu} holds the base menu items for an application
  */
 @Slf4j
-@FieldDefaults(level=AccessLevel.PRIVATE, makeFinal=true)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class BaseDesktopMenu extends JMenu
 {
 
@@ -66,6 +73,7 @@ public class BaseDesktopMenu extends JMenu
 	private static final long serialVersionUID = 1L;
 
 	/** The application frame. */
+	@Getter
 	Component applicationFrame;
 
 	/** The file menu. */
@@ -92,7 +100,10 @@ public class BaseDesktopMenu extends JMenu
 	JMenuBar menubar;
 
 	/**
-	 * Instantiates a new desktop menu.
+	 * Instantiates a new {@link BaseDesktopMenu}
+	 *
+	 * @param applicationFrame
+	 *            the application frame
 	 */
 	public BaseDesktopMenu(@NonNull Component applicationFrame)
 	{
@@ -166,22 +177,38 @@ public class BaseDesktopMenu extends JMenu
 	protected JMenu newHelpMenu(final ActionListener listener)
 	{
 		// Help menu
-		final JMenu menuHelp = new JMenu("Help"); //$NON-NLS-1$
+		final JMenu menuHelp = new JMenu(newLabelTextHelp());
 		menuHelp.setMnemonic('H');
 
 		// Help JMenuItems
 		// Help content
-		final JMenuItem mihHelpContent = new JMenuItem("Content", 'c'); //$NON-NLS-1$
-		MenuExtensions.setCtrlAccelerator(mihHelpContent, 'H');
-
+		final JMenuItem mihHelpContent = JComponentFactory.newJMenuItem(newLabelTextContent(), 'c',
+			'H');
 		menuHelp.add(mihHelpContent);
 
 		// 2. assign help to components
-		CSH.setHelpIDString(mihHelpContent, "Overview");
+		CSH.setHelpIDString(mihHelpContent, newLabelTextOverview());
 		// 3. handle events
 		final CSH.DisplayHelpFromSource displayHelpFromSource = new CSH.DisplayHelpFromSource(
 			helpBroker);
 		mihHelpContent.addActionListener(displayHelpFromSource);
+		// Donate
+		final JMenuItem mihDonate = new JMenuItem(newLabelTextDonate());
+		mihDonate.addActionListener(
+			newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame));
+		menuHelp.add(mihDonate);
+		// Licence
+		final JMenuItem mihLicence = new JMenuItem(newLabelTextLicence());
+		mihLicence.addActionListener(
+			newShowLicenseFrameAction(newLabelTextLicence() + "Action", newLabelTextLicence()));
+		menuHelp.add(mihLicence);
+		// Info
+		final JMenuItem mihInfo = new JMenuItem(newLabelTextInfo(), 'i'); // $NON-NLS-1$
+		MenuExtensions.setCtrlAccelerator(mihInfo, 'I');
+
+		mihInfo.addActionListener(newShowInfoDialogAction(newLabelTextInfo(),
+			(Frame)applicationFrame, newLabelTextInfo()));
+		menuHelp.add(mihInfo);
 
 		return menuHelp;
 	}
@@ -214,7 +241,6 @@ public class BaseDesktopMenu extends JMenu
 		}
 		SwingUtilities.updateComponentTreeUI(helpWindow);
 		return helpWindow;
-
 	}
 
 	/**
@@ -225,6 +251,73 @@ public class BaseDesktopMenu extends JMenu
 	protected JMenuBar newJMenuBar()
 	{
 		return new JMenuBar();
+	}
+
+
+	protected String newLabelTextApplicationName()
+	{
+		return "";
+	}
+
+
+	protected String newLabelTextContent()
+	{
+		return "Content";
+	}
+
+
+	protected String newLabelTextCopyright()
+	{
+		return "";
+	}
+
+
+	protected String newLabelTextDonate()
+	{
+		return "Donate";
+	}
+
+
+	protected String newLabelTextHelp()
+	{
+		return "Help";
+	}
+
+
+	protected String newLabelTextInfo()
+	{
+		return "Info";
+	}
+
+	protected String newLabelTextLabelApplicationName()
+	{
+		return "";
+	}
+
+	protected String newLabelTextLabelCopyright()
+	{
+		return "";
+	}
+
+	protected String newLabelTextLabelVersion()
+	{
+		return "";
+	}
+
+
+	protected String newLabelTextLicence()
+	{
+		return "Licence";
+	}
+
+	protected String newLabelTextOverview()
+	{
+		return "Overview";
+	}
+
+	protected String newLabelTextVersion()
+	{
+		return "";
 	}
 
 	/**
@@ -282,6 +375,116 @@ public class BaseDesktopMenu extends JMenu
 
 		return menuLookAndFeel;
 
+	}
+
+	protected OpenBrowserToDonateAction newOpenBrowserToDonateAction(final String name,
+		final @NonNull Component component)
+	{
+		return new OpenBrowserToDonateAction(name, component);
+	}
+
+	@SuppressWarnings("serial")
+	protected ShowInfoDialogAction newShowInfoDialogAction(final String name,
+		final @NonNull Frame owner, final @NonNull String title)
+	{
+		return new ShowInfoDialogAction(name, owner, title)
+		{
+			@Override
+			protected InfoDialog newInfoDialog(Frame owner, String title)
+			{
+				return BaseDesktopMenu.this.onNewInfoDialog(owner, title);
+			}
+		};
+	}
+
+	protected ShowLicenseFrameAction newShowLicenseFrameAction(final String name,
+		final @NonNull String title)
+	{
+		return new ShowLicenseFrameAction(name, title)
+		{
+
+			@Override
+			protected String newLicenseText()
+			{
+				return onNewLicenseText();
+			}
+		};
+	}
+
+	protected String newTextWarning()
+	{
+		return "";
+	}
+
+	@SuppressWarnings("serial")
+	protected InfoDialog onNewInfoDialog(Frame owner, String title)
+	{
+		return new InfoDialog(owner, title)
+		{
+
+			@Override
+			protected InfoPanel newInfoPanel()
+			{
+				return new InfoPanel()
+				{
+
+					@Override
+					protected String newLabelTextApplicationName()
+					{
+						return BaseDesktopMenu.this.newLabelTextApplicationName();
+					}
+
+					@Override
+					protected String newLabelTextCopyright()
+					{
+						return BaseDesktopMenu.this.newLabelTextCopyright();
+					}
+
+					@Override
+					protected String newLabelTextLabelApplicationName()
+					{
+						return BaseDesktopMenu.this.newLabelTextLabelApplicationName();
+					}
+
+					@Override
+					protected String newLabelTextLabelCopyright()
+					{
+						return BaseDesktopMenu.this.newLabelTextLabelCopyright();
+					}
+
+					@Override
+					protected String newLabelTextLabelVersion()
+					{
+						return BaseDesktopMenu.this.newLabelTextLabelVersion();
+					}
+
+					@Override
+					protected String newLabelTextVersion()
+					{
+						return BaseDesktopMenu.this.newLabelTextVersion();
+					}
+
+					@Override
+					protected String newTextWarning()
+					{
+						return BaseDesktopMenu.this.newTextWarning();
+					}
+
+				};
+			}
+
+			@Override
+			protected String newLabelTextPlaceholder()
+			{
+				return "";
+			}
+
+		};
+	}
+
+	protected String onNewLicenseText()
+	{
+		return "Licence Text";
 	}
 
 }

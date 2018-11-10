@@ -110,12 +110,14 @@ public class HelpFrame extends JFrame
 	}
 
 
-	protected String newLabelHelpText() {
-		return DEFAULT_LABEL_HELP;
+	protected String newLabelCloseText()
+	{
+		return DEFAULT_BUTTONLABEL_CLOSE;
 	}
 
-	protected String newLabelCloseText() {
-		return DEFAULT_BUTTONLABEL_CLOSE;
+	protected String newLabelHelpText()
+	{
+		return DEFAULT_LABEL_HELP;
 	}
 
 }

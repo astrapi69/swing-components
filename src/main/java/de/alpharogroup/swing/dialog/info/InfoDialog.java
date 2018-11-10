@@ -29,7 +29,6 @@ import java.awt.Container;
 import java.awt.Frame;
 import java.awt.HeadlessException;
 import java.awt.Panel;
-import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -38,8 +37,8 @@ import javax.swing.JLabel;
 import de.alpharogroup.actions.DisposeWindowAction;
 
 /**
- * The abstract class {@link InfoDialog} for display a simple info message. Provides abstract callback methods
- * for the text values.
+ * The abstract class {@link InfoDialog} for display a simple info message. Provides abstract
+ * callback methods for the text values.
  */
 public abstract class InfoDialog extends JDialog
 {
@@ -60,7 +59,7 @@ public abstract class InfoDialog extends JDialog
 	private final InfoPanel panel;
 
 	/**
-	 * Instantiates a new info j dialog.
+	 * Instantiates a new {@link InfoDialog}
 	 *
 	 * @param owner
 	 *            the owner
@@ -83,21 +82,20 @@ public abstract class InfoDialog extends JDialog
 		final Container container = getContentPane();
 		container.add(panel, BorderLayout.CENTER);
 		container.add(buttons, BorderLayout.SOUTH);
-		final int x = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-		final int y = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+		final int x = (int)owner.getWidth();
+		final int y = (int)owner.getHeight();
 		setLocation((x / 3), (y / 3));
 		setSize((x / 3), (y / 3));
 	}
 
-	protected String newLabelCloseText() {
+	protected abstract InfoPanel newInfoPanel();
+
+	protected String newLabelCloseText()
+	{
 		return DEFAULT_BUTTONLABEL_CLOSE;
 	}
 
 	protected abstract String newLabelTextPlaceholder();
-
-	protected abstract InfoPanel newInfoPanel();
-
-
 
 
 }

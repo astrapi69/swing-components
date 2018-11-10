@@ -44,9 +44,11 @@ import javax.swing.JPopupMenu;
 import javax.swing.JToolBar;
 
 import de.alpharogroup.lang.ClassExtensions;
+import de.alpharogroup.swing.menu.MenuExtensions;
 import de.alpharogroup.swing.menu.MenuItemBean;
 import de.alpharogroup.swing.menu.popup.listeners.PopupListener;
 import de.alpharogroup.swing.splashscreen.SplashScreen;
+import lombok.NonNull;
 
 /**
  * A factory class for create swing Component objects.
@@ -95,6 +97,25 @@ public final class JComponentFactory
 		final JInternalFrame internalFrame = new JInternalFrame(title, resizable, closable,
 			maximizable, iconifiable);
 		return internalFrame;
+	}
+
+	/**
+	 * Factory method for create a <code>JMenuItem</code>.
+	 *
+	 * @param text
+	 *            the text of the <code>JMenuItem</code>
+	 * @param mnemonic
+	 *            the keyboard mnemonic for the <code>JMenuItem</code>
+	 * @param accelerator
+	 *            The character that have to push together with the CTRL.
+	 * @return the new {@link JMenuItem}
+	 */
+	public static JMenuItem newJMenuItem(final @NonNull String text, final int mnemonic,
+		final char accelerator)
+	{
+		final JMenuItem menuItem = new JMenuItem(text, mnemonic);
+		MenuExtensions.setCtrlAccelerator(menuItem, accelerator);
+		return menuItem;
 	}
 
 	/**
