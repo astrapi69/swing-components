@@ -27,8 +27,8 @@
 		<javahelp.version>2.0.05</javahelp.version>
 		<email-tails.version>4.18</email-tails.version>
 		<test-objects.version>4.28</test-objects.version>
-		<file-worker.version>4.23</file-worker.version>
-		<jcommons-lang.version>4.35</jcommons-lang.version>
+		<file-worker.version>5</file-worker.version>
+		<jcommons-lang.version>5</jcommons-lang.version>
 		<vintage-time.version>4.12</vintage-time.version>
 		<randomizer-core.version>5.4</randomizer-core.version>
 		<silly-collections.version>4.35</silly-collections.version>
