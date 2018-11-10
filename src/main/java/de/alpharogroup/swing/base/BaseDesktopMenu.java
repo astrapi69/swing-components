@@ -41,8 +41,6 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import org.apache.log4j.Logger;
-
 import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.swing.menu.MenuExtensions;
 import de.alpharogroup.swing.plaf.actions.LookAndFeelGTKAction;
@@ -57,15 +55,12 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * The Class DesktopMenu.
+ * The class {@link BaseDesktopMenu} holds the base menu items for an application
  */
 @Slf4j
 @FieldDefaults(level=AccessLevel.PRIVATE, makeFinal=true)
 public class BaseDesktopMenu extends JMenu
 {
-
-	/** The Constant logger. */
-	private static final Logger logger = Logger.getLogger(BaseDesktopMenu.class.getName());
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -105,9 +100,9 @@ public class BaseDesktopMenu extends JMenu
 		helpBroker = newHelpBroker();
 		helpWindow = newHelpWindow(helpBroker);
 		menubar = newJMenuBar();
-		menubar.add(fileMenu = newFileMenu(e -> logger.debug("filemenu")));
-		menubar.add(lookAndFeelMenu = newLookAndFeelMenu(e -> logger.debug("Look and Feel menu")));
-		menubar.add(helpMenu = newHelpMenu(e -> logger.debug("Help menu")));
+		menubar.add(fileMenu = newFileMenu(e -> log.debug("filemenu")));
+		menubar.add(lookAndFeelMenu = newLookAndFeelMenu(e -> log.debug("Look and Feel menu")));
+		menubar.add(helpMenu = newHelpMenu(e -> log.debug("Help menu")));
 	}
 
 	/**

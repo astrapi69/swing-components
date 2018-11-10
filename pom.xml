@@ -20,7 +20,7 @@
 		Several swing components and utilities
 	</description>
 
-	<url>https://github.com/lightblueseas/swing-components</url>
+	<url>https://github.com/lightblueseas/${project.artifactId}</url>
 
 	<properties>
 		<!-- JAVAHELP version -->
@@ -63,19 +63,19 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git:@github.com:lightblueseas/swing-components.git</connection>
-		<developerConnection>scm:git:git@github.com:lightblueseas/swing-components.git</developerConnection>
-		<url>git:@github.com:lightblueseas/swing-components.git</url>
+		<connection>scm:git:git:@github.com:lightblueseas/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git@github.com:lightblueseas/${project.artifactId}.git</developerConnection>
+		<url>git:@github.com:lightblueseas/${project.artifactId}.git</url>
 	</scm>
 
 	<issueManagement>
 		<system>github</system>
-		<url>https://github.com/lightblueseas/swing-components/issues</url>
+		<url>https://github.com/lightblueseas/${project.artifactId}/issues</url>
 	</issueManagement>
 
 	<ciManagement>
 		<system>travis-ci</system>
-		<url>https://travis-ci.org/lightblueseas/swing-components</url>
+		<url>https://travis-ci.org/lightblueseas/${project.artifactId}</url>
 	</ciManagement>
 
 	<dependencyManagement>

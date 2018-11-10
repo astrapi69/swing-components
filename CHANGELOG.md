@@ -13,6 +13,7 @@ CHANGED:
 
 - update of parent version to 4.2
 - update of silly-collections version to 4.35
+- tagged 'look and feel' enum and action classes as deprecated 
 
 Version 4.30
 -------------

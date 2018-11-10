@@ -107,7 +107,6 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 		Optional<BufferedImage> optional = Optional.empty();
 		try
 		{
-
 			BufferedImage bufferedImage = ImageIO
 				.read(ClassExtensions.getResourceAsStream(iconPath));
 			optional = Optional.of(bufferedImage);
@@ -123,11 +122,10 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 		return optional;
 	}
 
-	/**
-	 * Inits the components.
-	 */
-	protected void initComponents()
+	@Override
+	protected void onInitializeComponents()
 	{
+		super.onInitializeComponents();
 		menu = newDesktopMenu(this);
 		setJMenuBar(menu.getMenubar());
 		setToolBar(toolbar = newJToolBar());
