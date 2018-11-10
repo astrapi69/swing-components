@@ -12,7 +12,7 @@
 	</parent>
 
 	<artifactId>swing-components</artifactId>
-	<version>4.30</version>
+	<version>4.31</version>
 
 	<name>${project.artifactId}</name>
 
@@ -20,21 +20,22 @@
 		Several swing components and utilities
 	</description>
 
-	<url>https://github.com/lightblueseas/swing-components</url>
+	<url>https://github.com/lightblueseas/${project.artifactId}</url>
 
 	<properties>
 		<!-- JAVAHELP version -->
 		<javahelp.version>2.0.05</javahelp.version>
 		<email-tails.version>4.18</email-tails.version>
 		<test-objects.version>4.28</test-objects.version>
-		<file-worker.version>4.23</file-worker.version>
-		<jcommons-lang.version>4.35</jcommons-lang.version>
+		<file-worker.version>5</file-worker.version>
+		<jcommons-lang.version>5</jcommons-lang.version>
 		<vintage-time.version>4.12</vintage-time.version>
 		<randomizer-core.version>5.4</randomizer-core.version>
-		<silly-collections.version>4.34.1</silly-collections.version>
+		<silly-collections.version>4.35</silly-collections.version>
 		<!-- MODEL-DATA version -->
 		<model-data.version>1.6</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
+		<model-core.version>${model-data.version}</model-core.version>
 		<model-object.version>${model-data.version}</model-object.version>
 		<model-type-safe.version>${model-data.version}</model-type-safe.version>
 		<!-- GENERIC-DESIGN-PATTERN versions -->
@@ -62,19 +63,19 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git:@github.com:lightblueseas/swing-components.git</connection>
-		<developerConnection>scm:git:git@github.com:lightblueseas/swing-components.git</developerConnection>
-		<url>git:@github.com:lightblueseas/swing-components.git</url>
+		<connection>scm:git:git:@github.com:lightblueseas/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git@github.com:lightblueseas/${project.artifactId}.git</developerConnection>
+		<url>git:@github.com:lightblueseas/${project.artifactId}.git</url>
 	</scm>
 
 	<issueManagement>
 		<system>github</system>
-		<url>https://github.com/lightblueseas/swing-components/issues</url>
+		<url>https://github.com/lightblueseas/${project.artifactId}/issues</url>
 	</issueManagement>
 
 	<ciManagement>
 		<system>travis-ci</system>
-		<url>https://travis-ci.org/lightblueseas/swing-components</url>
+		<url>https://travis-ci.org/lightblueseas/${project.artifactId}</url>
 	</ciManagement>
 
 	<dependencyManagement>
@@ -173,6 +174,12 @@
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
+				<artifactId>model-core</artifactId>
+				<version>${model-core.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
 				<artifactId>model-type-safe</artifactId>
 				<version>${model-type-safe.version}</version>
 			</dependency>
@@ -253,6 +260,7 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>test-objects</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -268,6 +276,11 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>model-object</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>model-core</artifactId>
 		</dependency>
 
 		<dependency>

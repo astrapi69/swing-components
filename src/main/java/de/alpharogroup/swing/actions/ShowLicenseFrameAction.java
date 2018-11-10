@@ -22,25 +22,55 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.laf.actions;
+package de.alpharogroup.swing.actions;
 
-import java.awt.Component;
+import java.awt.event.ActionEvent;
 
-import de.alpharogroup.swing.laf.LookAndFeels;
+import javax.swing.AbstractAction;
+
+import de.alpharogroup.swing.help.HelpFrame;
+import lombok.NonNull;
 
 /**
- * The class {@link LookAndFeelSystemAction}.
- * 
- * @deprecated use instead the same name class in the new package de.alpharogroup.swing.plaf <br>
- *             Note: will be removed in the next minor release
+ * The abstract class {@link ShowLicenseFrameAction}.
  */
-public class LookAndFeelSystemAction extends LookAndFeelAction
+public abstract class ShowLicenseFrameAction extends AbstractAction
 {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	public LookAndFeelSystemAction(final String name, final Component component)
+	final String title;
+
+	/**
+	 * Instantiates a new show license frame action.
+	 *
+	 * @param name
+	 *            the name
+	 * @param title
+	 *            the title
+	 */
+	public ShowLicenseFrameAction(final String name, final @NonNull String title)
 	{
-		super(name, component, LookAndFeels.SYSTEM);
+		super(name);
+		this.title = title;
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void actionPerformed(final ActionEvent e)
+	{
+		final HelpFrame frame = new HelpFrame(this.title, newLicenseText());
+		frame.setVisible(true);
+	}
+
+	/**
+	 * Load license.
+	 *
+	 * @return the string
+	 */
+	protected abstract String newLicenseText();
+
 }

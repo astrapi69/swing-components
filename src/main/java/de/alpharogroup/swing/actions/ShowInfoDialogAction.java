@@ -22,25 +22,57 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.laf.actions;
+package de.alpharogroup.swing.actions;
 
-import java.awt.Component;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
 
-import de.alpharogroup.swing.laf.LookAndFeels;
+import javax.swing.AbstractAction;
+
+import de.alpharogroup.swing.dialog.info.InfoDialog;
+import lombok.AccessLevel;
+import lombok.NonNull;
+import lombok.experimental.FieldDefaults;
 
 /**
- * The class {@link LookAndFeelSystemAction}.
- * 
- * @deprecated use instead the same name class in the new package de.alpharogroup.swing.plaf <br>
- *             Note: will be removed in the next minor release
+ * The abstract class {@link ShowInfoDialogAction}
  */
-public class LookAndFeelSystemAction extends LookAndFeelAction
+@SuppressWarnings("serial")
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+public abstract class ShowInfoDialogAction extends AbstractAction
 {
 
-	private static final long serialVersionUID = 1L;
+	Frame owner;
+	String title;
 
-	public LookAndFeelSystemAction(final String name, final Component component)
+	/**
+	 * Instantiates a new {@link ShowInfoDialogAction}.
+	 *
+	 * @param name
+	 *            the name
+	 * @param owner
+	 *            the owner
+	 * @param title
+	 *            the title
+	 */
+	public ShowInfoDialogAction(final String name, final @NonNull Frame owner,
+		final @NonNull String title)
 	{
-		super(name, component, LookAndFeels.SYSTEM);
+		super(name);
+		this.owner = owner;
+		this.title = title;
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void actionPerformed(final ActionEvent e)
+	{
+		final InfoDialog info = newInfoDialog(owner, title);
+		info.setVisible(true);
+	}
+
+	protected abstract InfoDialog newInfoDialog(final Frame owner, final String title);
+
 }

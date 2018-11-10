@@ -22,25 +22,34 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.laf.actions;
+package de.alpharogroup.swing.actions;
 
 import java.awt.Component;
 
-import de.alpharogroup.swing.laf.LookAndFeels;
+import lombok.NonNull;
 
 /**
- * The class {@link LookAndFeelSystemAction}.
- * 
- * @deprecated use instead the same name class in the new package de.alpharogroup.swing.plaf <br>
- *             Note: will be removed in the next minor release
+ * The class {@link OpenBrowserToDonateAction} is the action class for this project donation
  */
-public class LookAndFeelSystemAction extends LookAndFeelAction
+public class OpenBrowserToDonateAction extends OpenBrowserAction
 {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	/** The Constant URL_TO_DONATE. */
+	private static final String URL_TO_DONATE = "http://sourceforge.net/donate/index.php?group_id=207406";
 
-	public LookAndFeelSystemAction(final String name, final Component component)
+	/**
+	 * Instantiates a new {@link OpenBrowserToDonateAction}.
+	 *
+	 * @param name
+	 *            the name
+	 * @param component
+	 *            the component
+	 */
+	public OpenBrowserToDonateAction(final String name, final @NonNull Component component)
 	{
-		super(name, component, LookAndFeels.SYSTEM);
+		super(name, component, URL_TO_DONATE);
 	}
+
 }

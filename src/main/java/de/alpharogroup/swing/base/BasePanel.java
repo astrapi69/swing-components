@@ -29,8 +29,10 @@ import java.awt.LayoutManager;
 import org.jdesktop.swingx.JXPanel;
 
 import de.alpharogroup.model.api.Model;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 /**
  * The class {@link BasePanel} for swing panels to provide an initialization cycle where the user
@@ -41,6 +43,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class BasePanel<T> extends JXPanel
 {
 
@@ -48,7 +51,7 @@ public class BasePanel<T> extends JXPanel
 	private static final long serialVersionUID = 1L;
 
 	/** The model. */
-	private Model<T> model;
+	Model<T> model;
 
 	/**
 	 * Instantiates a new {@link BasePanel} object.

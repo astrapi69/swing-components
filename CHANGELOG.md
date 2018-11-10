@@ -1,6 +1,24 @@
 ## Change log
 ----------------------
 
+Version 4.31
+-------------
+
+ADDED:
+ 
+- new base class for application frame
+- new base class for desktop menu
+- new action classes created for help, donate, info and license created
+- new factory method for JMenuItem created 
+
+CHANGED:
+
+- update of parent version to 4.2
+- update of silly-collections version to 4.35
+- update of jcommons-lang version to 5
+- update of file-worker version to 5
+- tagged 'look and feel' enum and action classes as deprecated 
+
 Version 4.30
 -------------
 

@@ -28,12 +28,15 @@ import java.awt.Component;
 
 import de.alpharogroup.swing.laf.LookAndFeels;
 
+/**
+ * The class {@link LookAndFeelMotifAction}.
+ * 
+ * @deprecated use instead the same name class in the new package de.alpharogroup.swing.plaf <br>
+ *             Note: will be removed in the next minor release
+ */
 public class LookAndFeelMotifAction extends LookAndFeelAction
 {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public LookAndFeelMotifAction(final String name, final Component component)

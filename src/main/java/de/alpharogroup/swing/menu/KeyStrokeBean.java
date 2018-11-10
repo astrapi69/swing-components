@@ -22,25 +22,32 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.laf.actions;
+package de.alpharogroup.swing.menu;
 
-import java.awt.Component;
-
-import de.alpharogroup.swing.laf.LookAndFeels;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 
 /**
- * The class {@link LookAndFeelSystemAction}.
- * 
- * @deprecated use instead the same name class in the new package de.alpharogroup.swing.plaf <br>
- *             Note: will be removed in the next minor release
+ * The class {@link KeyStrokeBean}
  */
-public class LookAndFeelSystemAction extends LookAndFeelAction
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class KeyStrokeBean
 {
-
-	private static final long serialVersionUID = 1L;
-
-	public LookAndFeelSystemAction(final String name, final Component component)
-	{
-		super(name, component, LookAndFeels.SYSTEM);
-	}
+	int keyCode;
+	int modifiers;
+	boolean onKeyRelease;
 }
