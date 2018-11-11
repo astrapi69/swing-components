@@ -4,6 +4,10 @@
 Version 4.32-SNAPSHOT
 -------------
 
+ADDED:
+ 
+- new extension class for show dialogs created
+
 Version 4.31
 -------------
 
