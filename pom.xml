@@ -48,7 +48,7 @@
 		<imgscalr-lib.version>4.2</imgscalr-lib.version>
 		<itextpdf.version>5.5.12</itextpdf.version>
 		<!-- JOBJECT-EXTENSIONS versions -->
-		<jobject-extensions.version>1.12</jobject-extensions.version>
+		<jobject-extensions.version>2</jobject-extensions.version>
 		<jobject-core.version>${jobject-extensions.version}</jobject-core.version>
 		<!-- GEN-TREE version -->
 		<gen-tree.version>4.11</gen-tree.version>

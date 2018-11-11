@@ -26,6 +26,7 @@ package de.alpharogroup.swing.base;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Panel;
 import java.awt.Toolkit;
@@ -34,6 +35,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 
 import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.layout.ScreenSizeExtensions;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.panels.login.pw.ChangePasswordModelBean;
@@ -47,6 +49,10 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 	public static void main(final String[] a)
 	{
 		final Frame frame = new Frame("FieldPanel");
+		int screenID = ScreenSizeExtensions.getScreenID(frame);
+		Dimension screenDimension = ScreenSizeExtensions.getScreenDimension(frame);
+		System.out.println(screenID);
+		System.out.println(screenDimension);
 		frame.addWindowListener(new CloseWindow());
 		final BaseDialogExample dialog = new BaseDialogExample(frame, "Password title", true,
 			BaseModel.<ChangePasswordModelBean> of());
