@@ -64,6 +64,7 @@ public class RegularExpressionDocument extends PlainDocument
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void insertString(int offset, String string, AttributeSet attributes)
 		throws BadLocationException
 	{
@@ -101,6 +102,7 @@ public class RegularExpressionDocument extends PlainDocument
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void remove(int offset, int length) throws BadLocationException
 	{
 		int currentLength = getLength();

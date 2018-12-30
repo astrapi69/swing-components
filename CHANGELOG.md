@@ -1,6 +1,29 @@
 ## Change log
 ----------------------
 
+Version 5
+-------------
+
+ADDED:
+ 
+- new extension class for show dialogs created
+- new methods created for get screen informations like the screen id
+
+CHANGED:
+
+- update of parent version to 4.5
+- update of email-tails version to 5
+- update of test-objects version to 5
+- update of file-worker version to 5.0.1
+- update of jcommons-lang version to 5.1
+- update of vintage-time version to 5.1
+- update of randomizer-core version to 5.6
+- update of silly-collections version to 5
+- update of model-data version to 1.6.2
+- update of design-patterns version to 4.14
+- update of jobject-extensions version to 2.5
+- update of gen-tree version to 4.12
+
 Version 4.31
 -------------
 
