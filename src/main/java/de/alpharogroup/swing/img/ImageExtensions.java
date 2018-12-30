@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -39,8 +40,6 @@ import javax.swing.ImageIcon;
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -52,10 +51,12 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import de.alpharogroup.random.RandomExtensions;
+import lombok.extern.java.Log;
 
 /**
  * The class {@link ImageExtensions}.
  */
+@Log
 public class ImageExtensions
 {
 
@@ -69,10 +70,6 @@ public class ImageExtensions
 		/** Indicates the vertical direction. */
 		vertical
 	}
-
-	/** The logger constant. */
-	private static final Logger LOG = LoggerFactory.getLogger(ImageExtensions.class.getName());
-
 
 	/**
 	 * Concatenate the given list of BufferedImage objects to one image and returns the concatenated
@@ -286,7 +283,7 @@ public class ImageExtensions
 		}
 		catch (IOException e)
 		{
-			LOG.error("Reading image failed.", e);
+			log.log(Level.SEVERE, "Reading image failed.", e);
 		}
 		return img;
 	}
@@ -307,7 +304,7 @@ public class ImageExtensions
 		}
 		catch (IOException e)
 		{
-			LOG.error("Reading image failed.", e);
+			log.log(Level.SEVERE, "Reading image failed.", e);
 		}
 		return img;
 	}
