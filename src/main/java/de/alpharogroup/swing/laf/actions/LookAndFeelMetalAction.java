@@ -42,6 +42,7 @@ import de.alpharogroup.swing.laf.LookAndFeels;
  * @deprecated use instead the same name class in the new package de.alpharogroup.swing.plaf <br>
  *             Note: will be removed in the next minor release
  */
+@Deprecated
 public class LookAndFeelMetalAction extends LookAndFeelAction
 {
 

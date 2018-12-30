@@ -82,8 +82,8 @@ public abstract class InfoDialog extends JDialog
 		final Container container = getContentPane();
 		container.add(panel, BorderLayout.CENTER);
 		container.add(buttons, BorderLayout.SOUTH);
-		final int x = (int)owner.getWidth();
-		final int y = (int)owner.getHeight();
+		final int x = owner.getWidth();
+		final int y = owner.getHeight();
 		setLocation((x / 3), (y / 3));
 		setSize((x / 3), (y / 3));
 	}

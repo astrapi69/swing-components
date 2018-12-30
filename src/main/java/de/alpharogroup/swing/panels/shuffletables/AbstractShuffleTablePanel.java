@@ -35,7 +35,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 
-import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.GenericModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.GenericJTable;
 import de.alpharogroup.swing.GenericShuffleJTable;
@@ -107,7 +107,7 @@ public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
 	 */
 	public AbstractShuffleTablePanel()
 	{
-		this(BaseModel.ofList(new ArrayList<>()));
+		this(GenericModel.ofList(new ArrayList<>()));
 	}
 
 	/**

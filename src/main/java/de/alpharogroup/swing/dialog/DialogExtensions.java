@@ -41,14 +41,17 @@ public class DialogExtensions
 	/**
 	 * Show exception dialog.
 	 *
-	 * @param exception the exception
-	 * @param parentComponent determines the <code>Frame</code>
-	 *          in which the dialog is displayed; if <code>null</code>,
-	 *          or if the <code>parentComponent</code> has no
-	 *          <code>Frame</code>, a default <code>Frame</code> is used
-	 * @param additionalMessages the additional messages
+	 * @param exception
+	 *            the exception
+	 * @param parentComponent
+	 *            determines the <code>Frame</code> in which the dialog is displayed; if
+	 *            <code>null</code>, or if the <code>parentComponent</code> has no
+	 *            <code>Frame</code>, a default <code>Frame</code> is used
+	 * @param additionalMessages
+	 *            the additional messages
 	 */
-	public static void showExceptionDialog(Exception exception, Component parentComponent, String... additionalMessages)
+	public static void showExceptionDialog(Exception exception, Component parentComponent,
+		String... additionalMessages)
 	{
 		String title = exception.getLocalizedMessage();
 		StringBuilder sb = new StringBuilder();
@@ -58,9 +61,9 @@ public class DialogExtensions
 		sb.append("</h2>");
 		sb.append("<p>");
 		sb.append(exception.getMessage());
-		Stream.of(additionalMessages).forEach(am -> sb.append("<p>"+am));
+		Stream.of(additionalMessages).forEach(am -> sb.append("<p>" + am));
 		String htmlMessage = sb.toString();
-		JOptionPane
-			.showMessageDialog(parentComponent, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(parentComponent, htmlMessage, title,
+			JOptionPane.ERROR_MESSAGE);
 	}
 }

@@ -35,6 +35,7 @@ import javax.swing.text.DocumentFilter;
  * @deprecated use instead the same name class in package de.alpharogroup.swing.document.filter
  *             Note: will be removed with next minor release
  */
+@Deprecated
 public class IntegerArrayFilter extends DocumentFilter
 {
 

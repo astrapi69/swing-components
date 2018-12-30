@@ -64,10 +64,10 @@ public class ImageExtensions
 	 */
 	public enum Direction
 	{
-	/** Indicates the horizontal direction. */
-	horizontal,
-	/** Indicates the vertical direction. */
-	vertical
+		/** Indicates the horizontal direction. */
+		horizontal,
+		/** Indicates the vertical direction. */
+		vertical
 	}
 
 	/** The logger constant. */
