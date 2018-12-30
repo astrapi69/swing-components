@@ -1,6 +1,12 @@
 ## Change log
 ----------------------
 
+Version 5.0.1
+-------------
+CHANGED:
+
+- removed logging dependencies
+
 Version 5
 -------------
 
