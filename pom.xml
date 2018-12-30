@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-java-parent</artifactId>
-		<version>4.2</version>
+		<version>4.5</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -25,21 +25,21 @@
 	<properties>
 		<!-- JAVAHELP version -->
 		<javahelp.version>2.0.05</javahelp.version>
-		<email-tails.version>4.18</email-tails.version>
-		<test-objects.version>4.28</test-objects.version>
-		<file-worker.version>5</file-worker.version>
-		<jcommons-lang.version>5</jcommons-lang.version>
-		<vintage-time.version>4.12</vintage-time.version>
-		<randomizer-core.version>5.4</randomizer-core.version>
-		<silly-collections.version>4.35</silly-collections.version>
+		<email-tails.version>5</email-tails.version>
+		<test-objects.version>5</test-objects.version>
+		<file-worker.version>5.0.1</file-worker.version>
+		<jcommons-lang.version>5.1</jcommons-lang.version>
+		<vintage-time.version>5.1</vintage-time.version>
+		<randomizer-core.version>5.6</randomizer-core.version>
+		<silly-collections.version>5</silly-collections.version>
 		<!-- MODEL-DATA version -->
-		<model-data.version>1.6</model-data.version>
+		<model-data.version>1.6.2</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
 		<model-core.version>${model-data.version}</model-core.version>
 		<model-object.version>${model-data.version}</model-object.version>
 		<model-type-safe.version>${model-data.version}</model-type-safe.version>
 		<!-- GENERIC-DESIGN-PATTERN versions -->
-		<design-patterns.version>4.12.0</design-patterns.version>
+		<design-patterns.version>4.14</design-patterns.version>
 		<state.version>${design-patterns.version}</state.version>
 		<observer.version>${design-patterns.version}</observer.version>
 		<!-- EXTERNAL LIBRARIES versions -->
@@ -48,10 +48,10 @@
 		<imgscalr-lib.version>4.2</imgscalr-lib.version>
 		<itextpdf.version>5.5.12</itextpdf.version>
 		<!-- JOBJECT-EXTENSIONS versions -->
-		<jobject-extensions.version>2</jobject-extensions.version>
+		<jobject-extensions.version>2.5</jobject-extensions.version>
 		<jobject-core.version>${jobject-extensions.version}</jobject-core.version>
 		<!-- GEN-TREE version -->
-		<gen-tree.version>4.11</gen-tree.version>
+		<gen-tree.version>4.12</gen-tree.version>
 	</properties>
 
 	<licenses>
