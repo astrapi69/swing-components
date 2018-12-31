@@ -26,6 +26,7 @@ package de.alpharogroup.swing.actions;
 
 import java.awt.Window;
 import java.awt.event.ActionEvent;
+import java.util.logging.Level;
 
 import javax.swing.AbstractAction;
 import javax.swing.SwingUtilities;
@@ -36,12 +37,12 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.java.Log;
 
 /**
  * The class {@link ShowHelpDialogAction} shows the help window of an application
  */
-@Slf4j
+@Log
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Getter
 public class ShowHelpDialogAction extends AbstractAction
@@ -84,7 +85,7 @@ public class ShowHelpDialogAction extends AbstractAction
 		}
 		catch (final Exception ex)
 		{
-			log.error(ex.getLocalizedMessage(), ex);
+			log.log(Level.SEVERE, ex.getLocalizedMessage(), ex);
 		}
 		SwingUtilities.updateComponentTreeUI(helpWindow);
 	}
