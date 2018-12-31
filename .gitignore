@@ -7,8 +7,10 @@
 # intellij files #
 ##################
 *.iml
-.idea
-*/.idea
+!.idea/runConfigurations
+.idea/inspectionProfiles
+.idea/libraries
+.idea/*.*
 
 #################
 # eclipse files #

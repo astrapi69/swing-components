@@ -30,6 +30,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Optional;
+import java.util.logging.Level;
 
 import javax.imageio.ImageIO;
 import javax.swing.JDesktopPane;
@@ -50,7 +51,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.java.Log;
 
 
 /**
@@ -60,7 +61,7 @@ import lombok.extern.slf4j.Slf4j;
  *            the generic type of the model object
  */
 @SuppressWarnings("serial")
-@Slf4j
+@Log
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class ApplicationFrame<T> extends BaseFrame<T>
 {
@@ -117,7 +118,7 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
 				+ e.getMessage();
 			JOptionPane.showMessageDialog(this, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
-			log.error(e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 		return optional;
 	}
@@ -243,7 +244,7 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
 				+ e.getMessage();
 			JOptionPane.showMessageDialog(this, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
-			log.error(e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 		catch (final InstantiationException e)
 		{
@@ -251,7 +252,7 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
 				+ e.getMessage();
 			JOptionPane.showMessageDialog(this, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
-			log.error(e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 		catch (final IllegalAccessException e)
 		{
@@ -259,7 +260,7 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
 				+ e.getMessage();
 			JOptionPane.showMessageDialog(this, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
-			log.error(e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 		catch (final UnsupportedLookAndFeelException e)
 		{
@@ -267,7 +268,7 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
 				+ e.getMessage();
 			JOptionPane.showMessageDialog(this, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
-			log.error(e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 		return lookAndFeels;
 	}

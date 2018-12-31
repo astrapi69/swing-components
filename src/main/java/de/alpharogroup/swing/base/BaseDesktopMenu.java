@@ -29,6 +29,7 @@ import java.awt.Frame;
 import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.logging.Level;
 
 import javax.help.CSH;
 import javax.help.DefaultHelpBroker;
@@ -59,13 +60,13 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.java.Log;
 
 /**
  * The class {@link BaseDesktopMenu} holds the base menu items for an application
  */
-@Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@Log
 public class BaseDesktopMenu extends JMenu
 {
 
@@ -111,9 +112,10 @@ public class BaseDesktopMenu extends JMenu
 		helpBroker = newHelpBroker();
 		helpWindow = newHelpWindow(helpBroker);
 		menubar = newJMenuBar();
-		menubar.add(fileMenu = newFileMenu(e -> log.debug("filemenu")));
-		menubar.add(lookAndFeelMenu = newLookAndFeelMenu(e -> log.debug("Look and Feel menu")));
-		menubar.add(helpMenu = newHelpMenu(e -> log.debug("Help menu")));
+		menubar.add(fileMenu = newFileMenu(e -> log.log(Level.FINE, "filemenu")));
+		menubar.add(
+			lookAndFeelMenu = newLookAndFeelMenu(e -> log.log(Level.FINE, "Look and Feel menu")));
+		menubar.add(helpMenu = newHelpMenu(e -> log.log(Level.FINE, "Help menu")));
 	}
 
 	/**
@@ -139,7 +141,7 @@ public class BaseDesktopMenu extends JMenu
 				+ e.getMessage();
 			JOptionPane.showMessageDialog(this.getParent(), htmlMessage, title,
 				JOptionPane.ERROR_MESSAGE);
-			log.error(e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 		return hs;
 	}
@@ -237,7 +239,7 @@ public class BaseDesktopMenu extends JMenu
 				+ e.getMessage();
 			JOptionPane.showMessageDialog(this.getParent(), htmlMessage, title,
 				JOptionPane.ERROR_MESSAGE);
-			log.error(e.getMessage(), e);
+			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 		SwingUtilities.updateComponentTreeUI(helpWindow);
 		return helpWindow;
