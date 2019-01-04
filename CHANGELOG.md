@@ -7,6 +7,8 @@ Version 5.1-SNAPSHOT
 ADDED:
  
 - new method created that create a configuration directory file object with factory method that can be overwritten
+- update of file-worker version to 5.0.2
+- update of jcommons-lang version to 5.1.1
 
 Version 5.0.2
 -------------
