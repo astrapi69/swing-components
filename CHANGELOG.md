@@ -4,6 +4,10 @@
 Version 5.1-SNAPSHOT
 -------------
 
+ADDED:
+ 
+- new method created that create a configuration directory file object with factory method that can be overwritten
+
 Version 5.0.2
 -------------
 

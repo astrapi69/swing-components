@@ -53,8 +53,6 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
-import lombok.extern.slf4j.Slf4j;
-
 
 /**
  * The class {@link ApplicationFrame}
@@ -99,23 +97,24 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 	public ApplicationFrame(String title)
 	{
 		super(title);
-		configurationDir = newConfigurationDir(System.getProperty("user.home"), ".config");
+		configurationDir = newConfigurationDirectory(System.getProperty("user.home"), ".config");
 	}
 
 	/**
-	 * Factory method for create a new configuration {@link File} object if it is not exists. This
-	 * method is invoked in the constructor and can be overridden from the derived classes so users
-	 * can provide their own version of a new configuration {@link File} object
+	 * Factory method for create a new configuration directory {@link File} object if it is not
+	 * exists. This method is invoked in the constructor and can be overridden from the derived
+	 * classes so users can provide their own version of a new configuration {@link File} object
 	 *
 	 * @param parent
 	 *            the parent
 	 * @param child
 	 *            the child
-	 * @return the file
+	 * @return the new configuration directory {@link File} object or the existing one
 	 */
-	protected File newConfigurationDir(final @NonNull String parent, final @NonNull String child)
+	protected File newConfigurationDirectory(final @NonNull String parent,
+		final @NonNull String child)
 	{
-		configurationDir = new File(parent, child);
+		File configurationDir = new File(parent, child);
 		if (!configurationDir.exists())
 		{
 			configurationDir.mkdir();

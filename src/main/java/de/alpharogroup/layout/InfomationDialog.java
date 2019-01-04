@@ -63,9 +63,9 @@ public class InfomationDialog extends Dialog implements ActionListener
 	public static String showInfoDialog(final Frame owner, final String message)
 	{
 		InfomationDialog mdialog;
-		String ok;
-		ok = "OK";
+		String ok = "OK";
 		mdialog = new InfomationDialog(owner, "Information message", message, ok);
+		@SuppressWarnings("unlikely-arg-type")
 		final int index = mdialog.getVButtons().indexOf(ok);
 		final Button button = mdialog.getVButtons().get(index);
 		button.addActionListener(mdialog);

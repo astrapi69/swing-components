@@ -404,6 +404,7 @@ public class BaseDesktopMenu extends JMenu
 	{
 		return new ShowLicenseFrameAction(name, title)
 		{
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			protected String newLicenseText()
