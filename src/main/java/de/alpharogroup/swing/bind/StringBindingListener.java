@@ -24,22 +24,24 @@
  */
 package de.alpharogroup.swing.bind;
 
+import java.util.logging.Level;
+
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 
-import de.alpharogroup.check.Check;
 import de.alpharogroup.model.api.Model;
 import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
+import lombok.NonNull;
+import lombok.extern.java.Log;
 
 /**
  * The class {@link StringBindingListener} acts as listener of the input of a text component and
  * updates the given {@link Model}.
  *
  */
+@Log
 @Getter
-@Slf4j
 public class StringBindingListener implements DocumentListener
 {
 
@@ -52,9 +54,8 @@ public class StringBindingListener implements DocumentListener
 	 * @param model
 	 *            the model
 	 */
-	public StringBindingListener(Model<String> model)
+	public StringBindingListener(@NonNull Model<String> model)
 	{
-		Check.get().notNull(model, "model");
 		this.model = model;
 	}
 
@@ -102,8 +103,10 @@ public class StringBindingListener implements DocumentListener
 		}
 		catch (BadLocationException e1)
 		{
-			log.error("some portion of the given range was not a valid part of the document. "
-				+ "The location in the exception is the first bad position encountered.", e1);
+			log.log(Level.SEVERE,
+				"some portion of the given range was not a valid part of the document. "
+					+ "The location in the exception is the first bad position encountered.",
+				e1);
 		}
 	}
 

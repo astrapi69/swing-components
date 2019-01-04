@@ -4,8 +4,18 @@
 Version 5.1-SNAPSHOT
 -------------
 
+Version 5.0.2
+-------------
+
+CHANGED:
+
+- update of email-tails version to 5.0.1
+- removed deprecated plaf actions
+- removed logging dependencies
+
 Version 5.0.1
 -------------
+
 CHANGED:
 
 - removed logging dependencies

@@ -25,11 +25,12 @@
 package de.alpharogroup.swing.table.model;
 
 import java.util.List;
+import java.util.logging.Level;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.java.Log;
 
 /**
  * The abstract class {@link BaseTableModel} holds a {@link TableColumnsModel} for layout the
@@ -39,7 +40,7 @@ import lombok.extern.slf4j.Slf4j;
  *            the generic type of the model
  */
 @NoArgsConstructor
-@Slf4j
+@Log
 public abstract class BaseTableModel<T> extends GenericTableModel<T>
 {
 
@@ -99,7 +100,7 @@ public abstract class BaseTableModel<T> extends GenericTableModel<T>
 		}
 		catch (Exception e)
 		{
-			log.error("Error occured on getting column class on index " + c + ".", e);
+			log.log(Level.SEVERE, "Error occured on getting column class on index " + c + ".", e);
 		}
 		return null;
 	}
@@ -125,7 +126,7 @@ public abstract class BaseTableModel<T> extends GenericTableModel<T>
 		}
 		catch (Exception e)
 		{
-			log.error("Error occured on getting column name on index " + col + ".", e);
+			log.log(Level.SEVERE, "Error occured on getting column name on index " + col + ".", e);
 		}
 		return null;
 	}
@@ -142,8 +143,10 @@ public abstract class BaseTableModel<T> extends GenericTableModel<T>
 		}
 		catch (Exception e)
 		{
-			log.error("Error occured on getting flag if the cell is editable at position on row: "
-				+ rowIndex + " and in column: " + columnIndex + ".", e);
+			log.log(Level.SEVERE,
+				"Error occured on getting flag if the cell is editable at position on row: "
+					+ rowIndex + " and in column: " + columnIndex + ".",
+				e);
 
 		}
 		return false;
