@@ -28,6 +28,7 @@ import java.awt.Component;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -59,7 +60,6 @@ import lombok.extern.slf4j.Slf4j;
  * @param <T>
  *            the generic type of the model object
  */
-@SuppressWarnings("serial")
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class ApplicationFrame<T> extends BaseFrame<T>
@@ -89,9 +89,35 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 	@Getter
 	JToolBar toolbar;
 
+	/** The configuration directory for configuration file. */
+	@Getter
+	File configurationDir;
+
 	public ApplicationFrame(String title)
 	{
 		super(title);
+		configurationDir = newConfigurationDir(System.getProperty("user.home"), ".config");
+	}
+
+	/**
+	 * Factory method for create a new configuration {@link File} object if it is not exists. This
+	 * method is invoked in the constructor and can be overridden from the derived classes so users
+	 * can provide their own version of a new configuration {@link File} object
+	 *
+	 * @param parent
+	 *            the parent
+	 * @param child
+	 *            the child
+	 * @return the file
+	 */
+	protected File newConfigurationDir(final @NonNull String parent, final @NonNull String child)
+	{
+		configurationDir = new File(parent, child);
+		if (!configurationDir.exists())
+		{
+			configurationDir.mkdir();
+		}
+		return configurationDir;
 	}
 
 	/**
@@ -237,31 +263,8 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 			LookAndFeels.setLookAndFeel(lookAndFeels, component);
 			setCurrentLookAndFeels(lookAndFeels);
 		}
-		catch (final ClassNotFoundException e)
-		{
-			String title = e.getLocalizedMessage();
-			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
-				+ e.getMessage();
-			JOptionPane.showMessageDialog(this, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
-			log.error(e.getMessage(), e);
-		}
-		catch (final InstantiationException e)
-		{
-			String title = e.getLocalizedMessage();
-			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
-				+ e.getMessage();
-			JOptionPane.showMessageDialog(this, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
-			log.error(e.getMessage(), e);
-		}
-		catch (final IllegalAccessException e)
-		{
-			String title = e.getLocalizedMessage();
-			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
-				+ e.getMessage();
-			JOptionPane.showMessageDialog(this, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
-			log.error(e.getMessage(), e);
-		}
-		catch (final UnsupportedLookAndFeelException e)
+		catch (final ClassNotFoundException | InstantiationException | IllegalAccessException
+			| UnsupportedLookAndFeelException e)
 		{
 			String title = e.getLocalizedMessage();
 			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
