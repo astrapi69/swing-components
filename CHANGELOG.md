@@ -7,6 +7,11 @@ Version 5.1-SNAPSHOT
 ADDED:
  
 - new method created that create a configuration directory file object with factory method that can be overwritten
+- new Factory class for TableCellButtonRenderer created
+- new callback methods in TableCellButtonEditor created
+
+CHANGED:
+
 - update of email-tails version to 5.0.2
 - update of file-worker version to 5.0.2
 - update of jcommons-lang version to 5.1.1

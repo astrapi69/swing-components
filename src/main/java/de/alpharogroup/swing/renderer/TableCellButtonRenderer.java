@@ -72,12 +72,7 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 			setForeground(newForeground(table));
 			setBackground(newBackround(table));
 		}
-		String text = "";
-		if (value != null)
-		{
-			text = value.toString();
-		}
-		setText(text);
+		setText(onSetText(value));
 		return this;
 	}
 
@@ -107,6 +102,23 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 	protected Color newSelectionForeground(final JTable table)
 	{
 		return table.getSelectionForeground();
+	}
+
+	/**
+	 * Callback method to interact when the text is set.
+	 *
+	 * @param value
+	 *            the value of the table cell
+	 * @return the string
+	 */
+	protected String onSetText(final Object value)
+	{
+		String text = "";
+		if (value != null)
+		{
+			text = value.toString();
+		}
+		return text;
 	}
 
 }
