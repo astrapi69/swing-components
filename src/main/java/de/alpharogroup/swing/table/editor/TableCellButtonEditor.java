@@ -35,7 +35,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * The class {@link TableCellButtonEditor}.
+ * The class {@link TableCellButtonEditor}
  */
 @Getter
 @Setter
@@ -59,6 +59,14 @@ public class TableCellButtonEditor extends DefaultCellEditor
 
 	/** The value. */
 	private Object value;
+
+	/**
+	 * Instantiates a new {@link TableCellButtonEditor} object
+	 */
+	public TableCellButtonEditor()
+	{
+		this(new JCheckBox());
+	}
 
 	/**
 	 * Instantiates a new {@link TableCellButtonEditor} object.
