@@ -25,7 +25,7 @@
 	<properties>
 		<!-- JAVAHELP version -->
 		<javahelp.version>2.0.05</javahelp.version>
-		<email-tails.version>5.0.1</email-tails.version>
+		<email-tails.version>5.0.2</email-tails.version>
 		<test-objects.version>5</test-objects.version>
 		<file-worker.version>5.0.2</file-worker.version>
 		<jcommons-lang.version>5.1.1</jcommons-lang.version>
