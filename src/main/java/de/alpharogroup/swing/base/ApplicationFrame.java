@@ -60,7 +60,6 @@ import lombok.extern.java.Log;
  * @param <T>
  *            the generic type of the model object
  */
-@SuppressWarnings("serial")
 @Log
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class ApplicationFrame<T> extends BaseFrame<T>
@@ -90,14 +89,14 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 	@Getter
 	JToolBar toolbar;
 
-	/** The configuration directory for configuration file. */
+	/** The configuration directory for configuration files. */
 	@Getter
-	File configurationDir;
+	File configurationDirectory;
 
 	public ApplicationFrame(String title)
 	{
 		super(title);
-		configurationDir = newConfigurationDirectory(System.getProperty("user.home"), ".config");
+		configurationDirectory = newConfigurationDirectory(System.getProperty("user.home"), ".config");
 	}
 
 	/**

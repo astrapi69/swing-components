@@ -37,7 +37,6 @@ import lombok.experimental.FieldDefaults;
 /**
  * The abstract class {@link ShowInfoDialogAction}
  */
-@SuppressWarnings("serial")
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public abstract class ShowInfoDialogAction extends AbstractAction
 {
