@@ -60,11 +60,14 @@ import lombok.extern.java.Log;
  * @param <T>
  *            the generic type of the model object
  */
-@SuppressWarnings("serial")
 @Log
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class ApplicationFrame<T> extends BaseFrame<T>
 {
+
+	/** The configuration directory for configuration files. */
+	@Getter
+	File configurationDirectory;
 
 	/** The current look and feels. */
 	@Getter
@@ -90,36 +93,11 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 	@Getter
 	JToolBar toolbar;
 
-	/** The configuration directory for configuration file. */
-	@Getter
-	File configurationDir;
-
 	public ApplicationFrame(String title)
 	{
 		super(title);
-		configurationDir = newConfigurationDirectory(System.getProperty("user.home"), ".config");
-	}
-
-	/**
-	 * Factory method for create a new configuration directory {@link File} object if it is not
-	 * exists. This method is invoked in the constructor and can be overridden from the derived
-	 * classes so users can provide their own version of a new configuration {@link File} object
-	 *
-	 * @param parent
-	 *            the parent
-	 * @param child
-	 *            the child
-	 * @return the new configuration directory {@link File} object or the existing one
-	 */
-	protected File newConfigurationDirectory(final @NonNull String parent,
-		final @NonNull String child)
-	{
-		File configurationDir = new File(parent, child);
-		if (!configurationDir.exists())
-		{
-			configurationDir.mkdir();
-		}
-		return configurationDir;
+		configurationDirectory = newConfigurationDirectory(System.getProperty("user.home"),
+			".config");
 	}
 
 	/**
@@ -148,6 +126,28 @@ public abstract class ApplicationFrame<T> extends BaseFrame<T>
 			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 		return optional;
+	}
+
+	/**
+	 * Factory method for create a new configuration directory {@link File} object if it is not
+	 * exists. This method is invoked in the constructor and can be overridden from the derived
+	 * classes so users can provide their own version of a new configuration {@link File} object
+	 *
+	 * @param parent
+	 *            the parent
+	 * @param child
+	 *            the child
+	 * @return the new configuration directory {@link File} object or the existing one
+	 */
+	protected File newConfigurationDirectory(final @NonNull String parent,
+		final @NonNull String child)
+	{
+		File configurationDir = new File(parent, child);
+		if (!configurationDir.exists())
+		{
+			configurationDir.mkdir();
+		}
+		return configurationDir;
 	}
 
 	/**

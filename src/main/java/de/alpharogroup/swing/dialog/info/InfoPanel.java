@@ -36,7 +36,6 @@ import javax.swing.JTextArea;
  * The abstract class {@link InfoPanel} for display a simple info message. Provides abstract
  * callback methods for the text values.
  */
-@SuppressWarnings("serial")
 public abstract class InfoPanel extends JPanel
 {
 

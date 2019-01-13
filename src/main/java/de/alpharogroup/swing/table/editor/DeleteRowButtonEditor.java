@@ -84,6 +84,14 @@ public class DeleteRowButtonEditor extends DefaultCellEditor
 
 	/**
 	 * Instantiates a new {@link DeleteRowButtonEditor}
+	 */
+	public DeleteRowButtonEditor()
+	{
+		this(new JCheckBox());
+	}
+
+	/**
+	 * Instantiates a new {@link DeleteRowButtonEditor}
 	 *
 	 * @param checkBox
 	 *            the check box
@@ -107,8 +115,25 @@ public class DeleteRowButtonEditor extends DefaultCellEditor
 		deleteRowButtonListener.setRow(row);
 		deleteRowButtonListener.setTable(table);
 
-		button.setText(value == null ? "" : "Delete");
+		button.setText(onSetText(value));
 		return button;
+	}
+
+	/**
+	 * Callback method to interact when the text is set.
+	 *
+	 * @param value
+	 *            the value of the table cell
+	 * @return the string
+	 */
+	protected String onSetText(final Object value)
+	{
+		String text = "Delete";
+		if (value != null)
+		{
+			text = value.toString();
+		}
+		return text;
 	}
 
 }

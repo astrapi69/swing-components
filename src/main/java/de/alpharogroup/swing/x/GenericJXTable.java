@@ -36,7 +36,6 @@ import de.alpharogroup.swing.table.model.GenericTableModel;
  * @param <TYPE>
  *            the generic type of the model
  */
-@SuppressWarnings("serial")
 public class GenericJXTable<TYPE> extends JXTable
 {
 
@@ -59,7 +58,7 @@ public class GenericJXTable<TYPE> extends JXTable
 
 		this.setModel(this.genericTableModel);
 
-		this.sorter = new TableRowSorter<GenericTableModel<TYPE>>(this.genericTableModel);
+		this.sorter = new TableRowSorter<>(this.genericTableModel);
 
 		this.setRowSorter(this.sorter);
 	}

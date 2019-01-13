@@ -44,11 +44,11 @@ import de.alpharogroup.layout.DisposeWindow;
 public class HelpFrame extends JFrame
 {
 
-	private static final long serialVersionUID = 1L;
-
 	private static final String DEFAULT_BUTTONLABEL_CLOSE = "Close";
 
 	private static final String DEFAULT_LABEL_HELP = "License";
+
+	private static final long serialVersionUID = 1L;
 
 	private JButton buttonClose;
 

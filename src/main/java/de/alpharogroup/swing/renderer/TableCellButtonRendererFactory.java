@@ -22,56 +22,33 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.actions;
-
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
-
-import de.alpharogroup.swing.dialog.info.InfoDialog;
-import lombok.AccessLevel;
-import lombok.NonNull;
-import lombok.experimental.FieldDefaults;
+package de.alpharogroup.swing.renderer;
 
 /**
- * The abstract class {@link ShowInfoDialogAction}
+ * A factory for creating TableCellButtonRenderer objects
  */
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public abstract class ShowInfoDialogAction extends AbstractAction
+public class TableCellButtonRendererFactory
 {
 
-	Frame owner;
-	String title;
-
 	/**
-	 * Instantiates a new {@link ShowInfoDialogAction}.
+	 * Factory method for creating the new {@link TableCellButtonRenderer} with the given string
 	 *
-	 * @param name
-	 *            the name
-	 * @param owner
-	 *            the owner
-	 * @param title
-	 *            the title
+	 * @param text
+	 *            the text
+	 * @return the new {@link TableCellButtonRenderer}
 	 */
-	public ShowInfoDialogAction(final String name, final @NonNull Frame owner,
-		final @NonNull String title)
+	public static TableCellButtonRenderer newTableCellButtonRenderer(String text)
 	{
-		super(name);
-		this.owner = owner;
-		this.title = title;
+		return new TableCellButtonRenderer(null, null)
+		{
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected String onSetText(final Object value)
+			{
+				String currentText = text;
+				return currentText;
+			}
+		};
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void actionPerformed(final ActionEvent e)
-	{
-		final InfoDialog info = newInfoDialog(owner, title);
-		info.setVisible(true);
-	}
-
-	protected abstract InfoDialog newInfoDialog(final Frame owner, final String title);
-
 }
