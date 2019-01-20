@@ -6,9 +6,12 @@ import javax.swing.event.TreeModelListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreeNode;
+import javax.swing.tree.TreePath;
 
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
+import de.alpharogroup.swing.tree.JTreeExtensions;
 import de.alpharogroup.tree.TreeElement;
 
 public class ApplicationPreferencesPanel extends PreferencesPanel<TreeElement>
@@ -67,6 +70,18 @@ public class ApplicationPreferencesPanel extends PreferencesPanel<TreeElement>
 
 		addTreeComponent("Test 1", new JLabel("Test 1"));
 		addTreeComponent("Test 2", new JLabel("Test 2"));
+	}
+
+	@Override
+	protected void onAfterInitialize()
+	{
+		super.onAfterInitialize();
+		TreeNode root = (TreeNode) tree.getModel().getRoot();
+		JTreeExtensions.expandAll(tree, new TreePath(root), true);
+		DefaultMutableTreeNode firstLeaf = ((DefaultMutableTreeNode)tree.getModel().getRoot()).getFirstLeaf();
+		tree.setSelectionPath(new TreePath(firstLeaf.getPath()));
+		// dont show root
+		tree.setRootVisible(false);
 	}
 
 	@Override

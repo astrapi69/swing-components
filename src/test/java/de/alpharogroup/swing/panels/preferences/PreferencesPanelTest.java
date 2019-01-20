@@ -19,7 +19,8 @@ public class PreferencesPanelTest
 		final Frame frame = new Frame("ApplicationPreferencesPanel");
 		frame.addWindowListener(new CloseWindow());
 		frame.add(new ApplicationPreferencesPanel());
-		frame.pack();
+
+		frame.setBounds(100, 100, 730, 350);
 		frame.setVisible(true);
 	}
 

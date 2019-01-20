@@ -109,7 +109,6 @@ public abstract class JTreePanel<T> extends BasePanel<T>
 		tree.setEditable(true);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 
-
 		tree.addMouseListener(new MouseAdapter()
 		{
 			@Override
