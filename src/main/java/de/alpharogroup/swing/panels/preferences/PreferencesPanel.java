@@ -1,57 +1,33 @@
-/**
- * The MIT License
- *
- * Copyright (C) 2015 Asterios Raptis
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-package de.alpharogroup.swing.panels.tree;
+package de.alpharogroup.swing.panels.preferences;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTree;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeSelectionModel;
 
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
-import lombok.Getter;
 
-
-/**
- * The abstract class {@link JTreePanel} provides a {@link JTree} that is already embedded in a
- * {@link JScrollPane}. Additionally it provides factory methods that can be overwritten to provide
- * specific behavior.
- *
- * @param <T>
- *            the generic type of the model object
- */
-@Getter
-public abstract class JTreePanel<T> extends BasePanel<T>
+public abstract class PreferencesPanel<T> extends BasePanel<T>
 {
 
 	/** The serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * The {@link JSplitPane} for the tree in the left side and the corresponding value at teh right
+	 * side.
+	 */
+	protected JSplitPane splitPane;
 
 	/** The {@link JScrollPane} for the {@link JTree}. */
 	protected JScrollPane scrTree;
@@ -59,23 +35,29 @@ public abstract class JTreePanel<T> extends BasePanel<T>
 	/** The {@link JTree}. */
 	protected JTree tree;
 
-	/**
-	 * Instantiates a new {@link JTreePanel} object.
-	 */
-	public JTreePanel()
-	{
-		super();
-	}
+	protected TreeModel treeModel;
 
 	/**
-	 * Instantiates a new new {@link JTreePanel} object.
+	 * Instantiates a new {@link PreferencesPanel} object panel
 	 *
-	 * @param model
-	 *            the model
+	 * @param model the model
 	 */
-	public JTreePanel(final Model<T> model)
+	public PreferencesPanel(final Model<T> model)
 	{
 		super(model);
+	}
+
+	protected void addTreeComponent(final String title, final Component c)
+	{
+		DefaultMutableTreeNode root = (DefaultMutableTreeNode)treeModel.getRoot();
+		root.add(new ComponentTreeNode(title, c));
+	}
+
+	protected JSplitPane newJSplitPane() {
+		JSplitPane splitPane = new JSplitPane();
+		splitPane.setLeftComponent(scrTree);
+		splitPane.setRightComponent(null);
+		return splitPane;
 	}
 
 	/**
@@ -96,18 +78,39 @@ public abstract class JTreePanel<T> extends BasePanel<T>
 		return new Dimension(width, height);
 	}
 
-	/**
-	 * New tree.
-	 *
-	 * @return the j tree
-	 */
+	protected Component getSelectedComponent()
+	{
+		Object o = tree.getLastSelectedPathComponent();
+		if (o instanceof ComponentTreeNode)
+		{
+			return ((ComponentTreeNode)o).getComponent();
+		}
+		else
+		{
+			return null;
+		}
+
+	}
+
 	protected JTree newTree()
 	{
-		JTree tree = new JTree();
+		treeModel = newTreeModel(getModel());
 
-		tree.setModel(newTreeModel(getModel()));
-		tree.setEditable(true);
+		DefaultMutableTreeNode root = (DefaultMutableTreeNode)treeModel.getRoot();
+		JTree tree = new JTree(root);
+		tree.setEditable(false);
+
+		tree.addTreeSelectionListener(new TreeSelectionListener()
+		{
+			@Override
+			public void valueChanged(TreeSelectionEvent e)
+			{
+				splitPane.setRightComponent(PreferencesPanel.this.getSelectedComponent());
+			}
+		});
+
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+
 
 		tree.addMouseListener(new MouseAdapter()
 		{
@@ -178,6 +181,8 @@ public abstract class JTreePanel<T> extends BasePanel<T>
 
 		setPreferredSize(newPreferredSize(420, 560));
 		scrTree.setViewportView(tree);
+
+		splitPane = newJSplitPane();
 	}
 
 	/**
@@ -198,5 +203,6 @@ public abstract class JTreePanel<T> extends BasePanel<T>
 	protected void onSingleClick(MouseEvent event)
 	{
 	}
+
 
 }
