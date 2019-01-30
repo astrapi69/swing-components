@@ -80,6 +80,10 @@ public class BaseDesktopMenu extends JMenu
 	/** The file menu. */
 	@Getter
 	JMenu fileMenu;
+	
+	/** The edit menu. */
+	@Getter
+	JMenu editMenu;
 
 	@Getter
 	DefaultHelpBroker helpBroker;
@@ -112,7 +116,8 @@ public class BaseDesktopMenu extends JMenu
 		helpBroker = newHelpBroker();
 		helpWindow = newHelpWindow(helpBroker);
 		menubar = newJMenuBar();
-		menubar.add(fileMenu = newFileMenu(e -> log.log(Level.FINE, "filemenu")));
+		menubar.add(fileMenu = newFileMenu(e -> log.log(Level.FINE, "file menu")));
+		menubar.add(editMenu = newEditMenu(e -> log.log(Level.FINE, "edit menu")));
 		menubar.add(
 			lookAndFeelMenu = newLookAndFeelMenu(e -> log.log(Level.FINE, "Look and Feel menu")));
 		menubar.add(helpMenu = newHelpMenu(e -> log.log(Level.FINE, "Help menu")));
@@ -160,6 +165,22 @@ public class BaseDesktopMenu extends JMenu
 		fileMenu.setMnemonic('F');
 
 		return fileMenu;
+	}
+
+	/**
+	 * Creates the file menu.
+	 *
+	 * @param listener
+	 *            the listener
+	 *
+	 * @return the j menu
+	 */
+	protected JMenu newEditMenu(final ActionListener listener)
+	{
+		final JMenu menu = new JMenu("Edit");
+		menu.setMnemonic('E');
+
+		return menu;
 	}
 
 	protected DefaultHelpBroker newHelpBroker()
