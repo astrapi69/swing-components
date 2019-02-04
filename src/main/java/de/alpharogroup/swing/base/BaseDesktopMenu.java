@@ -77,13 +77,13 @@ public class BaseDesktopMenu extends JMenu
 	@Getter
 	Component applicationFrame;
 
-	/** The file menu. */
-	@Getter
-	JMenu fileMenu;
-	
 	/** The edit menu. */
 	@Getter
 	JMenu editMenu;
+
+	/** The file menu. */
+	@Getter
+	JMenu fileMenu;
 
 	@Getter
 	DefaultHelpBroker helpBroker;
@@ -159,12 +159,12 @@ public class BaseDesktopMenu extends JMenu
 	 *
 	 * @return the j menu
 	 */
-	protected JMenu newFileMenu(final ActionListener listener)
+	protected JMenu newEditMenu(final ActionListener listener)
 	{
-		final JMenu fileMenu = new JMenu("File");
-		fileMenu.setMnemonic('F');
+		final JMenu menu = new JMenu("Edit");
+		menu.setMnemonic('E');
 
-		return fileMenu;
+		return menu;
 	}
 
 	/**
@@ -175,12 +175,12 @@ public class BaseDesktopMenu extends JMenu
 	 *
 	 * @return the j menu
 	 */
-	protected JMenu newEditMenu(final ActionListener listener)
+	protected JMenu newFileMenu(final ActionListener listener)
 	{
-		final JMenu menu = new JMenu("Edit");
-		menu.setMnemonic('E');
+		final JMenu fileMenu = new JMenu("File");
+		fileMenu.setMnemonic('F');
 
-		return menu;
+		return fileMenu;
 	}
 
 	protected DefaultHelpBroker newHelpBroker()

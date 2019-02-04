@@ -1,3 +1,27 @@
+/**
+ * The MIT License
+ *
+ * Copyright (C) 2015 Asterios Raptis
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 package de.alpharogroup.swing.panels.preferences;
 
 import java.awt.Component;
@@ -23,14 +47,14 @@ public abstract class PreferencesPanel<T> extends BasePanel<T>
 	/** The serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The {@link JScrollPane} for the {@link JTree}. */
+	protected JScrollPane scrTree;
+
 	/**
 	 * The {@link JSplitPane} for the tree in the left side and the corresponding value at teh right
 	 * side.
 	 */
 	protected JSplitPane splitPane;
-
-	/** The {@link JScrollPane} for the {@link JTree}. */
-	protected JScrollPane scrTree;
 
 	/** The {@link JTree}. */
 	protected JTree tree;
@@ -40,7 +64,8 @@ public abstract class PreferencesPanel<T> extends BasePanel<T>
 	/**
 	 * Instantiates a new {@link PreferencesPanel} object panel
 	 *
-	 * @param model the model
+	 * @param model
+	 *            the model
 	 */
 	public PreferencesPanel(final Model<T> model)
 	{
@@ -53,7 +78,22 @@ public abstract class PreferencesPanel<T> extends BasePanel<T>
 		root.add(new ComponentTreeNode(title, c));
 	}
 
-	protected JSplitPane newJSplitPane() {
+	protected Component getSelectedComponent()
+	{
+		Object o = tree.getLastSelectedPathComponent();
+		if (o instanceof ComponentTreeNode)
+		{
+			return ((ComponentTreeNode)o).getComponent();
+		}
+		else
+		{
+			return null;
+		}
+
+	}
+
+	protected JSplitPane newJSplitPane()
+	{
 		JSplitPane splitPane = new JSplitPane();
 		splitPane.setLeftComponent(scrTree);
 		splitPane.setRightComponent(null);
@@ -76,20 +116,6 @@ public abstract class PreferencesPanel<T> extends BasePanel<T>
 	protected Dimension newPreferredSize(int width, int height)
 	{
 		return new Dimension(width, height);
-	}
-
-	protected Component getSelectedComponent()
-	{
-		Object o = tree.getLastSelectedPathComponent();
-		if (o instanceof ComponentTreeNode)
-		{
-			return ((ComponentTreeNode)o).getComponent();
-		}
-		else
-		{
-			return null;
-		}
-
 	}
 
 	protected JTree newTree()

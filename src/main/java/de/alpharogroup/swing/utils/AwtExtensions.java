@@ -26,6 +26,9 @@ package de.alpharogroup.swing.utils;
 
 import java.awt.Component;
 import java.awt.Cursor;
+import java.awt.Dialog;
+import java.awt.Frame;
+import java.awt.HeadlessException;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.Window;
@@ -36,17 +39,18 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import de.alpharogroup.lang.ClassExtensions;
 
 /**
- * The class {@link AwtExtensions}.
+ * The class {@link AwtExtensions}
  */
 public final class AwtExtensions
 {
 	/**
 	 * Gets the root JDialog from the given Component Object.
-	 * 
+	 *
 	 * @param component
 	 *            The Component to find the root JDialog.
 	 * @return 's the root JDialog.
@@ -66,7 +70,7 @@ public final class AwtExtensions
 
 	/**
 	 * Gets the root JFrame from the given Component Object.
-	 * 
+	 *
 	 * @param component
 	 *            The Component to find the root JFrame.
 	 * @return 's the root JFrame.
@@ -86,7 +90,7 @@ public final class AwtExtensions
 
 	/**
 	 * Gets the root parent from the given Component Object.
-	 * 
+	 *
 	 * @param component
 	 *            The Component to find the root parent.
 	 * @return 's the root parent.
@@ -101,8 +105,31 @@ public final class AwtExtensions
 	}
 
 	/**
+	 * Gets the toplevel <code>Frame</code> or <code>Dialog</code>
+	 *
+	 * @param component
+	 *            the parent component
+	 * @return the the toplevel <code>Frame</code> or <code>Dialog</code>
+	 * @throws HeadlessException
+	 *             if <code>GraphicsEnvironment.isHeadless</code> returns <code>true</code>
+	 * @see java.awt.GraphicsEnvironment#isHeadless
+	 */
+	public static Window getWindowForComponent(Component component) throws HeadlessException
+	{
+		if (component == null)
+		{
+			return JOptionPane.getRootFrame();
+		}
+		if (component instanceof Frame || component instanceof Dialog)
+		{
+			return (Window)component;
+		}
+		return getWindowForComponent(component.getParent());
+	}
+
+	/**
 	 * Creates an invisible cursor.
-	 * 
+	 *
 	 * @return s the created invisible cursor.
 	 */
 	public static Cursor newInvisibleCursor()
@@ -114,7 +141,7 @@ public final class AwtExtensions
 
 	/**
 	 * Sets the icon image from the given resource name and add it to the given window object.
-	 * 
+	 *
 	 * @param resourceName
 	 *            The name from the resource. This includes the absolute path to the image icon from
 	 *            the classpath.

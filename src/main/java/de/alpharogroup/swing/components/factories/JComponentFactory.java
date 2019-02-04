@@ -49,11 +49,13 @@ import de.alpharogroup.swing.menu.MenuItemBean;
 import de.alpharogroup.swing.menu.popup.listeners.PopupListener;
 import de.alpharogroup.swing.splashscreen.SplashScreen;
 import lombok.NonNull;
+import lombok.experimental.UtilityClass;
 
 /**
- * A factory class for create swing Component objects.
+ * The class {@link JComponentFactory} provides factory methods for create swing Component objects
  */
-public final class JComponentFactory
+@UtilityClass
+public class JComponentFactory
 {
 
 	/**
