@@ -9,12 +9,16 @@ ADDED:
 - new method created that create a configuration directory file object with factory method that can be overwritten
 - new Factory class for TableCellButtonRenderer created
 - new callback methods in TableCellButtonEditor created
+- new class RequestFocusListener created for request the focus from a given component
+- new panel class created for display the output of the system out and error stream 
 
 CHANGED:
 
 - update of email-tails version to 5.0.2
-- update of file-worker version to 5.0.2
+- update of file-worker version to 5.1
 - update of jcommons-lang version to 5.1.1
+- update of test-objects version to 5.0.1
+- update of silly-collections version to 5.1
 
 Version 5.0.2
 -------------

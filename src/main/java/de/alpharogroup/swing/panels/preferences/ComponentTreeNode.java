@@ -37,6 +37,7 @@ import lombok.experimental.FieldDefaults;
 public class ComponentTreeNode extends DefaultMutableTreeNode
 {
 
+	private static final long serialVersionUID = 1L;
 	Component component;
 	String label;
 
