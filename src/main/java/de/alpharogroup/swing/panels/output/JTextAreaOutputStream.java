@@ -30,30 +30,16 @@ import javax.swing.JTextArea;
 public class JTextAreaOutputStream extends AbstractComponentOutputStream<JTextArea>
 {
 
-	public JTextAreaOutputStream(JTextArea component, int maxLines)
-	{
-		super(component, maxLines);
-	}
+	private StringBuilder sb = new StringBuilder();
 
 	public JTextAreaOutputStream(JTextArea component)
 	{
 		super(component);
 	}
 
-	private StringBuilder sb = new StringBuilder();
-
-	@Override
-	protected void setText(JComponent swingComponent, String text)
+	public JTextAreaOutputStream(JTextArea component, int maxLines)
 	{
-		sb.delete(0, sb.length());
-		append(swingComponent, text);
-	}
-
-	@Override
-	protected void replaceRange(JComponent swingComponent, String text, int start, int end)
-	{
-		sb.replace(start, end, text);
-		redrawTextOf(swingComponent);
+		super(component, maxLines);
 	}
 
 	@Override
@@ -66,6 +52,20 @@ public class JTextAreaOutputStream extends AbstractComponentOutputStream<JTextAr
 	protected void redrawTextOf(JComponent swingComponent)
 	{
 		((JTextArea)swingComponent).setText(sb.toString());
+	}
+
+	@Override
+	protected void replaceRange(JComponent swingComponent, String text, int start, int end)
+	{
+		sb.replace(start, end, text);
+		redrawTextOf(swingComponent);
+	}
+
+	@Override
+	protected void setText(JComponent swingComponent, String text)
+	{
+		sb.delete(0, sb.length());
+		append(swingComponent, text);
 	}
 
 }

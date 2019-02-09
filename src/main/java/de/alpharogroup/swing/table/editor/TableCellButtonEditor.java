@@ -137,7 +137,9 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	}
 
 	/**
-	 * Callback method to interact when the text is set
+	 * Callback method to interact when the text is set.
+	 *
+	 * @return the string
 	 */
 	protected String onSetText()
 	{

@@ -47,129 +47,23 @@ import javax.swing.JComponent;
 public abstract class AbstractComponentOutputStream<T extends JComponent> extends OutputStream
 {
 
-	private byte[] oneByte;
-	private Appender appender;
-
-	private Lock jcosLock = new ReentrantLock();
-
-	public AbstractComponentOutputStream(T component)
-	{
-		this(component, 100);
-	}
-
-	public AbstractComponentOutputStream(T component, int maxLines)
-	{
-		if (maxLines < 1)
-		{
-			throw new IllegalArgumentException(
-				"JComponentOutputStream maximum lines must be positive (value=" + maxLines + ")");
-		}
-		oneByte = new byte[1];
-		appender = new Appender(component, maxLines);
-	}
-
-	/** Clear the current console text area. */
-	public void clear()
-	{
-		jcosLock.lock();
-		try
-		{
-			if (appender != null)
-			{
-				appender.clear();
-			}
-		}
-		finally
-		{
-			jcosLock.unlock();
-		}
-	}
-
-	public void close()
-	{
-		jcosLock.lock();
-		try
-		{
-			appender = null;
-		}
-		finally
-		{
-			jcosLock.unlock();
-		}
-	}
-
-	public void flush()
-	{
-	}
-
-	public void write(int val)
-	{
-		jcosLock.lock();
-		try
-		{
-			oneByte[0] = (byte)val;
-			write(oneByte, 0, 1);
-		}
-		finally
-		{
-			jcosLock.unlock();
-		}
-	}
-
-	public void write(byte[] ba)
-	{
-		jcosLock.lock();
-		try
-		{
-			write(ba, 0, ba.length);
-		}
-		finally
-		{
-			jcosLock.unlock();
-		}
-	}
-
-	public void write(byte[] ba, int str, int len)
-	{
-		jcosLock.lock();
-		try
-		{
-			if (appender != null)
-			{
-				appender.append(bytesToString(ba, str, len));
-			}
-		}
-		finally
-		{
-			jcosLock.unlock();
-		}
-	}
-
-	private String bytesToString(byte[] ba, int str, int len)
-	{
-		try
-		{
-			return new String(ba, str, len, StandardCharsets.UTF_8.name());
-		}
-		catch (UnsupportedEncodingException thr)
-		{
-			return new String(ba, str, len);
-		}
-	}
-
 	class Appender implements Runnable
 	{
-		private final JComponent swingComponent;
-		private final int maxLines; // maximum lines allowed in text area
-		private final LinkedList<Integer> lengths; // length of lines within
-													// text area
-		private final List<String> values; // values waiting to be appended
-
-		private int curLength; // length of current line
+		private Lock appenderLock;
 		private boolean clear;
+		private int curLength; // length of current line
+		private final String EOL1 = "\n";
+
+		private final String EOL2 = System.getProperty("line.separator", EOL1);
+		private final LinkedList<Integer> lengths; // length of lines within
+		private final int maxLines; // maximum lines allowed in text area
+
 		private boolean queue;
 
-		private Lock appenderLock;
+		private final JComponent swingComponent;
+
+		// text area
+		private final List<String> values; // values waiting to be appended
 
 		Appender(JComponent cpt, int maxLines)
 		{
@@ -226,6 +120,7 @@ public abstract class AbstractComponentOutputStream<T extends JComponent> extend
 		}
 
 		// MUST BE THE ONLY METHOD THAT TOUCHES the JComponent!
+		@Override
 		public void run()
 		{
 			appenderLock.lock();
@@ -260,10 +155,82 @@ public abstract class AbstractComponentOutputStream<T extends JComponent> extend
 				appenderLock.unlock();
 			}
 		}
-
-		private final String EOL1 = "\n";
-		private final String EOL2 = System.getProperty("line.separator", EOL1);
 	}
+
+	private Appender appender;
+
+	private Lock jcosLock = new ReentrantLock();
+
+	private byte[] oneByte;
+
+	public AbstractComponentOutputStream(T component)
+	{
+		this(component, 100);
+	}
+
+	public AbstractComponentOutputStream(T component, int maxLines)
+	{
+		if (maxLines < 1)
+		{
+			throw new IllegalArgumentException(
+				"JComponentOutputStream maximum lines must be positive (value=" + maxLines + ")");
+		}
+		oneByte = new byte[1];
+		appender = new Appender(component, maxLines);
+	}
+
+	protected abstract void append(JComponent swingComponent, String text);
+
+	private String bytesToString(byte[] ba, int str, int len)
+	{
+		try
+		{
+			return new String(ba, str, len, StandardCharsets.UTF_8.name());
+		}
+		catch (UnsupportedEncodingException thr)
+		{
+			return new String(ba, str, len);
+		}
+	}
+
+	/** Clear the current console text area. */
+	public void clear()
+	{
+		jcosLock.lock();
+		try
+		{
+			if (appender != null)
+			{
+				appender.clear();
+			}
+		}
+		finally
+		{
+			jcosLock.unlock();
+		}
+	}
+
+	@Override
+	public void close()
+	{
+		jcosLock.lock();
+		try
+		{
+			appender = null;
+		}
+		finally
+		{
+			jcosLock.unlock();
+		}
+	}
+
+	@Override
+	public void flush()
+	{
+	}
+
+	protected abstract void replaceRange(JComponent swingComponent, String text, int start,
+		int end);
 
 	/**
 	 * Sets the text.
@@ -275,9 +242,50 @@ public abstract class AbstractComponentOutputStream<T extends JComponent> extend
 	 */
 	protected abstract void setText(JComponent swingComponent, String text);
 
-	protected abstract void replaceRange(JComponent swingComponent, String text, int start,
-		int end);
+	@Override
+	public void write(byte[] ba)
+	{
+		jcosLock.lock();
+		try
+		{
+			write(ba, 0, ba.length);
+		}
+		finally
+		{
+			jcosLock.unlock();
+		}
+	}
 
-	protected abstract void append(JComponent swingComponent, String text);
+	@Override
+	public void write(byte[] ba, int str, int len)
+	{
+		jcosLock.lock();
+		try
+		{
+			if (appender != null)
+			{
+				appender.append(bytesToString(ba, str, len));
+			}
+		}
+		finally
+		{
+			jcosLock.unlock();
+		}
+	}
+
+	@Override
+	public void write(int val)
+	{
+		jcosLock.lock();
+		try
+		{
+			oneByte[0] = (byte)val;
+			write(oneByte, 0, 1);
+		}
+		finally
+		{
+			jcosLock.unlock();
+		}
+	}
 
 }

@@ -40,8 +40,8 @@ public class ConsolePanel extends JXPanel
 {
 	private static final long serialVersionUID = 1L;
 
-	JXTextArea textArea;
 	JScrollPane jScrollPane;
+	JXTextArea textArea;
 
 	public ConsolePanel()
 	{
