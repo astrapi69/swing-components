@@ -39,6 +39,8 @@ import javax.swing.JTextArea;
 public abstract class InfoPanel extends JPanel
 {
 
+	private static final long serialVersionUID = 1L;
+
 	/** The application name. */
 	private JLabel applicationName;
 

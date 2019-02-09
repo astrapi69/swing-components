@@ -11,6 +11,7 @@ ADDED:
 - new callback methods in TableCellButtonEditor created
 - new class RequestFocusListener created for request the focus from a given component
 - new panel class created for display the output of the system out and error stream 
+- new factory method for JDialog with parent component
 
 CHANGED:
 

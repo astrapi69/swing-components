@@ -109,10 +109,26 @@ public class JDialogFactory
 	 */
 	public static JDialog newJDialog(@NonNull JOptionPane pane, String title)
 	{
-		JDialog dialog = pane.createDialog(title);
-		dialog.setResizable(true);
-		dialog.setVisible(true);
-		return dialog;
+		return newJDialog(null, pane, title);
+	}
+
+	/**
+	 * Factory method for create a {@link JDialog} object over the given {@link JOptionPane}.
+	 *
+	 * @param parentComponent
+	 *            the parent component
+	 * @param pane
+	 *            the pane
+	 * @param title
+	 *            the title
+	 * @return the new {@link JDialog}
+	 */
+	public static JDialog newJDialog(Component parentComponent, @NonNull JOptionPane pane,
+		String title)
+	{
+		return parentComponent == null
+			? pane.createDialog(parentComponent, title)
+			: pane.createDialog(title);
 	}
 
 }
