@@ -12,7 +12,7 @@
 	</parent>
 
 	<artifactId>swing-components</artifactId>
-	<version>5.1</version>
+	<version>5.2-SNAPSHOT</version>
 
 	<name>${project.artifactId}</name>
 
