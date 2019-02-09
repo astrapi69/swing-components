@@ -100,6 +100,7 @@ Open Source:
  * [FlexDock](https://github.com/opencollab/flexdock) FlexDock is a Java docking framework for use in cross-platform Swing applications
  * [oxbow](https://github.com/eugener/oxbow) Swing UI Enhacements
  * [Darcula](https://github.com/bulenkov/Darcula) Darcula Look and Feel
+ * [Spring Rich Client](https://sourceforge.net/projects/spring-rich-c/files/spring-rich-c/)(not maintainend anymore) The Spring Rich Client Project (RCP) is a sub-project of The Spring Framework.
 
 Commercial
 
