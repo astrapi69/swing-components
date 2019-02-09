@@ -43,17 +43,17 @@ import lombok.ToString;
 public abstract class AbstractWizardModel
 {
 
-	/** The flag that signals if next is valid or not. */
-	private boolean validNext;
-
-	/** The flag that signals if previous is valid or not. */
-	private boolean validPrevious;
-
 	/** The flag that signals if cancel is valid or not. */
 	private boolean validCancel;
 
 	/** The flag that signals if finish is valid or not. */
 	private boolean validFinish;
+
+	/** The flag that signals if next is valid or not. */
+	private boolean validNext;
+
+	/** The flag that signals if previous is valid or not. */
+	private boolean validPrevious;
 
 	/**
 	 * Reset all flags to false.

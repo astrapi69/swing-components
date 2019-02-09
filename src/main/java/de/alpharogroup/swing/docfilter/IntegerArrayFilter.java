@@ -31,7 +31,11 @@ import javax.swing.text.DocumentFilter;
 
 /**
  * The class {@link IntegerArrayFilter} provide a document filter that accepts only int arrays
+ * 
+ * @deprecated use instead the same name class in package de.alpharogroup.swing.document.filter
+ *             Note: will be removed with next minor release
  */
+@Deprecated
 public class IntegerArrayFilter extends DocumentFilter
 {
 

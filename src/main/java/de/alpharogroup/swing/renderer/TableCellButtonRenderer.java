@@ -38,13 +38,13 @@ import javax.swing.table.TableCellRenderer;
 public class TableCellButtonRenderer extends JButton implements TableCellRenderer
 {
 
+	private static final String BUTTON_BACKGROUND_COLOR = "Button.background";
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	private static final String BUTTON_BACKGROUND_COLOR = "Button.background";
-
-	private Color foreground;
 	private Color backround;
+	private Color foreground;
 
 	public TableCellButtonRenderer()
 	{
@@ -72,12 +72,7 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 			setForeground(newForeground(table));
 			setBackground(newBackround(table));
 		}
-		String text = "";
-		if (value != null)
-		{
-			text = value.toString();
-		}
-		setText(text);
+		setText(onSetText(value));
 		return this;
 	}
 
@@ -107,6 +102,23 @@ public class TableCellButtonRenderer extends JButton implements TableCellRendere
 	protected Color newSelectionForeground(final JTable table)
 	{
 		return table.getSelectionForeground();
+	}
+
+	/**
+	 * Callback method to interact when the text is set.
+	 *
+	 * @param value
+	 *            the value of the table cell
+	 * @return the string
+	 */
+	protected String onSetText(final Object value)
+	{
+		String text = "";
+		if (value != null)
+		{
+			text = value.toString();
+		}
+		return text;
 	}
 
 }

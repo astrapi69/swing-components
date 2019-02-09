@@ -33,9 +33,9 @@ public class InsetsModel
 {
 
 	/**
-	 * The inset from the top.
+	 * The inset from the bottom.
 	 */
-	private int top;
+	private int bottom;
 
 	/**
 	 * The inset from the left.
@@ -43,12 +43,12 @@ public class InsetsModel
 	private int left;
 
 	/**
-	 * The inset from the bottom.
-	 */
-	private int bottom;
-
-	/**
 	 * The inset from the right.
 	 */
 	private int right;
+
+	/**
+	 * The inset from the top.
+	 */
+	private int top;
 }

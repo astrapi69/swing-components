@@ -34,6 +34,73 @@ import de.alpharogroup.design.pattern.state.wizard.WizardStateMachine;
 public enum CustomState implements WizardState<WizardStateMachine>
 {
 
+	/** The cancel {@link CustomState} object. */
+	CANCELED {
+
+
+		@Override
+		public void cancel(final WizardStateMachine stateMachine)
+		{
+			stateMachine.setCurrentState(CustomState.CANCELED);
+		}
+
+		@Override
+		public void finish(final WizardStateMachine stateMachine)
+		{
+			stateMachine.setCurrentState(CustomState.FINISHED);
+		}
+
+		@Override
+		public String getName()
+		{
+			return name();
+		}
+
+		@Override
+		public void goNext(final WizardStateMachine stateMachine)
+		{
+		}
+
+		@Override
+		public void goPrevious(final WizardStateMachine stateMachine)
+		{
+		}
+
+	},
+
+	/** The finish {@link CustomState} object. */
+	FINISHED {
+
+		@Override
+		public void cancel(final WizardStateMachine stateMachine)
+		{
+			stateMachine.setCurrentState(CustomState.CANCELED);
+		}
+
+		@Override
+		public void finish(final WizardStateMachine stateMachine)
+		{
+			stateMachine.setCurrentState(CustomState.FINISHED);
+		}
+
+		@Override
+		public String getName()
+		{
+			return name();
+		}
+
+		@Override
+		public void goNext(final WizardStateMachine stateMachine)
+		{
+		}
+
+		@Override
+		public void goPrevious(final WizardStateMachine stateMachine)
+		{
+		}
+
+	},
+
 	/** The first {@link CustomState} object. */
 	FIRST {
 
@@ -157,73 +224,6 @@ public enum CustomState implements WizardState<WizardStateMachine>
 		public boolean isLast()
 		{
 			return true;
-		}
-
-	},
-
-	/** The cancel {@link CustomState} object. */
-	CANCELED {
-
-
-		@Override
-		public void cancel(final WizardStateMachine stateMachine)
-		{
-			stateMachine.setCurrentState(CustomState.CANCELED);
-		}
-
-		@Override
-		public void finish(final WizardStateMachine stateMachine)
-		{
-			stateMachine.setCurrentState(CustomState.FINISHED);
-		}
-
-		@Override
-		public String getName()
-		{
-			return name();
-		}
-
-		@Override
-		public void goNext(final WizardStateMachine stateMachine)
-		{
-		}
-
-		@Override
-		public void goPrevious(final WizardStateMachine stateMachine)
-		{
-		}
-
-	},
-
-	/** The finish {@link CustomState} object. */
-	FINISHED {
-
-		@Override
-		public void cancel(final WizardStateMachine stateMachine)
-		{
-			stateMachine.setCurrentState(CustomState.CANCELED);
-		}
-
-		@Override
-		public void finish(final WizardStateMachine stateMachine)
-		{
-			stateMachine.setCurrentState(CustomState.FINISHED);
-		}
-
-		@Override
-		public String getName()
-		{
-			return name();
-		}
-
-		@Override
-		public void goNext(final WizardStateMachine stateMachine)
-		{
-		}
-
-		@Override
-		public void goPrevious(final WizardStateMachine stateMachine)
-		{
 		}
 
 	};

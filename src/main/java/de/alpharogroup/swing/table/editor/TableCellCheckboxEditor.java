@@ -51,14 +51,14 @@ public class TableCellCheckboxEditor extends DefaultCellEditor
 	/** The flag if the button was clicked. */
 	private boolean clicked;
 
+	/** The column index. */
+	private int column;
+
 	/** The row index. */
 	private int row;
 
 	/** The value. */
 	private Object value;
-
-	/** The column index. */
-	private int column;
 
 	/**
 	 * Instantiates a new {@link TableCellCheckboxEditor} object.

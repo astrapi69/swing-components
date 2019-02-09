@@ -53,9 +53,9 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 
 	}
 
-	private WizardContentPanel wizardContentPanel;
-
 	private NavigationPanel<Void> navigationPanel;
+
+	private WizardContentPanel wizardContentPanel;
 
 	public WizardPanel()
 	{

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-java-parent</artifactId>
-		<version>4</version>
+		<version>4.6</version>
 		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>swing-components</artifactId>
-	<version>4.28</version>
+	<version>5.1</version>
 
 	<name>${project.artifactId}</name>
 
@@ -19,25 +20,26 @@
 		Several swing components and utilities
 	</description>
 
-	<url>https://github.com/lightblueseas/swing-components</url>
+	<url>https://github.com/lightblueseas/${project.artifactId}</url>
 
 	<properties>
 		<!-- JAVAHELP version -->
 		<javahelp.version>2.0.05</javahelp.version>
-		<email-tails.version>4.18</email-tails.version>
-		<test-objects.version>4.28</test-objects.version>
-		<file-worker.version>4.22</file-worker.version>
-		<jcommons-lang.version>4.34</jcommons-lang.version>
-		<vintage-time.version>4.12</vintage-time.version>
-		<randomizer-core.version>5.4</randomizer-core.version>
-		<silly-collections.version>4.33</silly-collections.version>
+		<email-tails.version>5.0.2</email-tails.version>
+		<test-objects.version>5.0.1</test-objects.version>
+		<file-worker.version>5.1</file-worker.version>
+		<jcommons-lang.version>5.1.1</jcommons-lang.version>
+		<vintage-time.version>5.1</vintage-time.version>
+		<randomizer-core.version>5.6</randomizer-core.version>
+		<silly-collections.version>5.1</silly-collections.version>
 		<!-- MODEL-DATA version -->
-		<model-data.version>1.5.0</model-data.version>
+		<model-data.version>1.6.2</model-data.version>
 		<model-api.version>${model-data.version}</model-api.version>
+		<model-core.version>${model-data.version}</model-core.version>
 		<model-object.version>${model-data.version}</model-object.version>
 		<model-type-safe.version>${model-data.version}</model-type-safe.version>
 		<!-- GENERIC-DESIGN-PATTERN versions -->
-		<design-patterns.version>4.12.0</design-patterns.version>
+		<design-patterns.version>4.14</design-patterns.version>
 		<state.version>${design-patterns.version}</state.version>
 		<observer.version>${design-patterns.version}</observer.version>
 		<!-- EXTERNAL LIBRARIES versions -->
@@ -46,8 +48,10 @@
 		<imgscalr-lib.version>4.2</imgscalr-lib.version>
 		<itextpdf.version>5.5.12</itextpdf.version>
 		<!-- JOBJECT-EXTENSIONS versions -->
-		<jobject-extensions.version>1.12</jobject-extensions.version>
+		<jobject-extensions.version>2.5</jobject-extensions.version>
 		<jobject-core.version>${jobject-extensions.version}</jobject-core.version>
+		<!-- GEN-TREE version -->
+		<gen-tree.version>4.12</gen-tree.version>
 	</properties>
 
 	<licenses>
@@ -59,19 +63,19 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git:@github.com:lightblueseas/swing-components.git</connection>
-		<developerConnection>scm:git:git@github.com:lightblueseas/swing-components.git</developerConnection>
-		<url>git:@github.com:lightblueseas/swing-components.git</url>
+		<connection>scm:git:git:@github.com:lightblueseas/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git@github.com:lightblueseas/${project.artifactId}.git</developerConnection>
+		<url>git:@github.com:lightblueseas/${project.artifactId}.git</url>
 	</scm>
 
 	<issueManagement>
 		<system>github</system>
-		<url>https://github.com/lightblueseas/swing-components/issues</url>
+		<url>https://github.com/lightblueseas/${project.artifactId}/issues</url>
 	</issueManagement>
 
 	<ciManagement>
 		<system>travis-ci</system>
-		<url>https://travis-ci.org/lightblueseas/swing-components</url>
+		<url>https://travis-ci.org/lightblueseas/${project.artifactId}</url>
 	</ciManagement>
 
 	<dependencyManagement>
@@ -170,6 +174,12 @@
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
+				<artifactId>model-core</artifactId>
+				<version>${model-core.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
 				<artifactId>model-type-safe</artifactId>
 				<version>${model-type-safe.version}</version>
 			</dependency>
@@ -178,6 +188,12 @@
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>jobject-core</artifactId>
 				<version>${jobject-core.version}</version>
+			</dependency>
+			<!-- GEN-TREE DEPENDENCY -->
+			<dependency>
+				<groupId>de.alpharogroup</groupId>
+				<artifactId>gen-tree</artifactId>
+				<version>${gen-tree.version}</version>
 			</dependency>
 
 		</dependencies>
@@ -244,6 +260,7 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>test-objects</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -263,12 +280,23 @@
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
+			<artifactId>model-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
 			<artifactId>model-type-safe</artifactId>
 		</dependency>
 		<!-- JOBJECT-CORE DEPENDENCY -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>jobject-core</artifactId>
+		</dependency>
+		<!-- GEN-TREE DEPENDENCY -->
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>gen-tree</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

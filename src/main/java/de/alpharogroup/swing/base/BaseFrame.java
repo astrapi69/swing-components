@@ -29,8 +29,10 @@ import java.awt.GraphicsConfiguration;
 import org.jdesktop.swingx.JXFrame;
 
 import de.alpharogroup.model.api.Model;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 
 /**
@@ -42,6 +44,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class BaseFrame<T> extends JXFrame
 {
 
@@ -49,7 +52,7 @@ public class BaseFrame<T> extends JXFrame
 	private static final long serialVersionUID = 1L;
 
 	/** The model. */
-	private Model<T> model;
+	Model<T> model;
 
 	/**
 	 * Instantiates a new {@link BaseFrame}.

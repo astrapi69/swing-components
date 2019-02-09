@@ -35,7 +35,7 @@ import javax.swing.table.TableColumn;
 
 import de.alpharogroup.collections.pairs.KeyValuePair;
 import de.alpharogroup.layout.CloseWindow;
-import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.GenericModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
 import de.alpharogroup.swing.renderer.TableCellButtonRenderer;
@@ -56,7 +56,7 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 		list.add(KeyValuePair.<String, String> builder().key("bar").value("overview").build());
 		list.add(KeyValuePair.<String, String> builder().key("bla").value("overview").build());
 
-		final TableWithButtonsPanel panel = new TableWithButtonsPanel(BaseModel.ofList(list));
+		final TableWithButtonsPanel panel = new TableWithButtonsPanel(GenericModel.ofList(list));
 
 		final JFrame frame = new JFrame();
 		frame.addWindowListener(new CloseWindow());
@@ -69,9 +69,9 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 
 	}
 
-	private GenericJXTable<KeyValuePair<String, String>> table;
-
 	private JScrollPane scrTable;
+
+	private GenericJXTable<KeyValuePair<String, String>> table;
 
 	public TableWithButtonsPanel(final Model<List<KeyValuePair<String, String>>> model)
 	{

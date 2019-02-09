@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -39,19 +40,23 @@ import javax.swing.ImageIcon;
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import de.alpharogroup.random.RandomExtensions;
+import lombok.extern.java.Log;
 
 /**
  * The class {@link ImageExtensions}.
  */
+@Log
 public class ImageExtensions
 {
 
@@ -60,14 +65,11 @@ public class ImageExtensions
 	 */
 	public enum Direction
 	{
-	/** Indicates the horizontal direction. */
-	horizontal,
-	/** Indicates the vertical direction. */
-	vertical
+		/** Indicates the horizontal direction. */
+		horizontal,
+		/** Indicates the vertical direction. */
+		vertical
 	}
-
-	/** The logger constant. */
-	private static final Logger LOG = LoggerFactory.getLogger(ImageExtensions.class.getName());
 
 	/**
 	 * Concatenate the given list of BufferedImage objects to one image and returns the concatenated
@@ -203,6 +205,29 @@ public class ImageExtensions
 	}
 
 	/**
+	 * Factory method for create a new {@link PdfPTable} with the given count of columns and the
+	 * column header names
+	 *
+	 * @param numColumns
+	 *            the count of columns of the table
+	 * @param headerNames
+	 *            the column header names
+	 * @return the new {@link PdfPTable}
+	 */
+	public static PdfPTable newPdfPTable(int numColumns, List<String> headerNames)
+	{
+		PdfPTable table = new PdfPTable(numColumns);
+		headerNames.stream().forEach(columnHeaderName -> {
+			PdfPCell header = new PdfPCell();
+			header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+			header.setBorderWidth(2);
+			header.setPhrase(new Phrase(columnHeaderName));
+			table.addCell(header);
+		});
+		return table;
+	}
+
+	/**
 	 * Generates a random {@link BufferedImage} with the given parameters.
 	 *
 	 * @param width
@@ -258,7 +283,7 @@ public class ImageExtensions
 		}
 		catch (IOException e)
 		{
-			LOG.error("Reading image failed.", e);
+			log.log(Level.SEVERE, "Reading image failed.", e);
 		}
 		return img;
 	}
@@ -279,7 +304,7 @@ public class ImageExtensions
 		}
 		catch (IOException e)
 		{
-			LOG.error("Reading image failed.", e);
+			log.log(Level.SEVERE, "Reading image failed.", e);
 		}
 		return img;
 	}

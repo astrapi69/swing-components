@@ -38,18 +38,18 @@ import lombok.Getter;
 public class DateRenderer extends DefaultTableCellRenderer
 {
 
+	/** The constant for the default date pattern. */
+	public static final String DEFAULT_PATTERN = DatePatterns.DOT_DD_MM_YYYY;
+
 	/** The constant for the serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The constant for the default date pattern. */
-	public static final String DEFAULT_PATTERN = DatePatterns.DOT_DD_MM_YYYY;
+	/** The date formatter. */
+	private final SimpleDateFormat dateFormatter;
 
 	/** The date pattern. */
 	@Getter
 	private String datePattern;
-
-	/** The date formatter. */
-	private final SimpleDateFormat dateFormatter;
 
 	/**
 	 * Instantiates a new {@link DateRenderer}.

@@ -24,6 +24,8 @@
  */
 package de.alpharogroup.layout;
 
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -32,9 +34,11 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Stream;
 
 import de.alpharogroup.collections.array.ArrayExtensions;
-
+import de.alpharogroup.reflection.ReflectionExtensions;
 
 /**
  * Utility class for handle with screensize.
@@ -158,6 +162,26 @@ public class ScreenSizeExtensions
 	}
 
 	/**
+	 * Gets the screen dimension.
+	 *
+	 * @param component
+	 *            the component
+	 * @return the screen dimension
+	 */
+	public static Dimension getScreenDimension(Component component)
+	{
+		int screenID = getScreenID(component);
+		Dimension dimension = new Dimension(0, 0);
+
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		GraphicsConfiguration defaultConfiguration = ge.getScreenDevices()[screenID]
+			.getDefaultConfiguration();
+		Rectangle rectangle = defaultConfiguration.getBounds();
+		dimension.setSize(rectangle.getWidth(), rectangle.getHeight());
+		return dimension;
+	}
+
+	/**
 	 * Gets the height from the current screen.
 	 *
 	 * @return Returns the height from the current screen.
@@ -166,6 +190,20 @@ public class ScreenSizeExtensions
 	{
 		final int y = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		return y;
+	}
+
+	/**
+	 * Gets the screen height of the {@link GraphicsDevice} that is displayed from the given
+	 * component
+	 *
+	 * @param component
+	 *            the component
+	 * @return the screen height
+	 */
+	public static int getScreenHeight(Component component)
+	{
+		Dimension dimension = getScreenDimension(component);
+		return dimension.height;
 	}
 
 	/**
@@ -190,6 +228,40 @@ public class ScreenSizeExtensions
 	}
 
 	/**
+	 * Gets the screen ID from the given component
+	 *
+	 * @param component
+	 *            the component
+	 * @return the screen ID
+	 */
+	public static int getScreenID(Component component)
+	{
+		int screenID;
+		final AtomicInteger counter = new AtomicInteger(-1);
+		Stream.of(getScreenDevices()).forEach(graphicsDevice -> {
+
+			GraphicsConfiguration gc = graphicsDevice.getDefaultConfiguration();
+			Rectangle rectangle = gc.getBounds();
+			if (rectangle.contains(component.getLocation()))
+			{
+				try
+				{
+					Object object = ReflectionExtensions.getFieldValue(graphicsDevice, "screen");
+					Integer sid = (Integer)object;
+					counter.set(sid);
+				}
+				catch (NoSuchFieldException | SecurityException | IllegalArgumentException
+					| IllegalAccessException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		});
+		screenID = counter.get();
+		return screenID;
+	}
+
+	/**
 	 * Gets the width from the current screen.
 	 *
 	 * @return Returns the width from the current screen.
@@ -198,6 +270,20 @@ public class ScreenSizeExtensions
 	{
 		final int x = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		return x;
+	}
+
+	/**
+	 * Gets the screen width of the {@link GraphicsDevice} that is displayed from the given
+	 * component
+	 *
+	 * @param component
+	 *            the component
+	 * @return the screen width
+	 */
+	public static int getScreenWidth(Component component)
+	{
+		Dimension dimension = getScreenDimension(component);
+		return dimension.width;
 	}
 
 	/**

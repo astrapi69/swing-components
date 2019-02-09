@@ -30,11 +30,11 @@ package de.alpharogroup.swing.tablemodel;
 public class Permission
 {
 
-	/** The name. */
-	private String name;
-
 	/** The description. */
 	private String description;
+
+	/** The name. */
+	private String name;
 
 	/**
 	 * Instantiates a new permission.

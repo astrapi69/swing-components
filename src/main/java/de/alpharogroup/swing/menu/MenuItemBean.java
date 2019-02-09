@@ -26,6 +26,7 @@ package de.alpharogroup.swing.menu;
 
 import java.awt.event.ActionListener;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -33,6 +34,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 
 @Getter
 @Setter
@@ -41,9 +43,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class MenuItemBean
 {
-	private String label;
-	private String command;
-	private ActionListener actionListener;
+	ActionListener actionListener;
+	String command;
+	String label;
 }

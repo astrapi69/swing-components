@@ -32,8 +32,8 @@ import javax.swing.JScrollPane;
 import org.jdesktop.swingx.JXButton;
 import org.jdesktop.swingx.JXLabel;
 
+import de.alpharogroup.model.GenericModel;
 import de.alpharogroup.model.api.Model;
-import de.alpharogroup.model.util.WildcardListModel;
 import de.alpharogroup.swing.base.BasePanel;
 import de.alpharogroup.swing.x.GenericJXTable;
 import de.alpharogroup.swing.x.GenericShuffleJXTable;
@@ -48,13 +48,13 @@ public class ShuffleTablePanel<T> extends BasePanel<List<T>>
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	protected JXButton btnAddAll;
-
 	protected JXButton btnAdd;
 
-	protected JXButton btnRemoveAll;
+	protected JXButton btnAddAll;
 
 	protected JXButton btnRemove;
+
+	protected JXButton btnRemoveAll;
 
 	protected JXLabel lblAvailableElements;
 
@@ -64,15 +64,15 @@ public class ShuffleTablePanel<T> extends BasePanel<List<T>>
 
 	protected JScrollPane scrPnTblSelectedElements;
 
+	protected GenericShuffleJXTable<T> shuffleTable;
+
 	protected GenericJXTable<T> tblAvailableElements;
 
 	protected GenericJXTable<T> tblSelectedElements;
 
-	protected GenericShuffleJXTable<T> shuffleTable;
-
 	public ShuffleTablePanel()
 	{
-		this(WildcardListModel.<T> ofList(new ArrayList<>()));
+		this(GenericModel.<T> ofList(new ArrayList<>()));
 	}
 
 	public ShuffleTablePanel(final Model<List<T>> model)

@@ -50,6 +50,7 @@ public class SampleJTableWithPopup extends JFrame
 	{
 		SwingUtilities.invokeLater(new Runnable()
 		{
+			@Override
 			public void run()
 			{
 				SampleJTableWithPopup st = new SampleJTableWithPopup();

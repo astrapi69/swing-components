@@ -33,23 +33,23 @@ import de.alpharogroup.test.objects.Permission;
 public class PermissionsTableModel extends GenericTableModel<Permission>
 {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+	/** The Constant DESCRIPTION. */
+	public static final String DESCRIPTION = "Description";
 
 	/** The Constant NAME. */
 	public static final String NAME = "Name";
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	/** The Constant SHORTCUT. */
 	public static final String SHORTCUT = "Shortcut";
 
-	/** The Constant DESCRIPTION. */
-	public static final String DESCRIPTION = "Description";
+	/** The can edit. */
+	boolean[] canEdit = new boolean[] { false, false, false };
 
 	/** The column names. */
 	private final String[] columnNames = { NAME, SHORTCUT, DESCRIPTION };
-
-	/** The can edit. */
-	boolean[] canEdit = new boolean[] { false, false, false };
 
 	/**
 	 * (non-Javadoc).

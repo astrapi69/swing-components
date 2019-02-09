@@ -52,28 +52,28 @@ public class NetworkSettingsModelBean implements Serializable
 	 */
 	private static final long serialVersionUID = 3097232755356031060L;
 
-	/** The flag proxy is used. */
-	private Boolean proxy;
-
-	/** The flag if socks is used. */
-	private Boolean socks;
-
 	/** The host. */
 	private String host;
-
-	/** The port. */
-	private Integer port;
-
-	/** The proxy authetication. */
-	private Boolean proxyAuthetication;
-
-	/** The username. */
-	private String username;
 
 	/** The password. */
 	private String password;
 
+	/** The port. */
+	private Integer port;
+
+	/** The flag proxy is used. */
+	private Boolean proxy;
+
+	/** The proxy authetication. */
+	private Boolean proxyAuthetication;
+
 	/** The flag if the password should be remembered. */
 	private Boolean rememberPassword;
+
+	/** The flag if socks is used. */
+	private Boolean socks;
+
+	/** The username. */
+	private String username;
 
 }

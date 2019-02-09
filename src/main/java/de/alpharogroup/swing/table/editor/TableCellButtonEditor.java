@@ -29,14 +29,13 @@ import java.awt.Component;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * The class {@link TableCellButtonEditor}.
+ * The class {@link TableCellButtonEditor}
  */
 @Getter
 @Setter
@@ -52,14 +51,22 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	/** The flag if the button was clicked. */
 	private boolean clicked;
 
+	/** The column index. */
+	private int column;
+
 	/** The row index. */
 	private int row;
 
 	/** The value. */
 	private Object value;
 
-	/** The column index. */
-	private int column;
+	/**
+	 * Instantiates a new {@link TableCellButtonEditor} object
+	 */
+	public TableCellButtonEditor()
+	{
+		this(new JCheckBox());
+	}
 
 	/**
 	 * Instantiates a new {@link TableCellButtonEditor} object.
@@ -83,18 +90,9 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	@Override
 	public Object getCellEditorValue()
 	{
-		if (isClicked())
-		{
-			JOptionPane.showMessageDialog(button, "You clicked the button with the value "
-				+ this.value + " in row index " + row + " and in colunm index " + column + ".");
-		}
 		setClicked(false);
-		String text = "";
-		if (getValue() != null)
-		{
-			text = getValue().toString();
-		}
-		return text;
+		onGetCellEditorValue();
+		return onSetText();
 	}
 
 	/**
@@ -117,15 +115,11 @@ public class TableCellButtonEditor extends DefaultCellEditor
 			getButton().setForeground(table.getForeground());
 			getButton().setBackground(table.getBackground());
 		}
-		String text = "";
-		if (value != null)
-		{
-			text = getValue().toString();
-		}
-		getButton().setText(text);
+		getButton().setText(onSetText());
 		setClicked(true);
 		return getButton();
 	}
+
 
 	/**
 	 * Callback method to interact when the button is clicked.
@@ -133,6 +127,28 @@ public class TableCellButtonEditor extends DefaultCellEditor
 	protected void onClick()
 	{
 		fireEditingStopped();
+	}
+
+	/**
+	 * Callback method to interact in the method getCellEditorValue
+	 */
+	protected void onGetCellEditorValue()
+	{
+	}
+
+	/**
+	 * Callback method to interact when the text is set.
+	 *
+	 * @return the string
+	 */
+	protected String onSetText()
+	{
+		String text = "";
+		if (getValue() != null)
+		{
+			text = getValue().toString();
+		}
+		return text;
 	}
 
 	/**

@@ -41,17 +41,17 @@ public class BrowserControlExtensions
 	/** Constant for the name from the mac file manager. */
 	private static final String MAC_FILE_MANAGER = "com.apple.eio.FileManager";
 
-	/** Constant for the unix command 'which'. */
-	private static final String UNIX_COMMAND_WHICH = "which";
-
 	/** Constant for the system property from the operating system. */
 	private static final String SYSTEM_PROPERTY_OS_NAME = "os.name";
 
-	/** The default system browser under windows. */
-	private static final String WINDOWS_PATH = "rundll32";
+	/** Constant for the unix command 'which'. */
+	private static final String UNIX_COMMAND_WHICH = "which";
 
 	/** The flag to display a url. */
 	private static final String WINDOWS_FLAG = "url.dll,FileProtocolHandler";
+
+	/** The default system browser under windows. */
+	private static final String WINDOWS_PATH = "rundll32";
 
 	/**
 	 * This method opens the specified url in the standard web-browser.

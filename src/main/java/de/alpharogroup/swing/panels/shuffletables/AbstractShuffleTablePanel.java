@@ -35,7 +35,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 
-import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.GenericModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.GenericJTable;
 import de.alpharogroup.swing.GenericShuffleJTable;
@@ -62,38 +62,23 @@ public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The add action. */
+	private AddAction<T> addAction;
+
+	/** The add all action. */
+	private AddAllAction<T> addAllAction;
+
 	/** The btn add. */
 	private JButton btnAdd;
 
 	/** The btn add all. */
 	private JButton btnAddAll;
 
-	/** The btn remove all. */
-	private JButton btnRemoveAll;
-
 	/** The btn remove. */
 	private JButton btnRemove;
 
-	/** The {@link JScrollPane} for the left table. */
-	private JScrollPane scrPnTblLeft;
-
-	/** The {@link JScrollPane} for the right table. */
-	private JScrollPane scrPnTblRight;
-
-	/** The left table. */
-	private GenericJTable<T> tblLeft;
-
-	/** The right table. */
-	private GenericJTable<T> tblRight;
-
-	/** The shuffle table. */
-	private GenericShuffleJTable<T> shuffleTable;
-
-	/** The add action. */
-	private AddAction<T> addAction;
-
-	/** The add all action. */
-	private AddAllAction<T> addAllAction;
+	/** The btn remove all. */
+	private JButton btnRemoveAll;
 
 	/** The remove action. */
 	private RemoveAction<T> removeAction;
@@ -101,13 +86,28 @@ public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
 	/** The remove all action. */
 	private RemoveAllAction<T> removeAllAction;
 
+	/** The {@link JScrollPane} for the left table. */
+	private JScrollPane scrPnTblLeft;
+
+	/** The {@link JScrollPane} for the right table. */
+	private JScrollPane scrPnTblRight;
+
+	/** The shuffle table. */
+	private GenericShuffleJTable<T> shuffleTable;
+
+	/** The left table. */
+	private GenericJTable<T> tblLeft;
+
+	/** The right table. */
+	private GenericJTable<T> tblRight;
+
 
 	/**
 	 * Instantiates a new {@link AbstractShuffleTablePanel} panel.
 	 */
 	public AbstractShuffleTablePanel()
 	{
-		this(BaseModel.ofList(new ArrayList<>()));
+		this(GenericModel.ofList(new ArrayList<>()));
 	}
 
 	/**

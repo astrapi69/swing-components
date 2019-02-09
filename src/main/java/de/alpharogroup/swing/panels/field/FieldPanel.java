@@ -44,10 +44,6 @@ public abstract class FieldPanel<T> extends BasePanel<T>
 	private static final long serialVersionUID = 1L;
 
 
-	/** The {@link JLabel} type. */
-	@Getter
-	private JLabel lblType;
-
 	/** The {@link JComboBox} type. */
 	@Getter
 	private JComboBox<T> dropDownType;
@@ -55,6 +51,10 @@ public abstract class FieldPanel<T> extends BasePanel<T>
 	/** The {@link JLabel} field name. */
 	@Getter
 	private JLabel lblFieldName;
+
+	/** The {@link JLabel} type. */
+	@Getter
+	private JLabel lblType;
 
 	/** The {@link JTextField} field name. */
 	@Getter
