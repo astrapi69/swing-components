@@ -46,7 +46,7 @@ public class JDialogFactory
 {
 
 	/**
-	 * Factory method for create a {@link JDialog} object
+	 * Factory method for create a {@link JDialog} object.
 	 *
 	 * @param parentComponent
 	 *            the parent component
@@ -54,6 +54,9 @@ public class JDialogFactory
 	 *            the title
 	 * @param modal
 	 *            the modal
+	 * @param gc
+	 *            the {@code GraphicsConfiguration} of the target screen device; if {@code null},
+	 *            the default system {@code GraphicsConfiguration} is assumed
 	 * @return the new {@link JDialog}
 	 */
 	public static JDialog newJDialog(Component parentComponent, String title, boolean modal,

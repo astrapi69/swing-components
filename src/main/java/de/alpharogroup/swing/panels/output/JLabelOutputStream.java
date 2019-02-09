@@ -30,30 +30,16 @@ import javax.swing.JLabel;
 public class JLabelOutputStream extends AbstractComponentOutputStream<JLabel>
 {
 
-	public JLabelOutputStream(JLabel component, int maxLines)
-	{
-		super(component, maxLines);
-	}
+	private StringBuilder sb = new StringBuilder();
 
 	public JLabelOutputStream(JLabel component)
 	{
 		super(component);
 	}
 
-	private StringBuilder sb = new StringBuilder();
-
-	@Override
-	protected void setText(JComponent swingComponent, String text)
+	public JLabelOutputStream(JLabel component, int maxLines)
 	{
-		sb.delete(0, sb.length());
-		append(swingComponent, text);
-	}
-
-	@Override
-	protected void replaceRange(JComponent swingComponent, String text, int start, int end)
-	{
-		sb.replace(start, end, text);
-		redrawTextOf(swingComponent);
+		super(component, maxLines);
 	}
 
 	@Override
@@ -66,6 +52,20 @@ public class JLabelOutputStream extends AbstractComponentOutputStream<JLabel>
 	protected void redrawTextOf(JComponent swingComponent)
 	{
 		((JLabel)swingComponent).setText(sb.toString());
+	}
+
+	@Override
+	protected void replaceRange(JComponent swingComponent, String text, int start, int end)
+	{
+		sb.replace(start, end, text);
+		redrawTextOf(swingComponent);
+	}
+
+	@Override
+	protected void setText(JComponent swingComponent, String text)
+	{
+		sb.delete(0, sb.length());
+		append(swingComponent, text);
 	}
 
 }
