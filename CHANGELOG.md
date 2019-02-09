@@ -1,7 +1,7 @@
 ## Change log
 ----------------------
 
-Version 5.1-SNAPSHOT
+Version 5.1
 -------------
 
 ADDED:
@@ -15,6 +15,7 @@ ADDED:
 
 CHANGED:
 
+- update of parent version to 4.6
 - update of email-tails version to 5.0.2
 - update of file-worker version to 5.1
 - update of jcommons-lang version to 5.1.1

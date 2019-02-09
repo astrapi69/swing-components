@@ -25,7 +25,7 @@ Than you can add the dependency to your dependencies:
 	<properties>
 			...
 		<!-- SWING-COMPONENTS version -->
-		<swing-components.version>5.0.2</swing-components.version>
+		<swing-components.version>5.1</swing-components.version>
 			...
 	</properties>
 			...
@@ -109,7 +109,21 @@ Commercial
  
 ## Credits
 
-|Travis CI|
-|:-:|
-|![Travis CI](https://travis-ci.com/images/logos/TravisCI-Full-Color.png)|
-|Many thanks to [Travis CI](https://travis-ci.org) for providing a free continuous integration service for open source projects.|
+|**Travis CI**|
+|     :---:      |
+|[![Travis CI](https://travis-ci.com/images/logos/TravisCI-Full-Color.png)](https://coveralls.io/github/lightblueseas/swing-components?branch=master)|
+|Special thanks to [Travis CI](https://travis-ci.org) for providing a free continuous integration service for open source projects|
+|     <img width=1000/>     |
+
+|**Nexus Sonatype repositories**|
+|     :---:      |
+|[![sonatype repository](https://img.shields.io/nexus/r/https/oss.sonatype.org/de.alpharogroup/swing-components.svg?style=for-the-badge)](https://oss.sonatype.org/index.html#nexus-search;gav~de.alpharogroup~swing-components~~~)|
+|Special thanks to [sonatype repository](https://www.sonatype.com) for providing a free maven repository service for open source projects|
+|     <img width=1000/>     |
+
+|**javadoc.io**|
+|     :---:      |
+|[![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/swing-components.svg)](http://www.javadoc.io/doc/de.alpharogroup/swing-components)|
+|Special thanks to [javadoc.io](http://www.javadoc.io) for providing a free javadoc documentation for open source projects|
+|     <img width=1000/>     |
+
