@@ -40,6 +40,7 @@ import javax.swing.tree.TreeSelectionModel;
 
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
+import de.alpharogroup.swing.components.factories.JComponentFactory;
 
 public abstract class PreferencesPanel<T> extends BasePanel<T>
 {
@@ -94,10 +95,7 @@ public abstract class PreferencesPanel<T> extends BasePanel<T>
 
 	protected JSplitPane newJSplitPane()
 	{
-		JSplitPane splitPane = new JSplitPane();
-		splitPane.setLeftComponent(scrTree);
-		splitPane.setRightComponent(null);
-		return splitPane;
+		return JComponentFactory.newJSplitPane(scrTree, null);
 	}
 
 	/**
