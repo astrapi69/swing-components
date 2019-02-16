@@ -64,6 +64,8 @@ import lombok.extern.java.Log;
 public abstract class ApplicationSplitPaneFrame<T> extends BaseFrame<T>
 {
 
+	private static final long serialVersionUID = 1L;
+
 	/** The configuration directory for configuration files. */
 	@Getter
 	File configurationDirectory;
@@ -168,9 +170,9 @@ public abstract class ApplicationSplitPaneFrame<T> extends BaseFrame<T>
 	protected abstract String newIconPath();
 
 	/**
-	 * Factory method for create a new {@link JDesktopPane} object
+	 * Factory method for create a new {@link JSplitPane} object
 	 *
-	 * @return the new {@link JDesktopPane} object
+	 * @return the new {@link JSplitPane} object
 	 */
 	protected JSplitPane newJSplitPane()
 	{
