@@ -24,24 +24,21 @@
  */
 package de.alpharogroup.swing.actions;
 
-
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
 /**
- * The class NewFileAction.
+ * The class {@link ExitApplicationAction}
  */
 public class ExitApplicationAction extends AbstractAction
 {
 
-	/**
-	 *
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Instantiates a new new file action.
+	 * Instantiates a new {@link ExitApplicationAction} object
 	 *
 	 * @param name
 	 *            the name
@@ -51,10 +48,8 @@ public class ExitApplicationAction extends AbstractAction
 		super(name);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void actionPerformed(final ActionEvent e)
