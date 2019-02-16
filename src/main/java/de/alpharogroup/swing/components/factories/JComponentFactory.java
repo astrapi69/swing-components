@@ -66,8 +66,7 @@ public class JComponentFactory
 	 *            pane, or at the bottom of a vertically-split pane
 	 * @return the new {@link JSplitPane} object
 	 */
-	public static JSplitPane newJSplitPane(Component newLeftComponent,
-		Component newRightComponent)
+	public static JSplitPane newJSplitPane(Component newLeftComponent, Component newRightComponent)
 	{
 		return newJSplitPane(JSplitPane.HORIZONTAL_SPLIT, newLeftComponent, newRightComponent);
 	}
@@ -88,7 +87,30 @@ public class JComponentFactory
 	public static JSplitPane newJSplitPane(int newOrientation, Component newLeftComponent,
 		Component newRightComponent)
 	{
-		return new JSplitPane(newOrientation, newLeftComponent, newRightComponent);
+		return newJSplitPane(newOrientation, true, newLeftComponent, newRightComponent);
+	}
+
+	/**
+	 * Factory method for create new {@link JSplitPane} object
+	 *
+	 * @param newOrientation
+	 *            <code>JSplitPane.HORIZONTAL_SPLIT</code> or <code>JSplitPane.VERTICAL_SPLIT</code>
+	 * @param newContinuousLayout
+	 *            a boolean, true for the components to redraw continuously as the divider changes
+	 *            position, false to wait until the divider position stops changing to redraw
+	 * @param newLeftComponent
+	 *            the <code>Component</code> that will appear on the left of a horizontally-split
+	 *            pane, or at the top of a vertically-split pane
+	 * @param newRightComponent
+	 *            the <code>Component</code> that will appear on the right of a horizontally-split
+	 *            pane, or at the bottom of a vertically-split pane
+	 * @return the new {@link JSplitPane} object
+	 */
+	public static JSplitPane newJSplitPane(int newOrientation, boolean newContinuousLayout,
+		Component newLeftComponent, Component newRightComponent)
+	{
+		return new JSplitPane(newOrientation, newContinuousLayout, newLeftComponent,
+			newRightComponent);
 	}
 
 	/**
