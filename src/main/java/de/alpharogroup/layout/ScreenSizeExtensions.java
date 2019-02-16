@@ -37,8 +37,11 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
+import javax.swing.JFrame;
+
 import de.alpharogroup.collections.array.ArrayExtensions;
 import de.alpharogroup.reflection.ReflectionExtensions;
+import lombok.NonNull;
 
 /**
  * Utility class for handle with screensize.
@@ -306,5 +309,21 @@ public class ScreenSizeExtensions
 		}
 		return getScreenWidth();
 	}
+		
+	/**
+	 * Toggle full screen.
+	 *
+	 * @param frame the frame
+	 */
+	public static void toggleFullScreen(@NonNull JFrame frame) {
+		GraphicsDevice device = frame.getGraphicsConfiguration().getDevice();
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		if(frame.equals(device.getFullScreenWindow())) {
+			device.setFullScreenWindow(null);
+		} else { 
+			frame.setVisible(true);
+			device.setFullScreenWindow(frame);
+		}		
+	}	
 
 }
