@@ -34,7 +34,6 @@ import de.alpharogroup.layout.CloseWindow;
 public class JTreePanelTest
 {
 
-
 	/**
 	 * The main method.
 	 *

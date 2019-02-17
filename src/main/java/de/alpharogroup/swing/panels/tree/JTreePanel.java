@@ -35,6 +35,7 @@ import javax.swing.tree.TreeSelectionModel;
 
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BasePanel;
+import de.alpharogroup.swing.components.factories.DimensionFactory;
 import lombok.Getter;
 
 
@@ -64,7 +65,6 @@ public abstract class JTreePanel<T> extends BasePanel<T>
 	 */
 	public JTreePanel()
 	{
-		super();
 	}
 
 	/**
@@ -93,7 +93,7 @@ public abstract class JTreePanel<T> extends BasePanel<T>
 	 */
 	protected Dimension newPreferredSize(int width, int height)
 	{
-		return new Dimension(width, height);
+		return DimensionFactory.newDimension(width, height);
 	}
 
 	/**
