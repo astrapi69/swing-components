@@ -62,8 +62,9 @@ public class JXMultiSplitPanePanelTest
 	{
 		final Frame frame = new Frame("JXMultiSplitPanePanel");
 		frame.addWindowListener(new CloseWindow());
-		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = newJXMultiSplitPanePanelDefault();
-		// newJXMultiSplitPanePanelCustomLayout();
+		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel =
+				// newJXMultiSplitPanePanelDefault();
+		 newJXMultiSplitPanePanelCustomLayout2();
 
 		frame.add(multiSplitPanePanel);
 		frame.pack();
@@ -100,6 +101,23 @@ public class JXMultiSplitPanePanelTest
 		demoContainer.setBorder(BorderFactory.createLineBorder(Color.RED));
 		multiSplitPanePanel.getMultiSplitPane().add("selector", createButtonStack(demoContainer));
 		multiSplitPanePanel.getMultiSplitPane().add("demo", demoContainer);
+		return multiSplitPanePanel;
+	}
+
+
+	public static JXMultiSplitPanePanel<ApplicationTestModel<String>> newJXMultiSplitPanePanelCustomLayout2()
+	{
+		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
+		{
+			@Override
+			protected MultiSplitLayout.Node newRootNode(String layoutDefinition) {
+				return SplitFactory.newSplit1();
+			}
+		};
+
+		multiSplitPanePanel.getMultiSplitPane().add(new JButton("content"), "source");
+		multiSplitPanePanel.getMultiSplitPane().add(new JButton("Bottom"), "info");
+		multiSplitPanePanel.getMultiSplitPane().add(new JButton("Left"), "conf");
 		return multiSplitPanePanel;
 	}
 

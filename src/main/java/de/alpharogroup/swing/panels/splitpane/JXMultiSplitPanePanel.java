@@ -50,11 +50,16 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 	protected JXMultiSplitPane newJXMultiSplitPane(String layoutDefinition)
 	{
 		JXMultiSplitPane msp = new JXMultiSplitPane();
-		MultiSplitLayout.Node modelRoot = MultiSplitLayout.parseModel(layoutDefinition);
+		MultiSplitLayout.Node modelRoot = newRootNode(layoutDefinition);
 		msp.getMultiSplitLayout().setModel(modelRoot);
 		msp.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
 		return msp;
 	}
+
+	protected MultiSplitLayout.Node newRootNode(String layoutDefinition) {
+		return MultiSplitLayout.parseModel(layoutDefinition);
+	}
+
 
 	/**
 	 *
