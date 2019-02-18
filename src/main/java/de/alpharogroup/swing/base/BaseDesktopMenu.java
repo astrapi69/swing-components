@@ -406,6 +406,7 @@ public class BaseDesktopMenu extends JMenu
 		return new OpenBrowserToDonateAction(name, component);
 	}
 
+	@SuppressWarnings("serial")
 	protected ShowInfoDialogAction newShowInfoDialogAction(final String name,
 		final @NonNull Frame owner, final @NonNull String title)
 	{
@@ -439,6 +440,7 @@ public class BaseDesktopMenu extends JMenu
 		return "";
 	}
 
+	@SuppressWarnings("serial")
 	protected InfoDialog onNewInfoDialog(Frame owner, String title)
 	{
 		return new InfoDialog(owner, title)

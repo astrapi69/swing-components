@@ -17,6 +17,9 @@ import lombok.Getter;
 public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	
 	/** The {@link JXMultiSplitPane} */
 	@Getter
 	JXMultiSplitPane multiSplitPane;
@@ -57,7 +60,8 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 		return msp;
 	}
 
-	protected MultiSplitLayout.Node newRootNode(String layoutDefinition) {
+	protected MultiSplitLayout.Node newRootNode(String layoutDefinition)
+	{
 		return MultiSplitLayout.parseModel(layoutDefinition);
 	}
 
@@ -72,12 +76,8 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 	 */
 	protected String newLayoutDefinition()
 	{
-		String layoutDefinition = "(COLUMN " +
-	"(ROW weight=0.8 " +
-			"(COLUMN weight=0.25 "
-			+ "(LEAF name=left.top weight=0.5) " +
-	"(LEAF name=left.middle weight=0.5)" +
-			")"
+		String layoutDefinition = "(COLUMN " + "(ROW weight=0.8 " + "(COLUMN weight=0.25 "
+			+ "(LEAF name=left.top weight=0.5) " + "(LEAF name=left.middle weight=0.5)" + ")"
 			+ "(LEAF name=editor weight=0.75)" + ") " + "(LEAF name=bottom weight=0.2)" + ")";
 		return layoutDefinition;
 	}
@@ -109,8 +109,8 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 		super.onInitializeComponents();
 
 		multiSplitPane = newJXMultiSplitPane(newLayoutDefinition());
-		int screenHeight = (int) (ScreenSizeExtensions.getScreenHeight()/1.1d);
-		int screenWidth = (int) (ScreenSizeExtensions.getScreenWidth()/1.1d);
+		int screenHeight = (int)(ScreenSizeExtensions.getScreenHeight() / 1.1d);
+		int screenWidth = (int)(ScreenSizeExtensions.getScreenWidth() / 1.1d);
 		setPreferredSize(newPreferredSize(screenWidth, screenHeight));
 	}
 
