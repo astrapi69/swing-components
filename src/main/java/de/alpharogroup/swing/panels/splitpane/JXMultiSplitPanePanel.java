@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 
+import de.alpharogroup.layout.ScreenSizeExtensions;
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.MultiSplitLayout;
 
@@ -108,7 +109,9 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 		super.onInitializeComponents();
 
 		multiSplitPane = newJXMultiSplitPane(newLayoutDefinition());
-		setPreferredSize(newPreferredSize(420, 560));
+		int screenHeight = (int) (ScreenSizeExtensions.getScreenHeight()/1.1d);
+		int screenWidth = (int) (ScreenSizeExtensions.getScreenWidth()/1.1d);
+		setPreferredSize(newPreferredSize(screenWidth, screenHeight));
 	}
 
 	/**
