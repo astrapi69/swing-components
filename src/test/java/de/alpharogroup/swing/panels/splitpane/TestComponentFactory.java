@@ -78,17 +78,13 @@ public class TestComponentFactory {
         {
             @Override
             protected MultiSplitLayout.Node newRootNode(String layoutDefinition) {
-                return SplitFactory.newSplit1();
-            }
-            @Override
-            protected Dimension newPreferredSize(int width, int height) {
-                return super.newPreferredSize(1000, 600);
+                return TestSplitFactory.newTestSplit();
             }
         };
 
-        multiSplitPanePanel.getMultiSplitPane().add(new JButton("content"), "source");
-        multiSplitPanePanel.getMultiSplitPane().add(new JButton("Bottom"), "info");
-        multiSplitPanePanel.getMultiSplitPane().add(new JButton("Left"), "conf");
+        multiSplitPanePanel.getMultiSplitPane().add(new JButton("Content"), "content");
+        multiSplitPanePanel.getMultiSplitPane().add(new JButton("Bottom"), "bottom");
+        multiSplitPanePanel.getMultiSplitPane().add(new JButton("Left"), "left");
         return multiSplitPanePanel;
     }
 

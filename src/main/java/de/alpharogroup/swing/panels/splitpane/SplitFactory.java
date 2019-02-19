@@ -11,21 +11,8 @@ public class SplitFactory {
         return layout;
     }
 
-    public static MultiSplitLayout.Split newSplit1()
-    {
-        MultiSplitLayout.Split col1 = newSplit(false, 0.75);
-        MultiSplitLayout.Leaf source = newLeaf("source", 0.75);
-        MultiSplitLayout.Leaf info =  newLeaf("info", 0.25);
-        col1.setChildren(source, new MultiSplitLayout.Divider(), info);
-        MultiSplitLayout.Split row1 = new MultiSplitLayout.Split();
-        row1.setRowLayout(true);
-        MultiSplitLayout.Leaf conf = newLeaf("conf", 0.25);
-        setChildren(row1, conf, new MultiSplitLayout.Divider(), col1);
-        return row1;
-    }
-
-    private static void setChildren(MultiSplitLayout.Split col1, MultiSplitLayout.Node... children) {
-        col1.setChildren(children);
+    public static void setChildren(MultiSplitLayout.Split split, MultiSplitLayout.Node... children) {
+        split.setChildren(children);
     }
 
     public static MultiSplitLayout.Split newSplit(boolean rowLayout, double weight) {
