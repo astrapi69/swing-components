@@ -72,7 +72,8 @@ public abstract class ApplicationSplitPaneFrame<T> extends AbstractApplicationFr
 	@Override
 	protected JComponent newMainComponent()
 	{
-		return newJXMultiSplitPanePanel();
+		multiSplitPanePanel = newJXMultiSplitPanePanel();
+		return multiSplitPanePanel;
 	}
 
 	/**
