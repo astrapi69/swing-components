@@ -58,7 +58,7 @@ import lombok.extern.java.Log;
  */
 @Log
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public abstract class AbstractApplicationFrame<T> extends BaseFrame<T>
+public abstract class AbstractApplicationFrame<T, C extends JComponent> extends BaseFrame<T>
 {
 
 	/** The Constant serialVersionUID. */
@@ -75,7 +75,7 @@ public abstract class AbstractApplicationFrame<T> extends BaseFrame<T>
 
 	/** The main component. */
 	@Getter
-	JComponent mainComponent;
+	C mainComponent;
 
 	@Getter
 	BufferedImage icon;
@@ -173,7 +173,7 @@ public abstract class AbstractApplicationFrame<T> extends BaseFrame<T>
 	 *
 	 * @return the new {@link JComponent} object
 	 */
-	protected  abstract JComponent newMainComponent();
+	protected  abstract C newMainComponent();
 
 	/**
 	 * Factory method for create a new {@link JToolBar} object
