@@ -101,6 +101,8 @@ Open Source:
  * [oxbow](https://github.com/eugener/oxbow) Swing UI Enhacements
  * [Darcula](https://github.com/bulenkov/Darcula) Darcula Look and Feel
  * [Spring Rich Client](https://sourceforge.net/projects/spring-rich-c/files/spring-rich-c/)(not maintainend anymore) The Spring Rich Client Project (RCP) is a sub-project of The Spring Framework.
+ * [utils4swing](http://www.fuin.org/utils4swing/index.html) A small Java 1.4 compatible library that aims to ease the pain of some Swing development tasks
+ * [utils4swing5](http://www.fuin.org/utils4swing5/index.html) A small Java 1.6 library that aims to ease the pain of some Swing development tasks. 
 
 Commercial
 
