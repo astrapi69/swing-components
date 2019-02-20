@@ -39,15 +39,17 @@ public class ToggleFullScreenAction extends AbstractAction
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** The frame. */
 	JFrame frame;
 
 	/**
 	 * Instantiates a new {@link ToggleFullScreenAction} object.
 	 *
-	 * @param name            the name
-	 * @param frame the frame
+	 * @param name
+	 *            the name
+	 * @param frame
+	 *            the frame
 	 */
 	public ToggleFullScreenAction(final String name, JFrame frame)
 	{

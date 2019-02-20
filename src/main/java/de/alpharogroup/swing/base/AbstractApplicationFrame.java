@@ -73,12 +73,12 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	@Setter
 	LookAndFeels currentLookAndFeels = LookAndFeels.SYSTEM;
 
+	@Getter
+	BufferedImage icon;
+
 	/** The main component. */
 	@Getter
 	C mainComponent;
-
-	@Getter
-	BufferedImage icon;
 
 	@Getter
 	BaseDesktopMenu menu;
@@ -90,7 +90,8 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	/**
 	 * Instantiates a new {@link AbstractApplicationFrame}
 	 *
-	 * @param title the title
+	 * @param title
+	 *            the title
 	 */
 	public AbstractApplicationFrame(String title)
 	{
@@ -169,13 +170,6 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	protected abstract String newIconPath();
 
 	/**
-	 * Factory method for create a new {@link JComponent} object
-	 *
-	 * @return the new {@link JComponent} object
-	 */
-	protected  abstract C newMainComponent();
-
-	/**
 	 * Factory method for create a new {@link JToolBar} object
 	 *
 	 * @return the new {@link JToolBar} object
@@ -194,6 +188,13 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	{
 		return LookAndFeels.SYSTEM;
 	}
+
+	/**
+	 * Factory method for create a new {@link JComponent} object
+	 *
+	 * @return the new {@link JComponent} object
+	 */
+	protected abstract C newMainComponent();
 
 	/**
 	 * {@inheritDoc}

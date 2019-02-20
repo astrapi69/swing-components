@@ -24,11 +24,8 @@
  */
 package de.alpharogroup.swing.base;
 
-import javax.swing.JComponent;
-
 import de.alpharogroup.swing.panels.splitpane.JXMultiSplitPanePanel;
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 /**
@@ -38,43 +35,32 @@ import lombok.experimental.FieldDefaults;
  *            the generic type of the model object
  */
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public abstract class ApplicationSplitPaneFrame<T> extends AbstractApplicationFrame<T>
+public abstract class ApplicationSplitPaneFrame<T>
+	extends
+		AbstractApplicationFrame<T, JXMultiSplitPanePanel<T>>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The multi split pane panel. */
-	@Getter
-	JXMultiSplitPanePanel<T> multiSplitPanePanel;
-
 
 	/**
 	 * Instantiates a new {@link ApplicationSplitPaneFrame}
 	 *
-	 * @param title the title
+	 * @param title
+	 *            the title
 	 */
 	public ApplicationSplitPaneFrame(String title)
 	{
 		super(title);
 	}
 
-	/**
-	 * Factory method for create a new {@link JXMultiSplitPanePanel} object
-	 *
-	 * @return the new {@link JXMultiSplitPanePanel} object
-	 */
-	protected  abstract JXMultiSplitPanePanel<T> newJXMultiSplitPanePanel();
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected JComponent newMainComponent()
-	{
-		multiSplitPanePanel = newJXMultiSplitPanePanel();
-		return multiSplitPanePanel;
-	}
+	protected abstract JXMultiSplitPanePanel<T> newMainComponent();
 
 	/**
 	 * {@inheritDoc}

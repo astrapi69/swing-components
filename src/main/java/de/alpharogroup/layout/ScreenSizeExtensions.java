@@ -309,21 +309,26 @@ public class ScreenSizeExtensions
 		}
 		return getScreenWidth();
 	}
-		
+
 	/**
 	 * Toggle full screen.
 	 *
-	 * @param frame the frame
+	 * @param frame
+	 *            the frame
 	 */
-	public static void toggleFullScreen(@NonNull JFrame frame) {
+	public static void toggleFullScreen(@NonNull JFrame frame)
+	{
 		GraphicsDevice device = frame.getGraphicsConfiguration().getDevice();
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-		if(frame.equals(device.getFullScreenWindow())) {
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		if (frame.equals(device.getFullScreenWindow()))
+		{
 			device.setFullScreenWindow(null);
-		} else { 
+		}
+		else
+		{
 			frame.setVisible(true);
 			device.setFullScreenWindow(frame);
-		}		
-	}	
+		}
+	}
 
 }
