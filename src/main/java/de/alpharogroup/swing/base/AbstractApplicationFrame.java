@@ -200,9 +200,9 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void onInitializeComponents()
+	protected void onAfterInitialize()
 	{
-		super.onInitializeComponents();
+		super.onAfterInitialize();
 		menu = newDesktopMenu(this);
 		setJMenuBar(menu.getMenubar());
 		setToolBar(toolbar = newJToolBar());

@@ -1,7 +1,6 @@
 package de.alpharogroup.swing.base;
 
 import de.alpharogroup.layout.CloseWindow;
-import de.alpharogroup.swing.panels.field.FieldPanel;
 import de.alpharogroup.swing.panels.splitpane.ApplicationTestModel;
 import de.alpharogroup.swing.panels.splitpane.JXMultiSplitPanePanel;
 import de.alpharogroup.swing.panels.splitpane.SplitFactory;
@@ -11,9 +10,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
-import static org.testng.Assert.*;
-
-public class ApplicationSplitPaneFrameTest extends ApplicationSplitPaneFrame<ApplicationTestModel<String>>{
+public class ApplicationSplitPaneFrameExample extends ApplicationSplitPaneFrame<ApplicationTestModel<String>>{
 
 
     /**
@@ -22,7 +19,7 @@ public class ApplicationSplitPaneFrameTest extends ApplicationSplitPaneFrame<App
 
     public static void main(final String[] args)
     {
-        final Frame frame = new ApplicationSplitPaneFrameTest("ApplicationSplitPaneFrameTest");
+        final Frame frame = new ApplicationSplitPaneFrameExample("ApplicationSplitPaneFrameExample");
         frame.addWindowListener(new CloseWindow());
         frame.pack();
         frame.setVisible(true);
@@ -33,7 +30,7 @@ public class ApplicationSplitPaneFrameTest extends ApplicationSplitPaneFrame<App
      *
      * @param title the title
      */
-    public ApplicationSplitPaneFrameTest(String title) {
+    public ApplicationSplitPaneFrameExample(String title) {
         super(title);
     }
 
@@ -50,7 +47,7 @@ public class ApplicationSplitPaneFrameTest extends ApplicationSplitPaneFrame<App
         {
             @Override
             protected MultiSplitLayout.Node newRootNode(String layoutDefinition) {
-                return ApplicationSplitPaneFrameTest.this.newRootNode();
+                return ApplicationSplitPaneFrameExample.this.newRootNode();
             }
         };
         multiSplitPanePanel.getMultiSplitPane().add(newTopComponent(), "content");
