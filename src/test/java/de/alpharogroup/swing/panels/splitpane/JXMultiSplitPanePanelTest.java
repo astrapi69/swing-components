@@ -42,8 +42,8 @@ public class JXMultiSplitPanePanelTest
 		frame.addWindowListener(new CloseWindow());
 		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel =
 			// TestComponentFactory.newJXMultiSplitPanePanelDefault();
-			// TestComponentFactory.newJXMultiSplitPanePanelCustomLayout();
-			TestComponentFactory.newJXMultiSplitPanePanelCustomLayout2();
+			 TestComponentFactory.newJXMultiSplitPanePanelCustomLayout();
+//			TestComponentFactory.newJXMultiSplitPanePanelCustomLayout2();
 
 		frame.add(multiSplitPanePanel);
 		frame.pack();

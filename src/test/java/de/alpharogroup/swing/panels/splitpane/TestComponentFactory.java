@@ -27,19 +27,15 @@ package de.alpharogroup.swing.panels.splitpane;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
 import java.net.URL;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JEditorPane;
-import javax.swing.JScrollPane;
 
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.JXPanel;
@@ -47,6 +43,9 @@ import org.jdesktop.swingx.JXTaskPane;
 import org.jdesktop.swingx.JXTaskPaneContainer;
 import org.jdesktop.swingx.MultiSplitLayout;
 import org.jdesktop.swingx.SwingXUtilities;
+
+import de.alpharogroup.swing.actions.ActionFactory;
+import de.alpharogroup.swing.components.factories.JComponentFactory;
 
 public class TestComponentFactory
 {
@@ -77,25 +76,15 @@ public class TestComponentFactory
 		JComponent buttonStack = new JXTaskPaneContainer();
 		JXTaskPane taskPane = new JXTaskPane();
 		taskPane.setTitle("demo");
-		taskPane.add(createTextAction(demoContainer));
-		taskPane.add(createPageAction(demoContainer));
+		taskPane.add(ActionFactory.newTextAction("add editor - setText", demoContainer, createEditorSetText()));
+		taskPane.add(ActionFactory.newPageAction("add editor - setPage", demoContainer, createEditorSetPage()));
 		buttonStack.add(taskPane);
 		return buttonStack;
 	}
 
-	public static JEditorPane createEditor()
-	{
-		final JEditorPane editor = new JEditorPane();
-		editor.setContentType("text/html");
-		editor.setEditable(false);
-		editor.setOpaque(true);
-		return editor;
-	}
-
-
 	public static JComponent createEditorSetPage()
 	{
-		final JEditorPane editor = createEditor();
+		final JEditorPane editor = JComponentFactory.newJEditorPane("text/html", false);
 		URL descriptionURL = getHTMLDescription();
 		try
 		{
@@ -127,60 +116,9 @@ public class TestComponentFactory
 
 	public static JComponent createEditorSetText()
 	{
-		final JEditorPane editor = createEditor();
+		final JEditorPane editor = JComponentFactory.newJEditorPane("text/html", false);
 		editor.setText(dummyText);
 		return editor;
-	}
-
-	/**
-	 * @param demoContainer
-	 * @return
-	 */
-	public static Action createPageAction(final JComponent demoContainer)
-	{
-		Action page = new AbstractAction("add editor - setPage")
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				demoContainer.removeAll();
-				demoContainer.add(new JScrollPane(createEditorSetPage()));
-				demoContainer.revalidate();
-
-			}
-		};
-		return page;
-	}
-
-	/**
-	 * @param demoContainer
-	 * @return
-	 */
-	public static Action createTextAction(final JComponent demoContainer)
-	{
-		Action action = new AbstractAction("add editor - setText")
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				demoContainer.removeAll();
-				demoContainer.add(new JScrollPane(createEditorSetText()));
-				JXMultiSplitPane pane = SwingXUtilities.getAncestor(JXMultiSplitPane.class,
-					demoContainer);
-				if (pane != null)
-				{
-					pane.revalidate();
-				}
-				else
-				{
-					demoContainer.revalidate();
-				}
-
-			}
-		};
-		return action;
 	}
 
 	public static URL getHTMLDescription()
@@ -189,6 +127,7 @@ public class TestComponentFactory
 		return JXMultiSplitPanePanel.class.getResource(htmlURL);
 	}
 
+	@SuppressWarnings("serial")
 	public static JXMultiSplitPanePanel<ApplicationTestModel<String>> newJXMultiSplitPanePanelCustomLayout()
 	{
 		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
@@ -212,6 +151,7 @@ public class TestComponentFactory
 		return multiSplitPanePanel;
 	}
 
+	@SuppressWarnings("serial")
 	public static JXMultiSplitPanePanel<ApplicationTestModel<String>> newJXMultiSplitPanePanelCustomLayout2()
 	{
 		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
@@ -229,6 +169,7 @@ public class TestComponentFactory
 		return multiSplitPanePanel;
 	}
 
+	@SuppressWarnings("serial")
 	public static JXMultiSplitPanePanel<ApplicationTestModel<String>> newJXMultiSplitPanePanelDefault()
 	{
 		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()

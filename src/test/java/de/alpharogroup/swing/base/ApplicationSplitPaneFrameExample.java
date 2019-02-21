@@ -1,19 +1,28 @@
 package de.alpharogroup.swing.base;
 
+import java.awt.Color;
+import java.awt.Frame;
+
+import javax.swing.BorderFactory;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.border.Border;
+
+import org.jdesktop.swingx.MultiSplitLayout;
+
 import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.swing.panels.output.ConsolePanel;
 import de.alpharogroup.swing.panels.splitpane.ApplicationTestModel;
 import de.alpharogroup.swing.panels.splitpane.JXMultiSplitPanePanel;
 import de.alpharogroup.swing.panels.splitpane.SplitFactory;
-import org.jdesktop.swingx.MultiSplitLayout;
-
-import javax.swing.*;
-
-import java.awt.*;
 
 public class ApplicationSplitPaneFrameExample extends ApplicationSplitPaneFrame<ApplicationTestModel<String>>{
 
 
-    /**
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Test init layout.
      */
 
@@ -36,7 +45,7 @@ public class ApplicationSplitPaneFrameExample extends ApplicationSplitPaneFrame<
 
     @Override
     protected String newIconPath() {
-        return "/home/astrapi69/git/swing-components/src/test/resources/img/xmas/bell.png";
+        return "img/xmas/bell.png";
     }
 
 
@@ -57,17 +66,23 @@ public class ApplicationSplitPaneFrameExample extends ApplicationSplitPaneFrame<
     }
 
     protected JComponent newLeftComponent() {
-        return new JLabel("Left Component");
+    	JLabel label = new JLabel("Left Component");
+        Border border = BorderFactory.createLineBorder(Color.lightGray, 5);
+        label.setBorder(border);
+        return label;
     }
 
     protected JComponent newTopComponent() {
-        return new JLabel("Top Component");
+    	JLabel label = new JLabel("Top Component");
+        Border border = BorderFactory.createLineBorder(Color.lightGray, 5);
+        label.setBorder(border);
+        return label;
     }
 
     protected JComponent newBottomComponent() {
-//		ConsolePanel consolePanel = new ConsolePanel();
-//		JScrollPane jScrollPane = new JScrollPane(consolePanel);
-        return new JLabel("Right Component");
+		ConsolePanel consolePanel = new ConsolePanel();
+		JScrollPane jScrollPane = new JScrollPane(consolePanel);
+        return jScrollPane;
     }
 
     protected MultiSplitLayout.Split newRootNode() {

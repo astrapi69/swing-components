@@ -38,6 +38,7 @@ import java.util.Map;
 
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
+import javax.swing.JEditorPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
@@ -59,6 +60,15 @@ import lombok.experimental.UtilityClass;
 public class JComponentFactory
 {
 
+	public static JEditorPane newJEditorPane(String contentType, boolean editable)
+	{
+		final JEditorPane editor = new JEditorPane();
+		editor.setContentType(contentType);
+		editor.setEditable(editable);
+		editor.setOpaque(true);
+		return editor;
+	}
+	
 	/**
 	 * Factory method for create new {@link JSplitPane} object
 	 *
