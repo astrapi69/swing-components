@@ -6,7 +6,6 @@ import java.awt.Frame;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
 import javax.swing.border.Border;
 
 import org.jdesktop.swingx.MultiSplitLayout;
@@ -49,7 +48,8 @@ public class ApplicationSplitPaneFrameExample extends ApplicationSplitPaneFrame<
     }
 
 
-    @Override
+    @SuppressWarnings("serial")
+	@Override
     protected JXMultiSplitPanePanel<ApplicationTestModel<String>> newMainComponent() {
         final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel
                 = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
@@ -67,22 +67,21 @@ public class ApplicationSplitPaneFrameExample extends ApplicationSplitPaneFrame<
 
     protected JComponent newLeftComponent() {
     	JLabel label = new JLabel("Left Component");
-        Border border = BorderFactory.createLineBorder(Color.lightGray, 5);
+        Border border = BorderFactory.createLineBorder(Color.lightGray, 1);
         label.setBorder(border);
         return label;
     }
 
     protected JComponent newTopComponent() {
     	JLabel label = new JLabel("Top Component");
-        Border border = BorderFactory.createLineBorder(Color.lightGray, 5);
+        Border border = BorderFactory.createLineBorder(Color.lightGray, 1);
         label.setBorder(border);
         return label;
     }
 
     protected JComponent newBottomComponent() {
 		ConsolePanel consolePanel = new ConsolePanel();
-		JScrollPane jScrollPane = new JScrollPane(consolePanel);
-        return jScrollPane;
+        return consolePanel;
     }
 
     protected MultiSplitLayout.Split newRootNode() {
