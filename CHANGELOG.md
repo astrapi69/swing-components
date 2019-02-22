@@ -4,6 +4,10 @@
 Version 5.2-SNAPSHOT
 -------------
 
+CHANGED:
+
+- update of parent version to 4.7
+
 Version 5.1
 -------------
 
