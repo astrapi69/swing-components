@@ -296,7 +296,6 @@
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>gen-tree</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

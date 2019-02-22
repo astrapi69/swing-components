@@ -44,7 +44,7 @@ public class JTreePanelTest
 	{
 		final Frame frame = new Frame("JTreePanel");
 		frame.addWindowListener(new CloseWindow());
-		frame.add(new TestTreePanel());
+		frame.add(new TestTreeElementPanel());
 		frame.pack();
 		frame.setVisible(true);
 	}

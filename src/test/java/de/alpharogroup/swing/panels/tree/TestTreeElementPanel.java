@@ -45,18 +45,18 @@ import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.tree.TreeElement;
 
-public class TestTreePanel extends JTreePanel<TreeElement>
+public class TestTreeElementPanel extends TreeElementPanel
 {
 
 	private static final long serialVersionUID = 1L;
 
-	public TestTreePanel()
+	public TestTreeElementPanel()
 	{
 
 		this(BaseModel.<TreeElement> of(TreeElement.builder().build()));
 	}
 
-	public TestTreePanel(final Model<TreeElement> model)
+	public TestTreeElementPanel(final Model<TreeElement> model)
 	{
 		super(model);
 	}
