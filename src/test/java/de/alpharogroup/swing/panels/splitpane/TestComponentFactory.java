@@ -145,7 +145,7 @@ public class TestComponentFactory
 		final JComponent demoContainer = new JXPanel();
 		demoContainer.setLayout(new BorderLayout()); // BoxLayout(demoContainer,
 		// BoxLayout.LINE_AXIS));
-		demoContainer.setBorder(BorderFactory.createLineBorder(Color.RED));
+		demoContainer.setBorder(BorderFactory.createLoweredSoftBevelBorder());
 		multiSplitPanePanel.getMultiSplitPane().add("selector", createButtonStack(demoContainer));
 		multiSplitPanePanel.getMultiSplitPane().add("demo", demoContainer);
 		return multiSplitPanePanel;
