@@ -82,12 +82,17 @@ public class GenericTableColumnsModel<T>
 	 */
 	protected void onSetColumnClasses()
 	{
-		Field[] fields = ReflectionExtensions.getDeclaredFields(getType(), "serialVersionUID");
-		columnClasses = new Class<?>[fields.length];
+		columnClasses = getTypeClasses(getType(), "serialVersionUID");
+	}
+
+	public static<T> Class<?>[] getTypeClasses(Class<T> cls, String... ignoreFieldNames) {
+		Field[] fields = ReflectionExtensions.getDeclaredFields(cls, ignoreFieldNames);
+		Class<?>[] typeClasses = new Class<?>[fields.length];
 		for (int i = 0; i < fields.length; i++)
 		{
-			columnClasses[i] = fields[i].getType();
+			typeClasses[i] = fields[i].getType();
 		}
+		return typeClasses;
 	}
 
 	/**
