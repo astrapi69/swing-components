@@ -73,6 +73,9 @@ public class GenericTableColumnsModel<T>
 	protected void onSetColumnNames()
 	{
 		columnNames = ReflectionExtensions.getDeclaredFieldNames(getType(), "serialVersionUID");
+		for(int i = 0; i < columnNames.length; i++){
+			columnNames[i] = StringUtils.capitalize(columnNames[i]);
+		}
 	}
 
 	/**
