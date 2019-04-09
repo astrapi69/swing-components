@@ -63,22 +63,8 @@ public class DynamicTableModelTest
 		permissions.add(new Permission("write", "Permission to write."));
 		permissions.add(new Permission("delete", "Permission to delete."));
 		// 2. Create a generic table model for the class Permission.
-		final GenericTableModel<Permission> permissionsTableModel = new DynamicTableModel<Permission>(new GenericTableColumnsModel<>(Permission.class) ) {
-			@Override
-			public Object getValueAt(final int row, final int col)
-			{
-				final Permission permission = getData().get(row);
-				switch (col)
-				{
-					case 0 :
-						return permission.getName();
-					case 1 :
-						return permission.getDescription();
-					default :
-						return null;
-				}
-			}
-		};
+		final GenericTableModel<Permission> permissionsTableModel =
+				new DynamicPermissionsTableModel(new GenericTableColumnsModel<>(Permission.class) );
 		// 3. Add the data to the model.
 		permissionsTableModel.addList(permissions);
 		// 4. Create the generic table and associate with the generic table model.
