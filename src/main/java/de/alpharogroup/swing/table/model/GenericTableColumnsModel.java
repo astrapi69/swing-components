@@ -30,6 +30,8 @@ import de.alpharogroup.reflection.ReflectionExtensions;
 import lombok.Data;
 import lombok.NonNull;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * The class {@link GenericTableColumnsModel} encapsulates the column data for a table model like
  * the column names if they are editable and the column classes.
