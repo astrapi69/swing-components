@@ -30,6 +30,8 @@ import de.alpharogroup.reflection.ReflectionExtensions;
 import lombok.Data;
 import lombok.NonNull;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * The class {@link GenericTableColumnsModel} encapsulates the column data for a table model like
  * the column names if they are editable and the column classes.
@@ -73,6 +75,9 @@ public class GenericTableColumnsModel<T>
 	protected void onSetColumnNames()
 	{
 		columnNames = ReflectionExtensions.getDeclaredFieldNames(getType(), "serialVersionUID");
+		for(int i = 0; i < columnNames.length; i++){
+			columnNames[i] = StringUtils.capitalize(columnNames[i]);
+		}
 	}
 
 	/**
@@ -82,12 +87,17 @@ public class GenericTableColumnsModel<T>
 	 */
 	protected void onSetColumnClasses()
 	{
-		Field[] fields = ReflectionExtensions.getDeclaredFields(getType(), "serialVersionUID");
-		columnClasses = new Class<?>[fields.length];
+		columnClasses = getTypeClasses(getType(), "serialVersionUID");
+	}
+
+	public static<T> Class<?>[] getTypeClasses(Class<T> cls, String... ignoreFieldNames) {
+		Field[] fields = ReflectionExtensions.getDeclaredFields(cls, ignoreFieldNames);
+		Class<?>[] typeClasses = new Class<?>[fields.length];
 		for (int i = 0; i < fields.length; i++)
 		{
-			columnClasses[i] = fields[i].getType();
+			typeClasses[i] = fields[i].getType();
 		}
+		return typeClasses;
 	}
 
 	/**
