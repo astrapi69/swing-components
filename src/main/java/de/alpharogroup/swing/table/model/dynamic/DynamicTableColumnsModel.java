@@ -22,10 +22,11 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.table.model;
+package de.alpharogroup.swing.table.model.dynamic;
 
 import java.lang.reflect.Field;
 
+import de.alpharogroup.collections.list.ListFactory;
 import de.alpharogroup.reflection.ReflectionExtensions;
 import lombok.Data;
 import lombok.NonNull;
@@ -33,11 +34,11 @@ import lombok.NonNull;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * The class {@link GenericTableColumnsModel} encapsulates the column data for a table model like
- * the column names if they are editable and the column classes.
+ * The class {@link DynamicTableColumnsModel} encapsulates the column data for a table model that
+ * can resolve the columns dynamically from the given class type
  */
 @Data
-public class GenericTableColumnsModel<T>
+public class DynamicTableColumnsModel<T>
 {
 
 	/** The flag for the column if they can be edited. */
@@ -54,12 +55,12 @@ public class GenericTableColumnsModel<T>
 	private final Class<T> type;
 
 	/**
-	 * Instantiates a new {@link GenericTableColumnsModel} object
+	 * Instantiates a new {@link DynamicTableColumnsModel} object
 	 *
 	 * @param type
 	 *            the class type
 	 */
-	public GenericTableColumnsModel(@NonNull Class<T> type)
+	public DynamicTableColumnsModel(@NonNull Class<T> type)
 	{
 		this.type = type;
 		onSetColumnNames();
@@ -74,8 +75,9 @@ public class GenericTableColumnsModel<T>
 	 */
 	protected void onSetColumnNames()
 	{
-		columnNames = ReflectionExtensions.getDeclaredFieldNames(getType(), "serialVersionUID");
-		for(int i = 0; i < columnNames.length; i++){
+		columnNames = ReflectionExtensions.getAllDeclaredFieldNames(getType(), ListFactory.newArrayList("serialVersionUID"));
+		for (int i = 0; i < columnNames.length; i++)
+		{
 			columnNames[i] = StringUtils.capitalize(columnNames[i]);
 		}
 	}
@@ -87,17 +89,12 @@ public class GenericTableColumnsModel<T>
 	 */
 	protected void onSetColumnClasses()
 	{
-		columnClasses = getTypeClasses(getType(), "serialVersionUID");
-	}
-
-	public static<T> Class<?>[] getTypeClasses(Class<T> cls, String... ignoreFieldNames) {
-		Field[] fields = ReflectionExtensions.getDeclaredFields(cls, ignoreFieldNames);
-		Class<?>[] typeClasses = new Class<?>[fields.length];
+		Field[] fields = ReflectionExtensions.getAllDeclaredFields(getType(), "serialVersionUID");
+		columnClasses = new Class<?>[fields.length];
 		for (int i = 0; i < fields.length; i++)
 		{
-			typeClasses[i] = fields[i].getType();
+			columnClasses[i] = fields[i].getType();
 		}
-		return typeClasses;
 	}
 
 	/**
@@ -107,7 +104,7 @@ public class GenericTableColumnsModel<T>
 	 */
 	protected void onSetCanEdit()
 	{
-		Field[] fields = ReflectionExtensions.getDeclaredFields(getType(), "serialVersionUID");
+		Field[] fields = ReflectionExtensions.getAllDeclaredFields(getType(), "serialVersionUID");
 		canEdit = new boolean[fields.length];
 		for (int i = 0; i < fields.length; i++)
 		{

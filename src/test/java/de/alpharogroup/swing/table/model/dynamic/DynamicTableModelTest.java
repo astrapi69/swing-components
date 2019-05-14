@@ -22,18 +22,19 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tablemodel;
+package de.alpharogroup.swing.table.model.dynamic;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.swing.GenericJTable;
-import de.alpharogroup.swing.table.model.DynamicTableModel;
-import de.alpharogroup.swing.table.model.GenericTableColumnsModel;
 import de.alpharogroup.swing.table.model.GenericTableModel;
-
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import de.alpharogroup.swing.table.model.dynamic.DynamicTableColumnsModel;
+import de.alpharogroup.swing.tablemodel.Permission;
 
 /**
  * The class DynamicTableModelTest
@@ -64,7 +65,7 @@ public class DynamicTableModelTest
 		permissions.add(new Permission("delete", "Permission to delete."));
 		// 2. Create a generic table model for the class Permission.
 		final GenericTableModel<Permission> permissionsTableModel =
-				new DynamicPermissionsTableModel(new GenericTableColumnsModel<>(Permission.class) );
+				new DynamicPermissionsTableModel(new DynamicTableColumnsModel<>(Permission.class) );
 		// 3. Add the data to the model.
 		permissionsTableModel.addList(permissions);
 		// 4. Create the generic table and associate with the generic table model.

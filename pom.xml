@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-java-parent</artifactId>
-		<version>4.7</version>
+		<version>5</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -25,19 +25,19 @@
 	<properties>
 		<!-- JAVAHELP version -->
 		<javahelp.version>2.0.05</javahelp.version>
-		<email-tails.version>5.0.2</email-tails.version>
-		<test-objects.version>5.0.1</test-objects.version>
-		<file-worker.version>5.1</file-worker.version>
-		<jcommons-lang.version>5.1.1</jcommons-lang.version>
+		<test-objects.version>5.2</test-objects.version>
+		<file-worker.version>5.2.1</file-worker.version>
+		<jcommons-lang.version>5.2.2</jcommons-lang.version>
 		<vintage-time.version>5.1</vintage-time.version>
-		<randomizer-core.version>5.6</randomizer-core.version>
-		<silly-collections.version>5.1</silly-collections.version>
+		<randomizer-core.version>6.0.1</randomizer-core.version>
+		<silly-collections.version>5.2.1</silly-collections.version>
 		<!-- MODEL-DATA version -->
-		<model-data.version>1.6.2</model-data.version>
-		<model-api.version>${model-data.version}</model-api.version>
-		<model-core.version>${model-data.version}</model-core.version>
-		<model-object.version>${model-data.version}</model-object.version>
-		<model-type-safe.version>${model-data.version}</model-type-safe.version>
+		<model-data.version>1.7</model-data.version>
+		<model-api.version>1.7</model-api.version>
+		<model-object.version>1.7</model-object.version>
+		<model-type-safe.version>1.7</model-type-safe.version>
+		<!-- SILLY-BEANS version -->
+		<silly-beans.version>1</silly-beans.version>
 		<!-- GENERIC-DESIGN-PATTERN versions -->
 		<design-patterns.version>4.14</design-patterns.version>
 		<state.version>${design-patterns.version}</state.version>
@@ -47,9 +47,8 @@
 		<swingx-all.version>1.6.5-1</swingx-all.version>
 		<imgscalr-lib.version>4.2</imgscalr-lib.version>
 		<itextpdf.version>5.5.12</itextpdf.version>
-		<!-- JOBJECT-EXTENSIONS versions -->
-		<jobject-extensions.version>2.7-SNAPSHOT</jobject-extensions.version>
-		<jobject-core.version>${jobject-extensions.version}</jobject-core.version>
+		<!-- JOBJ-CORE version -->
+		<jobj-core.version>3.2</jobj-core.version>
 		<!-- GEN-TREE version -->
 		<gen-tree.version>4.12</gen-tree.version>
 	</properties>
@@ -114,12 +113,6 @@
 
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
-				<artifactId>email-tails</artifactId>
-				<version>${email-tails.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>de.alpharogroup</groupId>
 				<artifactId>file-worker</artifactId>
 				<version>${file-worker.version}</version>
 			</dependency>
@@ -172,10 +165,11 @@
 				<version>${model-object.version}</version>
 			</dependency>
 
+			<!-- SILLY-BEANS DEPENDENCY -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
-				<artifactId>model-core</artifactId>
-				<version>${model-core.version}</version>
+				<artifactId>silly-beans</artifactId>
+				<version>${silly-beans.version}</version>
 			</dependency>
 
 			<dependency>
@@ -183,11 +177,11 @@
 				<artifactId>model-type-safe</artifactId>
 				<version>${model-type-safe.version}</version>
 			</dependency>
-			<!-- JOBJECT-CORE DEPENDENCY -->
+			<!-- JOBJ-CORE DEPENDENCY -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
-				<artifactId>jobject-core</artifactId>
-				<version>${jobject-core.version}</version>
+				<artifactId>jobj-core</artifactId>
+				<version>${jobj-core.version}</version>
 			</dependency>
 			<!-- GEN-TREE DEPENDENCY -->
 			<dependency>
@@ -217,10 +211,6 @@
 			<artifactId>imgscalr-lib</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>net.lingala.zip4j</groupId>
-			<artifactId>zip4j</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>com.itextpdf</groupId>
@@ -244,23 +234,7 @@
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>email-tails</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>de.alpharogroup</groupId>
-			<artifactId>vintage-time</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>de.alpharogroup</groupId>
 			<artifactId>randomizer-core</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>de.alpharogroup</groupId>
-			<artifactId>test-objects</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -277,25 +251,43 @@
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>model-object</artifactId>
 		</dependency>
-
+		<!-- SILLY-BEANS DEPENDENCY -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>model-core</artifactId>
+			<artifactId>silly-beans</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>model-type-safe</artifactId>
 		</dependency>
-		<!-- JOBJECT-CORE DEPENDENCY -->
+		<!-- JOBJ-CORE DEPENDENCY -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
-			<artifactId>jobject-core</artifactId>
+			<artifactId>jobj-core</artifactId>
 		</dependency>
 		<!-- GEN-TREE DEPENDENCY -->
 		<dependency>
 			<groupId>de.alpharogroup</groupId>
 			<artifactId>gen-tree</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>net.lingala.zip4j</groupId>
+			<artifactId>zip4j</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>vintage-time</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>de.alpharogroup</groupId>
+			<artifactId>test-objects</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

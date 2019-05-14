@@ -4,9 +4,13 @@
 Version 5.2-SNAPSHOT
 -------------
 
+ADDED:
+ 
+- new classes DynamicTableColumnsModel and DynamicTableModel created
+
 CHANGED:
 
-- update of parent version to 4.7
+- update of parent version to 5
 
 Version 5.1
 -------------

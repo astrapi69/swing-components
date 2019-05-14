@@ -29,7 +29,6 @@ import java.util.Objects;
 
 import javax.swing.table.DefaultTableCellRenderer;
 
-import de.alpharogroup.date.DatePatterns;
 import lombok.Getter;
 
 /**
@@ -39,7 +38,7 @@ public class DateRenderer extends DefaultTableCellRenderer
 {
 
 	/** The constant for the default date pattern. */
-	public static final String DEFAULT_PATTERN = DatePatterns.DOT_DD_MM_YYYY;
+	public static final String DEFAULT_PATTERN = "dd.MM.yyyy";
 
 	/** The constant for the serialVersionUID. */
 	private static final long serialVersionUID = 1L;

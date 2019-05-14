@@ -22,16 +22,15 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.table.model;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.Setter;
-import lombok.extern.java.Log;
+package de.alpharogroup.swing.table.model.dynamic;
 
 import java.util.List;
 import java.util.logging.Level;
+
+import de.alpharogroup.swing.table.model.GenericTableModel;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.extern.java.Log;
 
 /**
  * The abstract class {@link DynamicTableModel} holds a {@link TableColumnsModel} for layout the
@@ -49,29 +48,29 @@ public abstract class DynamicTableModel<T> extends GenericTableModel<T>
 
 	/** The columns model. */
 	@Getter
-	private final GenericTableColumnsModel columnsModel;
+	private final DynamicTableColumnsModel<T> columnsModel;
 
 	/**
-	 * Instantiates a new {@link DynamicTableModel}.
+	 * Instantiates a new {@link DynamicTableModel}
 	 *
 	 * @param list
 	 *            the list
 	 * @param columnsModel
 	 *            the columns model
 	 */
-	public DynamicTableModel(List<T> list, @NonNull GenericTableColumnsModel<T> columnsModel)
+	public DynamicTableModel(List<T> list, @NonNull DynamicTableColumnsModel<T> columnsModel)
 	{
 		super(list);
 		this.columnsModel = columnsModel;
 	}
 
 	/**
-	 * Instantiates a new {@link DynamicTableModel}.
+	 * Instantiates a new {@link DynamicTableModel}
 	 *
 	 * @param columnsModel
 	 *            the columns model
 	 */
-	public DynamicTableModel(@NonNull GenericTableColumnsModel<T> columnsModel)
+	public DynamicTableModel(@NonNull DynamicTableColumnsModel<T> columnsModel)
 	{
 		this.columnsModel = columnsModel;
 	}

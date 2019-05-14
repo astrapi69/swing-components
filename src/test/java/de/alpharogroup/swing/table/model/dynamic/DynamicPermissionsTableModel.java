@@ -22,10 +22,11 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tablemodel;
+package de.alpharogroup.swing.table.model.dynamic;
 
-import de.alpharogroup.swing.table.model.DynamicTableModel;
-import de.alpharogroup.swing.table.model.GenericTableColumnsModel;
+import de.alpharogroup.swing.table.model.dynamic.DynamicTableModel;
+import de.alpharogroup.swing.tablemodel.Permission;
+import de.alpharogroup.swing.table.model.dynamic.DynamicTableColumnsModel;
 import lombok.NonNull;
 
 /**
@@ -34,7 +35,7 @@ import lombok.NonNull;
 public class DynamicPermissionsTableModel extends DynamicTableModel<Permission>
 {
 
-	public DynamicPermissionsTableModel(@NonNull GenericTableColumnsModel<Permission> columnsModel) {
+	public DynamicPermissionsTableModel(@NonNull DynamicTableColumnsModel<Permission> columnsModel) {
 		super(columnsModel);
 	}
 
