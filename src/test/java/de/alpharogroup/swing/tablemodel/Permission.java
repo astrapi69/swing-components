@@ -24,10 +24,12 @@
  */
 package de.alpharogroup.swing.tablemodel;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
 /**
  * The class Permission.
@@ -36,13 +38,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Permission
 {
 
 	/** The description. */
-	private String description;
+	String description;
 
 	/** The name. */
-	private String name;
+	String name;
 
 }
