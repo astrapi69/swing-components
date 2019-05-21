@@ -60,16 +60,6 @@ import lombok.extern.java.Log;
 public class ImageExtensions
 {
 
-	/**
-	 * The Enum Direction.
-	 */
-	public enum Direction
-	{
-		/** Indicates the horizontal direction. */
-		horizontal,
-		/** Indicates the vertical direction. */
-		vertical
-	}
 
 	/**
 	 * Concatenate the given list of BufferedImage objects to one image and returns the concatenated

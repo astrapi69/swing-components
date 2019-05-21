@@ -110,6 +110,7 @@ public class TestTreeElementPanel extends TreeElementPanel
 		return treeModel;
 	}
 
+	@Override
 	protected void onInitializeGroupLayout()
 	{
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

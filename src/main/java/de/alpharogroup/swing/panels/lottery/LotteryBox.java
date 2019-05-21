@@ -22,32 +22,51 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.splitpane;
+package de.alpharogroup.swing.panels.lottery;
 
-import java.awt.Frame;
+import java.util.LinkedHashSet;
 
-import de.alpharogroup.layout.CloseWindow;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 
-public class JXMultiSplitPanePanelTest
+/**
+ * The class {@link LotteryBox} represents exactly one lottery box in a lottery ticket
+ */
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class LotteryBox
 {
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		final Frame frame = new Frame("JXMultiSplitPanePanel");
-		frame.addWindowListener(new CloseWindow());
-		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel =
-			// TestComponentFactory.newJXMultiSplitPanePanelDefault();
-			TestComponentFactory.newJXMultiSplitPanePanelCustomLayout();
-		// TestComponentFactory.newJXMultiSplitPanePanelCustomLayout2();
 
-		frame.add(multiSplitPanePanel);
-		frame.pack();
-		frame.setVisible(true);
-	}
+	/** The index of this box in the lottery ticket */
+	@Builder.Default
+	int index = 0;
+
+	/** The maximum value of selected numbers. */
+	@Builder.Default
+	int maxNumbers = 6;
+
+	/** The max volume. */
+	@Builder.Default
+	int maxVolume = 49;
+
+	/** The min volume. */
+	@Builder.Default
+	int minVolume = 1;
+
+	/** The selected numbers. */
+	LinkedHashSet<Integer> selectedNumbers;
 
 }

@@ -41,7 +41,7 @@ public abstract class TreeElementPanel extends JTreePanel<TreeElement>
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Instantiates a new {@link TreeElementPanel} 
+	 * Instantiates a new {@link TreeElementPanel}
 	 */
 	public TreeElementPanel()
 	{
@@ -50,9 +50,10 @@ public abstract class TreeElementPanel extends JTreePanel<TreeElement>
 	}
 
 	/**
-	 * Instantiates a new t{@link TreeElementPanel} 
+	 * Instantiates a new t{@link TreeElementPanel}
 	 *
-	 * @param model the model
+	 * @param model
+	 *            the model
 	 */
 	public TreeElementPanel(final Model<TreeElement> model)
 	{

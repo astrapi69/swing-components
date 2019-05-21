@@ -22,32 +22,29 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.splitpane;
+package de.alpharogroup.swing.icon;
 
-import java.awt.Frame;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 
-import de.alpharogroup.layout.CloseWindow;
-
-public class JXMultiSplitPanePanelTest
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class IconDimensions
 {
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		final Frame frame = new Frame("JXMultiSplitPanePanel");
-		frame.addWindowListener(new CloseWindow());
-		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel =
-			// TestComponentFactory.newJXMultiSplitPanePanelDefault();
-			TestComponentFactory.newJXMultiSplitPanePanelCustomLayout();
-		// TestComponentFactory.newJXMultiSplitPanePanelCustomLayout2();
-
-		frame.add(multiSplitPanePanel);
-		frame.pack();
-		frame.setVisible(true);
-	}
-
+	int iconHeight;
+	int iconWidth;
+	int padding;
 }

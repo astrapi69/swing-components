@@ -26,12 +26,12 @@ package de.alpharogroup.swing.table.model.dynamic;
 
 import java.lang.reflect.Field;
 
+import org.apache.commons.lang3.StringUtils;
+
 import de.alpharogroup.collections.list.ListFactory;
 import de.alpharogroup.reflection.ReflectionExtensions;
 import lombok.Data;
 import lombok.NonNull;
-
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * The class {@link DynamicTableColumnsModel} encapsulates the column data for a table model that
@@ -69,16 +69,17 @@ public class DynamicTableColumnsModel<T>
 	}
 
 	/**
-	 * Callback method for set the column names array from the generic given type. This method is
-	 * invoked in the constructor from the derived classes and can be overridden so users can
-	 * provide their own version of a column names
+	 * Callback method for set the canEdit array from the generic given type. This method is invoked
+	 * in the constructor from the derived classes and can be overridden so users can provide their
+	 * own version of a column classes
 	 */
-	protected void onSetColumnNames()
+	protected void onSetCanEdit()
 	{
-		columnNames = ReflectionExtensions.getAllDeclaredFieldNames(getType(), ListFactory.newArrayList("serialVersionUID"));
-		for (int i = 0; i < columnNames.length; i++)
+		Field[] fields = ReflectionExtensions.getAllDeclaredFields(getType(), "serialVersionUID");
+		canEdit = new boolean[fields.length];
+		for (int i = 0; i < fields.length; i++)
 		{
-			columnNames[i] = StringUtils.capitalize(columnNames[i]);
+			canEdit[i] = false;
 		}
 	}
 
@@ -98,17 +99,17 @@ public class DynamicTableColumnsModel<T>
 	}
 
 	/**
-	 * Callback method for set the canEdit array from the generic given type. This method is invoked
-	 * in the constructor from the derived classes and can be overridden so users can provide their
-	 * own version of a column classes
+	 * Callback method for set the column names array from the generic given type. This method is
+	 * invoked in the constructor from the derived classes and can be overridden so users can
+	 * provide their own version of a column names
 	 */
-	protected void onSetCanEdit()
+	protected void onSetColumnNames()
 	{
-		Field[] fields = ReflectionExtensions.getAllDeclaredFields(getType(), "serialVersionUID");
-		canEdit = new boolean[fields.length];
-		for (int i = 0; i < fields.length; i++)
+		columnNames = ReflectionExtensions.getAllDeclaredFieldNames(getType(),
+			ListFactory.newArrayList("serialVersionUID"));
+		for (int i = 0; i < columnNames.length; i++)
 		{
-			canEdit[i] = false;
+			columnNames[i] = StringUtils.capitalize(columnNames[i]);
 		}
 	}
 

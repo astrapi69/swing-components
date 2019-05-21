@@ -26,6 +26,7 @@ package de.alpharogroup.layout;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -319,7 +320,7 @@ public class ScreenSizeExtensions
 	public static void toggleFullScreen(@NonNull JFrame frame)
 	{
 		GraphicsDevice device = frame.getGraphicsConfiguration().getDevice();
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		frame.setExtendedState(Frame.MAXIMIZED_BOTH);
 		if (frame.equals(device.getFullScreenWindow()))
 		{
 			device.setFullScreenWindow(null);

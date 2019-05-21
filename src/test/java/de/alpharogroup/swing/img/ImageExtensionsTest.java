@@ -32,16 +32,13 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import org.imgscalr.Scalr;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
-//import de.alpharogroup.email.messages.Mimetypes;
 import de.alpharogroup.file.create.CreateFileExtensions;
 import de.alpharogroup.file.delete.DeleteFileExtensions;
 import de.alpharogroup.file.search.PathFinder;
 import de.alpharogroup.lang.ClassExtensions;
-import de.alpharogroup.swing.img.ImageExtensions.Direction;
 import lombok.experimental.ExtensionMethod;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.model.ZipParameters;
@@ -92,21 +89,21 @@ public class ImageExtensionsTest
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
-//	@Test(enabled = false)
-//	public void testGetResized() throws IOException
-//	{
-//		final File hImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
-//			"xmas", "bell.png");
-//		String extension = Mimetypes.getExtension(hImg);
-//		extension = Mimetypes.getExtension(hImg.getName());
-//		final BufferedImage horizontalImg = ImageIO.read(hImg);
-//		final BufferedImage result = ImageExtensions.getResized(horizontalImg, Scalr.Method.SPEED,
-//			Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth(), horizontalImg.getHeight());
-//
-//		final File verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(),
-//			"img", "xmas", "resultImg." + extension);
-//		ImageIO.write(result, extension, verticalImg);
-//	}
+	// @Test(enabled = false)
+	// public void testGetResized() throws IOException
+	// {
+	// final File hImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
+	// "xmas", "bell.png");
+	// String extension = Mimetypes.getExtension(hImg);
+	// extension = Mimetypes.getExtension(hImg.getName());
+	// final BufferedImage horizontalImg = ImageIO.read(hImg);
+	// final BufferedImage result = ImageExtensions.getResized(horizontalImg, Scalr.Method.SPEED,
+	// Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth(), horizontalImg.getHeight());
+	//
+	// final File verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(),
+	// "img", "xmas", "resultImg." + extension);
+	// ImageIO.write(result, extension, verticalImg);
+	// }
 
 	/**
 	 * Test for method {@ImageExtensions#randomBufferedImage(int, int, int)}.
@@ -140,56 +137,56 @@ public class ImageExtensionsTest
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
-//	@Test(enabled = false)
-//	public void testResize() throws IOException
-//	{
-//		String filenameprefix = "bell";
-//		String ext = "png";
-//		File hImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", "xmas",
-//			filenameprefix + "." + ext);
-//		String extension = Mimetypes.getExtension(hImg);
-//		extension = Mimetypes.getExtension(hImg.getName());
-//		BufferedImage horizontalImg = ImageIO.read(hImg);
-//		byte[] resized = ImageExtensions.resize(horizontalImg, Scalr.Method.ULTRA_QUALITY,
-//			Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth() / 2,
-//			horizontalImg.getHeight() / 2);
-//		BufferedImage result = ImageExtensions.read(resized);
-//		File verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
-//			"xmas", "resultImg." + extension);
-//		ImageIO.write(result, extension, verticalImg);
-//		AssertJUnit.assertTrue("original image size should be greater than the resulted.",
-//			verticalImg.length() < hImg.length());
-//
-//		filenameprefix = "horizontalImg";
-//		ext = "jpg";
-//
-//		final int scale = 2;
-//		hImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", "xmas",
-//			filenameprefix + "." + ext);
-//		extension = Mimetypes.getExtension(hImg);
-//		extension = Mimetypes.getExtension(hImg.getName());
-//		horizontalImg = ImageIO.read(hImg);
-//		resized = ImageExtensions.resize(horizontalImg, Scalr.Method.ULTRA_QUALITY,
-//			Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth() / scale,
-//			horizontalImg.getHeight() / scale);
-//		result = ImageExtensions.read(resized);
-//		verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", "xmas",
-//			"resultImg." + extension);
-//		ImageIO.write(result, extension, verticalImg);
-//		System.out.println("Length:" + verticalImg.length());
-//
-//		extension = Mimetypes.getExtension(verticalImg);
-//		extension = Mimetypes.getExtension(verticalImg.getName());
-//		final BufferedImage backToOriginalSize = ImageIO.read(verticalImg);
-//		resized = ImageExtensions.resize(backToOriginalSize, Scalr.Method.ULTRA_QUALITY,
-//			Scalr.Mode.FIT_EXACT, extension, backToOriginalSize.getWidth() * scale,
-//			backToOriginalSize.getHeight() * scale);
-//		result = ImageExtensions.read(resized);
-//		verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", "xmas",
-//			filenameprefix + "_backToOriginalSizeImg." + extension);
-//		ImageIO.write(result, extension, verticalImg);
-//		System.out.println("Length:" + verticalImg.length());
-//	}
+	// @Test(enabled = false)
+	// public void testResize() throws IOException
+	// {
+	// String filenameprefix = "bell";
+	// String ext = "png";
+	// File hImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", "xmas",
+	// filenameprefix + "." + ext);
+	// String extension = Mimetypes.getExtension(hImg);
+	// extension = Mimetypes.getExtension(hImg.getName());
+	// BufferedImage horizontalImg = ImageIO.read(hImg);
+	// byte[] resized = ImageExtensions.resize(horizontalImg, Scalr.Method.ULTRA_QUALITY,
+	// Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth() / 2,
+	// horizontalImg.getHeight() / 2);
+	// BufferedImage result = ImageExtensions.read(resized);
+	// File verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
+	// "xmas", "resultImg." + extension);
+	// ImageIO.write(result, extension, verticalImg);
+	// AssertJUnit.assertTrue("original image size should be greater than the resulted.",
+	// verticalImg.length() < hImg.length());
+	//
+	// filenameprefix = "horizontalImg";
+	// ext = "jpg";
+	//
+	// final int scale = 2;
+	// hImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", "xmas",
+	// filenameprefix + "." + ext);
+	// extension = Mimetypes.getExtension(hImg);
+	// extension = Mimetypes.getExtension(hImg.getName());
+	// horizontalImg = ImageIO.read(hImg);
+	// resized = ImageExtensions.resize(horizontalImg, Scalr.Method.ULTRA_QUALITY,
+	// Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth() / scale,
+	// horizontalImg.getHeight() / scale);
+	// result = ImageExtensions.read(resized);
+	// verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", "xmas",
+	// "resultImg." + extension);
+	// ImageIO.write(result, extension, verticalImg);
+	// System.out.println("Length:" + verticalImg.length());
+	//
+	// extension = Mimetypes.getExtension(verticalImg);
+	// extension = Mimetypes.getExtension(verticalImg.getName());
+	// final BufferedImage backToOriginalSize = ImageIO.read(verticalImg);
+	// resized = ImageExtensions.resize(backToOriginalSize, Scalr.Method.ULTRA_QUALITY,
+	// Scalr.Mode.FIT_EXACT, extension, backToOriginalSize.getWidth() * scale,
+	// backToOriginalSize.getHeight() * scale);
+	// result = ImageExtensions.read(resized);
+	// verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img", "xmas",
+	// filenameprefix + "_backToOriginalSizeImg." + extension);
+	// ImageIO.write(result, extension, verticalImg);
+	// System.out.println("Length:" + verticalImg.length());
+	// }
 
 	/**
 	 * Test weave.

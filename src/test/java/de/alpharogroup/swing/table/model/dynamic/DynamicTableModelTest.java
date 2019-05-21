@@ -33,7 +33,6 @@ import javax.swing.JScrollPane;
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.swing.GenericJTable;
 import de.alpharogroup.swing.table.model.GenericTableModel;
-import de.alpharogroup.swing.table.model.dynamic.DynamicTableColumnsModel;
 import de.alpharogroup.swing.tablemodel.Permission;
 
 /**
@@ -64,8 +63,8 @@ public class DynamicTableModelTest
 		permissions.add(new Permission("write", "Permission to write."));
 		permissions.add(new Permission("delete", "Permission to delete."));
 		// 2. Create a generic table model for the class Permission.
-		final GenericTableModel<Permission> permissionsTableModel =
-				new DynamicPermissionsTableModel(new DynamicTableColumnsModel<>(Permission.class) );
+		final GenericTableModel<Permission> permissionsTableModel = new DynamicPermissionsTableModel(
+			new DynamicTableColumnsModel<>(Permission.class));
 		// 3. Add the data to the model.
 		permissionsTableModel.addList(permissions);
 		// 4. Create the generic table and associate with the generic table model.

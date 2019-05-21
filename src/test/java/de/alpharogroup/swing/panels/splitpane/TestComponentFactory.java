@@ -25,7 +25,6 @@
 package de.alpharogroup.swing.panels.splitpane;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -76,8 +75,10 @@ public class TestComponentFactory
 		JComponent buttonStack = new JXTaskPaneContainer();
 		JXTaskPane taskPane = new JXTaskPane();
 		taskPane.setTitle("demo");
-		taskPane.add(ActionFactory.newTextAction("add editor - setText", demoContainer, createEditorSetText()));
-		taskPane.add(ActionFactory.newPageAction("add editor - setPage", demoContainer, createEditorSetPage()));
+		taskPane.add(ActionFactory.newTextAction("add editor - setText", demoContainer,
+			createEditorSetText()));
+		taskPane.add(ActionFactory.newPageAction("add editor - setPage", demoContainer,
+			createEditorSetPage()));
 		buttonStack.add(taskPane);
 		return buttonStack;
 	}

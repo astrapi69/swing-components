@@ -29,7 +29,6 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
 import de.alpharogroup.collections.array.ArrayFactory;
-import de.alpharogroup.swing.table.model.dynamic.DynamicTableColumnsModel;
 import de.alpharogroup.test.objects.Person;
 import de.alpharogroup.test.objects.enums.Gender;
 
@@ -43,21 +42,25 @@ public class DynamicTableColumnsModelTest
 	 * Test method for the constructor with class argument
 	 */
 	@Test
-	public void testNewGenericTableColumnsModel() {
-		DynamicTableColumnsModel<Person> columnsModel = new DynamicTableColumnsModel<>(Person.class);
+	public void testNewGenericTableColumnsModel()
+	{
+		DynamicTableColumnsModel<Person> columnsModel = new DynamicTableColumnsModel<>(
+			Person.class);
 		boolean[] expectedCanEdit = ArrayFactory.newBooleanArray(false, false, false, false, false);
 		boolean[] canEdit = columnsModel.getCanEdit();
 		for (int i = 0; i < canEdit.length; i++)
 		{
 			assertEquals(canEdit[i], expectedCanEdit[i]);
 		}
-		Class<?>[] expectedColumnClasses = ArrayFactory.newArray(String.class, Gender.class, Boolean.class, String.class, String.class);
+		Class<?>[] expectedColumnClasses = ArrayFactory.newArray(String.class, Gender.class,
+			Boolean.class, String.class, String.class);
 		Class<?>[] columnClasses = columnsModel.getColumnClasses();
 		for (int i = 0; i < columnClasses.length; i++)
 		{
 			assertEquals(columnClasses[i], expectedColumnClasses[i]);
 		}
-		String[] expectedColumnNames = ArrayFactory.newArray("About", "Gender", "Married", "Name", "Nickname");
+		String[] expectedColumnNames = ArrayFactory.newArray("About", "Gender", "Married", "Name",
+			"Nickname");
 		String[] columnNames = columnsModel.getColumnNames();
 		for (int i = 0; i < columnNames.length; i++)
 		{

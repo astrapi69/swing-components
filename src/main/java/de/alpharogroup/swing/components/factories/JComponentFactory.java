@@ -68,7 +68,7 @@ public class JComponentFactory
 		editor.setOpaque(true);
 		return editor;
 	}
-	
+
 	/**
 	 * Factory method for create new {@link JSplitPane} object
 	 *

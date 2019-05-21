@@ -22,32 +22,15 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.splitpane;
+package de.alpharogroup.swing.img;
 
-import java.awt.Frame;
-
-import de.alpharogroup.layout.CloseWindow;
-
-public class JXMultiSplitPanePanelTest
+/**
+ * The Enum Direction.
+ */
+public enum Direction
 {
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		final Frame frame = new Frame("JXMultiSplitPanePanel");
-		frame.addWindowListener(new CloseWindow());
-		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel =
-			// TestComponentFactory.newJXMultiSplitPanePanelDefault();
-			TestComponentFactory.newJXMultiSplitPanePanelCustomLayout();
-		// TestComponentFactory.newJXMultiSplitPanePanelCustomLayout2();
-
-		frame.add(multiSplitPanePanel);
-		frame.pack();
-		frame.setVisible(true);
-	}
-
+	/** Indicates the horizontal direction. */
+	horizontal,
+	/** Indicates the vertical direction. */
+	vertical
 }

@@ -22,14 +22,17 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.panels.splitpane;
+package de.alpharogroup.swing.panels.lottery;
 
 import java.awt.Frame;
+import java.util.LinkedHashSet;
 
 import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.model.BaseModel;
 
-public class JXMultiSplitPanePanelTest
+public class LotteryPanelTest
 {
+
 	/**
 	 * The main method.
 	 *
@@ -38,15 +41,16 @@ public class JXMultiSplitPanePanelTest
 	 */
 	public static void main(final String[] args)
 	{
-		final Frame frame = new Frame("JXMultiSplitPanePanel");
-		frame.addWindowListener(new CloseWindow());
-		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel =
-			// TestComponentFactory.newJXMultiSplitPanePanelDefault();
-			TestComponentFactory.newJXMultiSplitPanePanelCustomLayout();
-		// TestComponentFactory.newJXMultiSplitPanePanelCustomLayout2();
 
-		frame.add(multiSplitPanePanel);
+		final Frame frame = new Frame();
+		frame.addWindowListener(new CloseWindow());
+		frame.setTitle("Lottery Panel Frame");
+		final LotteryPanel panel = new LotteryPanel(
+			BaseModel.of(LotteryBox.builder().selectedNumbers(new LinkedHashSet<>()).build()));
+
+		frame.add(panel);
 		frame.pack();
+		frame.setSize(500, 300);
 		frame.setVisible(true);
 	}
 

@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 import de.alpharogroup.swing.table.model.GenericTableModel;
+import de.alpharogroup.swing.table.model.TableColumnsModel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.extern.java.Log;
@@ -53,6 +54,17 @@ public abstract class DynamicTableModel<T> extends GenericTableModel<T>
 	/**
 	 * Instantiates a new {@link DynamicTableModel}
 	 *
+	 * @param columnsModel
+	 *            the columns model
+	 */
+	public DynamicTableModel(@NonNull DynamicTableColumnsModel<T> columnsModel)
+	{
+		this.columnsModel = columnsModel;
+	}
+
+	/**
+	 * Instantiates a new {@link DynamicTableModel}
+	 *
 	 * @param list
 	 *            the list
 	 * @param columnsModel
@@ -61,17 +73,6 @@ public abstract class DynamicTableModel<T> extends GenericTableModel<T>
 	public DynamicTableModel(List<T> list, @NonNull DynamicTableColumnsModel<T> columnsModel)
 	{
 		super(list);
-		this.columnsModel = columnsModel;
-	}
-
-	/**
-	 * Instantiates a new {@link DynamicTableModel}
-	 *
-	 * @param columnsModel
-	 *            the columns model
-	 */
-	public DynamicTableModel(@NonNull DynamicTableColumnsModel<T> columnsModel)
-	{
 		this.columnsModel = columnsModel;
 	}
 

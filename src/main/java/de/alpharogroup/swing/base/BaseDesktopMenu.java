@@ -137,9 +137,12 @@ public class BaseDesktopMenu extends JMenu
 		hsURL = ClassExtensions.getResource(path);
 		try
 		{
-			if(hsURL != null) {
+			if (hsURL != null)
+			{
 				hs = new HelpSet(ClassExtensions.getClassLoader(), hsURL);
-			} else {
+			}
+			else
+			{
 				hs = new HelpSet();
 			}
 		}
@@ -147,7 +150,7 @@ public class BaseDesktopMenu extends JMenu
 		{
 			String title = e.getLocalizedMessage();
 			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
-				+ e.getMessage() + "\n" + path ;
+				+ e.getMessage() + "\n" + path;
 			JOptionPane.showMessageDialog(this.getParent(), htmlMessage, title,
 				JOptionPane.ERROR_MESSAGE);
 			log.log(Level.SEVERE, e.getMessage(), e);
