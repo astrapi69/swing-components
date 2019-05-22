@@ -111,6 +111,6 @@ public class LotteryPanel extends BasePanel<LotteryBox> implements ActionListene
 	@Override
 	protected void onInitializeLayout()
 	{
-		setLayout(new GridLayout(7, 7));
+		setLayout(new GridLayout(getModelObject().getRows(), getModelObject().getColumns()));
 	}
 }

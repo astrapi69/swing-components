@@ -25,7 +25,6 @@
 package de.alpharogroup.swing.panels.lottery;
 
 import java.awt.Frame;
-import java.awt.GridLayout;
 import java.util.LinkedHashSet;
 
 import de.alpharogroup.layout.CloseWindow;
@@ -45,19 +44,15 @@ public class LotteryPanelTest
 
 		final Frame frame = new Frame();
 		frame.addWindowListener(new CloseWindow());
-		frame.setTitle("Lottery Panel Frame");
+		frame.setTitle("Lottery Panel");
+
 		final LotteryPanel panel = new LotteryPanel(
 			BaseModel.of(LotteryBox.builder().selectedNumbers(new LinkedHashSet<>())
 				.minVolume(1)
-				.maxVolume(36)
-				.build())) {
-
-			@Override
-			protected void onInitializeLayout()
-			{
-				setLayout(new GridLayout(6, 6));
-			}
-		};
+				.maxVolume(64)
+				.rows(8)
+				.columns(6)
+				.build()));
 
 		frame.add(panel);
 		frame.pack();

@@ -69,4 +69,12 @@ public class LotteryBox
 	/** The selected numbers. */
 	LinkedHashSet<Integer> selectedNumbers;
 
+	/** The rows for the layout. */
+	@Builder.Default
+	int rows = 7;
+
+	/** The columns for the layout. */
+	@Builder.Default
+	int columns = 7;
+
 }
