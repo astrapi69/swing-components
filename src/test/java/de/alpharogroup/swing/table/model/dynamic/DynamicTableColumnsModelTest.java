@@ -24,7 +24,7 @@
  */
 package de.alpharogroup.swing.table.model.dynamic;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 
 import org.testng.annotations.Test;
 
