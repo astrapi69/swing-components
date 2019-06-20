@@ -10,6 +10,8 @@ Several swing components and utilities
 
 - Buffered images to pdf file
 
+If you like this project put a ⭐ and donate
+
 ## License
 
 The source code comes under the liberal MIT License, making swing-components great for all types of applications.
