@@ -66,6 +66,10 @@ public class LotteryBox
 	@Builder.Default
 	int minVolume = 1;
 
+	/** The step count for the iteration */
+	@Builder.Default
+	int step = 1;
+
 	/** The selected numbers. */
 	LinkedHashSet<Integer> selectedNumbers;
 
