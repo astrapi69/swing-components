@@ -80,7 +80,7 @@ public class LotteryPanel extends BasePanel<LotteryBox> implements ActionListene
 		}
 		else
 		{
-			lotteryBoxes.entrySet().stream().map(Map.Entry::getValue).forEach(cb -> {
+			lotteryBoxes.values().forEach(cb -> {
 				if (!cb.isEnabled())
 				{
 					cb.setEnabled(true);
@@ -95,15 +95,13 @@ public class LotteryPanel extends BasePanel<LotteryBox> implements ActionListene
 	protected void onInitializeComponents()
 	{
 		lotteryBoxes = new LinkedHashMap<>();
-		for (int i = 0; i < getModelObject().getMaxVolume(); i++)
+		for (int i = getModelObject().getMinVolume(); i <= getModelObject().getMaxVolume(); i+=getModelObject().getStep())
 		{
-			int currentNumber = i + 1;
-			String checkBoxText = currentNumber + "";
-			StringIcon icon = new StringIcon(this, checkBoxText);
+			StringIcon icon = new StringIcon(this, Integer.valueOf(i).toString());
 			JCheckBox checkBox = new JCheckBox(icon);
 			checkBox.addActionListener(this);
 			checkBox.setBorderPainted(true);
-			lotteryBoxes.put(Integer.valueOf(currentNumber), checkBox);
+			lotteryBoxes.put(i, checkBox);
 			add(checkBox);
 		}
 	}

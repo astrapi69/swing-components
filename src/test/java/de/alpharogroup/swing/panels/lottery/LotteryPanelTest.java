@@ -29,6 +29,7 @@ import java.util.LinkedHashSet;
 
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
 
 public class LotteryPanelTest
 {
@@ -45,14 +46,33 @@ public class LotteryPanelTest
 		final Frame frame = new Frame();
 		frame.addWindowListener(new CloseWindow());
 		frame.setTitle("Lottery Panel");
+		Model<LotteryBox> lotteryModel;
 
-		final LotteryPanel panel = new LotteryPanel(
-			BaseModel.of(LotteryBox.builder().selectedNumbers(new LinkedHashSet<>())
-				.minVolume(1)
-				.maxVolume(64)
-				.rows(8)
-				.columns(6)
-				.build()));
+		lotteryModel = BaseModel.of(LotteryBox.builder().selectedNumbers(new LinkedHashSet<>())
+			.minVolume(1)
+			.maxVolume(49)
+			// .step(1)
+			.rows(7)
+			.columns(7)
+			.build());
+
+//		lotteryModel = BaseModel.of(LotteryBox.builder().selectedNumbers(new LinkedHashSet<>())
+//			.minVolume(2)
+//			.maxVolume(98)
+//			.step(2)
+//			.rows(7)
+//			.columns(7)
+//			.build());
+
+//		lotteryModel = BaseModel.of(LotteryBox.builder().selectedNumbers(new LinkedHashSet<>())
+//			.minVolume(2)
+//			.maxVolume(72)
+//			.step(2)
+//			.rows(6)
+//			.columns(6)
+//			.build());
+
+		final LotteryPanel panel = new LotteryPanel(lotteryModel);
 
 		frame.add(panel);
 		frame.pack();
