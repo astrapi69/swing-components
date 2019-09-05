@@ -95,7 +95,8 @@ public class LotteryPanel extends BasePanel<LotteryBox> implements ActionListene
 	protected void onInitializeComponents()
 	{
 		lotteryBoxes = new LinkedHashMap<>();
-		for (int i = getModelObject().getMinVolume(); i <= getModelObject().getMaxVolume(); i+=getModelObject().getStep())
+		for (int i = getModelObject().getMinVolume(); i <= getModelObject()
+			.getMaxVolume(); i += getModelObject().getStep())
 		{
 			StringIcon icon = new StringIcon(this, Integer.valueOf(i).toString());
 			JCheckBox checkBox = new JCheckBox(icon);

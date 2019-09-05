@@ -50,6 +50,10 @@ import lombok.experimental.FieldDefaults;
 public class LotteryBox
 {
 
+	/** The columns for the layout. */
+	@Builder.Default
+	int columns = 7;
+
 	/** The index of this box in the lottery ticket */
 	@Builder.Default
 	int index = 0;
@@ -66,19 +70,15 @@ public class LotteryBox
 	@Builder.Default
 	int minVolume = 1;
 
-	/** The step count for the iteration */
-	@Builder.Default
-	int step = 1;
-
-	/** The selected numbers. */
-	LinkedHashSet<Integer> selectedNumbers;
-
 	/** The rows for the layout. */
 	@Builder.Default
 	int rows = 7;
 
-	/** The columns for the layout. */
+	/** The selected numbers. */
+	LinkedHashSet<Integer> selectedNumbers;
+
+	/** The step count for the iteration */
 	@Builder.Default
-	int columns = 7;
+	int step = 1;
 
 }
