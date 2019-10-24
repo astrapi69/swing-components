@@ -26,6 +26,8 @@ package de.alpharogroup.swing.components.factories;
 
 import java.awt.Dimension;
 
+import javax.swing.JComponent;
+
 import lombok.experimental.UtilityClass;
 
 /**
@@ -49,5 +51,20 @@ public class DimensionFactory
 	public static Dimension newDimension(int width, int height)
 	{
 		return new Dimension(width, height);
+	}
+
+	/**
+	 * Factory method for creating the new preferred size {@link Dimension} of the given two component
+	 *
+	 * @param first the first component
+	 * @param second the second component
+	 * @return the new preferred size {@link Dimension}
+	 */
+	public static Dimension getPreferredSize(JComponent first, JComponent second){
+		Dimension firstDimension = first.getPreferredSize();
+		Dimension secondDimension = second.getPreferredSize();
+		return new Dimension(firstDimension.width + secondDimension.width,
+			(firstDimension.height < secondDimension.height ? secondDimension.height : firstDimension.height));
+
 	}
 }

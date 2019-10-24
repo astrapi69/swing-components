@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-java-parent</artifactId>
-		<version>5</version>
+		<version>5.3</version>
 		<relativePath></relativePath>
 	</parent>
 
@@ -30,7 +30,7 @@
 		<jcommons-lang.version>5.2.2</jcommons-lang.version>
 		<vintage-time.version>5.1</vintage-time.version>
 		<randomizer-core.version>6.0.1</randomizer-core.version>
-		<silly-collections.version>5.2.1</silly-collections.version>
+		<silly-collections.version>5.4-SNAPSHOT</silly-collections.version>
 		<!-- MODEL-DATA version -->
 		<model-data.version>1.7</model-data.version>
 		<model-api.version>1.7</model-api.version>
