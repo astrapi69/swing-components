@@ -6,11 +6,13 @@ Version 5.2-SNAPSHOT
 
 ADDED:
  
+- gradle as build system
 - new classes DynamicTableColumnsModel and DynamicTableModel created
 
 CHANGED:
 
-- update of parent version to 5
+- removed maven build system and all related files
+- removed all lombok dependent imports
 
 Version 5.1
 -------------

@@ -35,11 +35,10 @@ import javax.imageio.ImageIO;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
-import de.alpharogroup.file.create.CreateFileExtensions;
+import de.alpharogroup.file.create.FileFactory;
 import de.alpharogroup.file.delete.DeleteFileExtensions;
 import de.alpharogroup.file.search.PathFinder;
 import de.alpharogroup.lang.ClassExtensions;
-import lombok.experimental.ExtensionMethod;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.model.ZipParameters;
 import net.lingala.zip4j.util.Zip4jConstants;
@@ -47,7 +46,6 @@ import net.lingala.zip4j.util.Zip4jConstants;
 /**
  * The class {@link ImageExtensionsTest}.
  */
-@ExtensionMethod({ DeleteFileExtensions.class, CreateFileExtensions.class })
 public class ImageExtensionsTest
 {
 
@@ -210,7 +208,7 @@ public class ImageExtensionsTest
 
 		final String output = filenameprefix + "output";
 		File outputfile = new File(PathFinder.getSrcTestResourcesDir(), output + ext);
-		outputfile.newFile();
+		FileFactory.newFile(outputfile);
 
 		outputfile = ImageExtensions.write(horizontalImg, ext, outputfile);
 

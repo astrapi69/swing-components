@@ -69,7 +69,7 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 
 		jComboBox1.setModel(new StringComboBoxModel(getModelObject().getComboList(),
 			getModelObject().getSelectedItem()));
-//		final Model<String> selectedItemModel = model(from(getModel()).getSelectedItem());
+		// final Model<String> selectedItemModel = model(from(getModel()).getSelectedItem());
 		jComboBox1.addItemListener(new ItemBindListener<>(jComboBox1.getModel()));
 	}
 
