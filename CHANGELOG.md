@@ -13,6 +13,8 @@ CHANGED:
 
 - removed maven build system and all related files
 - removed all lombok dependent imports
+- update of file-worker version to 5.4
+- update of randomizer version to 6.7
 
 Version 5.1
 -------------
