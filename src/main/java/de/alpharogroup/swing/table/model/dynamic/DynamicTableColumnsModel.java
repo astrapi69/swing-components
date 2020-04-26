@@ -68,6 +68,12 @@ public class DynamicTableColumnsModel<T>
 		onSetCanEdit();
 	}
 
+	private Field[] getFields()
+	{
+		return ReflectionExtensions.getAllDeclaredFields(getType(), "serialVersionUID",
+			"$jacocoData");
+	}
+
 	/**
 	 * Callback method for set the canEdit array from the generic given type. This method is invoked
 	 * in the constructor from the derived classes and can be overridden so users can provide their
@@ -75,7 +81,7 @@ public class DynamicTableColumnsModel<T>
 	 */
 	protected void onSetCanEdit()
 	{
-		Field[] fields = ReflectionExtensions.getAllDeclaredFields(getType(), "serialVersionUID");
+		Field[] fields = getFields();
 		canEdit = new boolean[fields.length];
 		for (int i = 0; i < fields.length; i++)
 		{
@@ -90,7 +96,7 @@ public class DynamicTableColumnsModel<T>
 	 */
 	protected void onSetColumnClasses()
 	{
-		Field[] fields = ReflectionExtensions.getAllDeclaredFields(getType(), "serialVersionUID");
+		Field[] fields = getFields();
 		columnClasses = new Class<?>[fields.length];
 		for (int i = 0; i < fields.length; i++)
 		{
@@ -106,7 +112,7 @@ public class DynamicTableColumnsModel<T>
 	protected void onSetColumnNames()
 	{
 		columnNames = ReflectionExtensions.getAllDeclaredFieldNames(getType(),
-			ListFactory.newArrayList("serialVersionUID"));
+			ListFactory.newArrayList("serialVersionUID", "$jacocoData"));
 		for (int i = 0; i < columnNames.length; i++)
 		{
 			columnNames[i] = StringUtils.capitalize(columnNames[i]);

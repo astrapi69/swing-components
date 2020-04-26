@@ -32,7 +32,8 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CheckableItem<T> {
-    boolean selected;
-    T checkableValue;
+public class CheckableItem<T>
+{
+	T checkableValue;
+	boolean selected;
 }

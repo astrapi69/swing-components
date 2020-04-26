@@ -1,3 +1,27 @@
+/**
+ * The MIT License
+ *
+ * Copyright (C) 2015 Asterios Raptis
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 package de.alpharogroup.swing.check.model;
 
 import java.awt.BorderLayout;
@@ -36,34 +60,30 @@ public class CheckListPanel extends JXPanel
 		final JTextArea textArea = new JTextArea(3, 10);
 		JScrollPane textPane = new JScrollPane(textArea);
 		JButton printButton = new JButton("Print entries");
-		printButton.addActionListener(e ->
+		printButton.addActionListener(e -> {
+			ListModel<CheckableItem<CheckableValue>> model = list.getModel();
+			int n = model.getSize();
+			for (int i = 0; i < n; i++)
 			{
-				ListModel<CheckableItem<CheckableValue>> model = list.getModel();
-				int n = model.getSize();
-				for (int i = 0; i < n; i++)
+				CheckableItem<CheckableValue> item = model.getElementAt(i);
+				if (item.isSelected())
 				{
-					CheckableItem<CheckableValue> item = model.getElementAt(i);
-					if (item.isSelected())
-					{
-						textArea.append(item.getCheckableValue().getItemText());
-						textArea.append(System.getProperty("line.separator"));
-					}
+					textArea.append(item.getCheckableValue().getItemText());
+					textArea.append(System.getProperty("line.separator"));
 				}
 			}
-		);
+		});
 		JButton uncheckButton = new JButton("Uncheck entries");
-		uncheckButton.addActionListener(e ->
+		uncheckButton.addActionListener(e -> {
+			ListModel<CheckableItem<CheckableValue>> model = list.getModel();
+			int n = model.getSize();
+			for (int i = 0; i < n; i++)
 			{
-				ListModel<CheckableItem<CheckableValue>> model = list.getModel();
-				int n = model.getSize();
-				for (int i = 0; i < n; i++)
-				{
-					CheckableItem<CheckableValue> item = model.getElementAt(i);
-					item.setSelected(false);
-				}
-				list.repaint();
+				CheckableItem<CheckableValue> item = model.getElementAt(i);
+				item.setSelected(false);
 			}
-		);
+			list.repaint();
+		});
 		JButton clearTextButton = new JButton("Clear Text");
 		clearTextButton.addActionListener(e -> textArea.setText(""));
 		JPanel buttonPanel = new JPanel(new GridLayout(3, 1));
@@ -76,12 +96,24 @@ public class CheckListPanel extends JXPanel
 		add(textPane, BorderLayout.SOUTH);
 	}
 
-	protected JList<CheckableItem<CheckableValue>> newJList(String[] strs){
+	private CheckableItem<CheckableValue>[] newCheckableItems(String[] strs)
+	{
+		int n = strs.length;
+		List<CheckableItem<CheckableValue>> itemList = ListFactory.newArrayList();
+		for (int i = 0; i < n; i++)
+		{
+			itemList.add(CheckableItem.<CheckableValue> builder()
+				.checkableValue(CheckableValue.builder().itemText(strs[i]).build()).build());
+		}
+		return ListExtensions.toArray(itemList);
+	}
+
+	protected JList<CheckableItem<CheckableValue>> newJList(String[] strs)
+	{
 		final JList<CheckableItem<CheckableValue>> list = new JList<>(newCheckableItems(strs));
 
 		Icon icon = MetalIconFactory.getFileChooserHomeFolderIcon();
-		list.getModel().getElementAt(1).getCheckableValue()
-			.setIcon(icon);
+		list.getModel().getElementAt(1).getCheckableValue().setIcon(icon);
 
 		list.setCellRenderer(new CheckBoxListRenderer());
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -99,18 +131,6 @@ public class CheckListPanel extends JXPanel
 			}
 		});
 		return list;
-	}
-
-	private CheckableItem<CheckableValue>[] newCheckableItems(String[] strs)
-	{
-		int n = strs.length;
-		List<CheckableItem<CheckableValue>> itemList = ListFactory.newArrayList();
-		for (int i = 0; i < n; i++)
-		{
-			itemList.add(CheckableItem.<CheckableValue> builder()
-				.checkableValue(CheckableValue.builder().itemText(strs[i]).build()).build());
-		}
-		return ListExtensions.toArray(itemList);
 	}
 
 }

@@ -1,3 +1,27 @@
+/**
+ * The MIT License
+ *
+ * Copyright (C) 2015 Asterios Raptis
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 package de.alpharogroup.swing.tree.renderer;
 
 import java.awt.Color;
@@ -26,11 +50,11 @@ public class CheckBoxTreeCellRenderer extends JPanel implements TreeCellRenderer
 
 	JCheckBox checkBox;
 
-	CheckBoxTreeLabel label;
+	Icon closedIcon;
 
+	CheckBoxTreeLabel label;
 	Icon leafIcon;
 	Icon openIcon;
-	Icon closedIcon;
 	Color textBackground;
 	Color textForeground;
 
@@ -44,6 +68,34 @@ public class CheckBoxTreeCellRenderer extends JPanel implements TreeCellRenderer
 		textForeground = UIManager.getColor("Tree.textForeground");
 		add(checkBox = newCheckBox());
 		add(label = newTreeLabel());
+	}
+
+	@Override
+	public void doLayout()
+	{
+		Dimension checkboxDimension = checkBox.getPreferredSize();
+		Dimension labelDimension = label.getPreferredSize();
+		int yAxisCheckbox = 0;
+		int yAxisLabel = 0;
+		if (checkboxDimension.height < labelDimension.height)
+		{
+			yAxisCheckbox = (labelDimension.height - checkboxDimension.height) / 2;
+		}
+		else
+		{
+			yAxisLabel = (checkboxDimension.height - labelDimension.height) / 2;
+		}
+		checkBox.setLocation(0, yAxisCheckbox);
+		checkBox.setBounds(0, yAxisCheckbox, checkboxDimension.width, checkboxDimension.height);
+		label.setLocation(checkboxDimension.width, yAxisLabel);
+		label.setBounds(checkboxDimension.width, yAxisLabel, labelDimension.width,
+			labelDimension.height);
+	}
+
+	@Override
+	public Dimension getPreferredSize()
+	{
+		return DimensionFactory.getPreferredSize(checkBox, label);
 	}
 
 	@Override
@@ -85,33 +137,6 @@ public class CheckBoxTreeCellRenderer extends JPanel implements TreeCellRenderer
 		CheckBoxTreeLabel treeLabel = new CheckBoxTreeLabel();
 		treeLabel.setForeground(textForeground);
 		return treeLabel;
-	}
-
-	@Override
-	public Dimension getPreferredSize()
-	{
-		return DimensionFactory.getPreferredSize(checkBox, label);
-	}
-
-	@Override
-	public void doLayout()
-	{
-		Dimension checkboxDimension = checkBox.getPreferredSize();
-		Dimension labelDimension = label.getPreferredSize();
-		int yAxisCheckbox = 0;
-		int yAxisLabel = 0;
-		if (checkboxDimension.height < labelDimension.height)
-		{
-			yAxisCheckbox = (labelDimension.height - checkboxDimension.height) / 2;
-		}
-		else
-		{
-			yAxisLabel = (checkboxDimension.height - labelDimension.height) / 2;
-		}
-		checkBox.setLocation(0, yAxisCheckbox);
-		checkBox.setBounds(0, yAxisCheckbox, checkboxDimension.width, checkboxDimension.height);
-		label.setLocation(checkboxDimension.width, yAxisLabel);
-		label.setBounds(checkboxDimension.width, yAxisLabel, labelDimension.width, labelDimension.height);
 	}
 
 	@Override

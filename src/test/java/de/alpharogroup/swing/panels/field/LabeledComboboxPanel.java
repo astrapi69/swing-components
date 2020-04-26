@@ -24,8 +24,8 @@
  */
 package de.alpharogroup.swing.panels.field;
 
-import static de.alpharogroup.model.typesafe.TypeSafeModel.from;
-import static de.alpharogroup.model.typesafe.TypeSafeModel.model;
+//import static de.alpharogroup.model.typesafe.TypeSafeModel.from;
+//import static de.alpharogroup.model.typesafe.TypeSafeModel.model;
 
 import de.alpharogroup.collections.list.ListFactory;
 import de.alpharogroup.model.BaseModel;
@@ -69,7 +69,7 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 
 		jComboBox1.setModel(new StringComboBoxModel(getModelObject().getComboList(),
 			getModelObject().getSelectedItem()));
-		final Model<String> selectedItemModel = model(from(getModel()).getSelectedItem());
+		// final Model<String> selectedItemModel = model(from(getModel()).getSelectedItem());
 		jComboBox1.addItemListener(new ItemBindListener<>(jComboBox1.getModel()));
 	}
 

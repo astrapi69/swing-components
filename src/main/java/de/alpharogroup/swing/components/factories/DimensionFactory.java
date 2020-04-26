@@ -54,17 +54,23 @@ public class DimensionFactory
 	}
 
 	/**
-	 * Factory method for creating the new preferred size {@link Dimension} of the given two component
+	 * Factory method for creating the new preferred size {@link Dimension} of the given two
+	 * component
 	 *
-	 * @param first the first component
-	 * @param second the second component
+	 * @param first
+	 *            the first component
+	 * @param second
+	 *            the second component
 	 * @return the new preferred size {@link Dimension}
 	 */
-	public static Dimension getPreferredSize(JComponent first, JComponent second){
+	public static Dimension getPreferredSize(JComponent first, JComponent second)
+	{
 		Dimension firstDimension = first.getPreferredSize();
 		Dimension secondDimension = second.getPreferredSize();
 		return new Dimension(firstDimension.width + secondDimension.width,
-			(firstDimension.height < secondDimension.height ? secondDimension.height : firstDimension.height));
+			(firstDimension.height < secondDimension.height
+				? secondDimension.height
+				: firstDimension.height));
 
 	}
 }

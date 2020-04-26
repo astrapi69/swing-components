@@ -1,0 +1,180 @@
+
+plugins {
+    id "io.franzbecker.gradle-lombok" version "3.3.0"
+    id "java"
+    id "maven-publish"
+    id "signing"
+    id "com.github.ben-manes.versions" version "0.27.0"
+    id "com.github.hierynomus.license" version "0.15.0"
+}
+
+apply plugin: "jacoco"
+
+group = "de.alpharogroup"
+version = "$projectVersion"
+description = "swing-components"
+sourceCompatibility = "1.8"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compileOnly("org.projectlombok:lombok:$lombokVersion")
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    compile "javax.help:javahelp:$javahelpVersion"
+    compile "org.swinglabs.swingx:swingx-all:$swingxAllVersion"
+    compile "org.imgscalr:imgscalr-lib:$imgscalrLibVersion"
+    compile "com.itextpdf:itextpdf:$itextpdfVersion"
+    compile "de.alpharogroup:jcommons-lang:$jcommonsLangVersion"
+    compile "de.alpharogroup:silly-collections:$sillyCollectionsVersion"
+    compile "de.alpharogroup:file-worker:$fileWorkerVersion"
+    compile "de.alpharogroup:randomizer-core:$randomizerCoreVersion"
+    compile "de.alpharogroup:state:$stateVersion"
+    compile "de.alpharogroup:observer:$observerVersion"
+    compile "de.alpharogroup:model-object:$modelObjectVersion"
+    compile "de.alpharogroup:silly-beans:$sillyBeansVersion"
+    compile "de.alpharogroup:model-type-safe:$modelTypeSafeVersion"
+    compile "de.alpharogroup:jobj-core:$jobjCoreVersion"
+    compile "de.alpharogroup:gen-tree:$genTreeVersion"
+    testCompile "net.lingala.zip4j:zip4j:$zip4jVersion"
+    testCompile "de.alpharogroup:vintage-time:$vintageTimeVersion"
+    testCompile "de.alpharogroup:test-objects:$testObjectsVersion"
+    testCompile "org.testng:testng:$testngVersion"
+}
+
+license {
+    ext.year="2015"
+    ext.owner="Asterios Raptis"
+    header rootProject.file('src/main/resources/LICENSE.txt')
+    excludes(["**/README",
+              "**/README.md",
+              "**/LICENSE",
+              "**/NOTICE",
+              "**/*.xml",
+              "**/*.xsl",
+              "**/*.xsd",
+              "**/*.dtd",
+              "**/*.html",
+              "**/*.jsp",
+              "**/*.jpa",
+              "**/*.sql",
+              "**/*.properties",
+              "**/*.bat",
+              "**/*.gradle",
+              "**/*.MF",
+              "**/*.txt",
+              "**/*.vm",
+              "**/*.log",
+              "**/*.map",
+              "**/*.js.map",
+              "**/*.tmpl",
+              "**/*.js.tmpl",
+              "**/*.editorconfig",
+              "**/*.lombok.config",
+              "src/test/resources/**",
+              "src/main/resources/**",
+              "out/**",
+              "build/**"])
+}
+
+// workhack for license issue #76
+gradle.startParameter.excludedTaskNames += "licenseMain"
+gradle.startParameter.excludedTaskNames += "licenseTest"
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set("sources")
+    from(sourceSets.main.allJava)
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    archiveClassifier.set("javadoc")
+    javadoc.properties.failOnError = true
+}
+
+def releaseVersion = !version.endsWith("SNAPSHOT")
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = "${rootProject.name}"
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            pom {
+                name = "${rootProject.name}"
+                description = "Several swing components and utilities"
+                url = "https://github.com/lightblueseas/"+"${rootProject.name}"
+                organization {
+                    name = "Alpha Ro Group UG (haftungsbeschrängt)"
+                    url = "http://www.alpharogroup.de/"
+                }
+                issueManagement {
+                    system = "GitHub"
+                    url = "https://github.com/lightblueseas/"+"${rootProject.name}"+"/issues"
+                }
+                licenses {
+                    license {
+                        name = "MIT License"
+                        url = "http://www.opensource.org/licenses/mit-license.php"
+                        distribution = "repo"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "astrapi69"
+                        name = "Asterios Raptis"
+                    }
+                }
+                scm {
+                    connection = "scm:git:git:@github.com:lightblueseas/"+"${rootProject.name}"+".git"
+                    developerConnection = "scm:git:git@github.com:lightblueseas/"+"${rootProject.name}"+".git"
+                    url = "git:@github.com:lightblueseas/"+"${rootProject.name}"+".git"
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username System.getenv("ossrhUsername") ?: project.property("ossrhUsername")
+                password System.getenv("ossrhPassword") ?: project.property("ossrhPassword")
+            }
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+            url = releaseVersion ? releasesRepoUrl : snapshotsRepoUrl
+        }
+    }
+}
+
+signing {
+    if (releaseVersion) {
+        sign publishing.publications.mavenJava
+    }
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption("html5", true)
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+test {
+    useTestNG()
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport

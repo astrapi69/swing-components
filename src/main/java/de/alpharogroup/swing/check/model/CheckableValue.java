@@ -24,17 +24,18 @@
  */
 package de.alpharogroup.swing.check.model;
 
+import javax.swing.Icon;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
-import javax.swing.*;
-
 @Data
 @SuperBuilder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CheckableValue {
-    final String itemText;
-    Icon icon;
+public class CheckableValue
+{
+	Icon icon;
+	final String itemText;
 }
