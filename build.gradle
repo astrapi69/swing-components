@@ -1,10 +1,10 @@
 
 plugins {
-    id "io.franzbecker.gradle-lombok" version "3.3.0"
+    id "io.franzbecker.gradle-lombok" version "4.0.0"
     id "java"
     id "maven-publish"
     id "signing"
-    id "com.github.ben-manes.versions" version "0.27.0"
+    id "com.github.ben-manes.versions" version "0.28.0"
     id "com.github.hierynomus.license" version "0.15.0"
 }
 
@@ -12,7 +12,7 @@ apply plugin: "jacoco"
 
 group = "de.alpharogroup"
 version = "$projectVersion"
-description = "swing-components"
+description = "$rootProject.name"
 sourceCompatibility = "1.8"
 
 repositories {
@@ -24,25 +24,25 @@ repositories {
 dependencies {
     compileOnly("org.projectlombok:lombok:$lombokVersion")
     annotationProcessor("org.projectlombok:lombok:$lombokVersion")
-    compile "javax.help:javahelp:$javahelpVersion"
-    compile "org.swinglabs.swingx:swingx-all:$swingxAllVersion"
-    compile "org.imgscalr:imgscalr-lib:$imgscalrLibVersion"
-    compile "com.itextpdf:itextpdf:$itextpdfVersion"
-    compile "de.alpharogroup:jcommons-lang:$jcommonsLangVersion"
-    compile "de.alpharogroup:silly-collections:$sillyCollectionsVersion"
-    compile "de.alpharogroup:file-worker:$fileWorkerVersion"
-    compile "de.alpharogroup:randomizer-core:$randomizerCoreVersion"
-    compile "de.alpharogroup:state:$stateVersion"
-    compile "de.alpharogroup:observer:$observerVersion"
-    compile "de.alpharogroup:model-object:$modelObjectVersion"
-    compile "de.alpharogroup:silly-beans:$sillyBeansVersion"
-    compile "de.alpharogroup:model-type-safe:$modelTypeSafeVersion"
-    compile "de.alpharogroup:jobj-core:$jobjCoreVersion"
-    compile "de.alpharogroup:gen-tree:$genTreeVersion"
-    testCompile "net.lingala.zip4j:zip4j:$zip4jVersion"
-    testCompile "de.alpharogroup:vintage-time:$vintageTimeVersion"
-    testCompile "de.alpharogroup:test-objects:$testObjectsVersion"
-    testCompile "org.testng:testng:$testngVersion"
+    implementation("javax.help:javahelp:$javahelpVersion")
+    implementation("org.swinglabs.swingx:swingx-all:$swingxAllVersion")
+    implementation("org.imgscalr:imgscalr-lib:$imgscalrLibVersion")
+    implementation("com.itextpdf:itextpdf:$itextpdfVersion")
+    implementation("de.alpharogroup:jcommons-lang:$jcommonsLangVersion")
+    implementation("de.alpharogroup:silly-collections:$sillyCollectionsVersion")
+    implementation("de.alpharogroup:file-worker:$fileWorkerVersion")
+    implementation("de.alpharogroup:randomizer-core:$randomizerCoreVersion")
+    implementation("de.alpharogroup:state:$stateVersion")
+    implementation("de.alpharogroup:observer:$observerVersion")
+    implementation("de.alpharogroup:model-object:$modelObjectVersion")
+    implementation("de.alpharogroup:silly-beans:$sillyBeansVersion")
+    implementation("de.alpharogroup:model-type-safe:$modelTypeSafeVersion")
+    implementation("de.alpharogroup:jobj-core:$jobjCoreVersion")
+    implementation("de.alpharogroup:gen-tree:$genTreeVersion")
+    testImplementation("net.lingala.zip4j:zip4j:$zip4jVersion")
+    testImplementation("de.alpharogroup:vintage-time:$vintageTimeVersion")
+    testImplementation("de.alpharogroup:test-objects:$testObjectsVersion")
+    testImplementation("org.testng:testng:$testngVersion")
 }
 
 license {

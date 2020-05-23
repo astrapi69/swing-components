@@ -27,6 +27,7 @@ package de.alpharogroup.swing.tree.model;
 import java.util.Enumeration;
 
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeNode;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -61,10 +62,10 @@ public class CheckableTreeNode extends DefaultMutableTreeNode
 	public void setSelected(boolean selected)
 	{
 		this.selected = selected;
-		Enumeration<CheckableTreeNode> e = children.elements();
+		Enumeration<TreeNode> e = children.elements();
 		while (e.hasMoreElements())
 		{
-			CheckableTreeNode node = e.nextElement();
+			CheckableTreeNode node = (CheckableTreeNode) e.nextElement();
 			node.setSelected(selected);
 		}
 	}
