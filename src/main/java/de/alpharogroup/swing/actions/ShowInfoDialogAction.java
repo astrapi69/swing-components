@@ -41,6 +41,7 @@ import lombok.experimental.FieldDefaults;
 public abstract class ShowInfoDialogAction extends AbstractAction
 {
 
+	private static final long serialVersionUID = 1L;
 	Frame owner;
 	String title;
 

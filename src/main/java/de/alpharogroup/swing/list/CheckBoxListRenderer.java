@@ -43,6 +43,7 @@ public class CheckBoxListRenderer extends CheckBoxTreeCellRenderer
 	implements
 		ListCellRenderer<CheckableItem<CheckableValue>>
 {
+	private static final long serialVersionUID = 1L;
 	Icon defaultIcon;
 	Color textBackground;
 	Color textForeground;

@@ -37,7 +37,6 @@ import lombok.experimental.UtilityClass;
 public class ActionFactory
 {
 
-	@SuppressWarnings("serial")
 	public static Action newPageAction(final String name, final JComponent container,
 		final JComponent content)
 	{
@@ -49,6 +48,7 @@ public class ActionFactory
 	{
 		Action action = new AbstractAction(name)
 		{
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void actionPerformed(ActionEvent e)
