@@ -4,6 +4,10 @@
 Version 5.3-SNAPSHOT
 -------------
 
+CHANGED:
+
+- update of model-object version to 1.8
+- update of model-type-safe version to 1.8
 
 Version 5.2
 -------------
