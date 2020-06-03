@@ -82,7 +82,7 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	/**
 	 * Inits the value map.
 	 */
-	private void initValueMap()
+	protected void initValueMap()
 	{
 		for (final E enumValue : comboList)
 		{

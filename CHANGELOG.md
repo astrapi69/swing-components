@@ -13,6 +13,7 @@ CHANGED:
 - update of model-object version to 1.8
 - update of model-type-safe version to 1.8
 - extracted project properties to gradle.properties
+- visibility of method initValueMap changed to protected in class EnumComboBoxModel
 
 Version 5.2
 -------------
