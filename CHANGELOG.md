@@ -3,6 +3,9 @@
 
 Version 5.3-SNAPSHOT
 -------------
+ADDED:
+ 
+- new callback method in BaseDesktopMenu for a refresh the state of the menu items 
 
 CHANGED:
 

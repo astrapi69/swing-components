@@ -36,12 +36,7 @@ import javax.help.DefaultHelpBroker;
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.swing.actions.OpenBrowserToDonateAction;
@@ -121,6 +116,7 @@ public class BaseDesktopMenu extends JMenu
 		menubar.add(
 			lookAndFeelMenu = newLookAndFeelMenu(e -> log.log(Level.FINE, "Look and Feel menu")));
 		menubar.add(helpMenu = newHelpMenu(e -> log.log(Level.FINE, "Help menu")));
+		onRefreshMenus(fileMenu, editMenu, lookAndFeelMenu, helpMenu);
 	}
 
 	/**
@@ -172,6 +168,21 @@ public class BaseDesktopMenu extends JMenu
 		menu.setMnemonic('E');
 
 		return menu;
+	}
+
+	protected void refreshMenu(JMenu menu) {
+		MenuElement[] subElements = menu.getSubElements();
+		if(subElements.length == 0){
+			menu.setVisible(false);
+		} else {
+			menu.setVisible(true);
+		}
+	}
+
+	protected void onRefreshMenus(JMenu... menus) {
+		for(JMenu menu: menus){
+			refreshMenu(menu);
+		}
 	}
 
 	/**
