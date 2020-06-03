@@ -28,6 +28,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.Getter;
 import lombok.NonNull;
 
 /**
@@ -46,6 +47,7 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	private final Class<E> enumClass;
 
 	/** The value map for the enum values. */
+	@Getter
 	private final Map<String, E> valueMap;
 
 	/**
@@ -97,7 +99,7 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	@SuppressWarnings("unchecked")
 	public void setSelectedItem(final Object anItem)
 	{
-		E input = null;
+		E input;
 
 		if (enumClass.isInstance(anItem))
 		{
@@ -113,6 +115,6 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 			selectedItem = input;
 		}
 		this.fireContentsChanged(this, 0, getSize());
-	};
+	}
 
 }

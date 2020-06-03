@@ -4,6 +4,10 @@
 Version 5.4-SNAPSHOT
 -------------
 
+ADDED:
+ 
+- new getter method for the valueMap in class EnumComboBoxModel
+
 Version 5.3
 -------------
 
