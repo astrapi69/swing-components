@@ -8,6 +8,10 @@ ADDED:
  
 - new getter method for the valueMap in class EnumComboBoxModel
 
+CHANGED:
+
+- update gradle to new version 6.5
+
 Version 5.3
 -------------
 
