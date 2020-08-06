@@ -24,16 +24,6 @@
  */
 package de.alpharogroup.swing.base;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.Panel;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JButton;
-
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.layout.ScreenSizeExtensions;
 import de.alpharogroup.model.BaseModel;
@@ -41,7 +31,11 @@ import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.panels.login.pw.ChangePasswordModelBean;
 import de.alpharogroup.swing.panels.login.pw.NewPasswordPanel;
 
-public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+public class PanelDialogExample extends PanelDialog<ChangePasswordModelBean>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -54,7 +48,7 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		System.out.println(screenID);
 		System.out.println(screenDimension);
 		frame.addWindowListener(new CloseWindow());
-		final BaseDialogExample dialog = new BaseDialogExample(frame, "Password title", true,
+		final PanelDialogExample dialog = new PanelDialogExample(frame, "Password title", true,
 			BaseModel.<ChangePasswordModelBean> of());
 
 		dialog.setSize(500, 250);
@@ -65,14 +59,8 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 	/** The button close. */
 	private JButton buttonClose;
 
-	Panel buttons;
-
-	Container container;
-
-	NewPasswordPanel newPasswordPanel;
-
-	public BaseDialogExample(final Frame owner, final String title, final boolean modal,
-		final Model<ChangePasswordModelBean> model)
+	public PanelDialogExample(final Frame owner, final String title, final boolean modal,
+                              final Model<ChangePasswordModelBean> model)
 	{
 		super(owner, title, modal, model);
 	}
@@ -87,24 +75,32 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
-		setModal(isModal());
-
-		newPasswordPanel = new NewPasswordPanel(BaseModel.<ChangePasswordModelBean> of());
-		buttonClose = new JButton("Close");
-		buttonClose.addActionListener(e -> onClose(e));
-		buttons = new Panel();
+		buttonClose = newButtonClose();
 	}
 
+	protected JButton newButtonClose(){
+		JButton buttonClose = new JButton("Close");
+		buttonClose.addActionListener(e -> onClose(e));
+		return buttonClose;
+	}
+
+	@Override
+	protected JPanel newContent(Model<ChangePasswordModelBean> model) {
+		return new NewPasswordPanel(BaseModel.<ChangePasswordModelBean> of());
+	}
+
+	@Override
+	protected JPanel newButtons(Model<ChangePasswordModelBean> model) {
+		JPanel buttons = super.newButtons(model);
+		return buttons;
+	}
 
 	@Override
 	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
-		buttons.add(buttonClose, BorderLayout.EAST);
-
-		container = getContentPane();
-		container.add(newPasswordPanel, BorderLayout.CENTER);
-		container.add(buttons, BorderLayout.SOUTH);
+		getButtons()
+		.add(buttonClose, BorderLayout.EAST);
 		final int x = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		final int y = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		setLocation((x / 3), (y / 3));

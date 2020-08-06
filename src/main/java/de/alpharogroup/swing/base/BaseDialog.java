@@ -26,7 +26,7 @@ package de.alpharogroup.swing.base;
 
 import java.awt.Frame;
 
-import javax.swing.JDialog;
+import javax.swing.*;
 
 import de.alpharogroup.model.api.Model;
 import lombok.AccessLevel;

@@ -34,7 +34,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * The class {@link PanelDialog}.
+ * The class {@link PanelDialog} contains a panel for the content and a panel for the buttons
  *
  * @param <T>
  *            the generic type
@@ -47,6 +47,12 @@ public class PanelDialog<T>  extends BaseDialog<T>
 
 	/** The serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+
+	Container container;
+
+	JPanel content;
+
+	JPanel buttons;
 
 	/**
 	 * Instantiates a new {@link PanelDialog}.
@@ -64,7 +70,6 @@ public class PanelDialog<T>  extends BaseDialog<T>
                        final Model<T> model)
 	{
 		super(owner, title, modal, model);
-		initialize();
 	}
 
 	/**
@@ -80,103 +85,43 @@ public class PanelDialog<T>  extends BaseDialog<T>
 	public PanelDialog(final Frame owner, final String title, final Model<T> model)
 	{
 		super(owner, title, model);
-		initialize();
-	}
-	/**
-	 * Initialize the component.
-	 */
-	private final void initialize()
-	{
-		onInitialize();
 	}
 
-	/**
-	 * Initialize components from the component.
-	 */
-	private final void initializeComponents()
-	{
-		onInitializeComponents();
+	@Override
+	protected void onInitializeComponents() {
+		super.onInitializeComponents();
+		setModal(isModal());
+		container = getContainer();
+		content = newContent(getModel());
+		buttons = newButtons(getModel());
 	}
 
-	/**
-	 * Initialize layout from the component.
-	 */
-	private final void initializeLayout()
-	{
-		onInitializeLayout();
-	}
-
-	/**
-	 * Callback method to interact when the initialization of the component is finished.
-	 */
-	protected void onAfterInitialize()
-	{
-	}
-
-	/**
-	 * Callback method to interact when the initialization is finished of the components from the
-	 * component.
-	 */
-	protected void onAfterInitializeComponents()
-	{
-	}
-
-	/**
-	 * Callback method to interact when the initialization of the layout is finished.
-	 */
-	protected void onAfterInitializeLayout()
-	{
-	}
-
-
-	/**
-	 * Callback method to interact on before initialization of the component.
-	 */
-	protected void onBeforeInitialize()
-	{
-	}
-
-	/**
-	 * Callback method to interact on before initialization of the components from the component.
-	 */
-	protected void onBeforeInitializeComponents()
-	{
-	}
-
-	/**
-	 * Callback method to interact on before initialization of the layout.
-	 */
-	protected void onBeforeInitializeLayout()
-	{
-	}
-
-	/**
-	 * Callback method to initialize the component.
-	 */
-	protected void onInitialize()
-	{
-		onBeforeInitialize();
-		onBeforeInitializeComponents();
-		initializeComponents();
-		onAfterInitializeComponents();
-		onBeforeInitializeLayout();
-		initializeLayout();
-		onAfterInitializeLayout();
-		onAfterInitialize();
-	}
-
-	/**
-	 * Callback method to initialize components from the component.
-	 */
-	protected void onInitializeComponents()
-	{
-	}
-
-	/**
-	 * Callback method to initialize layout from the component.
-	 */
+	@Override
 	protected void onInitializeLayout()
 	{
+		super.onInitializeLayout();
+		container = getContentPane();
+		container.add(content, BorderLayout.CENTER);
+		container.add(buttons, BorderLayout.SOUTH);
+		final int x = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+		final int y = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+		setLocation((x / 3), (y / 3));
+		setSize((x / 3), (y / 3));
+	}
+
+
+	protected Container getContainer() {
+		return getContentPane();
+	}
+
+	protected JPanel newContent(final Model<T> model){
+		JPanel emptyPanel = new JPanel();
+		return emptyPanel;
+	}
+
+	protected JPanel newButtons(final Model<T> model){
+		JPanel buttonsPanel = new JPanel();
+		return buttonsPanel;
 	}
 
 }
