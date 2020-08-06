@@ -129,7 +129,7 @@ public class JDialogFactory
 	public static JDialog newJDialog(Component parentComponent, @NonNull JOptionPane pane,
 		String title)
 	{
-		return parentComponent == null
+		return parentComponent != null
 			? pane.createDialog(parentComponent, title)
 			: pane.createDialog(title);
 	}

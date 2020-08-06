@@ -32,6 +32,7 @@ import javax.swing.JComponent;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 /**
@@ -44,6 +45,7 @@ import lombok.experimental.FieldDefaults;
  * When the requestFocus event occurs, that object's appropriate method is invoked.
  */
 @Data
+@RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class RequestFocusListener implements WindowFocusListener
 {

@@ -48,7 +48,7 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 
 	public static void main(final String[] a)
 	{
-		final Frame frame = new Frame("FieldPanel");
+		final Frame frame = new Frame("BaseDialog");
 		int screenID = ScreenSizeExtensions.getScreenID(frame);
 		Dimension screenDimension = ScreenSizeExtensions.getScreenDimension(frame);
 		System.out.println(screenID);
