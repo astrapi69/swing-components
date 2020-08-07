@@ -43,7 +43,7 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BaseFrame<T> extends JXFrame
 {

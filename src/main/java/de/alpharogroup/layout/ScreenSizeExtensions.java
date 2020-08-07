@@ -1,8 +1,8 @@
 /**
  * The MIT License
- *
+ * <p>
  * Copyright (C) 2015 Asterios Raptis
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -10,10 +10,10 @@
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -24,25 +24,16 @@
  */
 package de.alpharogroup.layout;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
+import de.alpharogroup.collections.array.ArrayExtensions;
+import de.alpharogroup.reflection.ReflectionExtensions;
+import lombok.NonNull;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
-
-import javax.swing.JFrame;
-
-import de.alpharogroup.collections.array.ArrayExtensions;
-import de.alpharogroup.reflection.ReflectionExtensions;
-import lombok.NonNull;
 
 /**
  * Utility class for handle with screensize.
@@ -105,12 +96,23 @@ public class ScreenSizeExtensions
 				.getFirst(graphicsConfigurations);
 			if (graphicsConfiguration != null)
 			{
-				final Rectangle bounds = graphicsConfiguration.getBounds();
-				final double h = bounds.getHeight();
-				height = (int)h;
+				height = (int) getScreenHeight(graphicsConfiguration);
 				break;
 			}
 		}
+		return height;
+	}
+
+	/**
+	 * Gets the screen width from the given {@link GraphicsConfiguration} object
+	 *
+	 * @param graphicsConfiguration the graphic configuration object
+	 *
+	 * @return the screen width.
+	 */
+	public static double getScreenHeight(final GraphicsConfiguration graphicsConfiguration) {
+		final Rectangle bounds = graphicsConfiguration.getBounds();
+		final double height = bounds.getHeight();
 		return height;
 	}
 
@@ -121,9 +123,7 @@ public class ScreenSizeExtensions
 	 */
 	public static int getFirstScreenWidth()
 	{
-		final GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment
-			.getLocalGraphicsEnvironment();
-		final GraphicsDevice[] graphicsDevices = graphicsEnvironment.getScreenDevices();
+		final GraphicsDevice[] graphicsDevices = getScreenDevices();
 		int width = getScreenWidth();
 		for (final GraphicsDevice graphicsDevice : graphicsDevices)
 		{
@@ -133,12 +133,23 @@ public class ScreenSizeExtensions
 				.getFirst(graphicsConfigurations);
 			if (graphicsConfiguration != null)
 			{
-				final Rectangle bounds = graphicsConfiguration.getBounds();
-				final double w = bounds.getWidth();
-				width = (int)w;
+				width = (int) getScreenWidth(graphicsConfiguration);
 				break;
 			}
 		}
+		return width;
+	}
+
+	/**
+	 * Gets the screen width from the given {@link GraphicsConfiguration} object
+	 *
+	 * @param graphicsConfiguration the graphic configuration object
+	 *
+	 * @return the screen width.
+	 */
+	public static double getScreenWidth(final GraphicsConfiguration graphicsConfiguration) {
+		final Rectangle bounds = graphicsConfiguration.getBounds();
+		final double width = bounds.getWidth();
 		return width;
 	}
 
@@ -163,6 +174,30 @@ public class ScreenSizeExtensions
 		final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		final GraphicsDevice[] gs = ge.getScreenDevices();
 		return gs;
+	}
+
+	/**
+	 * Gets the screen device from the given screen id
+	 *
+	 * @param screenID the screen id
+	 *
+	 * @return the {@link GraphicsDevice} object from the given screen id
+	 */
+	public static GraphicsDevice getScreenDevice(int screenID)
+	{
+		return getScreenDevices()[screenID];
+	}
+
+	/**
+	 * Gets the {@link GraphicsConfiguration} from the given screen id
+	 *
+	 * @param screenID the screen id
+	 *
+	 * @return the {@link GraphicsConfiguration} object from the given screen id
+	 */
+	public static GraphicsConfiguration getGraphicsConfiguration(int screenID)
+	{
+		return getScreenDevice(screenID).getDefaultConfiguration();
 	}
 
 	/**
@@ -224,8 +259,7 @@ public class ScreenSizeExtensions
 			.getFirst(graphicsConfigurations);
 		if (graphicsConfiguration != null)
 		{
-			final Rectangle bounds = graphicsConfiguration.getBounds();
-			final double height = bounds.getHeight();
+			final double height = getScreenHeight(graphicsConfiguration);
 			return (int)height;
 		}
 		return getScreenHeight();
@@ -254,8 +288,7 @@ public class ScreenSizeExtensions
 					Integer sid = (Integer)object;
 					counter.set(sid);
 				}
-				catch (NoSuchFieldException | SecurityException | IllegalArgumentException
-					| IllegalAccessException e)
+				catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e)
 				{
 					e.printStackTrace();
 				}
@@ -304,15 +337,14 @@ public class ScreenSizeExtensions
 			.getFirst(graphicsConfigurations);
 		if (graphicsConfiguration != null)
 		{
-			final Rectangle bounds = graphicsConfiguration.getBounds();
-			final double width = bounds.getWidth();
-			return (int)width;
+			return (int) getScreenWidth(graphicsConfiguration);
 		}
 		return getScreenWidth();
 	}
 
 	/**
-	 * Toggle full screen.
+	 * Toggle given {@link Frame} to full screen mode or if it is in full screen mode its returns to
+	 * normal mode
 	 *
 	 * @param frame
 	 *            the frame
@@ -329,6 +361,44 @@ public class ScreenSizeExtensions
 		{
 			frame.setVisible(true);
 			device.setFullScreenWindow(frame);
+		}
+	}
+
+	/**
+	 * Set given {@link Frame} to the center of the device and divide them with the given
+	 * arguments
+	 *
+	 * @param frame
+	 *            the frame
+	 * @param divideScreenWith
+	 * 				the value to divide with the screen with
+	 * @param  divideScreenHeight
+	 * 				the value to divide with the screen height
+	 */
+	public static void centralize(@NonNull Frame frame, int divideScreenWith, int divideScreenHeight)
+	{
+		final int x = ScreenSizeExtensions.getScreenWidth(frame);
+		final int y = ScreenSizeExtensions.getScreenHeight(frame);
+		final int width = x;
+		final int height = y;
+		frame.setLocation((width / divideScreenWith), (height / divideScreenHeight));
+		frame.setSize((width / divideScreenWith), (height / divideScreenHeight));
+	}
+
+	/**
+	 * Bring the given {@link Frame} to the front
+	 *
+	 * @param frame
+	 *            the frame
+	 */
+	public static void showFrame(@NonNull Frame frame)
+	{
+		//  Show the Frame.
+		frame.setVisible(true);
+		// bring to front
+		if (!frame.isActive())
+		{
+			frame.toFront();
 		}
 	}
 

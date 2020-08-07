@@ -54,7 +54,7 @@ import lombok.extern.java.Log;
  *            the generic type of the model object
  */
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @Log
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class AbstractApplicationFrame<T, C extends JComponent> extends BaseFrame<T>

@@ -44,7 +44,7 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class ApplicationFrame<T> extends AbstractApplicationFrame<T, JDesktopPane>
 {

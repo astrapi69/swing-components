@@ -60,7 +60,7 @@ import lombok.extern.java.Log;
  */
 @Getter
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Log
 public class BaseDesktopMenu extends JMenu

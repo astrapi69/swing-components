@@ -60,6 +60,7 @@ public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 	@Override
 	protected void finalize() throws Throwable
 	{
+		super.finalize();
 		interrupt();
 	}
 

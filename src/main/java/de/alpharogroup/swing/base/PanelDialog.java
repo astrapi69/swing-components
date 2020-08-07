@@ -40,7 +40,7 @@ import java.awt.*;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PanelDialog<T>  extends BaseDialog<T>
 {

@@ -42,7 +42,7 @@ import org.jdesktop.swingx.JXDialog;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BaseDialog<T> extends JDialog
 {
