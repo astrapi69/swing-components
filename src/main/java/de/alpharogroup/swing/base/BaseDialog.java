@@ -29,10 +29,9 @@ import java.awt.Frame;
 import javax.swing.*;
 
 import de.alpharogroup.model.api.Model;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.jdesktop.swingx.JXDialog;
 
 /**
  * The class {@link BaseDialog}.
@@ -42,6 +41,8 @@ import lombok.experimental.FieldDefaults;
  */
 @Getter
 @Setter
+@ToString
+@EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BaseDialog<T> extends JDialog
 {
@@ -53,7 +54,7 @@ public class BaseDialog<T> extends JDialog
 	Model<T> model;
 
 	/**
-	 * Instantiates a new {@link BaseDialog}.
+	 * Instantiates a new {@link BaseDialog} object
 	 *
 	 * @param owner
 	 *            the owner
@@ -72,7 +73,7 @@ public class BaseDialog<T> extends JDialog
 	}
 
 	/**
-	 * Instantiates a new {@link BaseDialog}.
+	 * Instantiates a new {@link BaseDialog} object
 	 *
 	 * @param owner
 	 *            the owner

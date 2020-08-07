@@ -32,9 +32,7 @@ import javax.swing.JInternalFrame;
 import de.alpharogroup.swing.components.factories.JComponentFactory;
 import de.alpharogroup.swing.desktoppane.SingletonDesktopPane;
 import de.alpharogroup.swing.utils.JInternalFrameExtensions;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 /**
@@ -43,6 +41,10 @@ import lombok.experimental.FieldDefaults;
  * @param <T>
  *            the generic type of the model object
  */
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class ApplicationFrame<T> extends AbstractApplicationFrame<T, JDesktopPane>
 {
@@ -51,8 +53,6 @@ public abstract class ApplicationFrame<T> extends AbstractApplicationFrame<T, JD
 	private static final long serialVersionUID = 1L;
 
 	/** The current visible internal frame. */
-	@Getter
-	@Setter
 	JInternalFrame currentVisibleInternalFrame;
 
 	/**

@@ -51,15 +51,16 @@ import de.alpharogroup.swing.plaf.actions.LookAndFeelMetalAction;
 import de.alpharogroup.swing.plaf.actions.LookAndFeelMotifAction;
 import de.alpharogroup.swing.plaf.actions.LookAndFeelNimbusAction;
 import de.alpharogroup.swing.plaf.actions.LookAndFeelSystemAction;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NonNull;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 
 /**
  * The class {@link BaseDesktopMenu} holds the base menu items for an application
  */
+@Getter
+@ToString
+@EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Log
 public class BaseDesktopMenu extends JMenu
@@ -69,34 +70,27 @@ public class BaseDesktopMenu extends JMenu
 	private static final long serialVersionUID = 1L;
 
 	/** The application frame. */
-	@Getter
 	Component applicationFrame;
 
 	/** The edit menu. */
-	@Getter
 	JMenu editMenu;
 
 	/** The file menu. */
-	@Getter
 	JMenu fileMenu;
 
-	@Getter
+	/** The default help broker */
 	DefaultHelpBroker helpBroker;
 
 	/** The help menu. */
-	@Getter
 	JMenu helpMenu;
 
 	/** The help window. */
-	@Getter
 	Window helpWindow;
 
 	/** The look and feel menu. */
-	@Getter
 	JMenu lookAndFeelMenu;
 
 	/** The JMenuBar from the DesktopMenu. */
-	@Getter
 	JMenuBar menubar;
 
 	/**

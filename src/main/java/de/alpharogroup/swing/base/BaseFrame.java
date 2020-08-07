@@ -26,12 +26,10 @@ package de.alpharogroup.swing.base;
 
 import java.awt.GraphicsConfiguration;
 
+import lombok.*;
 import org.jdesktop.swingx.JXFrame;
 
 import de.alpharogroup.model.api.Model;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 
@@ -44,6 +42,8 @@ import lombok.experimental.FieldDefaults;
  */
 @Getter
 @Setter
+@ToString
+@EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BaseFrame<T> extends JXFrame
 {

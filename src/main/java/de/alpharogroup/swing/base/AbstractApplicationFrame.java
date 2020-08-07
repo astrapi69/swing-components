@@ -43,10 +43,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.layout.ScreenSizeExtensions;
 import de.alpharogroup.swing.plaf.LookAndFeels;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 
@@ -56,6 +53,8 @@ import lombok.extern.java.Log;
  * @param <T>
  *            the generic type of the model object
  */
+@ToString
+@EqualsAndHashCode
 @Log
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class AbstractApplicationFrame<T, C extends JComponent> extends BaseFrame<T>

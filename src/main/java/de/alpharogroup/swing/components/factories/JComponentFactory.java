@@ -38,12 +38,7 @@ import java.util.Map;
 
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
-import javax.swing.JEditorPane;
-import javax.swing.JInternalFrame;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.JSplitPane;
-import javax.swing.JToolBar;
+import javax.swing.*;
 
 import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.swing.menu.MenuExtensions;
@@ -67,6 +62,12 @@ public class JComponentFactory
 		editor.setEditable(editable);
 		editor.setOpaque(true);
 		return editor;
+	}
+
+
+	public static JButton newJButton(String text){
+		JButton jButton = new JButton(text);
+		return jButton;
 	}
 
 	/**

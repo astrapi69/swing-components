@@ -25,9 +25,7 @@
 package de.alpharogroup.swing.base;
 
 import de.alpharogroup.model.api.Model;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.swing.*;
@@ -41,6 +39,8 @@ import java.awt.*;
  */
 @Getter
 @Setter
+@ToString
+@EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PanelDialog<T>  extends BaseDialog<T>
 {

@@ -26,12 +26,10 @@ package de.alpharogroup.swing.base;
 
 import java.awt.LayoutManager;
 
+import lombok.*;
 import org.jdesktop.swingx.JXPanel;
 
 import de.alpharogroup.model.api.Model;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 /**
@@ -43,6 +41,8 @@ import lombok.experimental.FieldDefaults;
  */
 @Getter
 @Setter
+@ToString
+@EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BasePanel<T> extends JXPanel
 {

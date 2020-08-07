@@ -28,6 +28,7 @@ import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.layout.ScreenSizeExtensions;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
+import de.alpharogroup.swing.components.factories.JComponentFactory;
 import de.alpharogroup.swing.panels.login.pw.ChangePasswordModelBean;
 import de.alpharogroup.swing.panels.login.pw.NewPasswordPanel;
 
@@ -79,9 +80,9 @@ public class PanelDialogExample extends PanelDialog<ChangePasswordModelBean>
 	}
 
 	protected JButton newButtonClose(){
-		JButton buttonClose = new JButton("Close");
-		buttonClose.addActionListener(e -> onClose(e));
-		return buttonClose;
+		JButton button = JComponentFactory.newJButton("Close");
+		button.addActionListener(e -> onClose(e));
+		return button;
 	}
 
 	@Override

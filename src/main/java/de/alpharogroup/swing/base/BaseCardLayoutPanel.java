@@ -31,8 +31,7 @@ import java.awt.LayoutManager;
 import javax.swing.border.LineBorder;
 
 import de.alpharogroup.model.api.Model;
-import lombok.AccessLevel;
-import lombok.Getter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 /**
@@ -42,6 +41,10 @@ import lombok.experimental.FieldDefaults;
  * @param <T>
  *            the generic type of the model object
  */
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BaseCardLayoutPanel<T> extends BasePanel<T>
 {

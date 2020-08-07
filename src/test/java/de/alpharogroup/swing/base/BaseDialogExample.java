@@ -32,12 +32,13 @@ import java.awt.Panel;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 
-import javax.swing.JButton;
+import javax.swing.*;
 
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.layout.ScreenSizeExtensions;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
+import de.alpharogroup.swing.components.factories.JComponentFactory;
 import de.alpharogroup.swing.panels.login.pw.ChangePasswordModelBean;
 import de.alpharogroup.swing.panels.login.pw.NewPasswordPanel;
 
@@ -89,10 +90,19 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		super.onInitializeComponents();
 		setModal(isModal());
 
-		newPasswordPanel = new NewPasswordPanel(BaseModel.<ChangePasswordModelBean> of());
-		buttonClose = new JButton("Close");
-		buttonClose.addActionListener(e -> onClose(e));
+		newPasswordPanel = newNewPasswordPanel(BaseModel.<ChangePasswordModelBean> of());
+		buttonClose = newButtonClose();
 		buttons = new Panel();
+	}
+
+	protected JButton newButtonClose(){
+		JButton button = JComponentFactory.newJButton("Close");
+		button.addActionListener(e -> onClose(e));
+		return button;
+	}
+
+	protected NewPasswordPanel newNewPasswordPanel(Model<ChangePasswordModelBean> model) {
+		return new NewPasswordPanel(model);
 	}
 
 
