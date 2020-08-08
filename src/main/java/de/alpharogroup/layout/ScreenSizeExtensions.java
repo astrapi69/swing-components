@@ -26,6 +26,7 @@ package de.alpharogroup.layout;
 
 import de.alpharogroup.collections.array.ArrayExtensions;
 import de.alpharogroup.reflection.ReflectionExtensions;
+import de.alpharogroup.swing.utils.AwtExtensions;
 import lombok.NonNull;
 
 import javax.swing.*;
@@ -365,24 +366,41 @@ public class ScreenSizeExtensions
 	}
 
 	/**
-	 * Set given {@link Frame} to the center of the device and divide them with the given
+	 * Set given {@link Window} to the center of the device and divide them with the given
 	 * arguments
 	 *
-	 * @param frame
-	 *            the frame
+	 * @param window
+	 *            the window
 	 * @param divideScreenWith
 	 * 				the value to divide with the screen with
 	 * @param  divideScreenHeight
 	 * 				the value to divide with the screen height
 	 */
-	public static void centralize(@NonNull Frame frame, int divideScreenWith, int divideScreenHeight)
+	public static void centralize(@NonNull Window window, int divideScreenWith, int divideScreenHeight)
 	{
-		final int x = ScreenSizeExtensions.getScreenWidth(frame);
-		final int y = ScreenSizeExtensions.getScreenHeight(frame);
+		final int x = ScreenSizeExtensions.getScreenWidth(window);
+		final int y = ScreenSizeExtensions.getScreenHeight(window);
 		final int width = x;
 		final int height = y;
-		frame.setLocation((width / divideScreenWith), (height / divideScreenHeight));
-		frame.setSize((width / divideScreenWith), (height / divideScreenHeight));
+		window.setLocation((width / divideScreenWith), (height / divideScreenHeight));
+		window.setSize((width / divideScreenWith), (height / divideScreenHeight));
+	}
+
+	/**
+	 * Set given {@link Window} to the center of the device and divide them with the given
+	 * arguments
+	 *
+	 * @param component
+	 *            the component
+	 * @param divideScreenWith
+	 * 				the value to divide with the screen with
+	 * @param  divideScreenHeight
+	 * 				the value to divide with the screen height
+	 */
+	public static void centralize(@NonNull Component component, int divideScreenWith, int divideScreenHeight)
+	{
+		Window window = AwtExtensions.getWindowForComponent(component);
+		centralize(window, divideScreenWith, divideScreenHeight);
 	}
 
 	/**

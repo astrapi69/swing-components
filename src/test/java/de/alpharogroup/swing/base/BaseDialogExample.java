@@ -66,7 +66,7 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 	/** The button close. */
 	private JButton buttonClose;
 
-	Panel buttons;
+	JPanel buttons;
 
 	Container container;
 
@@ -90,9 +90,15 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		super.onInitializeComponents();
 		setModal(isModal());
 
-		newPasswordPanel = newNewPasswordPanel(BaseModel.<ChangePasswordModelBean> of());
+		newPasswordPanel = newNewPasswordPanel(getModel());
 		buttonClose = newButtonClose();
-		buttons = new Panel();
+		buttons = newButtons(getModel());
+	}
+
+
+	protected JPanel newButtons(Model<ChangePasswordModelBean> model) {
+		JPanel buttons = new JPanel();
+		return buttons;
 	}
 
 	protected JButton newButtonClose(){
@@ -105,7 +111,6 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		return new NewPasswordPanel(model);
 	}
 
-
 	@Override
 	protected void onInitializeLayout()
 	{
@@ -115,11 +120,7 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		container = getContentPane();
 		container.add(newPasswordPanel, BorderLayout.CENTER);
 		container.add(buttons, BorderLayout.SOUTH);
-		final int x = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-		final int y = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-		setLocation((x / 3), (y / 3));
-		setSize((x / 3), (y / 3));
+		ScreenSizeExtensions.centralize(container, 3,3);
 	}
-
 
 }
