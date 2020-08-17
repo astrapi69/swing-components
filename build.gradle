@@ -6,18 +6,19 @@ buildscript {
         }
     }
     dependencies {
+        classpath "io.franzbecker:gradle-lombok:$gradlePluginLombokVersion"
+        classpath "com.github.ben-manes:gradle-versions-plugin:$gradlePluginVersionsVersion"
+        classpath "gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin:$licenseGradlePluginVersion"
     }
 }
 
-plugins {
-    id "io.franzbecker.gradle-lombok" version "4.0.0"
-    id "java"
-    id "maven-publish"
-    id "signing"
-    id "com.github.ben-manes.versions" version "0.28.0"
-    id "com.github.hierynomus.license" version "0.15.0"
-}
-
+apply plugin: "io.franzbecker.gradle-lombok"
+apply plugin: "java"
+apply plugin: "java-library"
+apply plugin: "maven-publish"
+apply plugin: "signing"
+apply plugin: "com.github.ben-manes.versions"
+apply plugin: "com.github.hierynomus.license"
 apply plugin: "jacoco"
 
 group = "$groupPackage"
@@ -118,14 +119,14 @@ publishing {
             pom {
                 name = "$rootProject.name"
                 description = "$projectDescription"
-                url = "$projectScmProviderUrl"+"$projectHolderUsername"+"/"+"$rootProject.name"
+                url = "$projectScmProviderUrl"+"$projectHolderUsername"+"$slash"+"$rootProject.name"
                 organization {
                     name = "$projectOrganizationName"
                     url = "$projectOrganizationUrl"
                 }
                 issueManagement {
                     system = "$projectIssueManagementSystem"
-                    url = "$projectScmProviderUrl"+"$projectHolderUsername"+"/"+"$rootProject.name"+"/issues"
+                    url = "$projectScmProviderUrl"+"$projectHolderUsername"+"$slash"+"$rootProject.name"+"$issuesPath"
                 }
                 licenses {
                     license {
@@ -137,13 +138,13 @@ publishing {
                 developers {
                     developer {
                         id = "$projectHolderUsername"
-                        name = "Asterios Raptis"
+                        name = "$projectLeaderName"
                     }
                 }
                 scm {
-                    connection = "scm:git:git:@" + "$projectScmProviderDomain" + ":" + "$projectHolderUsername" + "/" + "$rootProject.name" + ".git"
-                    developerConnection = "scm:git:git:@" + "$projectScmProviderDomain" + ":" + "$projectHolderUsername" + "/" + "$rootProject.name" + ".git"
-                    url = "scm:git:git:@" + "$projectScmProviderDomain" + ":" + "$projectHolderUsername" + "/" + "$rootProject.name" + ".git"
+                    connection = "$projectScmGitUrlPrefix" + "$projectScmProviderDomain" + "$colon" + "$projectHolderUsername" + "$slash" + "$rootProject.name" + "$projectScmGitUrlSuffix"
+                    developerConnection = "$projectScmGitUrlPrefix" + "$projectScmProviderDomain" + "$colon" + "$projectHolderUsername" + "$slash" + "$rootProject.name" + "$projectScmGitUrlSuffix"
+                    url = "$projectScmGitUrlPrefix" + "$projectScmProviderDomain" + "$colon" + "$projectHolderUsername" + "$slash" + "$rootProject.name" + "$projectScmGitUrlSuffix"
                 }
             }
         }
@@ -151,8 +152,8 @@ publishing {
     repositories {
         maven {
             credentials {
-                username System.getenv("ossrhUsername") ?: project.property("ossrhUsername")
-                password System.getenv("ossrhPassword") ?: project.property("ossrhPassword")
+                username System.getenv("$projectRepositoriesUserNameKey") ?: project.property("$projectRepositoriesUserNameKey")
+                password System.getenv("$projectRepositoriesPasswordKey") ?: project.property("$projectRepositoriesPasswordKey")
             }
             def releasesRepoUrl = "$projectRepositoriesReleasesRepoUrl"
             def snapshotsRepoUrl = "$projectRepositoriesSnapshotsRepoUrl"

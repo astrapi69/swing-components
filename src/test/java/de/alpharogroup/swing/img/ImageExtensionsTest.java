@@ -39,9 +39,8 @@ import de.alpharogroup.file.create.FileFactory;
 import de.alpharogroup.file.delete.DeleteFileExtensions;
 import de.alpharogroup.file.search.PathFinder;
 import de.alpharogroup.lang.ClassExtensions;
-import net.lingala.zip4j.core.ZipFile;
+import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.model.ZipParameters;
-import net.lingala.zip4j.util.Zip4jConstants;
 
 /**
  * The class {@link ImageExtensionsTest}.
@@ -80,28 +79,6 @@ public class ImageExtensionsTest
 		// DeleteFileUtils.delete(horizontalImg);
 		// DeleteFileUtils.delete(verticalImg);
 	}
-
-	/**
-	 * Test get resized.
-	 *
-	 * @throws IOException
-	 *             Signals that an I/O exception has occurred.
-	 */
-	// @Test(enabled = false)
-	// public void testGetResized() throws IOException
-	// {
-	// final File hImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(), "img",
-	// "xmas", "bell.png");
-	// String extension = Mimetypes.getExtension(hImg);
-	// extension = Mimetypes.getExtension(hImg.getName());
-	// final BufferedImage horizontalImg = ImageIO.read(hImg);
-	// final BufferedImage result = ImageExtensions.getResized(horizontalImg, Scalr.Method.SPEED,
-	// Scalr.Mode.FIT_EXACT, extension, horizontalImg.getWidth(), horizontalImg.getHeight());
-	//
-	// final File verticalImg = PathFinder.getRelativePath(PathFinder.getSrcTestResourcesDir(),
-	// "img", "xmas", "resultImg." + extension);
-	// ImageIO.write(result, extension, verticalImg);
-	// }
 
 	/**
 	 * Test for method {@ImageExtensions#randomBufferedImage(int, int, int)}.
@@ -242,12 +219,6 @@ public class ImageExtensionsTest
 		// Initiate Zip Parameters which define various properties such
 		// as compression method, etc.
 		final ZipParameters parameters = new ZipParameters();
-
-		// set compression method to store compression
-		parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE);
-
-		// Set the compression level
-		parameters.setCompressionLevel(Zip4jConstants.DEFLATE_LEVEL_ULTRA);
 
 		// Add folder to the zip file
 		zipFile4j.addFile(hImg, parameters);
