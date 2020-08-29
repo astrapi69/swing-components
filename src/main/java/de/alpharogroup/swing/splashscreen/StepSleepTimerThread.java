@@ -22,34 +22,35 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.test;
+package de.alpharogroup.swing.splashscreen;
 
-import de.alpharogroup.layout.CloseWindow;
-import de.alpharogroup.layout.ScreenSizeExtensions;
-import de.alpharogroup.swing.components.factories.JComponentFactory;
-import lombok.NonNull;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
-import java.awt.*;
+@Getter
+@Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class StepSleepTimerThread extends Thread {
+    int step;
+    int count;
+    int sleepTime;
 
-public final class TestComponentFactory
-{
+    public StepSleepTimerThread(int sleepTime) {
+        this.step = 1;
+        this.count = 0;
+        this.sleepTime = sleepTime;
+    }
 
-	public static Frame newTestFrame(String title)
-	{
-		final Frame frame = JComponentFactory.newFrame(title);
-		frame.addWindowListener(new CloseWindow());
-		return frame;
-	}
-
-	public static void showFrame(Frame frame, int divideScreenWith)
-	{
-		showFrame(frame, divideScreenWith, divideScreenWith);
-	}
-
-	public static void showFrame(Frame frame, int divideScreenWith, int divideScreenHeight)
-	{
-		ScreenSizeExtensions.centralize(frame, divideScreenWith, divideScreenHeight);
-		ScreenSizeExtensions.showFrame(frame);
-	}
-
+    public void run() {
+        while (count <= sleepTime) {
+            try {
+                Thread.sleep(step);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            count = step + count;
+        }
+    }
 }

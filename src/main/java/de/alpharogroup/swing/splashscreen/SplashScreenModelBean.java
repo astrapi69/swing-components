@@ -22,34 +22,22 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.test;
+package de.alpharogroup.swing.splashscreen;
 
-import de.alpharogroup.layout.CloseWindow;
-import de.alpharogroup.layout.ScreenSizeExtensions;
-import de.alpharogroup.swing.components.factories.JComponentFactory;
-import lombok.NonNull;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
 
-import java.awt.*;
-
-public final class TestComponentFactory
+@Data
+@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class SplashScreenModelBean
 {
-
-	public static Frame newTestFrame(String title)
-	{
-		final Frame frame = JComponentFactory.newFrame(title);
-		frame.addWindowListener(new CloseWindow());
-		return frame;
-	}
-
-	public static void showFrame(Frame frame, int divideScreenWith)
-	{
-		showFrame(frame, divideScreenWith, divideScreenWith);
-	}
-
-	public static void showFrame(Frame frame, int divideScreenWith, int divideScreenHeight)
-	{
-		ScreenSizeExtensions.centralize(frame, divideScreenWith, divideScreenHeight);
-		ScreenSizeExtensions.showFrame(frame);
-	}
-
+	boolean showing;
+	private int min;
+	private int max;
+	String text;
+	int showTime;
+	String imagePath;
 }

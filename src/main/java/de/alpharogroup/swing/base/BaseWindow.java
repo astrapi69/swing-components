@@ -24,17 +24,15 @@
  */
 package de.alpharogroup.swing.base;
 
-import java.awt.Frame;
-
-import javax.swing.*;
-
 import de.alpharogroup.model.api.Model;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.jdesktop.swingx.JXDialog;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
- * The class {@link BaseDialog}.
+ * The class {@link BaseWindow}.
  *
  * @param <T>
  *            the generic type
@@ -44,7 +42,7 @@ import org.jdesktop.swingx.JXDialog;
 @ToString
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class BaseDialog<T> extends JDialog
+public class BaseWindow<T> extends JWindow
 {
 
 	/** The serialVersionUID. */
@@ -54,37 +52,84 @@ public class BaseDialog<T> extends JDialog
 	Model<T> model;
 
 	/**
-	 * Instantiates a new {@link BaseDialog} object
+	 * Instantiates a new {@link BaseWindow} object
 	 *
-	 * @param owner
-	 *            the owner
-	 * @param title
-	 *            the title
-	 * @param modal
-	 *            the modal
 	 * @param model
 	 *            the model
 	 */
-	public BaseDialog(final Frame owner, final String title, final boolean modal,
-		final Model<T> model)
+	public BaseWindow(final Model<T> model)
 	{
-		super(owner, title, modal);
+		super();
+		this.model = model;
 		initialize();
 	}
 
 	/**
-	 * Instantiates a new {@link BaseDialog} object
+	 * Instantiates a new {@link BaseWindow} object
 	 *
 	 * @param owner
 	 *            the owner
-	 * @param title
-	 *            the title
 	 * @param model
 	 *            the model
 	 */
-	public BaseDialog(final Frame owner, final String title, final Model<T> model)
+	public BaseWindow(final Frame owner,
+		final Model<T> model)
 	{
-		super(owner, title);
+		super(owner);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseWindow} object
+	 *
+	 * @param owner
+	 *            the owner
+	 * @param model
+	 *            the model
+	 */
+	public BaseWindow(final Window owner, final Model<T> model)
+	{
+		super(owner);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseWindow} object
+	 *
+	 * @param gc
+	 *            the <code>GraphicsConfiguration</code> that is used
+	 *      *          to construct the new window with; if gc is <code>null</code>,
+	 *      *          the system default <code>GraphicsConfiguration</code>
+	 *      *          is assumed
+	 * @param model
+	 *            the model
+	 */
+	public BaseWindow(final GraphicsConfiguration gc, final Model<T> model)
+	{
+		super(gc);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseWindow} object
+	 *
+	 * @param owner
+	 *            the owner
+	 * @param gc
+	 *            the <code>GraphicsConfiguration</code> that is used
+	 *      *          to construct the new window with; if gc is <code>null</code>,
+	 *      *          the system default <code>GraphicsConfiguration</code>
+	 *      *          is assumed
+	 * @param model
+	 *            the model
+	 */
+	public BaseWindow(final Window owner, final GraphicsConfiguration gc, final Model<T> model)
+	{
+		super(owner, gc);
+		this.model = model;
 		initialize();
 	}
 
@@ -202,10 +247,9 @@ public class BaseDialog<T> extends JDialog
 	 *            the new model object
 	 * @return this for chaining
 	 */
-	public final BaseDialog<T> setModelObject(final T modelObject)
+	public final BaseWindow<T> setModelObject(final T modelObject)
 	{
 		getModel().setObject(modelObject);
 		return this;
 	}
-
 }

@@ -190,7 +190,20 @@ public class ImageExtensions
 	 */
 	public static ImageIcon newImageIcon(File image)
 	{
-		ImageIcon img = new ImageIcon(image.getAbsolutePath());
+		ImageIcon img = newImageIcon(image.getAbsolutePath());
+		return img;
+	}
+
+	/**
+	 * Factory method for create a new {@link ImageIcon}.
+	 *
+	 * @param imagePath
+	 *            the file that contains the image
+	 * @return the new {@link ImageIcon}
+	 */
+	public static ImageIcon newImageIcon(String imagePath)
+	{
+		ImageIcon img = new ImageIcon(imagePath);
 		return img;
 	}
 
