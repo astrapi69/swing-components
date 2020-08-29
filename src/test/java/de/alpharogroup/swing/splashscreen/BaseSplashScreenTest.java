@@ -22,19 +22,39 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tree.model.api;
+package de.alpharogroup.swing.splashscreen;
 
-import java.io.Serializable;
+import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
+import de.alpharogroup.swing.check.model.CheckListPanel;
 
-import javax.swing.tree.TreeModel;
+import javax.swing.*;
 
-/**
- * The Interface IGenericTreeModel.
- *
- * @param <T>
- *            the generic type
- */
-public interface IGenericTreeModel<T> extends TreeModel, Serializable
+public class BaseSplashScreenTest
 {
+
+	/**
+	 * Test init layout.
+	 */
+	public static void main(final String[] args)
+	{
+		final JFrame frame = new JFrame("CheckListPanel");
+		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
+		frame.add(new CheckListPanel(strs));
+		frame.addWindowListener(new CloseWindow());
+		frame.setSize(300, 200);
+		String imagePath = "img/xmas/bell.png";
+		SplashScreenModelBean splashScreenModelBean = SplashScreenModelBean.builder()
+			.imagePath(imagePath).text("BaseSplashScreen example").min(0).max(100).showTime(2000)
+			.showing(true).build();
+		Model<SplashScreenModelBean> modelBeanModel = BaseModel.of(splashScreenModelBean);
+		BaseSplashScreen baseSplashScreen = new BaseSplashScreen(frame, modelBeanModel);
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+		}
+		System.exit(0);
+	}
 
 }

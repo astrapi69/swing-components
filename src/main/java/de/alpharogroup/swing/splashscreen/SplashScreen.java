@@ -24,9 +24,9 @@
  */
 package de.alpharogroup.swing.splashscreen;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import de.alpharogroup.layout.ScreenSizeExtensions;
+
+import java.awt.*;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -108,7 +108,8 @@ public class SplashScreen extends JWindow
 
 	public void showing()
 	{
-		final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		GraphicsDevice screenDevice = ScreenSizeExtensions.getScreenDevice(0);
+		final Dimension dim = new Dimension(ScreenSizeExtensions.getScreenWidth(screenDevice), ScreenSizeExtensions.getScreenHeight(screenDevice));
 		setLocation(dim.width / 3, dim.height / 3);
 		setSize(dim.width / 3, dim.height / 3);
 		setVisible(true);

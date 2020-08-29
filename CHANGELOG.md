@@ -7,10 +7,13 @@ Version 5.4-SNAPSHOT
 ADDED:
  
 - new getter method for the valueMap in class EnumComboBoxModel
+- new BaseSplashScreen Window created
+- new .editorconfig file created from old eclipse configuration file
+- new gradle plugin for format source code with editorconfig
 
 CHANGED:
 
-- update gradle to new version 6.5
+- update gradle to new version 6.6.1
 
 Version 5.3
 -------------

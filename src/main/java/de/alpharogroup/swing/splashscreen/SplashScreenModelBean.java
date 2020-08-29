@@ -22,19 +22,22 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tree.model.api;
+package de.alpharogroup.swing.splashscreen;
 
-import java.io.Serializable;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
 
-import javax.swing.tree.TreeModel;
-
-/**
- * The Interface IGenericTreeModel.
- *
- * @param <T>
- *            the generic type
- */
-public interface IGenericTreeModel<T> extends TreeModel, Serializable
+@Data
+@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class SplashScreenModelBean
 {
-
+	boolean showing;
+	private int min;
+	private int max;
+	String text;
+	int showTime;
+	String imagePath;
 }

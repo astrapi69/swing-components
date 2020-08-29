@@ -22,19 +22,35 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.tree.model.api;
+package de.alpharogroup.swing.splashscreen;
 
-import java.io.Serializable;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
-import javax.swing.tree.TreeModel;
+@Getter
+@Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class StepSleepTimerThread extends Thread {
+    int step;
+    int count;
+    int sleepTime;
 
-/**
- * The Interface IGenericTreeModel.
- *
- * @param <T>
- *            the generic type
- */
-public interface IGenericTreeModel<T> extends TreeModel, Serializable
-{
+    public StepSleepTimerThread(int sleepTime) {
+        this.step = 1;
+        this.count = 0;
+        this.sleepTime = sleepTime;
+    }
 
+    public void run() {
+        while (count <= sleepTime) {
+            try {
+                Thread.sleep(step);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            count = step + count;
+        }
+    }
 }

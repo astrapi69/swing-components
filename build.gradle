@@ -9,6 +9,7 @@ buildscript {
         classpath "io.franzbecker:gradle-lombok:$gradlePluginLombokVersion"
         classpath "com.github.ben-manes:gradle-versions-plugin:$gradlePluginVersionsVersion"
         classpath "gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin:$licenseGradlePluginVersion"
+        classpath "gradle.plugin.org.ec4j.gradle:editorconfig-gradle-plugin:$editorconfigGradlePluginVersion"
     }
 }
 
@@ -19,6 +20,7 @@ apply plugin: "maven-publish"
 apply plugin: "signing"
 apply plugin: "com.github.ben-manes.versions"
 apply plugin: "com.github.hierynomus.license"
+apply plugin: "org.ec4j.editorconfig"
 apply plugin: "jacoco"
 
 group = "$groupPackage"
