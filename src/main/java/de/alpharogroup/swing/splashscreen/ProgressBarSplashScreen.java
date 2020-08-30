@@ -51,7 +51,7 @@ public class ProgressBarSplashScreen extends BaseSplashScreen
 
 	private JProgressBar progressBar;
 
-	public ProgressBarSplashScreen(final @NonNull JFrame frame, final Model<SplashScreenModelBean> model)
+	public ProgressBarSplashScreen(final JFrame frame, final Model<SplashScreenModelBean> model)
 	{
 		super(frame, model);
 	}

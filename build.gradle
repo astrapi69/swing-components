@@ -52,6 +52,7 @@ dependencies {
     implementation("de.alpharogroup:model-type-safe:$modelTypeSafeVersion")
     implementation("de.alpharogroup:jobj-core:$jobjCoreVersion")
     implementation("de.alpharogroup:gen-tree:$genTreeVersion")
+    implementation("de.alpharogroup:throw-able:$throwAbleVersion")
     testImplementation("net.lingala.zip4j:zip4j:$zip4jVersion")
     implementation("com.miglayout:miglayout-swing:$miglayoutSwingVersion")
     testImplementation("de.alpharogroup:vintage-time:$vintageTimeVersion")
