@@ -92,9 +92,8 @@ public class SplashScreen extends JWindow
 
 	public void showFor(final int millis)
 	{
-		final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		setLocation(dim.width / 3, dim.height / 3);
-		setSize(dim.width / 3, dim.height / 3);
+		final Dimension dim = new Dimension(ScreenSizeExtensions.getScreenWidth(this),
+			ScreenSizeExtensions.getScreenHeight(this));
 		setVisible(true);
 		try
 		{
@@ -108,8 +107,8 @@ public class SplashScreen extends JWindow
 
 	public void showing()
 	{
-		GraphicsDevice screenDevice = ScreenSizeExtensions.getScreenDevice(0);
-		final Dimension dim = new Dimension(ScreenSizeExtensions.getScreenWidth(screenDevice), ScreenSizeExtensions.getScreenHeight(screenDevice));
+		final Dimension dim = new Dimension(ScreenSizeExtensions.getScreenWidth(this),
+			ScreenSizeExtensions.getScreenHeight(this));
 		setLocation(dim.width / 3, dim.height / 3);
 		setSize(dim.width / 3, dim.height / 3);
 		setVisible(true);

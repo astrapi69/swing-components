@@ -31,7 +31,7 @@ import de.alpharogroup.swing.check.model.CheckListPanel;
 
 import javax.swing.*;
 
-public class BaseSplashScreenTest
+public class ProgressBarSplashScreenTest
 {
 
 	/**
@@ -49,15 +49,12 @@ public class BaseSplashScreenTest
 			.imagePath(imagePath).text("BaseSplashScreen example").min(0).max(100).showTime(2000)
 			.showing(true).build();
 		Model<SplashScreenModelBean> modelBeanModel = BaseModel.of(splashScreenModelBean);
-		BaseSplashScreen baseSplashScreen = new BaseSplashScreen(frame, modelBeanModel);
-		frame.setSize(300, 200);
-		frame.setVisible(true);
+		ProgressBarSplashScreen progressBarSplashScreen = new ProgressBarSplashScreen(frame, modelBeanModel);
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 		}
 		System.exit(0);
 	}
-
 
 }
