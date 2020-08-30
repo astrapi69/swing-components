@@ -1,8 +1,19 @@
 ## Change log
 ----------------------
 
-Version 5.5-SNAPSHOT
+Version 5.4.1
 -------------
+
+ADDED:
+ 
+- new dependency de.alpharogroup:throw-able in version 1.4
+- new class ProgressBarSplashScreen created
+
+CHANGED:
+
+- bugfix for hashcode recursive call in ApplicationFrame and BaseDesktopMenu fixed
+- bugfix of image load in BaseSplashScreen classes fixed
+- removed progress bar from BaseSplashScreen 
 
 Version 5.4
 -------------
