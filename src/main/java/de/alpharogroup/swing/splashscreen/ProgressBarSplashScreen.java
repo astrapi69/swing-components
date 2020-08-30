@@ -27,10 +27,7 @@ package de.alpharogroup.swing.splashscreen;
 import de.alpharogroup.layout.ScreenSizeExtensions;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BaseWindow;
-import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.NonNull;
-import lombok.experimental.FieldDefaults;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -38,95 +35,71 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 /**
- * The BaseSplashScreen for an application
+ * The {@link ProgressBarSplashScreen} for an application that have to support progress bar
  *
  * @version 1.0
  *
  * @author Asterios Raptis
  *
  */
-@Getter @FieldDefaults(level = AccessLevel.PRIVATE) public class BaseSplashScreen
-	extends BaseWindow<SplashScreenModelBean>
+public class ProgressBarSplashScreen extends BaseSplashScreen
 {
 	/**
 	 * The serialVersionUID.
 	 */
 	private static final long serialVersionUID = 1L;
 
-	JPanel contentPanel;
-	JLabel textLabel;
-	JLabel iconLabel;
-	ImageIcon icon;
-	final JFrame frame;
+	private JProgressBar progressBar;
 
-
-	public BaseSplashScreen(final @NonNull JFrame frame, final Model<SplashScreenModelBean> model)
+	public ProgressBarSplashScreen(final @NonNull JFrame frame, final Model<SplashScreenModelBean> model)
 	{
 		super(frame, model);
-		this.frame = frame;
 	}
 
-	protected JPanel newContentPanel()
-	{
+	protected JPanel newContentPanel() {
 		return new JPanel();
 	}
 
 	@Override protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
-		icon = new ImageIcon(ClassLoader.getSystemResource(getModelObject().getImagePath()));
-		contentPanel = newContentPanel();
-		textLabel = newTextLabel(getModel());
-		iconLabel = newIconLabel(icon);
+		progressBar = new JProgressBar(getModelObject().getMin(), getModelObject().getMax());
 	}
 
 	@Override protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
-		this.setContentPane(contentPanel);
-		contentPanel.setLayout(new BorderLayout());
-		final Border bd1 = BorderFactory.createBevelBorder(BevelBorder.RAISED);
-		final Border bd2 = BorderFactory.createEtchedBorder();
-		final Border bd3 = BorderFactory.createCompoundBorder(bd1, bd2);
-		contentPanel.setBorder(bd3);
-		contentPanel.add(textLabel, BorderLayout.NORTH);
-		contentPanel.add(iconLabel, BorderLayout.CENTER);
-		onSetLocationAndSize();
-		this.setVisible(true);
-	}
-
-	protected JLabel newIconLabel(final ImageIcon icon)
-	{
-		return new JLabel(icon, JLabel.CENTER);
-	}
-
-	protected JLabel newTextLabel(final Model<SplashScreenModelBean> model)
-	{
-		return new JLabel(getModel().getObject().getText(), JLabel.CENTER);
-	}
-
-	protected void onSetLocationAndSize()
-	{
-		ScreenSizeExtensions.centralize(this, 3, 3);
+		getContentPanel().add(progressBar, BorderLayout.SOUTH);
 	}
 
 	@Override protected void onAfterInitialize()
 	{
-		super.onAfterInitialize();
-		showFor(getModelObject().getShowTime());
-	}
+		final StepSleepTimerThread stepSleepTimerThread = new StepSleepTimerThread(getModelObject().getShowTime());
+		Thread splashscreenThread = new Thread() {
+			public void run() {
+				stepSleepTimerThread.start();
+				while (getModelObject().isShowing() && stepSleepTimerThread.getCount() <= getModelObject().getShowTime()) {
+					ProgressBarSplashScreen.this.setVisible(true);
+				}
+				ProgressBarSplashScreen.this.setVisible(false);
+				ProgressBarSplashScreen.this.dispose();
+				getFrame().setVisible(true);
+			}
+		};
 
-	public void showFor(final int millis)
-	{
-		setVisible(true);
-		try
-		{
-			Thread.sleep(millis);
-		}
-		catch (final InterruptedException e)
-		{
-		}
-		setVisible(false);
+		final Runnable progressBarRunnable = new Runnable() {
+			public void run() {
+				System.out.println("running progress bar");
+				for (int i = getModelObject().getMin(); i <= getModelObject().getMax(); i++) {
+					try {
+						Thread.sleep(getModelObject().getShowTime() / getModelObject().getMax());
+					} catch (InterruptedException e) {
+					}
+					progressBar.setValue(i);
+				}
+			}
+		};
+		new Thread(splashscreenThread).start();
+		new Thread(progressBarRunnable).start();
 	}
-
 }
