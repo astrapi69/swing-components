@@ -24,15 +24,25 @@
  */
 package de.alpharogroup.swing.splashscreen;
 
+import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.layout.ScreenSizeExtensions;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.base.BaseWindow;
+import de.alpharogroup.throwable.ThrowableExtensions;
+import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NonNull;
+import lombok.experimental.FieldDefaults;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 /**
  * The BaseSplashScreen for an application
@@ -42,35 +52,66 @@ import java.awt.*;
  * @author Asterios Raptis
  *
  */
-public class BaseSplashScreen extends BaseWindow<SplashScreenModelBean>
+@Getter @FieldDefaults(level = AccessLevel.PRIVATE) public class BaseSplashScreen
+	extends BaseWindow<SplashScreenModelBean>
 {
 	/**
 	 * The serialVersionUID.
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private JProgressBar progressBar;
-	private JPanel contentPanel;
-	private ImageIcon icon;
-	private final JFrame frame;
+	JPanel contentPanel;
+	JLabel textLabel;
+	JLabel iconLabel;
+	ImageIcon icon;
+	final JFrame frame;
 
-	public BaseSplashScreen(final @NonNull JFrame frame, final Model<SplashScreenModelBean> model)
+
+	public BaseSplashScreen(final JFrame frame, final Model<SplashScreenModelBean> model)
 	{
 		super(frame, model);
 		this.frame = frame;
 	}
 
-	protected JPanel newContentPanel() {
+	protected JPanel newContentPanel()
+	{
 		return new JPanel();
 	}
 
 	@Override protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
-		icon = new ImageIcon(ClassLoader.getSystemResource(getModelObject().getImagePath()));
-		progressBar = new JProgressBar(getModelObject().getMin(), getModelObject().getMax());
-
+		try
+		{
+			initIcon();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		contentPanel = newContentPanel();
+		textLabel = newTextLabel(getModel());
+		iconLabel = newIconLabel(icon);
+	}
+
+	private void initIcon() throws IOException
+	{
+		URL imageResource = ClassLoader.getSystemClassLoader()
+			.getSystemResource(getModelObject().getImagePath());
+		if(imageResource == null){
+			BufferedImage image = getBufferedImage();
+			icon = new ImageIcon(image);
+		} else {
+			icon = new ImageIcon(imageResource);
+		}
+	}
+
+	private BufferedImage getBufferedImage() throws IOException
+	{
+		InputStream stream = ClassExtensions
+			.getResourceAsStream(getModelObject().getImagePath());
+		BufferedImage image = ImageIO.read( stream );
+		return image;
 	}
 
 	@Override protected void onInitializeLayout()
@@ -82,11 +123,34 @@ public class BaseSplashScreen extends BaseWindow<SplashScreenModelBean>
 		final Border bd2 = BorderFactory.createEtchedBorder();
 		final Border bd3 = BorderFactory.createCompoundBorder(bd1, bd2);
 		contentPanel.setBorder(bd3);
-		contentPanel.add(new JLabel(getModelObject().getText(), JLabel.CENTER), BorderLayout.NORTH);
-		contentPanel.add(new JLabel(icon, JLabel.CENTER), BorderLayout.CENTER);
-		contentPanel.add(progressBar, BorderLayout.SOUTH);
+		contentPanel.add(textLabel, BorderLayout.NORTH);
+		contentPanel.add(iconLabel, BorderLayout.CENTER);
 		onSetLocationAndSize();
 		this.setVisible(true);
+		resizeIconLabel();
+	}
+
+	private void resizeIconLabel()
+	{
+		try {
+			BufferedImage img = getBufferedImage();
+			Image dimg = img.getScaledInstance(iconLabel.getWidth(), iconLabel.getHeight(),
+				Image.SCALE_SMOOTH);
+			icon = new ImageIcon(dimg);
+			iconLabel.setIcon(icon);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	protected JLabel newIconLabel(final ImageIcon icon)
+	{
+		return new JLabel(icon, JLabel.CENTER);
+	}
+
+	protected JLabel newTextLabel(final Model<SplashScreenModelBean> model)
+	{
+		return new JLabel(getModel().getObject().getText(), JLabel.CENTER);
 	}
 
 	protected void onSetLocationAndSize()
@@ -97,32 +161,20 @@ public class BaseSplashScreen extends BaseWindow<SplashScreenModelBean>
 	@Override protected void onAfterInitialize()
 	{
 		super.onAfterInitialize();
-		final StepSleepTimerThread stepSleepTimerThread = new StepSleepTimerThread(getModelObject().getShowTime());
-		Thread splashscreenThread = new Thread() {
-			public void run() {
-				stepSleepTimerThread.start();
-				while (getModelObject().isShowing() && stepSleepTimerThread.getCount() <= getModelObject().getShowTime()) {
-					BaseSplashScreen.this.setVisible(true);
-				}
-				BaseSplashScreen.this.setVisible(false);
-				BaseSplashScreen.this.dispose();
-				frame.setVisible(true);
-			}
-		};
-
-		final Runnable progressBarRunnable = new Runnable() {
-			public void run() {
-				System.out.println("running progress bar");
-				for (int i = getModelObject().getMin(); i <= getModelObject().getMax(); i++) {
-					try {
-						Thread.sleep(getModelObject().getShowTime() / getModelObject().getMax());
-					} catch (InterruptedException e) {
-					}
-					progressBar.setValue(i);
-				}
-			}
-		};
-		new Thread(splashscreenThread).start();
-		new Thread(progressBarRunnable).start();
+		showFor(getModelObject().getShowTime());
 	}
+
+	public void showFor(final int millis)
+	{
+		setVisible(true);
+		try
+		{
+			Thread.sleep(millis);
+		}
+		catch (final InterruptedException e)
+		{
+		}
+		setVisible(false);
+	}
+
 }
