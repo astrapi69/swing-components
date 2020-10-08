@@ -4,6 +4,19 @@
 Version 5.5-SNAPSHOT
 -------------
 
+ADDED:
+ 
+- new method for infinite mouse movement 
+- new method for mouse movement with a specified time
+
+CHANGED:
+
+- update dependency of randomizer version to 6.9
+- update dependency of com.github.ben-manes.versions.gradle.plugin to new version 0.33.0
+- update dependency of itextpdf version to 5.5.13.2
+- update dependency of jobj-core version to 3.6
+- update dependency of zip4j version to 2.6.3
+
 Version 5.4.1
 -------------
 

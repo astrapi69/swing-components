@@ -24,9 +24,12 @@
  */
 package de.alpharogroup.swing.robot;
 
+import de.alpharogroup.random.SecureRandomFactory;
+
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
+import java.security.SecureRandom;
 
 /**
  * The class {@link RobotExtensions}.
@@ -108,4 +111,56 @@ public class RobotExtensions
 			}
 		}
 	}
+
+	/**
+	 * Move the mouse with the given robot in infinity mode
+	 *
+	 * @param robot
+	 *            the robot
+	 * @param x
+	 *            the X position
+	 * @param y
+	 *            the Y position
+	 * @param everyMilliSeconds
+	 * 	 *            the milli seconds to execute every time
+	 * @throws InterruptedException
+	 *             is thrown if the current thread is interrupted
+	 */
+	public static void infiniteMoveMouse(final Robot robot, int x, int y, long everyMilliSeconds)
+		throws InterruptedException
+	{
+		SecureRandom secureRandom = SecureRandomFactory.newSecureRandom();
+		while (true) {
+			robot.mouseMove(secureRandom.nextInt(x), secureRandom.nextInt(y));
+			Thread.sleep(everyMilliSeconds);
+		}
+	}
+
+	/**
+	 * Move the mouse with the given robot in infinity mode
+	 *
+	 * @param robot
+	 *            the robot
+	 * @param x
+	 *            the X position
+	 * @param y
+	 *            the Y position
+	 * @param everyMilliSeconds
+	 * 	 *            the milli seconds to execute every time
+	 * @throws InterruptedException
+	 *             is thrown if the current thread is interrupted
+	 */
+	public static void moveMouseForSpecificDuration(final Robot robot, int x, int y,
+		long everyMilliSeconds, long duration)
+		throws InterruptedException
+	{
+		SecureRandom secureRandom = SecureRandomFactory.newSecureRandom();
+		long counter = 0;
+		while (counter < duration) {
+			robot.mouseMove(secureRandom.nextInt(x), secureRandom.nextInt(y));
+			counter += everyMilliSeconds;
+			Thread.sleep(everyMilliSeconds);
+		}
+	}
+
 }
