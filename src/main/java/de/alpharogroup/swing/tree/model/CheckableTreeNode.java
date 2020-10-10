@@ -65,7 +65,7 @@ public class CheckableTreeNode extends DefaultMutableTreeNode
 		Enumeration<TreeNode> e = children.elements();
 		while (e.hasMoreElements())
 		{
-			CheckableTreeNode node = (CheckableTreeNode) e.nextElement();
+			CheckableTreeNode node = (CheckableTreeNode)e.nextElement();
 			node.setSelected(selected);
 		}
 	}

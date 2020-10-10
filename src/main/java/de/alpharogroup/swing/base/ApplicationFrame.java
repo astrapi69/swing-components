@@ -32,7 +32,10 @@ import javax.swing.JInternalFrame;
 import de.alpharogroup.swing.components.factories.JComponentFactory;
 import de.alpharogroup.swing.desktoppane.SingletonDesktopPane;
 import de.alpharogroup.swing.utils.JInternalFrameExtensions;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
 /**

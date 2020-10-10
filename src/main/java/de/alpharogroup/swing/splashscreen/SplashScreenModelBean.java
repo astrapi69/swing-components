@@ -34,10 +34,10 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class SplashScreenModelBean
 {
-	boolean showing;
-	private int min;
-	private int max;
-	String text;
-	int showTime;
 	String imagePath;
+	private int max;
+	private int min;
+	boolean showing;
+	int showTime;
+	String text;
 }

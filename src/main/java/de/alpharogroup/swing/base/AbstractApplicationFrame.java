@@ -43,7 +43,12 @@ import javax.swing.UnsupportedLookAndFeelException;
 import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.layout.ScreenSizeExtensions;
 import de.alpharogroup.swing.plaf.LookAndFeels;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 

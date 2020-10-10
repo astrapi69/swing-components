@@ -36,7 +36,13 @@ import javax.help.DefaultHelpBroker;
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
-import javax.swing.*;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.MenuElement;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.swing.actions.OpenBrowserToDonateAction;
@@ -51,7 +57,10 @@ import de.alpharogroup.swing.plaf.actions.LookAndFeelMetalAction;
 import de.alpharogroup.swing.plaf.actions.LookAndFeelMotifAction;
 import de.alpharogroup.swing.plaf.actions.LookAndFeelNimbusAction;
 import de.alpharogroup.swing.plaf.actions.LookAndFeelSystemAction;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 
@@ -163,21 +172,6 @@ public class BaseDesktopMenu extends JMenu
 		return menu;
 	}
 
-	protected void refreshMenu(JMenu menu) {
-		MenuElement[] subElements = menu.getSubElements();
-		if(subElements.length == 0){
-			menu.setVisible(false);
-		} else {
-			menu.setVisible(true);
-		}
-	}
-
-	protected void onRefreshMenus(JMenu... menus) {
-		for(JMenu menu: menus){
-			refreshMenu(menu);
-		}
-	}
-
 	/**
 	 * Creates the file menu.
 	 *
@@ -287,12 +281,10 @@ public class BaseDesktopMenu extends JMenu
 		return new JMenuBar();
 	}
 
-
 	protected String newLabelTextApplicationName()
 	{
 		return "";
 	}
-
 
 	protected String newLabelTextContent()
 	{
@@ -323,10 +315,12 @@ public class BaseDesktopMenu extends JMenu
 		return "Info";
 	}
 
+
 	protected String newLabelTextLabelApplicationName()
 	{
 		return "";
 	}
+
 
 	protected String newLabelTextLabelCopyright()
 	{
@@ -338,7 +332,6 @@ public class BaseDesktopMenu extends JMenu
 		return "";
 	}
 
-
 	protected String newLabelTextLicence()
 	{
 		return "Licence";
@@ -348,6 +341,7 @@ public class BaseDesktopMenu extends JMenu
 	{
 		return "Overview";
 	}
+
 
 	protected String newLabelTextVersion()
 	{
@@ -520,6 +514,27 @@ public class BaseDesktopMenu extends JMenu
 	protected String onNewLicenseText()
 	{
 		return "Licence Text";
+	}
+
+	protected void onRefreshMenus(JMenu... menus)
+	{
+		for (JMenu menu : menus)
+		{
+			refreshMenu(menu);
+		}
+	}
+
+	protected void refreshMenu(JMenu menu)
+	{
+		MenuElement[] subElements = menu.getSubElements();
+		if (subElements.length == 0)
+		{
+			menu.setVisible(false);
+		}
+		else
+		{
+			menu.setVisible(true);
+		}
 	}
 
 }

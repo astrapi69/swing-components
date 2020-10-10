@@ -26,10 +26,14 @@ package de.alpharogroup.swing.base;
 
 import java.awt.LayoutManager;
 
-import lombok.*;
 import org.jdesktop.swingx.JXPanel;
 
 import de.alpharogroup.model.api.Model;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
 /**

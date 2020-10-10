@@ -24,12 +24,12 @@
  */
 package de.alpharogroup.swing.splashscreen;
 
+import javax.swing.JFrame;
+
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.check.model.CheckListPanel;
-
-import javax.swing.*;
 
 public class BaseSplashScreenTest
 {
@@ -49,12 +49,15 @@ public class BaseSplashScreenTest
 			.imagePath(imagePath).text("BaseSplashScreen example").min(0).max(100).showTime(2000)
 			.showing(true).build();
 		Model<SplashScreenModelBean> modelBeanModel = BaseModel.of(splashScreenModelBean);
-		BaseSplashScreen baseSplashScreen = new BaseSplashScreen(frame, modelBeanModel);
+		new BaseSplashScreen(frame, modelBeanModel);
 		frame.setSize(300, 200);
 		frame.setVisible(true);
-		try {
+		try
+		{
 			Thread.sleep(2000);
-		} catch (InterruptedException e) {
+		}
+		catch (InterruptedException e)
+		{
 		}
 		System.exit(0);
 	}

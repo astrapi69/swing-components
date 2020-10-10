@@ -24,25 +24,30 @@
  */
 package de.alpharogroup.swing.splashscreen;
 
-import de.alpharogroup.lang.ClassExtensions;
-import de.alpharogroup.layout.ScreenSizeExtensions;
-import de.alpharogroup.model.api.Model;
-import de.alpharogroup.swing.base.BaseWindow;
-import de.alpharogroup.throwable.ThrowableExtensions;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.experimental.FieldDefaults;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+
+import de.alpharogroup.lang.ClassExtensions;
+import de.alpharogroup.layout.ScreenSizeExtensions;
+import de.alpharogroup.model.api.Model;
+import de.alpharogroup.swing.base.BaseWindow;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 
 /**
  * The BaseSplashScreen for an application
@@ -52,8 +57,9 @@ import java.net.URL;
  * @author Asterios Raptis
  *
  */
-@Getter @FieldDefaults(level = AccessLevel.PRIVATE) public class BaseSplashScreen
-	extends BaseWindow<SplashScreenModelBean>
+@Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class BaseSplashScreen extends BaseWindow<SplashScreenModelBean>
 {
 	/**
 	 * The serialVersionUID.
@@ -61,10 +67,10 @@ import java.net.URL;
 	private static final long serialVersionUID = 1L;
 
 	JPanel contentPanel;
-	JLabel textLabel;
-	JLabel iconLabel;
-	ImageIcon icon;
 	final JFrame frame;
+	ImageIcon icon;
+	JLabel iconLabel;
+	JLabel textLabel;
 
 
 	public BaseSplashScreen(final JFrame frame, final Model<SplashScreenModelBean> model)
@@ -73,12 +79,51 @@ import java.net.URL;
 		this.frame = frame;
 	}
 
+	private BufferedImage getBufferedImage() throws IOException
+	{
+		InputStream stream = ClassExtensions.getResourceAsStream(getModelObject().getImagePath());
+		BufferedImage image = ImageIO.read(stream);
+		return image;
+	}
+
+	private void initIcon() throws IOException
+	{
+		URL imageResource = ClassLoader.getSystemResource(getModelObject().getImagePath());
+		if (imageResource == null)
+		{
+			BufferedImage image = getBufferedImage();
+			icon = new ImageIcon(image);
+		}
+		else
+		{
+			icon = new ImageIcon(imageResource);
+		}
+	}
+
 	protected JPanel newContentPanel()
 	{
 		return new JPanel();
 	}
 
-	@Override protected void onInitializeComponents()
+	protected JLabel newIconLabel(final ImageIcon icon)
+	{
+		return new JLabel(icon, SwingConstants.CENTER);
+	}
+
+	protected JLabel newTextLabel(final Model<SplashScreenModelBean> model)
+	{
+		return new JLabel(getModel().getObject().getText(), SwingConstants.CENTER);
+	}
+
+	@Override
+	protected void onAfterInitialize()
+	{
+		super.onAfterInitialize();
+		showFor(getModelObject().getShowTime());
+	}
+
+	@Override
+	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
 		try
@@ -94,27 +139,8 @@ import java.net.URL;
 		iconLabel = newIconLabel(icon);
 	}
 
-	private void initIcon() throws IOException
-	{
-		URL imageResource = ClassLoader.getSystemClassLoader()
-			.getSystemResource(getModelObject().getImagePath());
-		if(imageResource == null){
-			BufferedImage image = getBufferedImage();
-			icon = new ImageIcon(image);
-		} else {
-			icon = new ImageIcon(imageResource);
-		}
-	}
-
-	private BufferedImage getBufferedImage() throws IOException
-	{
-		InputStream stream = ClassExtensions
-			.getResourceAsStream(getModelObject().getImagePath());
-		BufferedImage image = ImageIO.read( stream );
-		return image;
-	}
-
-	@Override protected void onInitializeLayout()
+	@Override
+	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
 		this.setContentPane(contentPanel);
@@ -130,38 +156,25 @@ import java.net.URL;
 		resizeIconLabel();
 	}
 
-	private void resizeIconLabel()
-	{
-		try {
-			BufferedImage img = getBufferedImage();
-			Image dimg = img.getScaledInstance(iconLabel.getWidth(), iconLabel.getHeight(),
-				Image.SCALE_SMOOTH);
-			icon = new ImageIcon(dimg);
-			iconLabel.setIcon(icon);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	protected JLabel newIconLabel(final ImageIcon icon)
-	{
-		return new JLabel(icon, JLabel.CENTER);
-	}
-
-	protected JLabel newTextLabel(final Model<SplashScreenModelBean> model)
-	{
-		return new JLabel(getModel().getObject().getText(), JLabel.CENTER);
-	}
-
 	protected void onSetLocationAndSize()
 	{
 		ScreenSizeExtensions.centralize(this, 3, 3);
 	}
 
-	@Override protected void onAfterInitialize()
+	private void resizeIconLabel()
 	{
-		super.onAfterInitialize();
-		showFor(getModelObject().getShowTime());
+		try
+		{
+			BufferedImage img = getBufferedImage();
+			Image dimg = img.getScaledInstance(iconLabel.getWidth(), iconLabel.getHeight(),
+				Image.SCALE_SMOOTH);
+			icon = new ImageIcon(dimg);
+			iconLabel.setIcon(icon);
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public void showFor(final int millis)

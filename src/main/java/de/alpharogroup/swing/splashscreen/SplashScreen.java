@@ -24,9 +24,8 @@
  */
 package de.alpharogroup.swing.splashscreen;
 
-import de.alpharogroup.layout.ScreenSizeExtensions;
-
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -36,6 +35,8 @@ import javax.swing.JWindow;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
+
+import de.alpharogroup.layout.ScreenSizeExtensions;
 
 /**
  * The SplashScreen from the application.
@@ -70,7 +71,7 @@ public class SplashScreen extends JWindow
 
 	/**
 	 * Returns the field <code>showme</code>.
-	 * 
+	 *
 	 * @return The field <code>showme</code>.
 	 */
 	@Override
@@ -81,7 +82,7 @@ public class SplashScreen extends JWindow
 
 	/**
 	 * Sets the field <code>showme</code>.
-	 * 
+	 *
 	 * @param showing
 	 *            The <code>showme</code> to set.
 	 */
@@ -92,8 +93,6 @@ public class SplashScreen extends JWindow
 
 	public void showFor(final int millis)
 	{
-		final Dimension dim = new Dimension(ScreenSizeExtensions.getScreenWidth(this),
-			ScreenSizeExtensions.getScreenHeight(this));
 		setVisible(true);
 		try
 		{

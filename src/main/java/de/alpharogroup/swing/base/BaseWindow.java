@@ -24,12 +24,19 @@
  */
 package de.alpharogroup.swing.base;
 
-import de.alpharogroup.model.api.Model;
-import lombok.*;
-import lombok.experimental.FieldDefaults;
+import java.awt.Frame;
+import java.awt.GraphicsConfiguration;
+import java.awt.Window;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JWindow;
+
+import de.alpharogroup.model.api.Model;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 
 /**
  * The class {@link BaseWindow}.
@@ -54,6 +61,38 @@ public class BaseWindow<T> extends JWindow
 	/**
 	 * Instantiates a new {@link BaseWindow} object
 	 *
+	 * @param owner
+	 *            the owner
+	 * @param model
+	 *            the model
+	 */
+	public BaseWindow(final Frame owner, final Model<T> model)
+	{
+		super(owner);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseWindow} object
+	 *
+	 * @param gc
+	 *            the <code>GraphicsConfiguration</code> that is used * to construct the new window
+	 *            with; if gc is <code>null</code>, * the system default
+	 *            <code>GraphicsConfiguration</code> * is assumed
+	 * @param model
+	 *            the model
+	 */
+	public BaseWindow(final GraphicsConfiguration gc, final Model<T> model)
+	{
+		super(gc);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseWindow} object
+	 *
 	 * @param model
 	 *            the model
 	 */
@@ -69,13 +108,16 @@ public class BaseWindow<T> extends JWindow
 	 *
 	 * @param owner
 	 *            the owner
+	 * @param gc
+	 *            the <code>GraphicsConfiguration</code> that is used * to construct the new window
+	 *            with; if gc is <code>null</code>, * the system default
+	 *            <code>GraphicsConfiguration</code> * is assumed
 	 * @param model
 	 *            the model
 	 */
-	public BaseWindow(final Frame owner,
-		final Model<T> model)
+	public BaseWindow(final Window owner, final GraphicsConfiguration gc, final Model<T> model)
 	{
-		super(owner);
+		super(owner, gc);
 		this.model = model;
 		initialize();
 	}
@@ -91,44 +133,6 @@ public class BaseWindow<T> extends JWindow
 	public BaseWindow(final Window owner, final Model<T> model)
 	{
 		super(owner);
-		this.model = model;
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BaseWindow} object
-	 *
-	 * @param gc
-	 *            the <code>GraphicsConfiguration</code> that is used
-	 *      *          to construct the new window with; if gc is <code>null</code>,
-	 *      *          the system default <code>GraphicsConfiguration</code>
-	 *      *          is assumed
-	 * @param model
-	 *            the model
-	 */
-	public BaseWindow(final GraphicsConfiguration gc, final Model<T> model)
-	{
-		super(gc);
-		this.model = model;
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BaseWindow} object
-	 *
-	 * @param owner
-	 *            the owner
-	 * @param gc
-	 *            the <code>GraphicsConfiguration</code> that is used
-	 *      *          to construct the new window with; if gc is <code>null</code>,
-	 *      *          the system default <code>GraphicsConfiguration</code>
-	 *      *          is assumed
-	 * @param model
-	 *            the model
-	 */
-	public BaseWindow(final Window owner, final GraphicsConfiguration gc, final Model<T> model)
-	{
-		super(owner, gc);
 		this.model = model;
 		initialize();
 	}

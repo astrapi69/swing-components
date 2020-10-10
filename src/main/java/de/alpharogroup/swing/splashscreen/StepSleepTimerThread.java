@@ -32,25 +32,33 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class StepSleepTimerThread extends Thread {
-    int step;
-    int count;
-    int sleepTime;
+public class StepSleepTimerThread extends Thread
+{
+	int count;
+	int sleepTime;
+	int step;
 
-    public StepSleepTimerThread(int sleepTime) {
-        this.step = 1;
-        this.count = 0;
-        this.sleepTime = sleepTime;
-    }
+	public StepSleepTimerThread(int sleepTime)
+	{
+		this.step = 1;
+		this.count = 0;
+		this.sleepTime = sleepTime;
+	}
 
-    public void run() {
-        while (count <= sleepTime) {
-            try {
-                Thread.sleep(step);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            count = step + count;
-        }
-    }
+	@Override
+	public void run()
+	{
+		while (count <= sleepTime)
+		{
+			try
+			{
+				Thread.sleep(step);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+			count = step + count;
+		}
+	}
 }

@@ -28,11 +28,10 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Frame;
-import java.awt.Panel;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.layout.ScreenSizeExtensions;
@@ -78,6 +77,25 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		super(owner, title, modal, model);
 	}
 
+	protected JButton newButtonClose()
+	{
+		JButton button = JComponentFactory.newJButton("Close");
+		button.addActionListener(e -> onClose(e));
+		return button;
+	}
+
+	protected JPanel newButtons(Model<ChangePasswordModelBean> model)
+	{
+		JPanel buttons = new JPanel();
+		return buttons;
+	}
+
+
+	protected NewPasswordPanel newNewPasswordPanel(Model<ChangePasswordModelBean> model)
+	{
+		return new NewPasswordPanel(model);
+	}
+
 	private void onClose(final ActionEvent e)
 	{
 		this.setVisible(false);
@@ -95,22 +113,6 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		buttons = newButtons(getModel());
 	}
 
-
-	protected JPanel newButtons(Model<ChangePasswordModelBean> model) {
-		JPanel buttons = new JPanel();
-		return buttons;
-	}
-
-	protected JButton newButtonClose(){
-		JButton button = JComponentFactory.newJButton("Close");
-		button.addActionListener(e -> onClose(e));
-		return button;
-	}
-
-	protected NewPasswordPanel newNewPasswordPanel(Model<ChangePasswordModelBean> model) {
-		return new NewPasswordPanel(model);
-	}
-
 	@Override
 	protected void onInitializeLayout()
 	{
@@ -120,7 +122,7 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		container = getContentPane();
 		container.add(newPasswordPanel, BorderLayout.CENTER);
 		container.add(buttons, BorderLayout.SOUTH);
-		ScreenSizeExtensions.centralize(container, 3,3);
+		ScreenSizeExtensions.centralize(container, 3, 3);
 	}
 
 }

@@ -24,17 +24,27 @@
  */
 package de.alpharogroup.layout;
 
-import de.alpharogroup.collections.array.ArrayExtensions;
-import de.alpharogroup.reflection.ReflectionExtensions;
-import de.alpharogroup.swing.utils.AwtExtensions;
-import lombok.NonNull;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.Window;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
+
+import javax.swing.JFrame;
+
+import de.alpharogroup.collections.array.ArrayExtensions;
+import de.alpharogroup.reflection.ReflectionExtensions;
+import de.alpharogroup.swing.utils.AwtExtensions;
+import lombok.NonNull;
 
 /**
  * Utility class for handle with screensize.
@@ -44,6 +54,44 @@ import java.util.stream.Stream;
  */
 public class ScreenSizeExtensions
 {
+
+	/**
+	 * Set given {@link Window} to the center of the device and divide them with the given arguments
+	 *
+	 * @param component
+	 *            the component
+	 * @param divideScreenWith
+	 *            the value to divide with the screen with
+	 * @param divideScreenHeight
+	 *            the value to divide with the screen height
+	 */
+	public static void centralize(@NonNull Component component, int divideScreenWith,
+		int divideScreenHeight)
+	{
+		Window window = AwtExtensions.getWindowForComponent(component);
+		centralize(window, divideScreenWith, divideScreenHeight);
+	}
+
+	/**
+	 * Set given {@link Window} to the center of the device and divide them with the given arguments
+	 *
+	 * @param window
+	 *            the window
+	 * @param divideScreenWith
+	 *            the value to divide with the screen with
+	 * @param divideScreenHeight
+	 *            the value to divide with the screen height
+	 */
+	public static void centralize(@NonNull Window window, int divideScreenWith,
+		int divideScreenHeight)
+	{
+		final int x = ScreenSizeExtensions.getScreenWidth(window);
+		final int y = ScreenSizeExtensions.getScreenHeight(window);
+		final int width = x;
+		final int height = y;
+		window.setLocation((width / divideScreenWith), (height / divideScreenHeight));
+		window.setSize((width / divideScreenWith), (height / divideScreenHeight));
+	}
 
 	/**
 	 * Compute how much dialog can be put into the screen and returns a list with the coordinates
@@ -97,23 +145,10 @@ public class ScreenSizeExtensions
 				.getFirst(graphicsConfigurations);
 			if (graphicsConfiguration != null)
 			{
-				height = (int) getScreenHeight(graphicsConfiguration);
+				height = (int)getScreenHeight(graphicsConfiguration);
 				break;
 			}
 		}
-		return height;
-	}
-
-	/**
-	 * Gets the screen width from the given {@link GraphicsConfiguration} object
-	 *
-	 * @param graphicsConfiguration the graphic configuration object
-	 *
-	 * @return the screen width.
-	 */
-	public static double getScreenHeight(final GraphicsConfiguration graphicsConfiguration) {
-		final Rectangle bounds = graphicsConfiguration.getBounds();
-		final double height = bounds.getHeight();
 		return height;
 	}
 
@@ -134,7 +169,7 @@ public class ScreenSizeExtensions
 				.getFirst(graphicsConfigurations);
 			if (graphicsConfiguration != null)
 			{
-				width = (int) getScreenWidth(graphicsConfiguration);
+				width = (int)getScreenWidth(graphicsConfiguration);
 				break;
 			}
 		}
@@ -142,16 +177,16 @@ public class ScreenSizeExtensions
 	}
 
 	/**
-	 * Gets the screen width from the given {@link GraphicsConfiguration} object
+	 * Gets the {@link GraphicsConfiguration} from the given screen id
 	 *
-	 * @param graphicsConfiguration the graphic configuration object
+	 * @param screenID
+	 *            the screen id
 	 *
-	 * @return the screen width.
+	 * @return the {@link GraphicsConfiguration} object from the given screen id
 	 */
-	public static double getScreenWidth(final GraphicsConfiguration graphicsConfiguration) {
-		final Rectangle bounds = graphicsConfiguration.getBounds();
-		final double width = bounds.getWidth();
-		return width;
+	public static GraphicsConfiguration getGraphicsConfiguration(int screenID)
+	{
+		return getScreenDevice(screenID).getDefaultConfiguration();
 	}
 
 	/**
@@ -166,21 +201,10 @@ public class ScreenSizeExtensions
 	}
 
 	/**
-	 * Gets all the screen devices.
-	 *
-	 * @return the screen devices
-	 */
-	public static GraphicsDevice[] getScreenDevices()
-	{
-		final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		final GraphicsDevice[] gs = ge.getScreenDevices();
-		return gs;
-	}
-
-	/**
 	 * Gets the screen device from the given screen id
 	 *
-	 * @param screenID the screen id
+	 * @param screenID
+	 *            the screen id
 	 *
 	 * @return the {@link GraphicsDevice} object from the given screen id
 	 */
@@ -190,15 +214,15 @@ public class ScreenSizeExtensions
 	}
 
 	/**
-	 * Gets the {@link GraphicsConfiguration} from the given screen id
+	 * Gets all the screen devices.
 	 *
-	 * @param screenID the screen id
-	 *
-	 * @return the {@link GraphicsConfiguration} object from the given screen id
+	 * @return the screen devices
 	 */
-	public static GraphicsConfiguration getGraphicsConfiguration(int screenID)
+	public static GraphicsDevice[] getScreenDevices()
 	{
-		return getScreenDevice(screenID).getDefaultConfiguration();
+		final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		final GraphicsDevice[] gs = ge.getScreenDevices();
+		return gs;
 	}
 
 	/**
@@ -247,6 +271,21 @@ public class ScreenSizeExtensions
 	}
 
 	/**
+	 * Gets the screen width from the given {@link GraphicsConfiguration} object
+	 *
+	 * @param graphicsConfiguration
+	 *            the graphic configuration object
+	 *
+	 * @return the screen width.
+	 */
+	public static double getScreenHeight(final GraphicsConfiguration graphicsConfiguration)
+	{
+		final Rectangle bounds = graphicsConfiguration.getBounds();
+		final double height = bounds.getHeight();
+		return height;
+	}
+
+	/**
 	 * Gets the screen height from the given {@link GraphicsDevice} object.
 	 *
 	 * @param graphicsDevice
@@ -289,7 +328,8 @@ public class ScreenSizeExtensions
 					Integer sid = (Integer)object;
 					counter.set(sid);
 				}
-				catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e)
+				catch (NoSuchFieldException | SecurityException | IllegalArgumentException
+					| IllegalAccessException e)
 				{
 					e.printStackTrace();
 				}
@@ -325,6 +365,21 @@ public class ScreenSizeExtensions
 	}
 
 	/**
+	 * Gets the screen width from the given {@link GraphicsConfiguration} object
+	 *
+	 * @param graphicsConfiguration
+	 *            the graphic configuration object
+	 *
+	 * @return the screen width.
+	 */
+	public static double getScreenWidth(final GraphicsConfiguration graphicsConfiguration)
+	{
+		final Rectangle bounds = graphicsConfiguration.getBounds();
+		final double width = bounds.getWidth();
+		return width;
+	}
+
+	/**
 	 * Gets the screen width from the given {@link GraphicsDevice} object.
 	 *
 	 * @param graphicsDevice
@@ -338,9 +393,26 @@ public class ScreenSizeExtensions
 			.getFirst(graphicsConfigurations);
 		if (graphicsConfiguration != null)
 		{
-			return (int) getScreenWidth(graphicsConfiguration);
+			return (int)getScreenWidth(graphicsConfiguration);
 		}
 		return getScreenWidth();
+	}
+
+	/**
+	 * Bring the given {@link Frame} to the front
+	 *
+	 * @param frame
+	 *            the frame
+	 */
+	public static void showFrame(@NonNull Frame frame)
+	{
+		// Show the Frame.
+		frame.setVisible(true);
+		// bring to front
+		if (!frame.isActive())
+		{
+			frame.toFront();
+		}
 	}
 
 	/**
@@ -362,61 +434,6 @@ public class ScreenSizeExtensions
 		{
 			frame.setVisible(true);
 			device.setFullScreenWindow(frame);
-		}
-	}
-
-	/**
-	 * Set given {@link Window} to the center of the device and divide them with the given
-	 * arguments
-	 *
-	 * @param window
-	 *            the window
-	 * @param divideScreenWith
-	 * 				the value to divide with the screen with
-	 * @param  divideScreenHeight
-	 * 				the value to divide with the screen height
-	 */
-	public static void centralize(@NonNull Window window, int divideScreenWith, int divideScreenHeight)
-	{
-		final int x = ScreenSizeExtensions.getScreenWidth(window);
-		final int y = ScreenSizeExtensions.getScreenHeight(window);
-		final int width = x;
-		final int height = y;
-		window.setLocation((width / divideScreenWith), (height / divideScreenHeight));
-		window.setSize((width / divideScreenWith), (height / divideScreenHeight));
-	}
-
-	/**
-	 * Set given {@link Window} to the center of the device and divide them with the given
-	 * arguments
-	 *
-	 * @param component
-	 *            the component
-	 * @param divideScreenWith
-	 * 				the value to divide with the screen with
-	 * @param  divideScreenHeight
-	 * 				the value to divide with the screen height
-	 */
-	public static void centralize(@NonNull Component component, int divideScreenWith, int divideScreenHeight)
-	{
-		Window window = AwtExtensions.getWindowForComponent(component);
-		centralize(window, divideScreenWith, divideScreenHeight);
-	}
-
-	/**
-	 * Bring the given {@link Frame} to the front
-	 *
-	 * @param frame
-	 *            the frame
-	 */
-	public static void showFrame(@NonNull Frame frame)
-	{
-		//  Show the Frame.
-		frame.setVisible(true);
-		// bring to front
-		if (!frame.isActive())
-		{
-			frame.toFront();
 		}
 	}
 

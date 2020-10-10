@@ -24,15 +24,13 @@
  */
 package de.alpharogroup.swing.splashscreen;
 
-import de.alpharogroup.layout.ScreenSizeExtensions;
-import de.alpharogroup.model.api.Model;
-import de.alpharogroup.swing.base.BaseWindow;
-import lombok.NonNull;
+import java.awt.BorderLayout;
 
-import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+
+import de.alpharogroup.model.api.Model;
 
 /**
  * The {@link ProgressBarSplashScreen} for an application that have to support progress bar
@@ -56,29 +54,26 @@ public class ProgressBarSplashScreen extends BaseSplashScreen
 		super(frame, model);
 	}
 
-	protected JPanel newContentPanel() {
+	@Override
+	protected JPanel newContentPanel()
+	{
 		return new JPanel();
 	}
 
-	@Override protected void onInitializeComponents()
+	@Override
+	protected void onAfterInitialize()
 	{
-		super.onInitializeComponents();
-		progressBar = new JProgressBar(getModelObject().getMin(), getModelObject().getMax());
-	}
-
-	@Override protected void onInitializeLayout()
-	{
-		super.onInitializeLayout();
-		getContentPanel().add(progressBar, BorderLayout.SOUTH);
-	}
-
-	@Override protected void onAfterInitialize()
-	{
-		final StepSleepTimerThread stepSleepTimerThread = new StepSleepTimerThread(getModelObject().getShowTime());
-		Thread splashscreenThread = new Thread() {
-			public void run() {
+		final StepSleepTimerThread stepSleepTimerThread = new StepSleepTimerThread(
+			getModelObject().getShowTime());
+		Thread splashscreenThread = new Thread()
+		{
+			@Override
+			public void run()
+			{
 				stepSleepTimerThread.start();
-				while (getModelObject().isShowing() && stepSleepTimerThread.getCount() <= getModelObject().getShowTime()) {
+				while (getModelObject().isShowing()
+					&& stepSleepTimerThread.getCount() <= getModelObject().getShowTime())
+				{
 					ProgressBarSplashScreen.this.setVisible(true);
 				}
 				ProgressBarSplashScreen.this.setVisible(false);
@@ -87,13 +82,20 @@ public class ProgressBarSplashScreen extends BaseSplashScreen
 			}
 		};
 
-		final Runnable progressBarRunnable = new Runnable() {
-			public void run() {
+		final Runnable progressBarRunnable = new Runnable()
+		{
+			@Override
+			public void run()
+			{
 				System.out.println("running progress bar");
-				for (int i = getModelObject().getMin(); i <= getModelObject().getMax(); i++) {
-					try {
+				for (int i = getModelObject().getMin(); i <= getModelObject().getMax(); i++)
+				{
+					try
+					{
 						Thread.sleep(getModelObject().getShowTime() / getModelObject().getMax());
-					} catch (InterruptedException e) {
+					}
+					catch (InterruptedException e)
+					{
 					}
 					progressBar.setValue(i);
 				}
@@ -101,5 +103,19 @@ public class ProgressBarSplashScreen extends BaseSplashScreen
 		};
 		new Thread(splashscreenThread).start();
 		new Thread(progressBarRunnable).start();
+	}
+
+	@Override
+	protected void onInitializeComponents()
+	{
+		super.onInitializeComponents();
+		progressBar = new JProgressBar(getModelObject().getMin(), getModelObject().getMax());
+	}
+
+	@Override
+	protected void onInitializeLayout()
+	{
+		super.onInitializeLayout();
+		getContentPanel().add(progressBar, BorderLayout.SOUTH);
 	}
 }

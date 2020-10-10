@@ -24,22 +24,25 @@
  */
 package de.alpharogroup.swing.dialog.factories;
 
-import de.alpharogroup.file.create.FileFactory;
-import de.alpharogroup.layout.CloseWindow;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dialog;
+import java.awt.Frame;
+import java.awt.GraphicsConfiguration;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+
+import org.testng.annotations.Test;
+
 import de.alpharogroup.swing.components.factories.JComponentFactory;
 import de.alpharogroup.swing.listener.RequestFocusListener;
 import de.alpharogroup.swing.test.TestComponentFactory;
 import net.miginfocom.swing.MigLayout;
-import org.testng.annotations.Test;
-
-import javax.swing.*;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.nio.file.Path;
-
-import static org.testng.Assert.*;
 
 
 /**
@@ -61,14 +64,6 @@ public class JDialogFactoryTest
 		buttonShow = newButtonShow(frame);
 		buttonPanel.add(buttonShow, BorderLayout.EAST);
 		TestComponentFactory.showFrame(frame, 4);
-	}
-
-	/**
-	 * Test method for
-	 * {@link JDialogFactory#newJDialog(Component, String, boolean, GraphicsConfiguration)}
-	 */
-	@Test(enabled = false) public void testTestNewJDialog()
-	{
 	}
 
 	protected static JButton newButtonShow(final Frame frame)
@@ -95,18 +90,36 @@ public class JDialogFactoryTest
 	}
 
 	/**
-	 * Test method for
-	 * {@link JDialogFactory#newJDialog(Component, String, Dialog.ModalityType, GraphicsConfiguration)}
+	 * Test method for {@link JDialogFactory#newJDialog(Component, JOptionPane, String)}
 	 */
-	@Test(enabled = false) public void testTestNewJDialog1()
+	@Test(enabled = false)
+	public void testNewJDialogComponentJOptionPaneString()
 	{
 	}
 
 	/**
 	 * Test method for
-	 * {@link JDialogFactory#newJDialog(JOptionPane, String)}
+	 * {@link JDialogFactory#newJDialog(Component, String, boolean, GraphicsConfiguration)}
 	 */
-	@Test(enabled = false) public void testTestNewJDialogJOptionPaneString()
+	@Test(enabled = false)
+	public void testTestNewJDialog()
+	{
+	}
+
+	/**
+	 * Test method for
+	 * {@link JDialogFactory#newJDialog(Component, String, Dialog.ModalityType, GraphicsConfiguration)}
+	 */
+	@Test(enabled = false)
+	public void testTestNewJDialog1()
+	{
+	}
+
+	/**
+	 * Test method for {@link JDialogFactory#newJDialog(JOptionPane, String)}
+	 */
+	@Test(enabled = false)
+	public void testTestNewJDialogJOptionPaneString()
 	{
 		JPasswordField pf = new JPasswordField("", 10);
 		pf.setFocusable(true);
@@ -123,13 +136,5 @@ public class JDialogFactoryTest
 		dialog.pack();
 		dialog.setLocationRelativeTo(null);
 		dialog.setVisible(true);
-	}
-
-	/**
-	 * Test method for
-	 * {@link JDialogFactory#newJDialog(Component, JOptionPane, String)}
-	 */
-	@Test(enabled = false) public void testNewJDialogComponentJOptionPaneString()
-	{
 	}
 }

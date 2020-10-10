@@ -24,6 +24,29 @@
  */
 package de.alpharogroup.swing.components.factories;
 
+import java.awt.Component;
+import java.awt.Frame;
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+
+import javax.help.HelpSet;
+import javax.help.HelpSetException;
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.JSplitPane;
+import javax.swing.JToolBar;
+
 import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.swing.menu.MenuExtensions;
 import de.alpharogroup.swing.menu.MenuItemBean;
@@ -32,20 +55,11 @@ import de.alpharogroup.swing.splashscreen.SplashScreen;
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 
-import javax.help.HelpSet;
-import javax.help.HelpSetException;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.net.URL;
-import java.util.List;
-import java.util.Map;
-
 /**
  * The class {@link JComponentFactory} provides factory methods for create swing Component objects
  */
-@UtilityClass public class JComponentFactory
+@UtilityClass
+public class JComponentFactory
 {
 
 	public static Frame newFrame(String title)
@@ -73,10 +87,12 @@ import java.util.Map;
 	/**
 	 * Factory method for create new {@link JSplitPane} object
 	 *
-	 * @param newLeftComponent  the <code>Component</code> that will appear on the left of a horizontally-split
-	 *                          pane, or at the top of a vertically-split pane
-	 * @param newRightComponent the <code>Component</code> that will appear on the right of a horizontally-split
-	 *                          pane, or at the bottom of a vertically-split pane
+	 * @param newLeftComponent
+	 *            the <code>Component</code> that will appear on the left of a horizontally-split
+	 *            pane, or at the top of a vertically-split pane
+	 * @param newRightComponent
+	 *            the <code>Component</code> that will appear on the right of a horizontally-split
+	 *            pane, or at the bottom of a vertically-split pane
 	 * @return the new {@link JSplitPane} object
 	 */
 	public static JSplitPane newJSplitPane(Component newLeftComponent, Component newRightComponent)
@@ -87,11 +103,14 @@ import java.util.Map;
 	/**
 	 * Factory method for create new {@link JSplitPane} object
 	 *
-	 * @param newOrientation    <code>JSplitPane.HORIZONTAL_SPLIT</code> or <code>JSplitPane.VERTICAL_SPLIT</code>
-	 * @param newLeftComponent  the <code>Component</code> that will appear on the left of a horizontally-split
-	 *                          pane, or at the top of a vertically-split pane
-	 * @param newRightComponent the <code>Component</code> that will appear on the right of a horizontally-split
-	 *                          pane, or at the bottom of a vertically-split pane
+	 * @param newOrientation
+	 *            <code>JSplitPane.HORIZONTAL_SPLIT</code> or <code>JSplitPane.VERTICAL_SPLIT</code>
+	 * @param newLeftComponent
+	 *            the <code>Component</code> that will appear on the left of a horizontally-split
+	 *            pane, or at the top of a vertically-split pane
+	 * @param newRightComponent
+	 *            the <code>Component</code> that will appear on the right of a horizontally-split
+	 *            pane, or at the bottom of a vertically-split pane
 	 * @return the new {@link JSplitPane} object
 	 */
 	public static JSplitPane newJSplitPane(int newOrientation, Component newLeftComponent,
@@ -103,13 +122,17 @@ import java.util.Map;
 	/**
 	 * Factory method for create new {@link JSplitPane} object
 	 *
-	 * @param newOrientation      <code>JSplitPane.HORIZONTAL_SPLIT</code> or <code>JSplitPane.VERTICAL_SPLIT</code>
-	 * @param newContinuousLayout a boolean, true for the components to redraw continuously as the divider changes
-	 *                            position, false to wait until the divider position stops changing to redraw
-	 * @param newLeftComponent    the <code>Component</code> that will appear on the left of a horizontally-split
-	 *                            pane, or at the top of a vertically-split pane
-	 * @param newRightComponent   the <code>Component</code> that will appear on the right of a horizontally-split
-	 *                            pane, or at the bottom of a vertically-split pane
+	 * @param newOrientation
+	 *            <code>JSplitPane.HORIZONTAL_SPLIT</code> or <code>JSplitPane.VERTICAL_SPLIT</code>
+	 * @param newContinuousLayout
+	 *            a boolean, true for the components to redraw continuously as the divider changes
+	 *            position, false to wait until the divider position stops changing to redraw
+	 * @param newLeftComponent
+	 *            the <code>Component</code> that will appear on the left of a horizontally-split
+	 *            pane, or at the top of a vertically-split pane
+	 * @param newRightComponent
+	 *            the <code>Component</code> that will appear on the right of a horizontally-split
+	 *            pane, or at the bottom of a vertically-split pane
 	 * @return the new {@link JSplitPane} object
 	 */
 	public static JSplitPane newJSplitPane(int newOrientation, boolean newContinuousLayout,
@@ -122,10 +145,13 @@ import java.util.Map;
 	/**
 	 * Factory method for create new {@link HelpSet} object.
 	 *
-	 * @param directoryPath the directory path
-	 * @param filename      the filename
+	 * @param directoryPath
+	 *            the directory path
+	 * @param filename
+	 *            the filename
 	 * @return the new {@link HelpSet} object
-	 * @throws HelpSetException is thrown if there are problems parsing the {@link HelpSet} object.
+	 * @throws HelpSetException
+	 *             is thrown if there are problems parsing the {@link HelpSet} object.
 	 */
 	public static HelpSet newHelpSet(final String directoryPath, final String filename)
 		throws HelpSetException
@@ -139,11 +165,16 @@ import java.util.Map;
 	/**
 	 * Factory method for create a {@link JInternalFrame} object.
 	 *
-	 * @param title       the title
-	 * @param resizable   the resizable
-	 * @param closable    the closable
-	 * @param maximizable the maximizable
-	 * @param iconifiable the iconifiable
+	 * @param title
+	 *            the title
+	 * @param resizable
+	 *            the resizable
+	 * @param closable
+	 *            the closable
+	 * @param maximizable
+	 *            the maximizable
+	 * @param iconifiable
+	 *            the iconifiable
 	 * @return the new {@link JInternalFrame}.
 	 */
 	public static JInternalFrame newInternalFrame(final String title, final boolean resizable,
@@ -157,9 +188,12 @@ import java.util.Map;
 	/**
 	 * Factory method for create a <code>JMenuItem</code>.
 	 *
-	 * @param text        the text of the <code>JMenuItem</code>
-	 * @param mnemonic    the keyboard mnemonic for the <code>JMenuItem</code>
-	 * @param accelerator The character that have to push together with the CTRL.
+	 * @param text
+	 *            the text of the <code>JMenuItem</code>
+	 * @param mnemonic
+	 *            the keyboard mnemonic for the <code>JMenuItem</code>
+	 * @param accelerator
+	 *            The character that have to push together with the CTRL.
 	 * @return the new {@link JMenuItem}
 	 */
 	public static JMenuItem newJMenuItem(final @NonNull String text, final int mnemonic,
@@ -185,8 +219,10 @@ import java.util.Map;
 	 * <code>MouseListener</code> to the given <code>Component</code> and an array of
 	 * <code>JMenuItem</code> that will be added to the popup.
 	 *
-	 * @param component the component
-	 * @param items     the <code>JMenuItem</code>s
+	 * @param component
+	 *            the component
+	 * @param items
+	 *            the <code>JMenuItem</code>s
 	 * @return the new {@link JPopupMenu}.
 	 */
 	public static JPopupMenu newJPopupMenu(final Component component, final JMenuItem... items)
@@ -197,7 +233,8 @@ import java.util.Map;
 	/**
 	 * Factory method for create a <code>JPopupMenu</code> with the specified title.
 	 *
-	 * @param label the string that a UI may use to display as a title for the popup menu.
+	 * @param label
+	 *            the string that a UI may use to display as a title for the popup menu.
 	 * @return the new {@link JPopupMenu}.
 	 */
 	public static JPopupMenu newJPopupMenu(final String label)
@@ -211,9 +248,12 @@ import java.util.Map;
 	 * <code>MouseListener</code> to the given <code>Component</code> and an array of
 	 * <code>JMenuItem</code> that will be added to the popup.
 	 *
-	 * @param label     the label
-	 * @param component the component
-	 * @param items     the <code>JMenuItem</code>s
+	 * @param label
+	 *            the label
+	 * @param component
+	 *            the component
+	 * @param items
+	 *            the <code>JMenuItem</code>s
 	 * @return the new {@link JPopupMenu}.
 	 */
 	public static JPopupMenu newJPopupMenu(final String label, final Component component,
@@ -244,7 +284,8 @@ import java.util.Map;
 	/**
 	 * Factory method for create a {@link PopupMenu} object.
 	 *
-	 * @param menuItemBeans the menu item beans
+	 * @param menuItemBeans
+	 *            the menu item beans
 	 * @return the new {@link PopupMenu}.
 	 */
 	public static PopupMenu newPopupMenu(final List<MenuItemBean> menuItemBeans)
@@ -263,8 +304,10 @@ import java.util.Map;
 	/**
 	 * Factory method for create a {@link SplashScreen}.
 	 *
-	 * @param image the image
-	 * @param text  the text
+	 * @param image
+	 *            the image
+	 * @param text
+	 *            the text
 	 * @return the new {@link SplashScreen}.
 	 */
 	public static SplashScreen newSplashScreen(final String image, final String text)
@@ -276,10 +319,14 @@ import java.util.Map;
 	/**
 	 * Factory method for create a {@link TrayIcon} object.
 	 *
-	 * @param imgFilename         the img filename
-	 * @param appName             the app name
-	 * @param systemTrayPopupMenu the system tray popup menu
-	 * @param actionListeners     the action listeners
+	 * @param imgFilename
+	 *            the img filename
+	 * @param appName
+	 *            the app name
+	 * @param systemTrayPopupMenu
+	 *            the system tray popup menu
+	 * @param actionListeners
+	 *            the action listeners
 	 * @return the new {@link TrayIcon}.
 	 */
 	public static TrayIcon newTrayIcon(final String imgFilename, final String appName,

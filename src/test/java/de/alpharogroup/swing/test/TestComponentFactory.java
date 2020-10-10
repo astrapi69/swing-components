@@ -24,12 +24,11 @@
  */
 package de.alpharogroup.swing.test;
 
+import java.awt.Frame;
+
 import de.alpharogroup.layout.CloseWindow;
 import de.alpharogroup.layout.ScreenSizeExtensions;
 import de.alpharogroup.swing.components.factories.JComponentFactory;
-import lombok.NonNull;
-
-import java.awt.*;
 
 public final class TestComponentFactory
 {

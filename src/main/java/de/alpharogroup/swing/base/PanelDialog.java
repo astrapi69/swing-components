@@ -24,12 +24,20 @@
  */
 package de.alpharogroup.swing.base;
 
-import de.alpharogroup.model.api.Model;
-import lombok.*;
-import lombok.experimental.FieldDefaults;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Frame;
+import java.awt.Toolkit;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+
+import de.alpharogroup.model.api.Model;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 
 /**
  * The class {@link PanelDialog} contains a panel for the content and a panel for the buttons
@@ -42,17 +50,17 @@ import java.awt.*;
 @ToString
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class PanelDialog<T>  extends BaseDialog<T>
+public class PanelDialog<T> extends BaseDialog<T>
 {
 
 	/** The serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	JPanel buttons;
+
 	Container container;
 
 	JPanel content;
-
-	JPanel buttons;
 
 	/**
 	 * Instantiates a new {@link PanelDialog}.
@@ -67,7 +75,7 @@ public class PanelDialog<T>  extends BaseDialog<T>
 	 *            the model
 	 */
 	public PanelDialog(final Frame owner, final String title, final boolean modal,
-                       final Model<T> model)
+		final Model<T> model)
 	{
 		super(owner, title, modal, model);
 	}
@@ -87,11 +95,30 @@ public class PanelDialog<T>  extends BaseDialog<T>
 		super(owner, title, model);
 	}
 
+	protected Container getContentPaneContainer()
+	{
+		return getContentPane();
+	}
+
+	protected JPanel newButtons(final Model<T> model)
+	{
+		JPanel buttonsPanel = new JPanel();
+		return buttonsPanel;
+	}
+
+
+	protected JPanel newContent(final Model<T> model)
+	{
+		JPanel emptyPanel = new JPanel();
+		return emptyPanel;
+	}
+
 	@Override
-	protected void onInitializeComponents() {
+	protected void onInitializeComponents()
+	{
 		super.onInitializeComponents();
 		setModal(isModal());
-		container = getContainer();
+		container = getContentPaneContainer();
 		content = newContent(getModel());
 		buttons = newButtons(getModel());
 	}
@@ -107,21 +134,6 @@ public class PanelDialog<T>  extends BaseDialog<T>
 		final int y = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		setLocation((x / 3), (y / 3));
 		setSize((x / 3), (y / 3));
-	}
-
-
-	protected Container getContainer() {
-		return getContentPane();
-	}
-
-	protected JPanel newContent(final Model<T> model){
-		JPanel emptyPanel = new JPanel();
-		return emptyPanel;
-	}
-
-	protected JPanel newButtons(final Model<T> model){
-		JPanel buttonsPanel = new JPanel();
-		return buttonsPanel;
 	}
 
 }

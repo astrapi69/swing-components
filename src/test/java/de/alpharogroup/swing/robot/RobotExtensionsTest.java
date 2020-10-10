@@ -1,9 +1,9 @@
 package de.alpharogroup.swing.robot;
 
-import org.testng.annotations.Test;
+import java.awt.AWTException;
+import java.awt.Robot;
 
-import java.awt.*;
-import java.util.Random;
+import org.testng.annotations.Test;
 
 public class RobotExtensionsTest
 {
