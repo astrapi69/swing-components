@@ -32,6 +32,7 @@ import java.awt.HeadlessException;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.Window;
+import java.awt.datatransfer.Clipboard;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -157,4 +158,15 @@ public final class AwtExtensions
 		final BufferedImage biLogo = ImageIO.read(isLogo);
 		window.setIconImage(biLogo);
 	}
+
+	/**
+	 * Gets the {@link Clipboard} of the system
+	 *
+	 * @return s the {@link Clipboard} of the system
+	 */
+	public static Clipboard getSystemClipboard()
+	{
+		return Toolkit.getDefaultToolkit().getSystemClipboard();
+	}
+
 }
