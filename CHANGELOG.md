@@ -11,11 +11,15 @@ ADDED:
 
 CHANGED:
 
-- update dependency of randomizer version to 6.9
-- update dependency of com.github.ben-manes.versions.gradle.plugin to new version 0.33.0
+- update gradle to new version 6.8
+- update of lombok version to 1.18.16
+- update dependency of randomizer version to 8
+- update of silly-collections version to 8.4
+- update dependency of com.github.ben-manes.versions.gradle.plugin to new version 0.36.0
+- replaced lombok gradle plugin from io.franzbecker:gradle-lombok to recommended io.freefair.gradle:lombok-plugin in version 5.3.0
 - update dependency of itextpdf version to 5.5.13.2
 - update dependency of jobj-core version to 3.6
-- update dependency of zip4j version to 2.6.3
+- update dependency of zip4j version to 2.6.4
 
 Version 5.4.1
 -------------

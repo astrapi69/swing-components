@@ -37,6 +37,7 @@ import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+import de.alpharogroup.random.object.RandomObjectFactory;
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
@@ -50,7 +51,6 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import de.alpharogroup.random.RandomExtensions;
 import lombok.extern.java.Log;
 
 /**
@@ -250,7 +250,7 @@ public class ImageExtensions
 		{
 			for (int x = 0; x < width; x++)
 			{
-				img.setRGB(x, y, RandomExtensions.newRandomPixel());
+				img.setRGB(x, y, RandomObjectFactory.randomPixel());
 			}
 		}
 		return img;

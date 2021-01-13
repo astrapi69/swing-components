@@ -6,14 +6,14 @@ buildscript {
         }
     }
     dependencies {
-        classpath "io.franzbecker:gradle-lombok:$gradlePluginLombokVersion"
+        classpath "io.freefair.gradle:lombok-plugin:$gradlePluginLombokVersion"
         classpath "com.github.ben-manes:gradle-versions-plugin:$gradlePluginVersionsVersion"
         classpath "gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin:$licenseGradlePluginVersion"
         classpath "gradle.plugin.org.ec4j.gradle:editorconfig-gradle-plugin:$editorconfigGradlePluginVersion"
     }
 }
 
-apply plugin: "io.franzbecker.gradle-lombok"
+apply plugin: "io.freefair.lombok"
 apply plugin: "java"
 apply plugin: "java-library"
 apply plugin: "maven-publish"
@@ -41,10 +41,12 @@ dependencies {
     implementation("org.swinglabs.swingx:swingx-all:$swingxAllVersion")
     implementation("org.imgscalr:imgscalr-lib:$imgscalrLibVersion")
     implementation("com.itextpdf:itextpdf:$itextpdfVersion")
+    implementation("com.miglayout:miglayout-swing:$miglayoutSwingVersion")
     implementation("de.alpharogroup:jcommons-lang:$jcommonsLangVersion")
     implementation("de.alpharogroup:silly-collections:$sillyCollectionsVersion")
     implementation("de.alpharogroup:file-worker:$fileWorkerVersion")
-    implementation("de.alpharogroup:randomizer-core:$randomizerCoreVersion")
+    implementation("de.alpharogroup:randomizer-core:$randomizerVersion")
+    implementation("de.alpharogroup:randomizer-data:$randomizerVersion")
     implementation("de.alpharogroup:state:$stateVersion")
     implementation("de.alpharogroup:observer:$observerVersion")
     implementation("de.alpharogroup:silly-beans:$sillyBeansVersion")
@@ -53,8 +55,8 @@ dependencies {
     implementation("de.alpharogroup:jobj-core:$jobjCoreVersion")
     implementation("de.alpharogroup:gen-tree:$genTreeVersion")
     implementation("de.alpharogroup:throw-able:$throwAbleVersion")
+    implementation("de.alpharogroup:silly-math:$sillyMathVersion")
     testImplementation("net.lingala.zip4j:zip4j:$zip4jVersion")
-    implementation("com.miglayout:miglayout-swing:$miglayoutSwingVersion")
     testImplementation("de.alpharogroup:vintage-time:$vintageTimeVersion")
     testImplementation("de.alpharogroup:test-objects:$testObjectsVersion")
     testImplementation("org.testng:testng:$testngVersion")
