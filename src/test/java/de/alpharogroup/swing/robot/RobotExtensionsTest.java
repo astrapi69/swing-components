@@ -14,7 +14,7 @@ public class RobotExtensionsTest
 		RobotExtensions.infiniteMoveMouse(new Robot(), 400, 400, 200);
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void testMoveMouse() throws AWTException, InterruptedException
 	{
 		RobotExtensions.moveMouseForSpecificDuration(new Robot(), 400, 400, 20, 2000);
