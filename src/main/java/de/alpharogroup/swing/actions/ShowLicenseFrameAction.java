@@ -32,7 +32,7 @@ import de.alpharogroup.swing.help.HelpFrame;
 import lombok.NonNull;
 
 /**
- * The abstract class {@link ShowLicenseFrameAction}.
+ * The abstract class {@link ShowLicenseFrameAction}
  */
 public abstract class ShowLicenseFrameAction extends AbstractAction
 {
@@ -41,6 +41,17 @@ public abstract class ShowLicenseFrameAction extends AbstractAction
 	private static final long serialVersionUID = 1L;
 
 	final String title;
+
+	/**
+	 * Instantiates a new show license frame action.
+	 *
+	 * @param name
+	 *            the name
+	 */
+	public ShowLicenseFrameAction(final @NonNull String name)
+	{
+		this(name, name);
+	}
 
 	/**
 	 * Instantiates a new show license frame action.

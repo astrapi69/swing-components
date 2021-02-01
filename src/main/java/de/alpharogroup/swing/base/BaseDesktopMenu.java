@@ -235,7 +235,7 @@ public class BaseDesktopMenu extends JMenu
 		MenuExtensions.setCtrlAccelerator(mihInfo, 'I');
 
 		mihInfo.addActionListener(newShowInfoDialogAction(newLabelTextInfo(),
-			(Frame)applicationFrame, newLabelTextInfo()));
+			(Frame)getApplicationFrame(), newLabelTextInfo()));
 		menuHelp.add(mihInfo);
 
 		return menuHelp;
