@@ -51,6 +51,9 @@ public enum LookAndFeels
 	/** The METAL look and feel class */
 	METAL(LookAndFeels.LOOK_AND_FEEL_METAL),
 
+	/** The OCEAN look and feel class */
+	OCEAN(LookAndFeels.LOOK_AND_FEEL_METAL_OCEAN),
+
 	/** The MOTIF look and feel class */
 	MOTIF(LookAndFeels.LOOK_AND_FEEL_MOTIF),
 
@@ -71,12 +74,14 @@ public enum LookAndFeels
 
 	private static final String LOOK_AND_FEEL_GTK = "com.sun.java.swing.plaf.gtk.GTKLookAndFeel";
 	private static final String LOOK_AND_FEEL_METAL = "javax.swing.plaf.metal.MetalLookAndFeel";
+	private static final String LOOK_AND_FEEL_METAL_OCEAN = "javax.swing.plaf.metal.OceanTheme";
 	private static final String LOOK_AND_FEEL_MOTIF = "com.sun.java.swing.plaf.motif.MotifLookAndFeel";
 	private static final String LOOK_AND_FEEL_MULTI = "javax.swing.plaf.multi.MultiLookAndFeel";
 
 	private static final String LOOK_AND_FEEL_NIMBUS = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
 	private static final String LOOK_AND_FEEL_SYNTH = "javax.swing.plaf.synth.SynthLookAndFeel";
 	private static final String LOOK_AND_FEEL_WINDOWS = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+
 
 	/**
 	 * Sets the given {@link LookAndFeels} to the given {@link Component} and returns given
