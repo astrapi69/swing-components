@@ -22,66 +22,54 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.alpharogroup.swing.actions;
+package de.alpharogroup.swing.base;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
-
-import de.alpharogroup.swing.help.HelpFrame;
-import lombok.NonNull;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 
 /**
- * The abstract class {@link ShowLicenseFrameAction}
+ * The class {@link ApplicationPanelFrame}
+ *
+ * @param <T>
+ *            the generic type of the model object
  */
-public abstract class ShowLicenseFrameAction extends AbstractAction
+@Getter
+@Setter
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public abstract class ApplicationPanelFrame<T> extends AbstractApplicationFrame<T, BasePanel<T>>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	final String title;
-
 	/**
-	 * Instantiates a new show license frame action.
+	 * Instantiates a new {@link ApplicationPanelFrame}
 	 *
-	 * @param name
-	 *            the name
-	 */
-	public ShowLicenseFrameAction(final @NonNull String name)
-	{
-		this(name, name);
-	}
-
-	/**
-	 * Instantiates a new show license frame action.
-	 *
-	 * @param name
-	 *            the name
 	 * @param title
 	 *            the title
 	 */
-	public ShowLicenseFrameAction(final String name, final @NonNull String title)
+	public ApplicationPanelFrame(String title)
 	{
-		super(name);
-		this.title = title;
+		super(title);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void actionPerformed(final ActionEvent e)
+	protected void onInitializeComponents()
 	{
-		final HelpFrame frame = new HelpFrame(this.title, newLicenseText());
-		frame.setVisible(true);
+		super.onInitializeComponents();
 	}
 
 	/**
-	 * Load license.
-	 *
-	 * @return the string
+	 * {@inheritDoc}
 	 */
-	protected abstract String newLicenseText();
+	@Override
+	protected abstract BasePanel<T> newMainComponent();
 
 }

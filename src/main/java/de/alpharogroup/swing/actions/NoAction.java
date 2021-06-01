@@ -1,8 +1,8 @@
 /**
  * The MIT License
- *
+ * <p>
  * Copyright (C) 2015 Asterios Raptis
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -10,10 +10,10 @@
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -24,64 +24,42 @@
  */
 package de.alpharogroup.swing.actions;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
-
-import de.alpharogroup.swing.help.HelpFrame;
-import lombok.NonNull;
-
 /**
- * The abstract class {@link ShowLicenseFrameAction}
+ * The class {@link NoAction} as the name say there is no action
  */
-public abstract class ShowLicenseFrameAction extends AbstractAction
+public class NoAction extends AbstractAction
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	final String title;
-
 	/**
-	 * Instantiates a new show license frame action.
+	 * Instantiates a new {@link NoAction} object
 	 *
 	 * @param name
 	 *            the name
 	 */
-	public ShowLicenseFrameAction(final @NonNull String name)
+	public NoAction(final String name)
 	{
-		this(name, name);
+		super(name);
 	}
 
 	/**
-	 * Instantiates a new show license frame action.
-	 *
-	 * @param name
-	 *            the name
-	 * @param title
-	 *            the title
+	 * Instantiates a new {@link NoAction} object
 	 */
-	public ShowLicenseFrameAction(final String name, final @NonNull String title)
+	public NoAction()
 	{
-		super(name);
-		this.title = title;
+		this("No action");
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
-	public void actionPerformed(final ActionEvent e)
+	@Override public void actionPerformed(final ActionEvent e)
 	{
-		final HelpFrame frame = new HelpFrame(this.title, newLicenseText());
-		frame.setVisible(true);
 	}
-
-	/**
-	 * Load license.
-	 *
-	 * @return the string
-	 */
-	protected abstract String newLicenseText();
 
 }
