@@ -48,15 +48,10 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 
 	public static void main(final String[] a)
 	{
-		final Frame frame = new Frame("BaseDialog");
-		int screenID = ScreenSizeExtensions.getScreenID(frame);
-		Dimension screenDimension = ScreenSizeExtensions.getScreenDimension(frame);
-		System.out.println(screenID);
-		System.out.println(screenDimension);
-		frame.addWindowListener(new CloseWindow());
-		final BaseDialogExample dialog = new BaseDialogExample(frame, "Password title", true,
+		final BaseDialogExample dialog = new BaseDialogExample(null, "Password title", true,
 			BaseModel.<ChangePasswordModelBean> of());
-
+		dialog.addWindowListener(new CloseWindow());
+		ScreenSizeExtensions.centralize(dialog, 3,3);
 		dialog.setSize(500, 250);
 
 		dialog.setVisible(true);
@@ -122,7 +117,6 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 		container = getContentPane();
 		container.add(newPasswordPanel, BorderLayout.CENTER);
 		container.add(buttons, BorderLayout.SOUTH);
-		ScreenSizeExtensions.centralize(container, 3, 3);
 	}
 
 }

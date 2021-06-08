@@ -48,15 +48,10 @@ public class PanelDialogExample extends PanelDialog<ChangePasswordModelBean>
 
 	public static void main(final String[] a)
 	{
-		final Frame frame = new Frame("BaseDialog");
-		int screenID = ScreenSizeExtensions.getScreenID(frame);
-		Dimension screenDimension = ScreenSizeExtensions.getScreenDimension(frame);
-		System.out.println(screenID);
-		System.out.println(screenDimension);
-		frame.addWindowListener(new CloseWindow());
-		final PanelDialogExample dialog = new PanelDialogExample(frame, "Password title", true,
+		final PanelDialogExample dialog = new PanelDialogExample(null, "Password title", true,
 			BaseModel.<ChangePasswordModelBean> of());
-
+		dialog.addWindowListener(new CloseWindow());
+		ScreenSizeExtensions.centralize(dialog, 3,3);
 		dialog.setSize(500, 250);
 
 		dialog.setVisible(true);
@@ -109,10 +104,6 @@ public class PanelDialogExample extends PanelDialog<ChangePasswordModelBean>
 	{
 		super.onInitializeLayout();
 		getButtons().add(buttonClose, BorderLayout.EAST);
-		final int x = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-		final int y = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-		setLocation((x / 3), (y / 3));
-		setSize((x / 3), (y / 3));
 	}
 
 

@@ -27,7 +27,6 @@ package de.alpharogroup.swing.base;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Frame;
-import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 
@@ -130,10 +129,6 @@ public class PanelDialog<T> extends BaseDialog<T>
 		container = getContentPane();
 		container.add(content, BorderLayout.CENTER);
 		container.add(buttons, BorderLayout.SOUTH);
-		final int x = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-		final int y = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-		setLocation((x / 3), (y / 3));
-		setSize((x / 3), (y / 3));
 	}
 
 }

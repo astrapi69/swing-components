@@ -1,9 +1,6 @@
 package de.alpharogroup.swing.panels.tree;
 
-import io.github.astrapi69.tree.TreeNode;
-
 import javax.swing.event.TreeModelListener;
-import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import java.io.File;
@@ -30,13 +27,14 @@ public class FileTreeNodeModel implements TreeModel
 	public int getChildCount(Object parent)
 	{
 		String[] list = ((File)parent).list();
-		return list == null?0:list.length;
+		return list == null ? 0 : list.length;
 	}
 
 	public Object getChild(Object parent, int index)
 	{
 		String[] list = ((File)parent).list();
-		if(list != null && index < list.length) {
+		if (list != null && index < list.length)
+		{
 			return new File((File)parent, list[index]);
 		}
 		return null;
@@ -45,10 +43,13 @@ public class FileTreeNodeModel implements TreeModel
 	public int getIndexOfChild(Object parent, Object child)
 	{
 		String[] list = ((File)parent).list();
-		if(list != null) {
+		if (list != null)
+		{
 			String filename = ((File)child).getName();
-			for(int i = 0; i < list.length; i++) {
-				if(filename.equals(list[i])){
+			for (int i = 0; i < list.length; i++)
+			{
+				if (filename.equals(list[i]))
+				{
 					return i;
 				}
 			}
