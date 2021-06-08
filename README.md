@@ -1,6 +1,6 @@
 # swing-components
 
-[![Build Status](https://travis-ci.org/lightblueseas/swing-components.svg?branch=master)](https://travis-ci.org/lightblueseas/swing-components)
+[![Build Status](https://api.travis-ci.com/lightblueseas/swing-components.svg?branch=master)](https://travis-ci.com/github/lightblueseas/swing-components)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components)
 [![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/swing-components.svg)](http://www.javadoc.io/doc/de.alpharogroup/swing-components)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
@@ -192,8 +192,8 @@ Projects that list projects of awesome swing projects
 
 |**Travis CI**|
 |     :---:      |
-|[![Travis CI](https://travis-ci.com/images/logos/TravisCI-Full-Color.png)](https://coveralls.io/github/lightblueseas/swing-components?branch=master)|
-|Special thanks to [Travis CI](https://travis-ci.org) for providing a free continuous integration service for open source projects|
+|[![Travis CI](https://travis-ci.com/images/logos/TravisCI-Full-Color.png)](https://travis-ci.com)|
+|Special thanks to [Travis CI](https://travis-ci.com) for providing a free continuous integration service for open source projects|
 |     <img width=1000/>     |
 
 |**Nexus Sonatype repositories**|
