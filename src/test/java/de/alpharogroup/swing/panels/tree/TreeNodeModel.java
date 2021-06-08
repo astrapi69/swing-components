@@ -1,14 +1,20 @@
 package de.alpharogroup.swing.panels.tree;
 
-import de.alpharogroup.tree.TreeNode;
-
+import javax.swing.event.EventListenerList;
+import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
+import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
+import java.util.Enumeration;
+import io.github.astrapi69.tree.TreeNode;
+import io.github.astrapi69.tree.api.ITreeNode;
 
 public class TreeNodeModel<T> implements TreeModel
 {
 	protected TreeNode<T> root;
+	/** Listeners. */
+	protected EventListenerList listenerList = new EventListenerList();
 
 	public TreeNodeModel(TreeNode<T> root)
 	{
@@ -50,5 +56,34 @@ public class TreeNodeModel<T> implements TreeModel
 
 	public void removeTreeModelListener(TreeModelListener l)
 	{
+	}
+
+	public void reload()
+	{
+		reload(root);
+	}
+
+	public void reload(TreeNode node) {
+		if(node != null) {
+			fireTreeStructureChanged(this, node.toList().toArray(new ITreeNode[0]), null, null);
+		}
+	}
+	protected void fireTreeStructureChanged(Object source, Object[] path,
+		int[] childIndices,
+		Object[] children) {
+		// Guaranteed to return a non-null array
+		Object[] listeners = listenerList.getListenerList();
+		TreeModelEvent e = null;
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+		for (int i = listeners.length-2; i>=0; i-=2) {
+			if (listeners[i]==TreeModelListener.class) {
+				// Lazily create the event:
+				if (e == null)
+					e = new TreeModelEvent(source, path,
+						childIndices, children);
+				((TreeModelListener)listeners[i+1]).treeStructureChanged(e);
+			}
+		}
 	}
 }

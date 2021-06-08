@@ -1,8 +1,8 @@
 /**
  * The MIT License
- *
+ * <p>
  * Copyright (C) 2015 Asterios Raptis
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -10,10 +10,10 @@
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -24,9 +24,14 @@
  */
 package de.alpharogroup.swing.panels.tree;
 
-import java.awt.Frame;
-
 import de.alpharogroup.layout.CloseWindow;
+import de.alpharogroup.model.BaseModel;
+import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.tree.TreeElement;
+import io.github.astrapi69.tree.TreeNode;
+
+import java.awt.*;
+import java.util.List;
 
 /**
  * The test class for {@link JTreePanel}
@@ -44,9 +49,58 @@ public class JTreePanelTest
 	{
 		final Frame frame = new Frame("JTreePanel");
 		frame.addWindowListener(new CloseWindow());
-		frame.add(new TestTreeElementPanel());
+		Model<TreeNode<TreeElement>> parentModel = BaseModel
+			.<TreeNode<TreeElement>>of(initializeTestTreeNodeElement());
+		frame.add(new TestTreeElementPanel(parentModel));
 		frame.pack();
 		frame.setVisible(true);
+	}
+
+	public static TreeNode<TreeElement> initializeTestTreeNodeElement()
+	{
+		TreeElement firstChild;
+		TreeNode<TreeElement> firstChildTreeNode;
+		TreeElement firstGrandChild;
+		TreeNode<TreeElement> firstGrandChildTreeNode;
+		TreeElement firstGrandGrandChild;
+		TreeNode<TreeElement> firstGrandGrandChildTreeNode;
+		List<TreeNode<TreeElement>> list;
+		TreeElement parent;
+		TreeNode<TreeElement> parentTreeNode;
+		TreeElement secondChild;
+		TreeNode<TreeElement> secondChildTreeNode;
+		parent = TreeElement.builder().name("parent").parent(null).node(false).build();
+		firstChild = TreeElement.builder().name("firstChild").parent(parent).node(false).build();
+		firstGrandChild = TreeElement.builder().name("firstGrandChild").parent(firstChild)
+			.node(true).build();
+		firstGrandGrandChild = TreeElement.builder().name("firstGrandGrandChild")
+			.parent(firstGrandChild).node(true).build();
+		secondChild = TreeElement.builder().name("secondChild").parent(parent).node(true).build();
+
+		parentTreeNode = initializeTreeNodeWithTreeElement(parent, null);
+
+		firstChildTreeNode = initializeTreeNodeWithTreeElement(firstChild, parentTreeNode);
+
+		secondChildTreeNode = initializeTreeNodeWithTreeElement(secondChild, parentTreeNode);
+
+		firstGrandChildTreeNode = initializeTreeNodeWithTreeElement(firstGrandChild, firstChildTreeNode);
+
+		firstGrandGrandChildTreeNode = initializeTreeNodeWithTreeElement(firstGrandGrandChild, firstChildTreeNode);
+		return parentTreeNode;
+	}
+
+	private static TreeNode<TreeElement> initializeTreeNodeWithTreeElement(TreeElement treeElement,
+		TreeNode<TreeElement> parentTreeNode)
+	{
+		TreeNode<TreeElement> treeNode;
+		treeNode = new TreeNode<>(treeElement);
+		treeNode.setDisplayValue(treeElement.getName());
+		if (parentTreeNode != null)
+		{
+			treeNode.setParent(parentTreeNode);
+			parentTreeNode.addChild(treeNode);
+		}
+		return treeNode;
 	}
 
 }

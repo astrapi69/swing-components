@@ -31,7 +31,6 @@ sourceCompatibility = "$projectSourceCompatibility"
 repositories {
     mavenLocal()
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
@@ -53,8 +52,8 @@ dependencies {
     implementation("de.alpharogroup:model-object:$modelObjectVersion")
     implementation("de.alpharogroup:model-type-safe:$modelTypeSafeVersion")
     implementation("de.alpharogroup:jobj-core:$jobjCoreVersion")
-    implementation("de.alpharogroup:gen-tree:$genTreeVersion")
-    implementation("de.alpharogroup:throw-able:$throwAbleVersion")
+    implementation("io.github.astrapi69:gen-tree:$genTreeVersion")
+    implementation("io.github.astrapi69:throw-able:$throwAbleVersion")
     implementation("de.alpharogroup:silly-math:$sillyMathVersion")
     testImplementation("net.lingala.zip4j:zip4j:$zip4jVersion")
     testImplementation("de.alpharogroup:vintage-time:$vintageTimeVersion")

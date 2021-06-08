@@ -1,8 +1,8 @@
 /**
  * The MIT License
- * <p>
+ *
  * Copyright (C) 2015 Asterios Raptis
- * <p>
+ *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -10,10 +10,10 @@
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- * <p>
+ *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * <p>
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -24,11 +24,14 @@
  */
 package de.alpharogroup.swing.panels.tree;
 
+import de.alpharogroup.file.create.FileCreationState;
+import de.alpharogroup.file.create.FileFactory;
+import de.alpharogroup.file.delete.DeleteFileExtensions;
+import de.alpharogroup.file.system.SystemFileExtensions;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 import io.github.astrapi69.tree.TreeElement;
-import io.github.astrapi69.tree.TreeNode;
-import io.github.astrapi69.tree.api.ITreeNode;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -40,56 +43,60 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import java.awt.event.MouseEvent;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
 
-public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
+public class TestFileTreePanel extends JTreePanel<File>
 {
 
 	private static final long serialVersionUID = 1L;
 
-	public TestTreeElementPanel()
+	public TestFileTreePanel()
 	{
-		this(BaseModel.<TreeNode<TreeElement>>of(new TreeNode<>()));
+
+		this(BaseModel.<File> of(SystemFileExtensions.getUserHomeDir()));
 	}
 
-	public TestTreeElementPanel(final Model<TreeNode<TreeElement>> model)
+	public TestFileTreePanel(final Model<File> model)
 	{
 		super(model);
 	}
 
-	@Override protected JTree newTree()
+	@Override
+	protected JTree newTree()
 	{
 		JTree tree = super.newTree();
-		tree.setCellRenderer(new TreeNodeCellRenderer<TreeElement>());
 		return tree;
 	}
 
-	@Override protected TreeModel newTreeModel(final Model<TreeNode<TreeElement>> model)
+	@Override
+	protected TreeModel newTreeModel(final Model<File> model)
 	{
-		TreeNode<TreeElement> parentTreeNode = model.getObject();
-
-		TreeModel treeModel = new TreeNodeModel(parentTreeNode);
+		 final TreeModel treeModel = new FileTreeNodeModel(model.getObject());
 
 		treeModel.addTreeModelListener(new TreeModelListener()
 		{
-			@Override public void treeNodesChanged(TreeModelEvent e)
+			@Override
+			public void treeNodesChanged(TreeModelEvent e)
 			{
-				Object lastPathComponent = e.getTreePath().getLastPathComponent();
-				DefaultMutableTreeNode node;
-				node = (DefaultMutableTreeNode)lastPathComponent;
+				FileTreeNodeModel node;
+				node = (FileTreeNodeModel)(e.getTreePath().getLastPathComponent());
 				int index = e.getChildIndices()[0];
-				node = (DefaultMutableTreeNode)(node.getChildAt(index));
+				node = (FileTreeNodeModel)(node.getChild(node, index));
 			}
 
-			@Override public void treeNodesInserted(TreeModelEvent e)
+			@Override
+			public void treeNodesInserted(TreeModelEvent e)
 			{
 			}
 
-			@Override public void treeNodesRemoved(TreeModelEvent e)
+			@Override
+			public void treeNodesRemoved(TreeModelEvent e)
 			{
 			}
 
-			@Override public void treeStructureChanged(TreeModelEvent e)
+			@Override
+			public void treeStructureChanged(TreeModelEvent e)
 			{
 			}
 		});
@@ -101,39 +108,42 @@ public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
 		layout.setHorizontalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addContainerGap()
+			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap()
 					.addComponent(scrTree, javax.swing.GroupLayout.PREFERRED_SIZE, 384,
 						javax.swing.GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		layout.setVerticalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addContainerGap()
-					.addComponent(scrTree, javax.swing.GroupLayout.DEFAULT_SIZE, 536,
-						Short.MAX_VALUE).addContainerGap()));
+		layout.setVerticalGroup(layout
+			.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup().addContainerGap()
+				.addComponent(scrTree, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+				.addContainerGap()));
 	}
 
-	@Override protected void onInitializeLayout()
+	@Override
+	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
 		onInitializeGroupLayout();
 	}
 
-	@Override protected void onSingleClick(MouseEvent e)
+	@Override
+	protected void onSingleClick(MouseEvent e)
 	{
 		int x = e.getX();
 		int y = e.getY();
 		TreePath selectionPath = tree.getPathForLocation(e.getX(), e.getY());
 
 		JPopupMenu popup = new JPopupMenu();
-		JMenuItem addChild = new JMenuItem("add node...");
+		JMenuItem addChild = new JMenuItem("add File...");
 		addChild.addActionListener(le -> {
 			JTextField textField1 = new JTextField();
 			final JCheckBox checkBox = new JCheckBox();
 
 			checkBox.addChangeListener(new ChangeListener()
 			{
-				@Override public void stateChanged(ChangeEvent e)
+				@Override
+				public void stateChanged(ChangeEvent e)
 				{
 					if (e.getSource() == checkBox)
 					{
@@ -148,48 +158,42 @@ public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 					}
 				}
 			});
-			Object[] inputFields = { "Enter name for node", textField1, "Is leaf", checkBox };
+			Object[] inputFields = { "Enter name for File", textField1, "Is File", checkBox };
 
 			int option = JOptionPane.showConfirmDialog(this, inputFields, "Multiple Inputs",
 				JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
 			if (option == JOptionPane.OK_OPTION)
 			{
-				Object lastPathComponent = selectionPath.getLastPathComponent();
-				TreeNode<TreeElement> selectedTreeNode = (TreeNode<TreeElement>)lastPathComponent;
+				Object lpc = selectionPath
+					.getLastPathComponent();
+				File selectedPathComponent = (File)lpc;
 
-				boolean allowsChildren = !checkBox.isSelected();
-				String userObject = textField1.getText();
+				String newFilename = textField1.getText();
+				File file = new File(selectedPathComponent, newFilename);
+				FileCreationState fileCreationState;
+				if(!checkBox.isSelected()) {
+					fileCreationState = FileFactory
+						.newDirectory(file);
+				} else {
+					fileCreationState = RuntimeExceptionDecorator.decorate(() ->FileFactory.newFile(file));
+				}
 
-				TreeElement treeElement = TreeElement.builder().name(userObject)
-					.node(allowsChildren).build();
-				TreeNode<TreeElement> newEl = new TreeNode<>(treeElement);
-				selectedTreeNode.addChild(newEl);
+
 				tree.treeDidChange();
 			}
 
 		});
 		popup.add(addChild);
-		DefaultTreeModel model;
+
 		JMenuItem deleteNode = new JMenuItem("delete");
 		deleteNode.addActionListener(le -> {
-
-			Object lastPathComponent = selectionPath.getLastPathComponent();
-			TreeNode<TreeElement> selectedTreeNode = (TreeNode<TreeElement>)lastPathComponent;
-			if(!selectedTreeNode.isRoot()) {
-				ITreeNode<TreeElement> parent = selectedTreeNode.getParent();
-				boolean remove = parent.getChildren().remove(selectedTreeNode);
-				System.out.println(remove);
-				TreeNode<TreeElement> root = (TreeNode<TreeElement>)parent.getRoot();
-				TreeNodeModel<TreeElement> ntnm = new TreeNodeModel<TreeElement>(root);
-				getTree().setModel(ntnm);
-
-			} else {
-				TestTreeElementPanel.this.setModelObject(null);
-			}
+			Object lpc = selectionPath
+				.getLastPathComponent();
+			File selectedPathComponent = (File)lpc;
+			RuntimeExceptionDecorator.decorate(() ->
+				DeleteFileExtensions.delete(selectedPathComponent));
 			tree.treeDidChange();
-			this.repaint();
-
 		});
 		popup.add(deleteNode);
 		popup.show(tree, x, y);

@@ -29,7 +29,7 @@ import javax.swing.tree.TreeModel;
 
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
-import de.alpharogroup.tree.TreeElement;
+import io.github.astrapi69.tree.TreeElement;
 
 /**
  * The abstract class {@link TreeElementPanel} parameterized with {@link TreeElement}

@@ -36,7 +36,7 @@ import javax.swing.tree.TreePath;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import de.alpharogroup.swing.tree.JTreeExtensions;
-import de.alpharogroup.tree.TreeElement;
+import io.github.astrapi69.tree.TreeElement;
 
 public class ApplicationPreferencesPanel extends PreferencesPanel<TreeElement>
 {
