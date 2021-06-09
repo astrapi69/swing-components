@@ -4,6 +4,10 @@
 Version 5.6-SNAPSHOT
 -------------
 
+ADDED:
+
+- new abstract class DocumentListenerAdapter for the interface DocumentListener
+
 Version 5.5
 -------------
 
