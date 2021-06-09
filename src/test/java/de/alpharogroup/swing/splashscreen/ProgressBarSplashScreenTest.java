@@ -34,9 +34,6 @@ import de.alpharogroup.swing.check.model.CheckListPanel;
 public class ProgressBarSplashScreenTest
 {
 
-	/**
-	 * Test init layout.
-	 */
 	public static void main(final String[] args)
 	{
 		final JFrame frame = new JFrame("CheckListPanel");

@@ -95,6 +95,8 @@ public class RobotExtensions
 	 *            the Y position
 	 * @param everyMilliSeconds
 	 *            * the milli seconds to execute every time
+	 * @param duration
+	 *            * the milli seconds of the duration
 	 * @throws InterruptedException
 	 *             is thrown if the current thread is interrupted
 	 */

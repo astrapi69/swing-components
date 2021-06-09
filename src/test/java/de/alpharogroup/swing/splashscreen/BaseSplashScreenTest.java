@@ -36,6 +36,7 @@ public class BaseSplashScreenTest
 
 	/**
 	 * Test init layout.
+	 * @param args the arguments
 	 */
 	public static void main(final String[] args)
 	{

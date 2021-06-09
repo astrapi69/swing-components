@@ -32,9 +32,6 @@ import de.alpharogroup.layout.CloseWindow;
 public class LoginPanelTest
 {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args)
 	{
 

@@ -39,6 +39,7 @@ public class NetworkSettingsPanelTest
 	 * @param args
 	 *            the arguments
 	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	public static void main(final String[] args) throws IOException
 	{

@@ -39,10 +39,6 @@ import de.alpharogroup.swing.panels.login.pw.NewPasswordPanel;
 public class NewPasswordPanelTest
 {
 
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args)
 	{
 

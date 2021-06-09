@@ -45,13 +45,12 @@ public class ApplicationSplitPaneFrameExample
 		ApplicationSplitPaneFrame<ApplicationTestModel<String>>
 {
 
-
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Test init layout.
+	 * @param args the arguments
 	 */
-
 	public static void main(final String[] args)
 	{
 		final Frame frame = new ApplicationSplitPaneFrameExample(

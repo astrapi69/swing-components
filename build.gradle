@@ -108,7 +108,7 @@ task sourcesJar(type: Jar) {
 task javadocJar(type: Jar) {
     from javadoc
     archiveClassifier.set("javadoc")
-    javadoc.properties.failOnError = true
+    javadoc.properties.failOnError = false
 }
 
 def releaseVersion = !version.endsWith("SNAPSHOT")
@@ -176,6 +176,8 @@ javadoc {
     if(JavaVersion.current().isJava9Compatible()) {
         options.addBooleanOption("html5", true)
     }
+    dependsOn delombok
+    failOnError = false
 }
 
 tasks.withType(JavaCompile) {

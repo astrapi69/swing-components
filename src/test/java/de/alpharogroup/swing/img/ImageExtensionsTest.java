@@ -81,7 +81,7 @@ public class ImageExtensionsTest
 	}
 
 	/**
-	 * Test for method {@ImageExtensions#randomBufferedImage(int, int, int)}.
+	 * Test for method {ImageExtensions#randomBufferedImage(int, int, int)}.
 	 *
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.

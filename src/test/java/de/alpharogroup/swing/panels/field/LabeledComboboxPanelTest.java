@@ -34,8 +34,8 @@ public class LabeledComboboxPanelTest
 
 	/**
 	 * Test init layout.
+	 * @param args the arguments
 	 */
-
 	public static void main(final String[] args)
 	{
 		final Frame frame = new Frame("ComboboxPanel");
