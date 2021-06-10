@@ -179,6 +179,7 @@ Open Source:
  * [RSyntaxTextArea](https://github.com/bobbylight/RSyntaxTextArea) A syntax highlighting, code folding text editor for Java Swing applications.
  * [Java Swing examples](https://github.com/aterai/java-swing-tips) A collection of swing component examples
  * [swing-beansbinding](https://github.com/JFormDesigner/swing-beansbinding) JFormDesigner swing-beansbinding supports the Beans Binding specification (JSR 295)
+ * [KControls](https://github.com/k33ptoo/KControls) Java Swing Custom Controls
 
 Commercial
 
