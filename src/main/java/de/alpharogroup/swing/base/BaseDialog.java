@@ -72,6 +72,7 @@ public class BaseDialog<T> extends JDialog
 		final Model<T> model)
 	{
 		super(owner, title, modal);
+		this.model = model;
 		initialize();
 	}
 
@@ -88,6 +89,7 @@ public class BaseDialog<T> extends JDialog
 	public BaseDialog(final Frame owner, final String title, final Model<T> model)
 	{
 		super(owner, title);
+		this.model = model;
 		initialize();
 	}
 

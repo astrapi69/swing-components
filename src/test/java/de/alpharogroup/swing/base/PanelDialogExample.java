@@ -88,8 +88,7 @@ public class PanelDialogExample extends PanelDialog<ChangePasswordModelBean>
 
 	private void onClose(final ActionEvent e)
 	{
-		this.setVisible(false);
-		System.exit(0);
+		this.dispose();
 	}
 
 	@Override
