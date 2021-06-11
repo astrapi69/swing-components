@@ -180,7 +180,7 @@ Open Source:
  * [Java Swing examples](https://github.com/aterai/java-swing-tips) A collection of swing component examples
  * [swing-beansbinding](https://github.com/JFormDesigner/swing-beansbinding) JFormDesigner swing-beansbinding supports the Beans Binding specification (JSR 295)
  * [KControls](https://github.com/k33ptoo/KControls) Java Swing Custom Controls
-
+ * [Material-UI-Swing](https://github.com/atarw/material-ui-swing) A modern, Material Design UI for Java Swing
 Commercial
 
  * [JIDE](http://www.jidesoft.com/) JIDE Software is a professional Java UI component provider.
