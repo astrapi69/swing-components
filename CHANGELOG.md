@@ -7,6 +7,13 @@ Version 5.6-SNAPSHOT
 ADDED:
 
 - new abstract class DocumentListenerAdapter for the interface DocumentListener
+- missing model initialization added in BaseDialog
+
+CHANGED:
+
+- changed to new package io.github.astrapi69
+- update gradle to new version 6.9
+- update of lombok version to 1.18.20
 
 Version 5.5
 -------------

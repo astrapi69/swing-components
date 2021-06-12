@@ -7,6 +7,6 @@
         <listEntry value="1"/>
     </listAttribute>
     <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
-    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="de.alpharogroup.swing.panels.keypad.KeyPadPanelTest"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="io.github.astrapi69.swing.panels.keypad.KeyPadPanelTest"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="swing-components"/>
 </launchConfiguration>

@@ -3,15 +3,15 @@
 <suite name="Suite" parallel="false">
     <test name="Test">
         <classes>
-            <class name="de.alpharogroup.layout.CloseWindowTest"/>
-            <class name="de.alpharogroup.layout.DrawMessageTest"/>
-            <class name="de.alpharogroup.layout.ScreenSizeUtilsTest"/>
-            <class name="de.alpharogroup.swing.browser.BrowserControlUtilsTest"/>
-            <class name="de.alpharogroup.swing.img.ImageConcatenationUtilsTest"/>
-            <class name="de.alpharogroup.swing.panels.keypad.KeyPadPanelTest"/>
-            <class name="de.alpharogroup.swing.panels.login.LoginPanelTest"/>
-            <class name="de.alpharogroup.swing.tablemodel.GenericShuffleTableModelTest"/>
-            <class name="de.alpharogroup.swing.tablemodel.GenericTableModelTest"/>
+            <class name="io.github.astrapi69.layout.CloseWindowTest"/>
+            <class name="io.github.astrapi69.layout.DrawMessageTest"/>
+            <class name="io.github.astrapi69.layout.ScreenSizeUtilsTest"/>
+            <class name="io.github.astrapi69.swing.browser.BrowserControlUtilsTest"/>
+            <class name="io.github.astrapi69.swing.img.ImageConcatenationUtilsTest"/>
+            <class name="io.github.astrapi69.swing.panels.keypad.KeyPadPanelTest"/>
+            <class name="io.github.astrapi69.swing.panels.login.LoginPanelTest"/>
+            <class name="io.github.astrapi69.swing.tablemodel.GenericShuffleTableModelTest"/>
+            <class name="io.github.astrapi69.swing.tablemodel.GenericTableModelTest"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

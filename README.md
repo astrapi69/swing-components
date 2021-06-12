@@ -1,8 +1,8 @@
 # swing-components
 
 [![Build Status](https://api.travis-ci.com/lightblueseas/swing-components.svg?branch=master)](https://travis-ci.com/github/lightblueseas/swing-components)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/swing-components)
-[![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/swing-components.svg)](http://www.javadoc.io/doc/de.alpharogroup/swing-components)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/swing-components)
+[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/swing-components.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-components)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
 
@@ -19,7 +19,7 @@ The source code comes under the liberal MIT License, making swing-components gre
 ## Maven dependency
 
 Maven dependency is now on sonatype.
-Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~de.alpharogroup~swing-components~~~) for latest snapshots and releases.
+Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~swing-components~~~) for latest snapshots and releases.
 
 Add the following maven dependency to your project `pom.xml` if you want to import the core functionality of swing-components:
 
@@ -36,7 +36,7 @@ Than you can add the dependency to your dependencies:
 			...
             <!-- SWING-COMPONENTS DEPENDENCY -->
 			<dependency>
-				<groupId>de.alpharogroup</groupId>
+				<groupId>io.github.astrapi69</groupId>
 				<artifactId>swing-components</artifactId>
 				<version>${swing-components.version}</version>
 			</dependency>
@@ -69,7 +69,7 @@ and than add the dependency to the dependencies area
 ```
 dependencies {
 			...
-    implementation("de.alpharogroup:swing-components:$swingComponentsVersion")
+    implementation("io.github.astrapi69:swing-components:$swingComponentsVersion")
 			...
 }
 ```
@@ -199,13 +199,13 @@ Projects that list projects of awesome swing projects
 
 |**Nexus Sonatype repositories**|
 |     :---:      |
-|[![sonatype repository](https://img.shields.io/nexus/r/https/oss.sonatype.org/de.alpharogroup/swing-components.svg?style=for-the-badge)](https://oss.sonatype.org/index.html#nexus-search;gav~de.alpharogroup~swing-components~~~)|
+|[![sonatype repository](https://img.shields.io/nexus/r/https/oss.sonatype.org/io.github.astrapi69/swing-components.svg?style=for-the-badge)](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~swing-components~~~)|
 |Special thanks to [sonatype repository](https://www.sonatype.com) for providing a free maven repository service for open source projects|
 |     <img width=1000/>     |
 
 |**javadoc.io**|
 |     :---:      |
-|[![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/swing-components.svg)](http://www.javadoc.io/doc/de.alpharogroup/swing-components)|
+|[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/swing-components.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-components)|
 |Special thanks to [javadoc.io](http://www.javadoc.io) for providing a free javadoc documentation for open source projects|
 |     <img width=1000/>     |
 
