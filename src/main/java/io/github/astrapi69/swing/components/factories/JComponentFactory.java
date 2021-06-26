@@ -39,7 +39,7 @@ import java.util.Map;
 
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
-import javax.swing.JButton;
+import javax.swing.*;
 import javax.swing.JEditorPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JMenuItem;
@@ -82,6 +82,29 @@ public class JComponentFactory
 	{
 		JButton jButton = new JButton(text);
 		return jButton;
+	}
+
+	public static JButton newJButton(Icon icon)
+	{
+		JButton jButton = new JButton();
+		jButton.setIcon(icon);
+		return jButton;
+	}
+	public static JButton newJButton(Icon icon, String text)
+	{
+		JButton jButton = new JButton(text);
+		jButton.setIcon(icon);
+		return jButton;
+	}
+
+	public static JButton newJButton(ImageIcon imageIcon, String actionCommand, String toolTipText, String alternativeText)
+	{
+		JButton button = new JButton();
+		button.setActionCommand(actionCommand);
+		button.setToolTipText(toolTipText);
+		button.setText(alternativeText);
+		button.setIcon(imageIcon);
+		return button;
 	}
 
 	/**

@@ -31,13 +31,16 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URL;
 import java.util.List;
 import java.util.logging.Level;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+import de.alpharogroup.lang.ClassExtensions;
 import de.alpharogroup.random.object.RandomObjectFactory;
+import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
@@ -179,32 +182,6 @@ public class ImageExtensions
 		final String formatName, final int targetWidth, final int targetHeight) throws IOException
 	{
 		return read(resize(originalImage, formatName, targetWidth, targetHeight));
-	}
-
-	/**
-	 * Factory method for create a new {@link ImageIcon}.
-	 *
-	 * @param image
-	 *            the file that contains the image
-	 * @return the new {@link ImageIcon}
-	 */
-	public static ImageIcon newImageIcon(File image)
-	{
-		ImageIcon img = newImageIcon(image.getAbsolutePath());
-		return img;
-	}
-
-	/**
-	 * Factory method for create a new {@link ImageIcon}.
-	 *
-	 * @param imagePath
-	 *            the file that contains the image
-	 * @return the new {@link ImageIcon}
-	 */
-	public static ImageIcon newImageIcon(String imagePath)
-	{
-		ImageIcon img = new ImageIcon(imagePath);
-		return img;
 	}
 
 	/**
