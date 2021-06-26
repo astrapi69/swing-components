@@ -54,10 +54,10 @@ public abstract class JTreePanel<T> extends BasePanel<T>
 	/** The serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** The {@link JScrollPane} for the {@link JTree}. */
+	/** The {@link JScrollPane} for the decorated {@link JTree}. */
 	protected JScrollPane scrTree;
 
-	/** The {@link JTree}. */
+	/** The decorated {@link JTree}. */
 	protected JTree tree;
 
 	/**
