@@ -31,7 +31,7 @@ import java.io.File;
 import javax.swing.AbstractAction;
 import javax.swing.JFileChooser;
 
-import de.alpharogroup.check.Check;
+import io.github.astrapi69.check.Check;
 import lombok.Getter;
 
 /**

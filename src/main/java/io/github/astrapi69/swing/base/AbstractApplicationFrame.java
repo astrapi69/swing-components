@@ -40,9 +40,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import de.alpharogroup.lang.ClassExtensions;
+import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.layout.ScreenSizeExtensions;
 import io.github.astrapi69.swing.components.factories.JComponentFactory;
+import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -181,7 +182,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	 */
 	protected JToolBar newJToolBar()
 	{
-		return JComponentFactory.newJToolBar();
+		return MenuFactory.newJToolBar();
 	}
 
 	/**

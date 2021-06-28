@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.table.model.suffle;
 
-import de.alpharogroup.check.Check;
+import io.github.astrapi69.check.Check;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 import lombok.Getter;
 

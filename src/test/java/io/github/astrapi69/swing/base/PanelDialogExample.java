@@ -35,6 +35,7 @@ import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.layout.ScreenSizeExtensions;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.swing.button.ButtonFactory;
 import io.github.astrapi69.swing.components.factories.JComponentFactory;
 import io.github.astrapi69.swing.panels.login.pw.ChangePasswordModelBean;
 import io.github.astrapi69.swing.panels.login.pw.NewPasswordPanel;
@@ -66,7 +67,7 @@ public class PanelDialogExample extends PanelDialog<ChangePasswordModelBean>
 
 	protected JButton newButtonClose()
 	{
-		JButton button = JComponentFactory.newJButton("Close");
+		JButton button = ButtonFactory.newJButton("Close");
 		button.addActionListener(e -> onClose(e));
 		return button;
 	}

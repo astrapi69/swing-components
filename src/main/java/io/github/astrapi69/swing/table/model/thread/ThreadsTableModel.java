@@ -29,8 +29,8 @@ import java.util.List;
 
 import javax.swing.SwingUtilities;
 
-import de.alpharogroup.lang.thread.ThreadDataBean;
-import de.alpharogroup.lang.thread.ThreadExtensions;
+import io.github.astrapi69.lang.thread.ThreadDataBean;
+import io.github.astrapi69.lang.thread.ThreadExtensions;
 import io.github.astrapi69.swing.table.model.BaseTableModel;
 import io.github.astrapi69.swing.table.model.TableColumnsModel;
 

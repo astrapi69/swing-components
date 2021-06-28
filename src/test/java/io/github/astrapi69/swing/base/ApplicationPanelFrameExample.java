@@ -1,8 +1,8 @@
 /**
  * The MIT License
- * <p>
+ *
  * Copyright (C) 2015 Asterios Raptis
- * <p>
+ *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -10,10 +10,10 @@
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- * <p>
+ *
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- * <p>
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -24,16 +24,17 @@
  */
 package io.github.astrapi69.swing.base;
 
-import de.alpharogroup.lang.ClassExtensions;
+import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.layout.CloseWindow;
+import io.github.astrapi69.swing.button.ButtonFactory;
+import io.github.astrapi69.swing.button.IconButtonFactory;
 import io.github.astrapi69.swing.components.factories.JComponentFactory;
 import io.github.astrapi69.swing.img.ImageExtensions;
-import io.github.astrapi69.swing.img.ImageIconFactory;
+import io.github.astrapi69.swing.icon.ImageIconFactory;
 import io.github.astrapi69.swing.panels.splitpane.ApplicationTestModel;
 import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
 import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
-import org.imgscalr.Scalr;
 import org.jdesktop.swingx.MultiSplitLayout;
 
 import javax.imageio.ImageIO;
@@ -143,8 +144,8 @@ public class ApplicationPanelFrameExample
 		BufferedImage result = RuntimeExceptionDecorator
 			.decorate(() -> ImageExtensions.read(resized));
 		ImageIcon imageIcon = ImageIconFactory.newImageIcon(result);
-		JButton bellButton = JComponentFactory
-			.newJButton(imageIcon, "bell", "Bell", "Bell");
+		JButton bellButton = IconButtonFactory
+			.newIconButton(imageIcon, "bell", "Bell", "Bell");
 		Icon directoryIcon = UIManager.getIcon("FileView.directoryIcon");
 		Icon fileIcon = UIManager.getIcon("FileView.fileIcon");
 		Icon computerIcon = UIManager.getIcon("FileView.computerIcon");
@@ -162,12 +163,12 @@ public class ApplicationPanelFrameExample
 //		toolBar.add(JComponentFactory
 //			.newJButton(fileIcon, "File"));
 		toolBar.add(new JButton(computerIcon));
-		toolBar.add(JComponentFactory
-			.newJButton(hardDriveIcon));
-		toolBar.add(JComponentFactory
-			.newJButton(floppyDriveIcon));
-		toolBar.add(JComponentFactory
-			.newJButton(newFolderIcon));
+		toolBar.add(IconButtonFactory
+			.newIconButton(hardDriveIcon));
+		toolBar.add(IconButtonFactory
+			.newIconButton(floppyDriveIcon));
+		toolBar.add(IconButtonFactory
+			.newIconButton(newFolderIcon));
 		return toolBar;
 	}
 }

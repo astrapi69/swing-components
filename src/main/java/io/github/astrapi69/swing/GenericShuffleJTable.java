@@ -26,7 +26,7 @@ package io.github.astrapi69.swing;
 
 import java.io.Serializable;
 
-import de.alpharogroup.check.Check;
+import io.github.astrapi69.check.Check;
 import io.github.astrapi69.swing.table.model.suffle.GenericShuffleTableModel;
 import lombok.Getter;
 

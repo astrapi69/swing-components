@@ -22,41 +22,37 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.table.model.suffle.actions;
+package io.github.astrapi69.swing.button;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
-import javax.swing.JOptionPane;
-
-import io.github.astrapi69.check.Check;
-import io.github.astrapi69.swing.GenericShuffleJTable;
-
-public class AddAction<T> extends AbstractAction
+import javax.swing.*;
+/**
+ * A factory {@link ButtonFactory} provides factory methods for create {@link JButton} objects
+ */
+public class ButtonFactory
 {
 
-	private static final long serialVersionUID = 1L;
-
-	private final GenericShuffleJTable<T> shuffleJTable;
-
-	public AddAction(final GenericShuffleJTable<T> shuffleJTable)
+	/**
+	 * Factory method for create a <code>JButton</code>
+	 *
+	 * @return the new {@link JButton} object
+	 */
+	public static JButton newJButton()
 	{
-		Check.get().notNull(shuffleJTable, "shuffleJTable");
-		this.shuffleJTable = shuffleJTable;
+		JButton button = new JButton();
+		return button;
 	}
 
-	@Override
-	public void actionPerformed(final ActionEvent e)
+	/**
+	 * Factory method for create a <code>JButton</code> with the given text
+	 *
+	 * @param text
+	 *            the text for the button
+	 * @return the new {@link JButton} object
+	 */
+	public static JButton newJButton(String text)
 	{
-		final int[] selectedRows = shuffleJTable.getLeftTable().getSelectedRows();
-		if (selectedRows.length == 0)
-		{
-			JOptionPane.showMessageDialog(null, "You have to selected at least one row.");
-		}
-		else
-		{
-			shuffleJTable.shuffleSelectedLeftRowsToRightTable();
-		}
+		JButton button = new JButton(text);
+		return button;
 	}
 
 }

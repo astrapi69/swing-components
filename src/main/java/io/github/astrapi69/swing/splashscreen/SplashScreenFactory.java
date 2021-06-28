@@ -22,41 +22,26 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.table.model.suffle.actions;
+package io.github.astrapi69.swing.splashscreen;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
-import javax.swing.JOptionPane;
-
-import io.github.astrapi69.check.Check;
-import io.github.astrapi69.swing.GenericShuffleJTable;
-
-public class AddAction<T> extends AbstractAction
+/**
+ * The factory class {@link SplashScreenFactory} provides factory methods for create
+ * {@link SplashScreen} objects
+ */
+public class SplashScreenFactory
 {
-
-	private static final long serialVersionUID = 1L;
-
-	private final GenericShuffleJTable<T> shuffleJTable;
-
-	public AddAction(final GenericShuffleJTable<T> shuffleJTable)
+	/**
+	 * Factory method for create a {@link SplashScreen}
+	 *
+	 * @param image
+	 *            the image
+	 * @param text
+	 *            the text
+	 * @return the new {@link SplashScreen} object
+	 */
+	public static SplashScreen newSplashScreen(final String image, final String text)
 	{
-		Check.get().notNull(shuffleJTable, "shuffleJTable");
-		this.shuffleJTable = shuffleJTable;
+		final SplashScreen splashscreen = new SplashScreen(image, text);
+		return splashscreen;
 	}
-
-	@Override
-	public void actionPerformed(final ActionEvent e)
-	{
-		final int[] selectedRows = shuffleJTable.getLeftTable().getSelectedRows();
-		if (selectedRows.length == 0)
-		{
-			JOptionPane.showMessageDialog(null, "You have to selected at least one row.");
-		}
-		else
-		{
-			shuffleJTable.shuffleSelectedLeftRowsToRightTable();
-		}
-	}
-
 }

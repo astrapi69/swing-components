@@ -30,7 +30,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-import de.alpharogroup.lang.ClassExtensions;
+import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.layout.CloseWindow;
 import de.alpharogroup.model.BaseModel;
 

@@ -28,7 +28,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.JScrollPane;
 
-import de.alpharogroup.lang.thread.ThreadDataBean;
+import io.github.astrapi69.lang.thread.ThreadDataBean;
 import de.alpharogroup.model.BaseModel;
 import de.alpharogroup.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
@@ -79,7 +79,7 @@ public class CurrentThreadsTablePanel extends BasePanel<ThreadsTableModel>
 	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
-		threadTable = new GenericJXTable<>(getModelObject());
+		threadTable = new GenericJXTable<ThreadDataBean>(getModelObject());
 		scrThreadTable = new JScrollPane(threadTable);
 	}
 

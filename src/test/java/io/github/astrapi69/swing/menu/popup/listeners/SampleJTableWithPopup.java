@@ -40,6 +40,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
 import io.github.astrapi69.swing.components.factories.JComponentFactory;
+import io.github.astrapi69.swing.menu.MenuFactory;
 
 public class SampleJTableWithPopup extends JFrame
 {
@@ -84,7 +85,7 @@ public class SampleJTableWithPopup extends JFrame
 
 			}
 		});
-		menu = JComponentFactory.newJPopupMenu(tree, menuItem,
+		menu = MenuFactory.newJPopupMenu(tree, menuItem,
 			new JMenuItem("A second popup menu item"));
 
 		tree.addMouseListener(new MouseAdapter()

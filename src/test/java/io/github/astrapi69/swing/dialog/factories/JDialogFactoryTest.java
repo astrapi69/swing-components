@@ -37,6 +37,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 
+import io.github.astrapi69.swing.button.ButtonFactory;
 import org.testng.annotations.Test;
 
 import io.github.astrapi69.swing.components.factories.JComponentFactory;
@@ -68,7 +69,7 @@ public class JDialogFactoryTest
 
 	protected static JButton newButtonShow(final Frame frame)
 	{
-		JButton button = JComponentFactory.newJButton("Show dialog");
+		JButton button = ButtonFactory.newJButton("Show dialog");
 		button.addActionListener(e -> {
 			JPasswordField pf = new JPasswordField("", 10);
 			pf.setFocusable(true);

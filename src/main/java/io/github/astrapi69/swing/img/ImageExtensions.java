@@ -38,7 +38,7 @@ import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-import de.alpharogroup.lang.ClassExtensions;
+import io.github.astrapi69.lang.ClassExtensions;
 import de.alpharogroup.random.object.RandomObjectFactory;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 import org.imgscalr.Scalr;

@@ -28,7 +28,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import de.alpharogroup.check.Check;
+import io.github.astrapi69.check.Check;
 import io.github.astrapi69.swing.GenericShuffleJTable;
 
 public class AddAllAction<T> extends AbstractAction

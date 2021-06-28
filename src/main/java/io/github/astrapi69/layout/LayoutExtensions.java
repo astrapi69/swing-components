@@ -32,7 +32,7 @@ import java.awt.Insets;
 
 import javax.swing.Box;
 
-import de.alpharogroup.lang.ObjectExtensions;
+import io.github.astrapi69.lang.ObjectExtensions;
 
 /**
  * The class {@link LayoutExtensions} helps with method for simplify the live with Layouts.

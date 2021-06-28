@@ -44,7 +44,7 @@ import javax.swing.MenuElement;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import de.alpharogroup.lang.ClassExtensions;
+import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.swing.actions.OpenBrowserToDonateAction;
 import io.github.astrapi69.swing.actions.ShowInfoDialogAction;
 import io.github.astrapi69.swing.actions.ShowLicenseFrameAction;
@@ -52,6 +52,7 @@ import io.github.astrapi69.swing.components.factories.JComponentFactory;
 import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import io.github.astrapi69.swing.dialog.info.InfoPanel;
 import io.github.astrapi69.swing.menu.MenuExtensions;
+import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelGTKAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelMetalAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelMotifAction;
@@ -210,7 +211,7 @@ public class BaseDesktopMenu extends JMenu
 
 		// Help JMenuItems
 		// Help content
-		final JMenuItem mihHelpContent = JComponentFactory.newJMenuItem(newLabelTextContent(), 'c',
+		final JMenuItem mihHelpContent = MenuFactory.newJMenuItem(newLabelTextContent(), 'c',
 			'H');
 		menuHelp.add(mihHelpContent);
 

@@ -32,7 +32,7 @@ import java.util.Set;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
-import de.alpharogroup.check.Argument;
+import io.github.astrapi69.check.Argument;
 import de.alpharogroup.collections.array.ArrayExtensions;
 import de.alpharogroup.collections.list.ListExtensions;
 import de.alpharogroup.collections.list.ListFactory;

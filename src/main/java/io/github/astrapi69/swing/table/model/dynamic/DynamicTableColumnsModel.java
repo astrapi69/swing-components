@@ -29,7 +29,7 @@ import java.lang.reflect.Field;
 import org.apache.commons.lang3.StringUtils;
 
 import de.alpharogroup.collections.list.ListFactory;
-import de.alpharogroup.reflection.ReflectionExtensions;
+import io.github.astrapi69.reflection.ReflectionExtensions;
 import lombok.Data;
 import lombok.NonNull;
 

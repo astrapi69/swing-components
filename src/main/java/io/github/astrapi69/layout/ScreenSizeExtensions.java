@@ -42,7 +42,7 @@ import java.util.stream.Stream;
 import javax.swing.JFrame;
 
 import de.alpharogroup.collections.array.ArrayExtensions;
-import de.alpharogroup.reflection.ReflectionExtensions;
+import io.github.astrapi69.reflection.ReflectionExtensions;
 import io.github.astrapi69.swing.utils.AwtExtensions;
 import lombok.NonNull;
 

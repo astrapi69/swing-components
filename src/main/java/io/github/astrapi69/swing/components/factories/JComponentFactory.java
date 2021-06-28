@@ -47,7 +47,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JSplitPane;
 import javax.swing.JToolBar;
 
-import de.alpharogroup.lang.ClassExtensions;
+import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.MenuItemBean;
 import io.github.astrapi69.swing.menu.popup.listeners.PopupListener;
@@ -75,36 +75,6 @@ public class JComponentFactory
 		editor.setEditable(editable);
 		editor.setOpaque(true);
 		return editor;
-	}
-
-
-	public static JButton newJButton(String text)
-	{
-		JButton jButton = new JButton(text);
-		return jButton;
-	}
-
-	public static JButton newJButton(Icon icon)
-	{
-		JButton jButton = new JButton();
-		jButton.setIcon(icon);
-		return jButton;
-	}
-	public static JButton newJButton(Icon icon, String text)
-	{
-		JButton jButton = new JButton(text);
-		jButton.setIcon(icon);
-		return jButton;
-	}
-
-	public static JButton newJButton(ImageIcon imageIcon, String actionCommand, String toolTipText, String alternativeText)
-	{
-		JButton button = new JButton();
-		button.setActionCommand(actionCommand);
-		button.setToolTipText(toolTipText);
-		button.setText(alternativeText);
-		button.setIcon(imageIcon);
-		return button;
 	}
 
 	/**
@@ -206,163 +176,6 @@ public class JComponentFactory
 		final JInternalFrame internalFrame = new JInternalFrame(title, resizable, closable,
 			maximizable, iconifiable);
 		return internalFrame;
-	}
-
-	/**
-	 * Factory method for create a <code>JMenuItem</code>.
-	 *
-	 * @param text
-	 *            the text of the <code>JMenuItem</code>
-	 * @param mnemonic
-	 *            the keyboard mnemonic for the <code>JMenuItem</code>
-	 * @param accelerator
-	 *            The character that have to push together with the CTRL.
-	 * @return the new {@link JMenuItem}
-	 */
-	public static JMenuItem newJMenuItem(final @NonNull String text, final int mnemonic,
-		final char accelerator)
-	{
-		final JMenuItem menuItem = new JMenuItem(text, mnemonic);
-		MenuExtensions.setCtrlAccelerator(menuItem, accelerator);
-		return menuItem;
-	}
-
-	/**
-	 * Factory method for create a <code>JPopupMenu</code>.
-	 *
-	 * @return the new {@link JPopupMenu}.
-	 */
-	public static JPopupMenu newJPopupMenu()
-	{
-		return newJPopupMenu("");
-	}
-
-	/**
-	 * Factory method for create a <code>JPopupMenu</code> that will be add a
-	 * <code>MouseListener</code> to the given <code>Component</code> and an array of
-	 * <code>JMenuItem</code> that will be added to the popup.
-	 *
-	 * @param component
-	 *            the component
-	 * @param items
-	 *            the <code>JMenuItem</code>s
-	 * @return the new {@link JPopupMenu}.
-	 */
-	public static JPopupMenu newJPopupMenu(final Component component, final JMenuItem... items)
-	{
-		return newJPopupMenu("", component, items);
-	}
-
-	/**
-	 * Factory method for create a <code>JPopupMenu</code> with the specified title.
-	 *
-	 * @param label
-	 *            the string that a UI may use to display as a title for the popup menu.
-	 * @return the new {@link JPopupMenu}.
-	 */
-	public static JPopupMenu newJPopupMenu(final String label)
-	{
-		final JPopupMenu popup = new JPopupMenu(label);
-		return popup;
-	}
-
-	/**
-	 * Factory method for create a <code>JPopupMenu</code> that will be add a
-	 * <code>MouseListener</code> to the given <code>Component</code> and an array of
-	 * <code>JMenuItem</code> that will be added to the popup.
-	 *
-	 * @param label
-	 *            the label
-	 * @param component
-	 *            the component
-	 * @param items
-	 *            the <code>JMenuItem</code>s
-	 * @return the new {@link JPopupMenu}.
-	 */
-	public static JPopupMenu newJPopupMenu(final String label, final Component component,
-		final JMenuItem... items)
-	{
-		// Create the popup menu.
-		final JPopupMenu popup = newJPopupMenu(label);
-		for (final JMenuItem jMenuItem : items)
-		{
-			popup.add(jMenuItem);
-		}
-		// Add listener to the component so the popup menu can come up.
-		final MouseListener popupListener = new PopupListener(popup);
-		component.addMouseListener(popupListener);
-		return popup;
-	}
-
-	/**
-	 * Factory method for create a {@link JToolBar} object.
-	 *
-	 * @return the j tool bar
-	 */
-	public static JToolBar newJToolBar()
-	{
-		return new JToolBar();
-	}
-
-	/**
-	 * Factory method for create a {@link PopupMenu} object.
-	 *
-	 * @param menuItemBeans
-	 *            the menu item beans
-	 * @return the new {@link PopupMenu}.
-	 */
-	public static PopupMenu newPopupMenu(final List<MenuItemBean> menuItemBeans)
-	{
-		final PopupMenu popupMenu = new PopupMenu();
-		for (final MenuItemBean menuItemBean : menuItemBeans)
-		{
-			final MenuItem miBringToFront = new MenuItem(menuItemBean.getLabel());
-			miBringToFront.setActionCommand(menuItemBean.getCommand());
-			miBringToFront.addActionListener(menuItemBean.getActionListener());
-			popupMenu.add(miBringToFront);
-		}
-		return popupMenu;
-	}
-
-	/**
-	 * Factory method for create a {@link SplashScreen}.
-	 *
-	 * @param image
-	 *            the image
-	 * @param text
-	 *            the text
-	 * @return the new {@link SplashScreen}.
-	 */
-	public static SplashScreen newSplashScreen(final String image, final String text)
-	{
-		final SplashScreen splashscreen = new SplashScreen(image, text);
-		return splashscreen;
-	}
-
-	/**
-	 * Factory method for create a {@link TrayIcon} object.
-	 *
-	 * @param imgFilename
-	 *            the img filename
-	 * @param appName
-	 *            the app name
-	 * @param systemTrayPopupMenu
-	 *            the system tray popup menu
-	 * @param actionListeners
-	 *            the action listeners
-	 * @return the new {@link TrayIcon}.
-	 */
-	public static TrayIcon newTrayIcon(final String imgFilename, final String appName,
-		final PopupMenu systemTrayPopupMenu, final Map<String, ActionListener> actionListeners)
-	{
-		final Image image = Toolkit.getDefaultToolkit().getImage(imgFilename);
-		final TrayIcon trayIcon = new TrayIcon(image, appName, systemTrayPopupMenu);
-		for (final Map.Entry<String, ActionListener> actionListener : actionListeners.entrySet())
-		{
-			trayIcon.setActionCommand(actionListener.getKey());
-			trayIcon.addActionListener(actionListener.getValue());
-		}
-		return trayIcon;
 	}
 
 }

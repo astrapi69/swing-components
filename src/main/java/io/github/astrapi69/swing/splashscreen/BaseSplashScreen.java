@@ -41,7 +41,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
-import de.alpharogroup.lang.ClassExtensions;
+import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.layout.ScreenSizeExtensions;
 import de.alpharogroup.model.api.Model;
 import io.github.astrapi69.swing.base.BaseWindow;

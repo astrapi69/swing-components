@@ -4,6 +4,15 @@
 Version 5.7-SNAPSHOT
 -------------
 
+- new factory class MenuFactory for create Menu and JToolbar objects
+- new factory class SplashScreenFactory for create SplashScreen objects
+- new factory class IconButtonFactory for create JButton objects with Icon objects
+- new factory class ButtonFactory for create JButton objects
+
+CHANGED:
+
+- changed some dependencies to new package io.github.astrapi69
+
 Version 5.6
 -------------
 

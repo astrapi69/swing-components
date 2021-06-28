@@ -29,7 +29,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import de.alpharogroup.check.Check;
+import io.github.astrapi69.check.Check;
 
 /**
  * The class {@link DisposeWindowAction}.
