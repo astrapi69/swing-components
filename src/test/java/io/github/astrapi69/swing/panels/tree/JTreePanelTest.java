@@ -49,8 +49,7 @@ public class JTreePanelTest
 	{
 		final Frame frame = new Frame("JTreePanel");
 		frame.addWindowListener(new CloseWindow());
-		Model<TreeNode<TreeElement>> parentModel = BaseModel
-			.of(initializeTestTreeNodeElement());
+		Model<TreeNode<TreeElement>> parentModel = BaseModel.of(initializeTestTreeNodeElement());
 		frame.add(new TestTreeElementPanel(parentModel));
 		frame.pack();
 		frame.setVisible(true);

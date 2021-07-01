@@ -64,7 +64,8 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	private static final long serialVersionUID = 1L;
 
 	/** The configuration directory for configuration files. */
-	@Getter final File configurationDirectory;
+	@Getter
+	final File configurationDirectory;
 
 	/** The current look and feels. */
 	@Getter

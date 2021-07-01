@@ -164,8 +164,7 @@ public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
-		wizardContentPanel = newWizardContentPanel(
-			BaseModel.of(getStateMachine()));
+		wizardContentPanel = newWizardContentPanel(BaseModel.of(getStateMachine()));
 		navigationPanel = newNavigationPanel(BaseModel.of(getStateMachine()));
 	}
 

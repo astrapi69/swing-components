@@ -43,8 +43,7 @@ public class BaseWizardContentPanel<T> extends BaseCardLayoutPanel<WizardModelSt
 	 */
 	public BaseWizardContentPanel()
 	{
-		this(BaseModel
-			.of(WizardModelStateMachine.<T> builder().build()));
+		this(BaseModel.of(WizardModelStateMachine.<T> builder().build()));
 	}
 
 	/**

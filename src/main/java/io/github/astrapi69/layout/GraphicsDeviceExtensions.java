@@ -116,7 +116,8 @@ public class GraphicsDeviceExtensions
 	public static boolean isScreenAvailableToShow(final int screen)
 	{
 		final GraphicsDevice[] graphicsDevices = getAvailableScreens();
-		boolean screenAvailableToShow = (screen > -1 && screen < graphicsDevices.length) || (graphicsDevices.length > 0);
+		boolean screenAvailableToShow = (screen > -1 && screen < graphicsDevices.length)
+			|| (graphicsDevices.length > 0);
 		return screenAvailableToShow;
 	}
 

@@ -42,13 +42,9 @@ public class HelpFrame extends JFrame
 	private static final String DEFAULT_LABEL_HELP = "License";
 
 	private static final long serialVersionUID = 1L;
-
-	private JButton buttonClose;
-
 	private final DisposeWindow disposeWindow;
-
 	private final String helptext;
-
+	private JButton buttonClose;
 	private JLabel jlabelTitle;
 
 	private JScrollPane jscrollPanejtaHelp;

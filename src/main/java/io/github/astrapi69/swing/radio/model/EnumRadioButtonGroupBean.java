@@ -47,11 +47,10 @@ import io.github.astrapi69.model.api.Model;
 public class EnumRadioButtonGroupBean<E extends Enum<E>>
 {
 
-	/** The map with the mapped {@linkplain JRadioButton} objects. */
-	private Map<E, JRadioButton> radioButtonMap;
-
 	/** The model of the selected enum. */
 	private final Model<E> selected;
+	/** The map with the mapped {@linkplain JRadioButton} objects. */
+	private Map<E, JRadioButton> radioButtonMap;
 
 	/**
 	 * Instantiates a new {@link EnumRadioButtonGroupBean}.

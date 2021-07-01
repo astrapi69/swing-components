@@ -47,9 +47,9 @@ import javax.swing.*;
 public abstract class AbstractComponentOutputStream<T extends JComponent> extends OutputStream
 {
 
-	private Appender appender;
 	private final Lock jcosLock = new ReentrantLock();
 	private final byte[] oneByte;
+	private Appender appender;
 
 	public AbstractComponentOutputStream(T component)
 	{
