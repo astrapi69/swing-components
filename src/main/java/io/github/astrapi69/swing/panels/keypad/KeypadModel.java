@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panels.keypad;
 
-import de.alpharogroup.model.GenericModel;
+import io.github.astrapi69.model.GenericModel;
 
 public class KeypadModel<T> extends GenericModel<T>
 {

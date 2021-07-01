@@ -33,8 +33,8 @@ import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.tree.JTreeExtensions;
 import io.github.astrapi69.tree.TreeElement;
 

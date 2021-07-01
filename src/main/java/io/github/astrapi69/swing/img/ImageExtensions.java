@@ -31,16 +31,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.URL;
 import java.util.List;
 import java.util.logging.Level;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
-import io.github.astrapi69.lang.ClassExtensions;
-import de.alpharogroup.random.object.RandomObjectFactory;
-import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
+import lombok.extern.java.Log;
+
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
@@ -54,7 +51,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import lombok.extern.java.Log;
+import io.github.astrapi69.random.object.RandomObjectFactory;
 
 /**
  * The class {@link ImageExtensions}.

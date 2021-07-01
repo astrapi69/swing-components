@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panels.login;
 
-import de.alpharogroup.model.GenericModel;
+import io.github.astrapi69.model.GenericModel;
 
 public class LoginModel extends GenericModel<LoginModelBean>
 {

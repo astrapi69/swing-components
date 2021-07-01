@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.wizard;
 
-import de.alpharogroup.design.pattern.state.wizard.model.WizardModelStateMachine;
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.design.pattern.state.wizard.model.WizardModelStateMachine;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BaseCardLayoutPanel;
 
 /**

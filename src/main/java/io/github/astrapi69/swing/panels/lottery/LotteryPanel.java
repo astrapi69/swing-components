@@ -33,8 +33,8 @@ import java.util.Map;
 
 import javax.swing.JCheckBox;
 
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.icon.StringIcon;
 

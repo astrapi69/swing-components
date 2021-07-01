@@ -24,8 +24,8 @@
  */
 package io.github.astrapi69.swing.wizard;
 
-import de.alpharogroup.design.pattern.state.wizard.WizardState;
-import de.alpharogroup.design.pattern.state.wizard.WizardStateMachine;
+import io.github.astrapi69.design.pattern.state.wizard.WizardState;
+import io.github.astrapi69.design.pattern.state.wizard.WizardStateMachine;
 
 /**
  * The enum {@link CustomState} represents three wizard states and the cancel with the finish

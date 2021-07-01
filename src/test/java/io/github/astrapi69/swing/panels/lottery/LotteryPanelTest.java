@@ -28,8 +28,8 @@ import java.awt.Frame;
 import java.util.LinkedHashSet;
 
 import io.github.astrapi69.layout.CloseWindow;
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 
 public class LotteryPanelTest
 {

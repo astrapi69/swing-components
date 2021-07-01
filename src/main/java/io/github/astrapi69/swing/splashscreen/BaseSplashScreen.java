@@ -43,7 +43,7 @@ import javax.swing.border.Border;
 
 import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.layout.ScreenSizeExtensions;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BaseWindow;
 import lombok.AccessLevel;
 import lombok.Getter;

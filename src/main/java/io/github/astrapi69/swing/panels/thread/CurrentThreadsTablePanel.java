@@ -29,8 +29,8 @@ import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 
 import io.github.astrapi69.lang.thread.ThreadDataBean;
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.table.model.thread.ThreadsTableModel;
 import io.github.astrapi69.swing.x.GenericJXTable;

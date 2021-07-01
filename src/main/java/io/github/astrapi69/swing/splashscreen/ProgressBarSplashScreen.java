@@ -30,7 +30,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The {@link ProgressBarSplashScreen} for an application that have to support progress bar

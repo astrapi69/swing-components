@@ -32,8 +32,8 @@ import javax.swing.JScrollPane;
 import org.jdesktop.swingx.JXButton;
 import org.jdesktop.swingx.JXLabel;
 
-import de.alpharogroup.model.GenericModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.GenericModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.x.GenericJXTable;
 import io.github.astrapi69.swing.x.GenericShuffleJXTable;

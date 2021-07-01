@@ -35,9 +35,9 @@ import javax.imageio.ImageIO;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
-import de.alpharogroup.file.create.FileFactory;
-import de.alpharogroup.file.delete.DeleteFileExtensions;
-import de.alpharogroup.file.search.PathFinder;
+import io.github.astrapi69.create.FileFactory;
+import io.github.astrapi69.delete.DeleteFileExtensions;
+import io.github.astrapi69.search.PathFinder;
 import io.github.astrapi69.lang.ClassExtensions;
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.model.ZipParameters;

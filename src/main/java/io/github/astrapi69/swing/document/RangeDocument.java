@@ -30,7 +30,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
-import de.alpharogroup.math.MathExtensions;
+import io.github.astrapi69.math.MathExtensions;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;

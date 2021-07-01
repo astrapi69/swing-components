@@ -27,8 +27,8 @@ package io.github.astrapi69.swing.splashscreen;
 import javax.swing.JFrame;
 
 import io.github.astrapi69.layout.CloseWindow;
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.check.model.CheckListPanel;
 
 public class ProgressBarSplashScreenTest

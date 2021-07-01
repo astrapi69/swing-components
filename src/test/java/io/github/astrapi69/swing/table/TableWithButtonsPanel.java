@@ -33,10 +33,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.table.TableColumn;
 
-import de.alpharogroup.collections.pairs.KeyValuePair;
+import io.github.astrapi69.collections.pairs.KeyValuePair;
 import io.github.astrapi69.layout.CloseWindow;
-import de.alpharogroup.model.GenericModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.GenericModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.renderer.TableCellButtonRenderer;
 import io.github.astrapi69.swing.table.editor.TableCellButtonEditor;

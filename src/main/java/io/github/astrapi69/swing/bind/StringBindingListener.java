@@ -30,7 +30,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.api.Model;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.extern.java.Log;

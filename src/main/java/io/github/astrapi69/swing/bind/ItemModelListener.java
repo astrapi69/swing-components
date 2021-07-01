@@ -28,7 +28,7 @@ import java.awt.ItemSelectable;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.api.Model;
 import lombok.Getter;
 
 /**

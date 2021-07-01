@@ -33,9 +33,9 @@ import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
 import io.github.astrapi69.check.Argument;
-import de.alpharogroup.collections.array.ArrayExtensions;
-import de.alpharogroup.collections.list.ListExtensions;
-import de.alpharogroup.collections.list.ListFactory;
+import io.github.astrapi69.collections.array.ArrayExtensions;
+import io.github.astrapi69.collections.list.ListExtensions;
+import io.github.astrapi69.collections.list.ListFactory;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -28,7 +28,7 @@ import java.awt.LayoutManager;
 
 import org.jdesktop.swingx.JXPanel;
 
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.api.Model;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

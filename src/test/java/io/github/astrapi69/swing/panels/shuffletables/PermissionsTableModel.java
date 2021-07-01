@@ -25,7 +25,7 @@
 package io.github.astrapi69.swing.panels.shuffletables;
 
 import io.github.astrapi69.swing.table.model.GenericTableModel;
-import de.alpharogroup.test.objects.Permission;
+import io.github.astrapi69.test.objects.Permission;
 
 /**
  * The class PermissionsTableModel.

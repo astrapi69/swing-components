@@ -35,8 +35,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 
-import de.alpharogroup.model.GenericModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.GenericModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.GenericJTable;
 import io.github.astrapi69.swing.GenericShuffleJTable;
 import io.github.astrapi69.swing.base.BasePanel;

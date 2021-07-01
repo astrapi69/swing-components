@@ -32,7 +32,7 @@ import javax.swing.JFrame;
 
 import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.layout.CloseWindow;
-import de.alpharogroup.model.BaseModel;
+import io.github.astrapi69.model.BaseModel;
 
 public class ImagePanelTest
 {

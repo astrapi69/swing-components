@@ -34,8 +34,8 @@ import javax.swing.JPanel;
 
 import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.layout.ScreenSizeExtensions;
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.button.ButtonFactory;
 import io.github.astrapi69.swing.components.factories.JComponentFactory;
 import io.github.astrapi69.swing.panels.login.pw.ChangePasswordModelBean;

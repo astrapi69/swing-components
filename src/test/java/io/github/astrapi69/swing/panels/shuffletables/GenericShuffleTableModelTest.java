@@ -30,7 +30,7 @@ import java.util.List;
 import javax.swing.JFrame;
 
 import io.github.astrapi69.layout.CloseWindow;
-import de.alpharogroup.model.GenericModel;
+import io.github.astrapi69.model.GenericModel;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 import io.github.astrapi69.swing.tablemodel.Permission;
 import io.github.astrapi69.swing.tablemodel.PermissionsTableModel;

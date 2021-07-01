@@ -28,7 +28,7 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 
 import io.github.astrapi69.mvc.controller.AbstractGenericController;
-import de.alpharogroup.model.GenericModel;
+import io.github.astrapi69.model.GenericModel;
 
 
 /**

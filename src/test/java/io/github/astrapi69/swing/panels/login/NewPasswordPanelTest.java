@@ -24,15 +24,15 @@
  */
 package io.github.astrapi69.swing.panels.login;
 
-import static de.alpharogroup.model.typesafe.TypeSafeModel.from;
-import static de.alpharogroup.model.typesafe.TypeSafeModel.model;
+import static io.github.astrapi69.model.typesafe.TypeSafeModel.from;
+import static io.github.astrapi69.model.typesafe.TypeSafeModel.model;
 
 import java.awt.Frame;
 
 import javax.swing.event.DocumentEvent;
 
 import io.github.astrapi69.layout.CloseWindow;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.bind.StringBindingListener;
 import io.github.astrapi69.swing.panels.login.pw.NewPasswordPanel;
 

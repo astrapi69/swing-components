@@ -29,7 +29,7 @@ import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
 import java.security.SecureRandom;
 
-import de.alpharogroup.random.SecureRandomFactory;
+import io.github.astrapi69.random.SecureRandomFactory;
 
 /**
  * The class {@link RobotExtensions}.

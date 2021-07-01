@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.table.model.triple;
 
-import de.alpharogroup.collections.pairs.Triple;
+import io.github.astrapi69.collections.pairs.Triple;
 import io.github.astrapi69.swing.table.model.BaseTableModel;
 import io.github.astrapi69.swing.table.model.TableColumnsModel;
 

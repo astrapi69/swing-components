@@ -11,7 +11,7 @@ Version 5.7-SNAPSHOT
 
 CHANGED:
 
-- changed some dependencies to new package io.github.astrapi69
+- changed all dependencies from groupid de.alpharogroup to new groupid io.github.astrapi69
 
 Version 5.6
 -------------

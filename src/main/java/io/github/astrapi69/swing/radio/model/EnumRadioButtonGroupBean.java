@@ -28,8 +28,8 @@ import java.util.Map;
 
 import javax.swing.JRadioButton;
 
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

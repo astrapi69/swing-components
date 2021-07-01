@@ -44,8 +44,8 @@ import javax.swing.plaf.metal.MetalIconFactory;
 
 import org.jdesktop.swingx.JXPanel;
 
-import de.alpharogroup.collections.list.ListExtensions;
-import de.alpharogroup.collections.list.ListFactory;
+import io.github.astrapi69.collections.list.ListExtensions;
+import io.github.astrapi69.collections.list.ListFactory;
 import io.github.astrapi69.swing.list.CheckBoxListRenderer;
 
 public class CheckListPanel extends JXPanel

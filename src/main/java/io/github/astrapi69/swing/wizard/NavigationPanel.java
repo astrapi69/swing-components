@@ -29,8 +29,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import lombok.Getter;
 

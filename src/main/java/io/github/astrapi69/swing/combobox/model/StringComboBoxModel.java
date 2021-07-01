@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.combobox.model;
 
 import java.util.List;
 
-import de.alpharogroup.collections.array.ArrayExtensions;
+import io.github.astrapi69.collections.array.ArrayExtensions;
 
 /**
  * The class {@link StringComboBoxModel} is an implementation of the abstract class

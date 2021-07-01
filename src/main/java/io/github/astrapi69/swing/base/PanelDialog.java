@@ -30,7 +30,7 @@ import java.awt.Frame;
 
 import javax.swing.JPanel;
 
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.api.Model;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

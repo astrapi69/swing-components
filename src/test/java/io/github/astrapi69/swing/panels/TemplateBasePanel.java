@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panels;
 
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 
 public class TemplateBasePanel extends BasePanel<Object>

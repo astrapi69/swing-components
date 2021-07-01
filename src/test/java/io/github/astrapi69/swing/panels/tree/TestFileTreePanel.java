@@ -24,12 +24,12 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
-import de.alpharogroup.file.create.FileCreationState;
-import de.alpharogroup.file.create.FileFactory;
-import de.alpharogroup.file.delete.DeleteFileExtensions;
-import de.alpharogroup.file.system.SystemFileExtensions;
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.create.FileCreationState;
+import io.github.astrapi69.create.FileFactory;
+import io.github.astrapi69.delete.DeleteFileExtensions;
+import io.github.astrapi69.system.SystemFileExtensions;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 import javax.swing.*;

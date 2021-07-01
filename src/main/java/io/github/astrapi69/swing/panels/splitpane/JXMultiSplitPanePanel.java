@@ -33,7 +33,7 @@ import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.MultiSplitLayout;
 
 import io.github.astrapi69.layout.ScreenSizeExtensions;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.components.factories.DimensionFactory;
 import lombok.Getter;

@@ -25,8 +25,8 @@
 package io.github.astrapi69.swing.panels.tree;
 
 import io.github.astrapi69.layout.CloseWindow;
-import de.alpharogroup.model.BaseModel;
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
 

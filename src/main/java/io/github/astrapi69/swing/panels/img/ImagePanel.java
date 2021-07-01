@@ -27,7 +27,7 @@ package io.github.astrapi69.swing.panels.img;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import de.alpharogroup.model.api.Model;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 
 /**
