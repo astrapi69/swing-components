@@ -24,17 +24,18 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.GraphicsConfiguration;
+import java.awt.*;
 
-import org.jdesktop.swingx.JXFrame;
-
-import io.github.astrapi69.model.api.Model;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
+
+import org.jdesktop.swingx.JXFrame;
+
+import io.github.astrapi69.model.api.Model;
 
 
 /**
@@ -176,6 +177,19 @@ public class BaseFrame<T> extends JXFrame
 	}
 
 	/**
+	 * Setter for the model object.
+	 *
+	 * @param modelObject
+	 *            the new model object
+	 * @return this for chaining
+	 */
+	public final BaseFrame<T> setModelObject(final T modelObject)
+	{
+		getModel().setObject(modelObject);
+		return this;
+	}
+
+	/**
 	 * Initialize the component.
 	 */
 	private final void initialize()
@@ -221,7 +235,6 @@ public class BaseFrame<T> extends JXFrame
 	{
 	}
 
-
 	/**
 	 * Callback method to interact on before initialization of the component.
 	 */
@@ -242,7 +255,6 @@ public class BaseFrame<T> extends JXFrame
 	protected void onBeforeInitializeLayout()
 	{
 	}
-
 
 	/**
 	 * Callback method to initialize the component.
@@ -271,19 +283,6 @@ public class BaseFrame<T> extends JXFrame
 	 */
 	protected void onInitializeLayout()
 	{
-	}
-
-	/**
-	 * Setter for the model object.
-	 *
-	 * @param modelObject
-	 *            the new model object
-	 * @return this for chaining
-	 */
-	public final BaseFrame<T> setModelObject(final T modelObject)
-	{
-		getModel().setObject(modelObject);
-		return this;
 	}
 
 }

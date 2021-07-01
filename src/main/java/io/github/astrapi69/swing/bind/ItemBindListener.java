@@ -24,11 +24,11 @@
  */
 package io.github.astrapi69.swing.bind;
 
-import java.awt.ItemSelectable;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import javax.swing.ComboBoxModel;
+import javax.swing.*;
 
 /**
  * The listener interface {@link ItemBindListener} receives itemBind events.
@@ -61,7 +61,7 @@ public class ItemBindListener<T> implements ItemListener
 	public void itemStateChanged(final ItemEvent e)
 	{
 		final ItemSelectable is = e.getItemSelectable();
-		final Object selected[] = is.getSelectedObjects();
+		final Object[] selected = is.getSelectedObjects();
 		final T sel = (selected.length == 0) ? null : (T)selected[0];
 		model.setSelectedItem(sel);
 	}

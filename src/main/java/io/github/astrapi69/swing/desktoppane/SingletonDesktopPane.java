@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.desktoppane;
 
-import javax.swing.JDesktopPane;
+import javax.swing.*;
 
 /**
  * The class {@link SingletonDesktopPane}.
@@ -33,7 +33,14 @@ public class SingletonDesktopPane
 {
 
 	/** The instance. */
-	private static JDesktopPane instance = new JDesktopPane();
+	private static final JDesktopPane instance = new JDesktopPane();
+
+	/**
+	 * Instantiates a new singleton desktop pane.
+	 */
+	private SingletonDesktopPane()
+	{
+	}
 
 	/**
 	 * Gets the single instance of SingletonDesktopPane.
@@ -43,13 +50,6 @@ public class SingletonDesktopPane
 	public static JDesktopPane getInstance()
 	{
 		return instance;
-	}
-
-	/**
-	 * Instantiates a new singleton desktop pane.
-	 */
-	private SingletonDesktopPane()
-	{
 	}
 
 }

@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.table.model.suffle;
 
-import javax.swing.JTable;
+import javax.swing.*;
 
 import io.github.astrapi69.swing.table.model.NoRowsSelectedException;
 

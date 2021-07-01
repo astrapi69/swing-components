@@ -24,15 +24,10 @@
  */
 package io.github.astrapi69.swing.panels.field;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.GroupLayout;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle;
+import javax.swing.*;
 
-import io.github.astrapi69.swing.base.BasePanel;
 import lombok.Getter;
+import io.github.astrapi69.swing.base.BasePanel;
 
 /**
  * The class {@link FieldPanel} for create a new field.

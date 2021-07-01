@@ -59,6 +59,19 @@ public enum OS
 
 	/** The Constant WINDOWS_PATTERN. */
 	private static final Pattern WINDOWS_PATTERN = Pattern.compile(".*[W|w]indows.*");
+	/** The os. */
+	private final String os;
+
+	/**
+	 * Instantiates a new oS.
+	 *
+	 * @param os
+	 *            the os
+	 */
+	OS(final String os)
+	{
+		this.os = os;
+	}
 
 	public static OS get()
 	{
@@ -90,20 +103,6 @@ public enum OS
 		{
 			return OTHER;
 		}
-	}
-
-	/** The os. */
-	private final String os;
-
-	/**
-	 * Instantiates a new oS.
-	 *
-	 * @param os
-	 *            the os
-	 */
-	private OS(final String os)
-	{
-		this.os = os;
 	}
 
 	/**

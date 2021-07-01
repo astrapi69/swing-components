@@ -24,20 +24,14 @@
  */
 package io.github.astrapi69.swing.panels.network;
 
-import javax.swing.ButtonGroup;
-import javax.swing.GroupLayout;
+import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 
+import lombok.Getter;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
-import lombok.Getter;
 
 /**
  * The class NetworkSettingsPanel.

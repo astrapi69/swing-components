@@ -24,17 +24,12 @@
  */
 package io.github.astrapi69.swing.panels.login;
 
-import javax.swing.GroupLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle;
-
-import org.jdesktop.swingx.JXPanel;
+import javax.swing.*;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import org.jdesktop.swingx.JXPanel;
 
 
 @Getter

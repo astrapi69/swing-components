@@ -26,13 +26,13 @@ package io.github.astrapi69.swing.radio.model;
 
 import java.util.Map;
 
-import javax.swing.JRadioButton;
+import javax.swing.*;
 
-import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The class {@link EnumRadioButtonGroupBean} represents a model object that can be used with
@@ -51,14 +51,14 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	private Map<E, JRadioButton> radioButtonMap;
 
 	/** The model of the selected enum. */
-	private Model<E> selected;
+	private final Model<E> selected;
 
 	/**
 	 * Instantiates a new {@link EnumRadioButtonGroupBean}.
 	 */
 	public EnumRadioButtonGroupBean()
 	{
-		this(BaseModel.<E> of());
+		this(BaseModel.of());
 	}
 
 	/**
@@ -163,6 +163,18 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	}
 
 	/**
+	 * Sets the value.
+	 *
+	 * @param enumValue
+	 *            the new enum value to set
+	 */
+	public void setValue(final E enumValue)
+	{
+		selected.setObject(enumValue);
+		setSelectedRadioButton(enumValue);
+	}
+
+	/**
 	 * Sets the selected radio button.
 	 *
 	 * @param enumValue
@@ -182,18 +194,6 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 				radioButton.setSelected(false);
 			}
 		}
-	}
-
-	/**
-	 * Sets the value.
-	 *
-	 * @param enumValue
-	 *            the new enum value to set
-	 */
-	public void setValue(final E enumValue)
-	{
-		selected.setObject(enumValue);
-		setSelectedRadioButton(enumValue);
 	}
 
 }

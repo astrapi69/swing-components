@@ -24,29 +24,37 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
-import io.github.astrapi69.tree.TreeNode;
+import java.awt.*;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeCellRenderer;
-import java.awt.*;
+
+import io.github.astrapi69.tree.TreeNode;
 
 public class TreeNodeCellRenderer<T> extends DefaultTreeCellRenderer
 {
-	JLabel c = new JLabel("init-renderer");
 	private final DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
-	@Override public Component getTreeCellRendererComponent(JTree tree, Object value,
-		boolean selected, boolean expanded, boolean leaf, int row, boolean hasFocus)
+	JLabel c = new JLabel("init-renderer");
+
+	@Override
+	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected,
+		boolean expanded, boolean leaf, int row, boolean hasFocus)
 	{
-		if (value instanceof TreeNode) {
+		if (value instanceof TreeNode)
+		{
 			TreeNode<T> treeNode = (TreeNode<T>)value;
 			c.setText(treeNode.getDisplayValue());
-			if(leaf) {
+			if (leaf)
+			{
 				c.setIcon(renderer.getLeafIcon());
-			} else {
+			}
+			else
+			{
 				c.setIcon(renderer.getOpenIcon());
 			}
 			return c;
 		}
-		return renderer.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row, hasFocus);
+		return renderer.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row,
+			hasFocus);
 	}
 }

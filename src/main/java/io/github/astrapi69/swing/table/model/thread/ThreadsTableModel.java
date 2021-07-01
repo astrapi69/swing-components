@@ -27,7 +27,7 @@ package io.github.astrapi69.swing.table.model.thread;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 import io.github.astrapi69.lang.thread.ThreadDataBean;
 import io.github.astrapi69.lang.thread.ThreadExtensions;

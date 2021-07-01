@@ -24,10 +24,10 @@
  */
 package io.github.astrapi69.swing.panels.login.pw;
 
+import lombok.Getter;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
-import lombok.Getter;
 
 @Getter
 public class PasswordPanel extends BasePanel<PasswordBean>

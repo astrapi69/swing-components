@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.robot;
 
-import java.awt.Robot;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
 import java.security.SecureRandom;

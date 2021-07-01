@@ -24,45 +24,23 @@
  */
 package io.github.astrapi69.swing.menu.popup.listeners;
 
-import java.awt.HeadlessException;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollPane;
-import javax.swing.JTree;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
 import io.github.astrapi69.swing.menu.MenuFactory;
 
 public class SampleJTableWithPopup extends JFrame
 {
 
 	private static final long serialVersionUID = 1L;
-
-	public static void main(String[] args)
-	{
-		SwingUtilities.invokeLater(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				SampleJTableWithPopup st = new SampleJTableWithPopup();
-				st.setSize(200, 200);
-				st.setLocationRelativeTo(null);
-				st.setVisible(true);
-			}
-		});
-	}
-
-	private JPopupMenu menu;
+	private final JPopupMenu menu;
 
 	public SampleJTableWithPopup() throws HeadlessException
 	{
@@ -85,8 +63,7 @@ public class SampleJTableWithPopup extends JFrame
 
 			}
 		});
-		menu = MenuFactory.newJPopupMenu(tree, menuItem,
-			new JMenuItem("A second popup menu item"));
+		menu = MenuFactory.newJPopupMenu(tree, menuItem, new JMenuItem("A second popup menu item"));
 
 		tree.addMouseListener(new MouseAdapter()
 		{
@@ -114,5 +91,20 @@ public class SampleJTableWithPopup extends JFrame
 
 		add(new JScrollPane(tree));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public static void main(String[] args)
+	{
+		SwingUtilities.invokeLater(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				SampleJTableWithPopup st = new SampleJTableWithPopup();
+				st.setSize(200, 200);
+				st.setLocationRelativeTo(null);
+				st.setVisible(true);
+			}
+		});
 	}
 }

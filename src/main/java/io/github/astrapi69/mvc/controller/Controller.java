@@ -46,43 +46,66 @@ public interface Controller<M, V>
 	 *
 	 * @return the child or null.
 	 */
-	public Controller<M, V> getChild(final String key);
+	Controller<M, V> getChild(final String key);
 
 	/**
 	 * Gets the children from this controller.
 	 *
 	 * @return the children
 	 */
-	public Map<String, Controller<M, V>> getChildren();
+	Map<String, Controller<M, V>> getChildren();
 
 	/**
 	 * Gets the model.
 	 *
 	 * @return the model
 	 */
-	public M getModel();
+	M getModel();
+
+	/**
+	 * Sets the model.
+	 *
+	 * @param model
+	 *            the new model
+	 */
+	void setModel(final M model);
 
 	/**
 	 * Gets the name from the Controller.
 	 *
 	 * @return the name from the Controller.
 	 */
-	public String getName();
+	String getName();
 
 	/**
 	 * Gets the parent from this controller.
 	 *
 	 * @return the parent or null.
 	 */
-	public Controller<M, V> getParent();
+	Controller<M, V> getParent();
+
+	/**
+	 * Sets the parent.
+	 *
+	 * @param controller
+	 *            the new parent
+	 */
+	void setParent(final Controller<M, V> controller);
 
 	/**
 	 * Gets the view.
 	 *
 	 * @return the view
 	 */
-	public V getView();
+	V getView();
 
+	/**
+	 * Sets the view.
+	 *
+	 * @param view
+	 *            the new view
+	 */
+	void setView(final V view);
 
 	/**
 	 * Checks for child.
@@ -92,8 +115,7 @@ public interface Controller<M, V>
 	 *
 	 * @return true, if successful
 	 */
-	public boolean hasChild(final Controller<M, V> controller);
-
+	boolean hasChild(final Controller<M, V> controller);
 
 	/**
 	 * Checks for child.
@@ -103,7 +125,7 @@ public interface Controller<M, V>
 	 *
 	 * @return true, if successful
 	 */
-	public boolean hasChild(final String key);
+	boolean hasChild(final String key);
 
 	/**
 	 * Process.
@@ -111,7 +133,7 @@ public interface Controller<M, V>
 	 * @param event
 	 *            the event
 	 */
-	public void process(final ActionEvent event);
+	void process(final ActionEvent event);
 
 	/**
 	 * Removes the child.
@@ -121,7 +143,7 @@ public interface Controller<M, V>
 	 *
 	 * @return the controller
 	 */
-	public Controller<M, V> removeChild(final Controller<M, V> controller);
+	Controller<M, V> removeChild(final Controller<M, V> controller);
 
 	/**
 	 * Removes the child.
@@ -131,7 +153,7 @@ public interface Controller<M, V>
 	 *
 	 * @return the controller
 	 */
-	public Controller<M, V> removeChild(final String key);
+	Controller<M, V> removeChild(final String key);
 
 	/**
 	 * Sets a child from this controller.
@@ -143,30 +165,6 @@ public interface Controller<M, V>
 	 *
 	 * @return the object
 	 */
-	public Object setChild(final String key, final Controller<M, V> controller);
-
-	/**
-	 * Sets the model.
-	 *
-	 * @param model
-	 *            the new model
-	 */
-	public void setModel(final M model);
-
-	/**
-	 * Sets the parent.
-	 *
-	 * @param controller
-	 *            the new parent
-	 */
-	public void setParent(final Controller<M, V> controller);
-
-	/**
-	 * Sets the view.
-	 *
-	 * @param view
-	 *            the new view
-	 */
-	public void setView(final V view);
+	Object setChild(final String key, final Controller<M, V> controller);
 
 }

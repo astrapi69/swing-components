@@ -24,20 +24,16 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Frame;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.layout.ScreenSizeExtensions;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.button.ButtonFactory;
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
 import io.github.astrapi69.swing.panels.login.pw.ChangePasswordModelBean;
 import io.github.astrapi69.swing.panels.login.pw.NewPasswordPanel;
 
@@ -45,31 +41,27 @@ public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 {
 
 	private static final long serialVersionUID = 1L;
-
-	public static void main(final String[] a)
-	{
-		final BaseDialogExample dialog = new BaseDialogExample(null, "Password title", true,
-			BaseModel.<ChangePasswordModelBean> of());
-		dialog.addWindowListener(new CloseWindow());
-		ScreenSizeExtensions.centralize(dialog, 3,3);
-		dialog.setSize(500, 250);
-
-		dialog.setVisible(true);
-	}
-
+	JPanel buttons;
+	Container container;
+	NewPasswordPanel newPasswordPanel;
 	/** The button close. */
 	private JButton buttonClose;
-
-	JPanel buttons;
-
-	Container container;
-
-	NewPasswordPanel newPasswordPanel;
 
 	public BaseDialogExample(final Frame owner, final String title, final boolean modal,
 		final Model<ChangePasswordModelBean> model)
 	{
 		super(owner, title, modal, model);
+	}
+
+	public static void main(final String[] a)
+	{
+		final BaseDialogExample dialog = new BaseDialogExample(null, "Password title", true,
+			BaseModel.of());
+		dialog.addWindowListener(new CloseWindow());
+		ScreenSizeExtensions.centralize(dialog, 3, 3);
+		dialog.setSize(500, 250);
+
+		dialog.setVisible(true);
 	}
 
 	protected JButton newButtonClose()

@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
 
 /**
  * The class {@link ApplicationSplitPaneFrame}

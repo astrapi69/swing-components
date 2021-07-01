@@ -26,12 +26,10 @@ package io.github.astrapi69.swing.actions;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.JComponent;
+import javax.swing.*;
 
-import io.github.astrapi69.layout.ReplaceContentExtensions;
 import lombok.experimental.UtilityClass;
+import io.github.astrapi69.layout.ReplaceContentExtensions;
 
 @UtilityClass
 public class ActionFactory

@@ -27,7 +27,10 @@ package io.github.astrapi69.swing.panels.shuffletables;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JScrollPane;
+import javax.swing.*;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import org.jdesktop.swingx.JXButton;
 import org.jdesktop.swingx.JXLabel;
@@ -37,8 +40,6 @@ import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.x.GenericJXTable;
 import io.github.astrapi69.swing.x.GenericShuffleJXTable;
-import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 @Setter
@@ -72,7 +73,7 @@ public class ShuffleTablePanel<T> extends BasePanel<List<T>>
 
 	public ShuffleTablePanel()
 	{
-		this(GenericModel.<T> ofList(new ArrayList<>()));
+		this(GenericModel.ofList(new ArrayList<>()));
 	}
 
 	public ShuffleTablePanel(final Model<List<T>> model)

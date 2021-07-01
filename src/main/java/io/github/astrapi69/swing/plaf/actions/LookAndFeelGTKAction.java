@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.plaf.actions;
 
-import java.awt.Component;
+import java.awt.*;
 
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 

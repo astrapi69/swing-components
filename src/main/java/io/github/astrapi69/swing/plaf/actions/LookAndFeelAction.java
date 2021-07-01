@@ -24,16 +24,15 @@
  */
 package io.github.astrapi69.swing.plaf.actions;
 
-import java.awt.Component;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
 
-import io.github.astrapi69.swing.plaf.LookAndFeels;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.swing.plaf.LookAndFeels;
 
 @Getter(AccessLevel.PROTECTED)
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)

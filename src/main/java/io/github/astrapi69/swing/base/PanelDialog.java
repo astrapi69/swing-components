@@ -24,19 +24,17 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Frame;
+import java.awt.*;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
-import io.github.astrapi69.model.api.Model;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The class {@link PanelDialog} contains a panel for the content and a panel for the buttons

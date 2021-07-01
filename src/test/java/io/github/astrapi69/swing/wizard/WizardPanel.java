@@ -24,10 +24,9 @@
  */
 package io.github.astrapi69.swing.wizard;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
+import java.awt.*;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import io.github.astrapi69.design.pattern.state.wizard.WizardStateMachine;
 import io.github.astrapi69.model.BaseModel;
@@ -38,6 +37,18 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 {
 
 	private static final long serialVersionUID = 1L;
+	private NavigationPanel<Void> navigationPanel;
+	private WizardContentPanel wizardContentPanel;
+
+	public WizardPanel()
+	{
+		this(BaseModel.of(WizardStateMachine.builder().currentState(CustomState.FIRST).build()));
+	}
+
+	public WizardPanel(final Model<WizardStateMachine> model)
+	{
+		super(model);
+	}
 
 	public static void main(final String[] args)
 	{
@@ -51,20 +62,6 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-	}
-
-	private NavigationPanel<Void> navigationPanel;
-
-	private WizardContentPanel wizardContentPanel;
-
-	public WizardPanel()
-	{
-		this(BaseModel.of(WizardStateMachine.builder().currentState(CustomState.FIRST).build()));
-	}
-
-	public WizardPanel(final Model<WizardStateMachine> model)
-	{
-		super(model);
 	}
 
 	protected NavigationPanel<Void> newNavigationPanel()

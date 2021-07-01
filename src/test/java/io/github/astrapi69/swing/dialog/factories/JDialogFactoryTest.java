@@ -24,26 +24,17 @@
  */
 package io.github.astrapi69.swing.dialog.factories;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dialog;
-import java.awt.Frame;
-import java.awt.GraphicsConfiguration;
+import java.awt.*;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
+import javax.swing.*;
 
-import io.github.astrapi69.swing.button.ButtonFactory;
+import net.miginfocom.swing.MigLayout;
+
 import org.testng.annotations.Test;
 
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
+import io.github.astrapi69.swing.button.ButtonFactory;
 import io.github.astrapi69.swing.listener.RequestFocusListener;
 import io.github.astrapi69.swing.test.TestComponentFactory;
-import net.miginfocom.swing.MigLayout;
 
 
 /**

@@ -24,20 +24,18 @@
  */
 package io.github.astrapi69.swing.actions;
 
-import java.awt.Window;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 
-import javax.swing.AbstractAction;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
+import javax.swing.*;
 
-import io.github.astrapi69.swing.plaf.LookAndFeels;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
+import io.github.astrapi69.swing.plaf.LookAndFeels;
 
 /**
  * The class {@link ShowHelpDialogAction} shows the help window of an application

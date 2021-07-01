@@ -24,8 +24,9 @@
  */
 package io.github.astrapi69.swing.actions;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
+
+import javax.swing.*;
 
 /**
  * The class {@link NoAction} as the name say there is no action
@@ -58,7 +59,8 @@ public class NoAction extends AbstractAction
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override public void actionPerformed(final ActionEvent e)
+	@Override
+	public void actionPerformed(final ActionEvent e)
 	{
 	}
 

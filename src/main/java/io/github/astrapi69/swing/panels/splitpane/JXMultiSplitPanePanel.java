@@ -24,10 +24,11 @@
  */
 package io.github.astrapi69.swing.panels.splitpane;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.*;
 
-import javax.swing.BorderFactory;
+import javax.swing.*;
+
+import lombok.Getter;
 
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.MultiSplitLayout;
@@ -36,7 +37,6 @@ import io.github.astrapi69.layout.ScreenSizeExtensions;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.components.factories.DimensionFactory;
-import lombok.Getter;
 
 public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 {

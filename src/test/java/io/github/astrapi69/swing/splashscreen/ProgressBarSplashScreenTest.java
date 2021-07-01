@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.splashscreen;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.model.BaseModel;

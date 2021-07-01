@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.check.model;
 
-import javax.swing.Icon;
+import javax.swing.*;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -36,6 +36,6 @@ import lombok.experimental.SuperBuilder;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CheckableValue
 {
-	Icon icon;
 	final String itemText;
+	Icon icon;
 }

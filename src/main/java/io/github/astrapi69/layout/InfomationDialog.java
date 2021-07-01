@@ -24,15 +24,7 @@
  */
 package io.github.astrapi69.layout;
 
-import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.Dialog;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.Point;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -50,40 +42,16 @@ public class InfomationDialog extends Dialog implements ActionListener
 	 * The serialVersionUID.
 	 */
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * Statische Methode um ein Dialogfenster mit der angegebener Nachricht zu erzeugen.
-	 *
-	 * @param owner
-	 *            the owner
-	 * @param message
-	 *            the message
-	 * @return das ergebnis
-	 */
-	public static String showInfoDialog(final Frame owner, final String message)
-	{
-		InfomationDialog mdialog;
-		String ok = "OK";
-		mdialog = new InfomationDialog(owner, "Information message", message, ok);
-		@SuppressWarnings("unlikely-arg-type")
-		final int index = mdialog.getVButtons().indexOf(ok);
-		final Button button = mdialog.getVButtons().get(index);
-		button.addActionListener(mdialog);
-		mdialog.setVisible(true);
-		return mdialog.getResult();
-	}
-
 	/**
 	 * The result.
 	 */
 	String result;
-
 	/** The vector with the buttons. */
 	List<Button> vButtons;
 
 	/**
 	 * Instantiates a new infomation dialog.
-	 * 
+	 *
 	 * @param owner
 	 *            the owner
 	 * @param title
@@ -124,6 +92,28 @@ public class InfomationDialog extends Dialog implements ActionListener
 
 		this.add("South", panel);
 		this.pack();
+	}
+
+	/**
+	 * Statische Methode um ein Dialogfenster mit der angegebener Nachricht zu erzeugen.
+	 *
+	 * @param owner
+	 *            the owner
+	 * @param message
+	 *            the message
+	 * @return das ergebnis
+	 */
+	public static String showInfoDialog(final Frame owner, final String message)
+	{
+		InfomationDialog mdialog;
+		String ok = "OK";
+		mdialog = new InfomationDialog(owner, "Information message", message, ok);
+		@SuppressWarnings("unlikely-arg-type")
+		final int index = mdialog.getVButtons().indexOf(ok);
+		final Button button = mdialog.getVButtons().get(index);
+		button.addActionListener(mdialog);
+		mdialog.setVisible(true);
+		return mdialog.getResult();
 	}
 
 	/**

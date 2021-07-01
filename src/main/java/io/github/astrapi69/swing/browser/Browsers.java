@@ -66,7 +66,7 @@ public enum Browsers
 	 * @param browserName
 	 *            the browser name
 	 */
-	private Browsers(final String browserName)
+	Browsers(final String browserName)
 	{
 		this.browserName = browserName;
 	}

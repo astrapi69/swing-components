@@ -25,13 +25,7 @@
 package io.github.astrapi69.swing.utils;
 
 
-import javax.swing.Action;
-import javax.swing.ActionMap;
-import javax.swing.ComponentInputMap;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
-import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 import javax.swing.plaf.ActionMapUIResource;
 
 /**
@@ -39,6 +33,13 @@ import javax.swing.plaf.ActionMapUIResource;
  */
 public final class KeyStrokeExtensions
 {
+
+	/**
+	 * Instantiates a new key stroke utils.
+	 */
+	private KeyStrokeExtensions()
+	{
+	}
 
 	/**
 	 * Adds the shortcut to component.
@@ -82,13 +83,6 @@ public final class KeyStrokeExtensions
 	{
 		addShortcutToComponent(component, keystroke, JComponent.WHEN_IN_FOCUSED_WINDOW,
 			actionCommand, action);
-	}
-
-	/**
-	 * Instantiates a new key stroke utils.
-	 */
-	private KeyStrokeExtensions()
-	{
 	}
 
 }

@@ -24,8 +24,7 @@
  */
 package io.github.astrapi69.layout;
 
-import java.awt.Point;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 

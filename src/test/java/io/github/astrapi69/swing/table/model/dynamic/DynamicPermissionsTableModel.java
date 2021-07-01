@@ -24,8 +24,8 @@
  */
 package io.github.astrapi69.swing.table.model.dynamic;
 
-import io.github.astrapi69.swing.tablemodel.Permission;
 import lombok.NonNull;
+import io.github.astrapi69.swing.tablemodel.Permission;
 
 /**
  * The class DynamicPermissionsTableModel

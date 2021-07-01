@@ -24,30 +24,24 @@
  */
 package io.github.astrapi69.swing.panels.shuffletables;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 
+import lombok.Getter;
 import io.github.astrapi69.model.GenericModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.GenericJTable;
 import io.github.astrapi69.swing.GenericShuffleJTable;
 import io.github.astrapi69.swing.base.BasePanel;
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
 import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 import io.github.astrapi69.swing.table.model.suffle.actions.AddAction;
 import io.github.astrapi69.swing.table.model.suffle.actions.AddAllAction;
 import io.github.astrapi69.swing.table.model.suffle.actions.RemoveAction;
 import io.github.astrapi69.swing.table.model.suffle.actions.RemoveAllAction;
-import lombok.Getter;
 
 
 /**
@@ -162,8 +156,8 @@ public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
 		addMenuItem.addActionListener(addAction);
 		final JMenuItem addAllMenuItem = new JMenuItem("All selected rows to right >>");
 		addAllMenuItem.addActionListener(addAllAction);
-		final JPopupMenu leftTablePopupMenu = MenuFactory
-			.newJPopupMenu(shuffleTable.getLeftTable(), addMenuItem, addAllMenuItem);
+		final JPopupMenu leftTablePopupMenu = MenuFactory.newJPopupMenu(shuffleTable.getLeftTable(),
+			addMenuItem, addAllMenuItem);
 		shuffleTable.getLeftTable().add(leftTablePopupMenu);
 
 		final JMenuItem removeMenuItem = new JMenuItem("< Selected row to left");

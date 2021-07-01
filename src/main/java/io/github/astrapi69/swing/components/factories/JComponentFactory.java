@@ -24,36 +24,15 @@
  */
 package io.github.astrapi69.swing.components.factories;
 
-import java.awt.Component;
-import java.awt.Frame;
-import java.awt.Image;
-import java.awt.MenuItem;
-import java.awt.PopupMenu;
-import java.awt.Toolkit;
-import java.awt.TrayIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
+import java.awt.*;
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
 
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
 import javax.swing.*;
-import javax.swing.JEditorPane;
-import javax.swing.JInternalFrame;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.JSplitPane;
-import javax.swing.JToolBar;
 
-import io.github.astrapi69.lang.ClassExtensions;
-import io.github.astrapi69.swing.menu.MenuExtensions;
-import io.github.astrapi69.swing.menu.MenuItemBean;
-import io.github.astrapi69.swing.menu.popup.listeners.PopupListener;
-import io.github.astrapi69.swing.splashscreen.SplashScreen;
-import lombok.NonNull;
 import lombok.experimental.UtilityClass;
+import io.github.astrapi69.lang.ClassExtensions;
 
 /**
  * The class {@link JComponentFactory} provides factory methods for create swing Component objects

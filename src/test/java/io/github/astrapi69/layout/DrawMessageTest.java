@@ -24,9 +24,7 @@
  */
 package io.github.astrapi69.layout;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Frame;
+import java.awt.*;
 import java.awt.event.WindowListener;
 
 import org.testng.annotations.AfterMethod;

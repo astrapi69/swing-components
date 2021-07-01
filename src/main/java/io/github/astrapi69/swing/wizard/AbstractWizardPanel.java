@@ -24,15 +24,14 @@
  */
 package io.github.astrapi69.swing.wizard;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
+import java.awt.*;
 
+import lombok.Getter;
+import lombok.Setter;
 import io.github.astrapi69.design.pattern.state.wizard.model.WizardModelStateMachine;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * The class {@link AbstractWizardPanel} serves as the base class for wizard panels.
@@ -62,7 +61,7 @@ public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 	 */
 	public AbstractWizardPanel()
 	{
-		this(BaseModel.<T> of());
+		this(BaseModel.of());
 	}
 
 	/**
@@ -166,7 +165,7 @@ public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 	{
 		super.onInitializeComponents();
 		wizardContentPanel = newWizardContentPanel(
-			BaseModel.<WizardModelStateMachine<T>> of(getStateMachine()));
+			BaseModel.of(getStateMachine()));
 		navigationPanel = newNavigationPanel(BaseModel.of(getStateMachine()));
 	}
 

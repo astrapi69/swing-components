@@ -24,16 +24,10 @@
  */
 package io.github.astrapi69.swing.panels.keypad;
 
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.Panel;
-import java.awt.TextArea;
+import java.awt.*;
 
-import io.github.astrapi69.layout.LayoutExtensions;
 import lombok.Getter;
+import io.github.astrapi69.layout.LayoutExtensions;
 
 /**
  * Panel for a number keypad.

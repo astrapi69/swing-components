@@ -42,12 +42,10 @@ public class PermissionsTableModel extends GenericTableModel<Permission>
 	 * The generated constant serialVersionUID.
 	 */
 	private static final long serialVersionUID = 4876488625090262508L;
-
-	/** The can edit. */
-	boolean[] canEdit = new boolean[] { false, false };
-
 	/** The column names. */
 	private final String[] columnNames = { NAME, DESCRIPTION };
+	/** The can edit. */
+	boolean[] canEdit = new boolean[] { false, false };
 
 	/**
 	 * (non-Javadoc).

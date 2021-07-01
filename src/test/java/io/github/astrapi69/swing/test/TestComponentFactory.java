@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.test;
 
-import java.awt.Frame;
+import java.awt.*;
 
 import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.layout.ScreenSizeExtensions;

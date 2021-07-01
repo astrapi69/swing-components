@@ -43,14 +43,14 @@ public class LoginModelBean implements Serializable
 		return password;
 	}
 
-	public String getUsername()
-	{
-		return username;
-	}
-
 	public void setPassword(final String password)
 	{
 		this.password = password;
+	}
+
+	public String getUsername()
+	{
+		return username;
 	}
 
 	public void setUsername(final String username)

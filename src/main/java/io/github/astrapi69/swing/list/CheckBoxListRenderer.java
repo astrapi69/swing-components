@@ -24,19 +24,15 @@
  */
 package io.github.astrapi69.swing.list;
 
-import java.awt.Color;
-import java.awt.Component;
+import java.awt.*;
 
-import javax.swing.Icon;
-import javax.swing.JList;
-import javax.swing.ListCellRenderer;
-import javax.swing.UIManager;
+import javax.swing.*;
 
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 import io.github.astrapi69.swing.check.model.CheckableItem;
 import io.github.astrapi69.swing.check.model.CheckableValue;
 import io.github.astrapi69.swing.tree.renderer.CheckBoxTreeCellRenderer;
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CheckBoxListRenderer extends CheckBoxTreeCellRenderer
@@ -44,9 +40,9 @@ public class CheckBoxListRenderer extends CheckBoxTreeCellRenderer
 		ListCellRenderer<CheckableItem<CheckableValue>>
 {
 	private static final long serialVersionUID = 1L;
-	Icon defaultIcon;
-	Color textBackground;
-	Color textForeground;
+	final Icon defaultIcon;
+	final Color textBackground;
+	final Color textForeground;
 
 	public CheckBoxListRenderer()
 	{

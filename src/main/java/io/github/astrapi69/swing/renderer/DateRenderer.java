@@ -48,7 +48,7 @@ public class DateRenderer extends DefaultTableCellRenderer
 
 	/** The date pattern. */
 	@Getter
-	private String datePattern;
+	private final String datePattern;
 
 	/**
 	 * Instantiates a new {@link DateRenderer}.

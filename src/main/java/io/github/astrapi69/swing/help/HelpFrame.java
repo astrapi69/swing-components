@@ -24,16 +24,9 @@
  */
 package io.github.astrapi69.swing.help;
 
-import java.awt.BorderLayout;
-import java.awt.Panel;
-import java.awt.Point;
+import java.awt.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
+import javax.swing.*;
 
 import io.github.astrapi69.actions.DisposeWindowAction;
 import io.github.astrapi69.layout.DisposeWindow;
@@ -52,9 +45,9 @@ public class HelpFrame extends JFrame
 
 	private JButton buttonClose;
 
-	private DisposeWindow disposeWindow;
+	private final DisposeWindow disposeWindow;
 
-	private String helptext;
+	private final String helptext;
 
 	private JLabel jlabelTitle;
 

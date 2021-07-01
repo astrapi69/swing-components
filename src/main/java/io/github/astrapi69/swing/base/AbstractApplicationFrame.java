@@ -24,9 +24,7 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.Component;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -34,17 +32,8 @@ import java.util.Optional;
 import java.util.logging.Level;
 
 import javax.imageio.ImageIO;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JToolBar;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
 
-import io.github.astrapi69.lang.ClassExtensions;
-import io.github.astrapi69.layout.ScreenSizeExtensions;
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
-import io.github.astrapi69.swing.menu.MenuFactory;
-import io.github.astrapi69.swing.plaf.LookAndFeels;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -53,6 +42,10 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
+import io.github.astrapi69.lang.ClassExtensions;
+import io.github.astrapi69.layout.ScreenSizeExtensions;
+import io.github.astrapi69.swing.menu.MenuFactory;
+import io.github.astrapi69.swing.plaf.LookAndFeels;
 
 /**
  * The class {@link AbstractApplicationFrame}
@@ -71,8 +64,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	private static final long serialVersionUID = 1L;
 
 	/** The configuration directory for configuration files. */
-	@Getter
-	File configurationDirectory;
+	@Getter final File configurationDirectory;
 
 	/** The current look and feels. */
 	@Getter

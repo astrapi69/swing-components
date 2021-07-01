@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panels.output;
 
-import java.awt.EventQueue;
+import java.awt.*;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 /**
  * The class {@link AbstractComponentOutputStream} is inspired from <a href=
@@ -47,121 +47,9 @@ import javax.swing.JComponent;
 public abstract class AbstractComponentOutputStream<T extends JComponent> extends OutputStream
 {
 
-	class Appender implements Runnable
-	{
-		private Lock appenderLock;
-		private boolean clear;
-		private int curLength; // length of current line
-		private final String EOL1 = "\n";
-
-		private final String EOL2 = System.getProperty("line.separator", EOL1);
-		private final LinkedList<Integer> lengths; // length of lines within
-		private final int maxLines; // maximum lines allowed in text area
-
-		private boolean queue;
-
-		private final JComponent swingComponent;
-
-		// text area
-		private final List<String> values; // values waiting to be appended
-
-		Appender(JComponent cpt, int maxLines)
-		{
-			appenderLock = new ReentrantLock();
-
-			swingComponent = cpt;
-			this.maxLines = maxLines;
-			lengths = new LinkedList<Integer>();
-			values = new ArrayList<String>();
-
-			curLength = 0;
-			clear = false;
-			queue = true;
-		}
-
-		void append(String val)
-		{
-			appenderLock.lock();
-			try
-			{
-				values.add(val);
-				if (queue)
-				{
-					queue = false;
-					EventQueue.invokeLater(this);
-				}
-			}
-			finally
-			{
-				appenderLock.unlock();
-			}
-		}
-
-		void clear()
-		{
-			appenderLock.lock();
-			try
-			{
-
-				clear = true;
-				curLength = 0;
-				lengths.clear();
-				values.clear();
-				if (queue)
-				{
-					queue = false;
-					EventQueue.invokeLater(this);
-				}
-			}
-			finally
-			{
-				appenderLock.unlock();
-			}
-		}
-
-		// MUST BE THE ONLY METHOD THAT TOUCHES the JComponent!
-		@Override
-		public void run()
-		{
-			appenderLock.lock();
-			try
-			{
-				if (clear)
-				{
-					AbstractComponentOutputStream.this.setText(swingComponent, "");
-				}
-				for (String val : values)
-				{
-					curLength += val.length();
-					if (val.endsWith(EOL1) || val.endsWith(EOL2))
-					{
-						if (lengths.size() >= maxLines)
-						{
-							AbstractComponentOutputStream.this.replaceRange(swingComponent, "", 0,
-								lengths.removeFirst());
-						}
-						lengths.addLast(curLength);
-						curLength = 0;
-					}
-					AbstractComponentOutputStream.this.append(swingComponent, val);
-				}
-
-				values.clear();
-				clear = false;
-				queue = true;
-			}
-			finally
-			{
-				appenderLock.unlock();
-			}
-		}
-	}
-
 	private Appender appender;
-
-	private Lock jcosLock = new ReentrantLock();
-
-	private byte[] oneByte;
+	private final Lock jcosLock = new ReentrantLock();
+	private final byte[] oneByte;
 
 	public AbstractComponentOutputStream(T component)
 	{
@@ -285,6 +173,112 @@ public abstract class AbstractComponentOutputStream<T extends JComponent> extend
 		finally
 		{
 			jcosLock.unlock();
+		}
+	}
+
+	class Appender implements Runnable
+	{
+		private final String EOL1 = "\n";
+		private final String EOL2 = System.getProperty("line.separator", EOL1);
+		private final LinkedList<Integer> lengths; // length of lines within
+		private final int maxLines; // maximum lines allowed in text area
+		private final JComponent swingComponent;
+		// text area
+		private final List<String> values; // values waiting to be appended
+		private final Lock appenderLock;
+		private boolean clear;
+		private int curLength; // length of current line
+		private boolean queue;
+
+		Appender(JComponent cpt, int maxLines)
+		{
+			appenderLock = new ReentrantLock();
+
+			swingComponent = cpt;
+			this.maxLines = maxLines;
+			lengths = new LinkedList<Integer>();
+			values = new ArrayList<String>();
+
+			curLength = 0;
+			clear = false;
+			queue = true;
+		}
+
+		void append(String val)
+		{
+			appenderLock.lock();
+			try
+			{
+				values.add(val);
+				if (queue)
+				{
+					queue = false;
+					EventQueue.invokeLater(this);
+				}
+			}
+			finally
+			{
+				appenderLock.unlock();
+			}
+		}
+
+		void clear()
+		{
+			appenderLock.lock();
+			try
+			{
+
+				clear = true;
+				curLength = 0;
+				lengths.clear();
+				values.clear();
+				if (queue)
+				{
+					queue = false;
+					EventQueue.invokeLater(this);
+				}
+			}
+			finally
+			{
+				appenderLock.unlock();
+			}
+		}
+
+		// MUST BE THE ONLY METHOD THAT TOUCHES the JComponent!
+		@Override
+		public void run()
+		{
+			appenderLock.lock();
+			try
+			{
+				if (clear)
+				{
+					AbstractComponentOutputStream.this.setText(swingComponent, "");
+				}
+				for (String val : values)
+				{
+					curLength += val.length();
+					if (val.endsWith(EOL1) || val.endsWith(EOL2))
+					{
+						if (lengths.size() >= maxLines)
+						{
+							AbstractComponentOutputStream.this.replaceRange(swingComponent, "", 0,
+								lengths.removeFirst());
+						}
+						lengths.addLast(curLength);
+						curLength = 0;
+					}
+					AbstractComponentOutputStream.this.append(swingComponent, val);
+				}
+
+				values.clear();
+				clear = false;
+				queue = true;
+			}
+			finally
+			{
+				appenderLock.unlock();
+			}
 		}
 	}
 

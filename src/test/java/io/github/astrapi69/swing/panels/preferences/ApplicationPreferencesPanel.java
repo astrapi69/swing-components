@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panels.preferences;
 
-import javax.swing.JLabel;
+import javax.swing.*;
 import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -43,7 +43,7 @@ public class ApplicationPreferencesPanel extends PreferencesPanel<TreeElement>
 	public ApplicationPreferencesPanel()
 	{
 
-		this(BaseModel.<TreeElement> of(TreeElement.builder().build()));
+		this(BaseModel.of(TreeElement.builder().build()));
 	}
 
 	public ApplicationPreferencesPanel(Model<TreeElement> model)

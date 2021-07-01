@@ -24,17 +24,17 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.Frame;
+import java.awt.*;
 
-import javax.swing.JDialog;
+import javax.swing.*;
 
-import io.github.astrapi69.model.api.Model;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The class {@link BaseDialog}.
@@ -104,6 +104,19 @@ public class BaseDialog<T> extends JDialog
 	}
 
 	/**
+	 * Setter for the model object.
+	 *
+	 * @param modelObject
+	 *            the new model object
+	 * @return this for chaining
+	 */
+	public final BaseDialog<T> setModelObject(final T modelObject)
+	{
+		getModel().setObject(modelObject);
+		return this;
+	}
+
+	/**
 	 * Initialize the component.
 	 */
 	private final void initialize()
@@ -148,7 +161,6 @@ public class BaseDialog<T> extends JDialog
 	protected void onAfterInitializeLayout()
 	{
 	}
-
 
 	/**
 	 * Callback method to interact on before initialization of the component.
@@ -198,19 +210,6 @@ public class BaseDialog<T> extends JDialog
 	 */
 	protected void onInitializeLayout()
 	{
-	}
-
-	/**
-	 * Setter for the model object.
-	 *
-	 * @param modelObject
-	 *            the new model object
-	 * @return this for chaining
-	 */
-	public final BaseDialog<T> setModelObject(final T modelObject)
-	{
-		getModel().setObject(modelObject);
-		return this;
 	}
 
 }

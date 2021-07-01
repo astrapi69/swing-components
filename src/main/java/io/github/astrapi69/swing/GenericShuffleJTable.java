@@ -26,9 +26,9 @@ package io.github.astrapi69.swing;
 
 import java.io.Serializable;
 
+import lombok.Getter;
 import io.github.astrapi69.check.Check;
 import io.github.astrapi69.swing.table.model.suffle.GenericShuffleTableModel;
-import lombok.Getter;
 
 /**
  * The class {@link GenericShuffleJTable}.

@@ -24,13 +24,13 @@
  */
 package io.github.astrapi69.swing.actions;
 
-import java.awt.Component;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
+import javax.swing.*;
 
-import io.github.astrapi69.swing.browser.BrowserControlExtensions;
 import lombok.Getter;
+import io.github.astrapi69.swing.browser.BrowserControlExtensions;
 
 @Getter
 public class OpenBrowserAction extends AbstractAction
@@ -38,15 +38,7 @@ public class OpenBrowserAction extends AbstractAction
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-
-	public static OpenBrowserAction of(final String name, final Component component,
-		final String url)
-	{
-		return new OpenBrowserAction(name, component, url);
-	}
-
 	private final Component component;
-
 	private final String url;
 
 	public OpenBrowserAction(final String name, final Component component, final String url)
@@ -54,6 +46,12 @@ public class OpenBrowserAction extends AbstractAction
 		super(name);
 		this.component = component;
 		this.url = url;
+	}
+
+	public static OpenBrowserAction of(final String name, final Component component,
+		final String url)
+	{
+		return new OpenBrowserAction(name, component, url);
 	}
 
 	@Override

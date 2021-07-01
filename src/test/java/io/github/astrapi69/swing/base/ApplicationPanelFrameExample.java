@@ -24,43 +24,32 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.lang.ClassExtensions;
-import io.github.astrapi69.layout.CloseWindow;
-import io.github.astrapi69.swing.button.ButtonFactory;
-import io.github.astrapi69.swing.button.IconButtonFactory;
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
-import io.github.astrapi69.swing.img.ImageExtensions;
-import io.github.astrapi69.swing.icon.ImageIconFactory;
-import io.github.astrapi69.swing.panels.splitpane.ApplicationTestModel;
-import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
-import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
-import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
-import org.jdesktop.swingx.MultiSplitLayout;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.*;
-import java.awt.image.BufferedImage;
+
+import org.jdesktop.swingx.MultiSplitLayout;
+
+import io.github.astrapi69.lang.ClassExtensions;
+import io.github.astrapi69.layout.CloseWindow;
+import io.github.astrapi69.swing.button.IconButtonFactory;
+import io.github.astrapi69.swing.icon.ImageIconFactory;
+import io.github.astrapi69.swing.img.ImageExtensions;
+import io.github.astrapi69.swing.panels.splitpane.ApplicationTestModel;
+import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
+import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
+import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 public class ApplicationPanelFrameExample
-	extends ApplicationPanelFrame<ApplicationTestModel<String>>
+	extends
+		ApplicationPanelFrame<ApplicationTestModel<String>>
 {
 
 
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * Test init layout.
-	 * @param args the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		final Frame frame = new ApplicationPanelFrameExample("ApplicationSplitPaneFrameExample");
-		frame.addWindowListener(new CloseWindow());
-		frame.pack();
-		frame.setVisible(true);
-	}
 
 	/**
 	 * Instantiates a new {@link ApplicationSplitPaneFrame}
@@ -73,6 +62,20 @@ public class ApplicationPanelFrameExample
 		super(title);
 	}
 
+	/**
+	 * Test init layout.
+	 *
+	 * @param args
+	 *            the arguments
+	 */
+	public static void main(final String[] args)
+	{
+		final Frame frame = new ApplicationPanelFrameExample("ApplicationSplitPaneFrameExample");
+		frame.addWindowListener(new CloseWindow());
+		frame.pack();
+		frame.setVisible(true);
+	}
+
 	protected JComponent newBottomComponent()
 	{
 		JLabel label = new JLabel("Bottom Component");
@@ -82,7 +85,8 @@ public class ApplicationPanelFrameExample
 	}
 
 
-	@Override protected String newIconPath()
+	@Override
+	protected String newIconPath()
 	{
 		return "img/xmas/bell.png";
 	}
@@ -95,11 +99,14 @@ public class ApplicationPanelFrameExample
 		return label;
 	}
 
-	@SuppressWarnings("serial") @Override protected JXMultiSplitPanePanel<ApplicationTestModel<String>> newMainComponent()
+	@SuppressWarnings("serial")
+	@Override
+	protected JXMultiSplitPanePanel<ApplicationTestModel<String>> newMainComponent()
 	{
 		final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
 		{
-			@Override protected MultiSplitLayout.Node newRootNode(String layoutDefinition)
+			@Override
+			protected MultiSplitLayout.Node newRootNode(String layoutDefinition)
 			{
 				return ApplicationPanelFrameExample.this.newRootNode();
 			}
@@ -132,20 +139,19 @@ public class ApplicationPanelFrameExample
 		return label;
 	}
 
-	@Override protected JToolBar newJToolBar()
+	@Override
+	protected JToolBar newJToolBar()
 	{
 		JToolBar toolBar = super.newJToolBar();
 		toolBar.setSize(this.getWidth(), 25);
 		final BufferedImage img1 = RuntimeExceptionDecorator
 			.decorate(() -> ImageIO.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png")));
 
-		byte[] resized = ImageExtensions.resize(img1, "Bell", 25,
-			25);
+		byte[] resized = ImageExtensions.resize(img1, "Bell", 25, 25);
 		BufferedImage result = RuntimeExceptionDecorator
 			.decorate(() -> ImageExtensions.read(resized));
 		ImageIcon imageIcon = ImageIconFactory.newImageIcon(result);
-		JButton bellButton = IconButtonFactory
-			.newIconButton(imageIcon, "bell", "Bell", "Bell");
+		JButton bellButton = IconButtonFactory.newIconButton(imageIcon, "bell", "Bell", "Bell");
 		Icon directoryIcon = UIManager.getIcon("FileView.directoryIcon");
 		Icon fileIcon = UIManager.getIcon("FileView.fileIcon");
 		Icon computerIcon = UIManager.getIcon("FileView.computerIcon");
@@ -158,17 +164,14 @@ public class ApplicationPanelFrameExample
 		Icon detailsViewIcon = UIManager.getIcon("FileChooser.detailsViewIcon");
 		Icon listViewIcon = UIManager.getIcon("FileChooser.listViewIcon");
 
-//		toolBar.add(JComponentFactory
-//			.newJButton(directoryIcon, "Dir"));
-//		toolBar.add(JComponentFactory
-//			.newJButton(fileIcon, "File"));
+		// toolBar.add(JComponentFactory
+		// .newJButton(directoryIcon, "Dir"));
+		// toolBar.add(JComponentFactory
+		// .newJButton(fileIcon, "File"));
 		toolBar.add(new JButton(computerIcon));
-		toolBar.add(IconButtonFactory
-			.newIconButton(hardDriveIcon));
-		toolBar.add(IconButtonFactory
-			.newIconButton(floppyDriveIcon));
-		toolBar.add(IconButtonFactory
-			.newIconButton(newFolderIcon));
+		toolBar.add(IconButtonFactory.newIconButton(hardDriveIcon));
+		toolBar.add(IconButtonFactory.newIconButton(floppyDriveIcon));
+		toolBar.add(IconButtonFactory.newIconButton(newFolderIcon));
 		return toolBar;
 	}
 }

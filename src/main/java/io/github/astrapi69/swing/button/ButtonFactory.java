@@ -25,6 +25,7 @@
 package io.github.astrapi69.swing.button;
 
 import javax.swing.*;
+
 /**
  * A factory {@link ButtonFactory} provides factory methods for create {@link JButton} objects
  */

@@ -27,7 +27,7 @@ package io.github.astrapi69.swing.panels.shuffletables;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.model.GenericModel;

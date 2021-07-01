@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.panels.network;
 
 import java.io.IOException;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import io.github.astrapi69.layout.CloseWindow;
 

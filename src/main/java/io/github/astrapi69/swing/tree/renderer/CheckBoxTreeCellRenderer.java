@@ -24,39 +24,33 @@
  */
 package io.github.astrapi69.swing.tree.renderer;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
+import java.awt.*;
 
-import javax.swing.Icon;
-import javax.swing.JCheckBox;
-import javax.swing.JPanel;
-import javax.swing.JTree;
-import javax.swing.UIManager;
+import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.tree.TreeCellRenderer;
 
-import io.github.astrapi69.swing.components.factories.DimensionFactory;
-import io.github.astrapi69.swing.tree.labels.CheckBoxTreeLabel;
-import io.github.astrapi69.swing.tree.model.CheckableTreeNode;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.swing.components.factories.DimensionFactory;
+import io.github.astrapi69.swing.tree.labels.CheckBoxTreeLabel;
+import io.github.astrapi69.swing.tree.model.CheckableTreeNode;
 
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CheckBoxTreeCellRenderer extends JPanel implements TreeCellRenderer
 {
 
-	JCheckBox checkBox;
+	final JCheckBox checkBox;
 
-	Icon closedIcon;
+	final Icon closedIcon;
 
-	CheckBoxTreeLabel label;
-	Icon leafIcon;
-	Icon openIcon;
-	Color textBackground;
-	Color textForeground;
+	final CheckBoxTreeLabel label;
+	final Icon leafIcon;
+	final Icon openIcon;
+	final Color textBackground;
+	final Color textForeground;
 
 	public CheckBoxTreeCellRenderer()
 	{

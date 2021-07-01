@@ -24,9 +24,7 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.Component;
-import java.awt.Frame;
-import java.awt.Window;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.logging.Level;
@@ -36,19 +34,18 @@ import javax.help.DefaultHelpBroker;
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.MenuElement;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
+import javax.swing.*;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
+import lombok.extern.java.Log;
 import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.swing.actions.OpenBrowserToDonateAction;
 import io.github.astrapi69.swing.actions.ShowInfoDialogAction;
 import io.github.astrapi69.swing.actions.ShowLicenseFrameAction;
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
 import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import io.github.astrapi69.swing.dialog.info.InfoPanel;
 import io.github.astrapi69.swing.menu.MenuExtensions;
@@ -58,12 +55,6 @@ import io.github.astrapi69.swing.plaf.actions.LookAndFeelMetalAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelMotifAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelNimbusAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelSystemAction;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.ToString;
-import lombok.experimental.FieldDefaults;
-import lombok.extern.java.Log;
 
 /**
  * The class {@link BaseDesktopMenu} holds the base menu items for an application
@@ -211,8 +202,7 @@ public class BaseDesktopMenu extends JMenu
 
 		// Help JMenuItems
 		// Help content
-		final JMenuItem mihHelpContent = MenuFactory.newJMenuItem(newLabelTextContent(), 'c',
-			'H');
+		final JMenuItem mihHelpContent = MenuFactory.newJMenuItem(newLabelTextContent(), 'c', 'H');
 		menuHelp.add(mihHelpContent);
 
 		// 2. assign help to components
@@ -528,14 +518,7 @@ public class BaseDesktopMenu extends JMenu
 	protected void refreshMenu(JMenu menu)
 	{
 		MenuElement[] subElements = menu.getSubElements();
-		if (subElements.length == 0)
-		{
-			menu.setVisible(false);
-		}
-		else
-		{
-			menu.setVisible(true);
-		}
+		menu.setVisible(subElements.length != 0);
 	}
 
 }

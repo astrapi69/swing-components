@@ -24,15 +24,15 @@
  */
 package io.github.astrapi69.swing.wizard;
 
-import java.awt.Color;
+import java.awt.*;
 
-import javax.swing.JButton;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import lombok.Getter;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
-import lombok.Getter;
 
 /**
  * The class {@link NavigationPanel}.

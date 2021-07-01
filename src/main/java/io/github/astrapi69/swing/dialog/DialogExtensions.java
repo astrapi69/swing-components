@@ -24,10 +24,10 @@
  */
 package io.github.astrapi69.swing.dialog;
 
-import java.awt.Component;
+import java.awt.*;
 import java.util.stream.Stream;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 import lombok.experimental.UtilityClass;
 

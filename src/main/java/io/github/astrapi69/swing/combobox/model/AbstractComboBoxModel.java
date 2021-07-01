@@ -29,15 +29,14 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Set;
 
-import javax.swing.AbstractListModel;
-import javax.swing.ComboBoxModel;
+import javax.swing.*;
 
+import lombok.Getter;
+import lombok.Setter;
 import io.github.astrapi69.check.Argument;
 import io.github.astrapi69.collections.array.ArrayExtensions;
 import io.github.astrapi69.collections.list.ListExtensions;
 import io.github.astrapi69.collections.list.ListFactory;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * The abstract class {@link AbstractComboBoxModel} contains the data for a combo list and the

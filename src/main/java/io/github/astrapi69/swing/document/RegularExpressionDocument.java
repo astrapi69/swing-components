@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.document;
 
-import java.awt.Toolkit;
+import java.awt.*;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;

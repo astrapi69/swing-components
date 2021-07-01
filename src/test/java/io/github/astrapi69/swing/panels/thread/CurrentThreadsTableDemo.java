@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panels.thread;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class CurrentThreadsTableDemo
 {

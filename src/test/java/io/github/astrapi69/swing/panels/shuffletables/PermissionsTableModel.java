@@ -38,18 +38,14 @@ public class PermissionsTableModel extends GenericTableModel<Permission>
 
 	/** The Constant NAME. */
 	public static final String NAME = "Name";
-
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-
 	/** The Constant SHORTCUT. */
 	public static final String SHORTCUT = "Shortcut";
-
-	/** The can edit. */
-	boolean[] canEdit = new boolean[] { false, false, false };
-
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 	/** The column names. */
 	private final String[] columnNames = { NAME, SHORTCUT, DESCRIPTION };
+	/** The can edit. */
+	boolean[] canEdit = new boolean[] { false, false, false };
 
 	/**
 	 * (non-Javadoc).

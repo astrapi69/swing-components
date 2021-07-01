@@ -27,7 +27,7 @@ package io.github.astrapi69.swing.listener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 import lombok.AccessLevel;
 import lombok.Data;

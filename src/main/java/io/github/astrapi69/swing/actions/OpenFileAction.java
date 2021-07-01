@@ -24,15 +24,14 @@
  */
 package io.github.astrapi69.swing.actions;
 
-import java.awt.Component;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 
-import javax.swing.AbstractAction;
-import javax.swing.JFileChooser;
+import javax.swing.*;
 
-import io.github.astrapi69.check.Check;
 import lombok.Getter;
+import io.github.astrapi69.check.Check;
 
 /**
  * The class {@link OpenFileAction}.
@@ -42,14 +41,12 @@ public abstract class OpenFileAction extends AbstractAction
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-
-	/** The file chooser. */
-	@Getter
-	private JFileChooser fileChooser;
-
 	/** The parent component. */
 	@Getter
 	private final Component parent;
+	/** The file chooser. */
+	@Getter
+	private JFileChooser fileChooser;
 
 	/**
 	 * Instantiates a new {@link OpenFileAction} object.

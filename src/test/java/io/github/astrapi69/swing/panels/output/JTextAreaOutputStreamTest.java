@@ -24,10 +24,9 @@
  */
 package io.github.astrapi69.swing.panels.output;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 public class JTextAreaOutputStreamTest
 {

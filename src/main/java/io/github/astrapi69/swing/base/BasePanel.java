@@ -24,17 +24,18 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.LayoutManager;
+import java.awt.*;
 
-import org.jdesktop.swingx.JXPanel;
-
-import io.github.astrapi69.model.api.Model;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
+
+import org.jdesktop.swingx.JXPanel;
+
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The class {@link BasePanel} for swing panels to provide an initialization cycle where the user
@@ -125,6 +126,19 @@ public class BasePanel<T> extends JXPanel
 	}
 
 	/**
+	 * Setter for the model object.
+	 *
+	 * @param modelObject
+	 *            the new model object
+	 * @return this for chaining
+	 */
+	public final BasePanel<T> setModelObject(final T modelObject)
+	{
+		getModel().setObject(modelObject);
+		return this;
+	}
+
+	/**
 	 * Initialize the component.
 	 */
 	private final void initialize()
@@ -169,7 +183,6 @@ public class BasePanel<T> extends JXPanel
 	protected void onAfterInitializeLayout()
 	{
 	}
-
 
 	/**
 	 * Callback method to interact on before initialization of the component.
@@ -219,19 +232,6 @@ public class BasePanel<T> extends JXPanel
 	 */
 	protected void onInitializeLayout()
 	{
-	}
-
-	/**
-	 * Setter for the model object.
-	 *
-	 * @param modelObject
-	 *            the new model object
-	 * @return this for chaining
-	 */
-	public final BasePanel<T> setModelObject(final T modelObject)
-	{
-		getModel().setObject(modelObject);
-		return this;
 	}
 
 

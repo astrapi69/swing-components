@@ -24,14 +24,14 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
+import java.awt.*;
+import java.util.List;
+
 import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
-
-import java.awt.*;
-import java.util.List;
 
 /**
  * The test class for {@link JTreePanel}
@@ -50,7 +50,7 @@ public class JTreePanelTest
 		final Frame frame = new Frame("JTreePanel");
 		frame.addWindowListener(new CloseWindow());
 		Model<TreeNode<TreeElement>> parentModel = BaseModel
-			.<TreeNode<TreeElement>>of(initializeTestTreeNodeElement());
+			.of(initializeTestTreeNodeElement());
 		frame.add(new TestTreeElementPanel(parentModel));
 		frame.pack();
 		frame.setVisible(true);
@@ -83,9 +83,11 @@ public class JTreePanelTest
 
 		secondChildTreeNode = initializeTreeNodeWithTreeElement(secondChild, parentTreeNode);
 
-		firstGrandChildTreeNode = initializeTreeNodeWithTreeElement(firstGrandChild, firstChildTreeNode);
+		firstGrandChildTreeNode = initializeTreeNodeWithTreeElement(firstGrandChild,
+			firstChildTreeNode);
 
-		firstGrandGrandChildTreeNode = initializeTreeNodeWithTreeElement(firstGrandGrandChild, firstChildTreeNode);
+		firstGrandGrandChildTreeNode = initializeTreeNodeWithTreeElement(firstGrandGrandChild,
+			firstChildTreeNode);
 		return parentTreeNode;
 	}
 

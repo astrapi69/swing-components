@@ -24,10 +24,9 @@
  */
 package io.github.astrapi69.swing.components.factories;
 
-import java.awt.Frame;
+import java.awt.*;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
+import javax.swing.*;
 
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.MultiSplitLayout;

@@ -24,12 +24,12 @@
  */
 package io.github.astrapi69.swing;
 
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.TableRowSorter;
 
+import lombok.Getter;
 import io.github.astrapi69.check.Check;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
-import lombok.Getter;
 
 /**
  * The class GenericJTable.

@@ -28,15 +28,16 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 /**
- * The abstract class {@link DocumentListenerAdapter} is an adapter for the 
- * DocumentListener interface and provides one callback method that have to be implemented
+ * The abstract class {@link DocumentListenerAdapter} is an adapter for the DocumentListener
+ * interface and provides one callback method that have to be implemented
  */
 public abstract class DocumentListenerAdapter implements DocumentListener
 {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override public void changedUpdate(DocumentEvent e)
+	@Override
+	public void changedUpdate(DocumentEvent e)
 	{
 		onDocumentChanged(e);
 	}
@@ -44,7 +45,8 @@ public abstract class DocumentListenerAdapter implements DocumentListener
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override public void insertUpdate(DocumentEvent e)
+	@Override
+	public void insertUpdate(DocumentEvent e)
 	{
 		onDocumentChanged(e);
 	}
@@ -52,7 +54,8 @@ public abstract class DocumentListenerAdapter implements DocumentListener
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override public void removeUpdate(DocumentEvent e)
+	@Override
+	public void removeUpdate(DocumentEvent e)
 	{
 		onDocumentChanged(e);
 	}
@@ -60,7 +63,8 @@ public abstract class DocumentListenerAdapter implements DocumentListener
 	/**
 	 * Callback method that have to be implemented to provide specific action on change of document
 	 *
-	 * @param e - the DocumentEvent from the specific DocumentListener method
+	 * @param e
+	 *            - the DocumentEvent from the specific DocumentListener method
 	 */
 	public abstract void onDocumentChanged(DocumentEvent e);
 

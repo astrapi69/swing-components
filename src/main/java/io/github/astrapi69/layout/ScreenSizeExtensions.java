@@ -24,27 +24,18 @@
  */
 package io.github.astrapi69.layout;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.awt.Window;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
+import lombok.NonNull;
 import io.github.astrapi69.collections.array.ArrayExtensions;
 import io.github.astrapi69.reflection.ReflectionExtensions;
 import io.github.astrapi69.swing.utils.AwtExtensions;
-import lombok.NonNull;
 
 /**
  * Utility class for handle with screensize.

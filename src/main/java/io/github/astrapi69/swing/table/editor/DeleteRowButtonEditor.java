@@ -24,63 +24,28 @@
  */
 package io.github.astrapi69.swing.table.editor;
 
-import java.awt.Component;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.DefaultCellEditor;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.TableModel;
 
-import io.github.astrapi69.swing.table.model.GenericTableModel;
 import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.swing.table.model.GenericTableModel;
 
 /**
  * The class {@link DeleteRowButtonEditor}
  */
 public class DeleteRowButtonEditor extends DefaultCellEditor
 {
-	/**
-	 * The listener interface for receiving deleteRowButton events. The class that is interested in
-	 * processing a deleteRowButton event implements this interface, and the object created with
-	 * that class is registered with a component using the component's
-	 * <code>addDeleteRowButtonListener<code> method. When the deleteRowButton event occurs, that
-	 * object's appropriate method is invoked.
-	 *
-	 * @see DeleteRowButtonEvent
-	 */
-	@FieldDefaults(level = AccessLevel.PRIVATE)
-	@Setter
-	class DeleteRowButtonListener implements ActionListener
-	{
-
-		int row;
-		JTable table;
-
-		@Override
-		public void actionPerformed(ActionEvent event)
-		{
-			if (table.getRowCount() > 0)
-			{
-				TableModel tableModel = table.getModel();
-				GenericTableModel<?> model = (GenericTableModel<?>)tableModel;
-				model.removeAt(this.row);
-				DeleteRowButtonEditor.this.cancelCellEditing();
-			}
-		}
-	}
-
 	private static final long serialVersionUID = 1L;
-
-	/** The button. */
-	protected JButton button;
-
 	/** The delete row button listener. */
 	private final DeleteRowButtonListener deleteRowButtonListener;
+	/** The button. */
+	protected JButton button;
 
 	/**
 	 * Instantiates a new {@link DeleteRowButtonEditor}
@@ -134,6 +99,36 @@ public class DeleteRowButtonEditor extends DefaultCellEditor
 			text = value.toString();
 		}
 		return text;
+	}
+
+	/**
+	 * The listener interface for receiving deleteRowButton events. The class that is interested in
+	 * processing a deleteRowButton event implements this interface, and the object created with
+	 * that class is registered with a component using the component's
+	 * <code>addDeleteRowButtonListener<code> method. When the deleteRowButton event occurs, that
+	 * object's appropriate method is invoked.
+	 *
+	 * @see DeleteRowButtonEvent
+	 */
+	@FieldDefaults(level = AccessLevel.PRIVATE)
+	@Setter
+	class DeleteRowButtonListener implements ActionListener
+	{
+
+		int row;
+		JTable table;
+
+		@Override
+		public void actionPerformed(ActionEvent event)
+		{
+			if (table.getRowCount() > 0)
+			{
+				TableModel tableModel = table.getModel();
+				GenericTableModel<?> model = (GenericTableModel<?>)tableModel;
+				model.removeAt(this.row);
+				DeleteRowButtonEditor.this.cancelCellEditing();
+			}
+		}
 	}
 
 }

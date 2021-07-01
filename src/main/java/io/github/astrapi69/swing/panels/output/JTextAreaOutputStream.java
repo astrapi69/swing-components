@@ -24,13 +24,12 @@
  */
 package io.github.astrapi69.swing.panels.output;
 
-import javax.swing.JComponent;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
 public class JTextAreaOutputStream extends AbstractComponentOutputStream<JTextArea>
 {
 
-	private StringBuilder sb = new StringBuilder();
+	private final StringBuilder sb = new StringBuilder();
 
 	public JTextAreaOutputStream(JTextArea component)
 	{

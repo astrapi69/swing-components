@@ -24,30 +24,24 @@
  */
 package io.github.astrapi69.swing.splashscreen;
 
-import java.awt.BorderLayout;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.layout.ScreenSizeExtensions;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BaseWindow;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.experimental.FieldDefaults;
 
 /**
  * The BaseSplashScreen for an application
@@ -65,9 +59,8 @@ public class BaseSplashScreen extends BaseWindow<SplashScreenModelBean>
 	 * The serialVersionUID.
 	 */
 	private static final long serialVersionUID = 1L;
-
-	JPanel contentPanel;
 	final JFrame frame;
+	JPanel contentPanel;
 	ImageIcon icon;
 	JLabel iconLabel;
 	JLabel textLabel;

@@ -27,7 +27,7 @@ package io.github.astrapi69.swing.menu.popup.listeners;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JPopupMenu;
+import javax.swing.*;
 
 /**
  * The listener interface for receiving popup events. The class that is interested in processing a

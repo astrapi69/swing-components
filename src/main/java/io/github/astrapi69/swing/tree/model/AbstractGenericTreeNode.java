@@ -152,6 +152,18 @@ public abstract class AbstractGenericTreeNode<T> implements ITreeNode<T>
 	}
 
 	/**
+	 * Sets the children.
+	 *
+	 * @param children
+	 *            the new children
+	 */
+	@Override
+	public void setChildren(final List<ITreeNode<T>> children)
+	{
+		this.children = children;
+	}
+
+	/**
 	 * Gets the value.
 	 *
 	 * @return the value
@@ -160,6 +172,18 @@ public abstract class AbstractGenericTreeNode<T> implements ITreeNode<T>
 	public T getValue()
 	{
 		return value;
+	}
+
+	/**
+	 * Sets the value.
+	 *
+	 * @param value
+	 *            the new value
+	 */
+	@Override
+	public void setValue(final T value)
+	{
+		this.value = value;
 	}
 
 	/**
@@ -246,30 +270,6 @@ public abstract class AbstractGenericTreeNode<T> implements ITreeNode<T>
 	public void removeChildAt(final int index) throws IndexOutOfBoundsException
 	{
 		children.remove(index);
-	}
-
-	/**
-	 * Sets the children.
-	 *
-	 * @param children
-	 *            the new children
-	 */
-	@Override
-	public void setChildren(final List<ITreeNode<T>> children)
-	{
-		this.children = children;
-	}
-
-	/**
-	 * Sets the value.
-	 *
-	 * @param value
-	 *            the new value
-	 */
-	@Override
-	public void setValue(final T value)
-	{
-		this.value = value;
 	}
 
 	/**

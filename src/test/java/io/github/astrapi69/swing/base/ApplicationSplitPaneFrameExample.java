@@ -24,12 +24,9 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.Color;
-import java.awt.Frame;
+import java.awt.*;
 
-import javax.swing.BorderFactory;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
+import javax.swing.*;
 import javax.swing.border.Border;
 
 import org.jdesktop.swingx.MultiSplitLayout;
@@ -48,19 +45,6 @@ public class ApplicationSplitPaneFrameExample
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Test init layout.
-	 * @param args the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		final Frame frame = new ApplicationSplitPaneFrameExample(
-			"ApplicationSplitPaneFrameExample");
-		frame.addWindowListener(new CloseWindow());
-		frame.pack();
-		frame.setVisible(true);
-	}
-
-	/**
 	 * Instantiates a new {@link ApplicationSplitPaneFrame}
 	 *
 	 * @param title
@@ -69,6 +53,21 @@ public class ApplicationSplitPaneFrameExample
 	public ApplicationSplitPaneFrameExample(String title)
 	{
 		super(title);
+	}
+
+	/**
+	 * Test init layout.
+	 *
+	 * @param args
+	 *            the arguments
+	 */
+	public static void main(final String[] args)
+	{
+		final Frame frame = new ApplicationSplitPaneFrameExample(
+			"ApplicationSplitPaneFrameExample");
+		frame.addWindowListener(new CloseWindow());
+		frame.pack();
+		frame.setVisible(true);
 	}
 
 	protected JComponent newBottomComponent()

@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.table.model.suffle;
 
+import lombok.Getter;
 import io.github.astrapi69.check.Check;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
-import lombok.Getter;
 
 /**
  * The class GenericShuffleTableModel is a helper class to shuffle between the two given

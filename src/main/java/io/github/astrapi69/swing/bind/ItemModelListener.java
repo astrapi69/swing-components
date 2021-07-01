@@ -24,12 +24,12 @@
  */
 package io.github.astrapi69.swing.bind;
 
-import java.awt.ItemSelectable;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import io.github.astrapi69.model.api.Model;
 import lombok.Getter;
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The listener interface {@link ItemModelListener} receives itemBind events.
@@ -63,7 +63,7 @@ public class ItemModelListener<T> implements ItemListener
 	public void itemStateChanged(final ItemEvent e)
 	{
 		final ItemSelectable is = e.getItemSelectable();
-		final T selected[] = (T[])is.getSelectedObjects();
+		final T[] selected = (T[])is.getSelectedObjects();
 		model.setObject(selected);
 	}
 

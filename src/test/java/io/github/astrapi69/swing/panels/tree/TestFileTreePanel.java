@@ -24,13 +24,8 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
-import io.github.astrapi69.create.FileCreationState;
-import io.github.astrapi69.create.FileFactory;
-import io.github.astrapi69.delete.DeleteFileExtensions;
-import io.github.astrapi69.system.SystemFileExtensions;
-import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
-import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
+import java.awt.event.MouseEvent;
+import java.io.File;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -39,8 +34,14 @@ import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
-import java.awt.event.MouseEvent;
-import java.io.File;
+
+import io.github.astrapi69.create.FileCreationState;
+import io.github.astrapi69.create.FileFactory;
+import io.github.astrapi69.delete.DeleteFileExtensions;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.system.SystemFileExtensions;
+import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 public class TestFileTreePanel extends JTreePanel<File>
 {
@@ -50,7 +51,7 @@ public class TestFileTreePanel extends JTreePanel<File>
 	public TestFileTreePanel()
 	{
 
-		this(BaseModel.<File>of(SystemFileExtensions.getUserHomeDir()));
+		this(BaseModel.of(SystemFileExtensions.getUserHomeDir()));
 	}
 
 	public TestFileTreePanel(final Model<File> model)
@@ -58,19 +59,22 @@ public class TestFileTreePanel extends JTreePanel<File>
 		super(model);
 	}
 
-	@Override protected JTree newTree()
+	@Override
+	protected JTree newTree()
 	{
 		JTree tree = super.newTree();
 		return tree;
 	}
 
-	@Override protected TreeModel newTreeModel(final Model<File> model)
+	@Override
+	protected TreeModel newTreeModel(final Model<File> model)
 	{
 		final TreeModel treeModel = new FileTreeNodeModel(model.getObject());
 
 		treeModel.addTreeModelListener(new TreeModelListener()
 		{
-			@Override public void treeNodesChanged(TreeModelEvent e)
+			@Override
+			public void treeNodesChanged(TreeModelEvent e)
 			{
 				FileTreeNodeModel node;
 				node = (FileTreeNodeModel)(e.getTreePath().getLastPathComponent());
@@ -78,15 +82,18 @@ public class TestFileTreePanel extends JTreePanel<File>
 				node = (FileTreeNodeModel)(node.getChild(node, index));
 			}
 
-			@Override public void treeNodesInserted(TreeModelEvent e)
+			@Override
+			public void treeNodesInserted(TreeModelEvent e)
 			{
 			}
 
-			@Override public void treeNodesRemoved(TreeModelEvent e)
+			@Override
+			public void treeNodesRemoved(TreeModelEvent e)
 			{
 			}
 
-			@Override public void treeStructureChanged(TreeModelEvent e)
+			@Override
+			public void treeStructureChanged(TreeModelEvent e)
 			{
 			}
 		});
@@ -98,25 +105,27 @@ public class TestFileTreePanel extends JTreePanel<File>
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
 		layout.setHorizontalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addContainerGap()
+			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap()
 					.addComponent(scrTree, javax.swing.GroupLayout.PREFERRED_SIZE, 384,
 						javax.swing.GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		layout.setVerticalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addContainerGap()
-					.addComponent(scrTree, javax.swing.GroupLayout.DEFAULT_SIZE, 536,
-						Short.MAX_VALUE).addContainerGap()));
+		layout.setVerticalGroup(layout
+			.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup().addContainerGap()
+				.addComponent(scrTree, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+				.addContainerGap()));
 	}
 
-	@Override protected void onInitializeLayout()
+	@Override
+	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
 		onInitializeGroupLayout();
 	}
 
-	@Override protected void onSingleClick(MouseEvent e)
+	@Override
+	protected void onSingleClick(MouseEvent e)
 	{
 		int x = e.getX();
 		int y = e.getY();
@@ -130,7 +139,8 @@ public class TestFileTreePanel extends JTreePanel<File>
 
 			checkBox.addChangeListener(new ChangeListener()
 			{
-				@Override public void stateChanged(ChangeEvent e)
+				@Override
+				public void stateChanged(ChangeEvent e)
 				{
 					if (e.getSource() == checkBox)
 					{

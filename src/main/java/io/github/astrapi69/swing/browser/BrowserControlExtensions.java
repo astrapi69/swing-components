@@ -24,13 +24,13 @@
  */
 package io.github.astrapi69.swing.browser;
 
-import java.awt.Component;
+import java.awt.*;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  * The class {@link BrowserControlExtensions} helps you to open an url in the standard web-browser.
@@ -84,7 +84,7 @@ public class BrowserControlExtensions
 		catch (final Exception e)
 		{
 			JOptionPane.showMessageDialog(parentComponent,
-				"An exception occured attempting to run the default web browser\n" + e.toString());
+				"An exception occured attempting to run the default web browser\n" + e);
 		}
 		return obj;
 	}
@@ -111,9 +111,8 @@ public class BrowserControlExtensions
 		NoSuchMethodException, IllegalAccessException, InvocationTargetException
 	{
 		final Class<?> fileManagerClass = Class.forName(MAC_FILE_MANAGER);
-		final Method openURL = fileManagerClass.getDeclaredMethod("openURL",
-			new Class[] { String.class });
-		return openURL.invoke(null, new Object[] { url });
+		final Method openURL = fileManagerClass.getDeclaredMethod("openURL", String.class);
+		return openURL.invoke(null, url);
 	}
 
 	/**

@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.behaviors;
 
-import javax.swing.ButtonModel;
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.Document;
@@ -101,11 +101,7 @@ public class EnableButtonBehavior implements DocumentListener
 	 */
 	protected void onChange()
 	{
-		enabled = false;
-		if (getDocument().getLength() > 0)
-		{
-			enabled = true;
-		}
+		enabled = getDocument().getLength() > 0;
 		buttonModel.setEnabled(enabled);
 	}
 

@@ -24,9 +24,10 @@
  */
 package io.github.astrapi69.swing.utils;
 
-import javax.swing.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+
+import javax.swing.*;
 
 /**
  * The class {@link ClipboardExtensions}
@@ -39,9 +40,12 @@ public class ClipboardExtensions
 	 * clipboard. If the flag withComment is true a a html comment with the content of the first
 	 * given {@link JTextArea} object will be added.
 	 *
-	 * @param textArea            the text area input
-	 * @param textAreaHtmlEntitys the text area with the html entitys
-	 * @param withComment         flag if a html comment will be added
+	 * @param textArea
+	 *            the text area input
+	 * @param textAreaHtmlEntitys
+	 *            the text area with the html entitys
+	 * @param withComment
+	 *            flag if a html comment will be added
 	 */
 	public static void copy2Clipboard(JTextArea textArea, JTextArea textAreaHtmlEntitys,
 		boolean withComment)
@@ -62,7 +66,8 @@ public class ClipboardExtensions
 	/**
 	 * Copy the content of the given {@link JTextArea} object to the clipboard
 	 *
-	 * @param textArea {@link JTextArea} object
+	 * @param textArea
+	 *            {@link JTextArea} object
 	 */
 	public static void copyToClipboard(JTextArea textArea)
 	{

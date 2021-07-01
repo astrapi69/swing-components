@@ -24,17 +24,13 @@
  */
 package io.github.astrapi69.swing.panels.splitpane;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
 import java.net.URL;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JEditorPane;
+import javax.swing.*;
 
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.JXPanel;
@@ -49,7 +45,7 @@ import io.github.astrapi69.swing.components.factories.JComponentFactory;
 public class TestComponentFactory
 {
 
-	private static String dummyText = "<html>" + " <head>"
+	private static final String dummyText = "<html>" + " <head>"
 		+ "  <title>JXMultiSplitPane Demo</title>" + "</head>" + "<body>"
 		+ "JXMultiSplitPane is a container that can be split into multiple resizeable"
 		+ "areas. The layout is configured using MultiSplitLayout layout manager." + "<p>"
@@ -68,7 +64,7 @@ public class TestComponentFactory
 		+ "interactively dragging the Dividers, accessibility, and other features"
 		+ "associated with split panes." + "</body>" + "</html>";
 
-	private static String htmlURL = "MultiSplitPaneDemo.html";
+	private static final String htmlURL = "MultiSplitPaneDemo.html";
 
 	public static JComponent createButtonStack(JComponent demoContainer)
 	{

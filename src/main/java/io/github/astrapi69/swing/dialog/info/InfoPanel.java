@@ -24,13 +24,9 @@
  */
 package io.github.astrapi69.swing.dialog.info;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
 /**
  * The abstract class {@link InfoPanel} for display a simple info message. Provides abstract

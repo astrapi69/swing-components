@@ -24,12 +24,9 @@
  */
 package io.github.astrapi69.swing.table.editor;
 
-import java.awt.Component;
+import java.awt.*;
 
-import javax.swing.DefaultCellEditor;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JTable;
+import javax.swing.*;
 
 import lombok.Getter;
 import lombok.Setter;

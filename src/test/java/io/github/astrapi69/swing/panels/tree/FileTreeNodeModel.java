@@ -24,10 +24,11 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
+import java.io.File;
+
 import javax.swing.event.TreeModelListener;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
-import java.io.File;
 
 public class FileTreeNodeModel implements TreeModel
 {

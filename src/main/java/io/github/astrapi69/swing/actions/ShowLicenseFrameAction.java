@@ -26,10 +26,10 @@ package io.github.astrapi69.swing.actions;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
+import javax.swing.*;
 
-import io.github.astrapi69.swing.help.HelpFrame;
 import lombok.NonNull;
+import io.github.astrapi69.swing.help.HelpFrame;
 
 /**
  * The abstract class {@link ShowLicenseFrameAction}

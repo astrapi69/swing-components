@@ -24,11 +24,9 @@
  */
 package io.github.astrapi69.swing.splashscreen;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
+import javax.swing.*;
 
 import io.github.astrapi69.model.api.Model;
 

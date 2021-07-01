@@ -32,15 +32,16 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
+import net.lingala.zip4j.ZipFile;
+import net.lingala.zip4j.model.ZipParameters;
+
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import io.github.astrapi69.create.FileFactory;
 import io.github.astrapi69.delete.DeleteFileExtensions;
-import io.github.astrapi69.search.PathFinder;
 import io.github.astrapi69.lang.ClassExtensions;
-import net.lingala.zip4j.ZipFile;
-import net.lingala.zip4j.model.ZipParameters;
+import io.github.astrapi69.search.PathFinder;
 
 /**
  * The class {@link ImageExtensionsTest}.

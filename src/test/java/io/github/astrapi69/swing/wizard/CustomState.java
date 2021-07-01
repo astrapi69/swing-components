@@ -226,5 +226,5 @@ public enum CustomState implements WizardState<WizardStateMachine>
 			return true;
 		}
 
-	};
+	}
 }

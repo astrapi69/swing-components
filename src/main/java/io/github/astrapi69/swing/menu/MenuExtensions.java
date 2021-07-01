@@ -24,10 +24,9 @@
  */
 package io.github.astrapi69.swing.menu;
 
-import java.awt.Event;
+import java.awt.*;
 
-import javax.swing.JMenuItem;
-import javax.swing.KeyStroke;
+import javax.swing.*;
 
 /**
  * The class {@link MenuExtensions}.

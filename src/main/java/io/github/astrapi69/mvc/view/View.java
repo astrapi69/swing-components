@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.mvc.view;
 
-import java.awt.Component;
+import java.awt.*;
 
 /**
  * The Interface View.
@@ -45,11 +45,27 @@ public interface View<C, COMP extends Component>
 	COMP getComponent();
 
 	/**
+	 * Sets the component.
+	 *
+	 * @param component
+	 *            the new component
+	 */
+	void setComponent(final COMP component);
+
+	/**
 	 * Gets the controller.
 	 *
 	 * @return the controller
 	 */
 	C getController();
+
+	/**
+	 * Sets the controller.
+	 *
+	 * @param controller
+	 *            the new controller
+	 */
+	void setController(final C controller);
 
 	/**
 	 * Gets the parent.
@@ -64,22 +80,6 @@ public interface View<C, COMP extends Component>
 	 * @return true, if successful
 	 */
 	boolean hasParent();
-
-	/**
-	 * Sets the component.
-	 *
-	 * @param component
-	 *            the new component
-	 */
-	void setComponent(final COMP component);
-
-	/**
-	 * Sets the controller.
-	 *
-	 * @param controller
-	 *            the new controller
-	 */
-	void setController(final C controller);
 
 
 }

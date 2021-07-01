@@ -24,11 +24,9 @@
  */
 package io.github.astrapi69.swing.plaf;
 
-import java.awt.Component;
+import java.awt.*;
 
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -81,7 +79,9 @@ public enum LookAndFeels
 	private static final String LOOK_AND_FEEL_NIMBUS = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
 	private static final String LOOK_AND_FEEL_SYNTH = "javax.swing.plaf.synth.SynthLookAndFeel";
 	private static final String LOOK_AND_FEEL_WINDOWS = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
-
+	/** The look and feel name. */
+	@Getter
+	String lookAndFeelName;
 
 	/**
 	 * Sets the given {@link LookAndFeels} to the given {@link Component} and returns given
@@ -109,9 +109,5 @@ public enum LookAndFeels
 		SwingUtilities.updateComponentTreeUI(component);
 		return lookAndFeels;
 	}
-
-	/** The look and feel name. */
-	@Getter
-	String lookAndFeelName;
 
 }

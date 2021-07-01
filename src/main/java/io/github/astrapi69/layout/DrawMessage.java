@@ -24,16 +24,11 @@
  */
 package io.github.astrapi69.layout;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import java.awt.*;
 import java.awt.font.FontRenderContext;
 import java.awt.font.TextLayout;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 /**
  * The class DrawMessage draws a message to a JComponent to the given Color. You can use it for
@@ -81,6 +76,17 @@ public class DrawMessage extends JComponent
 	}
 
 	/**
+	 * Sets the field <code>color</code>.
+	 *
+	 * @param color
+	 *            The <code>color</code> to set
+	 */
+	public void setColor(final Color color)
+	{
+		this.color = color;
+	}
+
+	/**
 	 * Returns the field <code>message</code>.
 	 *
 	 * @return The field .
@@ -88,6 +94,17 @@ public class DrawMessage extends JComponent
 	public String getMessage()
 	{
 		return this.message;
+	}
+
+	/**
+	 * Sets the field <code>message</code>.
+	 *
+	 * @param message
+	 *            The <code>message</code> to set
+	 */
+	public void setMessage(final String message)
+	{
+		this.message = message;
 	}
 
 	/**
@@ -116,7 +133,7 @@ public class DrawMessage extends JComponent
 
 	/**
 	 * Inits the graphics2D object.
-	 * 
+	 *
 	 * @param g
 	 *            the Graphics object.
 	 * @return the graphics2 d
@@ -149,27 +166,5 @@ public class DrawMessage extends JComponent
 		final TextLayout textLayout = new TextLayout(display, font, frc);
 		final Dimension dimension = this.getSize();
 		textLayout.draw(g2, 0, dimension.height);
-	}
-
-	/**
-	 * Sets the field <code>color</code>.
-	 * 
-	 * @param color
-	 *            The <code>color</code> to set
-	 */
-	public void setColor(final Color color)
-	{
-		this.color = color;
-	}
-
-	/**
-	 * Sets the field <code>message</code>.
-	 * 
-	 * @param message
-	 *            The <code>message</code> to set
-	 */
-	public void setMessage(final String message)
-	{
-		this.message = message;
 	}
 }

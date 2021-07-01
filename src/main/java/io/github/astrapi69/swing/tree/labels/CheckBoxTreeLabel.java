@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.tree.labels;
 
-import javax.swing.JLabel;
+import javax.swing.*;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

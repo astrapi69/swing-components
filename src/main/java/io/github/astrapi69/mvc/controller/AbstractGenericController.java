@@ -112,6 +112,19 @@ public abstract class AbstractGenericController<M, V> implements Controller<M, V
 		return this.model;
 	}
 
+	/**
+	 * (non-Javadoc).
+	 *
+	 * @param model
+	 *            the model
+	 */
+	@Override
+	public void setModel(final M model)
+	{
+		this.model = model;
+
+	}
+
 	@Override
 	public String getName()
 	{
@@ -129,6 +142,17 @@ public abstract class AbstractGenericController<M, V> implements Controller<M, V
 		return parent;
 	}
 
+	/**
+	 * (non-Javadoc).
+	 *
+	 * @param controller
+	 *            the controller
+	 */
+	@Override
+	public void setParent(final Controller<M, V> controller)
+	{
+		this.parent = controller;
+	}
 
 	/**
 	 * (non-Javadoc).
@@ -139,6 +163,18 @@ public abstract class AbstractGenericController<M, V> implements Controller<M, V
 	public V getView()
 	{
 		return this.view;
+	}
+
+	/**
+	 * (non-Javadoc).
+	 *
+	 * @param view
+	 *            the view
+	 */
+	@Override
+	public void setView(final V view)
+	{
+		this.view = view;
 	}
 
 	/**
@@ -184,7 +220,6 @@ public abstract class AbstractGenericController<M, V> implements Controller<M, V
 	protected void postinitialize()
 	{
 	}
-
 
 	/**
 	 * Preinitialize.
@@ -246,43 +281,6 @@ public abstract class AbstractGenericController<M, V> implements Controller<M, V
 			// controller.getParent().re
 		}
 		return children.put(key, controller);
-	}
-
-	/**
-	 * (non-Javadoc).
-	 *
-	 * @param model
-	 *            the model
-	 */
-	@Override
-	public void setModel(final M model)
-	{
-		this.model = model;
-
-	}
-
-	/**
-	 * (non-Javadoc).
-	 *
-	 * @param controller
-	 *            the controller
-	 */
-	@Override
-	public void setParent(final Controller<M, V> controller)
-	{
-		this.parent = controller;
-	}
-
-	/**
-	 * (non-Javadoc).
-	 *
-	 * @param view
-	 *            the view
-	 */
-	@Override
-	public void setView(final V view)
-	{
-		this.view = view;
 	}
 
 

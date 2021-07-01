@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.panels.field;
 
-import java.awt.Frame;
+import java.awt.*;
 
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.*;
 
 import io.github.astrapi69.layout.CloseWindow;
 
@@ -38,7 +38,9 @@ public class FieldPanelTest
 
 	/**
 	 * Test init layout.
-	 * @param args the arguments
+	 * 
+	 * @param args
+	 *            the arguments
 	 */
 	public static void main(final String[] args)
 	{

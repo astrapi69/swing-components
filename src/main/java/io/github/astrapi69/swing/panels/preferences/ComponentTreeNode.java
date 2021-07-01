@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panels.preferences;
 
-import java.awt.Component;
+import java.awt.*;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 

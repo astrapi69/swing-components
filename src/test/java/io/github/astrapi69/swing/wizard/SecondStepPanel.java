@@ -24,8 +24,7 @@
  */
 package io.github.astrapi69.swing.wizard;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class SecondStepPanel extends JPanel
 {

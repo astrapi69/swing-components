@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.panels.thread;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 
-import javax.swing.JScrollPane;
+import javax.swing.*;
 
 import io.github.astrapi69.lang.thread.ThreadDataBean;
 import io.github.astrapi69.model.BaseModel;

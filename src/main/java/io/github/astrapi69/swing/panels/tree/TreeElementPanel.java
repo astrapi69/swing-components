@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.TreeModel;
 
 import io.github.astrapi69.model.BaseModel;
@@ -46,7 +46,7 @@ public abstract class TreeElementPanel extends JTreePanel<TreeElement>
 	public TreeElementPanel()
 	{
 
-		this(BaseModel.<TreeElement> of(TreeElement.builder().build()));
+		this(BaseModel.of(TreeElement.builder().build()));
 	}
 
 	/**

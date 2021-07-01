@@ -24,10 +24,10 @@
  */
 package io.github.astrapi69.swing.panels.output;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.io.PrintStream;
 
-import javax.swing.JScrollPane;
+import javax.swing.*;
 
 import org.jdesktop.swingx.JXPanel;
 import org.jdesktop.swingx.JXTextArea;
@@ -40,8 +40,8 @@ public class ConsolePanel extends JXPanel
 {
 	private static final long serialVersionUID = 1L;
 
-	JScrollPane jScrollPane;
-	JXTextArea textArea;
+	final JScrollPane jScrollPane;
+	final JXTextArea textArea;
 
 	public ConsolePanel()
 	{

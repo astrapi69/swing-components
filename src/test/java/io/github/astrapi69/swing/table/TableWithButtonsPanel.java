@@ -24,13 +24,11 @@
  */
 package io.github.astrapi69.swing.table;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 import javax.swing.table.TableColumn;
 
 import io.github.astrapi69.collections.pairs.KeyValuePair;
@@ -48,6 +46,13 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 {
 
 	private static final long serialVersionUID = 1L;
+	private JScrollPane scrTable;
+	private GenericJXTable<KeyValuePair<String, String>> table;
+
+	public TableWithButtonsPanel(final Model<List<KeyValuePair<String, String>>> model)
+	{
+		super(model);
+	}
 
 	public static void main(final String[] args)
 	{
@@ -67,15 +72,6 @@ public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, S
 		frame.setBounds(0, 0, 1020, 420);
 		frame.setVisible(true);
 
-	}
-
-	private JScrollPane scrTable;
-
-	private GenericJXTable<KeyValuePair<String, String>> table;
-
-	public TableWithButtonsPanel(final Model<List<KeyValuePair<String, String>>> model)
-	{
-		super(model);
 	}
 
 	@Override

@@ -24,19 +24,17 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.LayoutManager;
+import java.awt.*;
 
 import javax.swing.border.LineBorder;
 
-import io.github.astrapi69.model.api.Model;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The class {@link BaseCardLayoutPanel} is a {@link BasePanel} with an initialized

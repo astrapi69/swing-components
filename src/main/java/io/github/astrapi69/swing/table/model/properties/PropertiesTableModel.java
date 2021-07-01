@@ -171,6 +171,17 @@ public class PropertiesTableModel extends AbstractTableModel
 	}
 
 	/**
+	 * Sets the new properties.
+	 *
+	 * @param properties
+	 *            the new properties
+	 */
+	public void setData(final Properties properties)
+	{
+		setProperties(properties);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -208,17 +219,6 @@ public class PropertiesTableModel extends AbstractTableModel
 	public String remove(final String key)
 	{
 		return (String)data.remove(key);
-	}
-
-	/**
-	 * Sets the new properties.
-	 *
-	 * @param properties
-	 *            the new properties
-	 */
-	public void setData(final Properties properties)
-	{
-		setProperties(properties);
 	}
 
 	/**

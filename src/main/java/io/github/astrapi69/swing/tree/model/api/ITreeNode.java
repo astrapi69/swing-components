@@ -80,11 +80,27 @@ public interface ITreeNode<T> extends TreeModel
 	List<ITreeNode<T>> getChildren();
 
 	/**
+	 * Sets the children.
+	 *
+	 * @param children
+	 *            the new children
+	 */
+	void setChildren(final List<ITreeNode<T>> children);
+
+	/**
 	 * Gets the value.
 	 *
 	 * @return the value
 	 */
 	T getValue();
+
+	/**
+	 * Sets the value.
+	 *
+	 * @param value
+	 *            the new value
+	 */
+	void setValue(final T value);
 
 	/**
 	 * Checks for children.
@@ -124,22 +140,6 @@ public interface ITreeNode<T> extends TreeModel
 	 *             the index out of bounds exception
 	 */
 	void removeChildAt(final int index) throws IndexOutOfBoundsException;
-
-	/**
-	 * Sets the children.
-	 *
-	 * @param children
-	 *            the new children
-	 */
-	void setChildren(final List<ITreeNode<T>> children);
-
-	/**
-	 * Sets the value.
-	 *
-	 * @param value
-	 *            the new value
-	 */
-	void setValue(final T value);
 
 	/**
 	 * To list.

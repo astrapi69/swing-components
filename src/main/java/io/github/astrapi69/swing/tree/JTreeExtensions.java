@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.tree;
 
 import java.util.Enumeration;
 
-import javax.swing.JTree;
+import javax.swing.*;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 

@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
-import io.github.astrapi69.layout.CloseWindow;
-
 import java.awt.*;
+
+import io.github.astrapi69.layout.CloseWindow;
 
 /**
  * The test class for {@link JTreePanel}

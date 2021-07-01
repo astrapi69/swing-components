@@ -26,8 +26,7 @@ package io.github.astrapi69.swing.actions;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import io.github.astrapi69.layout.ScreenSizeExtensions;
 
@@ -41,7 +40,7 @@ public class ToggleFullScreenAction extends AbstractAction
 	private static final long serialVersionUID = 1L;
 
 	/** The frame. */
-	JFrame frame;
+	final JFrame frame;
 
 	/**
 	 * Instantiates a new {@link ToggleFullScreenAction} object.

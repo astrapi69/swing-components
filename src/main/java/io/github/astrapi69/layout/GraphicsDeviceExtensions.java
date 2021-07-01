@@ -24,12 +24,10 @@
  */
 package io.github.astrapi69.layout;
 
-import java.awt.Component;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
+import java.awt.*;
 import java.util.Optional;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * The class {@link GraphicsDeviceExtensions} helps you if the user have more than one screen to
@@ -118,11 +116,7 @@ public class GraphicsDeviceExtensions
 	public static boolean isScreenAvailableToShow(final int screen)
 	{
 		final GraphicsDevice[] graphicsDevices = getAvailableScreens();
-		boolean screenAvailableToShow = false;
-		if ((screen > -1 && screen < graphicsDevices.length) || (graphicsDevices.length > 0))
-		{
-			screenAvailableToShow = true;
-		}
+		boolean screenAvailableToShow = (screen > -1 && screen < graphicsDevices.length) || (graphicsDevices.length > 0);
 		return screenAvailableToShow;
 	}
 

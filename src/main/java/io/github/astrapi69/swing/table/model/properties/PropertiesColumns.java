@@ -29,5 +29,5 @@ package io.github.astrapi69.swing.table.model.properties;
  */
 public enum PropertiesColumns
 {
-	KEY, VALUE;
+	KEY, VALUE
 }

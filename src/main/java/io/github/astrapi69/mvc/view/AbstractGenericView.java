@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.mvc.view;
 
-import java.awt.Component;
+import java.awt.*;
 
 
 /**
@@ -71,6 +71,18 @@ public abstract class AbstractGenericView<C, COMP extends Component> implements 
 	}
 
 	/**
+	 * Sets the field <code>component</code>.
+	 *
+	 * @param component
+	 *            The <code>component</code> to set.
+	 */
+	@Override
+	public void setComponent(final COMP component)
+	{
+		this.component = component;
+	}
+
+	/**
 	 * Returns the field <code>controller</code>.
 	 *
 	 * @return The field .
@@ -82,6 +94,18 @@ public abstract class AbstractGenericView<C, COMP extends Component> implements 
 	}
 
 	/**
+	 * Sets the field <code>controller</code>.
+	 *
+	 * @param controller
+	 *            The <code>controller</code> to set.
+	 */
+	@Override
+	public void setController(final C controller)
+	{
+		this.controller = controller;
+	}
+
+	/**
 	 * Gets the parent.
 	 *
 	 * @return the parent
@@ -90,6 +114,17 @@ public abstract class AbstractGenericView<C, COMP extends Component> implements 
 	public View<C, COMP> getParent()
 	{
 		return parent;
+	}
+
+	/**
+	 * Sets the parent.
+	 *
+	 * @param parent
+	 *            the parent
+	 */
+	public void setParent(final View<C, COMP> parent)
+	{
+		this.parent = parent;
 	}
 
 	/**
@@ -122,40 +157,5 @@ public abstract class AbstractGenericView<C, COMP extends Component> implements 
 	 * Initialize.
 	 */
 	protected abstract void initialize();
-
-	/**
-	 * Sets the field <code>component</code>.
-	 *
-	 * @param component
-	 *            The <code>component</code> to set.
-	 */
-	@Override
-	public void setComponent(final COMP component)
-	{
-		this.component = component;
-	}
-
-	/**
-	 * Sets the field <code>controller</code>.
-	 *
-	 * @param controller
-	 *            The <code>controller</code> to set.
-	 */
-	@Override
-	public void setController(final C controller)
-	{
-		this.controller = controller;
-	}
-
-	/**
-	 * Sets the parent.
-	 *
-	 * @param parent
-	 *            the parent
-	 */
-	public void setParent(final View<C, COMP> parent)
-	{
-		this.parent = parent;
-	}
 
 }

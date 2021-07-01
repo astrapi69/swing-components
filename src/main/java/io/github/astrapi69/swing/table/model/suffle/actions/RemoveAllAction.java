@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.table.model.suffle.actions;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
+import javax.swing.*;
 
 import io.github.astrapi69.check.Check;
 import io.github.astrapi69.swing.GenericShuffleJTable;

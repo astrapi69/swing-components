@@ -27,11 +27,11 @@ package io.github.astrapi69.swing.table.model.dynamic;
 import java.util.List;
 import java.util.logging.Level;
 
-import io.github.astrapi69.swing.table.model.GenericTableModel;
-import io.github.astrapi69.swing.table.model.TableColumnsModel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.extern.java.Log;
+import io.github.astrapi69.swing.table.model.GenericTableModel;
+import io.github.astrapi69.swing.table.model.TableColumnsModel;
 
 /**
  * The abstract class {@link DynamicTableModel} holds a {@link TableColumnsModel} for layout the

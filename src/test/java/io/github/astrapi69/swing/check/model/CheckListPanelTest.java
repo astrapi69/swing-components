@@ -24,13 +24,13 @@
  */
 package io.github.astrapi69.swing.check.model;
 
-import java.awt.Frame;
+import java.awt.*;
 
 import io.github.astrapi69.layout.CloseWindow;
 
 public class CheckListPanelTest
 {
-	public static void main(String args[])
+	public static void main(String[] args)
 	{
 		final Frame frame = new Frame("CheckListPanel");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };

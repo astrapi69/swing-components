@@ -24,19 +24,18 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.Component;
+import java.awt.*;
 
-import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
+import javax.swing.*;
 
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
-import io.github.astrapi69.swing.desktoppane.SingletonDesktopPane;
-import io.github.astrapi69.swing.utils.JInternalFrameExtensions;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.swing.components.factories.JComponentFactory;
+import io.github.astrapi69.swing.desktoppane.SingletonDesktopPane;
+import io.github.astrapi69.swing.utils.JInternalFrameExtensions;
 
 /**
  * The class {@link ApplicationFrame}

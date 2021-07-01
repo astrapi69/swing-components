@@ -26,12 +26,13 @@ package io.github.astrapi69.swing.table.model.dynamic;
 
 import java.lang.reflect.Field;
 
+import lombok.Data;
+import lombok.NonNull;
+
 import org.apache.commons.lang3.StringUtils;
 
 import io.github.astrapi69.collections.list.ListFactory;
 import io.github.astrapi69.reflection.ReflectionExtensions;
-import lombok.Data;
-import lombok.NonNull;
 
 /**
  * The class {@link DynamicTableColumnsModel} encapsulates the column data for a table model that
@@ -41,18 +42,15 @@ import lombok.NonNull;
 public class DynamicTableColumnsModel<T>
 {
 
-	/** The flag for the column if they can be edited. */
-	private boolean[] canEdit;
-
-	/** The column classes. */
-	private Class<?>[] columnClasses;
-
-	/** The column names. */
-	private String[] columnNames;
-
 	/** The class type. */
 	@NonNull
 	private final Class<T> type;
+	/** The flag for the column if they can be edited. */
+	private boolean[] canEdit;
+	/** The column classes. */
+	private Class<?>[] columnClasses;
+	/** The column names. */
+	private String[] columnNames;
 
 	/**
 	 * Instantiates a new {@link DynamicTableColumnsModel} object

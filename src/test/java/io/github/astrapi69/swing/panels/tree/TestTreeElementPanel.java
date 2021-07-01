@@ -24,11 +24,7 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
-import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
-import io.github.astrapi69.tree.TreeElement;
-import io.github.astrapi69.tree.TreeNode;
-import io.github.astrapi69.tree.api.ITreeNode;
+import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -39,7 +35,12 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
-import java.awt.event.MouseEvent;
+
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.tree.TreeElement;
+import io.github.astrapi69.tree.TreeNode;
+import io.github.astrapi69.tree.api.ITreeNode;
 
 public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 {
@@ -48,7 +49,7 @@ public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 
 	public TestTreeElementPanel()
 	{
-		this(BaseModel.<TreeNode<TreeElement>>of(new TreeNode<>()));
+		this(BaseModel.of(new TreeNode<>()));
 	}
 
 	public TestTreeElementPanel(final Model<TreeNode<TreeElement>> model)
@@ -56,14 +57,16 @@ public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 		super(model);
 	}
 
-	@Override protected JTree newTree()
+	@Override
+	protected JTree newTree()
 	{
 		JTree tree = super.newTree();
 		tree.setCellRenderer(new TreeNodeCellRenderer<TreeElement>());
 		return tree;
 	}
 
-	@Override protected TreeModel newTreeModel(final Model<TreeNode<TreeElement>> model)
+	@Override
+	protected TreeModel newTreeModel(final Model<TreeNode<TreeElement>> model)
 	{
 		TreeNode<TreeElement> parentTreeNode = model.getObject();
 
@@ -71,7 +74,8 @@ public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 
 		treeModel.addTreeModelListener(new TreeModelListener()
 		{
-			@Override public void treeNodesChanged(TreeModelEvent e)
+			@Override
+			public void treeNodesChanged(TreeModelEvent e)
 			{
 				Object lastPathComponent = e.getTreePath().getLastPathComponent();
 				DefaultMutableTreeNode node;
@@ -80,15 +84,18 @@ public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 				node = (DefaultMutableTreeNode)(node.getChildAt(index));
 			}
 
-			@Override public void treeNodesInserted(TreeModelEvent e)
+			@Override
+			public void treeNodesInserted(TreeModelEvent e)
 			{
 			}
 
-			@Override public void treeNodesRemoved(TreeModelEvent e)
+			@Override
+			public void treeNodesRemoved(TreeModelEvent e)
 			{
 			}
 
-			@Override public void treeStructureChanged(TreeModelEvent e)
+			@Override
+			public void treeStructureChanged(TreeModelEvent e)
 			{
 			}
 		});
@@ -100,25 +107,27 @@ public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
 		layout.setHorizontalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addContainerGap()
+			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap()
 					.addComponent(scrTree, javax.swing.GroupLayout.PREFERRED_SIZE, 384,
 						javax.swing.GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		layout.setVerticalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addContainerGap()
-					.addComponent(scrTree, javax.swing.GroupLayout.DEFAULT_SIZE, 536,
-						Short.MAX_VALUE).addContainerGap()));
+		layout.setVerticalGroup(layout
+			.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup().addContainerGap()
+				.addComponent(scrTree, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+				.addContainerGap()));
 	}
 
-	@Override protected void onInitializeLayout()
+	@Override
+	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
 		onInitializeGroupLayout();
 	}
 
-	@Override protected void onSingleClick(MouseEvent e)
+	@Override
+	protected void onSingleClick(MouseEvent e)
 	{
 		int x = e.getX();
 		int y = e.getY();
@@ -132,7 +141,8 @@ public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 
 			checkBox.addChangeListener(new ChangeListener()
 			{
-				@Override public void stateChanged(ChangeEvent e)
+				@Override
+				public void stateChanged(ChangeEvent e)
 				{
 					if (e.getSource() == checkBox)
 					{
@@ -175,7 +185,8 @@ public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 
 			Object lastPathComponent = selectionPath.getLastPathComponent();
 			TreeNode<TreeElement> selectedTreeNode = (TreeNode<TreeElement>)lastPathComponent;
-			if(!selectedTreeNode.isRoot()) {
+			if (!selectedTreeNode.isRoot())
+			{
 				ITreeNode<TreeElement> parent = selectedTreeNode.getParent();
 				boolean remove = parent.getChildren().remove(selectedTreeNode);
 				System.out.println(remove);
@@ -183,7 +194,9 @@ public class TestTreeElementPanel extends JTreePanel<TreeNode<TreeElement>>
 				TreeNodeModel<TreeElement> ntnm = new TreeNodeModel<TreeElement>(root);
 				getTree().setModel(ntnm);
 
-			} else {
+			}
+			else
+			{
 				TestTreeElementPanel.this.setModelObject(null);
 			}
 			tree.treeDidChange();

@@ -45,7 +45,7 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 
 	public LabeledComboboxPanel()
 	{
-		this(BaseModel.<ComboListBean> of(ComboListBean.builder()
+		this(BaseModel.of(ComboListBean.builder()
 			.comboList(ListFactory.newArrayList("foo", "bar", "bla")).selectedItem("foo").build()));
 	}
 

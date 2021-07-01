@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.actions;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
+import javax.swing.*;
 
 /**
  * The class {@link ExitApplicationAction}

@@ -24,10 +24,10 @@
  */
 package io.github.astrapi69.actions;
 
-import java.awt.Window;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
+import javax.swing.*;
 
 import io.github.astrapi69.check.Check;
 

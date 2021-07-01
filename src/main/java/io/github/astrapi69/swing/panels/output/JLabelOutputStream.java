@@ -24,13 +24,12 @@
  */
 package io.github.astrapi69.swing.panels.output;
 
-import javax.swing.JComponent;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 public class JLabelOutputStream extends AbstractComponentOutputStream<JLabel>
 {
 
-	private StringBuilder sb = new StringBuilder();
+	private final StringBuilder sb = new StringBuilder();
 
 	public JLabelOutputStream(JLabel component)
 	{

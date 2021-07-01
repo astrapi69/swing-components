@@ -24,14 +24,12 @@
  */
 package io.github.astrapi69.swing.utils;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
+import java.awt.*;
 
-import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
+import javax.swing.*;
 
-import io.github.astrapi69.mvc.view.View;
 import lombok.experimental.UtilityClass;
+import io.github.astrapi69.mvc.view.View;
 
 /**
  * The Class {@link JInternalFrameExtensions}.

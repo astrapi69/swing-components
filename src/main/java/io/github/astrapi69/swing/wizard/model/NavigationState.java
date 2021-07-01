@@ -24,10 +24,10 @@
  */
 package io.github.astrapi69.swing.wizard.model;
 
-import io.github.astrapi69.swing.wizard.NavigationPanel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
+import io.github.astrapi69.swing.wizard.NavigationPanel;
 
 /**
  * The enum {@link NavigationState} holds several navigation states that can occur. Can be used for

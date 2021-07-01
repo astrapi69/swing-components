@@ -24,18 +24,13 @@
  */
 package io.github.astrapi69.swing.dialog.factories;
 
-import java.awt.Component;
-import java.awt.Dialog;
-import java.awt.Frame;
-import java.awt.GraphicsConfiguration;
-import java.awt.Window;
+import java.awt.*;
 
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
-import io.github.astrapi69.swing.utils.AwtExtensions;
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
+import io.github.astrapi69.swing.utils.AwtExtensions;
 
 /**
  * The class {@link JDialogFactory} provides factory methods for create swing {@link JDialog}

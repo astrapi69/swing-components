@@ -123,6 +123,17 @@ public abstract class GenericTableModel<T> extends AbstractTableModel
 	}
 
 	/**
+	 * Sets the data.
+	 *
+	 * @param data
+	 *            the new data
+	 */
+	public void setData(final List<T> data)
+	{
+		this.data = data;
+	}
+
+	/**
 	 * Gets the row count.
 	 *
 	 * @return the row count {@inheritDoc}
@@ -221,17 +232,6 @@ public abstract class GenericTableModel<T> extends AbstractTableModel
 		{
 			fireTableDataChanged();
 		}
-	}
-
-	/**
-	 * Sets the data.
-	 *
-	 * @param data
-	 *            the new data
-	 */
-	public void setData(final List<T> data)
-	{
-		this.data = data;
 	}
 
 	/**

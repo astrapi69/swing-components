@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panels.lottery;
 
-import java.awt.Frame;
+import java.awt.*;
 import java.util.LinkedHashSet;
 
 import io.github.astrapi69.layout.CloseWindow;
