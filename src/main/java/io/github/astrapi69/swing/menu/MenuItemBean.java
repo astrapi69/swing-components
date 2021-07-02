@@ -36,6 +36,13 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
+/**
+ * The class {@link MenuItemBean}
+ *
+ * @deprecated use instead the same name class in the menu-actions repository.<br>
+ *             <br>
+ *             Note: will be removed in next minor version
+ */
 @Getter
 @Setter
 @EqualsAndHashCode

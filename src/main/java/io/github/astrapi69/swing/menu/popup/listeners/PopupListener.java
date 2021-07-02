@@ -34,6 +34,10 @@ import javax.swing.*;
  * popup event implements this interface, and the object created with that class is registered with
  * a component using the component's addPopupListener method. When the popup event occurs, that
  * object's appropriate method is invoked.
+ *
+ * @deprecated use instead the same name class in the menu-actions repository.<br>
+ *             <br>
+ *             Note: will be removed in next minor version
  */
 public class PopupListener extends MouseAdapter
 {

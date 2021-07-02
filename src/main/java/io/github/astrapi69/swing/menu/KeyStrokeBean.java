@@ -36,6 +36,10 @@ import lombok.experimental.FieldDefaults;
 
 /**
  * The class {@link KeyStrokeBean}
+ *
+ * @deprecated use instead the same name class in the menu-actions repository.<br>
+ *             <br>
+ *             Note: will be removed in next minor version
  */
 @Getter
 @Setter

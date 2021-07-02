@@ -37,6 +37,10 @@ import lombok.experimental.FieldDefaults;
 /**
  * The enum class {@link LookAndFeels} provides constants with the fully qualified Names of look and
  * feel classes.
+ *
+ * @deprecated use instead the same name class in the menu-actions repository.<br>
+ *             <br>
+ *             Note: will be removed in next minor version
  */
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @AllArgsConstructor

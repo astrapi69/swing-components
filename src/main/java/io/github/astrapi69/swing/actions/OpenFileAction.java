@@ -34,7 +34,11 @@ import lombok.Getter;
 import io.github.astrapi69.check.Check;
 
 /**
- * The class {@link OpenFileAction}.
+ * The class {@link OpenFileAction} can open a file with a file chooser
+ * 
+ * @deprecated use instead the same name class in the menu-actions repository.<br>
+ *             <br>
+ *             Note: will be removed in next minor version
  */
 public abstract class OpenFileAction extends AbstractAction
 {

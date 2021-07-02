@@ -39,6 +39,10 @@ import io.github.astrapi69.swing.plaf.LookAndFeels;
 
 /**
  * The class {@link ShowHelpDialogAction} shows the help window of an application
+ *
+ * @deprecated use instead the same name class in the menu-actions repository.<br>
+ *             <br>
+ *             Note: will be removed in next minor version
  */
 @Log
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)

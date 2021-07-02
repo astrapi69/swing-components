@@ -191,6 +191,7 @@ dependencies {
     implementation("io.github.astrapi69:gen-tree:$genTreeVersion")
     implementation("io.github.astrapi69:throw-able:$throwAbleVersion")
     implementation("io.github.astrapi69:silly-math:$sillyMathVersion")
+    implementation("io.github.astrapi69:menu-actions:$menuActionsVersion")
     testImplementation("io.github.astrapi69:file-worker:$fileWorkerVersion")
     testImplementation("net.lingala.zip4j:zip4j:$zip4jVersion")
     testImplementation("io.github.astrapi69:test-objects:$testObjectsVersion")

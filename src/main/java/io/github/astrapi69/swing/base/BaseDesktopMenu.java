@@ -408,8 +408,7 @@ public class BaseDesktopMenu extends JMenu
 	{
 		return new ShowInfoDialogAction(name, owner, title)
 		{
-			@Override
-			protected InfoDialog newInfoDialog(Frame owner, String title)
+			@Override protected JDialog newJDialog(Frame frame, String s)
 			{
 				return BaseDesktopMenu.this.onNewInfoDialog(owner, title);
 			}

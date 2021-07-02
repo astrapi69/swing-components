@@ -29,11 +29,18 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
+import io.github.astrapi69.swing.menu.MenuItemBean;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
-
+/**
+ * The base class {@link LookAndFeelAction} for change a look and feel from the application
+ *
+ * @deprecated use instead the same name class in the menu-actions repository.<br>
+ *             <br>
+ *             Note: will be removed in next minor version
+ */
 @Getter(AccessLevel.PROTECTED)
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class LookAndFeelAction extends AbstractAction

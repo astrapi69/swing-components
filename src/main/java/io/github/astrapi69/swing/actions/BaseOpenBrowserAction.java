@@ -25,37 +25,32 @@
 package io.github.astrapi69.swing.actions;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-
-import javax.swing.*;
 
 import lombok.Getter;
 import io.github.astrapi69.swing.browser.BrowserControlExtensions;
 
+/**
+ * The abstract class {@link BaseOpenBrowserAction} for open a browser
+ */
 @Getter
-public class OpenBrowserAction extends AbstractAction
+public class BaseOpenBrowserAction extends OpenBrowserAction
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	private final Component component;
-	private final String url;
 
-	public OpenBrowserAction(final String name, final Component component, final String url)
+	public BaseOpenBrowserAction(final String name, final Component component, final String url)
 	{
-		super(name);
-		this.component = component;
-		this.url = url;
+		super(name, component, url);
 	}
 
-	public static OpenBrowserAction of(final String name, final Component component,
+	public static BaseOpenBrowserAction of(final String name, final Component component,
 		final String url)
 	{
-		return new OpenBrowserAction(name, component, url);
+		return new BaseOpenBrowserAction(name, component, url);
 	}
 
-	@Override
-	public void actionPerformed(final ActionEvent e)
+	@Override protected void onDisplayURLonStandardBrowser(Component component, String url)
 	{
 		BrowserControlExtensions.displayURLonStandardBrowser(component, url);
 	}

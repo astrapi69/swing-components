@@ -33,6 +33,10 @@ import io.github.astrapi69.check.Check;
 
 /**
  * The class {@link DisposeWindowAction}.
+ * 
+ * @deprecated use instead the same name class in the menu-actions repository.<br>
+ *             <br>
+ *             Note: will be removed in next minor version
  */
 public class DisposeWindowAction extends AbstractAction
 {

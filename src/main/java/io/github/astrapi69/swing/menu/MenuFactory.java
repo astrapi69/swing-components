@@ -37,6 +37,10 @@ import io.github.astrapi69.swing.menu.popup.listeners.PopupListener;
 
 /**
  * A factory {@link MenuFactory} provides factory methods for create Menu and JToolbar objects
+ *
+ * @deprecated use instead the same name class in the menu-actions repository.<br>
+ *             <br>
+ *             Note: will be removed in next minor version
  */
 public class MenuFactory
 {

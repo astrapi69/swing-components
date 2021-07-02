@@ -37,13 +37,10 @@ import io.github.astrapi69.swing.dialog.info.InfoDialog;
 /**
  * The abstract class {@link ShowInfoDialogAction}
  */
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public abstract class ShowInfoDialogAction extends AbstractAction
+public abstract class ShowInfoDialogAction extends ShowDialogAction
 {
 
 	private static final long serialVersionUID = 1L;
-	Frame owner;
-	String title;
 
 	/**
 	 * Instantiates a new {@link ShowInfoDialogAction}.
@@ -58,21 +55,7 @@ public abstract class ShowInfoDialogAction extends AbstractAction
 	public ShowInfoDialogAction(final String name, final @NonNull Frame owner,
 		final @NonNull String title)
 	{
-		super(name);
-		this.owner = owner;
-		this.title = title;
+		super(name, owner, title);
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void actionPerformed(final ActionEvent e)
-	{
-		final InfoDialog info = newInfoDialog(owner, title);
-		info.setVisible(true);
-	}
-
-	protected abstract InfoDialog newInfoDialog(final Frame owner, final String title);
 
 }

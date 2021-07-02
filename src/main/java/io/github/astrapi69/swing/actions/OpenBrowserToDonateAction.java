@@ -31,9 +31,8 @@ import lombok.NonNull;
 /**
  * The class {@link OpenBrowserToDonateAction} is the action class for this project donation
  */
-public class OpenBrowserToDonateAction extends OpenBrowserAction
+public class OpenBrowserToDonateAction extends BaseOpenBrowserAction
 {
-
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	/** The Constant URL_TO_DONATE. */

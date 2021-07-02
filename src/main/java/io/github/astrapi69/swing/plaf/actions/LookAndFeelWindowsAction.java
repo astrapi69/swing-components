@@ -28,6 +28,13 @@ import java.awt.*;
 
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 
+/**
+ * The class {@link LookAndFeelWindowsAction} can change the look and feel to Windows
+ *
+ * @deprecated use instead the same name class in the menu-actions repository.<br>
+ *             <br>
+ *             Note: will be removed in next minor version
+ */
 public class LookAndFeelWindowsAction extends LookAndFeelAction
 {
 
