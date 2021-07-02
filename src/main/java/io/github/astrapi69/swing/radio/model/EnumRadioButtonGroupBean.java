@@ -28,9 +28,7 @@ import java.util.Map;
 
 import javax.swing.*;
 
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.Data;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 
@@ -41,9 +39,7 @@ import io.github.astrapi69.model.api.Model;
  * @param <E>
  *            the generic enum type
  */
-@EqualsAndHashCode
-@ToString
-@Builder(toBuilder = true)
+@Data
 public class EnumRadioButtonGroupBean<E extends Enum<E>>
 {
 

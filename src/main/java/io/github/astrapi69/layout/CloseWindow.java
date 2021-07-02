@@ -38,27 +38,19 @@ public class CloseWindow extends WindowAdapter
 {
 
 	/**
-	 * Window closed.
-	 *
-	 * @param we
-	 *            the we {@inheritDoc}
-	 * @see java.awt.event.WindowAdapter#windowClosed(java.awt.event.WindowEvent)
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void windowClosed(final WindowEvent we)
+	public void windowClosed(final WindowEvent windowEvent)
 	{
 		System.exit(0);
 	}
 
 	/**
-	 * Window closing.
-	 *
-	 * @param we
-	 *            the we {@inheritDoc}
-	 * @see java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
+	 * {@inheritDoc}
 	 */
 	@Override
-	public void windowClosing(final WindowEvent we)
+	public void windowClosing(final WindowEvent windowEvent)
 	{
 		System.exit(0);
 	}

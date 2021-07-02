@@ -44,20 +44,20 @@ public class DisposeWindow extends WindowAdapter
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void windowClosed(final WindowEvent we)
+	public void windowClosed(final WindowEvent windowEvent)
 	{
-		we.getWindow().setVisible(false);
-		we.getWindow().dispose();
+		windowEvent.getWindow().setVisible(false);
+		windowEvent.getWindow().dispose();
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void windowClosing(final WindowEvent we)
+	public void windowClosing(final WindowEvent windowEvent)
 	{
-		we.getWindow().setVisible(false);
-		we.getWindow().dispose();
+		windowEvent.getWindow().setVisible(false);
+		windowEvent.getWindow().dispose();
 	}
 
 }
