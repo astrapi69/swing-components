@@ -407,6 +407,20 @@ public class ScreenSizeExtensions
 	}
 
 	/**
+	 * Sets the default sceen size from the given {@link Frame}
+	 *
+	 * @param frame
+	 *            the frame
+	 */
+	public static void setDefaultFrameSize(@NonNull Frame frame)
+	{
+		final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		final GraphicsDevice[] gs = ge.getScreenDevices();
+		frame.setSize(ScreenSizeExtensions.getScreenWidth(gs[0]),
+			ScreenSizeExtensions.getScreenHeight(gs[0]));
+	}
+
+	/**
 	 * Toggle given {@link Frame} to full screen mode or if it is in full screen mode its returns to
 	 * normal mode
 	 *

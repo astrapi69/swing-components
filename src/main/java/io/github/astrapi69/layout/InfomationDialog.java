@@ -24,6 +24,8 @@
  */
 package io.github.astrapi69.layout;
 
+import io.github.astrapi69.window.adapter.DisposeWindow;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

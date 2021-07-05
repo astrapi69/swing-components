@@ -26,16 +26,17 @@ package io.github.astrapi69.swing.base;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.net.URL;
 import java.util.logging.Level;
 
-import javax.help.CSH;
 import javax.help.DefaultHelpBroker;
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
-import javax.help.WindowPresentation;
 import javax.swing.*;
 
+import io.github.astrapi69.swing.help.HelpFactory;
+import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -61,9 +62,9 @@ import io.github.astrapi69.swing.plaf.actions.LookAndFeelSystemAction;
  */
 @Getter
 @ToString
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = false)
 @Log
-public class BaseDesktopMenu extends JMenu
+public class BaseDesktopMenu
 {
 
 	/** The Constant serialVersionUID. */
@@ -84,9 +85,6 @@ public class BaseDesktopMenu extends JMenu
 	/** The help menu. */
 	JMenu helpMenu;
 
-	/** The help window. */
-	Window helpWindow;
-
 	/** The look and feel menu. */
 	JMenu lookAndFeelMenu;
 
@@ -102,50 +100,22 @@ public class BaseDesktopMenu extends JMenu
 	public BaseDesktopMenu(@NonNull Component applicationFrame)
 	{
 		this.applicationFrame = applicationFrame;
-		helpBroker = newHelpBroker();
-		helpWindow = newHelpWindow(helpBroker);
 		menubar = newJMenuBar();
-		menubar.add(fileMenu = newFileMenu(e -> log.log(Level.FINE, "file menu")));
-		menubar.add(editMenu = newEditMenu(e -> log.log(Level.FINE, "edit menu")));
-		menubar.add(
-			lookAndFeelMenu = newLookAndFeelMenu(e -> log.log(Level.FINE, "Look and Feel menu")));
-		menubar.add(helpMenu = newHelpMenu(e -> log.log(Level.FINE, "Help menu")));
-		onRefreshMenus(fileMenu, editMenu, lookAndFeelMenu, helpMenu);
-	}
-
-	/**
-	 * Gets the help set.
-	 *
-	 * @return the help set
-	 */
-	public HelpSet getHelpSet()
-	{
-		HelpSet hs = null;
-		final String filename = "simple-hs.xml";
-		final String path = "help/" + filename;
-		URL hsURL;
-		hsURL = ClassExtensions.getResource(path);
-		try
-		{
-			if (hsURL != null)
-			{
-				hs = new HelpSet(ClassExtensions.getClassLoader(), hsURL);
-			}
-			else
-			{
-				hs = new HelpSet();
-			}
-		}
-		catch (final HelpSetException e)
-		{
-			String title = e.getLocalizedMessage();
-			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
-				+ e.getMessage() + "\n" + path;
-			JOptionPane.showMessageDialog(this.getParent(), htmlMessage, title,
-				JOptionPane.ERROR_MESSAGE);
-			log.log(Level.SEVERE, e.getMessage(), e);
-		}
-		return hs;
+		fileMenu = newFileMenu();
+		fileMenu = menubar.add(fileMenu);
+		editMenu = newEditMenu(null);
+		editMenu = menubar.add(editMenu);
+		lookAndFeelMenu = newLookAndFeelMenu(null);
+		lookAndFeelMenu = menubar.add(lookAndFeelMenu);
+		helpMenu = newHelpMenu(null);
+		helpMenu = menubar.add(helpMenu);
+		onRefreshMenus(
+			fileMenu,
+			editMenu,
+			lookAndFeelMenu
+						,
+			helpMenu
+		);
 	}
 
 	/**
@@ -167,25 +137,13 @@ public class BaseDesktopMenu extends JMenu
 	/**
 	 * Creates the file menu.
 	 *
-	 * @param listener
-	 *            the listener
-	 *
 	 * @return the j menu
 	 */
-	protected JMenu newFileMenu(final ActionListener listener)
+	protected JMenu newFileMenu()
 	{
-		final JMenu fileMenu = new JMenu("File");
-		fileMenu.setMnemonic('F');
-
-		return fileMenu;
+		return MenuFactory.newJMenu("File", KeyEvent.VK_F);
 	}
 
-	protected DefaultHelpBroker newHelpBroker()
-	{
-		final HelpSet hs = getHelpSet();
-		final DefaultHelpBroker helpBroker = (DefaultHelpBroker)hs.createHelpBroker();
-		return helpBroker;
-	}
 
 	/**
 	 * Creates the help menu.
@@ -197,24 +155,18 @@ public class BaseDesktopMenu extends JMenu
 	protected JMenu newHelpMenu(final ActionListener listener)
 	{
 		// Help menu
-		final JMenu menuHelp = new JMenu(newLabelTextHelp());
+		final JMenu menuHelp =
+			new JMenu(newLabelTextHelp());
 		menuHelp.setMnemonic('H');
 
 		// Help JMenuItems
 		// Help content
-		final JMenuItem mihHelpContent = MenuFactory.newJMenuItem(newLabelTextContent(), 'c', 'H');
-		menuHelp.add(mihHelpContent);
-
-		// 2. assign help to components
-		CSH.setHelpIDString(mihHelpContent, newLabelTextOverview());
-		// 3. handle events
-		final CSH.DisplayHelpFromSource displayHelpFromSource = new CSH.DisplayHelpFromSource(
-			helpBroker);
-		mihHelpContent.addActionListener(displayHelpFromSource);
+		menuHelp.add(HelpFactory.newHelpContent(RuntimeExceptionDecorator.decorate(()->HelpFactory.newHelpBroker("help", "simple-hs.xml")), newLabelTextContent(),
+			newLabelTextOverview(), 'c', 'H'));
 		// Donate
 		final JMenuItem mihDonate = new JMenuItem(newLabelTextDonate());
 		mihDonate.addActionListener(
-			newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame));
+			(ActionListener)newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame));
 		menuHelp.add(mihDonate);
 		// Licence
 		final JMenuItem mihLicence = new JMenuItem(newLabelTextLicence());
@@ -225,7 +177,7 @@ public class BaseDesktopMenu extends JMenu
 		final JMenuItem mihInfo = new JMenuItem(newLabelTextInfo(), 'i'); // $NON-NLS-1$
 		MenuExtensions.setCtrlAccelerator(mihInfo, 'I');
 
-		mihInfo.addActionListener(newShowInfoDialogAction(newLabelTextInfo(),
+		mihInfo.addActionListener((ActionListener)newShowInfoDialogAction(newLabelTextInfo(),
 			(Frame)getApplicationFrame(), newLabelTextInfo()));
 		menuHelp.add(mihInfo);
 
@@ -234,27 +186,18 @@ public class BaseDesktopMenu extends JMenu
 
 	protected Window newHelpWindow(final DefaultHelpBroker helpBroker)
 	{
-		// found bug with the javax.help
-		// Exception in thread "main" java.lang.SecurityException: no manifiest
-		// section for signature file entry
-		// com/sun/java/help/impl/TagProperties.class
-		// Solution is to remove the rsa files from the jar
-		final WindowPresentation pres = helpBroker.getWindowPresentation();
-		pres.createHelpWindow();
-		Window helpWindow = pres.getHelpWindow();
-
+		Window helpWindow = HelpFactory.newHelpWindow(helpBroker);
 		helpWindow.setLocationRelativeTo(null);
-
 		try
 		{
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 		}
 		catch (final Exception e)
 		{
 			String title = e.getLocalizedMessage();
 			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
 				+ e.getMessage();
-			JOptionPane.showMessageDialog(this.getParent(), htmlMessage, title,
+			JOptionPane.showMessageDialog(this.applicationFrame, htmlMessage, title,
 				JOptionPane.ERROR_MESSAGE);
 			log.log(Level.SEVERE, e.getMessage(), e);
 		}
@@ -350,7 +293,7 @@ public class BaseDesktopMenu extends JMenu
 	{
 
 		final JMenu menuLookAndFeel = new JMenu("Look and Feel");
-		menuLookAndFeel.setMnemonic('L');
+		menuLookAndFeel.setMnemonic('l');
 
 		// Look and Feel JMenuItems
 		// GTK
@@ -397,18 +340,18 @@ public class BaseDesktopMenu extends JMenu
 	}
 
 	protected OpenBrowserToDonateAction newOpenBrowserToDonateAction(final String name,
-		final @NonNull Component component)
+		final Component component)
 	{
 		return new OpenBrowserToDonateAction(name, component);
 	}
 
 	@SuppressWarnings("serial")
 	protected ShowInfoDialogAction newShowInfoDialogAction(final String name,
-		final @NonNull Frame owner, final @NonNull String title)
+		final Frame owner, final @NonNull String title)
 	{
 		return new ShowInfoDialogAction(name, owner, title)
 		{
-			@Override protected JDialog newJDialog(Frame frame, String s)
+			protected JDialog newJDialog(Frame frame, String s)
 			{
 				return BaseDesktopMenu.this.onNewInfoDialog(owner, title);
 			}

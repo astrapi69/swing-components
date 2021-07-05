@@ -24,11 +24,11 @@
  */
 package io.github.astrapi69.swing.dialog.info;
 
+import io.github.astrapi69.actions.DisposeWindowAction;
+
 import java.awt.*;
 
 import javax.swing.*;
-
-import io.github.astrapi69.actions.DisposeWindowAction;
 
 /**
  * The abstract class {@link InfoDialog} for display a simple info message. Provides abstract

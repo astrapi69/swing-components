@@ -24,12 +24,12 @@
  */
 package io.github.astrapi69.swing.help;
 
+import io.github.astrapi69.actions.DisposeWindowAction;
+import io.github.astrapi69.window.adapter.DisposeWindow;
+
 import java.awt.*;
 
 import javax.swing.*;
-
-import io.github.astrapi69.actions.DisposeWindowAction;
-import io.github.astrapi69.layout.DisposeWindow;
 
 /**
  * The class {@link HelpFrame}

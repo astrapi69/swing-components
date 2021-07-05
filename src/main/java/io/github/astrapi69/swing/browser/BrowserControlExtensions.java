@@ -32,6 +32,8 @@ import java.util.Arrays;
 
 import javax.swing.*;
 
+import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
+
 /**
  * The class {@link BrowserControlExtensions} helps you to open an url in the standard web-browser.
  */
@@ -56,6 +58,32 @@ public class BrowserControlExtensions
 	/**
 	 * This method opens the specified url in the standard web-browser.
 	 *
+	 * @param url
+	 *            An url like "http://www.yahoo.com/"
+	 * @return the object
+	 */
+	public static Object displayURLonStandardBrowser(final String url)
+	{
+		Object obj = null;
+
+		if (System.getProperty(SYSTEM_PROPERTY_OS_NAME).startsWith(OS.MAC.getOs()))
+		{
+			obj = RuntimeExceptionDecorator.decorate(() -> openURLinMacOS(url));
+		}
+		else if (System.getProperty(SYSTEM_PROPERTY_OS_NAME).startsWith(OS.WINDOWS.getOs()))
+		{
+			obj = RuntimeExceptionDecorator.decorate(() -> openURLinWindowsOS(url));
+		}
+		else
+		{ // if operate syste is Unix or Linux
+			obj = RuntimeExceptionDecorator.decorate(() -> openURLinUnixOS(url));
+		}
+		return obj;
+	}
+
+	/**
+	 * This method opens the specified url in the standard web-browser.
+	 *
 	 * @param parentComponent
 	 *            The parent component. Can be null.
 	 * @param url
@@ -68,18 +96,7 @@ public class BrowserControlExtensions
 		Object obj = null;
 		try
 		{
-			if (System.getProperty(SYSTEM_PROPERTY_OS_NAME).startsWith(OS.MAC.getOs()))
-			{
-				obj = openURLinMacOS(url);
-			}
-			else if (System.getProperty(SYSTEM_PROPERTY_OS_NAME).startsWith(OS.WINDOWS.getOs()))
-			{
-				obj = openURLinWindowsOS(url);
-			}
-			else
-			{ // if operate syste is Unix or Linux
-				obj = openURLinUnixOS(url);
-			}
+			obj = displayURLonStandardBrowser(url);
 		}
 		catch (final Exception e)
 		{
@@ -167,7 +184,7 @@ public class BrowserControlExtensions
 	 */
 	private static Process openURLinWindowsOS(final String url) throws IOException
 	{
-		String cmd = null;
+		String cmd;
 		cmd = WINDOWS_PATH + " " + WINDOWS_FLAG + " ";
 		return Runtime.getRuntime().exec(cmd + url);
 	}

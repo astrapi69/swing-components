@@ -29,10 +29,10 @@ import java.util.List;
 
 import javax.swing.*;
 
-import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.swing.GenericJTable;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 import io.github.astrapi69.swing.tablemodel.Permission;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**
  * The class DynamicTableModelTest

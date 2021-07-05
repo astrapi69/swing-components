@@ -31,8 +31,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import io.github.astrapi69.lang.ClassExtensions;
-import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class ImagePanelTest
 {

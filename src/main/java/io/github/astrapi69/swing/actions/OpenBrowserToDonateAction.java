@@ -46,7 +46,7 @@ public class OpenBrowserToDonateAction extends BaseOpenBrowserAction
 	 * @param component
 	 *            the component
 	 */
-	public OpenBrowserToDonateAction(final String name, final @NonNull Component component)
+	public OpenBrowserToDonateAction(final String name, final Component component)
 	{
 		super(name, component, URL_TO_DONATE);
 	}

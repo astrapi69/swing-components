@@ -29,13 +29,13 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
-import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.layout.ScreenSizeExtensions;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.button.ButtonFactory;
 import io.github.astrapi69.swing.panels.login.pw.ChangePasswordModelBean;
 import io.github.astrapi69.swing.panels.login.pw.NewPasswordPanel;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class BaseDialogExample extends BaseDialog<ChangePasswordModelBean>
 {

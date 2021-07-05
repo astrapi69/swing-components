@@ -24,11 +24,11 @@
  */
 package io.github.astrapi69.swing.panels.field;
 
+import io.github.astrapi69.window.adapter.CloseWindow;
+
 import java.awt.*;
 
 import javax.swing.*;
-
-import io.github.astrapi69.layout.CloseWindow;
 
 /**
  * The test class for {@link FieldPanel}.

@@ -27,9 +27,9 @@ package io.github.astrapi69.swing.panels.lottery;
 import java.awt.*;
 import java.util.LinkedHashSet;
 
-import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class LotteryPanelTest
 {

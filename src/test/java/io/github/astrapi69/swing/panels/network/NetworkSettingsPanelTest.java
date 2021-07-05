@@ -24,11 +24,11 @@
  */
 package io.github.astrapi69.swing.panels.network;
 
+import io.github.astrapi69.window.adapter.CloseWindow;
+
 import java.io.IOException;
 
 import javax.swing.*;
-
-import io.github.astrapi69.layout.CloseWindow;
 
 public class NetworkSettingsPanelTest
 {
