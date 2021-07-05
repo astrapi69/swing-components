@@ -144,14 +144,7 @@ public class ApplicationPanelFrameExample
 	{
 		JToolBar toolBar = super.newJToolBar();
 		toolBar.setSize(this.getWidth(), 25);
-		final BufferedImage img1 = RuntimeExceptionDecorator
-			.decorate(() -> ImageIO.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png")));
 
-		byte[] resized = ImageExtensions.resize(img1, "Bell", 25, 25);
-		BufferedImage result = RuntimeExceptionDecorator
-			.decorate(() -> ImageExtensions.read(resized));
-		ImageIcon imageIcon = ImageIconFactory.newImageIcon(result);
-		JButton bellButton = IconButtonFactory.newIconButton(imageIcon, "bell", "Bell", "Bell");
 		Icon directoryIcon = UIManager.getIcon("FileView.directoryIcon");
 		Icon fileIcon = UIManager.getIcon("FileView.fileIcon");
 		Icon computerIcon = UIManager.getIcon("FileView.computerIcon");

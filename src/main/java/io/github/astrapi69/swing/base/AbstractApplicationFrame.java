@@ -95,8 +95,23 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	public AbstractApplicationFrame(String title)
 	{
 		super(title);
+		// Set default look and feel...
+		setDefaultLookAndFeel(newLookAndFeels(), this);
 		configurationDirectory = newConfigurationDirectory(System.getProperty("user.home"),
 			".config");
+		menu = newDesktopMenu(this);
+		setJMenuBar(menu.getMenubar());
+		setToolBar(toolbar = newJToolBar());
+		getContentPane().add(mainComponent = newMainComponent());
+		Optional<BufferedImage> optionalIcon = getIcon(newIconPath());
+		if (optionalIcon.isPresent())
+		{
+			setIconImage(icon = optionalIcon.get());
+		}
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ScreenSizeExtensions.setDefaultFrameSize(this);
+		setVisible(true);
+
 	}
 
 	/**
@@ -202,25 +217,6 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	protected void onAfterInitialize()
 	{
 		super.onAfterInitialize();
-		menu = newDesktopMenu(this);
-		setJMenuBar(menu.getMenubar());
-		setToolBar(toolbar = newJToolBar());
-		getContentPane().add(mainComponent = newMainComponent());
-		Optional<BufferedImage> optionalIcon = getIcon(newIconPath());
-		if (optionalIcon.isPresent())
-		{
-			setIconImage(icon = optionalIcon.get());
-		}
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		final GraphicsDevice[] gs = ge.getScreenDevices();
-		setSize(ScreenSizeExtensions.getScreenWidth(gs[0]),
-			ScreenSizeExtensions.getScreenHeight(gs[0]));
-		setVisible(true);
-
-		// Set default look and feel...
-		setDefaultLookAndFeel(newLookAndFeels(), this);
 	}
 
 	/**
