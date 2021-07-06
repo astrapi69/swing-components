@@ -29,11 +29,11 @@ import java.util.List;
 
 import javax.swing.*;
 
-import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.model.GenericModel;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 import io.github.astrapi69.swing.tablemodel.Permission;
 import io.github.astrapi69.swing.tablemodel.PermissionsTableModel;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**
  * The class GenericShuffleTableModelTest.

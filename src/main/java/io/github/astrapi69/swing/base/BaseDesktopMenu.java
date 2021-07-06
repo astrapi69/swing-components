@@ -36,6 +36,8 @@ import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
 import javax.swing.*;
 
+import io.github.astrapi69.swing.menu.MenuExtensions;
+import io.github.astrapi69.swing.menu.MenuFactory;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -48,8 +50,6 @@ import io.github.astrapi69.swing.actions.ShowInfoDialogAction;
 import io.github.astrapi69.swing.actions.ShowLicenseFrameAction;
 import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import io.github.astrapi69.swing.dialog.info.InfoPanel;
-import io.github.astrapi69.swing.menu.MenuExtensions;
-import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelGTKAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelMetalAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelMotifAction;

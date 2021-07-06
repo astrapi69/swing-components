@@ -26,10 +26,10 @@ package io.github.astrapi69.swing.splashscreen;
 
 import javax.swing.*;
 
-import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.check.model.CheckListPanel;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class ProgressBarSplashScreenTest
 {

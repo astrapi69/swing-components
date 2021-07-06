@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.panels.field;
 
-import java.awt.*;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
-import io.github.astrapi69.layout.CloseWindow;
+import java.awt.*;
 
 public class LabeledComboboxPanelTest
 {

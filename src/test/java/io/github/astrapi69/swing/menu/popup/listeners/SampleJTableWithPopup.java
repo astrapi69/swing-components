@@ -24,6 +24,8 @@
  */
 package io.github.astrapi69.swing.menu.popup.listeners;
 
+import io.github.astrapi69.swing.menu.MenuFactory;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,8 +35,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
-
-import io.github.astrapi69.swing.menu.MenuFactory;
 
 public class SampleJTableWithPopup extends JFrame
 {

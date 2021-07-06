@@ -32,7 +32,6 @@ import javax.swing.*;
 import javax.swing.table.TableColumn;
 
 import io.github.astrapi69.collections.pairs.KeyValuePair;
-import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.model.GenericModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
@@ -41,6 +40,7 @@ import io.github.astrapi69.swing.table.editor.TableCellButtonEditor;
 import io.github.astrapi69.swing.table.model.TableColumnsModel;
 import io.github.astrapi69.swing.table.model.properties.StringKeyValueTableModel;
 import io.github.astrapi69.swing.x.GenericJXTable;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class TableWithButtonsPanel extends BasePanel<List<KeyValuePair<String, String>>>
 {

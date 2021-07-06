@@ -29,7 +29,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import io.github.astrapi69.actions.DisposeWindowAction;
-import io.github.astrapi69.layout.DisposeWindow;
+import io.github.astrapi69.window.adapter.DisposeWindow;
 
 /**
  * The class {@link HelpFrame}
