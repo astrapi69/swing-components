@@ -14,6 +14,8 @@ CHANGED:
 - update gradle to new version 7.1
 - changed all dependencies from groupid de.alpharogroup to new groupid io.github.astrapi69
 - update gradle-plugin dependency of gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin to new version 0.16.1
+- moved menu related classes to its own repository menu-actions
+- tagged all menu related classes as deprecated
 
 Version 5.6
 -------------
