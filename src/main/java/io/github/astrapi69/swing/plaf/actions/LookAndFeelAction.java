@@ -41,6 +41,7 @@ import io.github.astrapi69.swing.plaf.LookAndFeels;
  *             <br>
  *             Note: will be removed in next minor version
  */
+@Deprecated
 @Getter(AccessLevel.PROTECTED)
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class LookAndFeelAction extends AbstractAction

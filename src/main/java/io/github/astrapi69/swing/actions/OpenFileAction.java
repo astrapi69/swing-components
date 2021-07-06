@@ -40,6 +40,7 @@ import io.github.astrapi69.check.Check;
  *             <br>
  *             Note: will be removed in next minor version
  */
+@Deprecated
 public abstract class OpenFileAction extends AbstractAction
 {
 

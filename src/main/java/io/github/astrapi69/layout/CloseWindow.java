@@ -38,6 +38,7 @@ import java.awt.event.WindowEvent;
  * @version 1.0
  * @author Asterios Raptis
  */
+@Deprecated
 public class CloseWindow extends WindowAdapter
 {
 

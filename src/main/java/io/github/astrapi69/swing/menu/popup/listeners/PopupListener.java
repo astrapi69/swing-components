@@ -39,6 +39,7 @@ import javax.swing.*;
  *             <br>
  *             Note: will be removed in next minor version
  */
+@Deprecated
 public class PopupListener extends MouseAdapter
 {
 

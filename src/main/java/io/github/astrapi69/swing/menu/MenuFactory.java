@@ -42,6 +42,7 @@ import io.github.astrapi69.swing.menu.popup.listeners.PopupListener;
  *             <br>
  *             Note: will be removed in next minor version
  */
+@Deprecated
 public class MenuFactory
 {
 

@@ -47,6 +47,7 @@ import io.github.astrapi69.swing.plaf.LookAndFeels;
 @Log
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Getter
+@Deprecated
 public class ShowHelpDialogAction extends AbstractAction
 {
 

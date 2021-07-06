@@ -35,6 +35,7 @@ import io.github.astrapi69.swing.plaf.LookAndFeels;
  *             <br>
  *             Note: will be removed in next minor version
  */
+@Deprecated
 public class LookAndFeelGTKAction extends LookAndFeelAction
 {
 

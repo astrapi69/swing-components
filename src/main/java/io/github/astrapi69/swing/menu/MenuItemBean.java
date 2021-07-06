@@ -43,6 +43,7 @@ import lombok.experimental.FieldDefaults;
  *             <br>
  *             Note: will be removed in next minor version
  */
+@Deprecated
 @Getter
 @Setter
 @EqualsAndHashCode

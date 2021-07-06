@@ -44,6 +44,7 @@ import lombok.experimental.FieldDefaults;
  */
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @AllArgsConstructor
+@Deprecated
 public enum LookAndFeels
 {
 

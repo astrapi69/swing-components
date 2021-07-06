@@ -36,7 +36,7 @@ import io.github.astrapi69.layout.ScreenSizeExtensions;
  * @deprecated use instead the same name class in the menu-actions repository.<br>
  *             <br>
  *             Note: will be removed in next minor version
- */
+ */@Deprecated
 public class ToggleFullScreenAction extends AbstractAction
 {
 
