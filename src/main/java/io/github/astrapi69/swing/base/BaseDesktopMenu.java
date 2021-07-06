@@ -26,6 +26,7 @@ package io.github.astrapi69.swing.base;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.net.URL;
 import java.util.logging.Level;
 
@@ -36,6 +37,7 @@ import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
 import javax.swing.*;
 
+import io.github.astrapi69.swing.help.HelpFactory;
 import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
 import lombok.AccessLevel;
@@ -61,7 +63,7 @@ import io.github.astrapi69.swing.plaf.actions.LookAndFeelSystemAction;
  */
 @Getter
 @ToString
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = false)
 @Log
 public class BaseDesktopMenu extends JMenu
 {
@@ -105,12 +107,21 @@ public class BaseDesktopMenu extends JMenu
 		helpBroker = newHelpBroker();
 		helpWindow = newHelpWindow(helpBroker);
 		menubar = newJMenuBar();
-		menubar.add(fileMenu = newFileMenu(e -> log.log(Level.FINE, "file menu")));
-		menubar.add(editMenu = newEditMenu(e -> log.log(Level.FINE, "edit menu")));
-		menubar.add(
-			lookAndFeelMenu = newLookAndFeelMenu(e -> log.log(Level.FINE, "Look and Feel menu")));
-		menubar.add(helpMenu = newHelpMenu(e -> log.log(Level.FINE, "Help menu")));
-		onRefreshMenus(fileMenu, editMenu, lookAndFeelMenu, helpMenu);
+		fileMenu = newFileMenu();
+		fileMenu = menubar.add(fileMenu);
+		editMenu = newEditMenu(null);
+		editMenu = menubar.add(editMenu);
+		lookAndFeelMenu = newLookAndFeelMenu(null);
+		lookAndFeelMenu = menubar.add(lookAndFeelMenu);
+		helpMenu = newHelpMenu(null);
+		helpMenu = menubar.add(helpMenu);
+		onRefreshMenus(
+			fileMenu,
+			editMenu,
+			lookAndFeelMenu
+			,
+			helpMenu
+		);
 	}
 
 	/**
@@ -122,19 +133,11 @@ public class BaseDesktopMenu extends JMenu
 	{
 		HelpSet hs = null;
 		final String filename = "simple-hs.xml";
-		final String path = "help/" + filename;
-		URL hsURL;
-		hsURL = ClassExtensions.getResource(path);
+		String directory = "help";
+		final String path = directory +"/" + filename;
 		try
 		{
-			if (hsURL != null)
-			{
-				hs = new HelpSet(ClassExtensions.getClassLoader(), hsURL);
-			}
-			else
-			{
-				hs = new HelpSet();
-			}
+			hs = HelpFactory.newHelpSet(directory, filename);
 		}
 		catch (final HelpSetException e)
 		{
@@ -165,25 +168,20 @@ public class BaseDesktopMenu extends JMenu
 	}
 
 	/**
-	 * Creates the file menu.
-	 *
-	 * @param listener
-	 *            the listener
+	 * Factory method for create the file <code>JMenu</code>
 	 *
 	 * @return the j menu
 	 */
-	protected JMenu newFileMenu(final ActionListener listener)
+	protected JMenu newFileMenu()
 	{
-		final JMenu fileMenu = new JMenu("File");
-		fileMenu.setMnemonic('F');
-
-		return fileMenu;
+		return MenuFactory.newJMenu("File", KeyEvent.VK_F);
 	}
 
 	protected DefaultHelpBroker newHelpBroker()
 	{
 		final HelpSet hs = getHelpSet();
 		final DefaultHelpBroker helpBroker = (DefaultHelpBroker)hs.createHelpBroker();
+
 		return helpBroker;
 	}
 
