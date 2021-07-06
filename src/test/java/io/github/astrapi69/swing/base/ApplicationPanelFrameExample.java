@@ -25,23 +25,17 @@
 package io.github.astrapi69.swing.base;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 
 import org.jdesktop.swingx.MultiSplitLayout;
 
-import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.layout.CloseWindow;
 import io.github.astrapi69.swing.button.IconButtonFactory;
-import io.github.astrapi69.swing.icon.ImageIconFactory;
-import io.github.astrapi69.swing.img.ImageExtensions;
 import io.github.astrapi69.swing.panels.splitpane.ApplicationTestModel;
 import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
 import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
-import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 public class ApplicationPanelFrameExample
 	extends

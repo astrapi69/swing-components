@@ -30,6 +30,7 @@ import java.awt.event.WindowEvent;
 /**
  * The class CloseWindow is an Adapter class for the WindowAdapter to close the window and exit the
  * programm.
+ * 
  * @deprecated use instead the same name class in the menu-actions repository.<br>
  *             <br>
  *             Note: will be removed in next minor version

@@ -50,7 +50,8 @@ public class BaseOpenBrowserAction extends OpenBrowserAction
 		return new BaseOpenBrowserAction(name, component, url);
 	}
 
-	@Override protected void onDisplayURLonStandardBrowser(Component component, String url)
+	@Override
+	protected void onDisplayURLonStandardBrowser(Component component, String url)
 	{
 		BrowserControlExtensions.displayURLonStandardBrowser(component, url);
 	}

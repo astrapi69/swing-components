@@ -29,11 +29,11 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
-import io.github.astrapi69.swing.menu.MenuItemBean;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
+
 /**
  * The base class {@link LookAndFeelAction} for change a look and feel from the application
  *

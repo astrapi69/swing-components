@@ -30,6 +30,7 @@ import java.awt.event.WindowEvent;
 /**
  * The class DisposeWindow is an Adapter class for the WindowAdapter to dispose the window and
  * setVisible to false.
+ * 
  * @deprecated use instead the same name class in the menu-actions repository.<br>
  *             <br>
  *             Note: will be removed in next minor version

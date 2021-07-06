@@ -30,6 +30,7 @@ import javax.swing.*;
 
 /**
  * The class {@link ExitApplicationAction} finish the application
+ * 
  * @deprecated use instead the same name class in the menu-actions repository.<br>
  *             <br>
  *             Note: will be removed in next minor version

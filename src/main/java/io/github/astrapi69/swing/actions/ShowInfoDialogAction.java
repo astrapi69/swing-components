@@ -25,14 +25,8 @@
 package io.github.astrapi69.swing.actions;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
-import javax.swing.*;
-
-import lombok.AccessLevel;
 import lombok.NonNull;
-import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.swing.dialog.info.InfoDialog;
 
 /**
  * The abstract class {@link ShowInfoDialogAction}
