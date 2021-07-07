@@ -4,8 +4,17 @@
 Version 5.8-SNAPSHOT
 -------------
 
+CHANGED:
+
+- update of test dependency zip4j to new version 2.9.0
+- update of dependency commons-lang3 to new version 3.12.0
+- remove obsolete classes that are tagged as deprecated
+- remove of unused plugin interfaces
+
 Version 5.7
 -------------
+
+ADDED:
 
 - new factory class MenuFactory for create Menu and JToolbar objects
 - new factory class SplashScreenFactory for create SplashScreen objects

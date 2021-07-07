@@ -65,7 +65,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 
 	/** The configuration directory for configuration files. */
 	@Getter
-	final File configurationDirectory;
+	File configurationDirectory;
 
 	/** The current look and feels. */
 	@Getter
@@ -95,10 +95,22 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	public AbstractApplicationFrame(String title)
 	{
 		super(title);
-		// Set default look and feel...
-		setDefaultLookAndFeel(newLookAndFeels(), this);
+	}
+
+	@Override protected void onBeforeInitialize()
+	{
+		super.onBeforeInitialize();
 		configurationDirectory = newConfigurationDirectory(System.getProperty("user.home"),
 			".config");
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onInitializeComponents()
+	{
+		super.onInitializeComponents();
 		menu = newDesktopMenu(this);
 		setJMenuBar(menu.getMenubar());
 		setToolBar(toolbar = newJToolBar());
@@ -110,8 +122,6 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 		}
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ScreenSizeExtensions.setDefaultFrameSize(this);
-		setVisible(true);
-
 	}
 
 	/**
