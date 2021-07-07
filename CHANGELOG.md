@@ -1,7 +1,7 @@
 ## Change log
 ----------------------
 
-Version 5.8-SNAPSHOT
+Version 5.8
 -------------
 
 CHANGED:
