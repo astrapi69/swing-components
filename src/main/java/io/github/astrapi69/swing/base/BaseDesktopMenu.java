@@ -27,7 +27,6 @@ package io.github.astrapi69.swing.base;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.net.URL;
 import java.util.logging.Level;
 
 import javax.help.CSH;
@@ -37,21 +36,20 @@ import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
 import javax.swing.*;
 
-import io.github.astrapi69.swing.help.HelpFactory;
-import io.github.astrapi69.swing.menu.MenuExtensions;
-import io.github.astrapi69.swing.menu.MenuFactory;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
-import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.swing.actions.OpenBrowserToDonateAction;
 import io.github.astrapi69.swing.actions.ShowInfoDialogAction;
 import io.github.astrapi69.swing.actions.ShowLicenseFrameAction;
 import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import io.github.astrapi69.swing.dialog.info.InfoPanel;
+import io.github.astrapi69.swing.help.HelpFactory;
+import io.github.astrapi69.swing.menu.MenuExtensions;
+import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelGTKAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelMetalAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelMotifAction;
@@ -72,28 +70,21 @@ public class BaseDesktopMenu extends JMenu
 	private static final long serialVersionUID = 1L;
 
 	/** The application frame. */
-	Component applicationFrame;
-
+	final Component applicationFrame;
+	/** The default help broker */
+	final DefaultHelpBroker helpBroker;
+	/** The help window. */
+	final Window helpWindow;
+	/** The JMenuBar from the DesktopMenu. */
+	final JMenuBar menubar;
 	/** The edit menu. */
 	JMenu editMenu;
-
 	/** The file menu. */
 	JMenu fileMenu;
-
-	/** The default help broker */
-	DefaultHelpBroker helpBroker;
-
 	/** The help menu. */
 	JMenu helpMenu;
-
-	/** The help window. */
-	Window helpWindow;
-
 	/** The look and feel menu. */
 	JMenu lookAndFeelMenu;
-
-	/** The JMenuBar from the DesktopMenu. */
-	JMenuBar menubar;
 
 	/**
 	 * Instantiates a new {@link BaseDesktopMenu}
@@ -115,13 +106,7 @@ public class BaseDesktopMenu extends JMenu
 		lookAndFeelMenu = menubar.add(lookAndFeelMenu);
 		helpMenu = newHelpMenu(null);
 		helpMenu = menubar.add(helpMenu);
-		onRefreshMenus(
-			fileMenu,
-			editMenu,
-			lookAndFeelMenu
-			,
-			helpMenu
-		);
+		onRefreshMenus(fileMenu, editMenu, lookAndFeelMenu, helpMenu);
 	}
 
 	/**
@@ -134,7 +119,7 @@ public class BaseDesktopMenu extends JMenu
 		HelpSet hs = null;
 		final String filename = "simple-hs.xml";
 		String directory = "help";
-		final String path = directory +"/" + filename;
+		final String path = directory + "/" + filename;
 		try
 		{
 			hs = HelpFactory.newHelpSet(directory, filename);

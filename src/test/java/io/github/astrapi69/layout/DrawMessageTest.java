@@ -27,11 +27,12 @@ package io.github.astrapi69.layout;
 import java.awt.*;
 import java.awt.event.WindowListener;
 
-import io.github.astrapi69.window.adapter.CloseWindow;
-import io.github.astrapi69.window.adapter.DisposeWindow;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.window.adapter.DisposeWindow;
 
 /**
  * The unit test class for the class DrawMessage.

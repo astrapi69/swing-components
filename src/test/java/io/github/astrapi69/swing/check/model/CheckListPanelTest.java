@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.check.model;
 
-import io.github.astrapi69.window.adapter.CloseWindow;
-
 import java.awt.*;
+
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class CheckListPanelTest
 {

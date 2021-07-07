@@ -28,11 +28,11 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import io.github.astrapi69.window.adapter.CloseWindow;
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.MultiSplitLayout;
 
 import io.github.astrapi69.swing.panels.preferences.ApplicationPreferencesPanel;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class JComponentFactoryJSplitPaneTest
 {

@@ -24,13 +24,13 @@
  */
 package io.github.astrapi69.layout;
 
-import io.github.astrapi69.window.adapter.DisposeWindow;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import io.github.astrapi69.window.adapter.DisposeWindow;
 
 /**
  * The class InfomationDialog.

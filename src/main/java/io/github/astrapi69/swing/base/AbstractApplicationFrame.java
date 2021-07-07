@@ -34,7 +34,6 @@ import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import io.github.astrapi69.swing.menu.MenuFactory;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -45,6 +44,7 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.layout.ScreenSizeExtensions;
+import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 
 /**
@@ -97,7 +97,8 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 		super(title);
 	}
 
-	@Override protected void onBeforeInitialize()
+	@Override
+	protected void onBeforeInitialize()
 	{
 		super.onBeforeInitialize();
 		configurationDirectory = newConfigurationDirectory(System.getProperty("user.home"),
