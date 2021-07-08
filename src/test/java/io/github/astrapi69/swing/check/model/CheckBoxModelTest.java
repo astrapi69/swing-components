@@ -25,6 +25,8 @@
 package io.github.astrapi69.swing.check.model;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -36,7 +38,7 @@ public class CheckBoxModelTest
 	public static void main(String[] args)
 	{
 		JCheckBox checkBox;
-		CheckBoxModel model = new CheckBoxModel()
+		final CheckBoxModel model = new CheckBoxModel(true)
 		{
 			@Override
 			public void setChecked(boolean checked)
@@ -45,14 +47,26 @@ public class CheckBoxModelTest
 				System.out.println(checked);
 			}
 		};
+		ButtonModel buttonModel = new DefaultButtonModel();
 		checkBox = new JCheckBox("Check me");
-		checkBox.setModel(model);
-		checkBox.addItemListener(new CheckBoxModelListener(model));
-		final Frame frame = new Frame("CheckBoxModelTest");
+		checkBox.setModel(buttonModel);
 
+		final Frame frame = new Frame("CheckBoxModelTest");
+		JButton buttonCheck = new JButton("check it");
+		buttonCheck.addActionListener(e -> {
+			boolean selected = checkBox.isSelected();
+			buttonModel.setSelected(!selected);
+		});
+		buttonModel.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				buttonModel.setSelected(!buttonModel.isSelected());
+			}
+		});
 		frame.addWindowListener(new CloseWindow());
 
 		frame.setLayout(new GridBagLayout());
+		frame.add(buttonCheck);
 		frame.add(checkBox);
 		frame.setSize(200, 200);
 		frame.setVisible(true);

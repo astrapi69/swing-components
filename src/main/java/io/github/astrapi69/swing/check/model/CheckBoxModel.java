@@ -45,13 +45,54 @@ public class CheckBoxModel extends JToggleButton.ToggleButtonModel
 	/**
 	 * The property change support object
 	 */
-	private PropertyChangeSupport propertySupport;
+	private final PropertyChangeSupport propertySupport;
 
 	/**
 	 * initial block
 	 */
 	{
 		this.propertySupport = new PropertyChangeSupport(this);
+	}
+
+	/**
+	 * Instantiates a new {@link CheckBoxModel}
+	 */
+	public CheckBoxModel()
+	{
+	}
+
+	/**
+	 * Instantiates a new {@link CheckBoxModel} from the given checked value
+	 *
+	 * @param checked
+	 *            the initial value for checked
+	 */
+	public CheckBoxModel(boolean checked)
+	{
+		this.checked = checked;
+		setSelected(this.checked);
+	}
+
+	/**
+	 * Factory method for create a {@link CheckBoxModel} object
+	 *
+	 * @param checked
+	 *            the initial value for checked
+	 * @return the new {@link CheckBoxModel} object
+	 */
+	public static CheckBoxModel of(boolean checked)
+	{
+		return checked ? new CheckBoxModel(checked) : new CheckBoxModel();
+	}
+
+	/**
+	 * Factory method for create a {@link CheckBoxModel} object
+	 *
+	 * @return the new {@link CheckBoxModel} object
+	 */
+	public static CheckBoxModel of()
+	{
+		return of(false);
 	}
 
 	/**
