@@ -62,7 +62,7 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	protected List<T> comboList;
 
 	/**
-	 * The the current selected item.
+	 * The current selected item.
 	 */
 	protected T selectedItem;
 

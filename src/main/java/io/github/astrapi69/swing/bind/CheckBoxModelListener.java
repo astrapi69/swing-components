@@ -24,33 +24,33 @@
  */
 package io.github.astrapi69.swing.bind;
 
-import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import lombok.Getter;
-import io.github.astrapi69.model.api.Model;
+import javax.swing.*;
+
+import lombok.AccessLevel;
+import lombok.NonNull;
+import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.swing.check.model.CheckBoxModel;
 
 /**
- * The listener interface {@link SingleItemModelListener} receives itemBind events.
- *
- * @param <T>
- *            the generic type
+ * The listener interface {@link CheckBoxModelListener} receives events from a checkbox
  */
-@Getter
-public class SingleItemModelListener<T> implements ItemListener
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class CheckBoxModelListener implements ItemListener
 {
 
 	/** The model. */
-	private final Model<T> model;
+	CheckBoxModel model;
 
 	/**
-	 * Instantiates a new {@link SingleItemModelListener}.
+	 * Instantiates a new {@link CheckBoxModelListener}
 	 *
 	 * @param model
 	 *            the model
 	 */
-	public SingleItemModelListener(final Model<T> model)
+	public CheckBoxModelListener(final @NonNull CheckBoxModel model)
 	{
 		this.model = model;
 	}
@@ -58,14 +58,9 @@ public class SingleItemModelListener<T> implements ItemListener
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
-	public void itemStateChanged(final ItemEvent e)
+	public void itemStateChanged(ItemEvent e)
 	{
-		final ItemSelectable is = e.getItemSelectable();
-		final Object[] selected = is.getSelectedObjects();
-		final T selectedItem = (selected.length == 0) ? null : (T)selected[0];
-		model.setObject(selectedItem);
+		this.model.setChecked(((JCheckBox)e.getSource()).isSelected());
 	}
-
 }

@@ -22,50 +22,39 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.bind;
+package io.github.astrapi69.swing.check.model;
 
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
-import lombok.Getter;
-import io.github.astrapi69.model.api.Model;
+import javax.swing.*;
 
-/**
- * The listener interface {@link SingleItemModelListener} receives itemBind events.
- *
- * @param <T>
- *            the generic type
- */
-@Getter
-public class SingleItemModelListener<T> implements ItemListener
+import io.github.astrapi69.swing.bind.CheckBoxModelListener;
+import io.github.astrapi69.window.adapter.CloseWindow;
+
+public class CheckBoxModelTest
 {
-
-	/** The model. */
-	private final Model<T> model;
-
-	/**
-	 * Instantiates a new {@link SingleItemModelListener}.
-	 *
-	 * @param model
-	 *            the model
-	 */
-	public SingleItemModelListener(final Model<T> model)
+	public static void main(String[] args)
 	{
-		this.model = model;
-	}
+		JCheckBox checkBox;
+		CheckBoxModel model = new CheckBoxModel()
+		{
+			@Override
+			public void setChecked(boolean checked)
+			{
+				super.setChecked(checked);
+				System.out.println(checked);
+			}
+		};
+		checkBox = new JCheckBox("Check me");
+		checkBox.setModel(model);
+		checkBox.addItemListener(new CheckBoxModelListener(model));
+		final Frame frame = new Frame("CheckBoxModelTest");
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void itemStateChanged(final ItemEvent e)
-	{
-		final ItemSelectable is = e.getItemSelectable();
-		final Object[] selected = is.getSelectedObjects();
-		final T selectedItem = (selected.length == 0) ? null : (T)selected[0];
-		model.setObject(selectedItem);
-	}
+		frame.addWindowListener(new CloseWindow());
 
+		frame.setLayout(new GridBagLayout());
+		frame.add(checkBox);
+		frame.setSize(200, 200);
+		frame.setVisible(true);
+	}
 }

@@ -7,6 +7,7 @@ Version 5.9-SNAPSHOT
 ADDED:
 
 - new abstact class AbstractMutableComboBoxModel for a generic combobox model that can add and remove elements from the combobox dynamically
+- new model and item listener class for checkbox 
 
 Version 5.8
 -------------

@@ -22,50 +22,49 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.bind;
+package io.github.astrapi69.swing.check.model;
 
-import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.beans.PropertyChangeSupport;
+
+import javax.swing.*;
 
 import lombok.Getter;
-import io.github.astrapi69.model.api.Model;
 
 /**
- * The listener interface {@link SingleItemModelListener} receives itemBind events.
- *
- * @param <T>
- *            the generic type
+ * The class {@link CheckBoxModel} decorates a boolean value for a checkbox
  */
-@Getter
-public class SingleItemModelListener<T> implements ItemListener
+public class CheckBoxModel extends JToggleButton.ToggleButtonModel
 {
 
-	/** The model. */
-	private final Model<T> model;
+	/**
+	 * The current value of the checkbox
+	 */
+	@Getter
+	private boolean checked;
 
 	/**
-	 * Instantiates a new {@link SingleItemModelListener}.
-	 *
-	 * @param model
-	 *            the model
+	 * The property change support object
 	 */
-	public SingleItemModelListener(final Model<T> model)
+	private PropertyChangeSupport propertySupport;
+
+	/**
+	 * initial block
+	 */
 	{
-		this.model = model;
+		this.propertySupport = new PropertyChangeSupport(this);
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Sets the new checked value
+	 * 
+	 * @param checked
+	 *            the new checked value
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void itemStateChanged(final ItemEvent e)
+	public void setChecked(boolean checked)
 	{
-		final ItemSelectable is = e.getItemSelectable();
-		final Object[] selected = is.getSelectedObjects();
-		final T selectedItem = (selected.length == 0) ? null : (T)selected[0];
-		model.setObject(selectedItem);
+		boolean oldValue = this.checked;
+		this.checked = checked;
+		propertySupport.firePropertyChange("checked", oldValue, this.checked);
 	}
 
 }
