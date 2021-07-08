@@ -24,12 +24,18 @@
  */
 package io.github.astrapi69.swing.panels.field;
 
+import java.awt.event.ActionEvent;
+import java.util.List;
+
+import javax.swing.*;
+
+import io.github.astrapi69.behaviors.EnableButtonBehavior;
 import io.github.astrapi69.collections.list.ListFactory;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
-import io.github.astrapi69.swing.bind.ItemBindListener;
 import io.github.astrapi69.swing.combobox.model.StringComboBoxModel;
+import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 /**
  *
@@ -39,8 +45,13 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 {
 
 	private static final long serialVersionUID = 1L;
-	private javax.swing.JComboBox<String> jComboBox1;
-	private javax.swing.JLabel jLabel1;
+	private JButton btnAddNewValue;
+	private JButton btnRemoveSelected;
+	private JComboBox<String> cmbStringValues;
+	private JLabel lblAddNewValue;
+	private JLabel lblStringValues;
+	private JTextField txtAddNewValue;
+	StringComboBoxModel comboBoxModel;
 
 
 	public LabeledComboboxPanel()
@@ -59,42 +70,97 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 	{
 		super.onInitializeComponents();
 
-		jLabel1 = new javax.swing.JLabel();
-		jComboBox1 = new javax.swing.JComboBox<>();
+		lblStringValues = new JLabel();
+		cmbStringValues = new JComboBox<>();
+		btnRemoveSelected = new JButton();
+		lblAddNewValue = new JLabel();
+		txtAddNewValue = new JTextField();
+		btnAddNewValue = new JButton();
 
-		jLabel1.setText("Combo label");
+		lblStringValues.setText("Combo label");
 
-		jComboBox1.setModel(new StringComboBoxModel(getModelObject().getComboList(),
-			getModelObject().getSelectedItem()));
-		jComboBox1.addItemListener(new ItemBindListener<>(jComboBox1.getModel()));
+		btnRemoveSelected.setText("Remove selected value");
+
+		lblAddNewValue.setText("Add new Value to combobox");
+
+		btnAddNewValue.setText("Add combobox value");
+		// ===
+		comboBoxModel = new StringComboBoxModel(getModelObject().getComboList(),
+			getModelObject().getSelectedItem());
+		cmbStringValues.setModel(comboBoxModel);
+		cmbStringValues.addActionListener(this::onStringValuesChange);
+		btnRemoveSelected.addActionListener(this::onRemoveSelected);
+		btnAddNewValue.addActionListener(this::onAddNewValue);
+
+		EnableButtonBehavior.builder().buttonModel(btnAddNewValue.getModel())
+			.document(txtAddNewValue.getDocument()).build();
+	}
+
+	protected void onStringValuesChange(final ActionEvent actionEvent)
+	{
+		Object item = cmbStringValues.getSelectedItem();
+		String value = (String)item;
+		txtAddNewValue.setText(value);
+	}
+
+	protected void onRemoveSelected(final ActionEvent actionEvent)
+	{
+		Object item = cmbStringValues.getSelectedItem();
+		String value = (String)item;
+		comboBoxModel.removeElement(value);
+	}
+
+	protected void onAddNewValue(final ActionEvent actionEvent)
+	{
+		String text = txtAddNewValue.getText();
+		comboBoxModel.addElement(text);
+		int length = txtAddNewValue.getDocument().getLength();
+		RuntimeExceptionDecorator.decorate(() -> txtAddNewValue.getDocument().remove(0, length));
+		List<String> comboList = getModelObject().getComboList();
+		System.out.println(comboList);
 	}
 
 	@Override
 	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
-
-		final javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+		GroupLayout layout = new GroupLayout(this);
 		this.setLayout(layout);
-		layout.setHorizontalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup().addGap(23, 23, 23)
-					.addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200,
-						javax.swing.GroupLayout.PREFERRED_SIZE)
-					.addGap(18, 18, 18)
-					.addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200,
-						javax.swing.GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		layout
-			.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup().addGap(53, 53, 53)
-					.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-							javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE,
-							javax.swing.GroupLayout.DEFAULT_SIZE,
-							javax.swing.GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(33, Short.MAX_VALUE)));
+			.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addGap(23, 23, 23)
+					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+						.addComponent(lblAddNewValue, GroupLayout.DEFAULT_SIZE, 226,
+							Short.MAX_VALUE)
+						.addComponent(lblStringValues, GroupLayout.DEFAULT_SIZE,
+							GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+						.addComponent(cmbStringValues, 0, 200, Short.MAX_VALUE)
+						.addComponent(txtAddNewValue))
+					.addGap(18, 18, 18)
+					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+						.addComponent(btnRemoveSelected, GroupLayout.DEFAULT_SIZE,
+							GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(btnAddNewValue, GroupLayout.DEFAULT_SIZE,
+							GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGap(27, 27, 27)));
+		layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup().addGap(53, 53, 53)
+				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+					.addComponent(lblStringValues, GroupLayout.PREFERRED_SIZE, 30,
+						GroupLayout.PREFERRED_SIZE)
+					.addComponent(cmbStringValues, GroupLayout.PREFERRED_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnRemoveSelected))
+				.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+					.addComponent(txtAddNewValue, GroupLayout.PREFERRED_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblAddNewValue, GroupLayout.PREFERRED_SIZE, 35,
+						GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnAddNewValue))
+				.addContainerGap(41, Short.MAX_VALUE)));
 	}
 
 }

@@ -18,10 +18,21 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="200" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="lblAddNewValue" pref="226" max="32767" attributes="0"/>
+                  <Component id="lblStringValues" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="cmbStringValues" pref="200" max="32767" attributes="0"/>
+                  <Component id="txtAddNewValue" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jComboBox1" min="-2" pref="200" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnRemoveSelected" max="32767" attributes="0"/>
+                  <Component id="btnAddNewValue" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -30,21 +41,28 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblStringValues" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="cmbStringValues" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRemoveSelected" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtAddNewValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAddNewValue" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btnAddNewValue" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblStringValues">
       <Properties>
         <Property name="text" type="java.lang.String" value="Combo label"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="cmbStringValues">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -58,6 +76,23 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRemoveSelected">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Remove selected value"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAddNewValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add new Value to combobox"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAddNewValue">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAddNewValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add combobox value"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

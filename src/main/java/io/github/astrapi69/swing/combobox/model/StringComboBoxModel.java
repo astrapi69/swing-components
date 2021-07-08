@@ -30,9 +30,9 @@ import io.github.astrapi69.collections.array.ArrayExtensions;
 
 /**
  * The class {@link StringComboBoxModel} is an implementation of the abstract class
- * {@link AbstractComboBoxModel} for {@link String} values.
+ * {@link AbstractMutableComboBoxModel} for {@link String} values.
  */
-public class StringComboBoxModel extends AbstractComboBoxModel<String>
+public class StringComboBoxModel extends AbstractMutableComboBoxModel<String>
 {
 
 	/** The Constant serialVersionUID. */
