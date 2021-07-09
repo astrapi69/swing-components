@@ -7,7 +7,7 @@ Version 5.9-SNAPSHOT
 ADDED:
 
 - new abstact class AbstractMutableComboBoxModel for a generic combobox model that can add and remove elements from the combobox dynamically
-- new model and item listener class for checkbox 
+- new decorator class for JCheckBox that encapsulate a model and can be changed the checked value over the model
 
 Version 5.8
 -------------
