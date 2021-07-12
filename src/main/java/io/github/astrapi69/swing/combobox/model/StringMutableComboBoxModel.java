@@ -29,28 +29,28 @@ import java.util.List;
 import io.github.astrapi69.collections.array.ArrayExtensions;
 
 /**
- * The class {@link StringComboBoxModel} is an implementation of the abstract class
- * {@link AbstractComboBoxModel} for {@link String} values.
+ * The class {@link StringMutableComboBoxModel} is an implementation of the abstract class
+ * {@link AbstractMutableComboBoxModel} for {@link String} values.
  */
-public class StringComboBoxModel extends AbstractComboBoxModel<String>
+public class StringMutableComboBoxModel extends AbstractMutableComboBoxModel<String>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Instantiates a new {@link StringComboBoxModel} from the given list
+	 * Instantiates a new {@link StringMutableComboBoxModel} from the given list
 	 *
 	 * @param comboList
 	 *            the combo list
 	 */
-	public StringComboBoxModel(final List<String> comboList)
+	public StringMutableComboBoxModel(final List<String> comboList)
 	{
 		super(comboList);
 	}
 
 	/**
-	 * Instantiates a new {@link StringComboBoxModel} from the given list and set as selected item
+	 * Instantiates a new {@link StringMutableComboBoxModel} from the given list and set as selected item
 	 * the given value
 	 *
 	 * @param comboList
@@ -58,24 +58,24 @@ public class StringComboBoxModel extends AbstractComboBoxModel<String>
 	 * @param selectedItem
 	 *            the selected item
 	 */
-	public StringComboBoxModel(final List<String> comboList, final String selectedItem)
+	public StringMutableComboBoxModel(final List<String> comboList, final String selectedItem)
 	{
 		super(comboList, selectedItem);
 	}
 
 	/**
-	 * Instantiates a new {@link StringComboBoxModel} from the given array
+	 * Instantiates a new {@link StringMutableComboBoxModel} from the given array
 	 *
 	 * @param comboArray
 	 *            the combo array
 	 */
-	public StringComboBoxModel(final String[] comboArray)
+	public StringMutableComboBoxModel(final String[] comboArray)
 	{
 		super(ArrayExtensions.asList(comboArray));
 	}
 
 	/**
-	 * Instantiates a new {@link StringComboBoxModel} from the given array and set as selected item
+	 * Instantiates a new {@link StringMutableComboBoxModel} from the given array and set as selected item
 	 * the given value
 	 *
 	 * @param comboArray
@@ -83,7 +83,7 @@ public class StringComboBoxModel extends AbstractComboBoxModel<String>
 	 * @param selectedItem
 	 *            the selected item
 	 */
-	public StringComboBoxModel(final String[] comboArray, final String selectedItem)
+	public StringMutableComboBoxModel(final String[] comboArray, final String selectedItem)
 	{
 		super(ArrayExtensions.asList(comboArray), selectedItem);
 	}

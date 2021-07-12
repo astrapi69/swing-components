@@ -34,7 +34,7 @@ import io.github.astrapi69.collections.list.ListFactory;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
-import io.github.astrapi69.swing.combobox.model.StringComboBoxModel;
+import io.github.astrapi69.swing.combobox.model.StringMutableComboBoxModel;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 /**
@@ -51,7 +51,7 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 	private JLabel lblAddNewValue;
 	private JLabel lblStringValues;
 	private JTextField txtAddNewValue;
-	StringComboBoxModel comboBoxModel;
+	StringMutableComboBoxModel mutableComboBoxModel;
 
 
 	public LabeledComboboxPanel()
@@ -85,9 +85,9 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 
 		btnAddNewValue.setText("Add combobox value");
 		// ===
-		comboBoxModel = new StringComboBoxModel(getModelObject().getComboList(),
+		mutableComboBoxModel = new StringMutableComboBoxModel(getModelObject().getComboList(),
 			getModelObject().getSelectedItem());
-		cmbStringValues.setModel(comboBoxModel);
+		cmbStringValues.setModel(mutableComboBoxModel);
 		cmbStringValues.addActionListener(this::onStringValuesChange);
 		btnRemoveSelected.addActionListener(this::onRemoveSelected);
 		btnAddNewValue.addActionListener(this::onAddNewValue);
@@ -107,13 +107,14 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 	{
 		Object item = cmbStringValues.getSelectedItem();
 		String value = (String)item;
-		comboBoxModel.removeElement(value);
+		mutableComboBoxModel.removeElement(value);
 	}
 
 	protected void onAddNewValue(final ActionEvent actionEvent)
 	{
 		String text = txtAddNewValue.getText();
-		comboBoxModel.addElement(text);
+		mutableComboBoxModel.addElement(text);
+		mutableComboBoxModel.setSelectedItem(text);
 		int length = txtAddNewValue.getDocument().getLength();
 		RuntimeExceptionDecorator.decorate(() -> txtAddNewValue.getDocument().remove(0, length));
 		List<String> comboList = getModelObject().getComboList();
