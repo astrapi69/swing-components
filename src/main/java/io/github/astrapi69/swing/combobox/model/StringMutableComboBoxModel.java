@@ -50,8 +50,8 @@ public class StringMutableComboBoxModel extends AbstractMutableComboBoxModel<Str
 	}
 
 	/**
-	 * Instantiates a new {@link StringMutableComboBoxModel} from the given list and set as selected item
-	 * the given value
+	 * Instantiates a new {@link StringMutableComboBoxModel} from the given list and set as selected
+	 * item the given value
 	 *
 	 * @param comboList
 	 *            the combo list
@@ -75,8 +75,8 @@ public class StringMutableComboBoxModel extends AbstractMutableComboBoxModel<Str
 	}
 
 	/**
-	 * Instantiates a new {@link StringMutableComboBoxModel} from the given array and set as selected item
-	 * the given value
+	 * Instantiates a new {@link StringMutableComboBoxModel} from the given array and set as
+	 * selected item the given value
 	 *
 	 * @param comboArray
 	 *            the combo array

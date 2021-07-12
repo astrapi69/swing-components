@@ -39,8 +39,8 @@ import io.github.astrapi69.collections.list.ListExtensions;
 import io.github.astrapi69.collections.list.ListFactory;
 
 /**
- * The abstract class {@link AbstractMutableComboBoxModel} contains the data for a combo list and the
- * current selected item.
+ * The abstract class {@link AbstractMutableComboBoxModel} contains the data for a combo list and
+ * the current selected item.
  *
  * @param <T>
  *            the generic type of the Model
@@ -48,7 +48,7 @@ import io.github.astrapi69.collections.list.ListFactory;
 @Getter
 public abstract class AbstractMutableComboBoxModel<T> extends AbstractListModel<T>
 	implements
-	MutableComboBoxModel<T>,
+		MutableComboBoxModel<T>,
 		ActionListener
 {
 
@@ -202,22 +202,26 @@ public abstract class AbstractMutableComboBoxModel<T> extends AbstractListModel<
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override public void addElement(T item)
+	@Override
+	public void addElement(T item)
 	{
 		// prevent duplicate entries
-		if(!comboList.contains(item)) {
+		if (!comboList.contains(item))
+		{
 			comboList.add(item);
-			fireIntervalAdded(this, comboList.size()-1, comboList.size()-1);
+			fireIntervalAdded(this, comboList.size() - 1, comboList.size() - 1);
 		}
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override public void removeElement(Object obj)
+	@Override
+	public void removeElement(Object obj)
 	{
 		int index = comboList.indexOf(obj);
-		if ( index != -1 ) {
+		if (index != -1)
+		{
 			removeElementAt(index);
 		}
 	}
@@ -225,7 +229,8 @@ public abstract class AbstractMutableComboBoxModel<T> extends AbstractListModel<
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override public void insertElementAt(T item, int index)
+	@Override
+	public void insertElementAt(T item, int index)
 	{
 		comboList.add(index, item);
 		fireIntervalAdded(this, index, index);
@@ -234,14 +239,18 @@ public abstract class AbstractMutableComboBoxModel<T> extends AbstractListModel<
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override public void removeElementAt(int index)
+	@Override
+	public void removeElementAt(int index)
 	{
-		if ( getElementAt( index ) == selectedItem ) {
-			if ( index == 0 ) {
-				setSelectedItem( getSize() == 1 ? null : getElementAt( index + 1 ) );
+		if (getElementAt(index) == selectedItem)
+		{
+			if (index == 0)
+			{
+				setSelectedItem(getSize() == 1 ? null : getElementAt(index + 1));
 			}
-			else {
-				setSelectedItem( getElementAt( index - 1 ) );
+			else
+			{
+				setSelectedItem(getElementAt(index - 1));
 			}
 		}
 		comboList.remove(index);

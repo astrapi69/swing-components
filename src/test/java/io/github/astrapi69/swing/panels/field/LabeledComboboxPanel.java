@@ -45,13 +45,13 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 {
 
 	private static final long serialVersionUID = 1L;
+	StringMutableComboBoxModel mutableComboBoxModel;
 	private JButton btnAddNewValue;
 	private JButton btnRemoveSelected;
 	private JComboBox<String> cmbStringValues;
 	private JLabel lblAddNewValue;
 	private JLabel lblStringValues;
 	private JTextField txtAddNewValue;
-	StringMutableComboBoxModel mutableComboBoxModel;
 
 
 	public LabeledComboboxPanel()
