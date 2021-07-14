@@ -28,23 +28,26 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import io.github.astrapi69.model.PropertyModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class JCheckBoxDecoratorTest
+public class JCheckBoxWithPropertyModelTest
 {
 	public static void main(String[] args)
 	{
-		// Bind with JCheckBoxDecorator that encapsulate a property model
-		JCheckBoxDecorator checkBox;
-		checkBox = new JCheckBoxDecorator("Check me");
+		// Bind legacy JCheckBox with a property model
+		JCheckBox checkBox;
+		checkBox = new JCheckBox("Check me");
+		final PropertyModel<Boolean> propertyModel = PropertyModel.<Boolean> of(checkBox,
+			"model.selected");
 
 		final Frame frame = new Frame("JCheckBoxDecoratorTest");
 		JButton buttonCheck = new JButton("check it");
 		buttonCheck.addActionListener(e -> {
-			boolean selected = ((JCheckBoxDecorator)checkBox).getPropertyModel().getObject();
+			Boolean object = propertyModel.getObject();
 			checkBox.setSelected(!checkBox.isSelected());
-			selected = ((JCheckBoxDecorator)checkBox).getPropertyModel().getObject();
-			System.out.println(selected);
+			object = propertyModel.getObject();
+			System.out.println(object);
 		});
 		frame.addWindowListener(new CloseWindow());
 

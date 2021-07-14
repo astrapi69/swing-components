@@ -79,6 +79,36 @@ public enum OS
 	}
 
 	/**
+	 * Returns true if the operating system is windows
+	 *
+	 * @return true if the operating system is windows otherwise false
+	 */
+	public static boolean isWindows()
+	{
+		return getOperatingSystem().getOs().startsWith(OS.WINDOWS.getOs());
+	}
+
+	/**
+	 * Returns true if the operating system is Macintosh
+	 *
+	 * @return true if the operating system is Macintosh otherwise false
+	 */
+	public static boolean isMac()
+	{
+		return getOperatingSystem().getOs().startsWith(OS.MAC.getOs());
+	}
+
+	/**
+	 * Returns true if the operating system is Linux
+	 *
+	 * @return true if the operating system is Linux otherwise false
+	 */
+	public static boolean isLinux()
+	{
+		return getOperatingSystem().getOs().startsWith(OS.LINUX.getOs());
+	}
+
+	/**
 	 * Gets the operating system.
 	 *
 	 * @return the operating system

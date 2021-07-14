@@ -22,36 +22,36 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.check.model;
+package io.github.astrapi69.swing;
 
 import java.awt.*;
 
 import javax.swing.*;
 
+import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class JCheckBoxDecoratorTest
+public class JTextFieldDecoratorTest
 {
 	public static void main(String[] args)
 	{
-		// Bind with JCheckBoxDecorator that encapsulate a property model
-		JCheckBoxDecorator checkBox;
-		checkBox = new JCheckBoxDecorator("Check me");
+		// Bind with JTextFieldDecorator that encapsulate a property model
+		JTextFieldDecorator textFieldDecorator = new JTextFieldDecorator("fff", 20);
 
 		final Frame frame = new Frame("JCheckBoxDecoratorTest");
 		JButton buttonCheck = new JButton("check it");
 		buttonCheck.addActionListener(e -> {
-			boolean selected = ((JCheckBoxDecorator)checkBox).getPropertyModel().getObject();
-			checkBox.setSelected(!checkBox.isSelected());
-			selected = ((JCheckBoxDecorator)checkBox).getPropertyModel().getObject();
+			String selected = textFieldDecorator.getPropertyModel().getObject();
+			selected = textFieldDecorator.getText();
 			System.out.println(selected);
 		});
 		frame.addWindowListener(new CloseWindow());
 
-		frame.setLayout(new GridBagLayout());
+		frame.setLayout(new MigLayout());
 		frame.add(buttonCheck);
-		frame.add(checkBox);
+		frame.add(textFieldDecorator);
 		frame.setSize(200, 200);
 		frame.setVisible(true);
 	}
+
 }

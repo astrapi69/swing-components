@@ -43,9 +43,6 @@ public class BrowserControlExtensions
 	/** Constant for the name from the mac file manager. */
 	private static final String MAC_FILE_MANAGER = "com.apple.eio.FileManager";
 
-	/** Constant for the system property from the operating system. */
-	private static final String SYSTEM_PROPERTY_OS_NAME = "os.name";
-
 	/** Constant for the unix command 'which'. */
 	private static final String UNIX_COMMAND_WHICH = "which";
 
@@ -66,11 +63,11 @@ public class BrowserControlExtensions
 	{
 		Object obj = null;
 
-		if (System.getProperty(SYSTEM_PROPERTY_OS_NAME).startsWith(OS.MAC.getOs()))
+		if (OS.isMac())
 		{
 			obj = RuntimeExceptionDecorator.decorate(() -> openURLinMacOS(url));
 		}
-		else if (System.getProperty(SYSTEM_PROPERTY_OS_NAME).startsWith(OS.WINDOWS.getOs()))
+		else if (OS.isWindows())
 		{
 			obj = RuntimeExceptionDecorator.decorate(() -> openURLinWindowsOS(url));
 		}

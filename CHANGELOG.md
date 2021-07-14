@@ -7,9 +7,14 @@ Version 5.9-SNAPSHOT
 ADDED:
 
 - new abstact class AbstractMutableComboBoxModel for a generic combobox model that can add and remove elements from the combobox dynamically
-- new decorator class for JCheckBox that encapsulate a model and can be changed the checked value over the model
+- new decorator class for JCheckBox that encapsulate a property model and bind it to it
 - new class StringMutableComboBoxModel created that extends the AbstractMutableComboBoxModel
 - new constructors to BaseDialog and PanelDialog for create dialog with window as owner
+- new decorator class for JTextField that encapsulate a property model and bind it to it
+
+CHANGED:
+
+- update of randomizer version to 8.3
 
 Version 5.8
 -------------

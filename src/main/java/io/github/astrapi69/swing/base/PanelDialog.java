@@ -91,6 +91,7 @@ public class PanelDialog<T> extends BaseDialog<T>
 	{
 		super(owner, title, model);
 	}
+
 	/**
 	 * Instantiates a new {@link PanelDialog} object
 	 *
@@ -119,8 +120,7 @@ public class PanelDialog<T> extends BaseDialog<T>
 	 * @param model
 	 *            the model
 	 */
-	public PanelDialog(final Window owner, final String title,
-		final Model<T> model)
+	public PanelDialog(final Window owner, final String title, final Model<T> model)
 	{
 		super(owner, title, model);
 	}
