@@ -83,6 +83,42 @@ public class BaseDialog<T> extends JDialog
 	 *            the owner
 	 * @param title
 	 *            the title
+	 * @param modal
+	 *            the modal
+	 * @param model
+	 *            the model
+	 */
+	public BaseDialog(final Window owner, final String title, final boolean modal,
+		final Model<T> model)
+	{
+		super(owner, title, modal? ModalityType.APPLICATION_MODAL : ModalityType.MODELESS);
+		this.model = model;
+		initialize();
+	}
+
+	/**
+	 * Instantiates a new {@link BaseDialog} object
+	 *
+	 * @param owner
+	 *            the owner
+	 * @param title
+	 *            the title
+	 * @param model
+	 *            the model
+	 */
+	public BaseDialog(final Window owner, final String title,
+		final Model<T> model)
+	{
+		this(owner, title, true, model);
+	}
+
+	/**
+	 * Instantiates a new {@link BaseDialog} object
+	 *
+	 * @param owner
+	 *            the owner
+	 * @param title
+	 *            the title
 	 * @param model
 	 *            the model
 	 */

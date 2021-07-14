@@ -91,6 +91,39 @@ public class PanelDialog<T> extends BaseDialog<T>
 	{
 		super(owner, title, model);
 	}
+	/**
+	 * Instantiates a new {@link PanelDialog} object
+	 *
+	 * @param owner
+	 *            the owner
+	 * @param title
+	 *            the title
+	 * @param modal
+	 *            the modal
+	 * @param model
+	 *            the model
+	 */
+	public PanelDialog(final Window owner, final String title, final boolean modal,
+		final Model<T> model)
+	{
+		super(owner, title, modal, model);
+	}
+
+	/**
+	 * Instantiates a new {@link PanelDialog} object
+	 *
+	 * @param owner
+	 *            the owner
+	 * @param title
+	 *            the title
+	 * @param model
+	 *            the model
+	 */
+	public PanelDialog(final Window owner, final String title,
+		final Model<T> model)
+	{
+		super(owner, title, model);
+	}
 
 	protected Container getContentPaneContainer()
 	{
