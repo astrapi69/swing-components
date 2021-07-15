@@ -194,6 +194,7 @@ dependencies {
     implementation("io.github.astrapi69:menu-actions:$menuActionsVersion")
     testImplementation("io.github.astrapi69:file-worker:$fileWorkerVersion")
     testImplementation("io.github.astrapi69:test-objects:$testObjectsVersion")
+    testImplementation("org.danekja:jdk-serializable-functional:$jdkSerializableFunctionalVersion")
     testImplementation("net.lingala.zip4j:zip4j:$zip4jVersion")
     testImplementation("org.testng:testng:$testngVersion")
 }

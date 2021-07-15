@@ -28,6 +28,8 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import io.github.astrapi69.model.LambdaModel;
+import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class JCheckBoxDecoratorTest
@@ -36,14 +38,25 @@ public class JCheckBoxDecoratorTest
 	{
 		// Bind with JCheckBoxDecorator that encapsulate a property model
 		JCheckBoxDecorator checkBox;
+		CheckedModelBean checkedModelBean;
+		checkedModelBean = CheckedModelBean.builder().build();
 		checkBox = new JCheckBoxDecorator("Check me");
 
+		Model<Boolean> lambdaModel = LambdaModel.of(checkBox::isSelected, checkedModelBean::setChecked);
+		Model<Boolean> model = LambdaModel.of(lambdaModel::getObject, checkedModelBean::setChecked);
 		final Frame frame = new Frame("JCheckBoxDecoratorTest");
 		JButton buttonCheck = new JButton("check it");
 		buttonCheck.addActionListener(e -> {
 			boolean selected = ((JCheckBoxDecorator)checkBox).getPropertyModel().getObject();
+			Boolean object = lambdaModel.getObject();
+			boolean checked = checkedModelBean.isChecked();
+			Boolean modelObject = model.getObject();
 			checkBox.setSelected(!checkBox.isSelected());
-			selected = ((JCheckBoxDecorator)checkBox).getPropertyModel().getObject();
+//			selected = ((JCheckBoxDecorator)checkBox).getPropertyModel().getObject();
+			checkedModelBean.setChecked(!selected);
+			object = lambdaModel.getObject();
+			checked = checkedModelBean.isChecked();
+			modelObject = model.getObject();
 			System.out.println(selected);
 		});
 		frame.addWindowListener(new CloseWindow());
