@@ -29,14 +29,19 @@ import java.awt.*;
 import javax.swing.*;
 
 import net.miginfocom.swing.MigLayout;
+import io.github.astrapi69.collections.pairs.ValueBox;
+import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class JTextFieldDecoratorTest
+public class JMTextFieldTest
 {
 	public static void main(String[] args)
 	{
-		// Bind with JTextFieldDecorator that encapsulate a property model
-		JTextFieldDecorator textFieldDecorator = new JTextFieldDecorator("fff", 20);
+		ValueBox<String> stringBox = ValueBox.<String> builder().value("foo").build();
+		// Bind with JMTextField that encapsulate a property model
+		JMTextField textFieldDecorator = new JMTextField("fff", 20);
+		textFieldDecorator
+			.setPropertyModel(LambdaModel.of(stringBox::getValue, stringBox::setValue));
 
 		final Frame frame = new Frame("JCheckBoxDecoratorTest");
 		JButton buttonCheck = new JButton("check it");

@@ -66,6 +66,6 @@ public abstract class DocumentListenerAdapter implements DocumentListener
 	 * @param e
 	 *            - the DocumentEvent from the specific DocumentListener method
 	 */
-	public abstract void onDocumentChanged(DocumentEvent e);
+	public abstract void onDocumentChanged(final DocumentEvent e);
 
 }

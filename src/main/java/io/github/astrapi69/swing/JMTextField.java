@@ -25,31 +25,49 @@
 package io.github.astrapi69.swing;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
 import javax.swing.text.Document;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.ToString;
+import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.model.PropertyModel;
 import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.swing.adapters.DocumentListenerAdapter;
+import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 @Getter
-@ToString
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class JTextFieldDecorator extends JTextField
+public class JMTextField extends JTextField
 {
 
 	/** The model. */
-	final Model<String> propertyModel = PropertyModel.<String> of(this, "text");
+	Model<String> propertyModel;
+
+	{
+		getDocument().addDocumentListener(new DocumentListenerAdapter()
+		{
+			@Override
+			public void onDocumentChanged(final DocumentEvent documentEvent)
+			{
+				int currentLength = documentEvent.getDocument().getLength();
+				final String text = RuntimeExceptionDecorator
+					.decorate(() -> documentEvent.getDocument().getText(0, currentLength));
+				if (JMTextField.this.propertyModel != null)
+				{
+					JMTextField.this.propertyModel.setObject(text);
+				}
+			}
+		});
+	}
 
 	/**
 	 * Constructs a new <code>TextField</code>. A default model is created, the initial string is
 	 * <code>null</code>, and the number of columns is set to 0.
 	 */
-	public JTextFieldDecorator()
+	public JMTextField()
 	{
 	}
 
@@ -60,7 +78,7 @@ public class JTextFieldDecorator extends JTextField
 	 * @param text
 	 *            the text to be displayed, or <code>null</code>
 	 */
-	public JTextFieldDecorator(String text)
+	public JMTextField(String text)
 	{
 		super(text);
 	}
@@ -74,7 +92,7 @@ public class JTextFieldDecorator extends JTextField
 	 *            to zero, the preferred width will be whatever naturally results from the component
 	 *            implementation
 	 */
-	public JTextFieldDecorator(int columns)
+	public JMTextField(int columns)
 	{
 		super(columns);
 	}
@@ -89,7 +107,7 @@ public class JTextFieldDecorator extends JTextField
 	 *            the number of columns to use to calculate the preferred width; if columns is set
 	 *            to zero, the preferred width will be whatever naturally results from
 	 */
-	public JTextFieldDecorator(String text, int columns)
+	public JMTextField(String text, int columns)
 	{
 		super(text, columns);
 	}
@@ -111,8 +129,14 @@ public class JTextFieldDecorator extends JTextField
 	 * @throws IllegalArgumentException
 	 *             if <code>columns</code> &lt; 0
 	 */
-	public JTextFieldDecorator(Document doc, String text, int columns)
+	public JMTextField(Document doc, String text, int columns)
 	{
 		super(doc, text, columns);
+	}
+
+	public void setPropertyModel(final @NonNull Model<String> propertyModel)
+	{
+		this.propertyModel = propertyModel;
+		setText(this.propertyModel.getObject());
 	}
 }

@@ -30,33 +30,47 @@ import javax.swing.*;
 
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.SerializableConsumer;
+import io.github.astrapi69.model.api.SerializableSupplier;
+import io.github.astrapi69.swing.JMCheckBox;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class JCheckBoxDecoratorTest
 {
 	public static void main(String[] args)
 	{
-		// Bind with JCheckBoxDecorator that encapsulate a property model
-		JCheckBoxDecorator checkBox;
-		CheckedModelBean checkedModelBean;
+		// Bind with JMCheckBox that encapsulate a property model
+		final JMCheckBox checkBox;
+		final CheckedModelBean checkedModelBean;
 		checkedModelBean = CheckedModelBean.builder().build();
-		checkBox = new JCheckBoxDecorator("Check me");
+		checkBox = new JMCheckBox("Check me");
 
-		Model<Boolean> lambdaModel = LambdaModel.of(checkBox::isSelected, checkedModelBean::setChecked);
-		Model<Boolean> model = LambdaModel.of(lambdaModel::getObject, checkedModelBean::setChecked);
+		SerializableSupplier<Boolean> getter = () -> {
+			Boolean checked = checkBox.isSelected();
+			checkedModelBean.setChecked(checked);
+			return checked;
+		};
+		SerializableConsumer<Boolean> setter = (checked) -> {
+			checkBox.setSelected(checked);
+			checkedModelBean.setChecked(checked);
+		};
+		final Model<Boolean> booleanModel =
+			// PropertyModel.of(checkedModelBean, "checked");
+			// LambdaModel.of(getter, setter);
+			LambdaModel.of(checkedModelBean::isChecked, checkedModelBean::setChecked);
+		checkBox.setPropertyModel(booleanModel);
+
 		final Frame frame = new Frame("JCheckBoxDecoratorTest");
 		JButton buttonCheck = new JButton("check it");
 		buttonCheck.addActionListener(e -> {
-			boolean selected = ((JCheckBoxDecorator)checkBox).getPropertyModel().getObject();
-			Boolean object = lambdaModel.getObject();
-			boolean checked = checkedModelBean.isChecked();
-			Boolean modelObject = model.getObject();
-			checkBox.setSelected(!checkBox.isSelected());
-//			selected = ((JCheckBoxDecorator)checkBox).getPropertyModel().getObject();
-			checkedModelBean.setChecked(!selected);
-			object = lambdaModel.getObject();
+			Boolean selected = ((JMCheckBox)checkBox).getPropertyModel().getObject();
+			Boolean checked = checkedModelBean.isChecked();
+			Boolean booleanModelObject = booleanModel.getObject();
+			Boolean toggledSelected = !checkBox.isSelected();
+			checkBox.setSelected(toggledSelected);
+			selected = ((JMCheckBox)checkBox).getPropertyModel().getObject();
+			booleanModelObject = booleanModel.getObject();
 			checked = checkedModelBean.isChecked();
-			modelObject = model.getObject();
 			System.out.println(selected);
 		});
 		frame.addWindowListener(new CloseWindow());
