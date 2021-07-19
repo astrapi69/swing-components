@@ -41,7 +41,7 @@ public class JCheckBoxWithPropertyModelTest
 		final PropertyModel<Boolean> propertyModel = PropertyModel.<Boolean> of(checkBox,
 			"model.selected");
 
-		final Frame frame = new Frame("JCheckBoxDecoratorTest");
+		final Frame frame = new Frame("JCheckBoxWithPropertyModelTest");
 		JButton buttonCheck = new JButton("check it");
 		buttonCheck.addActionListener(e -> {
 			Boolean object = propertyModel.getObject();

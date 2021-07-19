@@ -241,7 +241,6 @@ public class BaseDesktopMenu extends JMenu
 				JOptionPane.ERROR_MESSAGE);
 			log.log(Level.SEVERE, e.getMessage(), e);
 		}
-		SwingUtilities.updateComponentTreeUI(helpWindow);
 		return helpWindow;
 	}
 

@@ -18,6 +18,7 @@ CHANGED:
 - update of dependency model-object version to 1.10
 - update of dependency model-type-safe version to 1.10
 - update of test dependency test-objects version to 5.5
+- removed the call of SwingUtilities#updateComponentTreeUI in factory method newHelpWindow in class BaseDesktopMenu
 
 Version 5.8
 -------------

@@ -43,7 +43,7 @@ public class JMTextFieldTest
 		textFieldDecorator
 			.setPropertyModel(LambdaModel.of(stringBox::getValue, stringBox::setValue));
 
-		final Frame frame = new Frame("JCheckBoxDecoratorTest");
+		final Frame frame = new Frame("JMCheckBoxTest");
 		JButton buttonCheck = new JButton("check it");
 		buttonCheck.addActionListener(e -> {
 			String selected = textFieldDecorator.getPropertyModel().getObject();
