@@ -14,7 +14,10 @@ ADDED:
 
 CHANGED:
 
-- update of randomizer version to 8.3
+- update of dependency randomizer version to 8.3
+- update of dependency model-object version to 1.10
+- update of dependency model-type-safe version to 1.10
+- update of test dependency test-objects version to 5.5
 
 Version 5.8
 -------------
