@@ -30,9 +30,6 @@ import javax.swing.*;
 
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.Model;
-import io.github.astrapi69.model.api.SerializableConsumer;
-import io.github.astrapi69.model.api.SerializableSupplier;
-import io.github.astrapi69.swing.JMCheckBox;
 import io.github.astrapi69.swing.check.model.CheckedModelBean;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
@@ -46,15 +43,15 @@ public class JMCheckBoxTest
 		checkedModelBean = CheckedModelBean.builder().build();
 		checkBox = new JMCheckBox("Check me");
 
-//		SerializableSupplier<Boolean> getter = () -> {
-//			Boolean checked = checkBox.isSelected();
-//			checkedModelBean.setChecked(checked);
-//			return checked;
-//		};
-//		SerializableConsumer<Boolean> setter = (checked) -> {
-//			checkBox.setSelected(checked);
-//			checkedModelBean.setChecked(checked);
-//		};
+		// SerializableSupplier<Boolean> getter = () -> {
+		// Boolean checked = checkBox.isSelected();
+		// checkedModelBean.setChecked(checked);
+		// return checked;
+		// };
+		// SerializableConsumer<Boolean> setter = (checked) -> {
+		// checkBox.setSelected(checked);
+		// checkedModelBean.setChecked(checked);
+		// };
 		final Model<Boolean> booleanModel =
 			// PropertyModel.of(checkedModelBean, "checked");
 			// LambdaModel.of(getter, setter);
