@@ -1,16 +1,25 @@
 # swing-components
 
+<div style="text-align: center">
+
 [![Build Status](https://api.travis-ci.com/lightblueseas/swing-components.svg?branch=master)](https://travis-ci.com/github/lightblueseas/swing-components)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/swing-components)
 [![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/swing-components.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-components)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
 
+</div>
+
 Several swing components and utilities
 
 - Buffered images to pdf file
 
-If you like this project put a ⭐ and donate
+> Please support this project by simply putting a Github <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/lightblueseas/swing-components" data-icon="octicon-star" aria-label="Star lightblueseas/swing-components on GitHub">Star ⭐</a>
+>
+> Share this library with friends on Twitter and everywhere else you can
+>
+> If you love this project [![donation](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
 
 ## License
 
@@ -28,7 +37,7 @@ Than you can add the dependency to your dependencies:
 	<properties>
 			...
 		<!-- SWING-COMPONENTS version -->
-		<swing-components.version>5.8</swing-components.version>
+		<swing-components.version>5.9</swing-components.version>
 			...
 	</properties>
 			...
@@ -51,7 +60,7 @@ your project `build.gradle` if you want to import the core functionality of swin
 define version in file gradle.properties
 
 ```
-swingComponentsVersion=5.8
+swingComponentsVersion=5.9
 ```
 
 or in build.gradle ext area
@@ -59,7 +68,7 @@ or in build.gradle ext area
 ```
 ext {
 			...
-    swingComponentsVersion = "5.8"
+    swingComponentsVersion = "5.9"
 			...
 }
 ```
@@ -158,7 +167,7 @@ alt="Donation Monero Wallet" width="250"/>
 or over flattr:
 
 <a href="https://flattr.com/submit/auto?fid=r7vp62&url=https%3A%2F%2Fgithub.com%2Flightblueseas%2Fswing-components" target="_blank">
-<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
+<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" style="border: none" />
 </a>
 
 ## Similar projects
