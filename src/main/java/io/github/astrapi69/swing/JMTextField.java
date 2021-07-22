@@ -65,6 +65,7 @@ public class JMTextField extends JTextField
 
 	/**
 	 * Constructs a new <code>TextField</code>.
+	 * 
 	 * @param propertyModel
 	 *            the text model to be displayed
 	 */
