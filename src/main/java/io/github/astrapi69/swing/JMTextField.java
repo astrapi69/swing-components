@@ -64,6 +64,16 @@ public class JMTextField extends JTextField
 	}
 
 	/**
+	 * Constructs a new <code>TextField</code>.
+	 * @param propertyModel
+	 *            the text model to be displayed
+	 */
+	public JMTextField(Model<String> propertyModel)
+	{
+		this.propertyModel = propertyModel;
+	}
+
+	/**
 	 * Constructs a new <code>TextField</code>. A default model is created, the initial string is
 	 * <code>null</code>, and the number of columns is set to 0.
 	 */
