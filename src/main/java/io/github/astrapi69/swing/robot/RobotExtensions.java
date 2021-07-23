@@ -32,7 +32,7 @@ import java.security.SecureRandom;
 import io.github.astrapi69.random.SecureRandomFactory;
 
 /**
- * The class {@link RobotExtensions}.
+ * The class {@link RobotExtensions} provides utility methods for the class {@link Robot}
  */
 public class RobotExtensions
 {
@@ -76,7 +76,31 @@ public class RobotExtensions
 	public static void infiniteMoveMouse(final Robot robot, int x, int y, long everyMilliSeconds)
 		throws InterruptedException
 	{
+		infiniteMoveMouse(robot, x, y, everyMilliSeconds, Thread.MIN_PRIORITY);
+	}
+
+	/**
+	 * Move the mouse with the given robot in infinity mode
+	 *
+	 * @param robot
+	 *            the robot
+	 * @param x
+	 *            the X position
+	 * @param y
+	 *            the Y position
+	 * @param everyMilliSeconds
+	 *            * the milli seconds to execute every time
+	 * @param threadPriority
+	 *            the thread priority of the current thread. Note: the thread priority is between 1
+	 *            till 10, if smaller or greater 1 will be taken
+	 * @throws InterruptedException
+	 *             is thrown if the current thread is interrupted
+	 */
+	public static void infiniteMoveMouse(final Robot robot, int x, int y, long everyMilliSeconds,
+		int threadPriority) throws InterruptedException
+	{
 		SecureRandom secureRandom = SecureRandomFactory.newSecureRandom();
+		setCurrentThreadPriority(threadPriority);
 		while (true)
 		{
 			robot.mouseMove(secureRandom.nextInt(x), secureRandom.nextInt(y));
@@ -103,7 +127,33 @@ public class RobotExtensions
 	public static void moveMouseForSpecificDuration(final Robot robot, int x, int y,
 		long everyMilliSeconds, long duration) throws InterruptedException
 	{
+		moveMouseForSpecificDuration(robot, x, y, everyMilliSeconds, duration, Thread.MIN_PRIORITY);
+	}
+
+	/**
+	 * Move the mouse with the given robot in the given duration and the given thread priority
+	 *
+	 * @param robot
+	 *            the robot
+	 * @param x
+	 *            the X position
+	 * @param y
+	 *            the Y position
+	 * @param everyMilliSeconds
+	 *            * the milli seconds to execute every time
+	 * @param threadPriority
+	 *            the thread priority of the current thread. Note: the thread priority is between 1
+	 *            till 10, if smaller or greater 1 will be taken
+	 * @param duration
+	 *            * the milli seconds of the duration
+	 * @throws InterruptedException
+	 *             is thrown if the current thread is interrupted
+	 */
+	public static void moveMouseForSpecificDuration(final Robot robot, int x, int y,
+		long everyMilliSeconds, long duration, int threadPriority) throws InterruptedException
+	{
 		SecureRandom secureRandom = SecureRandomFactory.newSecureRandom();
+		setCurrentThreadPriority(threadPriority);
 		long counter = 0;
 		while (counter < duration)
 		{
@@ -163,6 +213,26 @@ public class RobotExtensions
 			{
 				typeCharacter(robot, character);
 			}
+		}
+	}
+
+	/**
+	 * Set the given priority of the current thread<br>
+	 * <br>
+	 * Note: the thread priority is between 1 till 10, if smaller or greater the minimum priority 1
+	 * will be taken
+	 *
+	 * @param threadPriority
+	 */
+	public static void setCurrentThreadPriority(int threadPriority)
+	{
+		if (threadPriority >= 1 && threadPriority <= 10)
+		{
+			Thread.currentThread().setPriority(threadPriority);
+		}
+		else
+		{
+			Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
 		}
 	}
 

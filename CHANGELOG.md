@@ -7,6 +7,7 @@ Version 5.10-SNAPSHOT
 ADDED:
 
 - new decorator class for JMSpinner that encapsulate a property model and bind it to it
+- new methods in class RobotExtensions for mouse move with argument of thread priority
 
 Version 5.9
 -------------
