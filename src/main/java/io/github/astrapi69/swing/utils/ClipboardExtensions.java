@@ -50,17 +50,15 @@ public class ClipboardExtensions
 	public static void copy2Clipboard(JTextArea textArea, JTextArea textAreaHtmlEntitys,
 		boolean withComment)
 	{
-		Clipboard clipboard = AwtExtensions.getSystemClipboard();
-		StringBuffer sb = new StringBuffer();
+		StringBuilder stringBuilder = new StringBuilder();
 		if (withComment)
 		{
-			sb.append("<!-- ");
-			sb.append(textArea.getText());
-			sb.append(" -->\n");
+			stringBuilder.append("<!-- ");
+			stringBuilder.append(textArea.getText());
+			stringBuilder.append(" -->\n");
 		}
-		sb.append(textAreaHtmlEntitys.getText());
-		StringSelection content = new StringSelection(sb.toString());
-		clipboard.setContents(content, null);
+		stringBuilder.append(textAreaHtmlEntitys.getText());
+		copyToClipboard(stringBuilder.toString());
 	}
 
 	/**
@@ -71,11 +69,20 @@ public class ClipboardExtensions
 	 */
 	public static void copyToClipboard(JTextArea textArea)
 	{
+		copyToClipboard(textArea.getText());
+	}
+
+	/**
+	 * Copy the given {@link String} object to the clipboard
+	 *
+	 * @param value
+	 *            the {@link String} object to the clipboard
+	 */
+	public static void copyToClipboard(String value)
+	{
 		Clipboard clipboard = AwtExtensions.getSystemClipboard();
-		StringBuffer sb = new StringBuffer();
-		sb.append(textArea.getText());
-		StringSelection content = new StringSelection(sb.toString());
-		clipboard.setContents(content, null);
+		StringSelection content = new StringSelection(value);
+		clipboard.setContents(content, content);
 	}
 
 }
