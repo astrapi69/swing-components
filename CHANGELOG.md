@@ -9,6 +9,8 @@ ADDED:
 - new decorator class for JMSpinner that encapsulate a property model and bind it to it
 - new methods in class RobotExtensions for mouse move with argument of thread priority
 - new method in ClipboardExtensions for copy a given string to the clipboard
+- new class SuffixFileFilter for a generic FileFilter implementation with file suffix
+- new class JFileChooserExtensions for extension methods for the JFileChooser
 
 Version 5.9
 -------------

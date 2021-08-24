@@ -241,7 +241,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	 * @return the current {@link LookAndFeels}
 	 */
 	protected LookAndFeels setDefaultLookAndFeel(@NonNull LookAndFeels lookAndFeels,
-		Component component)
+		Window component)
 	{
 		try
 		{
