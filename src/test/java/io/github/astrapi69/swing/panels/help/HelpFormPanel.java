@@ -40,6 +40,7 @@ public class HelpFormPanel extends javax.swing.JPanel
 	private javax.swing.JLabel lblHelpTitle;
 	private javax.swing.JScrollPane scrHelpContent;
 	private javax.swing.JTextPane txtHelpContent;
+
 	/**
 	 * Creates new form HelpPanel
 	 */
@@ -86,5 +87,5 @@ public class HelpFormPanel extends javax.swing.JPanel
 					javax.swing.GroupLayout.PREFERRED_SIZE)
 				.addContainerGap(25, Short.MAX_VALUE)));
 	}// </editor-fold>//GEN-END:initComponents
-	// End of variables declaration//GEN-END:variables
+		// End of variables declaration//GEN-END:variables
 }
