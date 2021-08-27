@@ -20,6 +20,7 @@ CHANGED:
 
 - update gradle to new version 7.2
 - update gradle-plugin dependency of io.freefair.gradle:lombok-plugin to new version 6.1.0
+- update of dependency menu-actions version to 1.2
 
 Version 5.9
 -------------
