@@ -22,29 +22,36 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.filechooser;
+package io.github.astrapi69.swing.help;
 
-import java.awt.*;
+import java.awt.event.ActionEvent;
 
-import javax.swing.*;
-
+import io.github.astrapi69.layout.ScreenSizeExtensions;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.swing.panels.help.HelpModelBean;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class SuffixFileFilterTest
+public class HelpDialogTest
 {
-	public static void main(final String[] arguments)
+
+	public static void main(final String[] a)
 	{
-		JFileChooser fileChooser;
-		fileChooser = new JFileChooser();
-		fileChooser.setFileFilter(new SuffixFileFilter(".foo"));
-		final Frame frame = new Frame("SuffixFileFilterTest");
-		frame.addWindowListener(new CloseWindow());
-		JButton button = new JButton("Browse...");
-		button.addActionListener(actionEvent -> {
-			fileChooser.showSaveDialog(frame);
-		});
-		frame.add(button);
-		frame.pack();
-		frame.setVisible(true);
+		HelpModelBean helpModelBean = HelpModelBean.builder().title("Help title")
+			.content("Help content").build();
+		final HelpDialog dialog = new HelpDialog(null, "Help Dialog", true,
+			BaseModel.of(helpModelBean))
+		{
+			@Override
+			protected void onClose(ActionEvent e)
+			{
+				super.onClose(e);
+				System.exit(0);
+			}
+		};
+		dialog.addWindowListener(new CloseWindow());
+		ScreenSizeExtensions.centralize(dialog, 3, 3);
+		dialog.setSize(800, 300);
+
+		dialog.setVisible(true);
 	}
 }

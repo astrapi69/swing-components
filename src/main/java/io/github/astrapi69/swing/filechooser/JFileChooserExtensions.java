@@ -24,10 +24,11 @@
  */
 package io.github.astrapi69.swing.filechooser;
 
+import java.io.File;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.io.File;
 
 /**
  * The class {@link JFileChooserExtensions} holds extension methods for the {@link JFileChooser}

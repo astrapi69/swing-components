@@ -11,6 +11,12 @@ ADDED:
 - new method in ClipboardExtensions for copy a given string to the clipboard
 - new class SuffixFileFilter for a generic FileFilter implementation with file suffix
 - new class JFileChooserExtensions for extension methods for the JFileChooser
+- new classes for show a simple help dialog 
+
+CHANGED:
+
+- update gradle to new version 7.2
+- update gradle-plugin dependency of io.freefair.gradle:lombok-plugin to new version 6.1.0
 
 Version 5.9
 -------------

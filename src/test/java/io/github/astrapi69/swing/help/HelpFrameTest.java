@@ -22,29 +22,21 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.filechooser;
+package io.github.astrapi69.swing.help;
 
 import java.awt.*;
 
-import javax.swing.*;
-
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class SuffixFileFilterTest
+public class HelpFrameTest
 {
 	public static void main(final String[] arguments)
 	{
-		JFileChooser fileChooser;
-		fileChooser = new JFileChooser();
-		fileChooser.setFileFilter(new SuffixFileFilter(".foo"));
-		final Frame frame = new Frame("SuffixFileFilterTest");
+		final Frame frame = new HelpFrame("HelpFrameTest", "Help test");
 		frame.addWindowListener(new CloseWindow());
-		JButton button = new JButton("Browse...");
-		button.addActionListener(actionEvent -> {
-			fileChooser.showSaveDialog(frame);
-		});
-		frame.add(button);
-		frame.pack();
+		frame.setSize(800, 300);
+		// frame.pack();
 		frame.setVisible(true);
 	}
+
 }

@@ -22,29 +22,18 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.filechooser;
+package io.github.astrapi69.swing.panels.help;
 
-import java.awt.*;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.experimental.FieldDefaults;
+import lombok.experimental.SuperBuilder;
 
-import javax.swing.*;
-
-import io.github.astrapi69.window.adapter.CloseWindow;
-
-public class SuffixFileFilterTest
+@Data
+@SuperBuilder
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class HelpModelBean
 {
-	public static void main(final String[] arguments)
-	{
-		JFileChooser fileChooser;
-		fileChooser = new JFileChooser();
-		fileChooser.setFileFilter(new SuffixFileFilter(".foo"));
-		final Frame frame = new Frame("SuffixFileFilterTest");
-		frame.addWindowListener(new CloseWindow());
-		JButton button = new JButton("Browse...");
-		button.addActionListener(actionEvent -> {
-			fileChooser.showSaveDialog(frame);
-		});
-		frame.add(button);
-		frame.pack();
-		frame.setVisible(true);
-	}
+	String title;
+	String content;
 }

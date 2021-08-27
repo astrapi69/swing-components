@@ -49,8 +49,6 @@ public class HelpFrame extends JFrame
 
 	private JScrollPane jscrollPanejtaHelp;
 
-	private JTextArea jtaHelp;
-
 	private JTextPane jtpHelp;
 
 	/**
@@ -81,15 +79,8 @@ public class HelpFrame extends JFrame
 	{
 		jlabelTitle = new JLabel(newLabelHelpText());
 		getContentPane().add(jlabelTitle, BorderLayout.NORTH);
-		// JTextArea Help:
-		jtaHelp = new JTextArea(10, 10);
 		jtpHelp = new JTextPane();
 		jtpHelp.replaceSelection(helptext);
-		jtaHelp.setText(helptext);
-		jtaHelp.setCaretPosition(0);
-		jtaHelp.setLineWrap(true);
-		jtaHelp.setWrapStyleWord(true);
-		jtaHelp.setEditable(false);
 		jscrollPanejtaHelp = new JScrollPane(jtpHelp);
 		getContentPane().add(jscrollPanejtaHelp, BorderLayout.CENTER);
 		buttonClose = new JButton(newLabelCloseText());

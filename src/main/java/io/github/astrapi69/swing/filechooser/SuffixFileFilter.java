@@ -67,29 +67,6 @@ public class SuffixFileFilter extends FileFilter
 	}
 
 	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean accept(File file)
-	{
-		if (file.isDirectory())
-		{
-			return true;
-		}
-		final String fileName = file.getName().toLowerCase();
-		return fileName.endsWith(suffix);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String getDescription()
-	{
-		return description;
-	}
-
-	/**
 	 * Factory method for create a new {@link SuffixFileFilter} with the given suffix and the given
 	 * flag for recursion
 	 *
@@ -115,6 +92,29 @@ public class SuffixFileFilter extends FileFilter
 	public static FileFilter of(final String suffix)
 	{
 		return new SuffixFileFilter(suffix);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean accept(File file)
+	{
+		if (file.isDirectory())
+		{
+			return true;
+		}
+		final String fileName = file.getName().toLowerCase();
+		return fileName.endsWith(suffix);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription()
+	{
+		return description;
 	}
 
 }

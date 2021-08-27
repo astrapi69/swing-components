@@ -22,29 +22,26 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.filechooser;
+package io.github.astrapi69.swing.panels.help;
+
+import static io.github.astrapi69.model.typesafe.TypeSafeModel.from;
+import static io.github.astrapi69.model.typesafe.TypeSafeModel.model;
 
 import java.awt.*;
 
-import javax.swing.*;
-
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class SuffixFileFilterTest
+public class HelpPanelTest
 {
 	public static void main(final String[] arguments)
 	{
-		JFileChooser fileChooser;
-		fileChooser = new JFileChooser();
-		fileChooser.setFileFilter(new SuffixFileFilter(".foo"));
-		final Frame frame = new Frame("SuffixFileFilterTest");
+		final Frame frame = new Frame("HelpPanel");
 		frame.addWindowListener(new CloseWindow());
-		JButton button = new JButton("Browse...");
-		button.addActionListener(actionEvent -> {
-			fileChooser.showSaveDialog(frame);
-		});
-		frame.add(button);
+		HelpModelBean helpModelBean = HelpModelBean.builder().title("Help title")
+			.content("Help content").build();
+		frame.add(new HelpPanel(model(from(helpModelBean))));
 		frame.pack();
 		frame.setVisible(true);
 	}
+
 }
