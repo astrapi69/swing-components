@@ -32,16 +32,19 @@ package io.github.astrapi69.swing.panels.help;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
+import lombok.Getter;
+import javax.swing.*;
 
 /**
  * Panel for a simple help with title and content.
  */
+@Getter
 public class HelpPanel extends BasePanel<HelpModelBean>
 {
 
-	private javax.swing.JLabel lblHelpTitle;
-	private javax.swing.JScrollPane scrHelpContent;
-	private javax.swing.JTextPane txtHelpContent;
+	private JLabel lblHelpTitle;
+	private JScrollPane scrHelpContent;
+	private JTextPane txtHelpContent;
 
 	public HelpPanel(final Model<HelpModelBean> model)
 	{
@@ -59,15 +62,16 @@ public class HelpPanel extends BasePanel<HelpModelBean>
 	@Override
 	protected void onInitializeComponents()
 	{
-		lblHelpTitle = new javax.swing.JLabel();
-		scrHelpContent = new javax.swing.JScrollPane();
-		txtHelpContent = new javax.swing.JTextPane();
+		lblHelpTitle = new JLabel();
+		scrHelpContent = new JScrollPane();
+		txtHelpContent = new JTextPane();
 
 		lblHelpTitle
 			.setText(getModelObject().getTitle() != null ? getModelObject().getTitle() : "Help");
 		txtHelpContent.setText(getModelObject().getContent() != null
 			? getModelObject().getContent()
 			: "No help content");
+		txtHelpContent.setEnabled(false);
 
 		scrHelpContent.setViewportView(txtHelpContent);
 	}
@@ -81,25 +85,25 @@ public class HelpPanel extends BasePanel<HelpModelBean>
 
 	protected void onInitializeGroupLayout()
 	{
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+		GroupLayout layout = new GroupLayout(this);
 		this.setLayout(layout);
 		layout
 			.setHorizontalGroup(
-				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addGroup(layout.createSequentialGroup().addGap(32, 32, 32)
 						.addGroup(layout
-							.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+							.createParallelGroup(GroupLayout.Alignment.LEADING, false)
 							.addComponent(scrHelpContent).addComponent(lblHelpTitle,
-								javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
+								GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
 						.addContainerGap(28, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout
-			.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+			.createParallelGroup(GroupLayout.Alignment.LEADING)
 			.addGroup(layout.createSequentialGroup().addGap(27, 27, 27)
-				.addComponent(lblHelpTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37,
-					javax.swing.GroupLayout.PREFERRED_SIZE)
+				.addComponent(lblHelpTitle, GroupLayout.PREFERRED_SIZE, 37,
+					GroupLayout.PREFERRED_SIZE)
 				.addGap(18, 18, 18)
-				.addComponent(scrHelpContent, javax.swing.GroupLayout.PREFERRED_SIZE, 140,
-					javax.swing.GroupLayout.PREFERRED_SIZE)
+				.addComponent(scrHelpContent, GroupLayout.PREFERRED_SIZE, 140,
+					GroupLayout.PREFERRED_SIZE)
 				.addContainerGap(25, Short.MAX_VALUE)));
 	}
 
