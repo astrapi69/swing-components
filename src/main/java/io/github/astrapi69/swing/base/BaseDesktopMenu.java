@@ -337,38 +337,88 @@ public class BaseDesktopMenu extends JMenu
 		// Look and Feel JMenuItems
 		// GTK
 		JMenuItem jmiPlafGTK;
-		jmiPlafGTK = new JMenuItem("GTK", 'g'); //$NON-NLS-1$
+		jmiPlafGTK = new JMenuItem("GTK", 'g')
+		{
+			@Override
+			public boolean isEnabled()
+			{
+				LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
+				if (lookAndFeel != null && lookAndFeel.getID().equalsIgnoreCase("GTK"))
+				{
+					return false;
+				}
+				return super.isEnabled();
+			}
+		}; // $NON-NLS-1$
 		MenuExtensions.setCtrlAccelerator(jmiPlafGTK, 'G');
 		jmiPlafGTK.addActionListener(new LookAndFeelGTKAction("GTK", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafGTK);
 		// Metal default Metal theme
 		JMenuItem jmiPlafMetal;
-		jmiPlafMetal = new JMenuItem("Metal", 'm'); //$NON-NLS-1$
+		jmiPlafMetal = new JMenuItem("Metal", 'm'); // $NON-NLS-1$
 		MenuExtensions.setCtrlAccelerator(jmiPlafMetal, 'M');
 		jmiPlafMetal.addActionListener(new LookAndFeelMetalAction("Metal", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafMetal);
 		// Metal Ocean theme
 		JMenuItem jmiPlafOcean;
-		jmiPlafOcean = new JMenuItem("Ocean", 'o'); //$NON-NLS-1$
+		jmiPlafOcean = new JMenuItem("Ocean", 'o'); // $NON-NLS-1$
 		MenuExtensions.setCtrlAccelerator(jmiPlafOcean, 'O');
 		jmiPlafOcean.addActionListener(new LookAndFeelMetalAction("Ocean", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafOcean);
 		// Motif
 		JMenuItem jmiPlafMotiv;
-		jmiPlafMotiv = new JMenuItem("Motif", 't'); //$NON-NLS-1$
+		jmiPlafMotiv = new JMenuItem("Motif", 't')
+		{
+			@Override
+			public boolean isEnabled()
+			{
+				LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
+				if (lookAndFeel != null && lookAndFeel.getID().equalsIgnoreCase("Motif"))
+				{
+					return false;
+				}
+				return super.isEnabled();
+			}
+		}; // $NON-NLS-1$
 		MenuExtensions.setCtrlAccelerator(jmiPlafMotiv, 'T');
 		jmiPlafMotiv.addActionListener(new LookAndFeelMotifAction("Motif", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafMotiv);
 		// Nimbus
 		JMenuItem jmiPlafNimbus;
-		jmiPlafNimbus = new JMenuItem("Nimbus", 'n'); //$NON-NLS-1$
+		jmiPlafNimbus = new JMenuItem("Nimbus", 'n')
+		{
+			@Override
+			public boolean isEnabled()
+			{
+				LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
+				if (lookAndFeel != null && lookAndFeel.getID().equalsIgnoreCase("Nimbus"))
+				{
+					return false;
+				}
+				return super.isEnabled();
+			}
+		}; // $NON-NLS-1$
 		MenuExtensions.setCtrlAccelerator(jmiPlafNimbus, 'N');
 		jmiPlafNimbus
 			.addActionListener(new LookAndFeelNimbusAction("Nimbus", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafNimbus);
 		// Windows
 		JMenuItem jmiPlafSystem;
-		jmiPlafSystem = new JMenuItem("System", 'd'); //$NON-NLS-1$
+		jmiPlafSystem = new JMenuItem("System", 'd')
+		{
+			@Override
+			public boolean isEnabled()
+			{
+				LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
+				String systemLookAndFeelClassName = UIManager.getSystemLookAndFeelClassName();
+				if (lookAndFeel != null && lookAndFeel.getClass().getCanonicalName()
+					.equalsIgnoreCase(systemLookAndFeelClassName))
+				{
+					return false;
+				}
+				return super.isEnabled();
+			}
+		}; // $NON-NLS-1$
 		MenuExtensions.setCtrlAccelerator(jmiPlafSystem, 'W');
 		jmiPlafSystem
 			.addActionListener(new LookAndFeelSystemAction("System", this.applicationFrame));
