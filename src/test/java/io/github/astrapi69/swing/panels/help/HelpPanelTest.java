@@ -29,6 +29,7 @@ import static io.github.astrapi69.model.typesafe.TypeSafeModel.model;
 
 import java.awt.*;
 
+import io.github.astrapi69.random.object.RandomStringFactory;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class HelpPanelTest
@@ -37,8 +38,9 @@ public class HelpPanelTest
 	{
 		final Frame frame = new Frame("HelpPanel");
 		frame.addWindowListener(new CloseWindow());
+		String content = RandomStringFactory.newRandomLongString(100000);
 		HelpModelBean helpModelBean = HelpModelBean.builder().title("Help title")
-			.content("Help content").build();
+			.content(content).build();
 		frame.add(new HelpPanel(model(from(helpModelBean))));
 		frame.pack();
 		frame.setVisible(true);

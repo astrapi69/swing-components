@@ -4,6 +4,12 @@
 Version 5.11-SNAPSHOT
 -------------
 
+ADDED:
+
+- new enum for the size of the help panel
+
+
+
 Version 5.10
 -------------
 

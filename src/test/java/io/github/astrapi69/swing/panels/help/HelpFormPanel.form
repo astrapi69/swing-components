@@ -32,8 +32,8 @@
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="lblHelpTitle" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="scrHelpContent" min="-2" pref="140" max="-2" attributes="0"/>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <Component id="scrHelpContent" min="-2" pref="520" max="-2" attributes="0"/>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

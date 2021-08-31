@@ -25,6 +25,7 @@
 package io.github.astrapi69.swing.panels.help;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
@@ -34,6 +35,9 @@ import lombok.experimental.SuperBuilder;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class HelpModelBean
 {
+
 	String title;
 	String content;
+	@Builder.Default
+	Size size = Size.SMALL;
 }
