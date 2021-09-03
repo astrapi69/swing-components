@@ -1,14 +1,13 @@
 ## Change log
 ----------------------
 
-Version 5.11-SNAPSHOT
+Version 5.11
 -------------
 
 ADDED:
 
 - new enum for the size of the help panel
-
-
+- new methods in DialogExtensions for show information messages
 
 Version 5.10
 -------------

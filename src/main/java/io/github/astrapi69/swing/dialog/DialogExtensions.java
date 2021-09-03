@@ -66,4 +66,57 @@ public class DialogExtensions
 		JOptionPane.showMessageDialog(parentComponent, htmlMessage, title,
 			JOptionPane.ERROR_MESSAGE);
 	}
+
+	/**
+	 * Show an information message.
+	 *
+	 * @param parentComponent
+	 *            determines the <code>Frame</code> in which the dialog is displayed; if
+	 *            <code>null</code>, or if the <code>parentComponent</code> has no
+	 *            <code>Frame</code>, a default <code>Frame</code> is used
+	 * @param title
+	 *            the title
+	 * @param message
+	 *            the information message
+	 */
+	public static void showInformationDialog(Component parentComponent, String title,
+		String message)
+	{
+		showMessageDialog(parentComponent, message, title, JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	/**
+	 * Show an information message.
+	 *
+	 * @param parentComponent
+	 *            determines the <code>Frame</code> in which the dialog is displayed; if
+	 *            <code>null</code>, or if the <code>parentComponent</code> has no
+	 *            <code>Frame</code>, a default <code>Frame</code> is used
+	 * @param title
+	 *            the title
+	 * @param message
+	 *            the information message
+	 */
+	public static void showMessageDialog(Component parentComponent, String title, String message,
+		int messageType)
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append("<html>").append("<body>").append(message).append("</body>").append("</html>");
+		String htmlMessage = sb.toString();
+		JOptionPane.showMessageDialog(parentComponent, htmlMessage, title, messageType);
+	}
+
+	/**
+	 * Show an information message.
+	 *
+	 * @param title
+	 *            the title
+	 * @param message
+	 *            the information message
+	 */
+	public static void info(String title, String message)
+	{
+		showInformationDialog(null, title, message);
+	}
+
 }

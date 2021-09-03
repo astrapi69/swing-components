@@ -22,26 +22,39 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.panels.help;
-
-import static io.github.astrapi69.model.typesafe.TypeSafeModel.from;
-import static io.github.astrapi69.model.typesafe.TypeSafeModel.model;
+package io.github.astrapi69.swing.dialog;
 
 import java.awt.*;
 
-import io.github.astrapi69.random.object.RandomStringFactory;
+import javax.swing.*;
+
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class HelpPanelTest
+public class DialogExtensionsTest
 {
+
 	public static void main(final String[] arguments)
 	{
-		final Frame frame = new Frame("HelpPanel");
+		NullPointerException nullPointerException = null;
+		try
+		{
+			String message = nullPointerException.getMessage();
+		}
+		catch (NullPointerException exception)
+		{
+			nullPointerException = exception;
+		}
+		final JFrame frame = new JFrame("DialogExtensionsTest");
 		frame.addWindowListener(new CloseWindow());
-		String content = RandomStringFactory.newRandomLongString(100000);
-		HelpModelBean helpModelBean = HelpModelBean.builder().title("Help title").content(content)
-			.build();
-		frame.add(new HelpPanel(model(from(helpModelBean))));
+		JButton exceptionMessage = new JButton("Exception message");
+		final NullPointerException npe = nullPointerException;
+		exceptionMessage.addActionListener(e -> DialogExtensions.showExceptionDialog(npe, frame));
+		JButton informationMessage = new JButton("Information");
+		informationMessage.addActionListener(e -> DialogExtensions.showInformationDialog(frame,
+			"Help", "<div width='650'>Help content<br>foo<br>foo</div>"
+				+ "<div>Help content<br>foo<br>foo</div>"));
+		frame.getContentPane().add(BorderLayout.WEST, informationMessage);
+		frame.getContentPane().add(BorderLayout.EAST, exceptionMessage);
 		frame.pack();
 		frame.setVisible(true);
 	}

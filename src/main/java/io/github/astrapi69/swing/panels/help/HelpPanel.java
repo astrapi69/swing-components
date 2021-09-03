@@ -29,11 +29,12 @@
  */
 package io.github.astrapi69.swing.panels.help;
 
+import javax.swing.*;
+
+import lombok.Getter;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
-import lombok.Getter;
-import javax.swing.*;
 
 /**
  * Panel for a simple help with title and content.
@@ -70,7 +71,8 @@ public class HelpPanel extends BasePanel<HelpModelBean>
 			.setText(getModelObject().getTitle() != null ? getModelObject().getTitle() : "Help");
 		txtHelpContent.setText(getModelObject().getContent() != null
 			? getModelObject().getContent()
-			: "No help content");
+			: "No help content. Please set content for the help of your application.");
+		txtHelpContent.setCaretPosition(0);
 		txtHelpContent.setEnabled(false);
 		txtHelpContent.setLineWrap(true);
 		scrHelpContent.setViewportView(txtHelpContent);
@@ -79,14 +81,15 @@ public class HelpPanel extends BasePanel<HelpModelBean>
 	@Override
 	protected void onInitializeLayout()
 	{
-		switch (getModelObject().getSize()){
-			case MEDIUM:
+		switch (getModelObject().getSize())
+		{
+			case MEDIUM :
 				onInitializeMediumGroupLayout();
 				break;
-			case LARGE:
+			case LARGE :
 				onInitializeLargeGroupLayout();
 				break;
-			default:
+			default :
 				onInitializeSmallGroupLayout();
 				break;
 		}
@@ -96,72 +99,72 @@ public class HelpPanel extends BasePanel<HelpModelBean>
 	{
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
-		layout.setHorizontalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-					.addGap(32, 32, 32)
-					.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-						.addComponent(scrHelpContent)
-						.addComponent(lblHelpTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
-					.addContainerGap(28, Short.MAX_VALUE))
-		);
-		layout.setVerticalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-					.addGap(27, 27, 27)
-					.addComponent(lblHelpTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-					.addGap(18, 18, 18)
-					.addComponent(scrHelpContent, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(48, Short.MAX_VALUE))
-		);
+		layout
+			.setHorizontalGroup(
+				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+					.addGroup(layout.createSequentialGroup().addGap(32, 32, 32)
+						.addGroup(layout
+							.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+							.addComponent(scrHelpContent).addComponent(lblHelpTitle,
+								javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
+						.addContainerGap(28, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout
+			.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup().addGap(27, 27, 27)
+				.addComponent(lblHelpTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37,
+					javax.swing.GroupLayout.PREFERRED_SIZE)
+				.addGap(18, 18, 18)
+				.addComponent(scrHelpContent, javax.swing.GroupLayout.PREFERRED_SIZE, 320,
+					javax.swing.GroupLayout.PREFERRED_SIZE)
+				.addContainerGap(48, Short.MAX_VALUE)));
 	}
 
 	protected void onInitializeLargeGroupLayout()
 	{
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
-		layout.setHorizontalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-					.addGap(32, 32, 32)
-					.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-						.addComponent(scrHelpContent)
-						.addComponent(lblHelpTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
-					.addContainerGap(28, Short.MAX_VALUE))
-		);
-		layout.setVerticalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-					.addGap(27, 27, 27)
-					.addComponent(lblHelpTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-					.addGap(18, 18, 18)
-					.addComponent(scrHelpContent, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(48, Short.MAX_VALUE))
-		);
+		layout
+			.setHorizontalGroup(
+				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+					.addGroup(layout.createSequentialGroup().addGap(32, 32, 32)
+						.addGroup(layout
+							.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+							.addComponent(scrHelpContent).addComponent(lblHelpTitle,
+								javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
+						.addContainerGap(28, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout
+			.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup().addGap(27, 27, 27)
+				.addComponent(lblHelpTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37,
+					javax.swing.GroupLayout.PREFERRED_SIZE)
+				.addGap(18, 18, 18)
+				.addComponent(scrHelpContent, javax.swing.GroupLayout.PREFERRED_SIZE, 520,
+					javax.swing.GroupLayout.PREFERRED_SIZE)
+				.addContainerGap(48, Short.MAX_VALUE)));
 	}
 
 	protected void onInitializeSmallGroupLayout()
 	{
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
-		layout.setHorizontalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-					.addGap(32, 32, 32)
-					.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-						.addComponent(scrHelpContent)
-						.addComponent(lblHelpTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
-					.addContainerGap(28, Short.MAX_VALUE))
-		);
-		layout.setVerticalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-					.addGap(27, 27, 27)
-					.addComponent(lblHelpTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-					.addGap(18, 18, 18)
-					.addComponent(scrHelpContent, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(28, Short.MAX_VALUE))
-		);
+		layout
+			.setHorizontalGroup(
+				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+					.addGroup(layout.createSequentialGroup().addGap(32, 32, 32)
+						.addGroup(layout
+							.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+							.addComponent(scrHelpContent).addComponent(lblHelpTitle,
+								javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
+						.addContainerGap(28, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout
+			.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+			.addGroup(layout.createSequentialGroup().addGap(27, 27, 27)
+				.addComponent(lblHelpTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 37,
+					javax.swing.GroupLayout.PREFERRED_SIZE)
+				.addGap(18, 18, 18)
+				.addComponent(scrHelpContent, javax.swing.GroupLayout.PREFERRED_SIZE, 140,
+					javax.swing.GroupLayout.PREFERRED_SIZE)
+				.addContainerGap(28, Short.MAX_VALUE)));
 	}
 
 }
