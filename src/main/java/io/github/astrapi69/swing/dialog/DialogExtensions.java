@@ -30,6 +30,7 @@ import java.util.stream.Stream;
 import javax.swing.*;
 
 import lombok.experimental.UtilityClass;
+import io.github.astrapi69.throwable.ExceptionExtensions;
 
 /**
  * The class {@link DialogExtensions} provides methods for show dialogs.
@@ -54,13 +55,14 @@ public class DialogExtensions
 		String... additionalMessages)
 	{
 		String title = exception.getLocalizedMessage();
-		StringBuilder sb = new StringBuilder();
-		sb.append("<html><body width='650'>");
+		final StringBuilder sb = new StringBuilder();
+		sb.append("<html>");
+		sb.append("<body width='650'>");
 		sb.append("<h2>");
 		sb.append(exception.getLocalizedMessage());
 		sb.append("</h2>");
 		sb.append("<p>");
-		sb.append(exception.getMessage());
+		sb.append(ExceptionExtensions.getStackTraceElements(exception));
 		Stream.of(additionalMessages).forEach(am -> sb.append("<p>" + am));
 		String htmlMessage = sb.toString();
 		JOptionPane.showMessageDialog(parentComponent, htmlMessage, title,

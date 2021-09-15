@@ -33,6 +33,7 @@ import net.miginfocom.swing.MigLayout;
 import org.testng.annotations.Test;
 
 import io.github.astrapi69.swing.button.ButtonFactory;
+import io.github.astrapi69.swing.dialog.JOptionPaneExtensions;
 import io.github.astrapi69.swing.listener.RequestFocusListener;
 import io.github.astrapi69.swing.test.TestComponentFactory;
 
@@ -62,21 +63,30 @@ public class JDialogFactoryTest
 	{
 		JButton button = ButtonFactory.newJButton("Show dialog");
 		button.addActionListener(e -> {
-			JPasswordField pf = new JPasswordField("", 10);
-			pf.setFocusable(true);
-			pf.setRequestFocusEnabled(true);
+			JPasswordField passwordField = new JPasswordField("", 10);
+			passwordField.setFocusable(true);
+			passwordField.setRequestFocusEnabled(true);
 			JPanel panel = new JPanel(new MigLayout(""));
 			panel.add(new JLabel("Password:"));
-			panel.add(pf, "growy");
+			panel.add(passwordField, "growy");
 
 			JOptionPane optionPane = new JOptionPane(panel, JOptionPane.PLAIN_MESSAGE,
 				JOptionPane.OK_CANCEL_OPTION);
 
 			JDialog dialog = JDialogFactory.newJDialog(frame, optionPane, "Enter Password");
-			dialog.addWindowFocusListener(new RequestFocusListener(pf));
+			dialog.addWindowFocusListener(new RequestFocusListener(passwordField));
 			dialog.pack();
 			dialog.setLocationRelativeTo(null);
 			dialog.setVisible(true);
+			int option = JOptionPaneExtensions.getSelectedOption(optionPane);
+			if (option == JOptionPane.OK_OPTION)
+			{
+				System.err.println("OK_OPTION");
+			}
+			if (option == JOptionPane.CANCEL_OPTION)
+			{
+				System.err.println("CANCEL_OPTION");
+			}
 		});
 		return button;
 	}

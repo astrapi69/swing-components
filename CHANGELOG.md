@@ -4,6 +4,15 @@
 Version 5.12-SNAPSHOT
 -------------
 
+ADDED:
+
+- new extension class JOptionPaneExtensions for JOptionPane created
+- new method in extension class JOptionPaneExtensions that gets the option from a given JOptionPane
+
+CHANGED:
+
+- update of dependency throw-able to new version to 1.7
+
 Version 5.11
 -------------
 
@@ -28,7 +37,7 @@ CHANGED:
 
 - update gradle to new version 7.2
 - update gradle-plugin dependency of io.freefair.gradle:lombok-plugin to new version 6.1.0
-- update of dependency menu-actions version to 1.2
+- update of dependency menu-actions to new version to 1.2
 
 Version 5.9
 -------------

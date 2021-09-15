@@ -60,25 +60,25 @@ import io.github.astrapi69.swing.plaf.LookAndFeels;
 public abstract class AbstractApplicationFrame<T, C extends JComponent> extends BaseFrame<T>
 {
 
+	/**
+	 * Constant for the default configuration directory from the current user. current
+	 * value:".config"
+	 */
+	public static final String DEFAULT_USER_CONFIGURATION_DIRECTORY_NAME = ".config";
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-
 	/** The configuration directory for configuration files. */
 	@Getter
 	File configurationDirectory;
-
 	/** The current look and feels. */
 	@Getter
 	@Setter
 	LookAndFeels currentLookAndFeels = LookAndFeels.SYSTEM;
-
 	@Getter
 	BufferedImage icon;
-
 	/** The main component. */
 	@Getter
 	C mainComponent;
-
 	@Getter
 	BaseDesktopMenu menu;
 
@@ -102,7 +102,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	{
 		super.onBeforeInitialize();
 		configurationDirectory = newConfigurationDirectory(System.getProperty("user.home"),
-			".config");
+			AbstractApplicationFrame.DEFAULT_USER_CONFIGURATION_DIRECTORY_NAME);
 	}
 
 	/**
