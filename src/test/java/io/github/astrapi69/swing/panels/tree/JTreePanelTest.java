@@ -60,7 +60,9 @@ public class JTreePanelTest
 		TreeElement firstChild;
 		TreeNode<TreeElement> firstChildTreeNode;
 		TreeElement firstGrandChild;
-		TreeNode<TreeElement> firstGrandChildTreeNode;
+		TreeElement secondGrandChild;
+		TreeNode<TreeElement> firstGrandChildTreeNodeLeaf;
+		TreeNode<TreeElement> secondGrandChildTreeNodeLeaf;
 		TreeElement firstGrandGrandChild;
 		TreeNode<TreeElement> firstGrandGrandChildTreeNode;
 		List<TreeNode<TreeElement>> list;
@@ -68,37 +70,44 @@ public class JTreePanelTest
 		TreeNode<TreeElement> parentTreeNode;
 		TreeElement secondChild;
 		TreeNode<TreeElement> secondChildTreeNode;
-		parent = TreeElement.builder().name("parent").parent(null).node(false).build();
-		firstChild = TreeElement.builder().name("firstChild").parent(parent).node(false).build();
+		parent = TreeElement.builder().name("parent").parent(null).node(true).build();
+		firstChild = TreeElement.builder().name("firstChild").parent(parent).node(true).build();
 		firstGrandChild = TreeElement.builder().name("firstGrandChild").parent(firstChild)
 			.node(true).build();
 		firstGrandGrandChild = TreeElement.builder().name("firstGrandGrandChild")
-			.parent(firstGrandChild).node(true).build();
+			.parent(firstGrandChild).node(false).build();
 		secondChild = TreeElement.builder().name("secondChild").parent(parent).node(true).build();
-
+		secondGrandChild = TreeElement.builder().name("secondGrandChild").parent(firstChild)
+			.node(false).build();
 		parentTreeNode = initializeTreeNodeWithTreeElement(parent, null);
 
 		firstChildTreeNode = initializeTreeNodeWithTreeElement(firstChild, parentTreeNode);
 
 		secondChildTreeNode = initializeTreeNodeWithTreeElement(secondChild, parentTreeNode);
 
-		firstGrandChildTreeNode = initializeTreeNodeWithTreeElement(firstGrandChild,
+		firstGrandChildTreeNodeLeaf = initializeTreeNodeWithTreeElement(firstGrandChild,
 			firstChildTreeNode);
+		secondGrandChildTreeNodeLeaf = initializeTreeNodeWithTreeElement(secondGrandChild,
+			secondChildTreeNode);
 
 		firstGrandGrandChildTreeNode = initializeTreeNodeWithTreeElement(firstGrandGrandChild,
 			firstChildTreeNode);
 		return parentTreeNode;
 	}
 
-	private static TreeNode<TreeElement> initializeTreeNodeWithTreeElement(TreeElement treeElement,
+	private static TreeNode<TreeElement> initializeTreeNodeWithTreeElement(final TreeElement treeElement,
 		TreeNode<TreeElement> parentTreeNode)
 	{
 		TreeNode<TreeElement> treeNode;
-		treeNode = new TreeNode<>(treeElement);
+		treeNode = new TreeNode<TreeElement>(treeElement) {
+			@Override public boolean isNode()
+			{
+				return treeElement.isNode();
+			}
+		};
 		treeNode.setDisplayValue(treeElement.getName());
 		if (parentTreeNode != null)
 		{
-			treeNode.setParent(parentTreeNode);
 			parentTreeNode.addChild(treeNode);
 		}
 		return treeNode;

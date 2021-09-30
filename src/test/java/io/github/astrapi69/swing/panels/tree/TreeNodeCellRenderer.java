@@ -34,7 +34,7 @@ import io.github.astrapi69.tree.TreeNode;
 public class TreeNodeCellRenderer<T> extends DefaultTreeCellRenderer
 {
 	private final DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
-	JLabel c = new JLabel("init-renderer");
+	JLabel treeLabel = new JLabel("init-tree-label");
 
 	@Override
 	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected,
@@ -43,16 +43,20 @@ public class TreeNodeCellRenderer<T> extends DefaultTreeCellRenderer
 		if (value instanceof TreeNode)
 		{
 			TreeNode<T> treeNode = (TreeNode<T>)value;
-			c.setText(treeNode.getDisplayValue());
-			if (leaf)
+			treeLabel.setText(treeNode.getDisplayValue());
+			if (treeNode.isLeaf())
 			{
-				c.setIcon(renderer.getLeafIcon());
+				treeLabel.setIcon(renderer.getLeafIcon());
 			}
 			else
 			{
-				c.setIcon(renderer.getOpenIcon());
+				if(treeNode.hasChildren()) {
+					treeLabel.setIcon(renderer.getOpenIcon());
+				} else {
+					treeLabel.setIcon(renderer.getClosedIcon());
+				}
 			}
-			return c;
+			return treeLabel;
 		}
 		return renderer.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row,
 			hasFocus);
