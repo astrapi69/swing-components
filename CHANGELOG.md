@@ -8,6 +8,7 @@ ADDED:
 
 - new extension class JOptionPaneExtensions for JOptionPane created
 - new method in extension class JOptionPaneExtensions that gets the option from a given JOptionPane
+- new class TreeNodeFactory for generate DefaultMutableTreeNode object from TreeNode object
 
 CHANGED:
 

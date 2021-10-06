@@ -26,12 +26,16 @@ package io.github.astrapi69.swing.panels.tree;
 
 import java.awt.*;
 
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.tree.TreeElement;
+import io.github.astrapi69.tree.TreeNode;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**
  * The test class for {@link JXTreePanel}
  */
-public class FileTreePanelTest
+public class JXTreePanelTest
 {
 
 	/**
@@ -44,7 +48,9 @@ public class FileTreePanelTest
 	{
 		final Frame frame = new Frame("JXTreePanel");
 		frame.addWindowListener(new CloseWindow());
-		frame.add(new TestFileTreePanel());
+		Model<TreeNode<TreeElement>> parentModel = BaseModel
+			.of(TestTreeNodeFactory.initializeTestTreeNodeElement());
+		frame.add(new TestTreeElementPanel(parentModel));
 		frame.pack();
 		frame.setVisible(true);
 	}

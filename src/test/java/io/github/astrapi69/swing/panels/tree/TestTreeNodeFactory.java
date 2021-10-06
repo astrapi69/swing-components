@@ -24,52 +24,31 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
-import java.awt.*;
+import static io.github.astrapi69.swing.tree.TreeNodeFactory.initializeTreeNodeWithTreeElement;
+
 import java.util.List;
 
-import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
-import io.github.astrapi69.window.adapter.CloseWindow;
 
-/**
- * The test class for {@link JTreePanel}
- */
-public class JTreePanelTest
+public class TestTreeNodeFactory
 {
-
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		final Frame frame = new Frame("JTreePanel");
-		frame.addWindowListener(new CloseWindow());
-		Model<TreeNode<TreeElement>> parentModel = BaseModel.of(initializeTestTreeNodeElement());
-		frame.add(new TestTreeElementPanel(parentModel));
-		frame.pack();
-		frame.setVisible(true);
-	}
 
 	public static TreeNode<TreeElement> initializeTestTreeNodeElement()
 	{
-		TreeElement firstChild;
 		TreeNode<TreeElement> firstChildTreeNode;
-		TreeElement firstGrandChild;
-		TreeElement secondGrandChild;
 		TreeNode<TreeElement> firstGrandChildTreeNodeLeaf;
 		TreeNode<TreeElement> secondGrandChildTreeNodeLeaf;
 		TreeElement firstGrandGrandChild;
 		TreeNode<TreeElement> firstGrandGrandChildTreeNode;
+		TreeNode<TreeElement> parentTreeNode;
+		TreeNode<TreeElement> secondChildTreeNode;
 		List<TreeNode<TreeElement>> list;
 		TreeElement parent;
-		TreeNode<TreeElement> parentTreeNode;
+		TreeElement firstChild;
+		TreeElement firstGrandChild;
 		TreeElement secondChild;
-		TreeNode<TreeElement> secondChildTreeNode;
+		TreeElement secondGrandChild;
 		parent = TreeElement.builder().name("parent").parent(null).node(true).build();
 		firstChild = TreeElement.builder().name("firstChild").parent(parent).node(true).build();
 		firstGrandChild = TreeElement.builder().name("firstGrandChild").parent(firstChild)
@@ -93,24 +72,6 @@ public class JTreePanelTest
 		firstGrandGrandChildTreeNode = initializeTreeNodeWithTreeElement(firstGrandGrandChild,
 			firstChildTreeNode);
 		return parentTreeNode;
-	}
-
-	private static TreeNode<TreeElement> initializeTreeNodeWithTreeElement(final TreeElement treeElement,
-		TreeNode<TreeElement> parentTreeNode)
-	{
-		TreeNode<TreeElement> treeNode;
-		treeNode = new TreeNode<TreeElement>(treeElement) {
-			@Override public boolean isNode()
-			{
-				return treeElement.isNode();
-			}
-		};
-		treeNode.setDisplayValue(treeElement.getName());
-		if (parentTreeNode != null)
-		{
-			parentTreeNode.addChild(treeNode);
-		}
-		return treeNode;
 	}
 
 }

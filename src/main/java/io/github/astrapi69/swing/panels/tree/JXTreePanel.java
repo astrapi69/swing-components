@@ -33,13 +33,16 @@ import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeSelectionModel;
 
 import lombok.Getter;
+
+import org.jdesktop.swingx.JXTree;
+
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.components.factories.DimensionFactory;
 
 
 /**
- * The abstract class {@link JTreePanel} provides a {@link JTree} that is already embedded in a
+ * The abstract class {@link JXTreePanel} provides a {@link JTree} that is already embedded in a
  * {@link JScrollPane}. Additionally it provides factory methods that can be overwritten to provide
  * specific behavior.
  *
@@ -47,7 +50,7 @@ import io.github.astrapi69.swing.components.factories.DimensionFactory;
  *            the generic type of the model object
  */
 @Getter
-public abstract class JTreePanel<T> extends BasePanel<T>
+public abstract class JXTreePanel<T> extends BasePanel<T>
 {
 
 	/** The serialVersionUID. */
@@ -60,19 +63,19 @@ public abstract class JTreePanel<T> extends BasePanel<T>
 	protected JTree tree;
 
 	/**
-	 * Instantiates a new {@link JTreePanel} object.
+	 * Instantiates a new {@link JXTreePanel} object.
 	 */
-	public JTreePanel()
+	public JXTreePanel()
 	{
 	}
 
 	/**
-	 * Instantiates a new new {@link JTreePanel} object.
+	 * Instantiates a new new {@link JXTreePanel} object.
 	 *
 	 * @param model
 	 *            the model
 	 */
-	public JTreePanel(final Model<T> model)
+	public JXTreePanel(final Model<T> model)
 	{
 		super(model);
 	}
@@ -100,9 +103,9 @@ public abstract class JTreePanel<T> extends BasePanel<T>
 	 *
 	 * @return the j tree
 	 */
-	protected JTree newTree()
+	protected JXTree newTree()
 	{
-		JTree tree = new JTree();
+		JXTree tree = new JXTree();
 
 		tree.setModel(newTreeModel(getModel()));
 		tree.setEditable(true);

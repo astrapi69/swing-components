@@ -24,17 +24,16 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
-import javax.swing.*;
-import javax.swing.tree.TreeModel;
-
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.tree.TreeElement;
+import io.github.astrapi69.tree.TreeNode;
 
 /**
- * The abstract class {@link TreeElementPanel} parameterized with {@link TreeElement}
+ * The abstract class {@link TreeElementPanel} a given {@link TreeNode} parameterized with
+ * {@link TreeElement}
  */
-public abstract class TreeElementPanel extends JTreePanel<TreeElement>
+public abstract class TreeElementPanel extends GenericTreeNodePanel<TreeElement>
 {
 
 	/** The Constant serialVersionUID. */
@@ -45,8 +44,7 @@ public abstract class TreeElementPanel extends JTreePanel<TreeElement>
 	 */
 	public TreeElementPanel()
 	{
-
-		this(BaseModel.of(TreeElement.builder().build()));
+		this(BaseModel.of(TreeNode.<TreeElement> builder().build()));
 	}
 
 	/**
@@ -55,55 +53,9 @@ public abstract class TreeElementPanel extends JTreePanel<TreeElement>
 	 * @param model
 	 *            the model
 	 */
-	public TreeElementPanel(final Model<TreeElement> model)
+	public TreeElementPanel(final Model<TreeNode<TreeElement>> model)
 	{
 		super(model);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected JTree newTree()
-	{
-		JTree tree = super.newTree();
-		return tree;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected abstract TreeModel newTreeModel(final Model<TreeElement> model);
-
-	/**
-	 * On initialize group layout.
-	 */
-	protected void onInitializeGroupLayout()
-	{
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-		this.setLayout(layout);
-		layout.setHorizontalGroup(
-			layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup().addContainerGap()
-					.addComponent(scrTree, javax.swing.GroupLayout.PREFERRED_SIZE, 384,
-						javax.swing.GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout
-			.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-			.addGroup(layout.createSequentialGroup().addContainerGap()
-				.addComponent(scrTree, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
-				.addContainerGap()));
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onInitializeLayout()
-	{
-		super.onInitializeLayout();
-		onInitializeGroupLayout();
 	}
 
 }

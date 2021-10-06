@@ -22,31 +22,19 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.panels.tree;
+package io.github.astrapi69.swing.tree.model.api;
 
-import java.awt.*;
+import java.util.List;
 
-import io.github.astrapi69.window.adapter.CloseWindow;
+import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreeNode;
 
 /**
- * The test class for {@link JXTreePanel}
+ * The Interface IGenericTreeNode.
+ *
+ * @param <T>
+ *            the generic type
  */
-public class FileTreePanelTest
+public interface IGenericTreeNode<T> extends TreeNode
 {
-
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		final Frame frame = new Frame("JXTreePanel");
-		frame.addWindowListener(new CloseWindow());
-		frame.add(new TestFileTreePanel());
-		frame.pack();
-		frame.setVisible(true);
-	}
-
 }

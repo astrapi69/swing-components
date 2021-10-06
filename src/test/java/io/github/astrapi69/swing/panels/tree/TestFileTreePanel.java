@@ -43,7 +43,7 @@ import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.system.SystemFileExtensions;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
-public class TestFileTreePanel extends JTreePanel<File>
+public class TestFileTreePanel extends JXTreePanel<File>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -57,13 +57,6 @@ public class TestFileTreePanel extends JTreePanel<File>
 	public TestFileTreePanel(final Model<File> model)
 	{
 		super(model);
-	}
-
-	@Override
-	protected JTree newTree()
-	{
-		JTree tree = super.newTree();
-		return tree;
 	}
 
 	@Override

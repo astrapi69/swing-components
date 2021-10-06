@@ -24,41 +24,28 @@
  */
 package io.github.astrapi69.swing.panels.tree;
 
-import java.awt.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 
-import javax.swing.*;
-import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.DefaultMutableTreeNode;
 
+import io.github.astrapi69.swing.tree.TreeNodeFactory;
+import org.testng.annotations.Test;
+
+import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
 
-public class TreeNodeCellRenderer<T> extends DefaultTreeCellRenderer
+public class TreeNodeFactoryTest
 {
-	private final DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
-	JLabel treeLabel = new JLabel("init-tree-label");
 
-	@Override
-	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected,
-		boolean expanded, boolean leaf, int row, boolean hasFocus)
+	@Test
+	public void testNewDefaultMutableTreeNode()
 	{
-		if (value instanceof TreeNode)
-		{
-			TreeNode<T> treeNode = (TreeNode<T>)value;
-			treeLabel.setText(treeNode.getDisplayValue());
-			if (treeNode.isLeaf())
-			{
-				treeLabel.setIcon(renderer.getLeafIcon());
-			}
-			else
-			{
-				if(treeNode.hasChildren()) {
-					treeLabel.setIcon(renderer.getOpenIcon());
-				} else {
-					treeLabel.setIcon(renderer.getClosedIcon());
-				}
-			}
-			return treeLabel;
-		}
-		return renderer.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row,
-			hasFocus);
+		TreeNode<TreeElement> treeElementTreeNode = TestTreeNodeFactory
+			.initializeTestTreeNodeElement();
+		DefaultMutableTreeNode rootNode = TreeNodeFactory
+			.newDefaultMutableTreeNode(treeElementTreeNode);
+		assertNotNull(rootNode);
+		assertEquals(rootNode.getChildCount(), 2);
 	}
 }
