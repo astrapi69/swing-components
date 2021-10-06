@@ -94,23 +94,33 @@ public class TestTreeElementPanel extends TreeElementPanel
 				node = (DefaultMutableTreeNode)lastPathComponent;
 				int index = e.getChildIndices()[0];
 				node = (DefaultMutableTreeNode)(node.getChildAt(index));
-
-
 			}
 
 			@Override
 			public void treeNodesInserted(TreeModelEvent e)
 			{
+				Object lastPathComponent = e.getTreePath().getLastPathComponent();
+				DefaultMutableTreeNode node;
+				node = (DefaultMutableTreeNode)lastPathComponent;
+				System.err.println(node);
 			}
 
 			@Override
 			public void treeNodesRemoved(TreeModelEvent e)
 			{
+				Object lastPathComponent = e.getTreePath().getLastPathComponent();
+				DefaultMutableTreeNode node;
+				node = (DefaultMutableTreeNode)lastPathComponent;
+				System.err.println(node);
 			}
 
 			@Override
 			public void treeStructureChanged(TreeModelEvent e)
 			{
+				Object lastPathComponent = e.getTreePath().getLastPathComponent();
+				DefaultMutableTreeNode node;
+				node = (DefaultMutableTreeNode)lastPathComponent;
+				System.err.println(node);
 			}
 		});
 		return treeModel;
@@ -122,7 +132,8 @@ public class TestTreeElementPanel extends TreeElementPanel
 		int x = e.getX();
 		int y = e.getY();
 		TreePath selectionPath = tree.getPathForLocation(e.getX(), e.getY());
-		TreeSelectionModel selectionModel = tree.getSelectionModel();
+		tree.getSelectionModel().setSelectionPath(selectionPath);
+
 		JPopupMenu popup = new JPopupMenu();
 		JMenuItem addChild = new JMenuItem("add node...");
 		addChild.addActionListener(le -> {
@@ -147,11 +158,6 @@ public class TestTreeElementPanel extends TreeElementPanel
 					}
 				}
 			});
-			// Object[] inputFields = { "Enter name for node", textField1, "Is leaf", checkBox };
-			//
-			// int option = JOptionPane.showConfirmDialog(this, inputFields, "Multiple Inputs",
-			// JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-
 			JPanel panel = new JPanel(new GridLayout(2, 2));
 			panel.add(new JLabel("Enter name for node:"));
 			panel.add(textField1);
