@@ -118,7 +118,7 @@ public class TestFileTreePanel extends JXTreePanel<File>
 	}
 
 	@Override
-	protected void onSingleClick(MouseEvent e)
+	protected void onSingleLeftClick(MouseEvent e)
 	{
 		int x = e.getX();
 		int y = e.getY();

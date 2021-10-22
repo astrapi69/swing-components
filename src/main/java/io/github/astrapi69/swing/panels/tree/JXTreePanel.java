@@ -117,15 +117,28 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 			public void mousePressed(MouseEvent e)
 			{
 				int selRow = tree.getRowForLocation(e.getX(), e.getY());
+				int clickCount = e.getClickCount();
+
 				if (selRow != -1)
 				{
-					if (e.getClickCount() == 1)
-					{
-						onSingleClick(e);
+					// handle right clicks
+					if(e.isPopupTrigger()) {
+						if (clickCount == 1)
+						{
+							onSingleRightClick(e);
+						}
 					}
-					else if (e.getClickCount() == 2)
-					{
-						onDoubleClick(e);
+					// handle left clicks
+					if(!e.isPopupTrigger()) {
+						if (clickCount == 1)
+						{
+							onSingleLeftClick(e);
+						}
+						else if (clickCount == 2)
+						{
+							onDoubleLeftClick(e);
+						}
+
 					}
 				}
 			}
@@ -158,12 +171,12 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 	}
 
 	/**
-	 * The callback method on double click.
+	 * The callback method on double left click.
 	 *
 	 * @param event
 	 *            the mouse event
 	 */
-	protected void onDoubleClick(MouseEvent event)
+	protected void onDoubleLeftClick(MouseEvent event)
 	{
 	}
 
@@ -192,12 +205,22 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 	}
 
 	/**
-	 * The callback method on single click.
+	 * The callback method on single left click.
 	 *
 	 * @param event
 	 *            the mouse event
 	 */
-	protected void onSingleClick(MouseEvent event)
+	protected void onSingleLeftClick(MouseEvent event)
+	{
+	}
+
+	/**
+	 * The callback method on single right click.
+	 *
+	 * @param event
+	 *            the mouse event
+	 */
+	protected void onSingleRightClick(MouseEvent event)
 	{
 	}
 
