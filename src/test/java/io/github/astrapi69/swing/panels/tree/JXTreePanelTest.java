@@ -50,7 +50,7 @@ public class JXTreePanelTest
 		frame.addWindowListener(new CloseWindow());
 		Model<TreeNode<TreeElement>> parentModel = BaseModel
 			.of(TestTreeNodeFactory.initializeTestTreeNodeElement());
-		frame.add(new TestTreeElementPanel(parentModel));
+		frame.add(new TreeNodeTreeElementPanelTest(parentModel));
 		frame.pack();
 		frame.setVisible(true);
 	}

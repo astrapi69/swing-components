@@ -48,17 +48,17 @@ import io.github.astrapi69.swing.tree.renderer.TreeNodeCellRenderer;
 import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
 
-public class TestTreeElementPanel extends TreeElementPanel
+public class TreeNodeTreeElementPanelTest extends TreeNodeTreeElementPanel
 {
 
 	private static final long serialVersionUID = 1L;
 
-	public TestTreeElementPanel()
+	public TreeNodeTreeElementPanelTest()
 	{
 		this(BaseModel.of(new TreeNode<>()));
 	}
 
-	public TestTreeElementPanel(final Model<TreeNode<TreeElement>> model)
+	public TreeNodeTreeElementPanelTest(final Model<TreeNode<TreeElement>> model)
 	{
 		super(model);
 	}
@@ -200,26 +200,20 @@ public class TestTreeElementPanel extends TreeElementPanel
 				popup.add(addChild);
 			}
 
+			if (!parentTreeNode.isRoot())
+			{
 			JMenuItem deleteNode = new JMenuItem("delete");
 			deleteNode.addActionListener(le -> {
-				if (!selectedTreeNode.isRoot())
-				{
-					int selectedNodeIndex = selectedTreeNode.getParent().getIndex(selectedTreeNode);
-					selectedTreeNode.removeAllChildren();
-					((DefaultMutableTreeNode)selectedTreeNode.getParent())
-						.remove(selectedNodeIndex);
-					((DefaultTreeModel)tree.getModel()).reload(selectedTreeNode);
-					tree.treeDidChange();
-				}
-				else
-				{
-					TestTreeElementPanel.this.setModelObject(null);
-				}
+				int selectedNodeIndex = selectedTreeNode.getParent().getIndex(selectedTreeNode);
+				selectedTreeNode.removeAllChildren();
+				((DefaultMutableTreeNode)selectedTreeNode.getParent()).remove(selectedNodeIndex);
+				((DefaultTreeModel)tree.getModel()).reload(selectedTreeNode);
+				tree.treeDidChange();
 				tree.treeDidChange();
 				this.repaint();
-
 			});
 			popup.add(deleteNode);
-			popup.show(tree, x, y);
+		}
+		popup.show(tree, x, y);
 	}
 }
