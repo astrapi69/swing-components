@@ -37,6 +37,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
+import io.github.astrapi69.swing.tree.renderer.JXTreeNodeCellRenderer;
 import org.jdesktop.swingx.JXTree;
 
 import io.github.astrapi69.model.BaseModel;
@@ -48,17 +49,17 @@ import io.github.astrapi69.swing.tree.renderer.TreeNodeCellRenderer;
 import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
 
-public class TreeNodeTreeElementPanelTest extends TreeNodeTreeElementPanel
+public class TreeNodeJXTreeElementPanelTest extends TreeNodeJXTreeElementPanel
 {
 
 	private static final long serialVersionUID = 1L;
 
-	public TreeNodeTreeElementPanelTest()
+	public TreeNodeJXTreeElementPanelTest()
 	{
 		this(BaseModel.of(new TreeNode<>()));
 	}
 
-	public TreeNodeTreeElementPanelTest(final Model<TreeNode<TreeElement>> model)
+	public TreeNodeJXTreeElementPanelTest(final Model<TreeNode<JXTreeElement>> model)
 	{
 		super(model);
 	}
@@ -67,14 +68,14 @@ public class TreeNodeTreeElementPanelTest extends TreeNodeTreeElementPanel
 	protected JXTree newTree()
 	{
 		JXTree tree = super.newTree();
-		tree.setCellRenderer(new TreeNodeCellRenderer<TreeElement>());
+		tree.setCellRenderer(new JXTreeNodeCellRenderer());
 		return tree;
 	}
 
 	@Override
-	protected TreeModel newTreeModel(final Model<TreeNode<TreeElement>> model)
+	protected TreeModel newTreeModel(final Model<TreeNode<JXTreeElement>> model)
 	{
-		TreeNode<TreeElement> parentTreeNode = model.getObject();
+		TreeNode<JXTreeElement> parentTreeNode = model.getObject();
 		TreeModel treeModel;
 
 		// treeModel = new TreeNodeModel(parentTreeNode);
@@ -135,7 +136,7 @@ public class TreeNodeTreeElementPanelTest extends TreeNodeTreeElementPanel
 
 			Object lastPathComponent = selectionPath.getLastPathComponent();
 			DefaultMutableTreeNode selectedTreeNode = (DefaultMutableTreeNode)lastPathComponent;
-			TreeNode<TreeElement> parentTreeNode = (TreeNode<TreeElement>)selectedTreeNode
+			TreeNode<JXTreeElement> parentTreeNode = (TreeNode<JXTreeElement>)selectedTreeNode
 				.getUserObject();
 
 			JPopupMenu popup = new JPopupMenu();
@@ -183,9 +184,9 @@ public class TreeNodeTreeElementPanelTest extends TreeNodeTreeElementPanel
 					{
 						boolean allowsChildren = !checkBox.isSelected();
 						String userObject = textField1.getText();
-						TreeElement treeElement = TreeElement.builder().name(userObject)
+						JXTreeElement treeElement = JXTreeElement.builder().name(userObject)
 							.parent(parentTreeNode.getValue()).node(allowsChildren).build();
-						TreeNode<TreeElement> newTreeNode = TreeNode.<TreeElement> builder()
+						TreeNode<JXTreeElement> newTreeNode = TreeNode.<JXTreeElement> builder()
 							.value(treeElement).parent(parentTreeNode).displayValue(userObject)
 							.node(allowsChildren).build();
 

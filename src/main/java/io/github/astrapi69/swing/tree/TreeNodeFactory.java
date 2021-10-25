@@ -26,6 +26,7 @@ package io.github.astrapi69.swing.tree;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import io.github.astrapi69.swing.panels.tree.JXTreeElement;
 import lombok.NonNull;
 import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
@@ -126,6 +127,36 @@ public class TreeNodeFactory
 	{
 		TreeNode<TreeElement> treeNode;
 		treeNode = new TreeNode<TreeElement>(treeElement)
+		{
+			@Override
+			public boolean isNode()
+			{
+				return treeElement.isNode();
+			}
+		};
+		treeNode.setDisplayValue(treeElement.getName());
+		if (parentTreeNode != null)
+		{
+			parentTreeNode.addChild(treeNode);
+		}
+		return treeNode;
+	}
+
+	/**
+	 * Factory method that creates a new {@link TreeNode} object from the given {@link TreeElement}
+	 * object
+	 *
+	 * @param treeElement
+	 *            the {@link TreeElement} object
+	 * @param parentTreeNode
+	 *            the parent object
+	 * @return the new {@link TreeNode} object
+	 */
+	public static TreeNode<JXTreeElement> initializeTreeNodeWithTreeElement(
+		final JXTreeElement treeElement, TreeNode<JXTreeElement> parentTreeNode)
+	{
+		TreeNode<JXTreeElement> treeNode;
+		treeNode = new TreeNode<JXTreeElement>(treeElement)
 		{
 			@Override
 			public boolean isNode()

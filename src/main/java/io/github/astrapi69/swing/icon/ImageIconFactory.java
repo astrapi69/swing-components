@@ -24,6 +24,7 @@
  */
 package io.github.astrapi69.swing.icon;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.net.URL;
@@ -67,6 +68,19 @@ public class ImageIconFactory
 	}
 
 	/**
+	 * Factory method for create a new {@link ImageIcon} from the given relative image path as
+	 * {@link String} object
+	 *
+	 * @param relativeImagePath
+	 *            the relative image path
+	 * @return the new {@link ImageIcon}
+	 */
+	public static ImageIcon newImageIcon(String relativeImagePath, int newWidth, int newHeight)
+	{
+		return newImageIcon(relativeImagePath, true, newWidth, newHeight);
+	}
+
+	/**
 	 * Factory method for create a new {@link ImageIcon} from the given image path as {@link String}
 	 * object
 	 *
@@ -83,6 +97,27 @@ public class ImageIconFactory
 			final BufferedImage bufferedImage = RuntimeExceptionDecorator
 				.decorate(() -> ImageIO.read(ClassExtensions.getResourceAsStream(imagePath)));
 			return new ImageIcon(bufferedImage);
+		}
+		return new ImageIcon(imagePath);
+	}
+
+	/**
+	 * Factory method for create a new {@link ImageIcon} from the given image path as {@link String}
+	 * object
+	 *
+	 * @param imagePath
+	 *            the image path
+	 * @param relativePath
+	 *            the flag that indicates if the given path is relative
+	 * @return the new {@link ImageIcon}
+	 */
+	public static ImageIcon newImageIcon(String imagePath, boolean relativePath, int newWidth, int newHeight)
+	{
+		if (relativePath)
+		{
+			final BufferedImage bufferedImage = RuntimeExceptionDecorator
+				.decorate(() -> ImageIO.read(ClassExtensions.getResourceAsStream(imagePath)));
+			return new ImageIcon(bufferedImage.getScaledInstance(newWidth, newHeight, Image.SCALE_DEFAULT));
 		}
 		return new ImageIcon(imagePath);
 	}
