@@ -93,10 +93,16 @@ public class TestTreeNodeFactory
 		JXTreeElement secondChild;
 		JXTreeElement secondGrandChild;
 		parent = JXTreeElement.builder().name("parent")
-			.iconPath("img/xmas/stars.png")
+			.iconPath("io/github/astrapi69/silk/icons/disk.png")
+			.withText(true)
 			.parent(null).node(true).build();
-		firstChild = JXTreeElement.builder().name("firstChild").parent(parent).node(true).build();
-		firstGrandChild = JXTreeElement.builder().name("firstGrandChild").parent(firstChild)
+		firstChild = JXTreeElement.builder().name("firstChild/search").parent(parent)
+			.iconPath("io/github/astrapi69/silk/icons/magnifier.png")
+			.withText(true)
+			.node(true).build();
+		firstGrandChild = JXTreeElement.builder().name("firstGrandChild")
+			.iconPath("io/github/astrapi69/silk/icons/lock.png")
+			.withText(false).parent(firstChild)
 			.node(true).build();
 		firstGrandGrandChild = JXTreeElement.builder().name("firstGrandGrandChild")
 			.parent(firstGrandChild).node(false).build();

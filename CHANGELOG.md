@@ -9,6 +9,10 @@ ADDED:
 - new extension class JOptionPaneExtensions for JOptionPane created
 - new method in extension class JOptionPaneExtensions that gets the option from a given JOptionPane
 - new class TreeNodeFactory for generate DefaultMutableTreeNode object from TreeNode object
+- new class JXTreeElement created for use as model class with JTree and JXTree objects
+- new class JXTreeNodeCellRenderer that uses the JXTreeElement for render in JTree and JXTree objects
+- new test dependency io.github.astrapi69:silk-icon-theme for test the classes for icon factory and extensions
+- new test dependency org.freedesktop.tango:tango-icon-theme for test the classes for icon factory and extensions
 
 CHANGED:
 

@@ -26,11 +26,10 @@ package io.github.astrapi69.swing.tree.renderer;
 
 import javax.swing.*;
 
-import io.github.astrapi69.swing.icon.StringIcon;
-import io.github.astrapi69.swing.img.ImageExtensions;
 import org.apache.commons.lang3.StringUtils;
 
 import io.github.astrapi69.swing.icon.ImageIconFactory;
+import io.github.astrapi69.swing.icon.StringIcon;
 import io.github.astrapi69.swing.panels.tree.JXTreeElement;
 import io.github.astrapi69.tree.TreeNode;
 
@@ -46,12 +45,19 @@ public class JXTreeNodeCellRenderer extends TreeNodeCellRenderer<JXTreeElement>
 		{
 			Icon customTreeIcon;
 			try{
-				customTreeIcon = ImageIconFactory.newImageIcon(iconPath, 100, 20);
+				customTreeIcon = ImageIconFactory.newImageIcon(iconPath);
 			} catch (Exception e){
 				customTreeIcon = new StringIcon(treeLabel, iconPath);
 			}
+			if (value.isWithText())
+			{
+				treeLabel.setText(displayValue);
+			}
+			else
+			{
+				treeLabel.setText("");
+			}
 			treeLabel.setToolTipText(displayValue);
-			treeLabel.setText("");
 			treeLabel.setIcon(customTreeIcon);
 			return treeLabel;
 		} else {

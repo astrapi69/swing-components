@@ -30,6 +30,9 @@ public class JXTreeElement implements Serializable
 	/** The flag that indicates if this tree element is a node. */
 	boolean node;
 
+	/** The flag that indicates if a text label should shown if an icon exists */
+	boolean withText;
+
 	/** The icon path for a custom tree icon, if not set default icon will be set */
 	String iconPath;
 
