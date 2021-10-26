@@ -16,7 +16,11 @@ ADDED:
 
 CHANGED:
 
+- update of lombok version to 1.18.22
+- update gradle-plugin dependency of io.freefair.gradle:lombok-plugin to new version 6.2.0
 - update of dependency throw-able to new version to 1.7
+- update of silly-collections version to 18
+- update of file-worker version to 5.10
 
 Version 5.11
 -------------

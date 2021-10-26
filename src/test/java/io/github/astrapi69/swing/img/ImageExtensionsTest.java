@@ -38,10 +38,10 @@ import net.lingala.zip4j.model.ZipParameters;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
-import io.github.astrapi69.create.FileFactory;
-import io.github.astrapi69.delete.DeleteFileExtensions;
+import io.github.astrapi69.file.create.FileFactory;
+import io.github.astrapi69.file.delete.DeleteFileExtensions;
 import io.github.astrapi69.lang.ClassExtensions;
-import io.github.astrapi69.search.PathFinder;
+import io.github.astrapi69.file.search.PathFinder;
 
 /**
  * The class {@link ImageExtensionsTest}.
