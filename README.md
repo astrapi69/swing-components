@@ -16,8 +16,7 @@ Several swing components and utilities
 
 > Please support this project by simply putting a Github 
 > 
-<a class="github-button" href="https://github.com/lightblueseas/swing-components" data-icon="octicon-star" aria-label="Star lightblueseas/swing-components on GitHub">Star ⭐<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script></a>
+<a class="github-button" href="https://github.com/lightblueseas/swing-components" data-icon="octicon-star" aria-label="Star lightblueseas/swing-components on GitHub">Star</a>
 >
 > Share this library with friends on Twitter and everywhere else you can
 >
