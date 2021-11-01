@@ -14,6 +14,11 @@ Several swing components and utilities
 
 - Buffered images to pdf file
 
+<!--Place this tag in your head or just before your close body tag. 
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+Place this tag where you want the button to render.
+Peace!-->
+
 > Please support this project by simply putting a Github 
 > 
 <a class="github-button" href="https://github.com/lightblueseas/swing-components" data-icon="octicon-star" aria-label="Star lightblueseas/swing-components on GitHub">Star</a>
