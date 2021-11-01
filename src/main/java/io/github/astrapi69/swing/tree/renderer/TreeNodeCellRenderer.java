@@ -65,19 +65,45 @@ public class TreeNodeCellRenderer<T> extends DefaultTreeCellRenderer
 		treeLabel.setText(displayValue);
 		if (treeNode.isLeaf())
 		{
-			treeLabel.setIcon(renderer.getLeafIcon());
+			treeLabel.setIcon(getLeafIcon());
 		}
 		else
 		{
 			if (treeNode.hasChildren())
 			{
-				treeLabel.setIcon(renderer.getOpenIcon());
+				treeLabel.setIcon(getOpenIcon());
 			}
 			else
 			{
-				treeLabel.setIcon(renderer.getClosedIcon());
+				treeLabel.setIcon(getClosedIcon());
 			}
 		}
 		return treeLabel;
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Icon getOpenIcon()
+	{
+		return renderer.getOpenIcon();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Icon getLeafIcon()
+	{
+		return renderer.getLeafIcon();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Icon getClosedIcon()
+	{
+		return renderer.getClosedIcon();
+	}
+
+
 }

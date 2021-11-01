@@ -47,6 +47,29 @@ public class ScreenSizeExtensions
 {
 
 	/**
+	 * Maximizes the given {@link Window} from the given component
+	 *
+	 * @param component
+	 *            the component
+	 */
+	public static void maximize(@NonNull Component component)
+	{
+		maximize(AwtExtensions.getWindowForComponent(component));
+	}
+
+	/**
+	 * Maximizes the given {@link Window}
+	 *
+	 * @param window
+	 *            the window
+	 */
+	public static void maximize(@NonNull Window window)
+	{
+		window.setSize(ScreenSizeExtensions.getScreenWidth(window),
+			ScreenSizeExtensions.getScreenHeight(window));
+	}
+
+	/**
 	 * Set given {@link Window} to the center of the device and divide them with the given arguments
 	 *
 	 * @param component

@@ -35,6 +35,7 @@ import io.github.astrapi69.tree.TreeNode;
 
 public class JXTreeNodeCellRenderer extends TreeNodeCellRenderer<JXTreeElement>
 {
+
 	protected JLabel initialize(TreeNode<JXTreeElement> userObject)
 	{
 		TreeNode<JXTreeElement> treeNode = userObject;
@@ -63,5 +64,29 @@ public class JXTreeNodeCellRenderer extends TreeNodeCellRenderer<JXTreeElement>
 		} else {
 			return super.initialize(userObject);
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Icon getOpenIcon()
+	{
+		return renderer.getOpenIcon();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Icon getLeafIcon()
+	{
+		return renderer.getLeafIcon();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Icon getClosedIcon()
+	{
+		return renderer.getClosedIcon();
 	}
 }

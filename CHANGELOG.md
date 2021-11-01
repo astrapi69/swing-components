@@ -7,6 +7,7 @@ Version 5.12-SNAPSHOT
 ADDED:
 
 - new extension class JOptionPaneExtensions for JOptionPane created
+- new methods for maximize the window of the given component
 - new method in extension class JOptionPaneExtensions that gets the option from a given JOptionPane
 - new class TreeNodeFactory for generate DefaultMutableTreeNode object from TreeNode object
 - new class JXTreeElement created for use as model class with JTree and JXTree objects
