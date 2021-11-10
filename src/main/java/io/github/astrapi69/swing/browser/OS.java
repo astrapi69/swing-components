@@ -85,7 +85,7 @@ public enum OS
 	 */
 	public static boolean isWindows()
 	{
-		return getOperatingSystem().getOs().startsWith(OS.WINDOWS.getOs());
+		return getOperatingSystemName().startsWith(OS.WINDOWS.getOs());
 	}
 
 	/**
@@ -95,7 +95,7 @@ public enum OS
 	 */
 	public static boolean isMac()
 	{
-		return getOperatingSystem().getOs().startsWith(OS.MAC.getOs());
+		return getOperatingSystemName().startsWith(OS.MAC.getOs());
 	}
 
 	/**
@@ -105,7 +105,7 @@ public enum OS
 	 */
 	public static boolean isLinux()
 	{
-		return getOperatingSystem().getOs().startsWith(OS.LINUX.getOs());
+		return getOperatingSystemName().startsWith(OS.LINUX.getOs());
 	}
 
 	/**
@@ -128,7 +128,6 @@ public enum OS
 		{
 			return MAC;
 		}
-
 		else
 		{
 			return OTHER;
@@ -143,6 +142,15 @@ public enum OS
 	public String getOs()
 	{
 		return os;
+	}
+
+	/**
+	 * Gets the name of the operating system
+	 *
+	 * @return the name of the operating system
+	 */
+	public static String getOperatingSystemName() {
+		return get().getOs();
 	}
 
 }
