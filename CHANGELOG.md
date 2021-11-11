@@ -15,9 +15,11 @@ ADDED:
 - new class JXTreeNodeCellRenderer that uses the JXTreeElement for render in JTree and JXTree objects
 - new test dependency io.github.astrapi69:silk-icon-theme for test the classes for icon factory and extensions
 - new test dependency org.freedesktop.tango:tango-icon-theme for test the classes for icon factory and extensions
+- improve gradle build performance by adding new gradle parameters for caching, parallel, configure on demand and file watch
 
 CHANGED:
 
+- update gradle to new version 7.3
 - update of lombok version to 1.18.22
 - update gradle-plugin dependency of io.freefair.gradle:lombok-plugin to new version 6.2.0
 - update of dependency throw-able to new version to 1.7
