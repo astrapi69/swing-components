@@ -39,6 +39,24 @@ public class RobotExtensionsTest
 	}
 
 	@Test(enabled = true)
+	public void clickLeftMouseButton() throws AWTException, InterruptedException
+	{
+		RobotExtensions.clickLeftMouseButton(new Robot(), 400, 400);
+	}
+
+	@Test(enabled = true)
+	public void clickMiddleMouseButton() throws AWTException, InterruptedException
+	{
+		RobotExtensions.clickMiddleMouseButton(new Robot(), 400, 400);
+	}
+
+	@Test(enabled = true)
+	public void clickRightMouseButton() throws AWTException, InterruptedException
+	{
+		RobotExtensions.clickRightMouseButton(new Robot(), 400, 400);
+	}
+
+	@Test(enabled = false)
 	public void testInfiniteMoveMouse() throws AWTException, InterruptedException
 	{
 		RobotExtensions.infiniteMoveMouse(new Robot(), 400, 400, 200000);

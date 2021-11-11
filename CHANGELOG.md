@@ -6,6 +6,7 @@ Version 5.12-SNAPSHOT
 
 ADDED:
 
+- new methods for click left, middle and right mouse click button
 - new extension class JOptionPaneExtensions for JOptionPane created
 - new methods for maximize the window of the given component
 - new method in extension class JOptionPaneExtensions that gets the option from a given JOptionPane

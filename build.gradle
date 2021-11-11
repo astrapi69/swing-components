@@ -150,6 +150,7 @@ javadoc {
     }
     dependsOn delombok
     failOnError = false
+    exclude 'io/github/astrapi69/**'
 }
 
 tasks.withType(JavaCompile) {

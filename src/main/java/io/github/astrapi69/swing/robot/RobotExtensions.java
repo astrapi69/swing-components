@@ -55,6 +55,51 @@ public class RobotExtensions
 	}
 
 	/**
+	 * Clicks the left mouse button
+	 * 
+	 * @param robot
+	 *            the robot
+	 * @param x
+	 *            the X position
+	 * @param y
+	 *            the Y position
+	 */
+	public static void clickLeftMouseButton(Robot robot, int x, int y)
+	{
+		clickMouseButton(robot, x, y, InputEvent.BUTTON1_DOWN_MASK);
+	}
+
+	/**
+	 * Clicks the middle mouse button
+	 * 
+	 * @param robot
+	 *            the robot
+	 * @param x
+	 *            the X position
+	 * @param y
+	 *            the Y position
+	 */
+	public static void clickMiddleMouseButton(Robot robot, int x, int y)
+	{
+		clickMouseButton(robot, x, y, InputEvent.BUTTON2_DOWN_MASK);
+	}
+
+	/**
+	 * Clicks the right mouse button
+	 * 
+	 * @param robot
+	 *            the robot
+	 * @param x
+	 *            the X position
+	 * @param y
+	 *            the Y position
+	 */
+	public static void clickRightMouseButton(Robot robot, int x, int y)
+	{
+		clickMouseButton(robot, x, y, InputEvent.BUTTON3_DOWN_MASK);
+	}
+
+	/**
 	 * Gets the key code from the given char.
 	 *
 	 * @param character
