@@ -25,16 +25,23 @@
 package io.github.astrapi69.swing.robot;
 
 import java.awt.*;
+import java.awt.event.InputEvent;
 
 import org.testng.annotations.Test;
 
 public class RobotExtensionsTest
 {
 
-	@Test(enabled = false)
+	@Test(enabled = true)
+	public void testClickMouse() throws AWTException, InterruptedException
+	{
+		RobotExtensions.clickMouseButton(new Robot(), 400, 400, InputEvent.BUTTON1_DOWN_MASK);
+	}
+
+	@Test(enabled = true)
 	public void testInfiniteMoveMouse() throws AWTException, InterruptedException
 	{
-		RobotExtensions.infiniteMoveMouse(new Robot(), 400, 400, 20000);
+		RobotExtensions.infiniteMoveMouse(new Robot(), 400, 400, 200000);
 	}
 
 	@Test(enabled = false)

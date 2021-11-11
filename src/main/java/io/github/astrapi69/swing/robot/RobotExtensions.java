@@ -25,6 +25,7 @@
 package io.github.astrapi69.swing.robot;
 
 import java.awt.*;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
 import java.security.SecureRandom;
@@ -36,6 +37,22 @@ import io.github.astrapi69.random.SecureRandomFactory;
  */
 public class RobotExtensions
 {
+
+	/**
+	 * Clicks the given mouse button
+	 * @param robot
+	 *            the robot
+	 * @param x
+	 *            the X position
+	 * @param y
+	 *            the Y position
+	 * @param mouseButtonMask
+	 */
+	public static void clickMouseButton(Robot robot, int x, int y, int mouseButtonMask) {
+		robot.mouseMove(x, y);
+		robot.mousePress(mouseButtonMask);
+		robot.mouseRelease(mouseButtonMask);
+	}
 
 	/**
 	 * Gets the key code from the given char.
