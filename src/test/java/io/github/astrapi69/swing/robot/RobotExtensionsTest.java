@@ -32,25 +32,25 @@ import org.testng.annotations.Test;
 public class RobotExtensionsTest
 {
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void testClickMouse() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickMouseButton(new Robot(), 400, 400, InputEvent.BUTTON1_DOWN_MASK);
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void clickLeftMouseButton() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickLeftMouseButton(new Robot(), 400, 400);
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void clickMiddleMouseButton() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickMiddleMouseButton(new Robot(), 400, 400);
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void clickRightMouseButton() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickRightMouseButton(new Robot(), 400, 400);
