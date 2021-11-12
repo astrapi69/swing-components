@@ -61,12 +61,12 @@ public class JMCheckBoxTest
 		final Frame frame = new Frame("JMCheckBoxTest");
 		JButton buttonCheck = new JButton("check it");
 		buttonCheck.addActionListener(e -> {
-			Boolean selected = ((JMCheckBox)checkBox).getPropertyModel().getObject();
+			Boolean selected = checkBox.getPropertyModel().getObject();
 			Boolean checked = checkedModelBean.isChecked();
 			Boolean booleanModelObject = booleanModel.getObject();
 			Boolean toggledSelected = !checkBox.isSelected();
 			checkBox.setSelected(toggledSelected);
-			selected = ((JMCheckBox)checkBox).getPropertyModel().getObject();
+			selected = checkBox.getPropertyModel().getObject();
 			booleanModelObject = booleanModel.getObject();
 			checked = checkedModelBean.isChecked();
 			System.out.println(selected);

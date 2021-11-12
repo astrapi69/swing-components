@@ -111,13 +111,15 @@ public class ImageIconFactory
 	 *            the flag that indicates if the given path is relative
 	 * @return the new {@link ImageIcon}
 	 */
-	public static ImageIcon newImageIcon(String imagePath, boolean relativePath, int newWidth, int newHeight)
+	public static ImageIcon newImageIcon(String imagePath, boolean relativePath, int newWidth,
+		int newHeight)
 	{
 		if (relativePath)
 		{
 			final BufferedImage bufferedImage = RuntimeExceptionDecorator
 				.decorate(() -> ImageIO.read(ClassExtensions.getResourceAsStream(imagePath)));
-			return new ImageIcon(bufferedImage.getScaledInstance(newWidth, newHeight, Image.SCALE_DEFAULT));
+			return new ImageIcon(
+				bufferedImage.getScaledInstance(newWidth, newHeight, Image.SCALE_DEFAULT));
 		}
 		return new ImageIcon(imagePath);
 	}

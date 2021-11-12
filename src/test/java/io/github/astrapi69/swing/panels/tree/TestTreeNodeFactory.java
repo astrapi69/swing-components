@@ -76,7 +76,6 @@ public class TestTreeNodeFactory
 	}
 
 
-
 	public static TreeNode<JXTreeElement> initializeTestJXTreeNodeElement()
 	{
 		TreeNode<JXTreeElement> firstChildTreeNode;
@@ -93,16 +92,13 @@ public class TestTreeNodeFactory
 		JXTreeElement secondChild;
 		JXTreeElement secondGrandChild;
 		parent = JXTreeElement.builder().name("parent")
-			.iconPath("io/github/astrapi69/silk/icons/disk.png")
-			.withText(true)
-			.parent(null).node(true).build();
-		firstChild = JXTreeElement.builder().name("firstChild/search").parent(parent)
-			.iconPath("io/github/astrapi69/silk/icons/magnifier.png")
-			.withText(true)
+			.iconPath("io/github/astrapi69/silk/icons/disk.png").withText(true).parent(null)
 			.node(true).build();
+		firstChild = JXTreeElement.builder().name("firstChild/search").parent(parent)
+			.iconPath("io/github/astrapi69/silk/icons/magnifier.png").withText(true).node(true)
+			.build();
 		firstGrandChild = JXTreeElement.builder().name("firstGrandChild")
-			.iconPath("io/github/astrapi69/silk/icons/lock.png")
-			.withText(false).parent(firstChild)
+			.iconPath("io/github/astrapi69/silk/icons/lock.png").withText(false).parent(firstChild)
 			.node(true).build();
 		firstGrandGrandChild = JXTreeElement.builder().name("firstGrandGrandChild")
 			.parent(firstGrandChild).node(false).build();
@@ -111,17 +107,19 @@ public class TestTreeNodeFactory
 			.node(false).build();
 		parentTreeNode = TreeNodeFactory.initializeTreeNodeWithTreeElement(parent, null);
 
-		firstChildTreeNode = TreeNodeFactory.initializeTreeNodeWithTreeElement(firstChild, parentTreeNode);
+		firstChildTreeNode = TreeNodeFactory.initializeTreeNodeWithTreeElement(firstChild,
+			parentTreeNode);
 
-		secondChildTreeNode = TreeNodeFactory.initializeTreeNodeWithTreeElement(secondChild, parentTreeNode);
+		secondChildTreeNode = TreeNodeFactory.initializeTreeNodeWithTreeElement(secondChild,
+			parentTreeNode);
 
-		firstGrandChildTreeNodeLeaf = TreeNodeFactory.initializeTreeNodeWithTreeElement(firstGrandChild,
-			firstChildTreeNode);
-		secondGrandChildTreeNodeLeaf = TreeNodeFactory.initializeTreeNodeWithTreeElement(secondGrandChild,
-			secondChildTreeNode);
+		firstGrandChildTreeNodeLeaf = TreeNodeFactory
+			.initializeTreeNodeWithTreeElement(firstGrandChild, firstChildTreeNode);
+		secondGrandChildTreeNodeLeaf = TreeNodeFactory
+			.initializeTreeNodeWithTreeElement(secondGrandChild, secondChildTreeNode);
 
-		firstGrandGrandChildTreeNode = TreeNodeFactory.initializeTreeNodeWithTreeElement(firstGrandGrandChild,
-			firstChildTreeNode);
+		firstGrandGrandChildTreeNode = TreeNodeFactory
+			.initializeTreeNodeWithTreeElement(firstGrandGrandChild, firstChildTreeNode);
 		return parentTreeNode;
 	}
 

@@ -24,9 +24,6 @@
  */
 package io.github.astrapi69.swing.tree.model.api;
 
-import java.util.List;
-
-import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;
 
 /**

@@ -33,7 +33,8 @@ import org.testng.annotations.Test;
 public class ImageIconFactoryTest
 {
 
-	@Test public void testNewImageIcon()
+	@Test
+	public void testNewImageIcon()
 	{
 		ImageIcon imageIcon = ImageIconFactory.newImageIcon("img/xmas/stars.png");
 		assertNotNull(imageIcon);

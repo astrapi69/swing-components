@@ -38,7 +38,7 @@ public class JCheckBoxWithPropertyModelTest
 		// Bind legacy JCheckBox with a property model
 		JCheckBox checkBox;
 		checkBox = new JCheckBox("Check me");
-		final PropertyModel<Boolean> propertyModel = PropertyModel.<Boolean> of(checkBox,
+		final PropertyModel<Boolean> propertyModel = PropertyModel.of(checkBox,
 			"model.selected");
 
 		final Frame frame = new Frame("JCheckBoxWithPropertyModelTest");

@@ -40,6 +40,7 @@ public class RobotExtensions
 
 	/**
 	 * Clicks the given mouse button
+	 * 
 	 * @param robot
 	 *            the robot
 	 * @param x
@@ -48,7 +49,8 @@ public class RobotExtensions
 	 *            the Y position
 	 * @param mouseButtonMask
 	 */
-	public static void clickMouseButton(Robot robot, int x, int y, int mouseButtonMask) {
+	public static void clickMouseButton(Robot robot, int x, int y, int mouseButtonMask)
+	{
 		robot.mouseMove(x, y);
 		robot.mousePress(mouseButtonMask);
 		robot.mouseRelease(mouseButtonMask);
@@ -56,6 +58,7 @@ public class RobotExtensions
 
 	/**
 	 * Clicks the left mouse button
+	 * 
 	 * @param robot
 	 *            the robot
 	 * @param x
@@ -63,12 +66,14 @@ public class RobotExtensions
 	 * @param y
 	 *            the Y position
 	 */
-	public static void clickLeftMouseButton(Robot robot, int x, int y) {
+	public static void clickLeftMouseButton(Robot robot, int x, int y)
+	{
 		clickMouseButton(robot, x, y, InputEvent.BUTTON1_DOWN_MASK);
 	}
 
 	/**
 	 * Clicks the middle mouse button
+	 * 
 	 * @param robot
 	 *            the robot
 	 * @param x
@@ -76,12 +81,14 @@ public class RobotExtensions
 	 * @param y
 	 *            the Y position
 	 */
-	public static void clickMiddleMouseButton(Robot robot, int x, int y) {
+	public static void clickMiddleMouseButton(Robot robot, int x, int y)
+	{
 		clickMouseButton(robot, x, y, InputEvent.BUTTON2_DOWN_MASK);
 	}
 
 	/**
 	 * Clicks the right mouse button
+	 * 
 	 * @param robot
 	 *            the robot
 	 * @param x
@@ -89,7 +96,8 @@ public class RobotExtensions
 	 * @param y
 	 *            the Y position
 	 */
-	public static void clickRightMouseButton(Robot robot, int x, int y) {
+	public static void clickRightMouseButton(Robot robot, int x, int y)
+	{
 		clickMouseButton(robot, x, y, InputEvent.BUTTON3_DOWN_MASK);
 	}
 

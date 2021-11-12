@@ -135,6 +135,16 @@ public enum OS
 	}
 
 	/**
+	 * Gets the name of the operating system
+	 *
+	 * @return the name of the operating system
+	 */
+	public static String getOperatingSystemName()
+	{
+		return get().getOs();
+	}
+
+	/**
 	 * Gets the os.
 	 *
 	 * @return the os
@@ -142,15 +152,6 @@ public enum OS
 	public String getOs()
 	{
 		return os;
-	}
-
-	/**
-	 * Gets the name of the operating system
-	 *
-	 * @return the name of the operating system
-	 */
-	public static String getOperatingSystemName() {
-		return get().getOs();
 	}
 
 }

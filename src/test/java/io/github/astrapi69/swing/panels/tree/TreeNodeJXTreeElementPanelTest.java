@@ -37,7 +37,6 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
-import io.github.astrapi69.swing.tree.renderer.JXTreeNodeCellRenderer;
 import org.jdesktop.swingx.JXTree;
 
 import io.github.astrapi69.model.BaseModel;
@@ -45,8 +44,7 @@ import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.dialog.JOptionPaneExtensions;
 import io.github.astrapi69.swing.listener.RequestFocusListener;
 import io.github.astrapi69.swing.tree.TreeNodeFactory;
-import io.github.astrapi69.swing.tree.renderer.TreeNodeCellRenderer;
-import io.github.astrapi69.tree.TreeElement;
+import io.github.astrapi69.swing.tree.renderer.JXTreeNodeCellRenderer;
 import io.github.astrapi69.tree.TreeNode;
 
 public class TreeNodeJXTreeElementPanelTest extends TreeNodeJXTreeElementPanel
@@ -134,75 +132,75 @@ public class TreeNodeJXTreeElementPanelTest extends TreeNodeJXTreeElementPanel
 		TreePath selectionPath = tree.getPathForLocation(e.getX(), e.getY());
 		tree.getSelectionModel().setSelectionPath(selectionPath);
 
-			Object lastPathComponent = selectionPath.getLastPathComponent();
-			DefaultMutableTreeNode selectedTreeNode = (DefaultMutableTreeNode)lastPathComponent;
-			TreeNode<JXTreeElement> parentTreeNode = (TreeNode<JXTreeElement>)selectedTreeNode
-				.getUserObject();
+		Object lastPathComponent = selectionPath.getLastPathComponent();
+		DefaultMutableTreeNode selectedTreeNode = (DefaultMutableTreeNode)lastPathComponent;
+		TreeNode<JXTreeElement> parentTreeNode = (TreeNode<JXTreeElement>)selectedTreeNode
+			.getUserObject();
 
-			JPopupMenu popup = new JPopupMenu();
-			if (parentTreeNode.isNode())
-			{
-				JMenuItem addChild = new JMenuItem("add node...");
-				addChild.addActionListener(le -> {
-					JTextField textField1 = new JTextField();
-					final JCheckBox checkBox = new JCheckBox();
+		JPopupMenu popup = new JPopupMenu();
+		if (parentTreeNode.isNode())
+		{
+			JMenuItem addChild = new JMenuItem("add node...");
+			addChild.addActionListener(le -> {
+				JTextField textField1 = new JTextField();
+				final JCheckBox checkBox = new JCheckBox();
 
-					checkBox.addChangeListener(new ChangeListener()
+				checkBox.addChangeListener(new ChangeListener()
+				{
+					@Override
+					public void stateChanged(ChangeEvent e)
 					{
-						@Override
-						public void stateChanged(ChangeEvent e)
+						if (e.getSource() == checkBox)
 						{
-							if (e.getSource() == checkBox)
+							if (checkBox.isSelected())
 							{
-								if (checkBox.isSelected())
-								{
 
-								}
-								else
-								{
+							}
+							else
+							{
 
-								}
 							}
 						}
-					});
-					JPanel panel = new JPanel(new GridLayout(2, 2));
-					panel.add(new JLabel("Enter name for node:"));
-					panel.add(textField1);
-					panel.add(new JLabel("Is leaf:"));
-					panel.add(checkBox);
-
-					JOptionPane pane = new JOptionPane(panel, JOptionPane.INFORMATION_MESSAGE,
-						JOptionPane.OK_CANCEL_OPTION);
-					JDialog dialog = pane.createDialog(null, "New node");
-					dialog.addWindowFocusListener(new RequestFocusListener(textField1));
-					dialog.pack();
-					dialog.setLocationRelativeTo(null);
-					dialog.setVisible(true);
-					int option = JOptionPaneExtensions.getSelectedOption(pane);
-
-					if (option == JOptionPane.OK_OPTION)
-					{
-						boolean allowsChildren = !checkBox.isSelected();
-						String userObject = textField1.getText();
-						JXTreeElement treeElement = JXTreeElement.builder().name(userObject)
-							.parent(parentTreeNode.getValue()).node(allowsChildren).build();
-						TreeNode<JXTreeElement> newTreeNode = TreeNode.<JXTreeElement> builder()
-							.value(treeElement).parent(parentTreeNode).displayValue(userObject)
-							.node(allowsChildren).build();
-
-						DefaultMutableTreeNode newChild = new DefaultMutableTreeNode(newTreeNode,
-							allowsChildren);
-						selectedTreeNode.add(newChild);
-						((DefaultTreeModel)tree.getModel()).reload(selectedTreeNode);
-						tree.treeDidChange();
 					}
-
 				});
-				popup.add(addChild);
-			}
+				JPanel panel = new JPanel(new GridLayout(2, 2));
+				panel.add(new JLabel("Enter name for node:"));
+				panel.add(textField1);
+				panel.add(new JLabel("Is leaf:"));
+				panel.add(checkBox);
 
-			if (!parentTreeNode.isRoot())
-			{
+				JOptionPane pane = new JOptionPane(panel, JOptionPane.INFORMATION_MESSAGE,
+					JOptionPane.OK_CANCEL_OPTION);
+				JDialog dialog = pane.createDialog(null, "New node");
+				dialog.addWindowFocusListener(new RequestFocusListener(textField1));
+				dialog.pack();
+				dialog.setLocationRelativeTo(null);
+				dialog.setVisible(true);
+				int option = JOptionPaneExtensions.getSelectedOption(pane);
+
+				if (option == JOptionPane.OK_OPTION)
+				{
+					boolean allowsChildren = !checkBox.isSelected();
+					String userObject = textField1.getText();
+					JXTreeElement treeElement = JXTreeElement.builder().name(userObject)
+						.parent(parentTreeNode.getValue()).node(allowsChildren).build();
+					TreeNode<JXTreeElement> newTreeNode = TreeNode.<JXTreeElement> builder()
+						.value(treeElement).parent(parentTreeNode).displayValue(userObject)
+						.node(allowsChildren).build();
+
+					DefaultMutableTreeNode newChild = new DefaultMutableTreeNode(newTreeNode,
+						allowsChildren);
+					selectedTreeNode.add(newChild);
+					((DefaultTreeModel)tree.getModel()).reload(selectedTreeNode);
+					tree.treeDidChange();
+				}
+
+			});
+			popup.add(addChild);
+		}
+
+		if (!parentTreeNode.isRoot())
+		{
 			JMenuItem deleteNode = new JMenuItem("delete");
 			deleteNode.addActionListener(le -> {
 				int selectedNodeIndex = selectedTreeNode.getParent().getIndex(selectedTreeNode);

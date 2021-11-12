@@ -122,14 +122,16 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 				if (selRow != -1)
 				{
 					// handle right clicks
-					if(e.isPopupTrigger()) {
+					if (e.isPopupTrigger())
+					{
 						if (clickCount == 1)
 						{
 							onSingleRightClick(e);
 						}
 					}
 					// handle left clicks
-					if(!e.isPopupTrigger()) {
+					if (!e.isPopupTrigger())
+					{
 						if (clickCount == 1)
 						{
 							onSingleLeftClick(e);

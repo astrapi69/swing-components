@@ -40,8 +40,8 @@ import org.testng.annotations.Test;
 
 import io.github.astrapi69.file.create.FileFactory;
 import io.github.astrapi69.file.delete.DeleteFileExtensions;
-import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.file.search.PathFinder;
+import io.github.astrapi69.lang.ClassExtensions;
 
 /**
  * The class {@link ImageExtensionsTest}.

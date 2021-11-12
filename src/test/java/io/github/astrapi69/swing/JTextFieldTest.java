@@ -39,7 +39,7 @@ public class JTextFieldTest
 		// Bind legacy JTextField with a property model
 		JTextField textField = new JTextField("fff", 20);
 
-		final PropertyModel<String> propertyModel = PropertyModel.<String> of(textField, "text");
+		final PropertyModel<String> propertyModel = PropertyModel.of(textField, "text");
 		final Frame frame = new Frame("JMCheckBoxTest");
 		JButton buttonCheck = new JButton("check it");
 		buttonCheck.addActionListener(e -> {

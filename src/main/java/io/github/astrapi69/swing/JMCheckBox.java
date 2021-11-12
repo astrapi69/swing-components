@@ -41,7 +41,7 @@ public class JMCheckBox extends JCheckBox
 {
 
 	/** The model. */
-	Model<Boolean> propertyModel = PropertyModel.<Boolean> of(this, "model.selected");
+	Model<Boolean> propertyModel = PropertyModel.of(this, "model.selected");
 
 	{
 		addItemListener(e -> {

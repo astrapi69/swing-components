@@ -45,9 +45,12 @@ public class JXTreeNodeCellRenderer extends TreeNodeCellRenderer<JXTreeElement>
 		if (StringUtils.isNotEmpty(iconPath))
 		{
 			Icon customTreeIcon;
-			try{
+			try
+			{
 				customTreeIcon = ImageIconFactory.newImageIcon(iconPath);
-			} catch (Exception e){
+			}
+			catch (Exception e)
+			{
 				customTreeIcon = new StringIcon(treeLabel, iconPath);
 			}
 			if (value.isWithText())
@@ -61,7 +64,9 @@ public class JXTreeNodeCellRenderer extends TreeNodeCellRenderer<JXTreeElement>
 			treeLabel.setToolTipText(displayValue);
 			treeLabel.setIcon(customTreeIcon);
 			return treeLabel;
-		} else {
+		}
+		else
+		{
 			return super.initialize(userObject);
 		}
 	}

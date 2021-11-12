@@ -44,7 +44,7 @@ public abstract class TreeNodeJXTreeElementPanel extends GenericTreeNodePanel<JX
 	 */
 	public TreeNodeJXTreeElementPanel()
 	{
-		this(BaseModel.of(TreeNode.<JXTreeElement>builder().build()));
+		this(BaseModel.of(TreeNode.<JXTreeElement> builder().build()));
 	}
 
 	/**
