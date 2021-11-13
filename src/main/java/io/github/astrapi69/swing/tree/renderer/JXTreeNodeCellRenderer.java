@@ -26,6 +26,8 @@ package io.github.astrapi69.swing.tree.renderer;
 
 import javax.swing.*;
 
+import io.github.astrapi69.icon.ImageIconFactory;
+import io.github.astrapi69.icon.StringIcon;
 import org.apache.commons.lang3.StringUtils;
 
 import io.github.astrapi69.swing.panels.tree.JXTreeElement;

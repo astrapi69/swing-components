@@ -27,6 +27,7 @@ CHANGED:
 - update of silly-collections version to 18
 - update of file-worker version to 5.10
 - removed all related image and icon classes and methods that was moved to its own repository icon-img-extensions
+- removed the button and the icon button factory class
 
 Version 5.11
 -------------
