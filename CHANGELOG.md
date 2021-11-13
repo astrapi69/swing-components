@@ -7,6 +7,7 @@ Version 5.12-SNAPSHOT
 ADDED:
 
 - new methods for click left, middle and right mouse click button
+- new dependency io.github.astrapi69:icon-img-extensions for icon and image process
 - new extension class JOptionPaneExtensions for JOptionPane created
 - new methods for maximize the window of the given component
 - new method in extension class JOptionPaneExtensions that gets the option from a given JOptionPane
@@ -25,6 +26,7 @@ CHANGED:
 - update of dependency throw-able to new version to 1.7
 - update of silly-collections version to 18
 - update of file-worker version to 5.10
+- removed all related image and icon classes and methods that was moved to its own repository icon-img-extensions
 
 Version 5.11
 -------------

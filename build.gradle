@@ -193,6 +193,7 @@ dependencies {
     implementation("io.github.astrapi69:throw-able:$throwAbleVersion")
     implementation("io.github.astrapi69:silly-math:$sillyMathVersion")
     implementation("io.github.astrapi69:menu-actions:$menuActionsVersion")
+    implementation("io.github.astrapi69:icon-img-extensions:$iconImgExtensionsVersion")
     testImplementation("io.github.astrapi69:file-worker:$fileWorkerVersion")
     testImplementation("io.github.astrapi69:test-objects:$testObjectsVersion")
     testImplementation("org.freedesktop.tango:tango-icon-theme:$tangoIconThemeVersion")

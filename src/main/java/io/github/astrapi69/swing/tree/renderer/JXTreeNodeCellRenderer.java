@@ -28,8 +28,6 @@ import javax.swing.*;
 
 import org.apache.commons.lang3.StringUtils;
 
-import io.github.astrapi69.swing.icon.ImageIconFactory;
-import io.github.astrapi69.swing.icon.StringIcon;
 import io.github.astrapi69.swing.panels.tree.JXTreeElement;
 import io.github.astrapi69.tree.TreeNode;
 
