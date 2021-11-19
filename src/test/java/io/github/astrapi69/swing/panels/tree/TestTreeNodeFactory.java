@@ -26,8 +26,10 @@ package io.github.astrapi69.swing.panels.tree;
 
 import static io.github.astrapi69.swing.tree.TreeNodeFactory.initializeTreeNodeWithTreeElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import io.github.astrapi69.swing.tablemodel.Permission;
 import io.github.astrapi69.swing.tree.TreeNodeFactory;
 import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
@@ -78,6 +80,9 @@ public class TestTreeNodeFactory
 
 	public static TreeNode<JXTreeElement> initializeTestJXTreeNodeElement()
 	{
+		// 1. Create a list with data.
+		final List<Permission> permissions;
+		List<Permission> permissions1;
 		TreeNode<JXTreeElement> firstChildTreeNode;
 		TreeNode<JXTreeElement> firstGrandChildTreeNodeLeaf;
 		TreeNode<JXTreeElement> secondGrandChildTreeNodeLeaf;
@@ -91,20 +96,31 @@ public class TestTreeNodeFactory
 		JXTreeElement firstGrandChild;
 		JXTreeElement secondChild;
 		JXTreeElement secondGrandChild;
+
+		permissions1 = new ArrayList<>();
+		permissions1.add(new Permission("read", "Permission to read."));
+		permissions1.add(new Permission("write", "Permission to write."));
+		permissions1.add(new Permission("delete", "Permission to delete."));
+
 		parent = JXTreeElement.builder().name("parent")
 			.iconPath("io/github/astrapi69/silk/icons/disk.png").withText(true).parent(null)
-			.node(true).build();
+			.node(true).build().setDefaultContent(permissions1);
+		permissions1 = new ArrayList<>();
+		permissions = permissions1;
+		permissions.add(new Permission("lesen", "Permission zum lesen."));
+		permissions.add(new Permission("schreiben", "Permission zum schreiben."));
+		permissions.add(new Permission("löschen", "Permission zum löschen."));
 		firstChild = JXTreeElement.builder().name("firstChild/search").parent(parent)
 			.iconPath("io/github/astrapi69/silk/icons/magnifier.png").withText(true).node(true)
-			.build();
+			.build().setDefaultContent(permissions);
 		firstGrandChild = JXTreeElement.builder().name("firstGrandChild")
 			.iconPath("io/github/astrapi69/silk/icons/lock.png").withText(false).parent(firstChild)
-			.node(true).build();
+			.node(true).build().setDefaultContent(permissions);
 		firstGrandGrandChild = JXTreeElement.builder().name("firstGrandGrandChild")
-			.parent(firstGrandChild).node(false).build();
-		secondChild = JXTreeElement.builder().name("secondChild").parent(parent).node(true).build();
+			.parent(firstGrandChild).node(false).build().setDefaultContent(permissions);
+		secondChild = JXTreeElement.builder().name("secondChild").parent(parent).node(true).build().setDefaultContent(permissions);
 		secondGrandChild = JXTreeElement.builder().name("secondGrandChild").parent(firstChild)
-			.node(false).build();
+			.node(false).build().setDefaultContent(permissions);
 		parentTreeNode = TreeNodeFactory.initializeTreeNodeWithTreeElement(parent, null);
 
 		firstChildTreeNode = TreeNodeFactory.initializeTreeNodeWithTreeElement(firstChild,

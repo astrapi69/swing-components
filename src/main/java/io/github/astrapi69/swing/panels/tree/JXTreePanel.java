@@ -32,6 +32,7 @@ import javax.swing.*;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeSelectionModel;
 
+import io.github.astrapi69.swing.components.factories.SwingContainerFactory;
 import lombok.Getter;
 
 import org.jdesktop.swingx.JXTree;
@@ -168,8 +169,7 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 	 */
 	protected JScrollPane newTreeScrollPane()
 	{
-		JScrollPane scrDbTree = new JScrollPane();
-		return scrDbTree;
+		return SwingContainerFactory.newScrollPane();
 	}
 
 	/**

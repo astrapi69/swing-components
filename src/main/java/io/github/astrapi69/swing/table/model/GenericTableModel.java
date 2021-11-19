@@ -193,6 +193,15 @@ public abstract class GenericTableModel<T> extends AbstractTableModel
 	}
 
 	/**
+	 * Removes all
+	 *
+	 * @return the list that was removed
+	 */
+	public List<T> removeAll(){
+		return removeAll(getData());
+	}
+
+	/**
 	 * Removes the all the given Object.
 	 *
 	 * @param toRemove

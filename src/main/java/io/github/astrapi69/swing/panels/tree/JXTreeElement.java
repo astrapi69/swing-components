@@ -55,6 +55,8 @@ public class JXTreeElement implements Serializable
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;
 
+	public static final String DEFAULT_CONTENT_KEY = "default_content";
+
 	/** The name of this tree element. */
 	String name;
 
@@ -72,5 +74,28 @@ public class JXTreeElement implements Serializable
 
 	/** The map with optional properties */
 	@Builder.Default
-	Map<String, Object> properties = new LinkedHashMap<>();
+	final Map<String, Object> properties = new LinkedHashMap<>();
+
+	/**
+	 * Gets the default content object from the map
+	 * 
+	 * @return the default content object from the map
+	 */
+	public Object getDefaultContent()
+	{
+		return properties.get(DEFAULT_CONTENT_KEY);
+	}
+
+	/**
+	 * Sets the default content object from the map to the given object
+	 * 
+	 * @param defaultContent
+	 *            the default content object to set
+	 * @return this object
+	 */
+	public JXTreeElement setDefaultContent(Object defaultContent)
+	{
+		properties.put(DEFAULT_CONTENT_KEY, defaultContent);
+		return this;
+	}
 }
