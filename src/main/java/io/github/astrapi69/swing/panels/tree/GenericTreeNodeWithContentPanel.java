@@ -1,11 +1,6 @@
 package io.github.astrapi69.swing.panels.tree;
 
 import javax.swing.*;
-import javax.swing.table.TableModel;
-import javax.swing.tree.TreeModel;
-
-import io.github.astrapi69.swing.table.model.GenericTableModel;
-import org.jdesktop.swingx.JXTree;
 
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.tree.TreeNode;
@@ -30,28 +25,6 @@ public abstract class GenericTreeNodeWithContentPanel<T> extends JXTreeWithConte
 	{
 		super(model);
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected JXTree newTree()
-	{
-		JXTree tree = super.newTree();
-		return tree;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected abstract TreeModel newTreeModel(final Model<TreeNode<T>> model);
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected abstract GenericTableModel getTableModel(final TreeNode<T> model);
 
 	/**
 	 * On initialize group layout.
