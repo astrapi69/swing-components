@@ -32,26 +32,24 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
-import javax.swing.table.TableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
-import javax.swing.tree.TreePath;
 
-import io.github.astrapi69.swing.table.model.GenericTableModel;
-import io.github.astrapi69.swing.table.model.dynamic.DynamicPermissionsTableModel;
-import io.github.astrapi69.swing.table.model.dynamic.DynamicTableColumnsModel;
-import io.github.astrapi69.swing.tablemodel.Permission;
-import io.github.astrapi69.swing.x.GenericJXTable;
-import io.github.astrapi69.tree.api.ITreeNode;
 import org.jdesktop.swingx.JXTree;
 
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.dialog.JOptionPaneExtensions;
 import io.github.astrapi69.swing.listener.RequestFocusListener;
+import io.github.astrapi69.swing.table.model.GenericTableModel;
+import io.github.astrapi69.swing.table.model.dynamic.DynamicPermissionsTableModel;
+import io.github.astrapi69.swing.table.model.dynamic.DynamicTableColumnsModel;
+import io.github.astrapi69.swing.tablemodel.Permission;
+import io.github.astrapi69.swing.tree.JTreeExtensions;
 import io.github.astrapi69.swing.tree.TreeNodeFactory;
 import io.github.astrapi69.swing.tree.renderer.JXTreeNodeCellRenderer;
+import io.github.astrapi69.swing.x.GenericJXTable;
 import io.github.astrapi69.tree.TreeNode;
 
 public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeElementWithContentPanel
@@ -77,15 +75,17 @@ public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeEle
 		return tree;
 	}
 
-	@Override protected GenericJXTable newJTable()
+	@Override
+	protected GenericJXTable newJTable()
 	{
 		GenericTableModel<Permission> permissionsTableModel = new DynamicPermissionsTableModel(
-		new DynamicTableColumnsModel<>(Permission.class));
+			new DynamicTableColumnsModel<>(Permission.class));
 		GenericJXTable<Permission> table = new GenericJXTable<>(permissionsTableModel);
 		return table;
 	}
 
-	@Override protected void onAfterInitializeComponents()
+	@Override
+	protected void onAfterInitializeComponents()
 	{
 		super.onAfterInitializeComponents();
 		// set root
@@ -156,7 +156,8 @@ public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeEle
 	 *
 	 * @param model
 	 */
-	@Override protected GenericTableModel getTableModel(TreeNode<JXTreeElement> model)
+	@Override
+	protected GenericTableModel getTableModel(TreeNode<JXTreeElement> model)
 	{
 		JXTreeElement parentTreeNode = model.getValue();
 		Object defaultContent = parentTreeNode.getDefaultContent();
@@ -168,22 +169,28 @@ public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeEle
 	}
 
 	@Override
-	protected void onSingleRightClick(MouseEvent e)
+	protected void onSingleLeftClick(MouseEvent mouseEvent)
 	{
-		int x = e.getX();
-		int y = e.getY();
-		TreePath selectionPath = tree.getPathForLocation(e.getX(), e.getY());
-		tree.getSelectionModel().setSelectionPath(selectionPath);
-
-		Object lastPathComponent = selectionPath.getLastPathComponent();
-		DefaultMutableTreeNode selectedTreeNode = (DefaultMutableTreeNode)lastPathComponent;
-		TreeNode<JXTreeElement> parentTreeNode = (TreeNode<JXTreeElement>)selectedTreeNode
+		DefaultMutableTreeNode selectedTreeNode = JTreeExtensions
+			.getSelectedDefaultMutableTreeNode(mouseEvent, tree);
+		TreeNode<JXTreeElement> selectedTreeNodeElement = (TreeNode<JXTreeElement>)selectedTreeNode
 			.getUserObject();
 
-		getTableModel(parentTreeNode);
+		GenericTableModel tableModel = getTableModel(selectedTreeNodeElement);
+
+		tableModel.fireTableDataChanged();
+	}
+
+	@Override
+	protected void onSingleRightClick(MouseEvent mouseEvent)
+	{
+		DefaultMutableTreeNode selectedTreeNode = JTreeExtensions
+			.getSelectedDefaultMutableTreeNode(mouseEvent, tree);
+		TreeNode<JXTreeElement> selectedTreeNodeElement = (TreeNode<JXTreeElement>)selectedTreeNode
+			.getUserObject();
 
 		JPopupMenu popup = new JPopupMenu();
-		if (parentTreeNode.isNode())
+		if (selectedTreeNodeElement.isNode())
 		{
 			JMenuItem addChild = new JMenuItem("add node...");
 			addChild.addActionListener(le -> {
@@ -228,9 +235,9 @@ public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeEle
 					boolean allowsChildren = !checkBox.isSelected();
 					String userObject = textField1.getText();
 					JXTreeElement treeElement = JXTreeElement.builder().name(userObject)
-						.parent(parentTreeNode.getValue()).node(allowsChildren).build();
+						.parent(selectedTreeNodeElement.getValue()).node(allowsChildren).build();
 					TreeNode<JXTreeElement> newTreeNode = TreeNode.<JXTreeElement> builder()
-						.value(treeElement).parent(parentTreeNode).displayValue(userObject)
+						.value(treeElement).parent(selectedTreeNodeElement).displayValue(userObject)
 						.node(allowsChildren).build();
 
 					DefaultMutableTreeNode newChild = new DefaultMutableTreeNode(newTreeNode,
@@ -244,7 +251,7 @@ public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeEle
 			popup.add(addChild);
 		}
 
-		if (!parentTreeNode.isRoot())
+		if (!selectedTreeNodeElement.isRoot())
 		{
 			JMenuItem deleteNode = new JMenuItem("delete");
 			deleteNode.addActionListener(le -> {
@@ -258,6 +265,8 @@ public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeEle
 			});
 			popup.add(deleteNode);
 		}
+		int x = mouseEvent.getX();
+		int y = mouseEvent.getY();
 		popup.show(tree, x, y);
 	}
 }

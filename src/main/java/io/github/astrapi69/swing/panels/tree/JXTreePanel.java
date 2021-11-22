@@ -115,38 +115,36 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 		tree.addMouseListener(new MouseAdapter()
 		{
 			@Override
-			public void mousePressed(MouseEvent e)
+			public void mousePressed(MouseEvent mouseEvent)
 			{
-				int selRow = tree.getRowForLocation(e.getX(), e.getY());
-				int clickCount = e.getClickCount();
+				int selRow = tree.getRowForLocation(mouseEvent.getX(), mouseEvent.getY());
+				int clickCount = mouseEvent.getClickCount();
 
 				if (selRow != -1)
 				{
 					// handle right clicks
-					if (e.isPopupTrigger())
+					if (mouseEvent.isPopupTrigger())
 					{
 						if (clickCount == 1)
 						{
-							onSingleRightClick(e);
+							onSingleRightClick(mouseEvent);
 						}
 					}
 					// handle left clicks
-					if (!e.isPopupTrigger())
+					if (!mouseEvent.isPopupTrigger())
 					{
 						if (clickCount == 1)
 						{
-							onSingleLeftClick(e);
+							onSingleLeftClick(mouseEvent);
 						}
 						else if (clickCount == 2)
 						{
-							onDoubleLeftClick(e);
+							onDoubleLeftClick(mouseEvent);
 						}
-
 					}
 				}
 			}
 		});
-
 		return tree;
 	}
 

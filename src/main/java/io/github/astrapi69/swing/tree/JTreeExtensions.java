@@ -1,8 +1,8 @@
 /**
  * The MIT License
- *
+ * <p>
  * Copyright (C) 2015 Asterios Raptis
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -10,10 +10,10 @@
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -24,9 +24,11 @@
  */
 package io.github.astrapi69.swing.tree;
 
+import java.awt.event.MouseEvent;
 import java.util.Enumeration;
 
 import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
@@ -39,6 +41,26 @@ public class JTreeExtensions
 {
 
 	/**
+	 * Gets the selected tree node as {@link DefaultMutableTreeNode} object
+	 * 
+	 * @param mouseEvent
+	 *            the mouse event
+	 * @param tree
+	 *            the tree
+	 * @return the selected tree node
+	 */
+	public static DefaultMutableTreeNode getSelectedDefaultMutableTreeNode(
+		@NonNull MouseEvent mouseEvent, @NonNull JTree tree)
+	{
+		int x = mouseEvent.getX();
+		int y = mouseEvent.getY();
+		TreePath selectionPath = tree.getPathForLocation(mouseEvent.getX(), mouseEvent.getY());
+		Object lastPathComponent = selectionPath.getLastPathComponent();
+		DefaultMutableTreeNode selectedTreeNode = (DefaultMutableTreeNode)lastPathComponent;
+		return selectedTreeNode;
+	}
+
+	/**
 	 * Expand all nodes recursive
 	 *
 	 * @param tree
@@ -48,7 +70,7 @@ public class JTreeExtensions
 	 * @param expand
 	 *            the flag to expand or collapse
 	 */
-	public static void expandAll(JTree tree, TreePath path, boolean expand)
+	public static void expandAll(@NonNull JTree tree, @NonNull TreePath path, boolean expand)
 	{
 		TreeNode node = (TreeNode)path.getLastPathComponent();
 
@@ -87,4 +109,5 @@ public class JTreeExtensions
 			tree.expandRow(i);
 		}
 	}
+
 }

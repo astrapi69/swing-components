@@ -29,6 +29,8 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import io.github.astrapi69.collections.list.ListFactory;
+
 /**
  * The class {@link GenericTableModel} as the name presume it can take a generic type of the model
  * object.
@@ -197,8 +199,9 @@ public abstract class GenericTableModel<T> extends AbstractTableModel
 	 *
 	 * @return the list that was removed
 	 */
-	public List<T> removeAll(){
-		return removeAll(getData());
+	public List<T> removeAll()
+	{
+		return removeAll(ListFactory.newArrayList(getData()));
 	}
 
 	/**
