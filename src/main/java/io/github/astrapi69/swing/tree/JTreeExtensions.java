@@ -52,12 +52,10 @@ public class JTreeExtensions
 	public static DefaultMutableTreeNode getSelectedDefaultMutableTreeNode(
 		@NonNull MouseEvent mouseEvent, @NonNull JTree tree)
 	{
-		int x = mouseEvent.getX();
-		int y = mouseEvent.getY();
 		TreePath selectionPath = tree.getPathForLocation(mouseEvent.getX(), mouseEvent.getY());
+		assert selectionPath != null;
 		Object lastPathComponent = selectionPath.getLastPathComponent();
-		DefaultMutableTreeNode selectedTreeNode = (DefaultMutableTreeNode)lastPathComponent;
-		return selectedTreeNode;
+		return (DefaultMutableTreeNode)lastPathComponent;
 	}
 
 	/**
