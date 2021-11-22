@@ -48,7 +48,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(exclude = { "parent" })
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder(toBuilder = true)
+@Builder(toBuilder = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class JXTreeElement implements Serializable
 {
