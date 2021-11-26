@@ -22,10 +22,11 @@ CHANGED:
 
 - update gradle to new version 7.3
 - update of lombok version to 1.18.22
-- update gradle-plugin dependency of io.freefair.gradle:lombok-plugin to new version 6.2.0
+- update lombok gradle-plugin dependency of io.freefair.gradle:lombok-plugin to new version 6.3.0
 - update of dependency throw-able to new version to 1.7
 - update of silly-collections version to 18
-- update of file-worker version to 5.10
+- update of file-worker version to 8.1
+- update dependency of jobj-core version to 5
 - removed all related image and icon classes and methods that was moved to its own repository icon-img-extensions
 - removed the button and the icon button factory class
 
