@@ -3,32 +3,42 @@ package io.github.astrapi69.swing.base;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.NonNull;
 import io.github.astrapi69.design.pattern.observer.event.EventObject;
 import io.github.astrapi69.design.pattern.observer.event.EventSource;
+import io.github.astrapi69.design.pattern.observer.event.EventSubject;
 
-public class ApplicationEventBus
+public final class GenericEventBus
 {
 
 	private static final Map<String, EventSource<?>> eventSources = new HashMap<>();
 
 	/** The instance. */
-	private static ApplicationEventBus instance = new ApplicationEventBus();
+	private static GenericEventBus instance = new GenericEventBus();
 
 	public static EventSource<?> get(final String key)
 	{
 		return eventSources.get(key);
 	}
 
-	@SuppressWarnings("unchecked")
-	public static <T> EventSource<EventObject<T>> getEventSource(
-		final Class<T> eventSourceTypeClass)
-	{
-		final EventSource<EventObject<T>> eventSource = (EventSource<EventObject<T>>)ApplicationEventBus
-			.get(eventSourceTypeClass.getSimpleName());
-		return eventSource;
+	public static boolean containsEventSource(final String key) {
+		return eventSources.containsKey(key);
 	}
 
-	public static ApplicationEventBus getInstance()
+	@SuppressWarnings("unchecked")
+	public static <T> EventSource<EventObject<T>> getEventSource(
+		@NonNull
+		final Class<T> eventSourceTypeClass)
+	{
+		if (!containsEventSource(eventSourceTypeClass.getSimpleName()))
+		{
+			GenericEventBus.getInstance().put(eventSourceTypeClass.getSimpleName(),
+				new EventSubject<EventObject<T>>());
+		}
+		return (EventSource<EventObject<T>>)get(eventSourceTypeClass.getSimpleName());
+	}
+
+	public static GenericEventBus getInstance()
 	{
 		return instance;
 	}
@@ -38,7 +48,7 @@ public class ApplicationEventBus
 		return eventSources.put(key, value);
 	}
 
-	private ApplicationEventBus()
+	private GenericEventBus()
 	{
 	}
 
