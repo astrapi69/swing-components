@@ -27,12 +27,12 @@ package io.github.astrapi69.swing.panels.tree;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Optional;
 
 import javax.swing.*;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeSelectionModel;
 
-import io.github.astrapi69.swing.components.factories.SwingContainerFactory;
 import lombok.Getter;
 
 import org.jdesktop.swingx.JXTree;
@@ -40,6 +40,9 @@ import org.jdesktop.swingx.JXTree;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.components.factories.DimensionFactory;
+import io.github.astrapi69.swing.components.factories.SwingContainerFactory;
+import io.github.astrapi69.swing.mouse.MouseClickExtensions;
+import io.github.astrapi69.swing.mouse.MouseClickType;
 
 
 /**
@@ -118,28 +121,30 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 			public void mousePressed(MouseEvent mouseEvent)
 			{
 				int selRow = tree.getRowForLocation(mouseEvent.getX(), mouseEvent.getY());
-				int clickCount = mouseEvent.getClickCount();
 
 				if (selRow != -1)
 				{
-					// handle right clicks
-					if (mouseEvent.isPopupTrigger())
+					Optional<MouseClickType> optionalMouseClickType = MouseClickExtensions
+						.getMouseClickType(mouseEvent);
+					if (optionalMouseClickType.isPresent())
 					{
-						if (clickCount == 1)
+						MouseClickType mouseClickType = optionalMouseClickType.get();
+						switch (mouseClickType)
 						{
-							onSingleRightClick(mouseEvent);
-						}
-					}
-					// handle left clicks
-					if (!mouseEvent.isPopupTrigger())
-					{
-						if (clickCount == 1)
-						{
-							onSingleLeftClick(mouseEvent);
-						}
-						else if (clickCount == 2)
-						{
-							onDoubleLeftClick(mouseEvent);
+							case SINGLE_LEFT :
+								onSingleLeftClick(mouseEvent);
+								break;
+							case DOUBLE_LEFT :
+								onDoubleLeftClick(mouseEvent);
+								break;
+							case SINGLE_RIGHT :
+								onSingleRightClick(mouseEvent);
+								break;
+							case DOUBLE_RIGHT :
+							case SINGLE_MIDDLE :
+							case DOUBLE_MIDDLE :
+							default :
+								break;
 						}
 					}
 				}

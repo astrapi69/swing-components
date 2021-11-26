@@ -24,11 +24,15 @@
  */
 package io.github.astrapi69.swing;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.swing.*;
 import javax.swing.table.TableRowSorter;
 
 import lombok.Getter;
 import io.github.astrapi69.check.Check;
+import io.github.astrapi69.collections.list.ListFactory;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 
 /**
@@ -85,6 +89,36 @@ public class GenericJTable<T> extends JTable
 			selectedRow = this.convertRowIndexToModel(selectedRow);
 		}
 		return selectedRow;
+	}
+
+	/**
+	 * Gets an optional of the selected row data
+	 * 
+	 * @return an optional of the selected row data
+	 */
+	public Optional<T> getSingleSelectedRowData()
+	{
+		if (-1 < getSelectedRow())
+		{
+			return Optional.of(getGenericTableModel().get(getSelectedRow()));
+		}
+		return Optional.empty();
+	}
+
+	/**
+	 * Gets a list of the selected row data
+	 * 
+	 * @return a list of the selected row data
+	 */
+	public List<T> getAllSelectedRowData()
+	{
+		int[] selectedRows = getSelectedRows();
+		List<T> selectedData = ListFactory.newArrayList();
+		for (int i = 0; i < selectedRows.length; i++)
+		{
+			selectedData.add(getGenericTableModel().get(selectedRows[i]));
+		}
+		return selectedData;
 	}
 
 	/**

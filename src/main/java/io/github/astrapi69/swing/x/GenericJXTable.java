@@ -24,26 +24,30 @@
  */
 package io.github.astrapi69.swing.x;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.swing.table.TableRowSorter;
 
 import org.jdesktop.swingx.JXTable;
 
+import io.github.astrapi69.collections.list.ListFactory;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 
 /**
  * The class GenericJXTable.
  *
- * @param <TYPE>
+ * @param <T>
  *            the generic type of the model
  */
-public class GenericJXTable<TYPE> extends JXTable
+public class GenericJXTable<T> extends JXTable
 {
 
 	/** The generic table model. */
-	private final GenericTableModel<TYPE> genericTableModel;
+	private final GenericTableModel<T> genericTableModel;
 
 	/** The sorter. */
-	private final TableRowSorter<GenericTableModel<TYPE>> sorter;
+	private final TableRowSorter<GenericTableModel<T>> sorter;
 
 	/**
 	 * Instantiates a new GenericJXTable.
@@ -51,7 +55,7 @@ public class GenericJXTable<TYPE> extends JXTable
 	 * @param genericTableModel
 	 *            the generic table model
 	 */
-	public GenericJXTable(final GenericTableModel<TYPE> genericTableModel)
+	public GenericJXTable(final GenericTableModel<T> genericTableModel)
 	{
 		super();
 		this.genericTableModel = genericTableModel;
@@ -68,7 +72,7 @@ public class GenericJXTable<TYPE> extends JXTable
 	 *
 	 * @return the generic table model
 	 */
-	public GenericTableModel<TYPE> getGenericTableModel()
+	public GenericTableModel<T> getGenericTableModel()
 	{
 		return genericTableModel;
 	}
@@ -82,10 +86,44 @@ public class GenericJXTable<TYPE> extends JXTable
 	public int getSelectedRow()
 	{
 		int selectedRow = super.getSelectedRow();
-		// find the real selected row. If the rows was sorted the index from the
-		// model does not fit to the table.
-		selectedRow = this.convertRowIndexToModel(selectedRow);
+		if (-1 < selectedRow)
+		{
+			// find the real selected row. If the rows was sorted the index from
+			// the
+			// model does not fit to the table.
+			selectedRow = this.convertRowIndexToModel(selectedRow);
+		}
 		return selectedRow;
+	}
+
+	/**
+	 * Gets an optional of the selected row data
+	 * 
+	 * @return an optional of the selected row data
+	 */
+	public Optional<T> getSingleSelectedRowData()
+	{
+		if (-1 < getSelectedRow())
+		{
+			return Optional.of(getGenericTableModel().get(getSelectedRow()));
+		}
+		return Optional.empty();
+	}
+
+	/**
+	 * Gets a list of the selected row data
+	 * 
+	 * @return a list of the selected row data
+	 */
+	public List<T> getAllSelectedRowData()
+	{
+		int[] selectedRows = getSelectedRows();
+		List<T> selectedData = ListFactory.newArrayList();
+		for (int i = 0; i < selectedRows.length; i++)
+		{
+			selectedData.add(getGenericTableModel().get(selectedRows[i]));
+		}
+		return selectedData;
 	}
 
 	/**
@@ -112,7 +150,7 @@ public class GenericJXTable<TYPE> extends JXTable
 	 *
 	 * @return the sorter
 	 */
-	public TableRowSorter<GenericTableModel<TYPE>> getSorter()
+	public TableRowSorter<GenericTableModel<T>> getSorter()
 	{
 		return sorter;
 	}

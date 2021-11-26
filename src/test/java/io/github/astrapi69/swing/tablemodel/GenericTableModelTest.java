@@ -24,6 +24,8 @@
  */
 package io.github.astrapi69.swing.tablemodel;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +68,27 @@ public class GenericTableModelTest
 		// 4. Create the generic table and associate with the generic table model.
 		final GenericJTable<Permission> permissionTable = new GenericJTable<>(
 			permissionsTableModel);
+		// ListSelectionModel selectionModel = permissionTable.getSelectionModel();
+		// selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		// selectionModel.addListSelectionListener(e -> {
+		// Optional<Permission> singleSelectedRowData = permissionTable.getSingleSelectedRowData();
+		// if(singleSelectedRowData.isPresent()) {
+		// System.out.println(singleSelectedRowData.get());
+		// }
+		// });
+		permissionTable.addMouseListener(new MouseAdapter()
+		{
+			/**
+			 * {@inheritDoc}
+			 *
+			 * @param e
+			 */
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				super.mouseClicked(e);
+			}
+		});
 		// 5. Add the table to a JScrollPane.
 		final JScrollPane scrPnTblPermissions = new JScrollPane();
 		scrPnTblPermissions.setViewportView(permissionTable);
