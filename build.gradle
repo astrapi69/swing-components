@@ -1,3 +1,6 @@
+group = "$groupPackage"
+version = "$projectVersion"
+description = "$rootProject.name"
 
 buildscript {
     repositories {
@@ -23,9 +26,6 @@ apply plugin: "com.github.hierynomus.license"
 apply plugin: "org.ec4j.editorconfig"
 apply plugin: "jacoco"
 
-group = "$groupPackage"
-version = "$projectVersion"
-description = "$rootProject.name"
 sourceCompatibility = "$projectSourceCompatibility"
 
 repositories {
