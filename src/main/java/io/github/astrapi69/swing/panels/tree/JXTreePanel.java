@@ -25,9 +25,7 @@
 package io.github.astrapi69.swing.panels.tree;
 
 import java.awt.*;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Optional;
 
 import javax.swing.*;
 import javax.swing.tree.TreeModel;
@@ -41,8 +39,7 @@ import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.components.factories.DimensionFactory;
 import io.github.astrapi69.swing.components.factories.SwingContainerFactory;
-import io.github.astrapi69.swing.mouse.MouseClickExtensions;
-import io.github.astrapi69.swing.mouse.MouseClickType;
+import io.github.astrapi69.swing.mouse.MouseDoubleClickListener;
 
 
 /**
@@ -112,46 +109,57 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 		JXTree tree = new JXTree();
 
 		tree.setModel(newTreeModel(getModel()));
-		tree.setEditable(true);
+		// if setEditable is set to true, tree element names are editable with double click
+		tree.setEditable(false);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 
-		tree.addMouseListener(new MouseAdapter()
+		tree.addMouseListener(new MouseDoubleClickListener()
 		{
 			@Override
-			public void mousePressed(MouseEvent mouseEvent)
+			public void onSingleClick(MouseEvent mouseEvent)
 			{
 				int selRow = tree.getRowForLocation(mouseEvent.getX(), mouseEvent.getY());
-
 				if (selRow != -1)
 				{
-					Optional<MouseClickType> optionalMouseClickType = MouseClickExtensions
-						.getMouseClickType(mouseEvent);
-					if (optionalMouseClickType.isPresent())
+					if (mouseEvent.getButton() == MouseEvent.BUTTON1)
 					{
-						MouseClickType mouseClickType = optionalMouseClickType.get();
-						switch (mouseClickType)
-						{
-							case SINGLE_LEFT :
-								onSingleLeftClick(mouseEvent);
-								break;
-							case DOUBLE_LEFT :
-								onDoubleLeftClick(mouseEvent);
-								break;
-							case SINGLE_RIGHT :
-								onSingleRightClick(mouseEvent);
-								break;
-							case DOUBLE_RIGHT :
-							case SINGLE_MIDDLE :
-							case DOUBLE_MIDDLE :
-							default :
-								break;
-						}
+						onSingleLeftClick(mouseEvent);
+					}
+					if (mouseEvent.getButton() == MouseEvent.BUTTON2)
+					{
+						onSingleMiddleClick(mouseEvent);
+					}
+					if (mouseEvent.getButton() == MouseEvent.BUTTON3)
+					{
+						onSingleRightClick(mouseEvent);
+					}
+				}
+			}
+
+			@Override
+			public void onDoubleClick(MouseEvent mouseEvent)
+			{
+				int selRow = tree.getRowForLocation(mouseEvent.getX(), mouseEvent.getY());
+				if (selRow != -1)
+				{
+					if (mouseEvent.getButton() == MouseEvent.BUTTON1)
+					{
+						onDoubleLeftClick(mouseEvent);
+					}
+					if (mouseEvent.getButton() == MouseEvent.BUTTON2)
+					{
+						onDoubleMiddleClick(mouseEvent);
+					}
+					if (mouseEvent.getButton() == MouseEvent.BUTTON3)
+					{
+						onDoubleRightClick(mouseEvent);
 					}
 				}
 			}
 		});
 		return tree;
 	}
+
 
 	/**
 	 * Abstract factory callback method that have to be overwritten to provide the specific
@@ -186,6 +194,26 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 	}
 
 	/**
+	 * The callback method on double middle click.
+	 *
+	 * @param event
+	 *            the mouse event
+	 */
+	protected void onDoubleMiddleClick(MouseEvent event)
+	{
+	}
+
+	/**
+	 * The callback method on double right click.
+	 *
+	 * @param event
+	 *            the mouse event
+	 */
+	protected void onDoubleRightClick(MouseEvent event)
+	{
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -216,6 +244,16 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 	 *            the mouse event
 	 */
 	protected void onSingleLeftClick(MouseEvent event)
+	{
+	}
+
+	/**
+	 * The callback method on single middle click.
+	 *
+	 * @param event
+	 *            the mouse event
+	 */
+	protected void onSingleMiddleClick(MouseEvent event)
 	{
 	}
 

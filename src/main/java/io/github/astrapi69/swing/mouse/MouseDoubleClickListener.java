@@ -22,29 +22,60 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.components.factories;
+package io.github.astrapi69.swing.mouse;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
-import lombok.experimental.UtilityClass;
-
-/**
- * The class {@link SwingContainerFactory} provides factory methods for create swing container
- * component objects
- */
-@UtilityClass
-public class SwingContainerFactory
+public abstract class MouseDoubleClickListener extends MouseAdapter implements ActionListener
 {
 
-	/**
-	 * Factory method for create new {@link JScrollPane} object
-	 *
-	 * @return the new {@link JScrollPane}
-	 */
-	public static JScrollPane newScrollPane()
+	private static final String AWT_MULTI_CLICK_INTERVAL_KEY = "awt.multiClickInterval";
+	private final Timer timer;
+	private MouseEvent lastEvent;
+
+	public MouseDoubleClickListener()
 	{
-		final JScrollPane scrollPane = new JScrollPane();
-		return scrollPane;
+		this((Integer)Toolkit.getDefaultToolkit().getDesktopProperty(AWT_MULTI_CLICK_INTERVAL_KEY));
 	}
+
+	public MouseDoubleClickListener(int delay)
+	{
+		this.timer = new Timer(delay, this);
+	}
+
+	public void mouseClicked(MouseEvent mouseEvent)
+	{
+		if (mouseEvent.getClickCount() > 2)
+		{
+			return;
+		}
+		lastEvent = mouseEvent;
+
+		if (timer.isRunning())
+		{
+			timer.stop();
+			onDoubleClick(lastEvent);
+		}
+		else
+		{
+			timer.restart();
+		}
+	}
+
+	public void actionPerformed(ActionEvent e)
+	{
+		timer.stop();
+		onSingleClick(lastEvent);
+	}
+
+	public abstract void onSingleClick(MouseEvent mouseEvent);
+
+	public abstract void onDoubleClick(MouseEvent mouseEvent);
 
 }

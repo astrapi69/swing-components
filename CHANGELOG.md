@@ -17,8 +17,8 @@ ADDED:
 - new test dependency io.github.astrapi69:silk-icon-theme for test the classes for icon factory and extensions
 - new test dependency org.freedesktop.tango:tango-icon-theme for test the classes for icon factory and extensions
 - improve gradle build performance by adding new gradle parameters for caching, parallel, configure on demand and file watch
-- new enum class that defines the type of mouse events
-- new extension class for resolve the type of mouse events
+- new mouse double click listener created for handle single or double clicks only once
+- new generic event bus class created
 
 CHANGED:
 

@@ -22,29 +22,34 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.components.factories;
+package io.github.astrapi69.swing.mouse;
+
+import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
-import lombok.experimental.UtilityClass;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
-/**
- * The class {@link SwingContainerFactory} provides factory methods for create swing container
- * component objects
- */
-@UtilityClass
-public class SwingContainerFactory
+public class MouseDoubleClickListenerTest
 {
 
-	/**
-	 * Factory method for create new {@link JScrollPane} object
-	 *
-	 * @return the new {@link JScrollPane}
-	 */
-	public static JScrollPane newScrollPane()
+	public static void main(String[] args)
 	{
-		final JScrollPane scrollPane = new JScrollPane();
-		return scrollPane;
-	}
+		JFrame frame = new JFrame("Test Double Click");
+		frame.addWindowListener(new CloseWindow());
+		frame.addMouseListener(new MouseDoubleClickListener()
+		{
+			public void onSingleClick(MouseEvent e)
+			{
+				System.out.println("single click");
+			}
 
+			public void onDoubleClick(MouseEvent e)
+			{
+				System.out.println("double click");
+			}
+		});
+		frame.setSize(200, 200);
+		frame.setVisible(true);
+	}
 }
