@@ -118,7 +118,8 @@ public class TestTreeNodeFactory
 			.node(true).build().setDefaultContent(permissions);
 		firstGrandGrandChild = JXTreeElement.builder().name("firstGrandGrandChild")
 			.parent(firstGrandChild).node(false).build().setDefaultContent(permissions);
-		secondChild = JXTreeElement.builder().name("secondChild").parent(parent).node(true).build().setDefaultContent(permissions);
+		secondChild = JXTreeElement.builder().name("secondChild").parent(parent).node(true).build()
+			.setDefaultContent(permissions);
 		secondGrandChild = JXTreeElement.builder().name("secondGrandChild").parent(firstChild)
 			.node(false).build().setDefaultContent(permissions);
 		parentTreeNode = TreeNodeFactory.initializeTreeNodeWithTreeElement(parent, null);

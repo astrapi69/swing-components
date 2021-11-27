@@ -41,11 +41,11 @@ import lombok.experimental.SuperBuilder;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ShapeIcon implements Icon
 {
+	final Shape shape;
+	final Color shapeColor;
 	Color backgroundColor;
 	int iconWidth;
 	int iconHeight;
-	final Shape shape;
-	final Color shapeColor;
 
 	@Override
 	public void paintIcon(Component component, Graphics graphics, int x, int y)

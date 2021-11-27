@@ -37,7 +37,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-import lombok.experimental.SuperBuilder;
 
 /**
  * The class {@link JXTreeElement} represents as the name already presume a tree element
@@ -52,29 +51,22 @@ import lombok.experimental.SuperBuilder;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class JXTreeElement implements Serializable
 {
+	public static final String DEFAULT_CONTENT_KEY = "default_content";
 	/** The serial Version UID */
 	private static final long serialVersionUID = 1L;
-
-	public static final String DEFAULT_CONTENT_KEY = "default_content";
-
-	/** The name of this tree element. */
-	String name;
-
-	/** The flag that indicates if this tree element is a node. */
-	boolean node;
-
-	/** The flag that indicates if a text label should shown if an icon exists */
-	boolean withText;
-
-	/** The icon path for a custom tree icon, if not set default icon will be set */
-	String iconPath;
-
-	/** The parent of this tree element. */
-	JXTreeElement parent;
-
 	/** The map with optional properties */
 	@Builder.Default
 	final Map<String, Object> properties = new LinkedHashMap<>();
+	/** The name of this tree element. */
+	String name;
+	/** The flag that indicates if this tree element is a node. */
+	boolean node;
+	/** The flag that indicates if a text label should shown if an icon exists */
+	boolean withText;
+	/** The icon path for a custom tree icon, if not set default icon will be set */
+	String iconPath;
+	/** The parent of this tree element. */
+	JXTreeElement parent;
 
 	/**
 	 * Gets the default content object from the map

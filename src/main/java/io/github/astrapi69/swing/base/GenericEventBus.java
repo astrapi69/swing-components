@@ -40,19 +40,23 @@ public final class GenericEventBus
 	/** The instance. */
 	private static GenericEventBus instance = new GenericEventBus();
 
+	private GenericEventBus()
+	{
+	}
+
 	public static EventSource<?> get(final String key)
 	{
 		return eventSources.get(key);
 	}
 
-	public static boolean containsEventSource(final String key) {
+	public static boolean containsEventSource(final String key)
+	{
 		return eventSources.containsKey(key);
 	}
 
 	@SuppressWarnings("unchecked")
 	public static <T> EventSource<EventObject<T>> getEventSource(
-		@NonNull
-		final Class<T> eventSourceTypeClass)
+		@NonNull final Class<T> eventSourceTypeClass)
 	{
 		if (!containsEventSource(eventSourceTypeClass.getSimpleName()))
 		{
@@ -70,10 +74,6 @@ public final class GenericEventBus
 	public static synchronized EventSource<?> put(final String key, final EventSource<?> value)
 	{
 		return eventSources.put(key, value);
-	}
-
-	private GenericEventBus()
-	{
 	}
 
 }

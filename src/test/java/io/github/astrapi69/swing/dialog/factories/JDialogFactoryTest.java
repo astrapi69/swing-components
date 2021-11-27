@@ -28,11 +28,11 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import io.github.astrapi69.swing.button.ButtonFactory;
 import net.miginfocom.swing.MigLayout;
 
 import org.testng.annotations.Test;
 
+import io.github.astrapi69.swing.button.ButtonFactory;
 import io.github.astrapi69.swing.dialog.JOptionPaneExtensions;
 import io.github.astrapi69.swing.listener.RequestFocusListener;
 import io.github.astrapi69.swing.test.TestComponentFactory;
