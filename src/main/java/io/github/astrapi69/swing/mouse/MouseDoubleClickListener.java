@@ -32,23 +32,44 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
+/**
+ * The class {@link MouseDoubleClickListener} can handle single and double click events on any
+ * {@link JComponent} object and prevents that an event will be executed twice.
+ */
 public abstract class MouseDoubleClickListener extends MouseAdapter implements ActionListener
 {
-
+	/** The key for the multi click interval */
 	private static final String AWT_MULTI_CLICK_INTERVAL_KEY = "awt.multiClickInterval";
+
+	/**
+	 * The {@link Timer} object
+	 */
 	private final Timer timer;
+
+	/**
+	 * The last {@link MouseEvent} object
+	 */
 	private MouseEvent lastEvent;
 
+	/**
+	 * The default constructor
+	 */
 	public MouseDoubleClickListener()
 	{
 		this((Integer)Toolkit.getDefaultToolkit().getDesktopProperty(AWT_MULTI_CLICK_INTERVAL_KEY));
 	}
 
+	/**
+	 * The constructor with a delay argument for the {@link Timer} object
+	 */
 	public MouseDoubleClickListener(int delay)
 	{
 		this.timer = new Timer(delay, this);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void mouseClicked(MouseEvent mouseEvent)
 	{
 		if (mouseEvent.getClickCount() > 2)
@@ -68,14 +89,30 @@ public abstract class MouseDoubleClickListener extends MouseAdapter implements A
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		timer.stop();
 		onSingleClick(lastEvent);
 	}
 
+	/**
+	 * Callback method that have to be implemented to provide specific action on single click events
+	 *
+	 * @param mouseEvent
+	 *            the mouse event
+	 */
 	public abstract void onSingleClick(MouseEvent mouseEvent);
 
+
+	/**
+	 * Callback method that have to be implemented to provide specific action on double click events
+	 *
+	 * @param mouseEvent
+	 *            the mouse event
+	 */
 	public abstract void onDoubleClick(MouseEvent mouseEvent);
 
 }

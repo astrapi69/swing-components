@@ -26,6 +26,7 @@ package io.github.astrapi69.swing.panels.tree;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.util.Optional;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -40,8 +41,10 @@ import org.jdesktop.swingx.JXTree;
 
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.swing.dialog.DialogExtensions;
 import io.github.astrapi69.swing.dialog.JOptionPaneExtensions;
 import io.github.astrapi69.swing.listener.RequestFocusListener;
+import io.github.astrapi69.swing.mouse.MouseDoubleClickListener;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 import io.github.astrapi69.swing.table.model.dynamic.DynamicPermissionsTableModel;
 import io.github.astrapi69.swing.table.model.dynamic.DynamicTableColumnsModel;
@@ -81,6 +84,28 @@ public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeEle
 		GenericTableModel<Permission> permissionsTableModel = new DynamicPermissionsTableModel(
 			new DynamicTableColumnsModel<>(Permission.class));
 		GenericJXTable<Permission> table = new GenericJXTable<>(permissionsTableModel);
+		table.addMouseListener(new MouseDoubleClickListener()
+		{
+			public void onSingleClick(MouseEvent e)
+			{
+				System.out.println("single click");
+			}
+
+			public void onDoubleClick(MouseEvent e)
+			{
+				System.out.println("double click");
+				Optional<Permission> singleSelectedRowData = table.getSingleSelectedRowData();
+				if (singleSelectedRowData.isPresent())
+				{
+					Permission permission = singleSelectedRowData.get();
+					System.out.println(permission);
+
+					DialogExtensions.showInformationDialog(
+						TreeNodeJXTreeElementWithContentPanelTest.this, "Title",
+						permission.toString());
+				}
+			}
+		});
 		return table;
 	}
 

@@ -24,14 +24,15 @@
  */
 package io.github.astrapi69.swing.tablemodel;
 
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.swing.*;
 
 import io.github.astrapi69.swing.GenericJTable;
+import io.github.astrapi69.swing.mouse.MouseDoubleClickListener;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**
@@ -76,17 +77,22 @@ public class GenericTableModelTest
 		// System.out.println(singleSelectedRowData.get());
 		// }
 		// });
-		permissionTable.addMouseListener(new MouseAdapter()
+		permissionTable.addMouseListener(new MouseDoubleClickListener()
 		{
-			/**
-			 * {@inheritDoc}
-			 *
-			 * @param e
-			 */
-			@Override
-			public void mouseClicked(MouseEvent e)
+			public void onSingleClick(MouseEvent e)
 			{
-				super.mouseClicked(e);
+				System.out.println("single click");
+			}
+
+			public void onDoubleClick(MouseEvent e)
+			{
+				System.out.println("double click");
+				Optional<Permission> singleSelectedRowData = permissionTable
+					.getSingleSelectedRowData();
+				if (singleSelectedRowData.isPresent())
+				{
+					System.out.println(singleSelectedRowData.get());
+				}
 			}
 		});
 		// 5. Add the table to a JScrollPane.

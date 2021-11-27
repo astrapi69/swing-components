@@ -160,7 +160,6 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 		return tree;
 	}
 
-
 	/**
 	 * Abstract factory callback method that have to be overwritten to provide the specific
 	 * {@link TreeModel} for the {@link JTree}

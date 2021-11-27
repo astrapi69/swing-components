@@ -84,7 +84,7 @@ public class DialogExtensions
 	public static void showInformationDialog(Component parentComponent, String title,
 		String message)
 	{
-		showMessageDialog(parentComponent, message, title, JOptionPane.INFORMATION_MESSAGE);
+		showMessageDialog(parentComponent, title, message, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	/**
