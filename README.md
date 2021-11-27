@@ -42,7 +42,7 @@ Than you can add the dependency to your dependencies:
 	<properties>
 			...
 		<!-- SWING-COMPONENTS version -->
-		<swing-components.version>5.11</swing-components.version>
+		<swing-components.version>5.12</swing-components.version>
 			...
 	</properties>
 			...
@@ -65,7 +65,7 @@ your project `build.gradle` if you want to import the core functionality of swin
 define version in file gradle.properties
 
 ```
-swingComponentsVersion=5.11
+swingComponentsVersion=5.12
 ```
 
 or in build.gradle ext area
@@ -73,7 +73,7 @@ or in build.gradle ext area
 ```
 ext {
 			...
-    swingComponentsVersion = "5.11"
+    swingComponentsVersion = "5.12"
 			...
 }
 ```
