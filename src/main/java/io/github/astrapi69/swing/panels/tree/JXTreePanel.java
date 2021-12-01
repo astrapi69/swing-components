@@ -28,6 +28,8 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeSelectionModel;
 
@@ -40,6 +42,7 @@ import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.components.factories.DimensionFactory;
 import io.github.astrapi69.swing.components.factories.SwingContainerFactory;
 import io.github.astrapi69.swing.mouse.MouseDoubleClickListener;
+import io.github.astrapi69.swing.tree.JTreeExtensions;
 
 
 /**
@@ -266,4 +269,65 @@ public abstract class JXTreePanel<T> extends BasePanel<T>
 	{
 	}
 
+	/**
+	 * The callback method on add a new child tree node
+	 */
+	protected void onAddNewChildTreeNode()
+	{
+	}
+
+	/**
+	 * The callback method on copy an existing tree node
+	 */
+	protected void onCopySelectedTreeNode()
+	{
+	}
+
+	/**
+	 * The callback method on editing the selected tree node
+	 */
+	protected void onEditSelectedTreeNode()
+	{
+	}
+
+	/**
+	 * The callback method on expand the selected tree node
+	 */
+	protected void onExpandSelectedTreeNode()
+	{
+		JTreeExtensions.expandAll(tree, JTreeExtensions.getTreePath(getSelectedTreeNode()), true);
+	}
+
+	/**
+	 * The callback method on collapse the selected tree node
+	 */
+	protected void onCollapseSelectedTreeNode()
+	{
+		JTreeExtensions.expandAll(tree, JTreeExtensions.getTreePath(getSelectedTreeNode()), false);
+	}
+
+	/**
+	 * The callback method on delete the selected tree node
+	 */
+	protected void onDeleteSelectedTreeNode()
+	{
+		DefaultMutableTreeNode selectedTreeNode = getSelectedTreeNode();
+		int selectedNodeIndex = selectedTreeNode.getParent().getIndex(selectedTreeNode);
+		selectedTreeNode.removeAllChildren();
+		((DefaultMutableTreeNode)selectedTreeNode.getParent()).remove(selectedNodeIndex);
+		((DefaultTreeModel)tree.getModel()).reload(selectedTreeNode);
+		tree.treeDidChange();
+		tree.treeDidChange();
+		this.repaint();
+	}
+
+	/**
+	 * Gets the selected tree node
+	 * 
+	 * @return the selected tree node
+	 */
+	protected DefaultMutableTreeNode getSelectedTreeNode()
+	{
+		return JTreeExtensions.getSelectedTreeNode(tree);
+	}
 }

@@ -25,7 +25,10 @@
 package io.github.astrapi69.swing.tree;
 
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
+import java.util.Optional;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -49,13 +52,16 @@ public class JTreeExtensions
 	 *            the tree
 	 * @return the selected tree node
 	 */
-	public static DefaultMutableTreeNode getSelectedDefaultMutableTreeNode(
+	public static Optional<DefaultMutableTreeNode> getSelectedDefaultMutableTreeNode(
 		@NonNull MouseEvent mouseEvent, @NonNull JTree tree)
 	{
 		TreePath selectionPath = tree.getPathForLocation(mouseEvent.getX(), mouseEvent.getY());
-		assert selectionPath != null;
+		if (selectionPath == null)
+		{
+			return Optional.empty();
+		}
 		Object lastPathComponent = selectionPath.getLastPathComponent();
-		return (DefaultMutableTreeNode)lastPathComponent;
+		return Optional.of((DefaultMutableTreeNode)lastPathComponent);
 	}
 
 	/**
@@ -100,12 +106,63 @@ public class JTreeExtensions
 	 * @param tree
 	 *            the tree
 	 */
-	public static void expandNodes(@NonNull JTree tree)
+	public static void expandNodes(final @NonNull JTree tree)
 	{
 		for (int i = 0; i < tree.getRowCount(); i++)
 		{
 			tree.expandRow(i);
 		}
+	}
+
+	/**
+	 * Gets the selected tree node as {@link DefaultMutableTreeNode} object
+	 *
+	 * @param tree
+	 *            the tree
+	 */
+	public static DefaultMutableTreeNode getSelectedTreeNode(final @NonNull JTree tree)
+	{
+		DefaultMutableTreeNode selectedTreeNode = (DefaultMutableTreeNode)tree
+			.getLastSelectedPathComponent();
+		return selectedTreeNode;
+	}
+
+	/**
+	 * Creates a {@link List} object with all parent and the given {@link TreeNode} object in the
+	 * parent child order
+	 *
+	 * @param treeNode
+	 *            the tree node
+	 * @return the {@link List} object with all parent and the given {@link TreeNode} object in the
+	 *         parent child order
+	 */
+	public static List<Object> getTreeNodes(final @NonNull TreeNode treeNode)
+	{
+		List<Object> treeNodes = new ArrayList<>();
+		if (treeNode != null)
+		{
+			treeNodes.add(treeNode);
+			TreeNode parenTreeNode = treeNode.getParent();
+			while (parenTreeNode != null)
+			{
+				treeNodes.add(0, parenTreeNode);
+				parenTreeNode = parenTreeNode.getParent();
+			}
+		}
+		return treeNodes;
+	}
+
+	/**
+	 * Creates a {@link TreePath} object from the given {@link TreeNode} object
+	 *
+	 * @param treeNode
+	 *            the tree node
+	 * @return the {@link TreePath} object from the given {@link TreeNode} object
+	 */
+	public static TreePath getTreePath(TreeNode treeNode)
+	{
+		List<Object> treeNodes = getTreeNodes(treeNode);
+		return treeNodes.isEmpty() ? null : new TreePath(treeNodes.toArray());
 	}
 
 }
