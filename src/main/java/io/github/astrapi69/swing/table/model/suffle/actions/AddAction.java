@@ -29,7 +29,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 import io.github.astrapi69.check.Check;
-import io.github.astrapi69.swing.GenericShuffleJTable;
 import io.github.astrapi69.swing.x.GenericShuffleJXTable;
 
 public class AddAction<T> extends AbstractAction

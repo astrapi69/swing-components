@@ -30,9 +30,9 @@ import java.util.List;
 
 import io.github.astrapi69.swing.panels.tree.JXTreeElement;
 import io.github.astrapi69.swing.tree.TreeNodeFactory;
+import io.github.astrapi69.test.objects.Permission;
 import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
-import io.github.astrapi69.test.objects.Permission;
 
 public class TestTreeNodeFactory
 {

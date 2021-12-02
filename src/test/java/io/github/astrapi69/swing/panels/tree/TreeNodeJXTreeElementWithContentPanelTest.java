@@ -38,7 +38,6 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
-import io.github.astrapi69.test.objects.Permission;
 import org.jdesktop.swingx.JXTree;
 
 import io.github.astrapi69.model.BaseModel;
@@ -54,8 +53,8 @@ import io.github.astrapi69.swing.tree.JTreeExtensions;
 import io.github.astrapi69.swing.tree.TreeNodeFactory;
 import io.github.astrapi69.swing.tree.renderer.JXTreeNodeCellRenderer;
 import io.github.astrapi69.swing.x.GenericJXTable;
-import io.github.astrapi69.tree.TreeNode;
 import io.github.astrapi69.test.objects.Permission;
+import io.github.astrapi69.tree.TreeNode;
 
 public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeElementWithContentPanel
 {
@@ -203,8 +202,7 @@ public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeEle
 		if (selectedTreeNode.isPresent())
 		{
 			DefaultMutableTreeNode defaultMutableTreeNode = selectedTreeNode.get();
-			TreeNode<JXTreeElement> selectedTreeNodeElement =
-				(TreeNode<JXTreeElement>)defaultMutableTreeNode
+			TreeNode<JXTreeElement> selectedTreeNodeElement = (TreeNode<JXTreeElement>)defaultMutableTreeNode
 				.getUserObject();
 
 			GenericTableModel tableModel = getTableModel(selectedTreeNodeElement);
@@ -231,37 +229,31 @@ public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeEle
 		if (parentTreeNode.isNode())
 		{
 			JMenuItem menuItemAddChild = new JMenuItem("add node...");
-			menuItemAddChild.addActionListener(
-				actionEvent -> this.onAddNewChildTreeNode());
+			menuItemAddChild.addActionListener(actionEvent -> this.onAddNewChildTreeNode());
 			popup.add(menuItemAddChild);
 		}
 
 		if (!parentTreeNode.isRoot())
 		{
 			JMenuItem deleteNode = new JMenuItem("delete");
-			deleteNode.addActionListener(
-				actionEvent -> this.onDeleteSelectedTreeNode());
+			deleteNode.addActionListener(actionEvent -> this.onDeleteSelectedTreeNode());
 			popup.add(deleteNode);
 		}
 
 		JMenuItem menuItemEdit = new JMenuItem("Edit node...");
-		menuItemEdit.addActionListener(
-			actionEvent -> this.onEditSelectedTreeNode());
+		menuItemEdit.addActionListener(actionEvent -> this.onEditSelectedTreeNode());
 		popup.add(menuItemEdit);
 
 		JMenuItem menuItemCopy = new JMenuItem("Copy node");
-		menuItemCopy.addActionListener(
-			actionEvent -> this.onCopySelectedTreeNode());
+		menuItemCopy.addActionListener(actionEvent -> this.onCopySelectedTreeNode());
 		popup.add(menuItemCopy);
 
 		JMenuItem menuItemCollapse = new JMenuItem("Collapse node");
-		menuItemCollapse.addActionListener(
-			actionEvent -> this.onCollapseSelectedTreeNode());
+		menuItemCollapse.addActionListener(actionEvent -> this.onCollapseSelectedTreeNode());
 		popup.add(menuItemCollapse);
 
 		JMenuItem menuItemExpand = new JMenuItem("Expand node");
-		menuItemExpand.addActionListener(
-			actionEvent -> this.onExpandSelectedTreeNode());
+		menuItemExpand.addActionListener(actionEvent -> this.onExpandSelectedTreeNode());
 		popup.add(menuItemExpand);
 
 		popup.show(tree, x, y);

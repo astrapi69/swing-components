@@ -30,10 +30,10 @@ import java.util.Optional;
 
 import javax.swing.table.TableRowSorter;
 
-import io.github.astrapi69.swing.mouse.MouseDoubleClickListener;
 import org.jdesktop.swingx.JXTable;
 
 import io.github.astrapi69.collections.list.ListFactory;
+import io.github.astrapi69.swing.mouse.MouseDoubleClickListener;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 
 /**

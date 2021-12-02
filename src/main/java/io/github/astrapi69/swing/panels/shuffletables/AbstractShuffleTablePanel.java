@@ -30,8 +30,6 @@ import java.util.List;
 
 import javax.swing.*;
 
-import io.github.astrapi69.swing.x.GenericJXTable;
-import io.github.astrapi69.swing.x.GenericShuffleJXTable;
 import lombok.Getter;
 import io.github.astrapi69.model.GenericModel;
 import io.github.astrapi69.model.api.Model;
@@ -42,6 +40,8 @@ import io.github.astrapi69.swing.table.model.suffle.actions.AddAction;
 import io.github.astrapi69.swing.table.model.suffle.actions.AddAllAction;
 import io.github.astrapi69.swing.table.model.suffle.actions.RemoveAction;
 import io.github.astrapi69.swing.table.model.suffle.actions.RemoveAllAction;
+import io.github.astrapi69.swing.x.GenericJXTable;
+import io.github.astrapi69.swing.x.GenericShuffleJXTable;
 
 
 /**

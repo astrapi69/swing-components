@@ -38,7 +38,7 @@ public final class GenericEventBus
 	private static final Map<String, EventSource<?>> eventSources = new HashMap<>();
 
 	/** The instance. */
-	private static GenericEventBus instance = new GenericEventBus();
+	private static final GenericEventBus instance = new GenericEventBus();
 
 	private GenericEventBus()
 	{
@@ -60,7 +60,7 @@ public final class GenericEventBus
 	{
 		if (!containsEventSource(eventSourceTypeClass.getSimpleName()))
 		{
-			GenericEventBus.getInstance().put(eventSourceTypeClass.getSimpleName(),
+			put(eventSourceTypeClass.getSimpleName(),
 				new EventSubject<EventObject<T>>());
 		}
 		return (EventSource<EventObject<T>>)get(eventSourceTypeClass.getSimpleName());

@@ -31,10 +31,10 @@ import java.util.Optional;
 import javax.swing.*;
 
 import io.github.astrapi69.swing.mouse.MouseDoubleClickListener;
-import io.github.astrapi69.test.instances.TestPermissionFactory;
 import io.github.astrapi69.swing.x.GenericJXTable;
-import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.test.instances.TestPermissionFactory;
 import io.github.astrapi69.test.objects.Permission;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**
  * The class GenericTableModelTest.
