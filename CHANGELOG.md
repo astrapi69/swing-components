@@ -4,7 +4,15 @@
 Version 6-SNAPSHOT
 -------------
 
+ADDED:
 
+- new callback methods in GenericJXTable for left and right clicks
+
+CHANGED:
+
+- tagged GenericJTable as deprecated
+- replaced all occurrences of GenericJTable with GenericJXTable
+- replaced locally test class Permission with the same name class from test-objects dependency
 
 Version 5.12
 -------------

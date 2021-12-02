@@ -24,14 +24,14 @@
  */
 package io.github.astrapi69.swing.table.model.dynamic;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
 
-import io.github.astrapi69.swing.GenericJTable;
+import io.github.astrapi69.test.instances.TestPermissionFactory;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
-import io.github.astrapi69.swing.tablemodel.Permission;
+import io.github.astrapi69.test.objects.Permission;
+import io.github.astrapi69.swing.x.GenericJXTable;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**
@@ -57,17 +57,14 @@ public class DynamicTableModelTest
 	private static void newTableModelWithTableAndShow()
 	{
 		// 1. Create a list with data.
-		final List<Permission> permissions = new ArrayList<>();
-		permissions.add(new Permission("read", "Permission to read."));
-		permissions.add(new Permission("write", "Permission to write."));
-		permissions.add(new Permission("delete", "Permission to delete."));
+		final List<Permission> permissions = TestPermissionFactory.getPermissions();
 		// 2. Create a generic table model for the class Permission.
 		final GenericTableModel<Permission> permissionsTableModel = new DynamicPermissionsTableModel(
 			new DynamicTableColumnsModel<>(Permission.class));
 		// 3. Add the data to the model.
 		permissionsTableModel.addList(permissions);
 		// 4. Create the generic table and associate with the generic table model.
-		final GenericJTable<Permission> permissionTable = new GenericJTable<>(
+		final GenericJXTable<Permission> permissionTable = new GenericJXTable<>(
 			permissionsTableModel);
 		// 5. Add the table to a JScrollPane.
 		final JScrollPane scrPnTblPermissions = new JScrollPane();

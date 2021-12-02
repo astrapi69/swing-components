@@ -24,15 +24,15 @@
  */
 package io.github.astrapi69.swing.panels.shuffletables;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
 
 import io.github.astrapi69.model.GenericModel;
+import io.github.astrapi69.test.instances.TestPermissionFactory;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
-import io.github.astrapi69.swing.tablemodel.Permission;
-import io.github.astrapi69.swing.tablemodel.PermissionsTableModel;
+import io.github.astrapi69.swing.tablemodel.TestPermissionsTableModel;
+import io.github.astrapi69.test.objects.Permission;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**
@@ -50,13 +50,7 @@ public class GenericShuffleTableModelTest
 	public static void main(final String[] args)
 	{
 		// 1. Create a list with data.
-		final List<Permission> permissions = new ArrayList<>();
-		permissions.add(new Permission("read", "Permission to read."));
-		permissions.add(new Permission("write", "Permission to write."));
-		permissions.add(new Permission("delete", "Permission to delete."));
-		permissions.add(new Permission("execute", "Permission to execute."));
-		permissions.add(new Permission("buy", "Permission to buy."));
-		permissions.add(new Permission("sale", "Permission to sale."));
+		final List<Permission> permissions = TestPermissionFactory.getPermissions();
 		// 2. Create a panel with that encapsulates the two tables and buttons.
 		final AbstractShuffleTablePanel<Permission> panel = new AbstractShuffleTablePanel<Permission>(
 			GenericModel.ofList(permissions))
@@ -65,13 +59,13 @@ public class GenericShuffleTableModelTest
 			@Override
 			protected GenericTableModel<Permission> newLeftTableModel()
 			{
-				return new PermissionsTableModel();
+				return new TestPermissionsTableModel();
 			}
 
 			@Override
 			protected GenericTableModel<Permission> newRightTableModel()
 			{
-				return new PermissionsTableModel();
+				return new TestPermissionsTableModel();
 			}
 
 		};
@@ -89,5 +83,6 @@ public class GenericShuffleTableModelTest
 			frame.toFront();
 		}
 	}
+
 
 }

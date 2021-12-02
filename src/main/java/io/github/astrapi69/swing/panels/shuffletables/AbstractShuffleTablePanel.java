@@ -30,11 +30,11 @@ import java.util.List;
 
 import javax.swing.*;
 
+import io.github.astrapi69.swing.x.GenericJXTable;
+import io.github.astrapi69.swing.x.GenericShuffleJXTable;
 import lombok.Getter;
 import io.github.astrapi69.model.GenericModel;
 import io.github.astrapi69.model.api.Model;
-import io.github.astrapi69.swing.GenericJTable;
-import io.github.astrapi69.swing.GenericShuffleJTable;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
@@ -88,13 +88,13 @@ public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
 	private JScrollPane scrPnTblRight;
 
 	/** The shuffle table. */
-	private GenericShuffleJTable<T> shuffleTable;
+	private GenericShuffleJXTable<T> shuffleTable;
 
 	/** The left table. */
-	private GenericJTable<T> tblLeft;
+	private GenericJXTable<T> tblLeft;
 
 	/** The right table. */
-	private GenericJTable<T> tblRight;
+	private GenericJXTable<T> tblRight;
 
 
 	/**
@@ -139,13 +139,13 @@ public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>
 		super.onInitializeComponents();
 
 		// Create the tables and scrollpanes...
-		tblRight = new GenericJTable<>(newRightTableModel());
-		tblLeft = new GenericJTable<>(newLeftTableModel());
+		tblRight = new GenericJXTable<>(newRightTableModel());
+		tblLeft = new GenericJXTable<>(newLeftTableModel());
 		@SuppressWarnings("unchecked")
 		final GenericTableModel<T> tableModel = (GenericTableModel<T>)tblLeft.getModel();
 		tableModel.addList(getModelObject());
 
-		shuffleTable = new GenericShuffleJTable<>(tblLeft, tblRight);
+		shuffleTable = new GenericShuffleJXTable<>(tblLeft, tblRight);
 
 		addAction = new AddAction<>(shuffleTable);
 		removeAction = new RemoveAction<>(shuffleTable);

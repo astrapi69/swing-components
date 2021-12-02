@@ -24,11 +24,13 @@
  */
 package io.github.astrapi69.swing.x;
 
+import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.Optional;
 
 import javax.swing.table.TableRowSorter;
 
+import io.github.astrapi69.swing.mouse.MouseDoubleClickListener;
 import org.jdesktop.swingx.JXTable;
 
 import io.github.astrapi69.collections.list.ListFactory;
@@ -65,6 +67,51 @@ public class GenericJXTable<T> extends JXTable
 		this.sorter = new TableRowSorter<>(this.genericTableModel);
 
 		this.setRowSorter(this.sorter);
+
+		this.addMouseListener(new MouseDoubleClickListener()
+		{
+			@Override
+			public void onSingleClick(MouseEvent mouseEvent)
+			{
+				int selectedRow = getSelectedRow();
+				if (selectedRow != -1)
+				{
+					if (mouseEvent.getButton() == MouseEvent.BUTTON1)
+					{
+						onSingleLeftClick(mouseEvent);
+					}
+					if (mouseEvent.getButton() == MouseEvent.BUTTON2)
+					{
+						onSingleMiddleClick(mouseEvent);
+					}
+					if (mouseEvent.getButton() == MouseEvent.BUTTON3)
+					{
+						onSingleRightClick(mouseEvent);
+					}
+				}
+			}
+
+			@Override
+			public void onDoubleClick(MouseEvent mouseEvent)
+			{
+				int selectedRow = getSelectedRow();
+				if (selectedRow != -1)
+				{
+					if (mouseEvent.getButton() == MouseEvent.BUTTON1)
+					{
+						onDoubleLeftClick(mouseEvent);
+					}
+					if (mouseEvent.getButton() == MouseEvent.BUTTON2)
+					{
+						onDoubleMiddleClick(mouseEvent);
+					}
+					if (mouseEvent.getButton() == MouseEvent.BUTTON3)
+					{
+						onDoubleRightClick(mouseEvent);
+					}
+				}
+			}
+		});
 	}
 
 	/**
@@ -153,6 +200,66 @@ public class GenericJXTable<T> extends JXTable
 	public TableRowSorter<GenericTableModel<T>> getSorter()
 	{
 		return sorter;
+	}
+
+	/**
+	 * The callback method on single left click.
+	 *
+	 * @param event
+	 *            the mouse event
+	 */
+	protected void onSingleLeftClick(MouseEvent event)
+	{
+	}
+
+	/**
+	 * The callback method on single middle click.
+	 *
+	 * @param event
+	 *            the mouse event
+	 */
+	protected void onSingleMiddleClick(MouseEvent event)
+	{
+	}
+
+	/**
+	 * The callback method on single right click.
+	 *
+	 * @param event
+	 *            the mouse event
+	 */
+	protected void onSingleRightClick(MouseEvent event)
+	{
+	}
+
+	/**
+	 * The callback method on double left click.
+	 *
+	 * @param event
+	 *            the mouse event
+	 */
+	protected void onDoubleLeftClick(MouseEvent event)
+	{
+	}
+
+	/**
+	 * The callback method on double middle click.
+	 *
+	 * @param event
+	 *            the mouse event
+	 */
+	protected void onDoubleMiddleClick(MouseEvent event)
+	{
+	}
+
+	/**
+	 * The callback method on double right click.
+	 *
+	 * @param event
+	 *            the mouse event
+	 */
+	protected void onDoubleRightClick(MouseEvent event)
+	{
 	}
 
 }

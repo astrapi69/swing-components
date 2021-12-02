@@ -25,15 +25,16 @@
 package io.github.astrapi69.swing.tablemodel;
 
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import javax.swing.*;
 
-import io.github.astrapi69.swing.GenericJTable;
 import io.github.astrapi69.swing.mouse.MouseDoubleClickListener;
+import io.github.astrapi69.test.instances.TestPermissionFactory;
+import io.github.astrapi69.swing.x.GenericJXTable;
 import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.test.objects.Permission;
 
 /**
  * The class GenericTableModelTest.
@@ -58,16 +59,13 @@ public class GenericTableModelTest
 	private static void newTableModelWithTableAndShow()
 	{
 		// 1. Create a list with data.
-		final List<Permission> permissions = new ArrayList<>();
-		permissions.add(new Permission("read", "Permission to read."));
-		permissions.add(new Permission("write", "Permission to write."));
-		permissions.add(new Permission("delete", "Permission to delete."));
+		final List<Permission> permissions = TestPermissionFactory.getPermissions();
 		// 2. Create a generic table model for the class Permission.
-		final PermissionsTableModel permissionsTableModel = new PermissionsTableModel();
+		final TestPermissionsTableModel permissionsTableModel = new TestPermissionsTableModel();
 		// 3. Add the data to the model.
 		permissionsTableModel.addList(permissions);
 		// 4. Create the generic table and associate with the generic table model.
-		final GenericJTable<Permission> permissionTable = new GenericJTable<>(
+		final GenericJXTable<Permission> permissionTable = new GenericJXTable<>(
 			permissionsTableModel);
 		// ListSelectionModel selectionModel = permissionTable.getSelectionModel();
 		// selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

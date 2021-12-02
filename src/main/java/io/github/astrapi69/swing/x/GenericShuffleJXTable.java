@@ -24,23 +24,38 @@
  */
 package io.github.astrapi69.swing.x;
 
+import java.io.Serializable;
+
+import lombok.Getter;
+import io.github.astrapi69.check.Check;
+import io.github.astrapi69.swing.table.model.suffle.GenericShuffleTableModel;
+
 /**
  * The class GenericShuffleJXTable.
  *
  * @param <T>
  *            the generic type of the model
  */
-public class GenericShuffleJXTable<T>
+public class GenericShuffleJXTable<T> implements Serializable
 {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
 	/** The left table. */
+	@Getter
 	private final GenericJXTable<T> leftTable;
 
+	/** The model. */
+	@Getter
+	private final GenericShuffleTableModel<T> model;
+
 	/** The right table. */
+	@Getter
 	private final GenericJXTable<T> rightTable;
 
 	/**
-	 * Instantiates a new generic shuffle jx table.
+	 * Instantiates a new {@link GenericShuffleJXTable}
 	 *
 	 * @param leftTable
 	 *            the left table
@@ -50,27 +65,27 @@ public class GenericShuffleJXTable<T>
 	public GenericShuffleJXTable(final GenericJXTable<T> leftTable,
 		final GenericJXTable<T> rightTable)
 	{
-		super();
+		Check.get().notNull(leftTable, "leftTable").notNull(rightTable, "rightTable");
 		this.leftTable = leftTable;
 		this.rightTable = rightTable;
+		this.model = new GenericShuffleTableModel<>(leftTable.getGenericTableModel(),
+			rightTable.getGenericTableModel());
 	}
 
 	/**
-	 * Adds the all left rows to right table.
+	 * Adds all the left rows to right table.
 	 */
 	public void addAllLeftRowsToRightTable()
 	{
-		rightTable.getGenericTableModel().addList(leftTable.getGenericTableModel().getData());
-		leftTable.getGenericTableModel().clear();
+		model.addAllLeftRowsToRightTableModel();
 	}
 
 	/**
-	 * Adds the all right rows to left table.
+	 * Adds all the right rows to left table.
 	 */
 	public void addAllRightRowsToLeftTable()
 	{
-		leftTable.getGenericTableModel().addList(rightTable.getGenericTableModel().getData());
-		rightTable.getGenericTableModel().clear();
+		model.addAllRightRowsToLeftTableModel();
 	}
 
 	/**
@@ -78,51 +93,31 @@ public class GenericShuffleJXTable<T>
 	 */
 	public void shuffleSelectedLeftRowsToRightTable()
 	{
-		final int[] selectedRows = leftTable.getSelectedRows();
-		final int lastIndex = selectedRows.length - 1;
-		for (int i = lastIndex; -1 < i; i--)
-		{
-			final int selectedRow = selectedRows[i];
-			final T row = leftTable.getGenericTableModel().removeAt(selectedRow);
-			rightTable.getGenericTableModel().add(row);
-		}
+		model.shuffleSelectedLeftRowsToRightTableModel(leftTable.getSelectedRows());
 	}
 
-
 	/**
-	 * Shuffle selected left row to right table model.
+	 * Shuffle selected left row to right table.
 	 */
 	public void shuffleSelectedLeftRowToRightTable()
 	{
-		final int selectedRow = leftTable.getSelectedRow();
-		final T row = leftTable.getGenericTableModel().removeAt(selectedRow);
-		rightTable.getGenericTableModel().add(row);
+		model.shuffleSelectedLeftRowToRightTableModel(leftTable.getSelectedRow());
 	}
 
-
 	/**
-	 * Shuffle selected right rows to left table model.
+	 * Shuffle selected right rows to left table.
 	 */
 	public void shuffleSelectedRightRowsToLeftTable()
 	{
-		final int[] selectedRows = rightTable.getSelectedRows();
-		final int lastIndex = selectedRows.length - 1;
-		for (int i = lastIndex; -1 < i; i--)
-		{
-			final int selectedRow = selectedRows[i];
-			final T row = rightTable.getGenericTableModel().removeAt(selectedRow);
-			leftTable.getGenericTableModel().add(row);
-		}
+		model.shuffleSelectedRightRowsToLeftTableModel(rightTable.getSelectedRows());
 	}
 
 	/**
-	 * Shuffle selected right row to left table model.
+	 * Shuffle selected right row to left table.
 	 */
 	public void shuffleSelectedRightRowToLeftTable()
 	{
-		final int selectedRow = rightTable.getSelectedRow();
-		final T row = rightTable.getGenericTableModel().removeAt(selectedRow);
-		leftTable.getGenericTableModel().add(row);
+		model.shuffleSelectedRightRowToLeftTableModel(rightTable.getSelectedRow());
 	}
 
 }

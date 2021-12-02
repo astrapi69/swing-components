@@ -35,6 +35,8 @@ import io.github.astrapi69.swing.table.model.suffle.GenericShuffleTableModel;
  *
  * @param <T>
  *            the generic type of the model
+ * @deprecated use instead the GenericShuffleJXTable class<br><br>
+ * Note: will be deleted in next minor version
  */
 public class GenericShuffleJTable<T> implements Serializable
 {

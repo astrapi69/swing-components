@@ -30,15 +30,16 @@ import javax.swing.*;
 
 import io.github.astrapi69.check.Check;
 import io.github.astrapi69.swing.GenericShuffleJTable;
+import io.github.astrapi69.swing.x.GenericShuffleJXTable;
 
 public class AddAllAction<T> extends AbstractAction
 {
 
 	private static final long serialVersionUID = 1L;
 
-	private final GenericShuffleJTable<T> shuffleJTable;
+	private final GenericShuffleJXTable<T> shuffleJTable;
 
-	public AddAllAction(final GenericShuffleJTable<T> shuffleJTable)
+	public AddAllAction(final GenericShuffleJXTable<T> shuffleJTable)
 	{
 		Check.get().notNull(shuffleJTable, "shuffleJTable");
 		this.shuffleJTable = shuffleJTable;

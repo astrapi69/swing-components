@@ -25,11 +25,12 @@
 package io.github.astrapi69.swing.tablemodel;
 
 import io.github.astrapi69.swing.table.model.GenericTableModel;
+import io.github.astrapi69.test.objects.Permission;
 
 /**
- * The class PermissionsTableModel.
+ * The class TestPermissionsTableModel.
  */
-public class PermissionsTableModel extends GenericTableModel<Permission>
+public class TestPermissionsTableModel extends GenericTableModel<Permission>
 {
 
 	/** The Constant DESCRIPTION. */
@@ -38,14 +39,17 @@ public class PermissionsTableModel extends GenericTableModel<Permission>
 	/** The Constant NAME. */
 	public static final String NAME = "Name";
 
+	/** The Constant NAME. */
+	public static final String SHORTCUT = "Shortcut";
+
 	/**
-	 * The generated constant serialVersionUID.
+	 * The constant serialVersionUID.
 	 */
-	private static final long serialVersionUID = 4876488625090262508L;
+	private static final long serialVersionUID = 1L;
 	/** The column names. */
-	private final String[] columnNames = { NAME, DESCRIPTION };
+	private final String[] columnNames = { NAME, DESCRIPTION, SHORTCUT };
 	/** The can edit. */
-	boolean[] canEdit = new boolean[] { false, false };
+	boolean[] canEdit = new boolean[] { false, false, false };
 
 	/**
 	 * (non-Javadoc).
@@ -65,6 +69,8 @@ public class PermissionsTableModel extends GenericTableModel<Permission>
 			case 0 :
 				return String.class;
 			case 1 :
+				return String.class;
+			case 2 :
 				return String.class;
 			default :
 				return null;
@@ -123,6 +129,8 @@ public class PermissionsTableModel extends GenericTableModel<Permission>
 				return permission.getName();
 			case 1 :
 				return permission.getDescription();
+			case 2 :
+				return permission.getShortcut();
 			default :
 				return null;
 		}

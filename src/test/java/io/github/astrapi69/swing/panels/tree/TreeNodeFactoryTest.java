@@ -29,6 +29,7 @@ import static org.testng.Assert.assertNotNull;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import io.github.astrapi69.test.instances.TestTreeNodeFactory;
 import org.testng.annotations.Test;
 
 import io.github.astrapi69.swing.tree.TreeNodeFactory;

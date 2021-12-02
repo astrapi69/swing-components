@@ -40,6 +40,8 @@ import io.github.astrapi69.swing.table.model.GenericTableModel;
  *
  * @param <T>
  *            the generic type of the model
+ * @deprecated use instead the GenericJXTable class<br><br>
+ * Note: will be deleted in next minor version
  */
 public class GenericJTable<T> extends JTable
 {

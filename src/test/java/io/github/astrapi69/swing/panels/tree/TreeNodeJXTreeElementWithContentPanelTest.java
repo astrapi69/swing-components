@@ -38,6 +38,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
+import io.github.astrapi69.test.objects.Permission;
 import org.jdesktop.swingx.JXTree;
 
 import io.github.astrapi69.model.BaseModel;
@@ -49,12 +50,12 @@ import io.github.astrapi69.swing.mouse.MouseDoubleClickListener;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 import io.github.astrapi69.swing.table.model.dynamic.DynamicPermissionsTableModel;
 import io.github.astrapi69.swing.table.model.dynamic.DynamicTableColumnsModel;
-import io.github.astrapi69.swing.tablemodel.Permission;
 import io.github.astrapi69.swing.tree.JTreeExtensions;
 import io.github.astrapi69.swing.tree.TreeNodeFactory;
 import io.github.astrapi69.swing.tree.renderer.JXTreeNodeCellRenderer;
 import io.github.astrapi69.swing.x.GenericJXTable;
 import io.github.astrapi69.tree.TreeNode;
+import io.github.astrapi69.test.objects.Permission;
 
 public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeElementWithContentPanel
 {
@@ -83,7 +84,7 @@ public class TreeNodeJXTreeElementWithContentPanelTest extends TreeNodeJXTreeEle
 	protected GenericJXTable newJTable()
 	{
 		GenericTableModel<Permission> permissionsTableModel = new DynamicPermissionsTableModel(
-			new DynamicTableColumnsModel<>(Permission.class));
+			new DynamicTableColumnsModel<Permission>(Permission.class));
 		GenericJXTable<Permission> table = new GenericJXTable<>(permissionsTableModel);
 		table.addMouseListener(new MouseDoubleClickListener()
 		{

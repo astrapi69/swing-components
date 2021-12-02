@@ -25,7 +25,7 @@
 package io.github.astrapi69.swing.table.model.dynamic;
 
 import lombok.NonNull;
-import io.github.astrapi69.swing.tablemodel.Permission;
+import io.github.astrapi69.test.objects.Permission;
 
 /**
  * The class DynamicPermissionsTableModel
@@ -47,6 +47,8 @@ public class DynamicPermissionsTableModel extends DynamicTableModel<Permission>
 			case 0 :
 				return permission.getName();
 			case 1 :
+				return permission.getDescription();
+			case 3 :
 				return permission.getDescription();
 			default :
 				return null;

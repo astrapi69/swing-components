@@ -22,17 +22,17 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.panels.tree;
+package io.github.astrapi69.test.instances;
 
 import static io.github.astrapi69.swing.tree.TreeNodeFactory.initializeTreeNodeWithTreeElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import io.github.astrapi69.swing.tablemodel.Permission;
+import io.github.astrapi69.swing.panels.tree.JXTreeElement;
 import io.github.astrapi69.swing.tree.TreeNodeFactory;
 import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
+import io.github.astrapi69.test.objects.Permission;
 
 public class TestTreeNodeFactory
 {
@@ -97,19 +97,12 @@ public class TestTreeNodeFactory
 		JXTreeElement secondChild;
 		JXTreeElement secondGrandChild;
 
-		permissions1 = new ArrayList<>();
-		permissions1.add(new Permission("read", "Permission to read."));
-		permissions1.add(new Permission("write", "Permission to write."));
-		permissions1.add(new Permission("delete", "Permission to delete."));
+		permissions = TestPermissionFactory.getPermissionsInGerman();
+		permissions1 = TestPermissionFactory.getPermissions();
 
 		parent = JXTreeElement.builder().name("parent")
 			.iconPath("io/github/astrapi69/silk/icons/disk.png").withText(true).parent(null)
 			.node(true).build().setDefaultContent(permissions1);
-		permissions1 = new ArrayList<>();
-		permissions = permissions1;
-		permissions.add(new Permission("lesen", "Permission zum lesen."));
-		permissions.add(new Permission("schreiben", "Permission zum schreiben."));
-		permissions.add(new Permission("löschen", "Permission zum löschen."));
 		firstChild = JXTreeElement.builder().name("firstChild/search").parent(parent)
 			.iconPath("io/github/astrapi69/silk/icons/magnifier.png").withText(true).node(true)
 			.build().setDefaultContent(permissions);
