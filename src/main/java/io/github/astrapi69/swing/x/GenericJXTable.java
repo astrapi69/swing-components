@@ -30,6 +30,7 @@ import java.util.Optional;
 
 import javax.swing.table.TableRowSorter;
 
+import lombok.NonNull;
 import org.jdesktop.swingx.JXTable;
 
 import io.github.astrapi69.collections.list.ListFactory;
@@ -260,6 +261,48 @@ public class GenericJXTable<T> extends JXTable
 	 */
 	protected void onDoubleRightClick(MouseEvent event)
 	{
+	}
+
+	/**
+	 * The callback method on delete the selected row
+	 */
+	protected void onDeleteSelectedRow()
+	{
+		final int selectedRow = getSelectedRow();
+		if (-1 < selectedRow)
+		{
+			getGenericTableModel().removeAt(selectedRow);
+		}
+	}
+
+	/**
+	 * The callback method on delete the selected row
+	 */
+	protected void onDeleteSelectedRows()
+	{
+		getGenericTableModel().removeAll(getSelectedRows());
+	}
+
+	/**
+	 * The callback method on add a new row
+	 *
+	 * @param newRow
+	 *            the new row add
+	 */
+	protected void onAddNewRow(@NonNull T newRow)
+	{
+		getGenericTableModel().add(newRow);
+	}
+
+	/**
+	 * Adds the given list
+	 *
+	 * @param list
+	 *            the list of rows to add
+	 */
+	protected void onAddNewRows(@NonNull final List<T> list)
+	{
+		getGenericTableModel().addList(list);
 	}
 
 }

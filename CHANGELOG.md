@@ -7,6 +7,7 @@ Version 6-SNAPSHOT
 ADDED:
 
 - new callback methods in GenericJXTable for left and right clicks
+- new callback methods in GenericJXTable for add or remove rows
 
 CHANGED:
 
