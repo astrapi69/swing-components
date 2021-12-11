@@ -24,14 +24,15 @@
  */
 package io.github.astrapi69.swing.wizard;
 
-import io.github.astrapi69.design.pattern.state.wizard.WizardState;
+import io.github.astrapi69.design.pattern.state.wizard.BaseWizardState;
+import io.github.astrapi69.design.pattern.state.wizard.BaseWizardStateMachine;
 import io.github.astrapi69.design.pattern.state.wizard.WizardStateMachine;
 
 /**
  * The enum {@link CustomState} represents three wizard states and the cancel with the finish
  * states.
  */
-public enum CustomState implements WizardState<WizardStateMachine>
+public enum CustomState implements BaseWizardState<BaseWizardStateMachine>
 {
 
 	/** The cancel {@link CustomState} object. */
@@ -39,13 +40,13 @@ public enum CustomState implements WizardState<WizardStateMachine>
 
 
 		@Override
-		public void cancel(final WizardStateMachine stateMachine)
+		public void cancel(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.CANCELED);
 		}
 
 		@Override
-		public void finish(final WizardStateMachine stateMachine)
+		public void finish(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.FINISHED);
 		}
@@ -57,12 +58,12 @@ public enum CustomState implements WizardState<WizardStateMachine>
 		}
 
 		@Override
-		public void goNext(final WizardStateMachine stateMachine)
+		public void goNext(final BaseWizardStateMachine stateMachine)
 		{
 		}
 
 		@Override
-		public void goPrevious(final WizardStateMachine stateMachine)
+		public void goPrevious(final BaseWizardStateMachine stateMachine)
 		{
 		}
 
@@ -72,13 +73,13 @@ public enum CustomState implements WizardState<WizardStateMachine>
 	FINISHED {
 
 		@Override
-		public void cancel(final WizardStateMachine stateMachine)
+		public void cancel(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.CANCELED);
 		}
 
 		@Override
-		public void finish(final WizardStateMachine stateMachine)
+		public void finish(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.FINISHED);
 		}
@@ -90,12 +91,12 @@ public enum CustomState implements WizardState<WizardStateMachine>
 		}
 
 		@Override
-		public void goNext(final WizardStateMachine stateMachine)
+		public void goNext(final BaseWizardStateMachine stateMachine)
 		{
 		}
 
 		@Override
-		public void goPrevious(final WizardStateMachine stateMachine)
+		public void goPrevious(final BaseWizardStateMachine stateMachine)
 		{
 		}
 
@@ -105,13 +106,13 @@ public enum CustomState implements WizardState<WizardStateMachine>
 	FIRST {
 
 		@Override
-		public void cancel(final WizardStateMachine stateMachine)
+		public void cancel(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.CANCELED);
 		}
 
 		@Override
-		public void finish(final WizardStateMachine stateMachine)
+		public void finish(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.FINISHED);
 		}
@@ -123,13 +124,13 @@ public enum CustomState implements WizardState<WizardStateMachine>
 		}
 
 		@Override
-		public void goNext(final WizardStateMachine stateMachine)
+		public void goNext(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.SECOND);
 		}
 
 		@Override
-		public void goPrevious(final WizardStateMachine input)
+		public void goPrevious(final BaseWizardStateMachine input)
 		{
 		}
 
@@ -151,13 +152,13 @@ public enum CustomState implements WizardState<WizardStateMachine>
 	SECOND {
 
 		@Override
-		public void cancel(final WizardStateMachine stateMachine)
+		public void cancel(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.CANCELED);
 		}
 
 		@Override
-		public void finish(final WizardStateMachine stateMachine)
+		public void finish(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.FINISHED);
 		}
@@ -169,13 +170,13 @@ public enum CustomState implements WizardState<WizardStateMachine>
 		}
 
 		@Override
-		public void goNext(final WizardStateMachine stateMachine)
+		public void goNext(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.THIRD);
 		}
 
 		@Override
-		public void goPrevious(final WizardStateMachine stateMachine)
+		public void goPrevious(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.FIRST);
 		}
@@ -186,13 +187,13 @@ public enum CustomState implements WizardState<WizardStateMachine>
 	THIRD {
 
 		@Override
-		public void cancel(final WizardStateMachine stateMachine)
+		public void cancel(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.CANCELED);
 		}
 
 		@Override
-		public void finish(final WizardStateMachine stateMachine)
+		public void finish(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(CustomState.FINISHED);
 		}
@@ -204,12 +205,12 @@ public enum CustomState implements WizardState<WizardStateMachine>
 		}
 
 		@Override
-		public void goNext(final WizardStateMachine stateMachine)
+		public void goNext(final BaseWizardStateMachine stateMachine)
 		{
 		}
 
 		@Override
-		public void goPrevious(final WizardStateMachine stateMachine)
+		public void goPrevious(final BaseWizardStateMachine stateMachine)
 		{
 			stateMachine.setCurrentState(SECOND);
 		}

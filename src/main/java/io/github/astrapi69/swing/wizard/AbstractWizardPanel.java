@@ -28,7 +28,7 @@ import java.awt.*;
 
 import lombok.Getter;
 import lombok.Setter;
-import io.github.astrapi69.design.pattern.state.wizard.model.WizardModelStateMachine;
+import io.github.astrapi69.design.pattern.state.wizard.model.BaseWizardStateMachineModel;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
@@ -48,10 +48,10 @@ public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 	private static final long serialVersionUID = 1L;
 
 	/** The navigation panel. */
-	private NavigationPanel<WizardModelStateMachine<T>> navigationPanel;
+	private NavigationPanel<BaseWizardStateMachineModel<T>> navigationPanel;
 
 	/** The state machine. */
-	private WizardModelStateMachine<T> stateMachine;
+	private BaseWizardStateMachineModel<T> stateMachine;
 
 	/** The wizard content panel. */
 	private BaseWizardContentPanel<T> wizardContentPanel;
@@ -82,10 +82,10 @@ public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 	 *            the model
 	 * @return the new {@link NavigationPanel} object.
 	 */
-	protected NavigationPanel<WizardModelStateMachine<T>> newNavigationPanel(
-		Model<WizardModelStateMachine<T>> model)
+	protected NavigationPanel<BaseWizardStateMachineModel<T>> newNavigationPanel(
+		Model<BaseWizardStateMachineModel<T>> model)
 	{
-		final NavigationPanel<WizardModelStateMachine<T>> navigationPanel = new NavigationPanel<WizardModelStateMachine<T>>()
+		final NavigationPanel<BaseWizardStateMachineModel<T>> navigationPanel = new NavigationPanel<BaseWizardStateMachineModel<T>>()
 		{
 
 			/** The Constant serialVersionUID. */
@@ -139,7 +139,7 @@ public abstract class AbstractWizardPanel<T> extends BasePanel<T>
 	 * @return the new {@link BaseWizardContentPanel} object
 	 */
 	protected abstract BaseWizardContentPanel<T> newWizardContentPanel(
-		Model<WizardModelStateMachine<T>> model);
+		Model<BaseWizardStateMachineModel<T>> model);
 
 	/**
 	 * Callback method for the cancel action.

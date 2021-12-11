@@ -28,12 +28,12 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import io.github.astrapi69.design.pattern.state.wizard.WizardStateMachine;
+import io.github.astrapi69.design.pattern.state.wizard.BaseWizardStateMachine;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 
-public class WizardPanel extends BasePanel<WizardStateMachine>
+public class WizardPanel extends BasePanel<BaseWizardStateMachine>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -42,10 +42,10 @@ public class WizardPanel extends BasePanel<WizardStateMachine>
 
 	public WizardPanel()
 	{
-		this(BaseModel.of(WizardStateMachine.builder().currentState(CustomState.FIRST).build()));
+		this(BaseModel.of(BaseWizardStateMachine.builder().currentState(CustomState.FIRST).build()));
 	}
 
-	public WizardPanel(final Model<WizardStateMachine> model)
+	public WizardPanel(final Model<BaseWizardStateMachine> model)
 	{
 		super(model);
 	}

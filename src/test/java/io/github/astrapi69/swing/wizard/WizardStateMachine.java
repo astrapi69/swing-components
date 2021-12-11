@@ -24,37 +24,49 @@
  */
 package io.github.astrapi69.swing.wizard;
 
-import io.github.astrapi69.design.pattern.state.wizard.model.BaseWizardStateMachineModel;
-import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
-import io.github.astrapi69.swing.base.BaseCardLayoutPanel;
+import io.github.astrapi69.design.pattern.state.wizard.BaseWizardState;
+import io.github.astrapi69.design.pattern.state.wizard.IWizardStateMachine;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 /**
- * The class {@link BaseWizardContentPanel}.
+ * The class {@link WizardStateMachine}.
  */
-public class BaseWizardContentPanel<T> extends BaseCardLayoutPanel<BaseWizardStateMachineModel<T>>
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder(toBuilder = true)
+public class WizardStateMachine implements IWizardStateMachine<BaseWizardState<WizardStateMachine>>
 {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+	/** The current {@link BaseWizardState} object. */
+	private BaseWizardState<WizardStateMachine> currentState;
 
 	/**
-	 * Instantiates a new {@link BaseWizardContentPanel}.
+	 * {@inheritDoc}
 	 */
-	public BaseWizardContentPanel()
+	@Override
+	public void next()
 	{
-		this(BaseModel.of(BaseWizardStateMachineModel.<T> builder().build()));
+		getCurrentState().goNext(this);
 	}
 
 	/**
-	 * Instantiates a new {@link BaseWizardContentPanel}.
-	 *
-	 * @param model
-	 *            the model
+	 * {@inheritDoc}
 	 */
-	public BaseWizardContentPanel(Model<BaseWizardStateMachineModel<T>> model)
+	@Override
+	public void previous()
 	{
-		super(model);
+		getCurrentState().goPrevious(this);
 	}
 
 }
