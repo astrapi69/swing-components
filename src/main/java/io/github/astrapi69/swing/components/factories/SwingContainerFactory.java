@@ -31,6 +31,10 @@ import lombok.experimental.UtilityClass;
 /**
  * The class {@link SwingContainerFactory} provides factory methods for create swing container
  * component objects
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @UtilityClass
 public class SwingContainerFactory

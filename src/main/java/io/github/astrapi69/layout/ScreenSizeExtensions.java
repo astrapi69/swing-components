@@ -40,6 +40,10 @@ import io.github.astrapi69.swing.utils.AwtExtensions;
 /**
  * Utility class for handle with screensize.
  *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
+ *
  * @author Asterios Raptis
  * @version 1.0
  */

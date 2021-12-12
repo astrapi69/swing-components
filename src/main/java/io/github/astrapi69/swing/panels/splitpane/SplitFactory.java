@@ -26,6 +26,13 @@ package io.github.astrapi69.swing.panels.splitpane;
 
 import org.jdesktop.swingx.MultiSplitLayout;
 
+/**
+ * The class {@link SplitFactory}
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
+ */
 public class SplitFactory
 {
 

@@ -28,6 +28,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import io.github.astrapi69.swing.base.ApplicationFrame;
 import lombok.Getter;
 
 import org.jdesktop.swingx.JXMultiSplitPane;
@@ -38,6 +39,16 @@ import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.components.factories.DimensionFactory;
 
+/**
+ * The class {@link JXMultiSplitPanePanel}
+ *
+ * @param <T>
+ *            the generic type of the model object
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
+ */
 public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 {
 

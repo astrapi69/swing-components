@@ -30,6 +30,10 @@ import javax.swing.plaf.ActionMapUIResource;
 
 /**
  * The class {@link KeyStrokeExtensions}.
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public final class KeyStrokeExtensions
 {

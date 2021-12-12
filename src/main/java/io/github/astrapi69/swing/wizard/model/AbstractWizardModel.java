@@ -33,6 +33,10 @@ import lombok.ToString;
 
 /**
  * The abstract class {@link AbstractWizardModel} act as a base wizard model.<br>
+ *
+ * @deprecated use instead the same named class in project swing-wizard<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 @Setter

@@ -33,6 +33,10 @@ import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
  *
  * @param <T>
  *            the generic type of the model object
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class ApplicationSplitPaneFrame<T>

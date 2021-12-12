@@ -36,6 +36,9 @@ import io.github.astrapi69.swing.base.BasePanel;
 
 /**
  * The class {@link NavigationPanel}.
+ * @deprecated use instead the same named class in project swing-wizard<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 public class NavigationPanel<T> extends BasePanel<T>

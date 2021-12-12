@@ -35,6 +35,10 @@ import lombok.experimental.FieldDefaults;
  *
  * @param <T>
  *            the generic type of the model object
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 @Setter

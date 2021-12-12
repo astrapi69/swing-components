@@ -32,6 +32,10 @@ import lombok.experimental.UtilityClass;
 
 /**
  * A factory {@link DimensionFactory} provides factory methods for create Dimension objects
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @UtilityClass
 public class DimensionFactory

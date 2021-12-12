@@ -31,6 +31,10 @@ import javax.swing.*;
 
 /**
  * The class {@link ClipboardExtensions}
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class ClipboardExtensions
 {

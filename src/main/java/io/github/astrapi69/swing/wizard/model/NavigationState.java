@@ -32,6 +32,9 @@ import io.github.astrapi69.swing.wizard.NavigationPanel;
 /**
  * The enum {@link NavigationState} holds several navigation states that can occur. Can be used for
  * validate and set the {@link NavigationPanel}.
+ * @deprecated use instead the same named class in project swing-wizard<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 @ToString

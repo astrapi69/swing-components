@@ -28,6 +28,13 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
+/**
+ * The interface {@link Keystrokes}
+ *
+ * @deprecated use instead the same named interface class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
+ */
 public interface Keystrokes
 {
 

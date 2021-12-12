@@ -31,6 +31,9 @@ import io.github.astrapi69.swing.base.BaseCardLayoutPanel;
 
 /**
  * The class {@link BaseWizardContentPanel}.
+ * @deprecated use instead the same named class in project swing-wizard<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class BaseWizardContentPanel<T> extends BaseCardLayoutPanel<BaseWizardStateMachineModel<T>>
 {
