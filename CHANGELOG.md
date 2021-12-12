@@ -14,6 +14,8 @@ CHANGED:
 - tagged GenericJTable as deprecated
 - replaced all occurrences of GenericJTable with GenericJXTable
 - replaced locally test class Permission with the same name class from test-objects dependency
+- moved wizard component to its own repository and tagged classes as deprecated
+- moved base component to its own repository and tagged classes as deprecated
 
 Version 5.12
 -------------
