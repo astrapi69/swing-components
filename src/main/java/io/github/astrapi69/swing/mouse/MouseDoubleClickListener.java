@@ -35,6 +35,10 @@ import javax.swing.*;
 /**
  * The class {@link MouseDoubleClickListener} can handle single and double click events on any
  * {@link JComponent} object and prevents that an event will be executed twice.
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public abstract class MouseDoubleClickListener extends MouseAdapter implements ActionListener
 {

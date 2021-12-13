@@ -30,6 +30,10 @@ import lombok.NonNull;
 
 /**
  * The abstract class {@link ShowInfoDialogAction}
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public abstract class ShowInfoDialogAction extends ShowDialogAction
 {

@@ -35,6 +35,10 @@ import javax.swing.*;
  *
  * @param <T>
  *            the generic type
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class ItemBindListener<T> implements ItemListener
 {

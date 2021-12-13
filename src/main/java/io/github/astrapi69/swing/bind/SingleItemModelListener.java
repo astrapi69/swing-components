@@ -36,6 +36,10 @@ import io.github.astrapi69.model.api.Model;
  *
  * @param <T>
  *            the generic type
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 public class SingleItemModelListener<T> implements ItemListener

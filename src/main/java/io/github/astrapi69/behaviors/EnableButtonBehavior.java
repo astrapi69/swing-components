@@ -37,6 +37,10 @@ import lombok.ToString;
 
 /**
  * The class {@link EnableButtonBehavior} can be added to a button and a document.
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 @Setter

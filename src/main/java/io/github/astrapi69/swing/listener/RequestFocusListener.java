@@ -43,6 +43,10 @@ import lombok.experimental.FieldDefaults;
  * processing a requestFocus event implements this interface, and the object created with that class
  * is registered with a component using the component's <code>addRequestFocusListener</code> method.
  * When the requestFocus event occurs, that object's appropriate method is invoked.
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Data
 @RequiredArgsConstructor

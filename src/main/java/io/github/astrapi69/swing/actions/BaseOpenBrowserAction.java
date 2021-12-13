@@ -31,6 +31,10 @@ import io.github.astrapi69.swing.browser.BrowserControlExtensions;
 
 /**
  * The abstract class {@link BaseOpenBrowserAction} for open a browser
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 public class BaseOpenBrowserAction extends OpenBrowserAction

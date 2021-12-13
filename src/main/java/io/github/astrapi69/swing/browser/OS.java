@@ -28,6 +28,10 @@ import java.util.regex.Pattern;
 
 /**
  * The Enum OS has constants for the operating systems.
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public enum OS
 {

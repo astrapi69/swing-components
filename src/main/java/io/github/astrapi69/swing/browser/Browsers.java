@@ -26,6 +26,10 @@ package io.github.astrapi69.swing.browser;
 
 /**
  * The Enum Browsers.
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public enum Browsers
 {

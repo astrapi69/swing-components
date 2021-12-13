@@ -36,6 +36,10 @@ import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 /**
  * The class {@link BrowserControlExtensions} helps you to open an url in the standard web-browser.
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class BrowserControlExtensions
 {

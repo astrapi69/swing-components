@@ -39,6 +39,9 @@ import io.github.astrapi69.model.api.Model;
  * The class {@link StringBindingListener} acts as listener of the input of a text component and
  * updates the given {@link Model}.
  *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Log
 @Getter

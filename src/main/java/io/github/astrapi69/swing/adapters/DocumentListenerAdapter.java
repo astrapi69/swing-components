@@ -30,6 +30,10 @@ import javax.swing.event.DocumentListener;
 /**
  * The abstract class {@link DocumentListenerAdapter} is an adapter for the DocumentListener
  * interface and provides one callback method that have to be implemented
+ *
+ * @deprecated use instead the same named class in project menu-actions<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public abstract class DocumentListenerAdapter implements DocumentListener
 {
