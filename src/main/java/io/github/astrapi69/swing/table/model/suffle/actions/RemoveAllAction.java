@@ -31,6 +31,13 @@ import javax.swing.*;
 import io.github.astrapi69.check.Check;
 import io.github.astrapi69.swing.x.GenericShuffleJXTable;
 
+/**
+ * The class {@link RemoveAllAction} can remove all rows from a table and copy to another table
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
+ */
 public class RemoveAllAction<T> extends AbstractAction
 {
 

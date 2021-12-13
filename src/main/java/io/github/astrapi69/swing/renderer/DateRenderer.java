@@ -33,6 +33,10 @@ import lombok.Getter;
 
 /**
  * The class DateRenderer.
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class DateRenderer extends DefaultTableCellRenderer
 {

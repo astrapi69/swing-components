@@ -42,6 +42,10 @@ import io.github.astrapi69.swing.table.model.GenericTableModel;
  *
  * @param <T>
  *            the generic type of the model
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class GenericJXTable<T> extends JXTable
 {

@@ -31,6 +31,10 @@ import io.github.astrapi69.swing.table.model.TableColumnsModel;
 /**
  * The class {@link TripleTableModel} that lists three columns with generic content that can be
  * defined for every column.
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class TripleTableModel<L, M, R> extends BaseTableModel<Triple<L, M, R>>
 {

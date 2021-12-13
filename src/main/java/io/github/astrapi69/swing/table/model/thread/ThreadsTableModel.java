@@ -36,6 +36,10 @@ import io.github.astrapi69.swing.table.model.TableColumnsModel;
 
 /**
  * The class {@link ThreadsTableModel} that lists all threads.
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class ThreadsTableModel extends BaseTableModel<ThreadDataBean>
 {

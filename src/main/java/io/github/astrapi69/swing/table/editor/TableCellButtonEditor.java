@@ -33,6 +33,10 @@ import lombok.Setter;
 
 /**
  * The class {@link TableCellButtonEditor}
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 @Setter

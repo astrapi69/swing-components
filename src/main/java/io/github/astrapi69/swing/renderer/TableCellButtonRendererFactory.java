@@ -26,6 +26,10 @@ package io.github.astrapi69.swing.renderer;
 
 /**
  * A factory for creating TableCellButtonRenderer objects
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class TableCellButtonRendererFactory
 {

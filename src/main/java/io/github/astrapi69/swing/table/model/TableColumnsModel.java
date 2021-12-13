@@ -35,6 +35,10 @@ import lombok.ToString;
 /**
  * The class {@link TableColumnsModel} encapsulates the column data for a table model like the
  * column names if they are editable and the column classes.
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 @Setter

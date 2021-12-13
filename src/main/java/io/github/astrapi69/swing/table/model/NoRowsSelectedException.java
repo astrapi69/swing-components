@@ -26,6 +26,10 @@ package io.github.astrapi69.swing.table.model;
 
 /**
  * The class NoRowsSelectedException are thrown when there are no rows from the table selected.
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class NoRowsSelectedException extends Exception
 {

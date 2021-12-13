@@ -29,6 +29,10 @@ import io.github.astrapi69.swing.table.model.TableColumnsModel;
 /**
  * The class {@link TripleStringTableModel} that lists three columns with String content for every
  * column.
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class TripleStringTableModel extends TripleTableModel<String, String, String>
 {

@@ -31,6 +31,10 @@ import io.github.astrapi69.swing.table.model.TableColumnsModel;
 /**
  * The class {@link QuattroTableModel} that lists four columns with generic content that can be
  * defined for every column.
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class QuattroTableModel<TL, TR, BL, BR> extends BaseTableModel<Quattro<TL, TR, BL, BR>>
 {

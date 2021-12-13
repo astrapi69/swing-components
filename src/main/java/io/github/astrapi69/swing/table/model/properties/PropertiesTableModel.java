@@ -32,6 +32,10 @@ import io.github.astrapi69.collections.properties.IndexSortedProperties;
 
 /**
  * The class {@link PropertiesTableModel}.
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class PropertiesTableModel extends AbstractTableModel
 {

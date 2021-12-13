@@ -37,6 +37,10 @@ import io.github.astrapi69.reflection.ReflectionExtensions;
 /**
  * The class {@link DynamicTableColumnsModel} encapsulates the column data for a table model that
  * can resolve the columns dynamically from the given class type
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Data
 public class DynamicTableColumnsModel<T>

@@ -31,6 +31,10 @@ import javax.swing.table.TableCellRenderer;
 
 /**
  * The class {@link TableCellButtonRenderer}.
+ *
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class TableCellButtonRenderer extends JButton implements TableCellRenderer
 {
