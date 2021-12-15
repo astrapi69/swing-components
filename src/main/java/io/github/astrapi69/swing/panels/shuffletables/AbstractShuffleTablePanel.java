@@ -49,6 +49,9 @@ import io.github.astrapi69.swing.x.GenericShuffleJXTable;
  *
  * @param <T>
  *            the generic type of the model
+ * @deprecated use instead the same named class in project swing-table-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 public abstract class AbstractShuffleTablePanel<T> extends BasePanel<List<T>>

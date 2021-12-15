@@ -31,6 +31,10 @@ import javax.swing.*;
 /**
  * The abstract class {@link InfoPanel} for display a simple info message. Provides abstract
  * callback methods for the text values.
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public abstract class InfoPanel extends JPanel
 {

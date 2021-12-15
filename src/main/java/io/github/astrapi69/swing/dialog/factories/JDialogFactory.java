@@ -35,6 +35,10 @@ import io.github.astrapi69.swing.utils.AwtExtensions;
 /**
  * The class {@link JDialogFactory} provides factory methods for create swing {@link JDialog}
  * objects
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @UtilityClass
 public class JDialogFactory

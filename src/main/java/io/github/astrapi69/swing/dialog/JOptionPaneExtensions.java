@@ -30,6 +30,10 @@ import lombok.NonNull;
 
 /**
  * The class {@link JOptionPaneExtensions} provides extension methods for the {@link JOptionPane}
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class JOptionPaneExtensions
 {
