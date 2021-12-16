@@ -29,12 +29,12 @@ import java.util.List;
 
 import javax.swing.*;
 
-import io.github.astrapi69.behaviors.EnableButtonBehavior;
 import io.github.astrapi69.collections.list.ListFactory;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.combobox.model.StringMutableComboBoxModel;
+import io.github.astrapi69.swing.listener.document.EnableButtonBehavior;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 /**

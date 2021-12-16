@@ -24,13 +24,13 @@
  */
 package io.github.astrapi69.swing.splashscreen;
 
+import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
+
 import java.awt.*;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
-
-import io.github.astrapi69.layout.ScreenSizeExtensions;
 
 /**
  * The SplashScreen from the application.

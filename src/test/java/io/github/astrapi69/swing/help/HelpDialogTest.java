@@ -26,8 +26,8 @@ package io.github.astrapi69.swing.help;
 
 import java.awt.event.ActionEvent;
 
-import io.github.astrapi69.layout.ScreenSizeExtensions;
 import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
 import io.github.astrapi69.swing.panels.help.HelpModelBean;
 import io.github.astrapi69.window.adapter.CloseWindow;
 

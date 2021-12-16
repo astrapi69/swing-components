@@ -37,7 +37,7 @@ import javax.swing.tree.TreeSelectionModel;
 
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
+import io.github.astrapi69.swing.component.factory.JComponentFactory;
 
 public abstract class PreferencesPanel<T> extends BasePanel<T>
 {

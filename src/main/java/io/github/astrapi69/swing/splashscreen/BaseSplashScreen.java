@@ -35,13 +35,13 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 
+import io.github.astrapi69.swing.base.BaseWindow;
+import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import io.github.astrapi69.lang.ClassExtensions;
-import io.github.astrapi69.layout.ScreenSizeExtensions;
 import io.github.astrapi69.model.api.Model;
-import io.github.astrapi69.swing.base.BaseWindow;
 
 /**
  * The BaseSplashScreen for an application

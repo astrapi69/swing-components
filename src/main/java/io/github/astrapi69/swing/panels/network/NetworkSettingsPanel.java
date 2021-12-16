@@ -28,10 +28,10 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.EtchedBorder;
 
+import io.github.astrapi69.swing.base.BasePanel;
 import lombok.Getter;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.Model;
-import io.github.astrapi69.swing.base.BasePanel;
 
 /**
  * The class NetworkSettingsPanel.

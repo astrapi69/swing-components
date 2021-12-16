@@ -32,7 +32,7 @@ import java.awt.*;
 import javax.swing.event.DocumentEvent;
 
 import io.github.astrapi69.model.api.Model;
-import io.github.astrapi69.swing.bind.StringBindingListener;
+import io.github.astrapi69.swing.listener.document.StringBindingListener;
 import io.github.astrapi69.swing.panels.login.pw.NewPasswordPanel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 

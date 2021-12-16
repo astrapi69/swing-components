@@ -26,8 +26,8 @@ package io.github.astrapi69.swing.test;
 
 import java.awt.*;
 
-import io.github.astrapi69.layout.ScreenSizeExtensions;
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
+import io.github.astrapi69.swing.component.factory.JComponentFactory;
+import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public final class TestComponentFactory

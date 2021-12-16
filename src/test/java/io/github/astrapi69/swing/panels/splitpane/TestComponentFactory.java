@@ -40,7 +40,7 @@ import org.jdesktop.swingx.MultiSplitLayout;
 import org.jdesktop.swingx.SwingXUtilities;
 
 import io.github.astrapi69.swing.actions.ActionFactory;
-import io.github.astrapi69.swing.components.factories.JComponentFactory;
+import io.github.astrapi69.swing.component.factory.JComponentFactory;
 
 public class TestComponentFactory
 {
