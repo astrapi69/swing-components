@@ -29,11 +29,18 @@ import java.util.Enumeration;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 
+import io.github.astrapi69.swing.tree.labels.CheckBoxTreeLabel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-
+/**
+ * The class {@link CheckableTreeNode}
+ *
+ * @deprecated use instead the same named class in project swing-tree-component<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
+ */
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)

@@ -33,6 +33,13 @@ import io.github.astrapi69.icon.StringIcon;
 import io.github.astrapi69.swing.panels.tree.JXTreeElement;
 import io.github.astrapi69.tree.TreeNode;
 
+/**
+ * The class {@link JXTreeNodeCellRenderer}
+ *
+ * @deprecated use instead the same named class in project swing-tree-component<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
+ */
 public class JXTreeNodeCellRenderer extends TreeNodeCellRenderer<JXTreeElement>
 {
 

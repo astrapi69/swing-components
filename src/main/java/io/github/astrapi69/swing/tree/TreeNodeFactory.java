@@ -34,6 +34,10 @@ import io.github.astrapi69.tree.api.ITreeNode;
 
 /**
  * Factory class for generate {@link DefaultMutableTreeNode} from {@link TreeNode}
+ *
+ * @deprecated use instead the same named class in project swing-tree-component<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class TreeNodeFactory
 {

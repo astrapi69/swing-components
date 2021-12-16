@@ -27,11 +27,21 @@ package io.github.astrapi69.swing.panels.tree;
 import javax.swing.*;
 import javax.swing.table.TableModel;
 
+import io.github.astrapi69.tree.TreeElement;
+import io.github.astrapi69.tree.TreeNode;
 import lombok.Getter;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.table.model.GenericTableModel;
 import io.github.astrapi69.swing.x.GenericJXTable;
 
+
+/**
+ * The abstract class {@link JXTreeWithContentPanel}
+ *
+ * @deprecated use instead the same named class in project swing-tree-component<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
+ */
 @Getter
 public abstract class JXTreeWithContentPanel<T> extends JXTreePanel<T>
 {

@@ -32,6 +32,10 @@ import javax.swing.*;
 /**
  * The class {@link GraphicsDeviceExtensions} helps you if the user have more than one screen to
  * determine which screen is currently shown.
+ *
+ * @deprecated use instead the same named class in project swing-base-components<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class GraphicsDeviceExtensions
 {

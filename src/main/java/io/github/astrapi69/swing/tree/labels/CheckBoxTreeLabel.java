@@ -26,11 +26,20 @@ package io.github.astrapi69.swing.tree.labels;
 
 import javax.swing.*;
 
+import io.github.astrapi69.swing.panels.tree.GenericTreeNodePanel;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
+
+/**
+ * The class {@link CheckBoxTreeLabel}
+ *
+ * @deprecated use instead the same named class in project swing-tree-component<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
+ */
 @NoArgsConstructor
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)

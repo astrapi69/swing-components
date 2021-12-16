@@ -33,6 +33,10 @@ import javax.swing.tree.TreeModel;
  *
  * @param <T>
  *            the generic type
+ *
+ * @deprecated use instead the same named class in project swing-tree-component<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public interface IGenericTreeModel<T> extends TreeModel, Serializable
 {

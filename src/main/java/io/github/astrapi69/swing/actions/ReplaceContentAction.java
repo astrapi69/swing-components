@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2015 Asterios Raptis
+ * Copyright (C) 2021 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -22,24 +22,48 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.tree.model;
+package io.github.astrapi69.swing.actions;
 
-import io.github.astrapi69.swing.tree.model.api.IGenericTreeModel;
+import lombok.NonNull;
+
+import java.awt.event.ActionEvent;
+
+import javax.swing.*;
 
 /**
- * The class AbstractGenericTreeModel.
- *
- * @param <T>
- *            the generic type of the model
- *
- * @deprecated use instead the same named class in project swing-tree-component<br>
- *             <br>
- *             Note: will be deleted in next minor version
+ * The class {@link ReplaceContentAction} finish the application
  */
-public abstract class AbstractGenericTreeModel<T> implements IGenericTreeModel<T>
+public class ReplaceContentAction extends AbstractAction
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	private final JComponent container;
+	private final JComponent content;
+	private final boolean scrollable;
+
+	/**
+	 * Instantiates a new {@link ReplaceContentAction} object
+	 *
+	 * @param name
+	 *            the name
+	 */
+	public ReplaceContentAction(final @NonNull String name, final @NonNull JComponent container,
+		final  @NonNull JComponent content, boolean scrollable)
+	{
+		super(name);
+		this.container = container;
+		this.content = content;
+		this.scrollable = scrollable;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void actionPerformed(final ActionEvent e)
+	{
+		ReplaceContentExtensions.replaceContent(container, content, scrollable);
+	}
 
 }

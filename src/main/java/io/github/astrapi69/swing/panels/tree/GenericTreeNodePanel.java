@@ -33,8 +33,11 @@ import io.github.astrapi69.tree.TreeElement;
 import io.github.astrapi69.tree.TreeNode;
 
 /**
- * The abstract class {@link GenericTreeNodePanel} a given {@link TreeNode} parameterized with
- * {@link TreeElement}
+ * The abstract class {@link GenericTreeNodePanel}
+ *
+ * @deprecated use instead the same named class in project swing-tree-component<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public abstract class GenericTreeNodePanel<T> extends JXTreePanel<TreeNode<T>>
 {

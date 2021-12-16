@@ -38,7 +38,11 @@ import javax.swing.tree.TreePath;
 import lombok.NonNull;
 
 /**
- * The class {@link JTreeExtensions}.
+ * The class {@link JTreeExtensions}
+ *
+ * @deprecated use instead the same named class in project swing-tree-component<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 public class JTreeExtensions
 {

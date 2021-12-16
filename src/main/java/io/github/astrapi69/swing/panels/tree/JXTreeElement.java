@@ -40,6 +40,10 @@ import lombok.experimental.FieldDefaults;
 
 /**
  * The class {@link JXTreeElement} represents as the name already presume a tree element
+ *
+ * @deprecated use instead the same named class in project swing-tree-component<br>
+ *             <br>
+ *             Note: will be deleted in next minor version
  */
 @Getter
 @Setter

@@ -29,7 +29,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 import lombok.experimental.UtilityClass;
-import io.github.astrapi69.layout.ReplaceContentExtensions;
 
 @UtilityClass
 public class ActionFactory
@@ -44,19 +43,7 @@ public class ActionFactory
 	public static Action newReplaceContentAction(final String name, final JComponent container,
 		final JComponent content, boolean scrollable)
 	{
-		Action action = new AbstractAction(name)
-		{
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				ReplaceContentExtensions.replaceContent(container, content, scrollable);
-
-			}
-
-		};
-		return action;
+		return new ReplaceContentAction(name, container, content, scrollable);
 	}
 
 
@@ -71,7 +58,6 @@ public class ActionFactory
 			public void actionPerformed(ActionEvent e)
 			{
 				ReplaceContentExtensions.replaceContentInMultiSplitPane(container, content, true);
-
 			}
 
 		};
