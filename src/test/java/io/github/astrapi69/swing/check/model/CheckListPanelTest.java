@@ -26,6 +26,9 @@ package io.github.astrapi69.swing.check.model;
 
 import java.awt.*;
 
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.swing.list.JListExtensions;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class CheckListPanelTest
@@ -34,7 +37,11 @@ public class CheckListPanelTest
 	{
 		final Frame frame = new Frame("CheckListPanel");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
-		frame.add(new CheckListPanel(strs));
+		CheckableItem<CheckableValue>[] checkableItems = JListExtensions.newCheckableItems(strs);
+		Model<CheckableListModelBean> model = BaseModel.of(
+			CheckableListModelBean.builder().values(JListExtensions.newCheckableItems(strs))
+				.build());
+		frame.add(new CheckListPanel(model));
 		frame.addWindowListener(new CloseWindow());
 		frame.setSize(300, 200);
 		frame.setVisible(true);

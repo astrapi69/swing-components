@@ -25,32 +25,55 @@
 package io.github.astrapi69.swing.check.model;
 
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.List;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.metal.MetalIconFactory;
 
-import org.jdesktop.swingx.JXPanel;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.swing.base.BasePanel;
+import io.github.astrapi69.swing.list.JListExtensions;
 
-import io.github.astrapi69.collections.list.ListExtensions;
-import io.github.astrapi69.collections.list.ListFactory;
-import io.github.astrapi69.swing.list.CheckBoxListRenderer;
-
-public class CheckListPanel extends JXPanel
+public class CheckListPanel extends BasePanel<CheckableListModelBean>
 {
-	public CheckListPanel(String[] strs)
+	JList<CheckableItem<CheckableValue>> list;
+	JScrollPane checklistPane;
+	JTextArea textArea;
+	JButton printButton;
+	JScrollPane textPane;
+	JButton uncheckButton;
+	JButton clearTextButton;
+	JPanel buttonPanel;
+
+	public CheckListPanel()
 	{
-		setLayout(new BorderLayout());
-		final JList<CheckableItem<CheckableValue>> list = newJList(strs);
+		this(BaseModel.of(CheckableListModelBean.builder().build()));
+	}
 
-		JScrollPane checklistPane = new JScrollPane(list);
+	public CheckListPanel(Model<CheckableListModelBean> model)
+	{
+		super(model);
+	}
 
-		final JTextArea textArea = new JTextArea(3, 10);
-		JScrollPane textPane = new JScrollPane(textArea);
-		JButton printButton = new JButton("Print entries");
+	/**
+	 * Initialize components.
+	 */
+	@Override
+	protected void onInitializeComponents()
+	{
+		list = JListExtensions.newJList(getModelObject().getValues());
+
+		checklistPane = new JScrollPane(list);
+
+		textArea = new JTextArea(3, 10);
+		textPane = new JScrollPane(textArea);
+		printButton = new JButton("Print entries");
+		uncheckButton = new JButton("Uncheck entries");
+		clearTextButton = new JButton("Clear Text");
+		buttonPanel = new JPanel(new GridLayout(3, 1));
+		buttonPanel.add(printButton);
+		buttonPanel.add(uncheckButton);
+		buttonPanel.add(clearTextButton);
+		// add action listeners
 		printButton.addActionListener(e -> {
 			ListModel<CheckableItem<CheckableValue>> model = list.getModel();
 			int n = model.getSize();
@@ -64,7 +87,7 @@ public class CheckListPanel extends JXPanel
 				}
 			}
 		});
-		JButton uncheckButton = new JButton("Uncheck entries");
+
 		uncheckButton.addActionListener(e -> {
 			ListModel<CheckableItem<CheckableValue>> model = list.getModel();
 			int n = model.getSize();
@@ -75,53 +98,22 @@ public class CheckListPanel extends JXPanel
 			}
 			list.repaint();
 		});
-		JButton clearTextButton = new JButton("Clear Text");
+
 		clearTextButton.addActionListener(e -> textArea.setText(""));
-		JPanel buttonPanel = new JPanel(new GridLayout(3, 1));
-		buttonPanel.add(printButton);
-		buttonPanel.add(uncheckButton);
-		buttonPanel.add(clearTextButton);
+	}
+
+
+	/**
+	 * Initialize layout.
+	 */
+	@Override
+	protected void onInitializeLayout()
+	{
+		setLayout(new BorderLayout());
 
 		add(checklistPane, BorderLayout.CENTER);
 		add(buttonPanel, BorderLayout.WEST);
 		add(textPane, BorderLayout.SOUTH);
-	}
-
-	private CheckableItem<CheckableValue>[] newCheckableItems(String[] strs)
-	{
-		int n = strs.length;
-		List<CheckableItem<CheckableValue>> itemList = ListFactory.newArrayList();
-		for (int i = 0; i < n; i++)
-		{
-			itemList.add(CheckableItem.<CheckableValue> builder()
-				.checkableValue(CheckableValue.builder().itemText(strs[i]).build()).build());
-		}
-		return ListExtensions.toArray(itemList);
-	}
-
-	protected JList<CheckableItem<CheckableValue>> newJList(String[] strs)
-	{
-		final JList<CheckableItem<CheckableValue>> list = new JList<>(newCheckableItems(strs));
-
-		Icon icon = MetalIconFactory.getFileChooserHomeFolderIcon();
-		list.getModel().getElementAt(1).getCheckableValue().setIcon(icon);
-
-		list.setCellRenderer(new CheckBoxListRenderer());
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list.setBorder(new EmptyBorder(0, 4, 0, 0));
-		list.addMouseListener(new MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(MouseEvent e)
-			{
-				int index = list.locationToIndex(e.getPoint());
-				CheckableItem<CheckableValue> item = list.getModel().getElementAt(index);
-				item.setSelected(!item.isSelected());
-				Rectangle rect = list.getCellBounds(index, index);
-				list.repaint(rect);
-			}
-		});
-		return list;
 	}
 
 }

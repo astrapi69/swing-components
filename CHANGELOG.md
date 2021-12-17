@@ -6,16 +6,20 @@ Version 6-SNAPSHOT
 
 ADDED:
 
-- new callback methods in GenericJXTable for left and right clicks
-- new callback methods in GenericJXTable for add or remove rows
+- new JListExtensions class for operation on JList component
 
 CHANGED:
 
 - tagged GenericJTable as deprecated
 - replaced all occurrences of GenericJTable with GenericJXTable
 - replaced locally test class Permission with the same name class from test-objects dependency
-- moved wizard component to its own repository and tagged classes as deprecated
-- moved base component to its own repository and tagged classes as deprecated
+- moved wizard component to its own repository and deleted corresponding classes
+- moved base components to its own repository and deleted corresponding classes
+- moved table components to its own repository and deleted corresponding classes
+- moved tree component to its own repository and deleted corresponding classes
+- moved splashscreen components to its own repository and deleted corresponding classes
+- moved CheckedModelBean class from test to main module
+- moved CheckableListModelBean class from test to main module
 
 Version 5.12
 -------------
