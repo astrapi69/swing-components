@@ -10,6 +10,7 @@ ADDED:
 
 CHANGED:
 
+- update gradle to new version 7.3.2
 - tagged GenericJTable as deprecated
 - replaced all occurrences of GenericJTable with GenericJXTable
 - replaced locally test class Permission with the same name class from test-objects dependency
