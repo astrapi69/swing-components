@@ -30,6 +30,8 @@ import java.awt.font.TextLayout;
 
 import javax.swing.*;
 
+import lombok.Data;
+
 /**
  * The class DrawMessage draws a message to a JComponent to the given Color. You can use it for
  * JList to put different list items in different colors.
@@ -37,6 +39,7 @@ import javax.swing.*;
  * @version 1.0
  * @author Asterios Raptis
  */
+@Data
 public class DrawMessage extends JComponent
 {
 
@@ -45,15 +48,24 @@ public class DrawMessage extends JComponent
 	 */
 	private static final long serialVersionUID = 1482171136672852023L;
 
-	/** The color. */
+	/**
+	 * The color.
+	 */
 	private Color color;
 
-	/** The message. */
-	private String message = null;
+	/**
+	 * The message.
+	 */
+	private String message;
+
+	/**
+	 * The font of the message.
+	 */
+	Font messageFont;
 
 	/**
 	 * Instantiates a new draw message.
-	 * 
+	 *
 	 * @param message
 	 *            the message
 	 * @param color
@@ -61,50 +73,24 @@ public class DrawMessage extends JComponent
 	 */
 	public DrawMessage(final String message, final Color color)
 	{
-		this.message = message;
-		this.color = color;
+		this(message, color, new Font("Arial", Font.BOLD, 16));
 	}
 
 	/**
-	 * Returns the field <code>color</code>.
-	 *
-	 * @return The field .
-	 */
-	public Color getColor()
-	{
-		return this.color;
-	}
-
-	/**
-	 * Sets the field <code>color</code>.
-	 *
-	 * @param color
-	 *            The <code>color</code> to set
-	 */
-	public void setColor(final Color color)
-	{
-		this.color = color;
-	}
-
-	/**
-	 * Returns the field <code>message</code>.
-	 *
-	 * @return The field .
-	 */
-	public String getMessage()
-	{
-		return this.message;
-	}
-
-	/**
-	 * Sets the field <code>message</code>.
+	 * Instantiates a new draw message.
 	 *
 	 * @param message
-	 *            The <code>message</code> to set
+	 *            the message
+	 * @param color
+	 *            the color
+	 * @param messageFont
+	 *            the message font
 	 */
-	public void setMessage(final String message)
+	public DrawMessage(final String message, final Color color, final Font messageFont)
 	{
 		this.message = message;
+		this.color = color;
+		this.messageFont = messageFont;
 	}
 
 	/**
@@ -138,7 +124,7 @@ public class DrawMessage extends JComponent
 	 *            the Graphics object.
 	 * @return the graphics2 d
 	 */
-	private Graphics2D initGraphics2D(final Graphics g)
+	protected Graphics2D initGraphics2D(final Graphics g)
 	{
 		Graphics2D g2;
 		g2 = (Graphics2D)g;
@@ -158,12 +144,10 @@ public class DrawMessage extends JComponent
 	@Override
 	public void paint(final Graphics g)
 	{
-		Graphics2D g2;
-		g2 = this.initGraphics2D(g);
+		Graphics2D g2 = this.initGraphics2D(g);
 		final FontRenderContext frc = g2.getFontRenderContext();
-		final Font font = new Font("Arial", Font.BOLD, 16);
 		final String display = new String(this.message.getBytes());
-		final TextLayout textLayout = new TextLayout(display, font, frc);
+		final TextLayout textLayout = new TextLayout(display, messageFont, frc);
 		final Dimension dimension = this.getSize();
 		textLayout.draw(g2, 0, dimension.height);
 	}

@@ -77,17 +77,17 @@ public class DrawMessageTest
 	public void testPaintGraphics()
 	{
 		final WindowListener l = new CloseWindow();
-		final Frame f = new Frame("2D Text");
+		final Frame f = new Frame("DrawMessage 2D Text");
 		f.addWindowListener(l);
 		final Color color = new Color(0, 180, 0);
-		final DrawMessage message = new DrawMessage("test Message", color);
+		final DrawMessage message = new DrawMessage("Drawed Message with DrawMessage", color);
 		f.add("Center", message);
 		f.pack();
-		f.setSize(new Dimension(400, 60));
+		f.setSize(new Dimension(400, 80));
 		f.setVisible(true);
 		try
 		{
-			Thread.sleep(1000);
+			Thread.sleep(7000);
 		}
 		catch (final InterruptedException e1)
 		{
