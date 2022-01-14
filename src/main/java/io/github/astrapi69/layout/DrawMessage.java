@@ -31,6 +31,7 @@ import java.awt.font.TextLayout;
 import javax.swing.*;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * The class DrawMessage draws a message to a JComponent to the given Color. You can use it for
@@ -40,6 +41,7 @@ import lombok.Data;
  * @author Asterios Raptis
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class DrawMessage extends JComponent
 {
 
