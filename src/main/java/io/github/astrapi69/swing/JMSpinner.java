@@ -67,9 +67,10 @@ public class JMSpinner<T> extends JSpinner
 	{
 	}
 
-	public void setPropertyModel(final @NonNull Model<T> propertyModel)
+	public JMSpinner setPropertyModel(final @NonNull Model<T> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 		getModel().setValue(this.propertyModel.getObject());
+		return this;
 	}
 }

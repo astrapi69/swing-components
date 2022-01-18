@@ -92,10 +92,11 @@ public class JMCheckBox extends JCheckBox
 		super(text, icon, selected);
 	}
 
-	public void setPropertyModel(final @NonNull Model<Boolean> propertyModel)
+	public JMCheckBox setPropertyModel(final @NonNull Model<Boolean> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 		getModel().setSelected(this.propertyModel.getObject());
+		return this;
 	}
 
 }

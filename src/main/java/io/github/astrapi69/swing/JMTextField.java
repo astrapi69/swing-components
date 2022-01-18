@@ -69,7 +69,7 @@ public class JMTextField extends JTextField
 	 * @param propertyModel
 	 *            the text model to be displayed
 	 */
-	public JMTextField(Model<String> propertyModel)
+	public JMTextField(final @NonNull Model<String> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 	}
@@ -145,9 +145,10 @@ public class JMTextField extends JTextField
 		super(doc, text, columns);
 	}
 
-	public void setPropertyModel(final @NonNull Model<String> propertyModel)
+	public JMTextField setPropertyModel(final @NonNull Model<String> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 		setText(this.propertyModel.getObject());
+		return this;
 	}
 }

@@ -11,7 +11,8 @@ ADDED:
 CHANGED:
 
 - update gradle to new version 7.3.3
-- tagged GenericJTable as deprecated
+- removed class GenericJTable
+- return type of setPropertyModel to (this) for chaining on initialization
 - replaced all occurrences of GenericJTable with GenericJXTable
 - deleted deprecated class GenericJTable
 - replaced locally test class Permission with the same name class from test-objects dependency
