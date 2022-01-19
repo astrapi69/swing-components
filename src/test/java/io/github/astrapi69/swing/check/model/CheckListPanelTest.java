@@ -38,9 +38,8 @@ public class CheckListPanelTest
 		final Frame frame = new Frame("CheckListPanel");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
 		CheckableItem<CheckableValue>[] checkableItems = JListExtensions.newCheckableItems(strs);
-		Model<CheckableListModelBean> model = BaseModel.of(
-			CheckableListModelBean.builder().values(JListExtensions.newCheckableItems(strs))
-				.build());
+		Model<CheckableListModelBean> model = BaseModel.of(CheckableListModelBean.builder()
+			.values(JListExtensions.newCheckableItems(strs)).build());
 		frame.add(new CheckListPanel(model));
 		frame.addWindowListener(new CloseWindow());
 		frame.setSize(300, 200);

@@ -28,13 +28,13 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.text.Document;
 
-import io.github.astrapi69.swing.listener.document.DocumentListenerAdapter;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.swing.listener.document.DocumentListenerAdapter;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 @Getter

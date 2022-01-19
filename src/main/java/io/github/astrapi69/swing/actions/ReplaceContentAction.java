@@ -24,11 +24,11 @@
  */
 package io.github.astrapi69.swing.actions;
 
-import lombok.NonNull;
-
 import java.awt.event.ActionEvent;
 
 import javax.swing.*;
+
+import lombok.NonNull;
 
 /**
  * The class {@link ReplaceContentAction} finish the application
@@ -49,7 +49,7 @@ public class ReplaceContentAction extends AbstractAction
 	 *            the name
 	 */
 	public ReplaceContentAction(final @NonNull String name, final @NonNull JComponent container,
-		final  @NonNull JComponent content, boolean scrollable)
+		final @NonNull JComponent content, boolean scrollable)
 	{
 		super(name);
 		this.container = container;

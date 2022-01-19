@@ -36,7 +36,6 @@ import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
 import javax.swing.*;
 
-import io.github.astrapi69.swing.actions.ShowInfoDialogAction;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -44,6 +43,7 @@ import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 import io.github.astrapi69.swing.actions.OpenBrowserToDonateAction;
+import io.github.astrapi69.swing.actions.ShowInfoDialogAction;
 import io.github.astrapi69.swing.actions.ShowLicenseFrameAction;
 import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import io.github.astrapi69.swing.dialog.info.InfoPanel;

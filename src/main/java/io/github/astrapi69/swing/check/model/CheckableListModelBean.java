@@ -24,8 +24,6 @@
  */
 package io.github.astrapi69.swing.check.model;
 
-import io.github.astrapi69.swing.check.model.CheckableItem;
-import io.github.astrapi69.swing.check.model.CheckableValue;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
