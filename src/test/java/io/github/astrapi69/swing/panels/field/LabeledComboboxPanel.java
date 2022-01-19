@@ -36,6 +36,7 @@ import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.combobox.model.StringMutableComboBoxModel;
 import io.github.astrapi69.swing.listener.document.EnableButtonBehavior;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
+import net.miginfocom.swing.MigLayout;
 
 /**
  *
@@ -125,6 +126,26 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
+		onInitializeMigLayout();
+	}
+
+	protected void onInitializeMigLayout()
+	{
+		MigLayout layout = new MigLayout(
+			"", // Layout Constraints
+			"[grow][grow][grow]", // Column constraints
+			"[][shrink 0]"); // Row constraints
+		this.setLayout(layout);
+		add(lblStringValues );
+		add(cmbStringValues,    "grow");
+		add(btnRemoveSelected, "wrap");
+		add(lblAddNewValue);
+		add(txtAddNewValue,    "grow");
+		add(btnAddNewValue,    "grow");
+	}
+
+	protected void onInitializeGroupLayout()
+	{
 		GroupLayout layout = new GroupLayout(this);
 		this.setLayout(layout);
 		layout
