@@ -2,6 +2,9 @@ package io.github.astrapi69.swing.robot;
 
 import java.awt.*;
 
+/**
+ * The class {@link MouseExtensions} provides utility methods for mouse information
+ */
 public class MouseExtensions
 {
 
@@ -15,10 +18,18 @@ public class MouseExtensions
 		return MouseInfo.getPointerInfo().getLocation();
 	}
 
-
+	/**
+	 * Checks if the mouse position is in the bounds of the given {@link Component} object
+	 * 
+	 * @param component
+	 *            the component
+	 *
+	 * @return true if the mouse position is in the bounds of the given {@link Component} object
+	 *         otherwise false
+	 */
 	public static boolean isMouseWithin(Component component)
 	{
-		Point mousePos = MouseInfo.getPointerInfo().getLocation();
+		Point mousePos = MouseExtensions.getMousePosition();
 		Rectangle bounds = component.getBounds();
 		bounds.setLocation(component.getLocationOnScreen());
 		return bounds.contains(mousePos);
