@@ -24,7 +24,9 @@
  */
 package io.github.astrapi69.swing.robot;
 
-import java.awt.*;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.Field;
