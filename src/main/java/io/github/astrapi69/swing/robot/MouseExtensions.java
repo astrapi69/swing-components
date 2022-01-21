@@ -29,9 +29,9 @@ public class MouseExtensions
 	 */
 	public static boolean isMouseWithin(Component component)
 	{
-		Point mousePos = MouseExtensions.getMousePosition();
+		Point mousePosition = MouseExtensions.getMousePosition();
 		Rectangle bounds = component.getBounds();
 		bounds.setLocation(component.getLocationOnScreen());
-		return bounds.contains(mousePos);
+		return bounds.contains(mousePosition);
 	}
 }
