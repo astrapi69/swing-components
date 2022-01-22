@@ -28,6 +28,7 @@ CHANGED:
 - update dependency of com.github.ben-manes.versions.gradle.plugin to new version 0.41.0
 - update of test dependency test-objects version to 5.7
 - update of test dependency testng version to 7.5
+- moved components that accepts a BaseModel to package 'io.github.astrapi69.swing.component'
 
 Version 5.12
 -------------

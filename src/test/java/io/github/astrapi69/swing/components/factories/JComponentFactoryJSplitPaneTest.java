@@ -31,7 +31,6 @@ import javax.swing.*;
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.MultiSplitLayout;
 
-import io.github.astrapi69.swing.panels.preferences.ApplicationPreferencesPanel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class JComponentFactoryJSplitPaneTest
@@ -58,19 +57,4 @@ public class JComponentFactoryJSplitPaneTest
 		return msp;
 	}
 
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		final Frame frame = new Frame("ApplicationPreferencesPanel");
-		frame.addWindowListener(new CloseWindow());
-		frame.add(new ApplicationPreferencesPanel());
-
-		frame.setBounds(100, 100, 730, 350);
-		frame.setVisible(true);
-	}
 }

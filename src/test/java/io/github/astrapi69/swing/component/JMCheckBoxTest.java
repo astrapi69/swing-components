@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing;
+package io.github.astrapi69.swing.component;
 
 import java.awt.*;
 
@@ -31,6 +31,7 @@ import javax.swing.*;
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.check.model.CheckedModelBean;
+import io.github.astrapi69.swing.component.JMCheckBox;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class JMCheckBoxTest

@@ -1,5 +1,5 @@
-group = "$groupPackage"
-version = "$projectVersion"
+group = "$groupPackage" as Object
+version = "$projectVersion" as Object
 description = "$rootProject.name"
 
 buildscript {
@@ -13,6 +13,7 @@ buildscript {
         classpath "com.github.ben-manes:gradle-versions-plugin:$gradlePluginVersionsVersion"
         classpath "gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin:$licenseGradlePluginVersion"
         classpath "gradle.plugin.org.ec4j.gradle:editorconfig-gradle-plugin:$editorconfigGradlePluginVersion"
+        classpath "org.ajoberstar.grgit:grgit-gradle:$grgitGradlePluginVersion"
     }
 }
 
@@ -26,51 +27,32 @@ apply plugin: "com.github.hierynomus.license"
 apply plugin: "org.ec4j.editorconfig"
 apply plugin: "jacoco"
 
-sourceCompatibility = "$projectSourceCompatibility"
+apply plugin: "org.ajoberstar.grgit"
+
+task tagRelease {
+    description = "Tags the current head with the project\'s version."
+    doLast {
+        grgit.tag.add {
+            name = "RELEASE-${project.version.toString()}"
+            message = "New release in version ${version}"
+        }
+    }
+}
+
+sourceCompatibility = "$projectSourceCompatibility" as Object
 
 repositories {
     mavenLocal()
     mavenCentral()
 }
 
-license {
-    ext.year="$projectInceptionYear"
-    ext.owner="$projectLeaderName"
-    header rootProject.file('src/main/resources/LICENSE.txt')
-    excludes(["**/README",
-              "**/README.md",
-              "**/LICENSE",
-              "**/NOTICE",
-              "**/*.xml",
-              "**/*.xsl",
-              "**/*.xsd",
-              "**/*.dtd",
-              "**/*.html",
-              "**/*.jsp",
-              "**/*.jpa",
-              "**/*.sql",
-              "**/*.properties",
-              "**/*.bat",
-              "**/*.gradle",
-              "**/*.MF",
-              "**/*.txt",
-              "**/*.vm",
-              "**/*.log",
-              "**/*.map",
-              "**/*.js.map",
-              "**/*.tmpl",
-              "**/*.js.tmpl",
-              "**/*.editorconfig",
-              "**/*.lombok.config",
-              "src/test/resources/**",
-              "src/main/resources/**",
-              "out/**",
-              "build/**"])
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    // uncomment the next line for build with compiler argument -Xlint:deprecation
+    // options.compilerArgs << "-Xlint:deprecation"
+    // uncomment the next line for build with compiler argument -Xlint:unchecked
+    // options.compilerArgs << "-Xlint:unchecked"
 }
-
-// workhack for license issue #76
-gradle.startParameter.excludedTaskNames += "licenseMain"
-gradle.startParameter.excludedTaskNames += "licenseTest"
 
 task sourcesJar(type: Jar) {
     archiveClassifier.set("sources")
@@ -80,7 +62,15 @@ task sourcesJar(type: Jar) {
 task javadocJar(type: Jar) {
     from javadoc
     archiveClassifier.set("javadoc")
-    javadoc.properties.failOnError = false
+    javadoc.properties.failOnError = true
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption("html5", true)
+    }
+    failOnError = false
+    exclude 'io/github/astrapi69/**'
 }
 
 def releaseVersion = !version.endsWith("SNAPSHOT")
@@ -144,18 +134,44 @@ signing {
     }
 }
 
-javadoc {
-    if(JavaVersion.current().isJava9Compatible()) {
-        options.addBooleanOption("html5", true)
-    }
-    dependsOn delombok
-    failOnError = false
-    exclude 'io/github/astrapi69/**'
+license {
+    ext.year="$projectInceptionYear"
+    ext.owner="$projectLeaderName"
+    header rootProject.file('src/main/resources/LICENSE.txt')
+    excludes(["**/README",
+              "**/README.md",
+              "**/LICENSE",
+              "**/NOTICE",
+              "**/*.xml",
+              "**/*.xsl",
+              "**/*.xsd",
+              "**/*.dtd",
+              "**/*.html",
+              "**/*.jsp",
+              "**/*.jpa",
+              "**/*.sql",
+              "**/*.properties",
+              "**/*.bat",
+              "**/*.gradle",
+              "**/*.MF",
+              "**/*.txt",
+              "**/*.vm",
+              "**/*.log",
+              "**/*.map",
+              "**/*.js.map",
+              "**/*.tmpl",
+              "**/*.js.tmpl",
+              "**/*.editorconfig",
+              "**/*.lombok.config",
+              "src/test/resources/**",
+              "src/main/resources/**",
+              "out/**",
+              "build/**"])
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
+// workhack for license issue #76
+gradle.startParameter.excludedTaskNames += "licenseMain"
+gradle.startParameter.excludedTaskNames += "licenseTest"
 
 test {
     useTestNG()
@@ -184,9 +200,7 @@ dependencies {
     implementation("io.github.astrapi69:randomizer:$randomizerVersion")
     implementation("io.github.astrapi69:state:$stateVersion")
     implementation("io.github.astrapi69:observer:$observerVersion")
-    implementation("io.github.astrapi69:model-api:$modelApiVersion")
-    implementation("io.github.astrapi69:model-object:$modelObjectVersion")
-    implementation("io.github.astrapi69:model-type-safe:$modelTypeSafeVersion")
+    implementation("io.github.astrapi69:model-data:$modelDataVersion")
     implementation("io.github.astrapi69:jobj-core:$jobjCoreVersion")
     implementation("io.github.astrapi69:gen-tree:$genTreeVersion")
     implementation("io.github.astrapi69:throw-able:$throwAbleVersion")

@@ -22,12 +22,13 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing;
+package io.github.astrapi69.swing.component;
 
 import java.awt.*;
 
 import javax.swing.*;
 
+import io.github.astrapi69.swing.component.JMTextField;
 import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.collections.pairs.ValueBox;
 import io.github.astrapi69.model.LambdaModel;
