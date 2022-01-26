@@ -29,7 +29,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.list.JListExtensions;
 
@@ -49,7 +49,7 @@ public class CheckListPanel extends BasePanel<CheckableListModelBean>
 		this(BaseModel.of(CheckableListModelBean.builder().build()));
 	}
 
-	public CheckListPanel(Model<CheckableListModelBean> model)
+	public CheckListPanel(IModel<CheckableListModelBean> model)
 	{
 		super(model);
 	}

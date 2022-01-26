@@ -32,7 +32,7 @@ import javax.swing.*;
 import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.collections.list.ListFactory;
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.combobox.model.StringMutableComboBoxModel;
 import io.github.astrapi69.swing.listener.document.EnableButtonBehavior;
@@ -61,7 +61,7 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 			.comboList(ListFactory.newArrayList("foo", "bar", "bla")).selectedItem("foo").build()));
 	}
 
-	public LabeledComboboxPanel(final Model<ComboListBean> model)
+	public LabeledComboboxPanel(final IModel<ComboListBean> model)
 	{
 		super(model);
 	}

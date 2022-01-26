@@ -35,7 +35,7 @@ import javax.swing.*;
 
 import io.github.astrapi69.icon.StringIcon;
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 
 public class LotteryPanel extends BasePanel<LotteryBox> implements ActionListener
@@ -48,7 +48,7 @@ public class LotteryPanel extends BasePanel<LotteryBox> implements ActionListene
 		this(BaseModel.of(LotteryBox.builder().selectedNumbers(new LinkedHashSet<>()).build()));
 	}
 
-	public LotteryPanel(Model<LotteryBox> model)
+	public LotteryPanel(final IModel<LotteryBox> model)
 	{
 		super(model);
 	}

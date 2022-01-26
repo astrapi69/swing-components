@@ -31,7 +31,7 @@ import java.awt.*;
 
 import javax.swing.event.DocumentEvent;
 
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.listener.document.StringBindingListener;
 import io.github.astrapi69.swing.panels.login.pw.NewPasswordPanel;
 import io.github.astrapi69.window.adapter.CloseWindow;
@@ -47,7 +47,7 @@ public class NewPasswordPanelTest
 		frame.setTitle("Set pw Frame");
 		final NewPasswordPanel newPasswordPanel = new NewPasswordPanel();
 		// example of binding model with a textfield with the class StringBindingListener...
-		Model<String> model = model(from(newPasswordPanel.getModel()).getCurrentPassword());
+		IModel<String> model = model(from(newPasswordPanel.getModel()).getCurrentPassword());
 		newPasswordPanel.getTxtPassword().getDocument()
 			.addDocumentListener(new StringBindingListener(model)
 			{

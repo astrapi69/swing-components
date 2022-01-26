@@ -29,11 +29,11 @@ import javax.swing.text.DefaultFormatter;
 
 import lombok.NonNull;
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 
 public class JMSpinner<T> extends JSpinner
 {
-	Model<T> propertyModel = BaseModel.of();
+	IModel<T> propertyModel = BaseModel.of();
 	{
 		JComponent comp = this.getEditor();
 		JFormattedTextField field = (JFormattedTextField)comp.getComponent(0);
@@ -67,7 +67,7 @@ public class JMSpinner<T> extends JSpinner
 	{
 	}
 
-	public JMSpinner setPropertyModel(final @NonNull Model<T> propertyModel)
+	public JMSpinner setPropertyModel(final @NonNull IModel<T> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 		getModel().setValue(this.propertyModel.getObject());

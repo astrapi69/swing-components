@@ -30,7 +30,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.button.ButtonFactory;
 import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
 import io.github.astrapi69.swing.panels.login.pw.ChangePasswordModelBean;
@@ -45,7 +45,7 @@ public class PanelDialogExample extends PanelDialog<ChangePasswordModelBean>
 	private JButton buttonClose;
 
 	public PanelDialogExample(final Frame owner, final String title, final boolean modal,
-		final Model<ChangePasswordModelBean> model)
+		final IModel<ChangePasswordModelBean> model)
 	{
 		super(owner, title, modal, model);
 	}
@@ -69,14 +69,14 @@ public class PanelDialogExample extends PanelDialog<ChangePasswordModelBean>
 	}
 
 	@Override
-	protected JPanel newButtons(Model<ChangePasswordModelBean> model)
+	protected JPanel newButtons(IModel<ChangePasswordModelBean> model)
 	{
 		JPanel buttons = super.newButtons(model);
 		return buttons;
 	}
 
 	@Override
-	protected JPanel newContent(Model<ChangePasswordModelBean> model)
+	protected JPanel newContent(IModel<ChangePasswordModelBean> model)
 	{
 		return new NewPasswordPanel(BaseModel.of());
 	}

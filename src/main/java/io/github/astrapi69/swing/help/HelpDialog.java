@@ -29,7 +29,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BaseDialog;
 import io.github.astrapi69.swing.button.ButtonFactory;
 import io.github.astrapi69.swing.panels.help.HelpModelBean;
@@ -49,7 +49,7 @@ public class HelpDialog extends BaseDialog<HelpModelBean>
 	private JButton buttonClose;
 
 	public HelpDialog(final Frame owner, final String title, final boolean modal,
-		final Model<HelpModelBean> model)
+		final IModel<HelpModelBean> model)
 	{
 		super(owner, title, modal, model);
 	}
@@ -61,14 +61,14 @@ public class HelpDialog extends BaseDialog<HelpModelBean>
 		return button;
 	}
 
-	protected JPanel newButtons(Model<HelpModelBean> model)
+	protected JPanel newButtons(final IModel<HelpModelBean> model)
 	{
 		JPanel buttons = new JPanel();
 		return buttons;
 	}
 
 
-	protected HelpPanel newHelpPanel(Model<HelpModelBean> model)
+	protected HelpPanel newHelpPanel(final IModel<HelpModelBean> model)
 	{
 		return new HelpPanel(model);
 	}

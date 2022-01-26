@@ -27,7 +27,7 @@ package io.github.astrapi69.swing.panels.img;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 
 /**
@@ -46,7 +46,7 @@ public class ImagePanel extends BasePanel<BufferedImage>
 	 * @param model
 	 *            the model
 	 */
-	public ImagePanel(final Model<BufferedImage> model)
+	public ImagePanel(final IModel<BufferedImage> model)
 	{
 		super(model);
 	}

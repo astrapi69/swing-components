@@ -30,7 +30,7 @@ import javax.swing.*;
 
 import lombok.Data;
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 
 /**
  * The class {@link EnumRadioButtonGroupBean} represents a model object that can be used with
@@ -44,7 +44,7 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 {
 
 	/** The model of the selected enum. */
-	private final Model<E> selected;
+	private final IModel<E> selected;
 	/** The map with the mapped {@linkplain JRadioButton} objects. */
 	private Map<E, JRadioButton> radioButtonMap;
 
@@ -65,7 +65,7 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	 *            the model where the selected enum is kept.
 	 */
 	public EnumRadioButtonGroupBean(final Map<E, JRadioButton> radioButtonMap,
-		final Model<E> selected)
+		final IModel<E> selected)
 	{
 		this.radioButtonMap = radioButtonMap;
 		this.selected = selected;
@@ -77,7 +77,7 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	 * @param selected
 	 *            the model where the selected enum is kept.
 	 */
-	public EnumRadioButtonGroupBean(final Model<E> selected)
+	public EnumRadioButtonGroupBean(final IModel<E> selected)
 	{
 		this.selected = selected;
 	}
@@ -112,7 +112,7 @@ public class EnumRadioButtonGroupBean<E extends Enum<E>>
 	 *
 	 * @return the selected
 	 */
-	public Model<E> getSelected()
+	public IModel<E> getSelected()
 	{
 		selected.setObject(getSelectedEnumFromRadioButtons());
 		return selected;

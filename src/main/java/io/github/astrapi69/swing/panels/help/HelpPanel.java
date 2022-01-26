@@ -33,7 +33,7 @@ import javax.swing.*;
 
 import lombok.Getter;
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 
 /**
@@ -47,7 +47,7 @@ public class HelpPanel extends BasePanel<HelpModelBean>
 	private JScrollPane scrHelpContent;
 	private JTextArea txtHelpContent;
 
-	public HelpPanel(final Model<HelpModelBean> model)
+	public HelpPanel(final IModel<HelpModelBean> model)
 	{
 		super(model);
 	}

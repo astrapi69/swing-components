@@ -22,28 +22,39 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.check.model;
+package io.github.astrapi69.swing.component;
 
 import java.awt.*;
 
-import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.IModel;
-import io.github.astrapi69.swing.list.JListExtensions;
+import javax.swing.*;
+
+import net.miginfocom.swing.MigLayout;
+import io.github.astrapi69.collections.pairs.ValueBox;
+import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class CheckListPanelTest
+public class JMTextAreaTest
 {
 	public static void main(String[] args)
 	{
-		final Frame frame = new Frame("CheckListPanel");
-		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
-		CheckableItem<CheckableValue>[] checkableItems = JListExtensions.newCheckableItems(strs);
-		IModel<CheckableListModelBean> model = BaseModel.of(CheckableListModelBean.builder()
-			.values(JListExtensions.newCheckableItems(strs)).build());
-		frame.add(new CheckListPanel(model));
+		ValueBox<String> stringBox = ValueBox.<String> builder().value("foo").build();
+		// Bind with JMTextArea that encapsulate a property model
+		JMTextArea textAreaDecorator = new JMTextArea(10, 20, LambdaModel.of(stringBox::getValue, stringBox::setValue));
+
+		final Frame frame = new Frame("JMCheckBoxTest");
+		JButton buttonCheck = new JButton("check it");
+		buttonCheck.addActionListener(e -> {
+			String selected = textAreaDecorator.getPropertyModel().getObject();
+			selected = textAreaDecorator.getText();
+			System.out.println(selected);
+		});
 		frame.addWindowListener(new CloseWindow());
-		frame.setSize(300, 200);
+
+		frame.setLayout(new MigLayout());
+		frame.add(buttonCheck);
+		frame.add(textAreaDecorator);
+		frame.setSize(200, 200);
 		frame.setVisible(true);
 	}
-}
 
+}

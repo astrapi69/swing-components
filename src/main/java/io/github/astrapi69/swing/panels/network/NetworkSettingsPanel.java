@@ -30,7 +30,7 @@ import javax.swing.border.EtchedBorder;
 
 import lombok.Getter;
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 
 /**
@@ -90,7 +90,7 @@ public class NetworkSettingsPanel extends BasePanel<NetworkSettingsModelBean>
 	}
 
 
-	public NetworkSettingsPanel(final Model<NetworkSettingsModelBean> model)
+	public NetworkSettingsPanel(final IModel<NetworkSettingsModelBean> model)
 	{
 		super(model);
 	}

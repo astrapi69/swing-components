@@ -28,7 +28,7 @@ import java.awt.*;
 import java.util.LinkedHashSet;
 
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class LotteryPanelTest
@@ -46,7 +46,7 @@ public class LotteryPanelTest
 		final Frame frame = new Frame();
 		frame.addWindowListener(new CloseWindow());
 		frame.setTitle("Lottery Panel");
-		Model<LotteryBox> lotteryModel;
+		IModel<LotteryBox> lotteryModel;
 
 		lotteryModel = BaseModel.of(
 			LotteryBox.builder().selectedNumbers(new LinkedHashSet<>()).minVolume(1).maxVolume(49)

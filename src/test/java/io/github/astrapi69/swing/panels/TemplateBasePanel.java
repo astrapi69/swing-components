@@ -25,7 +25,7 @@
 package io.github.astrapi69.swing.panels;
 
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 
 public class TemplateBasePanel extends BasePanel<Object>
@@ -38,7 +38,7 @@ public class TemplateBasePanel extends BasePanel<Object>
 		this(BaseModel.of());
 	}
 
-	public TemplateBasePanel(final Model<Object> model)
+	public TemplateBasePanel(final IModel<Object> model)
 	{
 		super(model);
 	}

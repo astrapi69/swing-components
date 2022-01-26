@@ -33,7 +33,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.listener.document.DocumentListenerAdapter;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
@@ -44,7 +44,7 @@ public class JMTextArea extends JTextArea
 {
 
 	/** The model. */
-	Model<String> propertyModel;
+	IModel<String> propertyModel;
 
 	{
 		getDocument().addDocumentListener(new DocumentListenerAdapter()
@@ -69,42 +69,42 @@ public class JMTextArea extends JTextArea
 	 * @param propertyModel
 	 *            the text model to be displayed
 	 */
-	public JMTextArea(final @NonNull Model<String> propertyModel)
+	public JMTextArea(final @NonNull IModel<String> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 	}
 
-	public JMTextArea(String text, Model<String> propertyModel)
+	public JMTextArea(String text, final IModel<String> propertyModel)
 	{
 		super(text);
 		this.propertyModel = propertyModel;
 	}
 
-	public JMTextArea(int rows, int columns, Model<String> propertyModel)
+	public JMTextArea(int rows, int columns, final IModel<String> propertyModel)
 	{
 		super(rows, columns);
 		this.propertyModel = propertyModel;
 	}
 
-	public JMTextArea(String text, int rows, int columns, Model<String> propertyModel)
+	public JMTextArea(String text, int rows, int columns, final IModel<String> propertyModel)
 	{
 		super(text, rows, columns);
 		this.propertyModel = propertyModel;
 	}
 
-	public JMTextArea(Document doc, Model<String> propertyModel)
+	public JMTextArea(Document doc, final IModel<String> propertyModel)
 	{
 		super(doc);
 		this.propertyModel = propertyModel;
 	}
 
-	public JMTextArea(Document doc, String text, int rows, int columns, Model<String> propertyModel)
+	public JMTextArea(Document doc, String text, int rows, int columns, final IModel<String> propertyModel)
 	{
 		super(doc, text, rows, columns);
 		this.propertyModel = propertyModel;
 	}
 
-	public JMTextArea setPropertyModel(final @NonNull Model<String> propertyModel)
+	public JMTextArea setPropertyModel(final @NonNull IModel<String> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 		setText(this.propertyModel.getObject());

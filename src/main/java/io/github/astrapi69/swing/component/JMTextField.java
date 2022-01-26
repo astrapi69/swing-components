@@ -33,7 +33,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.listener.document.DocumentListenerAdapter;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
@@ -44,7 +44,7 @@ public class JMTextField extends JTextField
 {
 
 	/** The model. */
-	Model<String> propertyModel;
+	IModel<String> propertyModel;
 
 	{
 		getDocument().addDocumentListener(new DocumentListenerAdapter()
@@ -69,7 +69,7 @@ public class JMTextField extends JTextField
 	 * @param propertyModel
 	 *            the text model to be displayed
 	 */
-	public JMTextField(final @NonNull Model<String> propertyModel)
+	public JMTextField(final @NonNull IModel<String> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 	}
@@ -145,7 +145,7 @@ public class JMTextField extends JTextField
 		super(doc, text, columns);
 	}
 
-	public JMTextField setPropertyModel(final @NonNull Model<String> propertyModel)
+	public JMTextField setPropertyModel(final @NonNull IModel<String> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 		setText(this.propertyModel.getObject());

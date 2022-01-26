@@ -28,7 +28,7 @@ import javax.swing.*;
 
 import lombok.Getter;
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 
 /**
@@ -53,7 +53,7 @@ public class NewPasswordPanel extends BasePanel<ChangePasswordModelBean>
 		this(BaseModel.of(ChangePasswordModelBean.builder().build()));
 	}
 
-	public NewPasswordPanel(Model<ChangePasswordModelBean> model)
+	public NewPasswordPanel(final IModel<ChangePasswordModelBean> model)
 	{
 		super(model);
 	}

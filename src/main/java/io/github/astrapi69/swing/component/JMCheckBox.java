@@ -32,7 +32,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 import io.github.astrapi69.model.PropertyModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
@@ -41,7 +41,7 @@ public class JMCheckBox extends JCheckBox
 {
 
 	/** The model. */
-	Model<Boolean> propertyModel = PropertyModel.of(this, "model.selected");
+	IModel<Boolean> propertyModel = PropertyModel.of(this, "model.selected");
 
 	{
 		addItemListener(e -> {
@@ -92,7 +92,7 @@ public class JMCheckBox extends JCheckBox
 		super(text, icon, selected);
 	}
 
-	public JMCheckBox setPropertyModel(final @NonNull Model<Boolean> propertyModel)
+	public JMCheckBox setPropertyModel(final @NonNull IModel<Boolean> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 		getModel().setSelected(this.propertyModel.getObject());

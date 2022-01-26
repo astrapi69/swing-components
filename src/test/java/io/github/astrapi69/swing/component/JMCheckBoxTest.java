@@ -29,7 +29,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import io.github.astrapi69.model.LambdaModel;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.check.model.CheckedModelBean;
 import io.github.astrapi69.swing.component.JMCheckBox;
 import io.github.astrapi69.window.adapter.CloseWindow;
@@ -53,7 +53,7 @@ public class JMCheckBoxTest
 		// checkBox.setSelected(checked);
 		// checkedModelBean.setChecked(checked);
 		// };
-		final Model<Boolean> booleanModel =
+		final IModel<Boolean> booleanModel =
 			// PropertyModel.of(checkedModelBean, "checked");
 			// LambdaModel.of(getter, setter);
 			LambdaModel.of(checkedModelBean::isChecked, checkedModelBean::setChecked);
