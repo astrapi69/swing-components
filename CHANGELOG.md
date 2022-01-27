@@ -12,6 +12,7 @@ CHANGED:
 
 - update gradle to new version 7.3.3
 - removed class GenericJTable
+- removed help components that have moved to swing-base-components module
 - return type of setPropertyModel to (this) for chaining on initialization
 - replaced all occurrences of GenericJTable with GenericJXTable
 - deleted deprecated class GenericJTable
@@ -30,6 +31,8 @@ CHANGED:
 - update of test dependency testng version to 7.5
 - moved components that accepts a BaseModel to package 'io.github.astrapi69.swing.component'
 - update of model-data dependency to new version 1.12
+- renamed package actions to action
+- renamed package panels to panel
 
 Version 5.12
 -------------
