@@ -24,14 +24,10 @@
  */
 package io.github.astrapi69.swing.components.factories;
 
-import java.awt.*;
-
 import javax.swing.*;
 
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.MultiSplitLayout;
-
-import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class JComponentFactoryJSplitPaneTest
 {

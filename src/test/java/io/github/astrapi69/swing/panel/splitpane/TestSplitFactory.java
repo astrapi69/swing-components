@@ -27,8 +27,9 @@ package io.github.astrapi69.swing.panel.splitpane;
 import static io.github.astrapi69.swing.panels.splitpane.SplitFactory.newLeaf;
 import static io.github.astrapi69.swing.panels.splitpane.SplitFactory.setChildren;
 
-import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
 import org.jdesktop.swingx.MultiSplitLayout;
+
+import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
 
 public class TestSplitFactory
 {

@@ -26,8 +26,8 @@ package io.github.astrapi69.swing.action;
 
 import java.awt.*;
 
-import io.github.astrapi69.swing.actions.BaseOpenBrowserAction;
 import lombok.NonNull;
+import io.github.astrapi69.swing.actions.BaseOpenBrowserAction;
 
 /**
  * The class {@link OpenBrowserToDonateAction} is the action class for this project donation

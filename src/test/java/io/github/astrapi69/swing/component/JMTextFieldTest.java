@@ -28,7 +28,6 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import io.github.astrapi69.swing.component.JMTextField;
 import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.collections.pairs.ValueBox;
 import io.github.astrapi69.model.LambdaModel;

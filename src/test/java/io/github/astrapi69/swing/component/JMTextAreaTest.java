@@ -39,7 +39,8 @@ public class JMTextAreaTest
 	{
 		ValueBox<String> stringBox = ValueBox.<String> builder().value("foo").build();
 		// Bind with JMTextArea that encapsulate a property model
-		JMTextArea textAreaDecorator = new JMTextArea(10, 20, LambdaModel.of(stringBox::getValue, stringBox::setValue));
+		JMTextArea textAreaDecorator = new JMTextArea(10, 20,
+			LambdaModel.of(stringBox::getValue, stringBox::setValue));
 
 		final Frame frame = new Frame("JMCheckBoxTest");
 		JButton buttonCheck = new JButton("check it");

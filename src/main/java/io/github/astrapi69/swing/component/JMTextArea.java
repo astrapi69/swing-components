@@ -98,7 +98,8 @@ public class JMTextArea extends JTextArea
 		this.propertyModel = propertyModel;
 	}
 
-	public JMTextArea(Document doc, String text, int rows, int columns, final IModel<String> propertyModel)
+	public JMTextArea(Document doc, String text, int rows, int columns,
+		final IModel<String> propertyModel)
 	{
 		super(doc, text, rows, columns);
 		this.propertyModel = propertyModel;

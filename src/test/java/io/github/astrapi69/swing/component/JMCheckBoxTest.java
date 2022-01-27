@@ -31,7 +31,6 @@ import javax.swing.*;
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.check.model.CheckedModelBean;
-import io.github.astrapi69.swing.component.JMCheckBox;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class JMCheckBoxTest

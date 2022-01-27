@@ -32,7 +32,6 @@ import java.net.URL;
 
 import javax.swing.*;
 
-import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.JXPanel;
 import org.jdesktop.swingx.JXTaskPane;
@@ -42,6 +41,7 @@ import org.jdesktop.swingx.SwingXUtilities;
 
 import io.github.astrapi69.swing.action.ActionFactory;
 import io.github.astrapi69.swing.component.factory.JComponentFactory;
+import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
 
 public class TestComponentFactory
 {
