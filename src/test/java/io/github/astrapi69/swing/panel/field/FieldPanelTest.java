@@ -24,12 +24,11 @@
  */
 package io.github.astrapi69.swing.panel.field;
 
-import java.awt.*;
+import java.awt.Frame;
 
-import javax.swing.*;
+import javax.swing.DefaultComboBoxModel;
 
 import io.github.astrapi69.swing.test.TestComponentFactory;
-import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**
  * The test class for {@link FieldPanel}.

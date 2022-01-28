@@ -24,9 +24,10 @@
  */
 package io.github.astrapi69.swing.component;
 
-import java.awt.*;
+import java.awt.Frame;
+import java.awt.GridBagLayout;
 
-import javax.swing.*;
+import javax.swing.JButton;
 
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.IModel;

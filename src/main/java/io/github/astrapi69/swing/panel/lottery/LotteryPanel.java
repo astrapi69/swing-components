@@ -24,14 +24,14 @@
  */
 package io.github.astrapi69.swing.panel.lottery;
 
-import java.awt.*;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 
-import javax.swing.*;
+import javax.swing.JCheckBox;
 
 import io.github.astrapi69.icon.StringIcon;
 import io.github.astrapi69.model.BaseModel;

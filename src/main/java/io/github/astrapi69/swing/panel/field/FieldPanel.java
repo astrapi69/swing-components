@@ -24,7 +24,12 @@
  */
 package io.github.astrapi69.swing.panel.field;
 
-import javax.swing.*;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.GroupLayout;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
 
 import lombok.Getter;
 import io.github.astrapi69.swing.base.BasePanel;

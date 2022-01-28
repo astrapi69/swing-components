@@ -24,7 +24,13 @@
  */
 package io.github.astrapi69.swing.panel.network;
 
-import javax.swing.*;
+import javax.swing.ButtonGroup;
+import javax.swing.GroupLayout;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.EtchedBorder;
 

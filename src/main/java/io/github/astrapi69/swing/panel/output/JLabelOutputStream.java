@@ -24,7 +24,8 @@
  */
 package io.github.astrapi69.swing.panel.output;
 
-import javax.swing.*;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
 
 public class JLabelOutputStream extends AbstractComponentOutputStream<JLabel>
 {

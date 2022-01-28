@@ -24,7 +24,8 @@
  */
 package io.github.astrapi69.swing.paint;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.LinearGradientPaint;
 
 import org.jdesktop.swingx.painter.CompoundPainter;
 import org.jdesktop.swingx.painter.GlossPainter;

@@ -24,14 +24,17 @@
  */
 package io.github.astrapi69.swing.test;
 
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Rectangle;
+
+import javax.swing.JComponent;
+
+import org.jdesktop.swingx.JXFrame;
 
 import io.github.astrapi69.swing.component.factory.JComponentFactory;
 import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
 import io.github.astrapi69.window.adapter.CloseWindow;
-import org.jdesktop.swingx.JXFrame;
-
-import javax.swing.*;
 
 public final class TestComponentFactory
 {

@@ -24,10 +24,10 @@
  */
 package io.github.astrapi69.swing.panel.output;
 
-import java.awt.*;
+import java.awt.BorderLayout;
 import java.io.PrintStream;
 
-import javax.swing.*;
+import javax.swing.JScrollPane;
 
 import org.jdesktop.swingx.JXPanel;
 import org.jdesktop.swingx.JXTextArea;

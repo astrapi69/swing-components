@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panel.lottery;
 
-import java.awt.*;
+import java.awt.Frame;
 import java.util.LinkedHashSet;
 
 import io.github.astrapi69.model.BaseModel;

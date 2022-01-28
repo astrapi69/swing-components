@@ -24,7 +24,10 @@
  */
 package io.github.astrapi69.swing.component;
 
-import javax.swing.*;
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerModel;
 import javax.swing.text.DefaultFormatter;
 
 import lombok.NonNull;

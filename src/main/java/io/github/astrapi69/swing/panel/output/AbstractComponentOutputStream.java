@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panel.output;
 
-import java.awt.*;
+import java.awt.EventQueue;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import javax.swing.*;
+import javax.swing.JComponent;
 
 /**
  * The class {@link AbstractComponentOutputStream} is inspired from <a href=

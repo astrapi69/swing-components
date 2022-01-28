@@ -29,7 +29,8 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Set;
 
-import javax.swing.*;
+import javax.swing.AbstractListModel;
+import javax.swing.ComboBoxModel;
 
 import lombok.Getter;
 import lombok.Setter;

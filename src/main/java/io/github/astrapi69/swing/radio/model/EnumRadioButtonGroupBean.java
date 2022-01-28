@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.radio.model;
 
 import java.util.Map;
 
-import javax.swing.*;
+import javax.swing.JRadioButton;
 
 import lombok.Data;
 import io.github.astrapi69.model.BaseModel;

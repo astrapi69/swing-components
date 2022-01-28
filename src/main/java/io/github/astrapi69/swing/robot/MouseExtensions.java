@@ -24,7 +24,10 @@
  */
 package io.github.astrapi69.swing.robot;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.Rectangle;
 
 /**
  * The class {@link MouseExtensions} provides utility methods for mouse information

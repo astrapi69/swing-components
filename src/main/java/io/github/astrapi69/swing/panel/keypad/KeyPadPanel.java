@@ -24,7 +24,13 @@
  */
 package io.github.astrapi69.swing.panel.keypad;
 
-import java.awt.*;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Panel;
+import java.awt.TextArea;
 
 import lombok.Getter;
 import io.github.astrapi69.layout.LayoutExtensions;

@@ -24,9 +24,13 @@
  */
 package io.github.astrapi69.layout;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 
-import javax.swing.*;
+import javax.swing.Box;
 
 import io.github.astrapi69.lang.ObjectExtensions;
 

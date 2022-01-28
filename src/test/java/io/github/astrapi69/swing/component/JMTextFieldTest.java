@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.component;
 
-import java.awt.*;
+import java.awt.Frame;
 
-import javax.swing.*;
+import javax.swing.JButton;
 
 import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.collections.pairs.ValueBox;

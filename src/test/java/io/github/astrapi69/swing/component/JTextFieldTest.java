@@ -24,9 +24,10 @@
  */
 package io.github.astrapi69.swing.component;
 
-import java.awt.*;
+import java.awt.Frame;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.model.PropertyModel;

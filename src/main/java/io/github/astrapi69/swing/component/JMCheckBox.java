@@ -24,7 +24,9 @@
  */
 package io.github.astrapi69.swing.component;
 
-import javax.swing.*;
+import javax.swing.Action;
+import javax.swing.Icon;
+import javax.swing.JCheckBox;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;

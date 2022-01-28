@@ -24,12 +24,10 @@
  */
 package io.github.astrapi69.swing.panel.login;
 
-import java.awt.*;
+import java.awt.Frame;
 import java.awt.Dialog.ModalityType;
 
-import io.github.astrapi69.swing.test.TestComponentFactory;
 import io.github.astrapi69.window.adapter.CloseWindow;
-import org.jdesktop.swingx.JXFrame;
 
 public class LoginPanelTest
 {

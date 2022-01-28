@@ -24,10 +24,15 @@
  */
 package io.github.astrapi69.swing.icon;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 
-import javax.swing.*;
+import javax.swing.Icon;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

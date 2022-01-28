@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.check.model;
 
-import java.awt.*;
+import java.awt.Frame;
 
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;

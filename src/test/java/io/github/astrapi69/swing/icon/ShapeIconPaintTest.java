@@ -24,10 +24,17 @@
  */
 package io.github.astrapi69.swing.icon;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Shape;
 import java.awt.geom.Path2D;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.SwingUtilities;
 
 public class ShapeIconPaintTest
 {

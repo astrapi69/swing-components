@@ -24,9 +24,10 @@
  */
 package io.github.astrapi69.swing.filechooser;
 
-import java.awt.*;
+import java.awt.Frame;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
 
 import io.github.astrapi69.window.adapter.CloseWindow;
 

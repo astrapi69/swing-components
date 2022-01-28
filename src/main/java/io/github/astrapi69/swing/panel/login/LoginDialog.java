@@ -24,9 +24,11 @@
  */
 package io.github.astrapi69.swing.panel.login;
 
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.Window;
 
-import javax.swing.*;
+import javax.swing.JDialog;
 
 public class LoginDialog extends JDialog
 {

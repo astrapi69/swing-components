@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.mvc.view;
 
-import java.awt.*;
+import java.awt.Component;
 
 /**
  * The Interface View.

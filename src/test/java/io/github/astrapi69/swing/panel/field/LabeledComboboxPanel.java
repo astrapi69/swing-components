@@ -27,7 +27,12 @@ package io.github.astrapi69.swing.panel.field;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
-import javax.swing.*;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
 
 import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.collections.list.ListFactory;

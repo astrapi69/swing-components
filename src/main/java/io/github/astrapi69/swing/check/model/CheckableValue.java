@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.check.model;
 
-import javax.swing.*;
+import javax.swing.Icon;
 
 import lombok.AccessLevel;
 import lombok.Data;

@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panel.img;
 
-import java.awt.*;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import io.github.astrapi69.model.api.IModel;

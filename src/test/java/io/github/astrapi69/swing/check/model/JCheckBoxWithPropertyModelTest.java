@@ -24,9 +24,11 @@
  */
 package io.github.astrapi69.swing.check.model;
 
-import java.awt.*;
+import java.awt.Frame;
+import java.awt.GridBagLayout;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 
 import io.github.astrapi69.model.PropertyModel;
 import io.github.astrapi69.window.adapter.CloseWindow;

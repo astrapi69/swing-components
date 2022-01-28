@@ -24,9 +24,13 @@
  */
 package io.github.astrapi69.swing.list;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
 
-import javax.swing.*;
+import javax.swing.Icon;
+import javax.swing.JList;
+import javax.swing.ListCellRenderer;
+import javax.swing.UIManager;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

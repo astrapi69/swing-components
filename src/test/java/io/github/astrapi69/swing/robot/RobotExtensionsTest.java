@@ -24,7 +24,8 @@
  */
 package io.github.astrapi69.swing.robot;
 
-import java.awt.*;
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.awt.event.InputEvent;
 
 import org.testng.annotations.Test;

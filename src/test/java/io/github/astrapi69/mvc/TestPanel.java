@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.mvc;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 
 /**
  * The class TestPanel.

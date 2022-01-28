@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.component;
 
-import javax.swing.*;
+import javax.swing.JTextArea;
 import javax.swing.event.DocumentEvent;
 import javax.swing.text.Document;
 

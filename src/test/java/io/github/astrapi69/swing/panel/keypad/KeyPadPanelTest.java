@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panel.keypad;
 
-import java.awt.*;
+import java.awt.Frame;
 
 import io.github.astrapi69.window.adapter.CloseWindow;
 
