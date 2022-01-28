@@ -24,6 +24,7 @@
  */
 package io.github.astrapi69.swing.panel.img;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -32,7 +33,10 @@ import javax.swing.*;
 
 import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.swing.panel.network.NetworkSettingsPanel;
+import io.github.astrapi69.swing.test.TestComponentFactory;
 import io.github.astrapi69.window.adapter.CloseWindow;
+import org.jdesktop.swingx.JXFrame;
 
 public class ImagePanelTest
 {
@@ -48,15 +52,15 @@ public class ImagePanelTest
 	 */
 	public static void main(final String[] args) throws IOException
 	{
-		final JFrame frame = new JFrame();
-		frame.addWindowListener(new CloseWindow());
-		frame.setTitle("ImagePanelTest");
-
 		final BufferedImage img1 = ImageIO
 			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
 		final ImagePanel pnlIconPanel = new ImagePanel(BaseModel.of(img1));
-		frame.add(pnlIconPanel);
-		frame.setBounds(0, 0, 820, 820);
+
+		final JXFrame frame = TestComponentFactory
+			.newTestJXFrameWithComponent(
+				"ImagePanelTest",
+				pnlIconPanel,
+				new Rectangle(0, 0, 820, 820));
 		frame.setVisible(true);
 	}
 

@@ -27,14 +27,15 @@ package io.github.astrapi69.swing.panel.login;
 import java.awt.*;
 import java.awt.Dialog.ModalityType;
 
+import io.github.astrapi69.swing.test.TestComponentFactory;
 import io.github.astrapi69.window.adapter.CloseWindow;
+import org.jdesktop.swingx.JXFrame;
 
 public class LoginPanelTest
 {
 
 	public static void main(final String[] args)
 	{
-
 		final Frame frame = new Frame();
 		frame.addWindowListener(new CloseWindow());
 		frame.setTitle("Login Frame");

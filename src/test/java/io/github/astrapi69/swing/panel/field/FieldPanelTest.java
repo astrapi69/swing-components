@@ -28,6 +28,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import io.github.astrapi69.swing.test.TestComponentFactory;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**
@@ -44,8 +45,7 @@ public class FieldPanelTest
 	 */
 	public static void main(final String[] args)
 	{
-		final Frame frame = new Frame("FieldPanel");
-		frame.addWindowListener(new CloseWindow());
+		final Frame frame = TestComponentFactory.newTestFrame("FieldPanel");
 		frame.add(new FieldPanel<String>()
 		{
 

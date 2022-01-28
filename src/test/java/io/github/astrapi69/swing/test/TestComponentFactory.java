@@ -29,6 +29,9 @@ import java.awt.*;
 import io.github.astrapi69.swing.component.factory.JComponentFactory;
 import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
 import io.github.astrapi69.window.adapter.CloseWindow;
+import org.jdesktop.swingx.JXFrame;
+
+import javax.swing.*;
 
 public final class TestComponentFactory
 {
@@ -37,6 +40,41 @@ public final class TestComponentFactory
 	{
 		final Frame frame = JComponentFactory.newFrame(title);
 		frame.addWindowListener(new CloseWindow());
+		return frame;
+	}
+
+	public static JXFrame newTestJXFrame(String title)
+	{
+		final JXFrame frame = JComponentFactory.newJXFrame(title);
+		frame.addWindowListener(new CloseWindow());
+		return frame;
+	}
+
+	public static JXFrame newTestJXFrameWithComponent(String title, JComponent component)
+	{
+		final JXFrame frame = newTestJXFrame(title);
+		frame.addWindowListener(new CloseWindow());
+		frame.add(component);
+		return frame;
+	}
+
+	public static JXFrame newTestJXFrameWithComponent(String title, JComponent component,
+		Rectangle rectangle)
+	{
+		final JXFrame frame = newTestJXFrame(title);
+		frame.addWindowListener(new CloseWindow());
+		frame.add(component);
+		frame.setBounds(rectangle);
+		return frame;
+	}
+
+	public static JXFrame newTestJXFrameWithComponent(String title, JComponent component,
+		Dimension dimension)
+	{
+		final JXFrame frame = newTestJXFrame(title);
+		frame.addWindowListener(new CloseWindow());
+		frame.add(component);
+		frame.setSize(dimension);
 		return frame;
 	}
 

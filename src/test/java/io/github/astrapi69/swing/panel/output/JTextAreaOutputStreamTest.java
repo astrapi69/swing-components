@@ -24,6 +24,10 @@
  */
 package io.github.astrapi69.swing.panel.output;
 
+import io.github.astrapi69.swing.panel.network.NetworkSettingsPanel;
+import io.github.astrapi69.swing.test.TestComponentFactory;
+import org.jdesktop.swingx.JXFrame;
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -32,13 +36,13 @@ public class JTextAreaOutputStreamTest
 {
 	public static void main(String[] args) throws InterruptedException
 	{
-		JFrame frame = new JFrame();
-
+		final JXFrame frame = TestComponentFactory
+			.newTestJXFrameWithComponent(
+				"ConsolePanel",
+				new ConsolePanel(),
+				new Dimension(600, 400));
 		frame.add(new JLabel(" Console"), BorderLayout.NORTH);
-		frame.add(new ConsolePanel());
-		frame.pack();
 		frame.setVisible(true);
-		frame.setSize(600, 400);
 
 		for (int i = 0; i < 1000; i++)
 		{
