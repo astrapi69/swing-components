@@ -33,18 +33,20 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.listener.document.DocumentListenerAdapter;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
+import org.jdesktop.swingx.JXTextField;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class JMTextField extends JTextField
+public class JMTextField extends JXTextField
 {
 
 	/** The model. */
-	IModel<String> propertyModel;
+	IModel<String> propertyModel = BaseModel.of();
 
 	{
 		getDocument().addDocumentListener(new DocumentListenerAdapter()
@@ -92,57 +94,6 @@ public class JMTextField extends JTextField
 	public JMTextField(String text)
 	{
 		super(text);
-	}
-
-	/**
-	 * Constructs a new empty <code>TextField</code> with the specified number of columns. A default
-	 * model is created and the initial string is set to <code>null</code>.
-	 *
-	 * @param columns
-	 *            the number of columns to use to calculate the preferred width; if columns is set
-	 *            to zero, the preferred width will be whatever naturally results from the component
-	 *            implementation
-	 */
-	public JMTextField(int columns)
-	{
-		super(columns);
-	}
-
-	/**
-	 * Constructs a new <code>TextField</code> initialized with the specified text and columns. A
-	 * default model is created.
-	 *
-	 * @param text
-	 *            the text to be displayed, or <code>null</code>
-	 * @param columns
-	 *            the number of columns to use to calculate the preferred width; if columns is set
-	 *            to zero, the preferred width will be whatever naturally results from
-	 */
-	public JMTextField(String text, int columns)
-	{
-		super(text, columns);
-	}
-
-	/**
-	 * Constructs a new <code>JTextField</code> that uses the given text storage model and the given
-	 * number of columns. This is the constructor through which the other constructors feed. If the
-	 * document is <code>null</code>, a default model is created.
-	 *
-	 * @param doc
-	 *            the text storage to use; if this is <code>null</code>, a default will be provided
-	 *            by calling the <code>createDefaultModel</code> method
-	 * @param text
-	 *            the initial string to display, or <code>null</code>
-	 * @param columns
-	 *            the number of columns to use to calculate the preferred width &gt;= 0; if
-	 *            <code>columns</code> is set to zero, the preferred width will be whatever
-	 *            naturally results from the component implementation
-	 * @throws IllegalArgumentException
-	 *             if <code>columns</code> &lt; 0
-	 */
-	public JMTextField(Document doc, String text, int columns)
-	{
-		super(doc, text, columns);
 	}
 
 	public JMTextField setPropertyModel(final @NonNull IModel<String> propertyModel)

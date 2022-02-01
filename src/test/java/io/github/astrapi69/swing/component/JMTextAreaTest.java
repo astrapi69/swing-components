@@ -42,17 +42,17 @@ public class JMTextAreaTest
 		JMTextArea textAreaDecorator = new JMTextArea(10, 20,
 			LambdaModel.of(stringBox::getValue, stringBox::setValue));
 
-		final Frame frame = new Frame("JMCheckBoxTest");
-		JButton buttonCheck = new JButton("check it");
-		buttonCheck.addActionListener(e -> {
-			String selected = textAreaDecorator.getPropertyModel().getObject();
-			selected = textAreaDecorator.getText();
-			System.out.println(selected);
+		final Frame frame = new Frame("JMTextAreaTest");
+		JButton button = new JButton("push it");
+		button.addActionListener(e -> {
+			String modelObject = textAreaDecorator.getPropertyModel().getObject();
+			String text = textAreaDecorator.getText();
+			System.out.println(modelObject + "::" + text);
 		});
 		frame.addWindowListener(new CloseWindow());
 
 		frame.setLayout(new MigLayout());
-		frame.add(buttonCheck);
+		frame.add(button);
 		frame.add(textAreaDecorator);
 		frame.setSize(200, 200);
 		frame.setVisible(true);

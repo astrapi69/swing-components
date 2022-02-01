@@ -33,18 +33,20 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.listener.document.DocumentListenerAdapter;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
+import org.jdesktop.swingx.JXTextArea;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class JMTextArea extends JTextArea
+public class JMTextArea extends JXTextArea
 {
 
 	/** The model. */
-	IModel<String> propertyModel;
+	IModel<String> propertyModel = BaseModel.of();
 
 	{
 		getDocument().addDocumentListener(new DocumentListenerAdapter()
@@ -77,31 +79,6 @@ public class JMTextArea extends JTextArea
 	public JMTextArea(String text, final IModel<String> propertyModel)
 	{
 		super(text);
-		this.propertyModel = propertyModel;
-	}
-
-	public JMTextArea(int rows, int columns, final IModel<String> propertyModel)
-	{
-		super(rows, columns);
-		this.propertyModel = propertyModel;
-	}
-
-	public JMTextArea(String text, int rows, int columns, final IModel<String> propertyModel)
-	{
-		super(text, rows, columns);
-		this.propertyModel = propertyModel;
-	}
-
-	public JMTextArea(Document doc, final IModel<String> propertyModel)
-	{
-		super(doc);
-		this.propertyModel = propertyModel;
-	}
-
-	public JMTextArea(Document doc, String text, int rows, int columns,
-		final IModel<String> propertyModel)
-	{
-		super(doc, text, rows, columns);
 		this.propertyModel = propertyModel;
 	}
 

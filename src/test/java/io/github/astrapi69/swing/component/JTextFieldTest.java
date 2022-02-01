@@ -41,17 +41,17 @@ public class JTextFieldTest
 		JTextField textField = new JTextField("fff", 20);
 
 		final PropertyModel<String> propertyModel = PropertyModel.of(textField, "text");
-		final Frame frame = new Frame("JMCheckBoxTest");
-		JButton buttonCheck = new JButton("check it");
-		buttonCheck.addActionListener(e -> {
-			String selected = propertyModel.getObject();
-			selected = textField.getText();
-			System.out.println(selected);
+		final Frame frame = new Frame("JTextFieldTest");
+		JButton button = new JButton("push it");
+		button.addActionListener(e -> {
+			String modelObject = propertyModel.getObject();
+			String text = textField.getText();
+			System.out.println(modelObject + "::" + text);
 		});
 		frame.addWindowListener(new CloseWindow());
 
 		frame.setLayout(new MigLayout());
-		frame.add(buttonCheck);
+		frame.add(button);
 		frame.add(textField);
 		frame.setSize(200, 200);
 		frame.setVisible(true);

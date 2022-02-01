@@ -24,46 +24,36 @@
  */
 package io.github.astrapi69.swing.component;
 
-import java.io.Serializable;
+import java.awt.Frame;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.FieldDefaults;
-import lombok.experimental.SuperBuilder;
+import javax.swing.JButton;
 
-@Data
-@SuperBuilder
-@NoArgsConstructor
-@AllArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class ButtonModelBean implements Serializable
+import net.miginfocom.swing.MigLayout;
+import io.github.astrapi69.crypto.key.KeyType;
+import io.github.astrapi69.swing.combobox.model.EnumComboBoxModel;
+import io.github.astrapi69.window.adapter.CloseWindow;
+
+public class JMComboBoxTest
 {
-	/**
-	 * Flag that indicates partial commitment towards triggering the button
-	 */
-	boolean armed;
+	public static void main(String[] args)
+	{
+		JMComboBox<EnumComboBoxModel<KeyType>> comboBox = new JMComboBox<>(
+			new EnumComboBoxModel<>(KeyType.class));
 
-	/**
-	 * Flag that indicates if the button has been selected. Only needed for certain types of buttons
-	 * - such as radio buttons and check boxes
-	 */
-	boolean selected;
+		final Frame frame = new Frame("JMComboBoxTest");
+		JButton button = new JButton("push it");
+		button.addActionListener(e -> {
+			KeyType selectedItem = comboBox.getPropertyModel().getObject().getSelectedItem();
+			Object selectedObject = comboBox.getModel().getSelectedItem();
+			System.out.println(selectedItem + "::" + selectedObject);
+		});
+		frame.addWindowListener(new CloseWindow());
 
-	/**
-	 * Flag that indicates if the button can be selected or triggered by an input device, such as a
-	 * mouse pointer
-	 */
-	boolean enabled;
+		frame.setLayout(new MigLayout());
+		frame.add(button);
+		frame.add(comboBox);
+		frame.setSize(400, 400);
+		frame.setVisible(true);
+	}
 
-	/**
-	 * Flag that indicates if the button is pressed
-	 */
-	boolean pressed;
-
-	/**
-	 * Flag that indicates that the mouse is over the button
-	 */
-	boolean rollover;
 }

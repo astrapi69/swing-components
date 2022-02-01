@@ -33,22 +33,22 @@ import io.github.astrapi69.collections.pairs.ValueBox;
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class JMTextFieldTest
+public class JMPasswordFieldTest
 {
 	public static void main(String[] args)
 	{
-		ValueBox<String> stringBox = ValueBox.<String> builder().value("foo").build();
+		ValueBox<char[]> stringBox = ValueBox.<char[]> builder().value("foo".toCharArray()).build();
 		// Bind with JMTextField that encapsulate a property model
-		JMTextField textFieldDecorator = new JMTextField("fff", 20);
+		JMPasswordField textFieldDecorator = new JMPasswordField("fff", 20);
 		textFieldDecorator
 			.setPropertyModel(LambdaModel.of(stringBox::getValue, stringBox::setValue));
 
-		final Frame frame = new Frame("JMTextFieldTest");
+		final Frame frame = new Frame("JMPasswordFieldTest");
 		JButton button = new JButton("push it");
 		button.addActionListener(e -> {
-			String modelObject = textFieldDecorator.getPropertyModel().getObject();
-			String text = textFieldDecorator.getText();
-			System.out.println(modelObject + "::" + text);
+			char[] model = textFieldDecorator.getPropertyModel().getObject();
+			char[] password = textFieldDecorator.getPassword();
+			System.out.println(String.valueOf(model) + "::" + String.valueOf(password));
 		});
 		frame.addWindowListener(new CloseWindow());
 

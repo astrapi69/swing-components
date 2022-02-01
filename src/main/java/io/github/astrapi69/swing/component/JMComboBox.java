@@ -24,39 +24,36 @@
  */
 package io.github.astrapi69.swing.component;
 
-import java.awt.Frame;
+import javax.swing.ComboBoxModel;
 
-import javax.swing.JButton;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.experimental.FieldDefaults;
 
-import net.miginfocom.swing.MigLayout;
-import io.github.astrapi69.collections.pairs.ValueBox;
-import io.github.astrapi69.model.LambdaModel;
-import io.github.astrapi69.window.adapter.CloseWindow;
+import org.jdesktop.swingx.JXComboBox;
 
-public class JMTextFieldTest
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.IModel;
+
+@Getter
+@EqualsAndHashCode(callSuper = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class JMComboBox<T extends ComboBoxModel> extends JXComboBox
 {
-	public static void main(String[] args)
+	IModel<T> propertyModel = BaseModel.of();
+
+	public JMComboBox(T model)
 	{
-		ValueBox<String> stringBox = ValueBox.<String> builder().value("foo").build();
-		// Bind with JMTextField that encapsulate a property model
-		JMTextField textFieldDecorator = new JMTextField("fff", 20);
-		textFieldDecorator
-			.setPropertyModel(LambdaModel.of(stringBox::getValue, stringBox::setValue));
-
-		final Frame frame = new Frame("JMTextFieldTest");
-		JButton button = new JButton("push it");
-		button.addActionListener(e -> {
-			String modelObject = textFieldDecorator.getPropertyModel().getObject();
-			String text = textFieldDecorator.getText();
-			System.out.println(modelObject + "::" + text);
-		});
-		frame.addWindowListener(new CloseWindow());
-
-		frame.setLayout(new MigLayout());
-		frame.add(button);
-		frame.add(textFieldDecorator);
-		frame.setSize(200, 200);
-		frame.setVisible(true);
+		super(model);
+		propertyModel.setObject(model);
 	}
 
+	public JMComboBox setPropertyModel(final @NonNull IModel<T> propertyModel)
+	{
+		this.propertyModel = propertyModel;
+		setModel(this.propertyModel.getObject());
+		return this;
+	}
 }

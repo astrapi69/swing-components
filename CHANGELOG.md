@@ -7,6 +7,9 @@ Version 6-SNAPSHOT
 ADDED:
 
 - new JListExtensions class for operation on JList component
+- new decorator class for JComboBox that encapsulate a property model and bind it to it
+- new decorator class for JMPasswordField that encapsulate a property model and bind it to it
+- new decorator class for JTextArea that encapsulate a property model and bind it to it
 
 CHANGED:
 

@@ -210,6 +210,7 @@ dependencies {
     implementation("io.github.astrapi69:icon-img-extensions:$iconImgExtensionsVersion")
     implementation("io.github.astrapi69:swing-tree-component:$swingTreeComponentVersion")
     testImplementation("org.jdesktop:beansbinding:$beansbindingVersion")
+    testImplementation("io.github.astrapi69:crypt-api:$cryptApiVersion")
     testImplementation("io.github.astrapi69:file-worker:$fileWorkerVersion")
     testImplementation("io.github.astrapi69:test-objects:$testObjectsVersion")
     testImplementation("org.freedesktop.tango:tango-icon-theme:$tangoIconThemeVersion")
