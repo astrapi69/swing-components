@@ -27,7 +27,7 @@ CHANGED:
 - moved splashscreen components to its own repository and deleted corresponding classes
 - moved CheckedModelBean class from test to main module
 - moved CheckableListModelBean class from test to main module
-- update dependency of jobj-core version to 5.2
+- update dependency of jobj-core version to 5.3
 - update dependency of randomizer version to 8.5
 - update dependency of com.github.ben-manes.versions.gradle.plugin to new version 0.41.0
 - update of test dependency test-objects version to 5.7
@@ -36,6 +36,7 @@ CHANGED:
 - update of model-data dependency to new version 1.12
 - renamed package actions to action
 - renamed package panels to panel
+- removed editor config gradle plugin
 
 Version 5.12
 -------------

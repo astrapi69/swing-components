@@ -66,7 +66,14 @@ public class JMTextArea extends JXTextArea
 	}
 
 	/**
-	 * Constructs a new <code>TextField</code>.
+	 * Constructs a new <code>JMTextArea</code>.
+	 */
+	public JMTextArea()
+	{
+	}
+
+	/**
+	 * Constructs a new <code>JMTextArea</code>.
 	 *
 	 * @param propertyModel
 	 *            the text model to be displayed
@@ -76,10 +83,10 @@ public class JMTextArea extends JXTextArea
 		this.propertyModel = propertyModel;
 	}
 
-	public JMTextArea(String text, final IModel<String> propertyModel)
+	public JMTextArea(String text)
 	{
 		super(text);
-		this.propertyModel = propertyModel;
+		this.propertyModel.setObject(text);
 	}
 
 	public JMTextArea setPropertyModel(final @NonNull IModel<String> propertyModel)
