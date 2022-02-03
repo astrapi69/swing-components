@@ -14,12 +14,12 @@ Several swing components and utilities
 
 - Buffered images to pdf file
 
-<!--Place this tag in your head or just before your close body tag. 
+<!--Place this tag in your head or just before your close body tag.
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 Place this tag where you want the button to render.
 Peace!-->
 
-> Please support this project by simply putting a Github 
+> Please support this project by simply putting a Github
 > <a class="github-button" href="https://github.com/lightblueseas/swing-components" data-icon="octicon-star" aria-label="Star lightblueseas/swing-components on GitHub">Star ⭐</a>
 >
 > Share this library with friends on Twitter and everywhere else you can
@@ -39,23 +39,23 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 
 Than you can add the dependency to your dependencies:
 
-	<properties>
-			...
-		<!-- SWING-COMPONENTS version -->
-		<swing-components.version>5.12</swing-components.version>
-			...
-	</properties>
-			...
-		<dependencies>
-			...
+    <properties>
+            ...
+        <!-- SWING-COMPONENTS version -->
+        <swing-components.version>5.12</swing-components.version>
+            ...
+    </properties>
+            ...
+        <dependencies>
+            ...
             <!-- SWING-COMPONENTS DEPENDENCY -->
-			<dependency>
-				<groupId>io.github.astrapi69</groupId>
-				<artifactId>swing-components</artifactId>
-				<version>${swing-components.version}</version>
-			</dependency>
-			...
-		</dependencies>
+            <dependency>
+                <groupId>io.github.astrapi69</groupId>
+                <artifactId>swing-components</artifactId>
+                <version>${swing-components.version}</version>
+            </dependency>
+            ...
+        </dependencies>
 
 ## gradle dependency
 
@@ -72,9 +72,9 @@ or in build.gradle ext area
 
 ```
 ext {
-			...
+            ...
     swingComponentsVersion = "5.12"
-			...
+            ...
 }
 ```
 
@@ -82,9 +82,9 @@ and then add the dependency to the dependencies area
 
 ```
 dependencies {
-			...
+            ...
     implementation("io.github.astrapi69:swing-components:$swingComponentsVersion")
-			...
+            ...
 }
 ```
 
@@ -189,7 +189,7 @@ Open Source:
  * [Darcula](https://github.com/bulenkov/Darcula) Darcula Look and Feel
  * [Spring Rich Client](https://sourceforge.net/projects/spring-rich-c/files/spring-rich-c/)(not maintainend anymore) The Spring Rich Client Project (RCP) is a sub-project of The Spring Framework.
  * [utils4swing](http://www.fuin.org/utils4swing/index.html) A small Java 1.4 compatible library that aims to ease the pain of some Swing development tasks
- * [utils4swing5](http://www.fuin.org/utils4swing5/index.html) A small Java 1.6 library that aims to ease the pain of some Swing development tasks. 
+ * [utils4swing5](http://www.fuin.org/utils4swing5/index.html) A small Java 1.6 library that aims to ease the pain of some Swing development tasks.
  * [RSyntaxTextArea](https://github.com/bobbylight/RSyntaxTextArea) A syntax highlighting, code folding text editor for Java Swing applications.
  * [Java Swing examples](https://github.com/aterai/java-swing-tips) A collection of swing component examples
  * [swing-beansbinding](https://github.com/JFormDesigner/swing-beansbinding) JFormDesigner swing-beansbinding supports the Beans Binding specification (JSR 295)
@@ -201,10 +201,10 @@ Commercial
 
  * [JIDE](http://www.jidesoft.com/) JIDE Software is a professional Java UI component provider.
  * [Swing Depot: Components Suites](http://www.javadesktop.org/rollups/components/) commercial swing components
- 
+
 Projects that list projects of awesome swing projects
  * [awesome-swing](https://github.com/parubok/awesome-swing) A list of frameworks, libraries and software for the Java Swing GUI toolkit.
- 
+
 ## Credits
 
 |**Travis CI**|
@@ -224,4 +224,3 @@ Projects that list projects of awesome swing projects
 |[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/swing-components.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-components)|
 |Special thanks to [javadoc.io](http://www.javadoc.io) for providing a free javadoc documentation for open source projects|
 |     <img width=1000/>     |
-

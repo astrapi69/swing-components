@@ -87,7 +87,7 @@ ADDED:
 - new method in ClipboardExtensions for copy a given string to the clipboard
 - new class SuffixFileFilter for a generic FileFilter implementation with file suffix
 - new class JFileChooserExtensions for extension methods for the JFileChooser
-- new classes for show a simple help dialog 
+- new classes for show a simple help dialog
 
 CHANGED:
 
@@ -160,8 +160,8 @@ Version 5.5
 -------------
 
 ADDED:
- 
-- new method for infinite mouse movement 
+
+- new method for infinite mouse movement
 - new method for mouse movement with a specified time
 
 CHANGED:
@@ -180,7 +180,7 @@ Version 5.4.1
 -------------
 
 ADDED:
- 
+
 - new dependency de.alpharogroup:throw-able in version 1.4
 - new class ProgressBarSplashScreen created
 
@@ -188,13 +188,13 @@ CHANGED:
 
 - bugfix for hashcode recursive call in ApplicationFrame and BaseDesktopMenu fixed
 - bugfix of image load in BaseSplashScreen classes fixed
-- removed progress bar from BaseSplashScreen 
+- removed progress bar from BaseSplashScreen
 
 Version 5.4
 -------------
 
 ADDED:
- 
+
 - new getter method for the valueMap in class EnumComboBoxModel
 - new BaseSplashScreen Window created
 - new .editorconfig file created from old eclipse configuration file
@@ -208,8 +208,8 @@ Version 5.3
 -------------
 
 ADDED:
- 
-- new callback method in BaseDesktopMenu for a refresh the state of the menu items 
+
+- new callback method in BaseDesktopMenu for a refresh the state of the menu items
 
 CHANGED:
 
@@ -222,7 +222,7 @@ Version 5.2
 -------------
 
 ADDED:
- 
+
 - gradle as build system
 - new classes DynamicTableColumnsModel and DynamicTableModel created
 
@@ -237,12 +237,12 @@ Version 5.1
 -------------
 
 ADDED:
- 
+
 - new method created that create a configuration directory file object with factory method that can be overwritten
 - new Factory class for TableCellButtonRenderer created
 - new callback methods in TableCellButtonEditor created
 - new class RequestFocusListener created for request the focus from a given component
-- new panel class created for display the output of the system out and error stream 
+- new panel class created for display the output of the system out and error stream
 - new factory method for JDialog with parent component created
 - new factory methods for JSplitPane component created
 - new application frame with split pane created
@@ -276,7 +276,7 @@ Version 5
 -------------
 
 ADDED:
- 
+
 - new extension class for show dialogs created
 - new methods created for get screen informations like the screen id
 
@@ -299,11 +299,11 @@ Version 4.31
 -------------
 
 ADDED:
- 
+
 - new base class for application frame
 - new base class for desktop menu
 - new action classes created for help, donate, info and license created
-- new factory method for JMenuItem created 
+- new factory method for JMenuItem created
 
 CHANGED:
 
@@ -311,13 +311,13 @@ CHANGED:
 - update of silly-collections version to 4.35
 - update of jcommons-lang version to 5
 - update of file-worker version to 5
-- tagged 'look and feel' enum and action classes as deprecated 
+- tagged 'look and feel' enum and action classes as deprecated
 
 Version 4.30
 -------------
 
 ADDED:
- 
+
 - new 'look and feel'action classes created
 
 CHANGED:
@@ -329,7 +329,7 @@ Version 4.29
 -------------
 
 ADDED:
- 
+
 - new JTreePanel class created for JTree
 - new RangeDocument class created for constraint the range of a document
 - new RegularExpressionDocument class created for constraint the input of a document with the given regular expression
@@ -347,7 +347,7 @@ Version 4.28
 -------------
 
 ADDED:
- 
+
 - new DocumentFilter for integer arrays created
 
 CHANGED:
@@ -379,7 +379,7 @@ Version 4.26.0
 -------------
 
 ADDED:
- 
+
 - created new class EnumComboBoxModel for enums
 
 CHANGED:
@@ -395,7 +395,7 @@ Version 4.25.0
 -------------
 
 ADDED:
- 
+
 - this changelog file
 - created PULL_REQUEST_TEMPLATE.md file
 - created CODE_OF_CONDUCT.md file
@@ -406,7 +406,5 @@ ADDED:
 CHANGED:
 
 - update of parent version
-- update of documentation of README.md 
+- update of documentation of README.md
 - unit tests extended
-
-

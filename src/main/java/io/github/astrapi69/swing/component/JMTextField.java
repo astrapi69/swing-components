@@ -97,7 +97,8 @@ public class JMTextField extends JXTextField
 		this.propertyModel.setObject(text);
 	}
 
-	public JMTextField(String text, int columns) {
+	public JMTextField(String text, int columns)
+	{
 		super(text);
 		setColumns(columns);
 		this.propertyModel.setObject(text);
