@@ -24,20 +24,20 @@
  */
 package io.github.astrapi69.swing.component;
 
-import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
-import javax.swing.text.Document;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
+
+import org.jdesktop.swingx.JXTextField;
+
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.listener.document.DocumentListenerAdapter;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
-import org.jdesktop.swingx.JXTextField;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
