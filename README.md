@@ -30,6 +30,30 @@ Peace!-->
 
 The source code comes under the liberal MIT License, making swing-components great for all types of applications.
 
+
+## gradle dependency
+
+You can first define the version in the ext section and add than the following gradle dependency to
+your project `build.gradle` if you want to import the core functionality of swing-components:
+
+define version in file gradle.properties
+
+```
+swingComponentsVersion=6
+```
+
+or in build.gradle ext area
+
+```
+    swingComponentsVersion = "6"
+```
+
+and then add the dependency to the dependencies area
+
+```
+    implementation("io.github.astrapi69:swing-components:$swingComponentsVersion")
+```
+
 ## Maven dependency
 
 Maven dependency is now on sonatype.
@@ -42,7 +66,7 @@ Than you can add the dependency to your dependencies:
     <properties>
             ...
         <!-- SWING-COMPONENTS version -->
-        <swing-components.version>5.12</swing-components.version>
+        <swing-components.version>6</swing-components.version>
             ...
     </properties>
             ...
@@ -56,37 +80,6 @@ Than you can add the dependency to your dependencies:
             </dependency>
             ...
         </dependencies>
-
-## gradle dependency
-
-You can first define the version in the ext section and add than the following gradle dependency to
-your project `build.gradle` if you want to import the core functionality of swing-components:
-
-define version in file gradle.properties
-
-```
-swingComponentsVersion=5.12
-```
-
-or in build.gradle ext area
-
-```
-ext {
-            ...
-    swingComponentsVersion = "5.12"
-            ...
-}
-```
-
-and then add the dependency to the dependencies area
-
-```
-dependencies {
-            ...
-    implementation("io.github.astrapi69:swing-components:$swingComponentsVersion")
-            ...
-}
-```
 
 ## Semantic Versioning
 
