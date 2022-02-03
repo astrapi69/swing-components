@@ -10,6 +10,7 @@ ADDED:
 - new decorator class for JComboBox that encapsulate a property model and bind it to it
 - new decorator class for JMPasswordField that encapsulate a property model and bind it to it
 - new decorator class for JTextArea that encapsulate a property model and bind it to it
+- integration from gradle plugin spotless
 
 CHANGED:
 
