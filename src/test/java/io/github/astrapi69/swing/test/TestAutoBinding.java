@@ -27,6 +27,7 @@ package io.github.astrapi69.swing.test;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertNotSame;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import org.jdesktop.beansbinding.AutoBinding;
@@ -41,7 +42,7 @@ import io.github.astrapi69.test.objects.Person;
 public class TestAutoBinding
 {
 	@Test
-	public void testEncapsulatedAutoBinding()
+	public void testEncapsulatedAutoBindingWithJLabel()
 	{
 		String actual;
 		String expected;
@@ -62,7 +63,7 @@ public class TestAutoBinding
 		lblValue = new JLabel();
 		jLabelBeanProperty = BeanProperty.create("text");
 		autoBinding = Bindings.createAutoBinding(updateStrategy, employee,
-			employeeStringBeanProperty, lblValue, jLabelBeanProperty);
+				employeeStringBeanProperty, lblValue, jLabelBeanProperty);
 		autoBinding.bind();
 
 		actual = lblValue.getText();
@@ -79,6 +80,54 @@ public class TestAutoBinding
 		actual = lblValue.getText();
 		expected = employee.getPerson().getNickname();
 		assertEquals(actual, expected);
+	}
+
+	@Test
+	public void testEncapsulatedAutoBindingWithJButton()
+	{
+		Boolean actual;
+		Boolean expected;
+		Boolean value;
+		Boolean enabled;
+		Employee employee;
+		AutoBinding<Employee, Boolean, JButton, Boolean> autoBinding;
+		AutoBinding.UpdateStrategy updateStrategy;
+		BeanProperty<Employee, Boolean> employeeStringBeanProperty;
+		BeanProperty<JButton, Boolean> jButtonBeanProperty;
+		JButton btnValue;
+
+		// new scenario with AutoBinding.UpdateStrategy.READ
+		value = false;
+		updateStrategy = AutoBinding.UpdateStrategy.READ;
+		employee = Employee.builder().person(Person.builder().married(value).build()).build();
+		employeeStringBeanProperty = BeanProperty.create("person.married");
+		btnValue = new JButton();
+		jButtonBeanProperty = BeanProperty.create("model.enabled");
+		autoBinding = Bindings.createAutoBinding(updateStrategy, employee,
+				employeeStringBeanProperty, btnValue, jButtonBeanProperty);
+		autoBinding.bind();
+
+		actual = btnValue.isEnabled();
+		expected = value;
+		assertEquals(actual, expected);
+		// set enabled from JButton will not update source, because of strategy only READ
+		enabled = true;
+		btnValue.setEnabled(enabled);
+		actual = employee.getPerson().getMarried();
+		expected = enabled;
+		assertNotSame(actual, expected); // Not equal!!!
+
+		enabled = false;
+		btnValue.setEnabled(enabled);
+		actual = employee.getPerson().getMarried();
+		expected = enabled;
+		assertEquals(actual, expected);
+		// set value from Employee
+		enabled = true;
+		employee.getPerson().setMarried(enabled);
+		actual = btnValue.isEnabled();
+		expected = employee.getPerson().getMarried();
+		assertNotSame(actual, expected); // Not equal!!!
 	}
 
 	@Test
@@ -102,7 +151,7 @@ public class TestAutoBinding
 		valueBoxStringBeanProperty = BeanProperty.create("value");
 		jLabelBeanProperty = BeanProperty.create("text");
 		autoBinding = Bindings.createAutoBinding(updateStrategy, stringValueBox,
-			valueBoxStringBeanProperty, lblValue, jLabelBeanProperty);
+				valueBoxStringBeanProperty, lblValue, jLabelBeanProperty);
 		autoBinding.bind();
 		actual = lblValue.getText();
 		expected = value;
@@ -126,7 +175,7 @@ public class TestAutoBinding
 		valueBoxStringBeanProperty = BeanProperty.create("value");
 		jLabelBeanProperty = BeanProperty.create("text");
 		autoBinding = Bindings.createAutoBinding(updateStrategy, stringValueBox,
-			valueBoxStringBeanProperty, lblValue, jLabelBeanProperty);
+				valueBoxStringBeanProperty, lblValue, jLabelBeanProperty);
 		autoBinding.bind();
 		actual = lblValue.getText();
 		expected = value;
