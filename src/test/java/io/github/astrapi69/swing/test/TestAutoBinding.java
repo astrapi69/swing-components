@@ -63,7 +63,7 @@ public class TestAutoBinding
 		lblValue = new JLabel();
 		jLabelBeanProperty = BeanProperty.create("text");
 		autoBinding = Bindings.createAutoBinding(updateStrategy, employee,
-				employeeStringBeanProperty, lblValue, jLabelBeanProperty);
+			employeeStringBeanProperty, lblValue, jLabelBeanProperty);
 		autoBinding.bind();
 
 		actual = lblValue.getText();
@@ -104,7 +104,7 @@ public class TestAutoBinding
 		btnValue = new JButton();
 		jButtonBeanProperty = BeanProperty.create("model.enabled");
 		autoBinding = Bindings.createAutoBinding(updateStrategy, employee,
-				employeeStringBeanProperty, btnValue, jButtonBeanProperty);
+			employeeStringBeanProperty, btnValue, jButtonBeanProperty);
 		autoBinding.bind();
 
 		actual = btnValue.isEnabled();
@@ -151,7 +151,7 @@ public class TestAutoBinding
 		valueBoxStringBeanProperty = BeanProperty.create("value");
 		jLabelBeanProperty = BeanProperty.create("text");
 		autoBinding = Bindings.createAutoBinding(updateStrategy, stringValueBox,
-				valueBoxStringBeanProperty, lblValue, jLabelBeanProperty);
+			valueBoxStringBeanProperty, lblValue, jLabelBeanProperty);
 		autoBinding.bind();
 		actual = lblValue.getText();
 		expected = value;
@@ -175,7 +175,7 @@ public class TestAutoBinding
 		valueBoxStringBeanProperty = BeanProperty.create("value");
 		jLabelBeanProperty = BeanProperty.create("text");
 		autoBinding = Bindings.createAutoBinding(updateStrategy, stringValueBox,
-				valueBoxStringBeanProperty, lblValue, jLabelBeanProperty);
+			valueBoxStringBeanProperty, lblValue, jLabelBeanProperty);
 		autoBinding.bind();
 		actual = lblValue.getText();
 		expected = value;
