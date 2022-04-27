@@ -190,13 +190,17 @@ public class RobotExtensions
 	{
 		SecureRandom secureRandom = SecureRandomFactory.newSecureRandom();
 		setCurrentThreadPriority(threadPriority);
+		Point nextRandomPoint = null;
 		while (true)
 		{
 			if (considerMousePosition)
 			{
 				Point currentMousePosition = MouseExtensions.getMousePosition();
-				Point point = RandomObjectFactory.randomNeighborPoint(currentMousePosition);
-				MouseExtensions.setMousePosition(robot, point.x, point.y);
+				nextRandomPoint = RandomObjectFactory
+					.randomNeighborPoint(currentMousePosition.equals(nextRandomPoint)
+						? nextRandomPoint
+						: currentMousePosition);
+				MouseExtensions.setMousePosition(robot, nextRandomPoint.x, nextRandomPoint.y);
 				Thread.sleep(everyMilliSeconds);
 			}
 			else

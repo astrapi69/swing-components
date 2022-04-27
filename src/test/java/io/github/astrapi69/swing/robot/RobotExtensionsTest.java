@@ -57,7 +57,7 @@ public class RobotExtensionsTest
 		RobotExtensions.clickRightMouseButton(new Robot(), 400, 400);
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testInfiniteMoveMouse() throws AWTException, InterruptedException
 	{
 		RobotExtensions.infiniteMoveMouse(new Robot(), 400, 400, 200);
