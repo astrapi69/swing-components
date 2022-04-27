@@ -24,6 +24,7 @@
  */
 package io.github.astrapi69.swing.robot;
 
+import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -31,6 +32,7 @@ import java.lang.reflect.Field;
 import java.security.SecureRandom;
 
 import io.github.astrapi69.random.SecureRandomFactory;
+import io.github.astrapi69.random.object.RandomObjectFactory;
 
 /**
  * The class {@link RobotExtensions} provides utility methods for the class {@link Robot}
@@ -163,13 +165,46 @@ public class RobotExtensions
 	public static void infiniteMoveMouse(final Robot robot, int x, int y, long everyMilliSeconds,
 		int threadPriority) throws InterruptedException
 	{
+		infiniteMoveMouse(robot, x, y, everyMilliSeconds, threadPriority, true);
+	}
+
+	/**
+	 * Move the mouse with the given robot in infinity mode
+	 *
+	 * @param robot
+	 *            the robot
+	 * @param x
+	 *            the X position
+	 * @param y
+	 *            the Y position
+	 * @param everyMilliSeconds
+	 *            * the milli seconds to execute every time
+	 * @param threadPriority
+	 *            the thread priority of the current thread. Note: the thread priority is between 1
+	 *            till 10, if smaller or greater 1 will be taken
+	 * @throws InterruptedException
+	 *             is thrown if the current thread is interrupted
+	 */
+	public static void infiniteMoveMouse(final Robot robot, int x, int y, long everyMilliSeconds,
+		int threadPriority, boolean considerMousePosition) throws InterruptedException
+	{
 		SecureRandom secureRandom = SecureRandomFactory.newSecureRandom();
 		setCurrentThreadPriority(threadPriority);
 		while (true)
 		{
-			MouseExtensions.setMousePosition(robot, secureRandom.nextInt(x),
-				secureRandom.nextInt(y));
-			Thread.sleep(everyMilliSeconds);
+			if (considerMousePosition)
+			{
+				Point currentMousePosition = MouseExtensions.getMousePosition();
+				Point point = RandomObjectFactory.randomNeighborPoint(currentMousePosition);
+				MouseExtensions.setMousePosition(robot, point.x, point.y);
+				Thread.sleep(everyMilliSeconds);
+			}
+			else
+			{
+				MouseExtensions.setMousePosition(robot, secureRandom.nextInt(x),
+					secureRandom.nextInt(y));
+				Thread.sleep(everyMilliSeconds);
+			}
 		}
 	}
 

@@ -8,6 +8,12 @@ ADDED:
 
 - new method the sets the mouse position to the given coordinates x and y in class MouseExtensions
 
+
+CHANGED:
+
+- update of gradle to new version 7.4.2
+- update dependency of randomizer version to 8.6
+
 Version 6
 -------------
 

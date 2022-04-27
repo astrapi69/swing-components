@@ -36,8 +36,8 @@ import org.jdesktop.beansbinding.Bindings;
 import org.testng.annotations.Test;
 
 import io.github.astrapi69.collections.pairs.ValueBox;
-import io.github.astrapi69.test.objects.Employee;
-import io.github.astrapi69.test.objects.Person;
+import io.github.astrapi69.test.object.Employee;
+import io.github.astrapi69.test.object.Person;
 
 public class TestAutoBinding
 {

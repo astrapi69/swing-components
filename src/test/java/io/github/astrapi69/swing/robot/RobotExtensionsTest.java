@@ -60,7 +60,7 @@ public class RobotExtensionsTest
 	@Test(enabled = false)
 	public void testInfiniteMoveMouse() throws AWTException, InterruptedException
 	{
-		RobotExtensions.infiniteMoveMouse(new Robot(), 400, 400, 200000);
+		RobotExtensions.infiniteMoveMouse(new Robot(), 400, 400, 200);
 	}
 
 	@Test(enabled = false)
