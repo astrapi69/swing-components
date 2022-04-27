@@ -12,7 +12,11 @@ ADDED:
 CHANGED:
 
 - update of gradle to new version 7.4.2
-- update dependency of randomizer version to 8.6
+- update of lombok dependency to new patch version 1.18.24
+- update of randomizer dependency to new minor version to 8.6
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 6.4.3
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.42.0
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.5.0
 
 Version 6
 -------------
