@@ -51,7 +51,7 @@ public class RobotExtensions
 	 */
 	public static void clickMouseButton(Robot robot, int x, int y, int mouseButtonMask)
 	{
-		robot.mouseMove(x, y);
+		MouseExtensions.setMousePosition(robot, x, y);
 		robot.mousePress(mouseButtonMask);
 		robot.mouseRelease(mouseButtonMask);
 	}
@@ -167,7 +167,8 @@ public class RobotExtensions
 		setCurrentThreadPriority(threadPriority);
 		while (true)
 		{
-			robot.mouseMove(secureRandom.nextInt(x), secureRandom.nextInt(y));
+			MouseExtensions.setMousePosition(robot, secureRandom.nextInt(x),
+				secureRandom.nextInt(y));
 			Thread.sleep(everyMilliSeconds);
 		}
 	}
@@ -221,7 +222,8 @@ public class RobotExtensions
 		long counter = 0;
 		while (counter < duration)
 		{
-			robot.mouseMove(secureRandom.nextInt(x), secureRandom.nextInt(y));
+			MouseExtensions.setMousePosition(robot, secureRandom.nextInt(x),
+				secureRandom.nextInt(y));
 			counter += everyMilliSeconds;
 			Thread.sleep(everyMilliSeconds);
 		}

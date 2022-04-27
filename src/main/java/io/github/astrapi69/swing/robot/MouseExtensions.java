@@ -28,6 +28,7 @@ import java.awt.Component;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Robot;
 
 /**
  * The class {@link MouseExtensions} provides utility methods for mouse information
@@ -43,6 +44,21 @@ public class MouseExtensions
 	public static Point getMousePosition()
 	{
 		return MouseInfo.getPointerInfo().getLocation();
+	}
+
+	/**
+	 * Set the position of the mouse to the given coordinates x and y
+	 *
+	 * @param robot
+	 *            the robot
+	 * @param x
+	 *            the X position
+	 * @param y
+	 *            the Y position
+	 */
+	public static void setMousePosition(Robot robot, int x, int y)
+	{
+		robot.mouseMove(x, y);
 	}
 
 	/**

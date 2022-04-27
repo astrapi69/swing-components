@@ -4,7 +4,10 @@
 Version 6.1-SNAPSHOT
 -------------
 
+ADDED:
 
+- new method the sets the mouse position to the given coordinates x and y in class MouseExtensions
+- 
 
 Version 6
 -------------
