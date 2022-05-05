@@ -26,6 +26,7 @@ package io.github.astrapi69.swing.robot;
 
 import static org.testng.Assert.assertNotNull;
 
+import java.awt.HeadlessException;
 import java.awt.Point;
 
 import org.testng.annotations.Test;
@@ -36,9 +37,15 @@ public class MouseExtensionsTest
 	@Test(enabled = true)
 	public void testGetMousePosition()
 	{
-		Point currentMousePosition;
+		try
+		{
+			Point currentMousePosition;
 
-		currentMousePosition = MouseExtensions.getMousePosition();
-		assertNotNull(currentMousePosition);
+			currentMousePosition = MouseExtensions.getMousePosition();
+			assertNotNull(currentMousePosition);
+		} catch (HeadlessException e){
+			java.util.logging.Logger logger =  java.util.logging.Logger.getLogger(this.getClass().getName());
+			logger.info("Ignoring Headless exception.");
+		}
 	}
 }
