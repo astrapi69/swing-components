@@ -33,7 +33,7 @@ import org.testng.annotations.Test;
 public class MouseExtensionsTest
 {
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testGetMousePosition()
 	{
 		Point currentMousePosition;
