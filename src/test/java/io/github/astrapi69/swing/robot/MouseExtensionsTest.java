@@ -43,8 +43,11 @@ public class MouseExtensionsTest
 
 			currentMousePosition = MouseExtensions.getMousePosition();
 			assertNotNull(currentMousePosition);
-		} catch (HeadlessException e){
-			java.util.logging.Logger logger =  java.util.logging.Logger.getLogger(this.getClass().getName());
+		}
+		catch (HeadlessException e)
+		{
+			java.util.logging.Logger logger = java.util.logging.Logger
+				.getLogger(this.getClass().getName());
 			logger.info("Ignoring Headless exception.");
 		}
 	}
