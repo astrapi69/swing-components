@@ -4,7 +4,14 @@
 Version 6.2-SNAPSHOT
 -------------
 
+ADDED:
 
+- new dependency io.github.astrapi69:swing-renderer in new minor version 1.1
+- new dependency io.github.astrapi69:component-model in new major version 1
+
+CHANGED:
+
+- removed all related classes that was moved to its own repository
 
 Version 6.1
 -------------
