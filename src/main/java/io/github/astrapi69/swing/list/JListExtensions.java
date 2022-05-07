@@ -39,6 +39,7 @@ import io.github.astrapi69.collections.list.ListExtensions;
 import io.github.astrapi69.collections.list.ListFactory;
 import io.github.astrapi69.swing.check.model.CheckableItem;
 import io.github.astrapi69.swing.check.model.CheckableValue;
+import io.github.astrapi69.swing.tree.renderer.list.CheckBoxListRenderer;
 
 public class JListExtensions
 {
