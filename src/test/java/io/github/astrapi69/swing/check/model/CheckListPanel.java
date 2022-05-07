@@ -36,10 +36,13 @@ import javax.swing.ListModel;
 
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
+import io.github.astrapi69.model.check.CheckableItem;
+import io.github.astrapi69.model.check.CheckableListModel;
+import io.github.astrapi69.model.check.CheckableValue;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.list.JListExtensions;
 
-public class CheckListPanel extends BasePanel<CheckableListModelBean>
+public class CheckListPanel extends BasePanel<CheckableListModel>
 {
 	JList<CheckableItem<CheckableValue>> list;
 	JScrollPane checklistPane;
@@ -52,10 +55,10 @@ public class CheckListPanel extends BasePanel<CheckableListModelBean>
 
 	public CheckListPanel()
 	{
-		this(BaseModel.of(CheckableListModelBean.builder().build()));
+		this(BaseModel.of(CheckableListModel.builder().build()));
 	}
 
-	public CheckListPanel(IModel<CheckableListModelBean> model)
+	public CheckListPanel(IModel<CheckableListModel> model)
 	{
 		super(model);
 	}

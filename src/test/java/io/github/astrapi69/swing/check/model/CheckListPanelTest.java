@@ -28,6 +28,9 @@ import java.awt.Frame;
 
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
+import io.github.astrapi69.model.check.CheckableItem;
+import io.github.astrapi69.model.check.CheckableListModel;
+import io.github.astrapi69.model.check.CheckableValue;
 import io.github.astrapi69.swing.list.JListExtensions;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
@@ -38,8 +41,8 @@ public class CheckListPanelTest
 		final Frame frame = new Frame("CheckListPanel");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
 		CheckableItem<CheckableValue>[] checkableItems = JListExtensions.newCheckableItems(strs);
-		IModel<CheckableListModelBean> model = BaseModel.of(CheckableListModelBean.builder()
-			.values(JListExtensions.newCheckableItems(strs)).build());
+		IModel<CheckableListModel> model = BaseModel.of(
+			CheckableListModel.builder().values(JListExtensions.newCheckableItems(strs)).build());
 		frame.add(new CheckListPanel(model));
 		frame.addWindowListener(new CloseWindow());
 		frame.setSize(300, 200);

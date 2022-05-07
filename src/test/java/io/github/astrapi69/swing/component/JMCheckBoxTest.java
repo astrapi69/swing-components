@@ -31,7 +31,7 @@ import javax.swing.JButton;
 
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.IModel;
-import io.github.astrapi69.swing.check.model.CheckedModelBean;
+import io.github.astrapi69.model.check.CheckedModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class JMCheckBoxTest
@@ -40,8 +40,8 @@ public class JMCheckBoxTest
 	{
 		// Bind with JMCheckBox that encapsulate a property model
 		final JMCheckBox checkBox;
-		final CheckedModelBean checkedModelBean;
-		checkedModelBean = CheckedModelBean.builder().build();
+		final CheckedModel checkedModelBean;
+		checkedModelBean = CheckedModel.builder().build();
 		checkBox = new JMCheckBox("Check me");
 
 		// SerializableSupplier<Boolean> getter = () -> {
