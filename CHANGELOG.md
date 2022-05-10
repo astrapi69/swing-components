@@ -12,6 +12,7 @@ ADDED:
 CHANGED:
 
 - removed all related classes that was moved to its own repository
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.5.2
 
 Version 6.1
 -------------
