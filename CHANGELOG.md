@@ -4,7 +4,11 @@
 Version 6.3-SNAPSHOT
 -------------
 
+CHANGED:
 
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.6.1
+- update dependency of swing-base-components version to 1.4
+- update of test dependency testng version to 7.6.0
 
 Version 6.2
 -------------
