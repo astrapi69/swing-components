@@ -70,12 +70,15 @@ public class CheckListPanel extends BasePanel<CheckableListModel>
 	protected void onInitializeComponents()
 	{
 		list = JListExtensions.newJList(getModelObject().getValues());
+		list.setName("list");
 
 		checklistPane = new JScrollPane(list);
 
 		textArea = new JTextArea(3, 10);
+		textArea.setName("textArea");
 		textPane = new JScrollPane(textArea);
 		printButton = new JButton("Print entries");
+		printButton.setName("printButton");
 		uncheckButton = new JButton("Uncheck entries");
 		clearTextButton = new JButton("Clear Text");
 		buttonPanel = new JPanel(new GridLayout(3, 1));

@@ -23,6 +23,7 @@ dependencies {
     implementation("io.github.astrapi69:icon-img-extensions:$iconImgExtensionsVersion")
     implementation("io.github.astrapi69:swing-renderer:$swingRendererVersion")
     implementation("io.github.astrapi69:component-model:$componentModelVersion")
+    testImplementation("org.assertj:assertj-swing:$assertjSwingVersion")
     testImplementation("io.github.astrapi69:silly-io:$sillyIoVersion")
     testImplementation("org.jdesktop:beansbinding:$beansbindingVersion")
     testImplementation("io.github.astrapi69:crypt-api:$cryptApiVersion")

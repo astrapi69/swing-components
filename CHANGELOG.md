@@ -1,12 +1,19 @@
 ## Change log
 ----------------------
 
-Version 6.3-SNAPSHOT
+Version 7-SNAPSHOT
 -------------
+
+ADDED:
+
+- new test dependency org.assertj:assertj-swing in new patch version 3.17.1
+- new gui unit test for CheckListPanel with assertj-swing module
 
 CHANGED:
 
-- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.6.1
+- update of JDK to newer version 11
+- update of gradle to new version 7.5-rc-2
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.7.2
 - update dependency of swing-base-components version to 1.4
 - update of test dependency testng version to 7.6.0
 

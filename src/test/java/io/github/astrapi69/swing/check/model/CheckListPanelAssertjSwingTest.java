@@ -25,37 +25,48 @@
 package io.github.astrapi69.swing.check.model;
 
 import java.awt.Frame;
-import java.awt.GridBagLayout;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
+import org.assertj.swing.fixture.FrameFixture;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-import io.github.astrapi69.model.PropertyModel;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.model.api.IModel;
+import io.github.astrapi69.model.check.CheckableItem;
+import io.github.astrapi69.model.check.CheckableListModel;
+import io.github.astrapi69.model.check.CheckableValue;
+import io.github.astrapi69.swing.list.JListExtensions;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class JCheckBoxWithPropertyModelTest
+/**
+ * GUI unit test with assertj-swing module
+ */
+public class CheckListPanelAssertjSwingTest
 {
-	public static void main(String[] args)
+
+	private FrameFixture testUnit;
+
+	@BeforeMethod
+	public void setUp()
 	{
-		// Bind legacy JCheckBox with a property model
-		JCheckBox checkBox;
-		checkBox = new JCheckBox("a checkbox");
-		final PropertyModel<Boolean> propertyModel = PropertyModel.of(checkBox, "model.selected");
-
-		final Frame frame = new Frame("JCheckBoxWithPropertyModelTest");
-		JButton buttonCheck = new JButton("Toogle");
-		buttonCheck.addActionListener(e -> {
-			Boolean object = propertyModel.getObject();
-			checkBox.setSelected(!checkBox.isSelected());
-			object = propertyModel.getObject();
-			System.err.println(object);
-		});
+		final Frame frame = new Frame("CheckListPanel");
+		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
+		CheckableItem<CheckableValue>[] checkableItems = JListExtensions.newCheckableItems(strs);
+		IModel<CheckableListModel> model = BaseModel.of(
+			CheckableListModel.builder().values(JListExtensions.newCheckableItems(strs)).build());
+		frame.add(new CheckListPanel(model));
 		frame.addWindowListener(new CloseWindow());
-
-		frame.setLayout(new GridBagLayout());
-		frame.add(buttonCheck);
-		frame.add(checkBox);
-		frame.setSize(200, 200);
+		frame.setSize(300, 200);
 		frame.setVisible(true);
+		testUnit = new FrameFixture(frame);
+	}
+
+
+	@Test
+	public void test()
+	{
+		testUnit.list("list").clickItem(0);
+		testUnit.button("printButton").click();
+		testUnit.textBox("textArea").requireText("root\n");
 	}
 }
