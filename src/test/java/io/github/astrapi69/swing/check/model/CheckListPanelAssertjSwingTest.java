@@ -46,8 +46,8 @@ public class CheckListPanelAssertjSwingTest
 
 	private FrameFixture testUnit;
 
-	@BeforeMethod
-	public void setUp()
+	@Test(enabled = false)
+	public void test()
 	{
 		final Frame frame = new Frame("CheckListPanel");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
@@ -59,12 +59,7 @@ public class CheckListPanelAssertjSwingTest
 		frame.setSize(300, 200);
 		frame.setVisible(true);
 		testUnit = new FrameFixture(frame);
-	}
 
-
-	@Test
-	public void test()
-	{
 		testUnit.list("list").clickItem(0);
 		testUnit.button("printButton").click();
 		testUnit.textBox("textArea").requireText("root\n");
