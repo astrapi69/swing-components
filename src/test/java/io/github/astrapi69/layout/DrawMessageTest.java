@@ -29,9 +29,10 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.WindowListener;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import io.github.astrapi69.window.adapter.CloseWindow;
 import io.github.astrapi69.window.adapter.DisposeWindow;
@@ -54,7 +55,7 @@ public class DrawMessageTest
 	 * @throws Exception
 	 *             the exception
 	 */
-	@BeforeMethod
+	@BeforeEach
 	protected void setUp() throws Exception
 	{
 	}
@@ -65,7 +66,7 @@ public class DrawMessageTest
 	 * @throws Exception
 	 *             the exception
 	 */
-	@AfterMethod
+	@AfterEach
 	protected void tearDown() throws Exception
 	{
 	}
@@ -75,7 +76,8 @@ public class DrawMessageTest
 	 *
 	 * {@link io.github.astrapi69.layout.DrawMessage#paint(java.awt.Graphics)} .
 	 */
-	@Test(enabled = false)
+	@Test
+	@Disabled
 	public void testPaintGraphics()
 	{
 		final WindowListener l = new CloseWindow();

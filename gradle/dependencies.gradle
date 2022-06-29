@@ -32,5 +32,6 @@ dependencies {
     testImplementation("org.freedesktop.tango:tango-icon-theme:$tangoIconThemeVersion")
     testImplementation("io.github.astrapi69:silk-icon-theme:$silkIconThemeVersion")
     testImplementation("net.lingala.zip4j:zip4j:$zip4jVersion")
-    testImplementation("org.testng:testng:$testngVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 }

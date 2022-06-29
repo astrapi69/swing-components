@@ -24,8 +24,9 @@
  */
 package io.github.astrapi69.swing.test;
 
-import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertNotSame;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -33,7 +34,7 @@ import javax.swing.JLabel;
 import org.jdesktop.beansbinding.AutoBinding;
 import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.beansbinding.Bindings;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 import io.github.astrapi69.collections.pairs.ValueBox;
 import io.github.astrapi69.test.object.Employee;

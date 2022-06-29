@@ -27,8 +27,8 @@ package io.github.astrapi69.swing.check.model;
 import java.awt.Frame;
 
 import org.assertj.swing.fixture.FrameFixture;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
@@ -46,7 +46,8 @@ public class CheckListPanelAssertjSwingTest
 
 	private FrameFixture testUnit;
 
-	@Test(enabled = false)
+	@Test
+	@Disabled
 	public void test()
 	{
 		final Frame frame = new Frame("CheckListPanel");

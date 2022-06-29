@@ -28,42 +28,50 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
 
 public class RobotExtensionsTest
 {
 
-	@Test(enabled = false)
+	@Test
+	@Disabled
 	public void testClickMouse() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickMouseButton(new Robot(), 400, 400, InputEvent.BUTTON1_DOWN_MASK);
 	}
 
-	@Test(enabled = false)
+	@Test
+	@Disabled
 	public void clickLeftMouseButton() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickLeftMouseButton(new Robot(), 400, 400);
 	}
 
-	@Test(enabled = false)
+	@Test
+	@Disabled
 	public void clickMiddleMouseButton() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickMiddleMouseButton(new Robot(), 400, 400);
 	}
 
-	@Test(enabled = false)
+	@Test
+	@Disabled
 	public void clickRightMouseButton() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickRightMouseButton(new Robot(), 400, 400);
 	}
 
-	@Test(enabled = false)
+	@Test
+	@Disabled
 	public void testInfiniteMoveMouse() throws AWTException, InterruptedException
 	{
 		RobotExtensions.infiniteMoveMouse(new Robot(), 400, 400, 200);
 	}
 
-	@Test(enabled = false)
+	@Test
+	@Disabled
 	public void testMoveMouse() throws AWTException, InterruptedException
 	{
 		RobotExtensions.moveMouseForSpecificDuration(new Robot(), 400, 400, 20, 2000);

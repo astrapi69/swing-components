@@ -29,7 +29,7 @@ import java.io.File;
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.model.ZipParameters;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 import io.github.astrapi69.file.delete.DeleteFileExtensions;
 import io.github.astrapi69.file.search.PathFinder;
@@ -46,7 +46,7 @@ public class ImageExtensionsTest
 	 * @throws Exception
 	 *             the exception
 	 */
-	@Test(enabled = true)
+	@Test
 	public void testZip() throws Exception
 	{
 		final String filenameprefix = "bell";

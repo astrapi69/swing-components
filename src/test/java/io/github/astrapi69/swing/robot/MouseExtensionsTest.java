@@ -24,17 +24,19 @@
  */
 package io.github.astrapi69.swing.robot;
 
-import static org.testng.Assert.assertNotNull;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.awt.HeadlessException;
 import java.awt.Point;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
+
 
 public class MouseExtensionsTest
 {
 
-	@Test(enabled = true)
+	@Test
 	public void testGetMousePosition()
 	{
 		try

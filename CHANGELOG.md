@@ -8,6 +8,7 @@ ADDED:
 
 - new test dependency org.assertj:assertj-swing in new patch version 3.17.1
 - new gui unit test for CheckListPanel with assertj-swing module
+- new test dependencies 'org.junit.jupiter:junit-jupiter-api' and 'org.junit.jupiter:junit-jupiter-engine'
 
 CHANGED:
 
@@ -15,7 +16,7 @@ CHANGED:
 - update of gradle to new version 7.5-rc-2
 - update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.7.2
 - update dependency of swing-base-components version to 1.4
-- update of test dependency testng version to 7.6.0
+- removed test dependency testng
 
 Version 6.2
 -------------
