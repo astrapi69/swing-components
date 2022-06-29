@@ -26,6 +26,7 @@ package io.github.astrapi69.swing.check.model;
 
 import java.awt.Frame;
 
+import io.github.astrapi69.junit.jupiter.IgnoreHeadlessExceptionExtension;
 import org.assertj.swing.fixture.FrameFixture;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -37,17 +38,18 @@ import io.github.astrapi69.model.check.CheckableListModel;
 import io.github.astrapi69.model.check.CheckableValue;
 import io.github.astrapi69.swing.list.JListExtensions;
 import io.github.astrapi69.window.adapter.CloseWindow;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * GUI unit test with assertj-swing module
  */
+@ExtendWith(IgnoreHeadlessExceptionExtension.class)
 public class CheckListPanelAssertjSwingTest
 {
 
 	private FrameFixture testUnit;
 
 	@Test
-	@Disabled
 	public void test()
 	{
 		final Frame frame = new Frame("CheckListPanel");

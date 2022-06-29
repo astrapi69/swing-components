@@ -9,6 +9,7 @@ ADDED:
 - new test dependency org.assertj:assertj-swing in new patch version 3.17.1
 - new gui unit test for CheckListPanel with assertj-swing module
 - new test dependencies 'org.junit.jupiter:junit-jupiter-api' and 'org.junit.jupiter:junit-jupiter-engine'
+- new test dependency 'io.github.astrapi69:junit-jupiter-extensions' for add junit-jupiter-extension classes
 
 CHANGED:
 
