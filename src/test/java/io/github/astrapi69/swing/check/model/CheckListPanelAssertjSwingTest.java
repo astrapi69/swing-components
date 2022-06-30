@@ -28,7 +28,7 @@ import java.awt.Frame;
 
 import io.github.astrapi69.junit.jupiter.IgnoreHeadlessExceptionExtension;
 import org.assertj.swing.fixture.FrameFixture;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import io.github.astrapi69.model.BaseModel;
@@ -40,6 +40,9 @@ import io.github.astrapi69.swing.list.JListExtensions;
 import io.github.astrapi69.window.adapter.CloseWindow;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 /**
  * GUI unit test with assertj-swing module
  */
@@ -47,24 +50,35 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class CheckListPanelAssertjSwingTest
 {
 
-	private FrameFixture testUnit;
+	private FrameFixture underTest;
+	private CheckListPanel checkListPanel;
 
-	@Test
-	public void test()
+	@BeforeEach
+	public void setUp()
 	{
 		final Frame frame = new Frame("CheckListPanel");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
 		CheckableItem<CheckableValue>[] checkableItems = JListExtensions.newCheckableItems(strs);
 		IModel<CheckableListModel> model = BaseModel.of(
 			CheckableListModel.builder().values(JListExtensions.newCheckableItems(strs)).build());
-		frame.add(new CheckListPanel(model));
+		checkListPanel = new CheckListPanel(model);
+		frame.add(checkListPanel);
 		frame.addWindowListener(new CloseWindow());
 		frame.setSize(300, 200);
 		frame.setVisible(true);
-		testUnit = new FrameFixture(frame);
+		underTest = new FrameFixture(frame);
+	}
 
-		testUnit.list("list").clickItem(0);
-		testUnit.button("printButton").click();
-		testUnit.textBox("textArea").requireText("root\n");
+	@Test
+	public void test()
+	{
+		underTest.list("list").clickItem(0);
+		underTest.button("printButton").click();
+		underTest.textBox("textArea").requireText("root\n");
+		// check model value is set
+		CheckableItem<CheckableValue>[] values = checkListPanel.getModelObject().getValues();
+		assertNotNull(values);
+		assertNotNull(values[0]);
+		assertTrue(values[0].isSelected());
 	}
 }
