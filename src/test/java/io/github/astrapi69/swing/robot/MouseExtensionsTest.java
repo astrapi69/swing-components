@@ -24,7 +24,6 @@
  */
 package io.github.astrapi69.swing.robot;
 
-
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.awt.HeadlessException;
@@ -32,10 +31,15 @@ import java.awt.Point;
 
 import org.junit.jupiter.api.Test;
 
-
+/**
+ * The unit test class for the class {@link MouseExtensions}
+ */
 public class MouseExtensionsTest
 {
 
+	/**
+	 * Test method for {@link MouseExtensions#getMousePosition()}
+	 */
 	@Test
 	public void testGetMousePosition()
 	{

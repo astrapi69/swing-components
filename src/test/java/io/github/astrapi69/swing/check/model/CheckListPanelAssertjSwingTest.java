@@ -55,7 +55,7 @@ public class CheckListPanelAssertjSwingTest
 	private CheckListPanel checkListPanel;
 
 	@BeforeEach
-	public void setUp()
+	public void beforeEach()
 	{
 		final Frame frame = new Frame("CheckListPanel");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };

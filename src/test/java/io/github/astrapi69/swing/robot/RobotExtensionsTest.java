@@ -30,39 +30,56 @@ import java.awt.event.InputEvent;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExceptionExtension;
 
+/**
+ * The unit test class for the class {@link RobotExtensions}
+ */
+@ExtendWith(IgnoreHeadlessExceptionExtension.class)
 public class RobotExtensionsTest
 {
 
+	/**
+	 * Test method for {@link RobotExtensions#clickMouseButton(Robot, int, int, int)}
+	 */
 	@Test
-	@Disabled
-	public void testClickMouse() throws AWTException, InterruptedException
+	public void testClickMouse() throws AWTException
 	{
 		RobotExtensions.clickMouseButton(new Robot(), 400, 400, InputEvent.BUTTON1_DOWN_MASK);
 	}
 
+	/**
+	 * Test method for {@link RobotExtensions#clickLeftMouseButton(Robot, int, int)}
+	 */
 	@Test
-	@Disabled
 	public void clickLeftMouseButton() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickLeftMouseButton(new Robot(), 400, 400);
 	}
 
+	/**
+	 * Test method for {@link RobotExtensions#clickMiddleMouseButton(Robot, int, int)}
+	 */
 	@Test
-	@Disabled
 	public void clickMiddleMouseButton() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickMiddleMouseButton(new Robot(), 400, 400);
 	}
 
+	/**
+	 * Test method for {@link RobotExtensions#clickRightMouseButton(Robot, int, int)}
+	 */
 	@Test
-	@Disabled
 	public void clickRightMouseButton() throws AWTException, InterruptedException
 	{
 		RobotExtensions.clickRightMouseButton(new Robot(), 400, 400);
 	}
 
+	/**
+	 * Test method for {@link RobotExtensions#infiniteMoveMouse(Robot, int, int, long)}
+	 */
 	@Test
 	@Disabled
 	public void testInfiniteMoveMouse() throws AWTException, InterruptedException
@@ -70,8 +87,11 @@ public class RobotExtensionsTest
 		RobotExtensions.infiniteMoveMouse(new Robot(), 400, 400, 200);
 	}
 
+	/**
+	 * Test method for
+	 * {@link RobotExtensions#moveMouseForSpecificDuration(Robot, int, int, long, long)}
+	 */
 	@Test
-	@Disabled
 	public void testMoveMouse() throws AWTException, InterruptedException
 	{
 		RobotExtensions.moveMouseForSpecificDuration(new Robot(), 400, 400, 20, 2000);
