@@ -47,7 +47,6 @@ import io.github.astrapi69.window.adapter.CloseWindow;
 /**
  * GUI unit test with assertj-swing module
  */
-@ExtendWith(IgnoreHeadlessExceptionEachMethodsThrowableHandler.class)
 public class CheckListPanelAssertjSwingTest
 {
 
