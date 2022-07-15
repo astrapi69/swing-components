@@ -60,8 +60,8 @@ public class CheckListPanelAssertjSwingTest
 		final Frame frame = new Frame("CheckListPanel");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
 		CheckableItem<CheckableValue>[] checkableItems = JListExtensions.newCheckableItems(strs);
-		IModel<CheckableListModel> model = BaseModel.of(
-			CheckableListModel.builder().values(checkableItems).build());
+		IModel<CheckableListModel> model = BaseModel
+			.of(CheckableListModel.builder().values(checkableItems).build());
 		checkListPanel = new CheckListPanel(model);
 		frame.add(checkListPanel);
 		frame.addWindowListener(new CloseWindow());
