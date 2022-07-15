@@ -54,8 +54,9 @@ public class CheckListPanelAssertjSwingTest
 	private FrameFixture underTest;
 	private CheckListPanel checkListPanel;
 
-	@BeforeEach
-	public void beforeEach()
+	@ExtendWith(IgnoreHeadlessExceptionExtension.class)
+	@Test
+	public void test()
 	{
 		final Frame frame = new Frame("CheckListPanel");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
@@ -68,12 +69,6 @@ public class CheckListPanelAssertjSwingTest
 		frame.setSize(300, 200);
 		frame.setVisible(true);
 		underTest = new FrameFixture(frame);
-	}
-
-	@ExtendWith(IgnoreHeadlessExceptionExtension.class)
-	@Test
-	public void test()
-	{
 		underTest.list("list").clickItem(0);
 		underTest.button("printButton").click();
 		underTest.textBox("textArea").requireText("root\n");
