@@ -28,6 +28,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 
+import io.github.astrapi69.swing.test.IgnoreAWTExceptionExtension;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,7 +38,7 @@ import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExce
 /**
  * The unit test class for the class {@link RobotExtensions}
  */
-@ExtendWith(IgnoreHeadlessExceptionExtension.class)
+@ExtendWith({ IgnoreHeadlessExceptionExtension.class, IgnoreAWTExceptionExtension.class })
 public class RobotExtensionsTest
 {
 
