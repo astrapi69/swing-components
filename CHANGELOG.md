@@ -14,9 +14,13 @@ ADDED:
 CHANGED:
 
 - update of JDK to newer version 11
-- update of gradle to new version 7.5-rc-2
-- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.7.2
+- update of gradle to new version 7.5
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 6.5.0.3
+- update of gradle-plugin dependency 'org.ajoberstar.grgit:grgit-gradle' to new version 5.0.0
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.8.0
 - update dependency of swing-base-components version to 1.4
+- update of test dependency junit-jupiter to new release candidate version 5.9.0-RC1
+- update of test dependency junit-jupiter-extensions to new release candidate version 1.1
 - removed test dependency testng
 
 Version 6.2

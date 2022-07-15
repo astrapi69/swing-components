@@ -24,13 +24,18 @@
  */
 package io.github.astrapi69.swing.check.model;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.awt.Frame;
 
-import io.github.astrapi69.junit.jupiter.IgnoreHeadlessExceptionExtension;
 import org.assertj.swing.fixture.FrameFixture;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExceptionExtension;
+import io.github.astrapi69.junit.jupiter.callback.each.IgnoreHeadlessExceptionEachMethodsThrowableHandler;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.model.check.CheckableItem;
@@ -38,15 +43,11 @@ import io.github.astrapi69.model.check.CheckableListModel;
 import io.github.astrapi69.model.check.CheckableValue;
 import io.github.astrapi69.swing.list.JListExtensions;
 import io.github.astrapi69.window.adapter.CloseWindow;
-import org.junit.jupiter.api.extension.ExtendWith;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * GUI unit test with assertj-swing module
  */
-@ExtendWith(IgnoreHeadlessExceptionExtension.class)
+@ExtendWith(IgnoreHeadlessExceptionEachMethodsThrowableHandler.class)
 public class CheckListPanelAssertjSwingTest
 {
 
@@ -69,6 +70,7 @@ public class CheckListPanelAssertjSwingTest
 		underTest = new FrameFixture(frame);
 	}
 
+	@ExtendWith(IgnoreHeadlessExceptionExtension.class)
 	@Test
 	public void test()
 	{
