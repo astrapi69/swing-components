@@ -11,6 +11,7 @@
 *.ipr
 !.idea/runConfigurations
 .idea/inspectionProfiles
+.idea/sonarlint
 .idea/libraries
 .idea/codeStyles
 .idea/shelf

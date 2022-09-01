@@ -4,7 +4,19 @@
 Version 7.1-SNAPSHOT
 -------------
 
+CHANGED:
 
+- update of gradle to new version 7.5.1
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 6.5.1
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.10.0
+- update of dependency observer version to new major version 6
+- update of dependency state version to new major version 6
+- update of dependency silly-collection to new major version 20
+- update of dependency silly-bean to new major version 2
+- update of dependency silly-math to new minor version 2.2
+- update of test dependency crypt-api to new minor version 8.3
+- update of test dependency file-worker to new minor version 11.1
+- update of test dependency junit-jupiter to new minor version 5.9.0
 
 Version 7
 -------------

@@ -29,7 +29,7 @@ import java.awt.Frame;
 import javax.swing.JButton;
 
 import net.miginfocom.swing.MigLayout;
-import io.github.astrapi69.crypto.key.KeyType;
+import io.github.astrapi69.crypt.api.key.KeyType;
 import io.github.astrapi69.swing.combobox.model.EnumComboBoxModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
