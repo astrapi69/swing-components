@@ -14,6 +14,7 @@ CHANGED:
 - update of dependency silly-collection to new major version 20
 - update of dependency silly-bean to new major version 2
 - update of dependency silly-math to new minor version 2.2
+- update of dependency throwable to new minor version 2.3
 - update of test dependency crypt-api to new minor version 8.3
 - update of test dependency file-worker to new minor version 11.1
 - update of test dependency junit-jupiter to new minor version 5.9.0

@@ -16,7 +16,7 @@ dependencies {
     implementation("io.github.astrapi69:model-data:$modelDataVersion")
     implementation("io.github.astrapi69:jobj-core:$jobjCoreVersion")
     implementation("io.github.astrapi69:gen-tree:$genTreeVersion")
-    implementation("io.github.astrapi69:throw-able:$throwAbleVersion")
+    implementation("io.github.astrapi69:throwable:$throwableVersion")
     implementation("io.github.astrapi69:silly-math:$sillyMathVersion")
     implementation("io.github.astrapi69:menu-actions:$menuActionsVersion")
     implementation("io.github.astrapi69:swing-base-components:$swingBaseComponentsVersion")
