@@ -112,9 +112,9 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	 */
 	public EnumComboBoxModel(final Class<E> enumClass, final Set<E> excludeValues)
 	{
-		this(enumClass, ListExtensions.getFirst(ListExtensions.toList(EnumSet.allOf(enumClass))),
+		this(enumClass, ListExtensions.getFirst(ListExtensions.toList(newHashSet(EnumSet.allOf(enumClass),
+				excludeValues != null ? excludeValues : SetFactory.newHashSet()))),
 			excludeValues);
-
 	}
 
 	/**

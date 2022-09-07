@@ -28,6 +28,7 @@ import java.awt.Frame;
 
 import javax.swing.JButton;
 
+import io.github.astrapi69.collection.set.SetFactory;
 import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.crypt.api.key.KeyType;
 import io.github.astrapi69.swing.combobox.model.EnumComboBoxModel;
@@ -38,7 +39,7 @@ public class JMComboBoxTest
 	public static void main(String[] args)
 	{
 		JMComboBox<EnumComboBoxModel<KeyType>> comboBox = new JMComboBox<>(
-			new EnumComboBoxModel<>(KeyType.class));
+			new EnumComboBoxModel<>(KeyType.class, SetFactory.newHashSet(KeyType.CERTIFICATE)));
 
 		final Frame frame = new Frame("JMComboBoxTest");
 		JButton button = new JButton("push it");
