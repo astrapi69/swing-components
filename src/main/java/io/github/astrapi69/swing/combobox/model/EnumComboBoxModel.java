@@ -102,6 +102,22 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	}
 
 	/**
+	 * Instantiates a new {@link EnumComboBoxModel} from the given enum class and set as selected
+	 * item the given value.
+	 *
+	 * @param enumClass
+	 *            the enum class
+	 * @param excludeValues
+	 *            the values to exclude
+	 */
+	public EnumComboBoxModel(final Class<E> enumClass, final Set<E> excludeValues)
+	{
+		this(enumClass, ListExtensions.getFirst(ListExtensions.toList(EnumSet.allOf(enumClass))),
+			excludeValues);
+
+	}
+
+	/**
 	 * Factory method for create new {@link HashSet} and will be returned as {@link Set}
 	 *
 	 * @param <T>
