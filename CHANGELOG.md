@@ -4,6 +4,10 @@
 Version 7.1-SNAPSHOT
 -------------
 
+ADDED:
+
+- new constructor with a set from exclude values in class EnumComboBoxModel
+
 CHANGED:
 
 - update of gradle to new version 7.5.1

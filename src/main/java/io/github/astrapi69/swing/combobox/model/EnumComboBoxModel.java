@@ -24,12 +24,17 @@
  */
 package io.github.astrapi69.swing.combobox.model;
 
+import java.util.Collection;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import lombok.Getter;
 import lombok.NonNull;
+import io.github.astrapi69.collection.list.ListExtensions;
+import io.github.astrapi69.collection.set.SetFactory;
 
 /**
  * The class {@link EnumComboBoxModel} is an implementation that safely wraps an {@link Enum}.
@@ -58,10 +63,7 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	 */
 	public EnumComboBoxModel(@NonNull final Class<E> enumClass)
 	{
-		super(EnumSet.allOf(enumClass));
-		this.enumClass = enumClass;
-		this.valueMap = new HashMap<>();
-		initValueMap();
+		this(enumClass, ListExtensions.getFirst(ListExtensions.toList(EnumSet.allOf(enumClass))));
 	}
 
 	/**
@@ -75,10 +77,50 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	 */
 	public EnumComboBoxModel(final Class<E> enumClass, final E selectedItem)
 	{
-		super(EnumSet.allOf(enumClass), selectedItem);
+		this(enumClass, selectedItem, SetFactory.newHashSet());
+	}
+
+	/**
+	 * Instantiates a new {@link EnumComboBoxModel} from the given enum class and set as selected
+	 * item the given value.
+	 *
+	 * @param enumClass
+	 *            the enum class
+	 * @param selectedItem
+	 *            the selected item
+	 * @param excludeValues
+	 *            the values to exclude
+	 */
+	public EnumComboBoxModel(final Class<E> enumClass, final E selectedItem,
+		final Set<E> excludeValues)
+	{
+		super(newHashSet(EnumSet.allOf(enumClass),
+			excludeValues != null ? excludeValues : SetFactory.newHashSet()), selectedItem);
 		this.enumClass = enumClass;
 		this.valueMap = new HashMap<>();
 		initValueMap();
+	}
+
+	/**
+	 * Factory method for create new {@link HashSet} and will be returned as {@link Set}
+	 *
+	 * @param <T>
+	 *            the generic type of the elements
+	 * @param collection
+	 *            the optional collection that will be added to the new list
+	 * @param exclude
+	 *            the element that have to be excluded
+	 * @param elements
+	 *            the elements to add in the new {@link HashSet}
+	 * @return the new {@link HashSet}
+	 */
+	@SafeVarargs
+	private static <T> Set<T> newHashSet(final Collection<T> collection,
+		final Collection<T> exclude, final T... elements)
+	{
+		final Set<T> set = SetFactory.newHashSet(collection, elements);
+		set.removeAll(exclude);
+		return set;
 	}
 
 	/**
