@@ -37,7 +37,7 @@ import io.github.astrapi69.collection.list.ListExtensions;
 import io.github.astrapi69.collection.set.SetFactory;
 
 /**
- * The class {@link EnumComboBoxModel} is an implementation that safely wraps an {@link Enum}.
+ * The class {@link EnumComboBoxModel} is an implementation that safely wraps an {@link Enum}
  *
  * @param <E>
  *            the generic type of the enum
