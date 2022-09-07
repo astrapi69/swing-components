@@ -94,8 +94,16 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	public EnumComboBoxModel(final Class<E> enumClass, final E selectedItem,
 		final Set<E> excludeValues)
 	{
-		super(newHashSet(EnumSet.allOf(enumClass),
-			excludeValues != null ? excludeValues : SetFactory.newHashSet()), selectedItem);
+		super(
+			newHashSet(EnumSet.allOf(enumClass),
+				excludeValues != null ? excludeValues : SetFactory.newHashSet()),
+			newHashSet(EnumSet.allOf(enumClass),
+				excludeValues != null ? excludeValues : SetFactory.newHashSet())
+					.contains(selectedItem)
+						? selectedItem
+						: ListExtensions
+							.getFirst(ListExtensions.toList(newHashSet(EnumSet.allOf(enumClass),
+								excludeValues != null ? excludeValues : SetFactory.newHashSet()))));
 		this.enumClass = enumClass;
 		this.valueMap = new HashMap<>();
 		initValueMap();
@@ -112,7 +120,8 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	 */
 	public EnumComboBoxModel(final Class<E> enumClass, final Set<E> excludeValues)
 	{
-		this(enumClass, ListExtensions.getFirst(ListExtensions.toList(newHashSet(EnumSet.allOf(enumClass),
+		this(enumClass,
+			ListExtensions.getFirst(ListExtensions.toList(newHashSet(EnumSet.allOf(enumClass),
 				excludeValues != null ? excludeValues : SetFactory.newHashSet()))),
 			excludeValues);
 	}
