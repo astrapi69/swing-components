@@ -4,6 +4,14 @@
 Version 7.2-SNAPSHOT
 -------------
 
+CHANGED:
+
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.11.0
+- update of dependency jobj-core to new major version 7
+- update of dependency gen-tree to new major version 7
+- update of test dependency file-worker to new minor version 11.2
+- update of test dependency zip4j to new patch version 2.11.2
+
 Version 7.1
 -------------
 
