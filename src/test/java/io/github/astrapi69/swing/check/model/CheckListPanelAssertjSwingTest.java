@@ -30,12 +30,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.awt.Frame;
 
 import org.assertj.swing.fixture.FrameFixture;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExceptionExtension;
-import io.github.astrapi69.junit.jupiter.callback.each.IgnoreHeadlessExceptionEachMethodsThrowableHandler;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.model.check.CheckableItem;
@@ -51,19 +49,19 @@ public class CheckListPanelAssertjSwingTest
 {
 
 	private FrameFixture underTest;
-	private CheckListPanel checkListPanel;
+	private CheckListPanel componentToTest;
 
 	@ExtendWith(IgnoreHeadlessExceptionExtension.class)
 	@Test
 	public void test()
 	{
-		final Frame frame = new Frame("CheckListPanel");
+		final Frame frame = new Frame("TestFrame");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
 		CheckableItem<CheckableValue>[] checkableItems = JListExtensions.newCheckableItems(strs);
 		IModel<CheckableListModel> model = BaseModel
 			.of(CheckableListModel.builder().values(checkableItems).build());
-		checkListPanel = new CheckListPanel(model);
-		frame.add(checkListPanel);
+		componentToTest = new CheckListPanel(model);
+		frame.add(componentToTest);
 		frame.addWindowListener(new CloseWindow());
 		frame.setSize(300, 200);
 		frame.setVisible(true);
@@ -72,7 +70,7 @@ public class CheckListPanelAssertjSwingTest
 		underTest.button("printButton").click();
 		underTest.textBox("textArea").requireText("root\n");
 		// check model value is set
-		CheckableItem<CheckableValue>[] values = checkListPanel.getModelObject().getValues();
+		CheckableItem<CheckableValue>[] values = componentToTest.getModelObject().getValues();
 		assertNotNull(values);
 		assertNotNull(values[0]);
 		assertTrue(values[0].isSelected());
