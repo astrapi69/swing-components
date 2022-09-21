@@ -4,13 +4,20 @@
 Version 7.2-SNAPSHOT
 -------------
 
+ADDED:
+
+- new constructor with a set from exclude values in class EnumComboBoxModel
+- new class GenericComboBoxModel with generic type value
+- new class GenericMutableComboBoxModel with generic type value
+- 
 CHANGED:
 
 - update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.11.0
 - update of dependency jobj-core to new major version 7
 - update of dependency gen-tree to new major version 7
-- update of test dependency file-worker to new minor version 11.2
+- update of test dependency file-worker to new minor version 11.3
 - update of test dependency zip4j to new patch version 2.11.2
+- update of test dependency junit-jupiter to new minor version 5.9.1
 
 Version 7.1
 -------------
@@ -18,8 +25,6 @@ Version 7.1
 ADDED:
 
 - new constructor with a set from exclude values in class EnumComboBoxModel
-- new class GenericComboBoxModel with generic type value
-- new class GenericMutableComboBoxModel with generic type value
 
 CHANGED:
 
@@ -33,8 +38,8 @@ CHANGED:
 - update of dependency silly-math to new minor version 2.2
 - update of dependency throwable to new minor version 2.3
 - update of test dependency crypt-api to new minor version 8.3
-- update of test dependency file-worker to new minor version 11.3
-- update of test dependency junit-jupiter to new minor version 5.9.1
+- update of test dependency file-worker to new minor version 11.1
+- update of test dependency junit-jupiter to new minor version 5.9.0
 
 Version 7
 -------------
