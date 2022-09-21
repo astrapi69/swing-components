@@ -24,15 +24,17 @@
  */
 package io.github.astrapi69.swing.combobox.model;
 
-import io.github.astrapi69.collection.array.ArrayExtensions;
-
 import java.util.List;
+
+import io.github.astrapi69.collection.array.ArrayExtensions;
 
 /**
  * The class {@link StringComboBoxModel} is an implementation of the abstract class
  * {@link GenericComboBoxModel} for {@link String} values.
  * 
- * @deprecated use instead the class {@link GenericComboBoxModel}
+ * @deprecated use instead the class {@link GenericComboBoxModel} <br>
+ *             <br>
+ *             Note: will be deleted by the next minor version
  */
 @Deprecated
 public class StringComboBoxModel extends GenericComboBoxModel<String>
