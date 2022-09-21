@@ -68,7 +68,7 @@ public class CheckListPanelAssertjSwingTest
 		underTest = new FrameFixture(frame);
 		underTest.list("list").clickItem(0);
 		underTest.button("printButton").click();
-		underTest.textBox("textArea").requireText("root\n");
+		underTest.textBox("textArea").requireText("root" + System.lineSeparator());
 		// check model value is set
 		CheckableItem<CheckableValue>[] values = componentToTest.getModelObject().getValues();
 		assertNotNull(values);

@@ -31,7 +31,10 @@ import io.github.astrapi69.collection.array.ArrayExtensions;
 /**
  * The class {@link StringMutableComboBoxModel} is an implementation of the abstract class
  * {@link AbstractMutableComboBoxModel} for {@link String} values.
+ * 
+ * @deprecated use instead the class {@link GenericMutableComboBoxModel}
  */
+@Deprecated
 public class StringMutableComboBoxModel extends AbstractMutableComboBoxModel<String>
 {
 

@@ -26,12 +26,15 @@ package io.github.astrapi69.swing.combobox.model;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.swing.AbstractListModel;
 import javax.swing.MutableComboBoxModel;
 
+import io.github.astrapi69.collection.set.SetFactory;
 import lombok.Getter;
 import lombok.Setter;
 import io.github.astrapi69.check.Argument;
@@ -63,7 +66,7 @@ public abstract class AbstractMutableComboBoxModel<T> extends AbstractListModel<
 	protected List<T> comboList;
 
 	/**
-	 * The the current selected item.
+	 * The current selected item.
 	 */
 	protected T selectedItem;
 
@@ -146,6 +149,45 @@ public abstract class AbstractMutableComboBoxModel<T> extends AbstractListModel<
 	public AbstractMutableComboBoxModel(final T[] comboArray, final T selectedItem)
 	{
 		this(ArrayExtensions.asList(comboArray), selectedItem);
+	}
+
+	/**
+	 * Instantiates a new {@link AbstractMutableComboBoxModel} from the given array and removes the
+	 * given excluded values and sets the given selected item value
+	 *
+	 * @param comboArray
+	 *            the combo array
+	 * @param selectedItem
+	 *            the selected item
+	 * @param excludeValues
+	 *            the values to exclude
+	 */
+	public AbstractMutableComboBoxModel(final T[] comboArray, final T selectedItem,
+		final Set<T> excludeValues)
+	{
+		this(newHashSet(ArrayExtensions.asList(comboArray), excludeValues), selectedItem);
+	}
+
+	/**
+	 * Factory method for create new {@link HashSet} and will be returned as {@link Set}
+	 *
+	 * @param <T>
+	 *            the generic type of the elements
+	 * @param collection
+	 *            the optional collection that will be added to the new list
+	 * @param exclude
+	 *            the element that have to be excluded
+	 * @param elements
+	 *            the elements to add in the new {@link HashSet}
+	 * @return the new {@link HashSet}
+	 */
+	@SafeVarargs
+	private static <T> Set<T> newHashSet(final Collection<T> collection,
+		final Collection<T> exclude, final T... elements)
+	{
+		final Set<T> set = SetFactory.newHashSet(collection, elements);
+		set.removeAll(exclude);
+		return set;
 	}
 
 	/**
