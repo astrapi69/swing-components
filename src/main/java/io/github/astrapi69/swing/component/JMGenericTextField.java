@@ -100,8 +100,10 @@ public abstract class JMGenericTextField<T> extends JXTextField
 		return this;
 	}
 
-	protected abstract  <T> void onInitialize();
+	protected abstract <T> void onInitialize();
+
 	public abstract T toGenericObject(String text);
+
 	public abstract String toText(T propertyModelObject);
 
 }

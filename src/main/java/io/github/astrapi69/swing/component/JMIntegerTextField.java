@@ -78,7 +78,9 @@ public class JMIntegerTextField extends JMGenericTextField<Integer>
 		super(text, columns);
 	}
 
-	@Override protected <T> void onInitialize() {
+	@Override
+	protected <T> void onInitialize()
+	{
 		setDocument(new NumberValuesDocument());
 		getDocument().addDocumentListener(new DocumentListenerAdapter()
 		{
@@ -87,7 +89,7 @@ public class JMIntegerTextField extends JMGenericTextField<Integer>
 			{
 				int currentLength = documentEvent.getDocument().getLength();
 				final String text = RuntimeExceptionDecorator
-						.decorate(() -> documentEvent.getDocument().getText(0, currentLength));
+					.decorate(() -> documentEvent.getDocument().getText(0, currentLength));
 				if (JMIntegerTextField.this.getPropertyModel() != null)
 				{
 					JMIntegerTextField.this.getPropertyModel().setObject(toGenericObject(text));
@@ -96,11 +98,15 @@ public class JMIntegerTextField extends JMGenericTextField<Integer>
 		});
 	}
 
-	@Override public Integer toGenericObject(String text) {
+	@Override
+	public Integer toGenericObject(String text)
+	{
 		return Integer.valueOf(text);
 	}
 
-	@Override public String toText(Integer propertyModelObject) {
+	@Override
+	public String toText(Integer propertyModelObject)
+	{
 		return propertyModelObject.toString();
 	}
 

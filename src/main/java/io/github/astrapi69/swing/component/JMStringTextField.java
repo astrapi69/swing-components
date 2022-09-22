@@ -76,7 +76,9 @@ public class JMStringTextField extends JMGenericTextField<String>
 	{
 		super(text, columns);
 	}
-	protected <T> void onInitialize() {
+
+	protected <T> void onInitialize()
+	{
 
 		getDocument().addDocumentListener(new DocumentListenerAdapter()
 		{
@@ -85,7 +87,7 @@ public class JMStringTextField extends JMGenericTextField<String>
 			{
 				int currentLength = documentEvent.getDocument().getLength();
 				final String text = RuntimeExceptionDecorator
-						.decorate(() -> documentEvent.getDocument().getText(0, currentLength));
+					.decorate(() -> documentEvent.getDocument().getText(0, currentLength));
 				if (JMStringTextField.this.getPropertyModel() != null)
 				{
 					JMStringTextField.this.getPropertyModel().setObject(toGenericObject(text));
@@ -94,11 +96,15 @@ public class JMStringTextField extends JMGenericTextField<String>
 		});
 	}
 
-	@Override public String toGenericObject(String text) {
+	@Override
+	public String toGenericObject(String text)
+	{
 		return text;
 	}
 
-	@Override public String toText(String propertyModelObject) {
+	@Override
+	public String toText(String propertyModelObject)
+	{
 		return propertyModelObject;
 	}
 
