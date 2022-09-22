@@ -9,6 +9,9 @@ ADDED:
 - new constructor with a set from exclude values in class EnumComboBoxModel
 - new class GenericComboBoxModel with generic type value
 - new class GenericMutableComboBoxModel with generic type value
+- new class JMGenericTextField with generic type model value
+- new class JMIntegerTextField with Integer type model
+- new class JMStringTextField with String type model
 
 CHANGED:
 
