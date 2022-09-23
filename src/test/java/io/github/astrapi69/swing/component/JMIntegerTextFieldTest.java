@@ -36,11 +36,10 @@ public class JMIntegerTextFieldTest
 {
 	public static void main(String[] args)
 	{
-		ValueBox<Integer> stringBox = ValueBox.<Integer> builder().value(1).build();
+		ValueBox<Integer> valueBox = ValueBox.<Integer> builder().value(1).build();
 		// Bind with JMTextField that encapsulate a property model
 		JMIntegerTextField textFieldDecorator = new JMIntegerTextField("0", 20);
-		textFieldDecorator
-			.setPropertyModel(LambdaModel.of(stringBox::getValue, stringBox::setValue));
+		textFieldDecorator.setPropertyModel(LambdaModel.of(valueBox::getValue, valueBox::setValue));
 
 		final Frame frame = new Frame("JMIntegerTextFieldTest");
 		JButton button = new JButton("push it");

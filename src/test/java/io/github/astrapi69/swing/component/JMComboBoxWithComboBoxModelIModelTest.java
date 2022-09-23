@@ -24,34 +24,49 @@
  */
 package io.github.astrapi69.swing.component;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.awt.Frame;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 
+import net.miginfocom.swing.MigLayout;
+
+import org.assertj.swing.fixture.FrameFixture;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
 import io.github.astrapi69.collection.array.ArrayFactory;
 import io.github.astrapi69.collection.pair.ValueBox;
-import io.github.astrapi69.collection.set.SetFactory;
 import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExceptionExtension;
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.combobox.model.GenericComboBoxModel;
-import net.miginfocom.swing.MigLayout;
-import io.github.astrapi69.crypt.api.key.KeyType;
-import io.github.astrapi69.swing.combobox.model.EnumComboBoxModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
-import org.assertj.swing.fixture.FrameFixture;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-public class JMComboBoxTest
+/**
+ * GUI unit test for component {@link JMComboBox} with assertj-swing module
+ */
+public class JMComboBoxWithComboBoxModelIModelTest
 {
-	public static void main(String[] args)
+
+	private FrameFixture underTest;
+	private JMComboBox<Integer, GenericComboBoxModel<Integer>> componentToTest;
+
+	/**
+	 * Test method for component constructor {@link JMComboBox#JMComboBox(ComboBoxModel, IModel)}
+	 * and the binding with {@link IModel}
+	 */
+	@ExtendWith(IgnoreHeadlessExceptionExtension.class)
+	@Test
+	public void testComboBoxModelIModel()
 	{
-		JMComboBox<Integer, GenericComboBoxModel<Integer>> comboBox;
+		String comboBoxName;
+		String buttonName;
+		Integer propertyModelObject;
 		GenericComboBoxModel<Integer> comboBoxModel;
 		ValueBox<Integer> valueBox;
 		IModel<Integer> selectedItemModel;
@@ -60,23 +75,41 @@ public class JMComboBoxTest
 		comboBoxModel = new GenericComboBoxModel<>(cmbArray);
 		selectedItemModel = LambdaModel.of(valueBox::getValue, valueBox::setValue);
 
-		comboBox = new JMComboBox<>(comboBoxModel, selectedItemModel);
+		comboBoxName = "BoundCombobox";
+		componentToTest = new JMComboBox<>(comboBoxModel, selectedItemModel);
+		componentToTest.setName(comboBoxName);
 
-		final Frame frame = new Frame("JMComboBoxTest");
+		buttonName = "PushMe";
 		JButton button = new JButton("push it");
-		button.addActionListener(e -> {
-			Integer selectedItem = comboBox.getPropertyModel().getObject();
-			Object selectedObject = comboBox.getModel().getSelectedItem();
-			Integer value = valueBox.getValue();
-			System.out.println(selectedItem + "::" + selectedObject + "::" + value);
-		});
-		frame.addWindowListener(new CloseWindow());
+		button.setName(buttonName);
+
+		final Frame frame = new Frame("TestFrame");
 
 		frame.setLayout(new MigLayout());
 		frame.add(button);
-		frame.add(comboBox);
+		frame.add(componentToTest);
+		frame.addWindowListener(new CloseWindow());
 		frame.setSize(400, 400);
 		frame.setVisible(true);
+		underTest = new FrameFixture(frame);
+		// check model value is set
+		propertyModelObject = componentToTest.getPropertyModel().getObject();
+		assertNotNull(propertyModelObject);
+		assertEquals(propertyModelObject, 1);
+		assertEquals(propertyModelObject, valueBox.getValue());
+		assertEquals(propertyModelObject, componentToTest.getModel().getSelectedItem());
+		// change the value
+		underTest.comboBox(comboBoxName).selectItem(1);
+		underTest.button(buttonName).click();
+		// check model value is set
+		propertyModelObject = componentToTest.getPropertyModel().getObject();
+		assertNotNull(propertyModelObject);
+		assertEquals(propertyModelObject, 2);
+		assertEquals(propertyModelObject, valueBox.getValue());
+		assertEquals(propertyModelObject, componentToTest.getModel().getSelectedItem());
+		frame.setVisible(false);
+		frame.dispose();
+		underTest = null;
 	}
 
 }

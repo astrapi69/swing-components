@@ -40,7 +40,7 @@ import io.github.astrapi69.model.api.IModel;
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class JMComboBox<T, CMB extends ComboBoxModel<T>> extends JXComboBox
+public class JModelComboBox<T, CMB extends ComboBoxModel<T>> extends JXComboBox
 {
 	IModel<T> propertyModel = BaseModel.of();
 
@@ -51,26 +51,26 @@ public class JMComboBox<T, CMB extends ComboBoxModel<T>> extends JXComboBox
 		});
 	}
 
-	public JMComboBox(CMB comboBoxModel)
+	public JModelComboBox(CMB comboBoxModel)
 	{
 		super(comboBoxModel);
 	}
 
-	public JMComboBox(CMB comboBoxModel, IModel<T> propertyModel)
-	{
-		super(comboBoxModel);
-		this.propertyModel = propertyModel;
-		getModel().setSelectedItem(this.propertyModel.getObject());
-	}
-
-	public JMComboBox(T selectedModelObject, CMB comboBoxModel)
+	public JModelComboBox(T selectedModelObject, CMB comboBoxModel)
 	{
 		super(comboBoxModel);
 		propertyModel.setObject(selectedModelObject);
 		getModel().setSelectedItem(this.propertyModel.getObject());
 	}
 
-	public JMComboBox<T, CMB> setPropertyModel(final @NonNull IModel<T> propertyModel)
+	public JModelComboBox(CMB comboBoxModel, IModel<T> propertyModel)
+	{
+		super(comboBoxModel);
+		this.propertyModel = propertyModel;
+		getModel().setSelectedItem(this.propertyModel.getObject());
+	}
+
+	public JModelComboBox<T, CMB> setPropertyModel(final @NonNull IModel<T> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 		getModel().setSelectedItem(this.propertyModel.getObject());
