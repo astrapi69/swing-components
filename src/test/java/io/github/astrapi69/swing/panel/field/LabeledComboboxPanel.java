@@ -39,7 +39,7 @@ import io.github.astrapi69.collection.list.ListFactory;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
-import io.github.astrapi69.swing.combobox.model.StringMutableComboBoxModel;
+import io.github.astrapi69.swing.combobox.model.GenericMutableComboBoxModel;
 import io.github.astrapi69.swing.listener.document.EnableButtonBehavior;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
@@ -51,7 +51,7 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 {
 
 	private static final long serialVersionUID = 1L;
-	StringMutableComboBoxModel mutableComboBoxModel;
+	GenericMutableComboBoxModel<String> mutableComboBoxModel;
 	private JButton btnAddNewValue;
 	private JButton btnRemoveSelected;
 	private JComboBox<String> cmbStringValues;
@@ -91,7 +91,7 @@ public class LabeledComboboxPanel extends BasePanel<ComboListBean>
 
 		btnAddNewValue.setText("Add combobox value");
 		// ===
-		mutableComboBoxModel = new StringMutableComboBoxModel(getModelObject().getComboList(),
+		mutableComboBoxModel = new GenericMutableComboBoxModel<>(getModelObject().getComboList(),
 			getModelObject().getSelectedItem());
 		cmbStringValues.setModel(mutableComboBoxModel);
 		cmbStringValues.addActionListener(this::onStringValuesChange);
