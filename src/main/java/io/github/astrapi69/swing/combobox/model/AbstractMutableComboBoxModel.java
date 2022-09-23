@@ -34,13 +34,13 @@ import java.util.Set;
 import javax.swing.AbstractListModel;
 import javax.swing.MutableComboBoxModel;
 
-import io.github.astrapi69.collection.set.SetFactory;
 import lombok.Getter;
 import lombok.Setter;
 import io.github.astrapi69.check.Argument;
 import io.github.astrapi69.collection.array.ArrayExtensions;
 import io.github.astrapi69.collection.list.ListExtensions;
 import io.github.astrapi69.collection.list.ListFactory;
+import io.github.astrapi69.collection.set.SetFactory;
 
 /**
  * The abstract class {@link AbstractMutableComboBoxModel} contains the data for a combo list and

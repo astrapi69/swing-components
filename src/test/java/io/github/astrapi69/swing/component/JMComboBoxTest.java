@@ -26,26 +26,15 @@ package io.github.astrapi69.swing.component;
 
 import java.awt.Frame;
 
-import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 
+import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.collection.array.ArrayFactory;
 import io.github.astrapi69.collection.pair.ValueBox;
-import io.github.astrapi69.collection.set.SetFactory;
-import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExceptionExtension;
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.combobox.model.GenericComboBoxModel;
-import net.miginfocom.swing.MigLayout;
-import io.github.astrapi69.crypt.api.key.KeyType;
-import io.github.astrapi69.swing.combobox.model.EnumComboBoxModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
-import org.assertj.swing.fixture.FrameFixture;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class JMComboBoxTest
 {

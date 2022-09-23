@@ -24,17 +24,17 @@
  */
 package io.github.astrapi69.swing.component;
 
-import io.github.astrapi69.model.api.IModel;
-import io.github.astrapi69.swing.document.NumberValuesDocument;
-import io.github.astrapi69.swing.listener.document.DocumentListenerAdapter;
-import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
+import javax.swing.event.DocumentEvent;
+
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
-
-import javax.swing.event.DocumentEvent;
+import io.github.astrapi69.model.api.IModel;
+import io.github.astrapi69.swing.document.NumberValuesDocument;
+import io.github.astrapi69.swing.listener.document.DocumentListenerAdapter;
+import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)

@@ -35,7 +35,6 @@ import javax.swing.JButton;
 import net.miginfocom.swing.MigLayout;
 
 import org.assertj.swing.fixture.FrameFixture;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 

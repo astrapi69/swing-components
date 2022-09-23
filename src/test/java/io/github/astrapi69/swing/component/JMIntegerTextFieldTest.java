@@ -24,13 +24,14 @@
  */
 package io.github.astrapi69.swing.component;
 
+import java.awt.Frame;
+
+import javax.swing.JButton;
+
+import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.collection.pair.ValueBox;
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
-import net.miginfocom.swing.MigLayout;
-
-import javax.swing.*;
-import java.awt.*;
 
 public class JMIntegerTextFieldTest
 {

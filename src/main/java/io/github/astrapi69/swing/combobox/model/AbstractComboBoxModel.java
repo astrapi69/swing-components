@@ -34,13 +34,13 @@ import java.util.Set;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
-import io.github.astrapi69.collection.set.SetFactory;
 import lombok.Getter;
 import lombok.Setter;
 import io.github.astrapi69.check.Argument;
 import io.github.astrapi69.collection.array.ArrayExtensions;
 import io.github.astrapi69.collection.list.ListExtensions;
 import io.github.astrapi69.collection.list.ListFactory;
+import io.github.astrapi69.collection.set.SetFactory;
 
 /**
  * The abstract class {@link AbstractComboBoxModel} contains the data for a combo list and the
@@ -171,6 +171,28 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	}
 
 	/**
+	 * Factory method for create new {@link HashSet} and will be returned as {@link Set}
+	 *
+	 * @param <T>
+	 *            the generic type of the elements
+	 * @param collection
+	 *            the optional collection that will be added to the new list
+	 * @param exclude
+	 *            the element that have to be excluded
+	 * @param elements
+	 *            the elements to add in the new {@link HashSet}
+	 * @return the new {@link HashSet}
+	 */
+	@SafeVarargs
+	private static <T> Set<T> newHashSet(final Collection<T> collection,
+		final Collection<T> exclude, final T... elements)
+	{
+		final Set<T> set = SetFactory.newHashSet(collection, elements);
+		set.removeAll(exclude);
+		return set;
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -220,28 +242,6 @@ public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	{
 		selectedItem = (T)anItem;
 		this.fireContentsChanged(this, 0, getSize());
-	}
-
-	/**
-	 * Factory method for create new {@link HashSet} and will be returned as {@link Set}
-	 *
-	 * @param <T>
-	 *            the generic type of the elements
-	 * @param collection
-	 *            the optional collection that will be added to the new list
-	 * @param exclude
-	 *            the element that have to be excluded
-	 * @param elements
-	 *            the elements to add in the new {@link HashSet}
-	 * @return the new {@link HashSet}
-	 */
-	@SafeVarargs
-	private static <T> Set<T> newHashSet(final Collection<T> collection,
-		final Collection<T> exclude, final T... elements)
-	{
-		final Set<T> set = SetFactory.newHashSet(collection, elements);
-		set.removeAll(exclude);
-		return set;
 	}
 
 }
