@@ -181,6 +181,7 @@ Open Source:
  * [OpenSwing](http://oswing.sourceforge.net/) OpenSwing is an open-source suite of advanced graphics components based on Swing toolkit
  * [JCalendar](https://toedter.com/jcalendar/) JCalendar is a Java date chooser bean for graphically picking a date.
  * [FlexDock](https://github.com/opencollab/flexdock) FlexDock is a Java docking framework for use in cross-platform Swing applications
+ * [DockingFrames](https://github.com/Benoker/DockingFrames) DockingFrames is an open source Java Swing docking framework, licenced under LGPL 2.1
  * [oxbow](https://github.com/eugener/oxbow) Swing UI Enhacements
  * [Darcula](https://github.com/bulenkov/Darcula) Darcula Look and Feel
  * [Spring Rich Client](https://sourceforge.net/projects/spring-rich-c/files/spring-rich-c/)(not maintainend anymore) The Spring Rich Client Project (RCP) is a sub-project of The Spring Framework.
