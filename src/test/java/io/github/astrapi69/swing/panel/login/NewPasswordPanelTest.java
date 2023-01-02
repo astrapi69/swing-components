@@ -24,15 +24,14 @@
  */
 package io.github.astrapi69.swing.panel.login;
 
-import static io.github.astrapi69.model.typesafe.TypeSafeModel.from;
-import static io.github.astrapi69.model.typesafe.TypeSafeModel.model;
-
 import java.awt.Frame;
 
 import javax.swing.event.DocumentEvent;
 
+import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.listener.document.StringBindingListener;
+import io.github.astrapi69.swing.panel.login.pw.ChangePasswordModelBean;
 import io.github.astrapi69.swing.panel.login.pw.NewPasswordPanel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
@@ -47,7 +46,9 @@ public class NewPasswordPanelTest
 		frame.setTitle("Set pw Frame");
 		final NewPasswordPanel newPasswordPanel = new NewPasswordPanel();
 		// example of binding model with a textfield with the class StringBindingListener...
-		IModel<String> model = model(from(newPasswordPanel.getModel()).getCurrentPassword());
+		ChangePasswordModelBean modelObject = newPasswordPanel.getModelObject();
+		IModel<String> model = LambdaModel.of(modelObject::getCurrentPassword,
+			modelObject::setCurrentPassword);
 		newPasswordPanel.getTxtPassword().getDocument()
 			.addDocumentListener(new StringBindingListener(model)
 			{

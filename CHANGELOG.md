@@ -6,6 +6,16 @@ Version 7.3-SNAPSHOT
 
 CHANGED:
 
+- update of gradle to new version 7.6
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 6.6.1
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.44.0
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.12.1
+- update of dependency menu-action to new minor version 2.6
+- update of dependency model-data to new minor version 2.1
+- update of dependency silly-collection to new minor version 20.3
+- update of dependency swing-base-components to new minor version 2.3
+- update of test dependency crypt-api to new minor version 8.4
+- update of test dependency file-worker to new minor version 11.6
 - removed deprecated classes StringComboBoxModel and StringMutableComboBoxModel
 
 Version 7.2
