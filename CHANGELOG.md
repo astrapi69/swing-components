@@ -4,7 +4,15 @@
 Version 7.4-SNAPSHOT
 -------------
 
+CHANGED:
 
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.45.0
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.14.0
+- update of dependency menu-action to new minor version 2.7
+- update of dependency swing-renderer to new minor version 1.2
+- update of dependency silly-collection to new minor version 20.4
+- update of test dependency zip4j to new patch version 2.11.3
+- update of test dependency junit-jupiter to new minor version 5.9.2
 
 Version 7.3
 -------------
