@@ -182,6 +182,8 @@ public class RobotExtensions
 	 * @param threadPriority
 	 *            the thread priority of the current thread. Note: the thread priority is between 1
 	 *            till 10, if smaller or greater 1 will be taken
+         * @param considerMousePosition
+         *            the flag that check if the current mouse position should be considered
 	 * @throws InterruptedException
 	 *             is thrown if the current thread is interrupted
 	 */
@@ -211,6 +213,55 @@ public class RobotExtensions
 			}
 		}
 	}
+
+    /**
+     * Gets the next random {@link Point} object from the given arguments
+     *
+     * @param x
+     *            the X position
+     * @param y
+     *            the Y position
+     * @param considerMousePosition
+     *            the flag that check if the current mouse position should be considered
+     * @param lastMousePositionPoint
+     *            The {@link Point} object where the last known mouse position
+     * @param nextRandomPoint
+     *            The {@link Point} object that was last generated, can be null
+     * @return the next random {@link Point} object
+     */
+    public static Point getNextRandomPoint(int x, int y,
+                                            boolean considerMousePosition,
+                                            Point lastMousePositionPoint,
+                                            Point nextRandomPoint) throws NoSuchAlgorithmException {
+        SecureRandom secureRandom = SecureRandom.getInstanceStrong();
+        if (considerMousePosition)
+        {
+            if(lastMousePositionPoint != null) {
+                Point currentMousePosition  = getMousePosition();
+                if(lastMousePositionPoint == currentMousePosition ) {
+                    nextRandomPoint =
+                           randomNeighborPoint(currentMousePosition.equals(nextRandomPoint)
+                                    ? nextRandomPoint
+                                    : currentMousePosition, false);
+                } else {
+                    nextRandomPoint =
+                            randomNeighborPoint(lastMousePositionPoint, false);
+                }
+            } else {
+                nextRandomPoint = new Point(secureRandom.nextInt(), secureRandom.nextInt());
+            }
+        }
+        else
+        {
+            if(lastMousePositionPoint != null) {
+                nextRandomPoint = new Point(secureRandom.nextInt((int)lastMousePositionPoint.getX()),
+                        secureRandom.nextInt((int)lastMousePositionPoint.getY()));
+            } else {
+                nextRandomPoint = new Point(secureRandom.nextInt(x), secureRandom.nextInt(y));
+            }
+        }
+        return nextRandomPoint;
+    }
 
 	/**
 	 * Move the mouse with the given robot in infinity mode
