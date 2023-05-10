@@ -41,21 +41,14 @@ public class JMCheckBoxTest
 		// Bind with JMCheckBox that encapsulate a property model
 		final JMCheckBox checkBox;
 		final CheckedModel checkedModelBean;
-		checkedModelBean = CheckedModel.builder().build();
+		final IModel<Boolean> booleanModel;
+
 		checkBox = new JMCheckBox("Check me");
 
-		// SerializableSupplier<Boolean> getter = () -> {
-		// Boolean checked = checkBox.isSelected();
-		// checkedModelBean.setChecked(checked);
-		// return checked;
-		// };
-		// SerializableConsumer<Boolean> setter = (checked) -> {
-		// checkBox.setSelected(checked);
-		// checkedModelBean.setChecked(checked);
-		// };
-		final IModel<Boolean> booleanModel =
+		checkedModelBean = CheckedModel.builder().build();
+		//		checkedModelBean.setChecked(true);
+		booleanModel =
 			// PropertyModel.of(checkedModelBean, "checked");
-			// LambdaModel.of(getter, setter);
 			LambdaModel.of(checkedModelBean::isChecked, checkedModelBean::setChecked);
 		checkBox.setPropertyModel(booleanModel);
 
