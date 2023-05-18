@@ -44,7 +44,7 @@ public class JMComboBoxTest
 		GenericComboBoxModel<Integer> comboBoxModel;
 		ValueBox<Integer> valueBox;
 		IModel<Integer> selectedItemModel;
-		valueBox = ValueBox.<Integer> builder().value(1).build();
+		valueBox = ValueBox.<Integer> builder().value(3).build();
 		Integer[] cmbArray = ArrayFactory.newArray(1, 2, 3, 4);
 		comboBoxModel = new GenericComboBoxModel<>(cmbArray);
 		selectedItemModel = LambdaModel.of(valueBox::getValue, valueBox::setValue);
