@@ -4,19 +4,24 @@
 Version 7.4-SNAPSHOT
 -------------
 
+ADDED:
+
+- new model class LabelModel for JLabel
+- new class JMLabel with a LabelModel as a type model
+
 CHANGED:
 
-- update of gradle to new version 8.0.1
-- update of lombok dependency to new patch version 1.18.26
-- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 6.6.2
-- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.46.0
-- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.15.0
+- update of gradle to new version 8.3-rc-1
+- update of lombok dependency to new patch version 1.18.28
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 8.1.0
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.47.0
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.20.0
 - update of dependency menu-action to new minor version 2.7
 - update of dependency silly-io to new minor version 2.2
 - update of dependency swing-renderer to new minor version 1.2
 - update of dependency silly-collection to new minor version 21
 - update of test dependency zip4j to new patch version 2.11.5
-- update of test dependency junit-jupiter to new minor version 5.9.2
+- update of test dependency junit-jupiter to new minor version 5.10.0-RC1
 
 Version 7.3
 -------------

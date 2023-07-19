@@ -46,7 +46,7 @@ public class JMCheckBoxTest
 		checkBox = new JMCheckBox("Check me");
 
 		checkedModelBean = CheckedModel.builder().build();
-		//		checkedModelBean.setChecked(true);
+		// checkedModelBean.setChecked(true);
 		booleanModel =
 			// PropertyModel.of(checkedModelBean, "checked");
 			LambdaModel.of(checkedModelBean::isChecked, checkedModelBean::setChecked);

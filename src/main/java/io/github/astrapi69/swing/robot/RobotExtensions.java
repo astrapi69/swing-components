@@ -35,8 +35,11 @@ import java.security.SecureRandom;
 
 /**
  * The class {@link RobotExtensions} provides utility methods for the class {@link Robot}
- * @deprecated use instead the new module project roboter. Note: will be removed in the next major version
+ * 
+ * @deprecated use instead the new module project roboter. Note: will be removed in the next minor
+ *             version
  */
+@Deprecated
 public class RobotExtensions
 {
 

@@ -46,7 +46,7 @@ public class JMComboBoxWithStringTest
 		ValueBox<String> valueBox;
 		IModel<String> selectedItemModel;
 		valueBox = ValueBox.<String> builder().value("2").build();
-		String[] cmbArray = ArrayFactory.newArray("1", "2","3", "4");
+		String[] cmbArray = ArrayFactory.newArray("1", "2", "3", "4");
 		selectedItemModel = LambdaModel.of(valueBox::getValue, valueBox::setValue);
 		comboBoxModel = new GenericMutableComboBoxModel<>(cmbArray, "2");
 

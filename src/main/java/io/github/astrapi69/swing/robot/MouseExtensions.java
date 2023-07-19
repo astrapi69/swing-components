@@ -32,8 +32,11 @@ import java.awt.Robot;
 
 /**
  * The class {@link MouseExtensions} provides utility methods for mouse information
- * @deprecated use instead the new module project roboter. Note: will be removed in the next major version
+ * 
+ * @deprecated use instead the new module project roboter. Note: will be removed in the next minor
+ *             version
  */
+@Deprecated
 public class MouseExtensions
 {
 
