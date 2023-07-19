@@ -27,30 +27,41 @@ package io.github.astrapi69.swing.component;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.label.model.LabelModel;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NonNull;
+import lombok.experimental.FieldDefaults;
 
 import javax.swing.*;
 
-public class JMLabel<T> extends JLabel
+@Getter
+@EqualsAndHashCode(callSuper = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class JMLabel extends JLabel
 {
-	IModel<LabelModel> propertyModel = BaseModel.of();
+	IModel<LabelModel> propertyModel = BaseModel.of(LabelModel.builder().build());
 
-	public JMLabel(String text, IModel<LabelModel> propertyModel)
+	public JMLabel(String text)
 	{
 		super(text);
 		propertyModel.getObject().setText(text);
-		this.propertyModel = propertyModel;
+	}
+
+	public JMLabel(@NonNull IModel<LabelModel> propertyModel)
+	{
+		this.setPropertyModel(propertyModel);
 	}
 
 	public JMLabel setPropertyModel(final @NonNull IModel<LabelModel> propertyModel)
 	{
 		this.propertyModel = propertyModel;
 		LabelModel labelModel = this.propertyModel.getObject();
-		if (labelModel.getText() != null)
+		if (labelModel.getText() != null && labelModel.getText() != getText())
 		{
 			setText(labelModel.getText());
 		}
-		if (labelModel.getIcon() != null)
+		if (labelModel.getIcon() != null && labelModel.getIcon() != getIcon())
 		{
 			setIcon(labelModel.getIcon());
 		}
