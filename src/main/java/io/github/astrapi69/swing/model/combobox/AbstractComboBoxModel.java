@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.combobox.model;
+package io.github.astrapi69.swing.model.combobox;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.swing.AbstractListModel;
-import javax.swing.MutableComboBoxModel;
+import javax.swing.ComboBoxModel;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -43,16 +43,16 @@ import io.github.astrapi69.collection.list.ListFactory;
 import io.github.astrapi69.collection.set.SetFactory;
 
 /**
- * The abstract class {@link AbstractMutableComboBoxModel} contains the data for a combo list and
- * the current selected item.
+ * The abstract class {@link AbstractComboBoxModel} contains the data for a combo list and the
+ * current selected item.
  *
  * @param <T>
  *            the generic type of the Model
  */
 @Getter
-public abstract class AbstractMutableComboBoxModel<T> extends AbstractListModel<T>
+public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	implements
-		MutableComboBoxModel<T>,
+		ComboBoxModel<T>,
 		ActionListener
 {
 
@@ -71,89 +71,91 @@ public abstract class AbstractMutableComboBoxModel<T> extends AbstractListModel<
 	protected T selectedItem;
 
 	/**
-	 * Instantiates a new {@link AbstractMutableComboBoxModel} with a new list.
+	 * Instantiates a new {@link AbstractComboBoxModel} with a new list.
 	 */
-	public AbstractMutableComboBoxModel()
+	public AbstractComboBoxModel()
 	{
 		this(ListFactory.newArrayList());
 	}
 
 	/**
-	 * Instantiates a new {@link AbstractMutableComboBoxModel} from the given list.
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given list.
 	 *
 	 * @param comboList
 	 *            the list
 	 */
-	public AbstractMutableComboBoxModel(final List<T> comboList)
+	public AbstractComboBoxModel(final List<T> comboList)
 	{
 		this(comboList, ListExtensions.getFirst(comboList));
 	}
 
 	/**
-	 * Instantiates a new {@link AbstractMutableComboBoxModel} from the given arguments.
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given arguments.
 	 *
 	 * @param comboList
 	 *            the combo list
 	 * @param selectedItem
 	 *            the selected item
 	 */
-	public AbstractMutableComboBoxModel(final List<T> comboList, final T selectedItem)
+	public AbstractComboBoxModel(final List<T> comboList, final T selectedItem)
 	{
 		this.comboList = Argument.notNull(comboList, "comboList");
-		this.selectedItem = selectedItem;
+		this.selectedItem = selectedItem == null
+			? ListExtensions.getFirst(comboList)
+			: selectedItem;
 	}
 
 	/**
-	 * Instantiates a new {@link AbstractMutableComboBoxModel} from the given {@link Set}.
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given {@link Set}.
 	 *
 	 * @param set
 	 *            the combo set
 	 */
-	public AbstractMutableComboBoxModel(final Set<T> set)
+	public AbstractComboBoxModel(final Set<T> set)
 	{
 		this(ListExtensions.toList(set));
 	}
 
 	/**
-	 * Instantiates a new {@link AbstractMutableComboBoxModel} from the given {@link Set}.
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given {@link Set}.
 	 *
 	 * @param set
 	 *            the combo set
 	 * @param selectedItem
 	 *            the selected item
 	 */
-	public AbstractMutableComboBoxModel(final Set<T> set, final T selectedItem)
+	public AbstractComboBoxModel(final Set<T> set, final T selectedItem)
 	{
 		this(ListExtensions.toList(set), selectedItem);
 	}
 
 	/**
-	 * Instantiates a new {@link AbstractMutableComboBoxModel} from the given array.
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given array.
 	 *
 	 * @param comboArray
 	 *            the combo array
 	 */
-	public AbstractMutableComboBoxModel(final T[] comboArray)
+	public AbstractComboBoxModel(final T[] comboArray)
 	{
 		this(ArrayExtensions.asList(comboArray));
 	}
 
 	/**
-	 * Instantiates a new {@link AbstractMutableComboBoxModel} from the given arguments.
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given arguments.
 	 *
 	 * @param comboArray
 	 *            the combo array
 	 * @param selectedItem
 	 *            the selected item
 	 */
-	public AbstractMutableComboBoxModel(final T[] comboArray, final T selectedItem)
+	public AbstractComboBoxModel(final T[] comboArray, final T selectedItem)
 	{
 		this(ArrayExtensions.asList(comboArray), selectedItem);
 	}
 
 	/**
-	 * Instantiates a new {@link AbstractMutableComboBoxModel} from the given array and removes the
-	 * given excluded values and sets the given selected item value
+	 * Instantiates a new {@link AbstractComboBoxModel} from the given array and removes the given
+	 * excluded values and sets the given selected item value
 	 *
 	 * @param comboArray
 	 *            the combo array
@@ -162,7 +164,7 @@ public abstract class AbstractMutableComboBoxModel<T> extends AbstractListModel<
 	 * @param excludeValues
 	 *            the values to exclude
 	 */
-	public AbstractMutableComboBoxModel(final T[] comboArray, final T selectedItem,
+	public AbstractComboBoxModel(final T[] comboArray, final T selectedItem,
 		final Set<T> excludeValues)
 	{
 		this(newHashSet(ArrayExtensions.asList(comboArray), excludeValues), selectedItem);
@@ -240,64 +242,6 @@ public abstract class AbstractMutableComboBoxModel<T> extends AbstractListModel<
 	{
 		selectedItem = (T)anItem;
 		this.fireContentsChanged(this, 0, getSize());
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void addElement(T item)
-	{
-		// prevent duplicate entries
-		if (!comboList.contains(item))
-		{
-			comboList.add(item);
-			fireIntervalAdded(this, comboList.size() - 1, comboList.size() - 1);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void removeElement(Object obj)
-	{
-		int index = comboList.indexOf(obj);
-		if (index != -1)
-		{
-			removeElementAt(index);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void insertElementAt(T item, int index)
-	{
-		comboList.add(index, item);
-		fireIntervalAdded(this, index, index);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void removeElementAt(int index)
-	{
-		if (getElementAt(index) == selectedItem)
-		{
-			if (index == 0)
-			{
-				setSelectedItem(getSize() == 1 ? null : getElementAt(index + 1));
-			}
-			else
-			{
-				setSelectedItem(getElementAt(index - 1));
-			}
-		}
-		comboList.remove(index);
-		fireIntervalRemoved(this, index, index);
 	}
 
 }

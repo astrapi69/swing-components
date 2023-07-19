@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.component;
 
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
-import io.github.astrapi69.swing.label.model.LabelModel;
+import io.github.astrapi69.swing.model.label.LabelModel;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

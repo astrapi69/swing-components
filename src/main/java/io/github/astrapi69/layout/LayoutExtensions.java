@@ -33,6 +33,7 @@ import java.awt.Insets;
 import javax.swing.Box;
 
 import io.github.astrapi69.lang.ObjectExtensions;
+import io.github.astrapi69.swing.model.layout.GridBagLayoutModel;
 
 /**
  * The class {@link LayoutExtensions} helps with method for simplify the live with Layouts.

@@ -43,7 +43,7 @@ import io.github.astrapi69.collection.pair.ValueBox;
 import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExceptionExtension;
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.IModel;
-import io.github.astrapi69.swing.combobox.model.GenericComboBoxModel;
+import io.github.astrapi69.swing.model.combobox.GenericComboBoxModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**

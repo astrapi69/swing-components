@@ -25,17 +25,12 @@
 package io.github.astrapi69.swing.component;
 
 import java.awt.*;
-import java.awt.geom.Path2D;
 
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalIconFactory;
 
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.model.LambdaModel;
-import io.github.astrapi69.model.api.IModel;
-import io.github.astrapi69.model.check.CheckedModel;
-import io.github.astrapi69.swing.icon.ShapeIcon;
-import io.github.astrapi69.swing.label.model.LabelModel;
+import io.github.astrapi69.swing.model.label.LabelModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class JMLabelTest

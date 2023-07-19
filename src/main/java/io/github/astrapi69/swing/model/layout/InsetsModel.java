@@ -22,43 +22,33 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.label.model;
+package io.github.astrapi69.swing.model.layout;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.FieldDefaults;
-import lombok.experimental.SuperBuilder;
 
-import javax.swing.*;
-
-/**
- * The class {@link LabelModel} represents a model object that can be used with {@link JLabel}
- * objects
- */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@SuperBuilder(toBuilder = true)
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class LabelModel
+@Builder(toBuilder = true)
+public class InsetsModel
 {
 
 	/**
-	 * The text that will be displayed by the label
+	 * The inset from the bottom.
 	 */
-	String text;
+	private int bottom;
 
 	/**
-	 * The icon that will be displayed by the label
+	 * The inset from the left.
 	 */
-	Icon icon;
+	private int left;
 
 	/**
-	 * Defines the horizontal alignment that can be one of the following constants defined in
-	 * <code>SwingConstants</code>: <code>LEFT</code>, <code>CENTER</code>, <code>RIGHT</code>,
-	 * <code>LEADING</code> or <code>TRAILING</code>
+	 * The inset from the right.
 	 */
-	Integer horizontalAlignment;
+	private int right;
+
+	/**
+	 * The inset from the top.
+	 */
+	private int top;
 }
