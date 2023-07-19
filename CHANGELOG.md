@@ -4,6 +4,10 @@
 Version 8.1-SNAPSHOT
 -------------
 
+CHANGED:
+
+- removed deprecated classes
+
 Version 8
 -------------
 
