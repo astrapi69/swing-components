@@ -1,7 +1,7 @@
 ## Change log
 ----------------------
 
-Version 7.4-SNAPSHOT
+Version 8
 -------------
 
 ADDED:
@@ -22,6 +22,7 @@ CHANGED:
 - update of dependency silly-collection to new minor version 21
 - update of test dependency zip4j to new patch version 2.11.5
 - update of test dependency junit-jupiter to new minor version 5.10.0-RC1
+- moved all model classes to its own package
 
 Version 7.3
 -------------
