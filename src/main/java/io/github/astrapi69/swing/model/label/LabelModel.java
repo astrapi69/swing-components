@@ -31,12 +31,15 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
-import javax.swing.*;
+import javax.swing.Icon;
+import javax.swing.JLabel;
 
 /**
  * The class {@link LabelModel} represents a model object that can be used with {@link JLabel}
  * objects
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

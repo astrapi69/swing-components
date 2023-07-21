@@ -38,7 +38,9 @@ import io.github.astrapi69.model.api.IModel;
  *
  * @param <E>
  *            the generic enum type
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 @Data
 public class EnumRadioButtonGroupBean<E extends Enum<E>>
 {

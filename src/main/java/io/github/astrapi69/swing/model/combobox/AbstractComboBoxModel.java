@@ -48,7 +48,9 @@ import io.github.astrapi69.collection.set.SetFactory;
  *
  * @param <T>
  *            the generic type of the Model
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 @Getter
 public abstract class AbstractComboBoxModel<T> extends AbstractListModel<T>
 	implements

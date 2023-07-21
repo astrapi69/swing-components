@@ -29,7 +29,9 @@ import lombok.NonNull;
 /**
  * The class {@link NumberValuesDocument} can take any character that is specified in the given
  * regular expression
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 public class NumberValuesDocument extends RegularExpressionDocument
 {
 

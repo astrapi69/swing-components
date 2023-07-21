@@ -40,7 +40,9 @@ import lombok.ToString;
 /**
  * The class {@link GridBagLayoutModel} holds data for layout a component with the
  * {@link GridBagLayout}.
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 @Getter
 @Setter
 @EqualsAndHashCode

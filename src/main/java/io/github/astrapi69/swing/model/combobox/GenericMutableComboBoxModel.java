@@ -30,7 +30,9 @@ import java.util.Set;
 /**
  * The class {@link GenericMutableComboBoxModel} is an implementation of the abstract class
  * {@link AbstractMutableComboBoxModel} for generic values.
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 public class GenericMutableComboBoxModel<T> extends AbstractMutableComboBoxModel<T>
 {
 

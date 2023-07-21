@@ -41,7 +41,9 @@ import io.github.astrapi69.collection.set.SetFactory;
  *
  * @param <E>
  *            the generic type of the enum
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<E>
 {
 

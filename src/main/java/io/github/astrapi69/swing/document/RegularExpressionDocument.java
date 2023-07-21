@@ -38,7 +38,9 @@ import lombok.experimental.FieldDefaults;
 /**
  * The class {@link RegularExpressionDocument} can take any character that is specified in the given
  * regular expression
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class RegularExpressionDocument extends PlainDocument

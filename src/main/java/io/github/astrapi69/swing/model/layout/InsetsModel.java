@@ -27,6 +27,12 @@ package io.github.astrapi69.swing.model.layout;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * The class {@link InsetsModel} holds data for layout a component with the
+ * {@link java.awt.Insets}.
+ * @deprecated use instead the same name class in the swing-base-components
+ */
+@Deprecated
 @Data
 @Builder(toBuilder = true)
 public class InsetsModel

@@ -38,7 +38,9 @@ import io.github.astrapi69.math.MathExtensions;
 /**
  * The class {@link RangeDocument} can take any character in the range of the given minimum and
  * maximum
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class RangeDocument extends PlainDocument

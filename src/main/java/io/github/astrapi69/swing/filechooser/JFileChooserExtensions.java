@@ -32,7 +32,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * The class {@link JFileChooserExtensions} holds extension methods for the {@link JFileChooser}
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 public class JFileChooserExtensions
 {
 

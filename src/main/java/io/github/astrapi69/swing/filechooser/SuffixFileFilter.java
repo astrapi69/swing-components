@@ -32,7 +32,9 @@ import javax.swing.filechooser.FileFilter;
  * The class {@link SuffixFileFilter} is an implementation of the abstract {@link FileFilter} for
  * use with a {@link javax.swing.JFileChooser} for a generic FileFilter with file suffix and
  * description
+ * @deprecated use instead the same name class in the swing-base-components
  */
+@Deprecated
 public class SuffixFileFilter extends FileFilter
 {
 	/** The suffix of the file name */
