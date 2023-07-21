@@ -1,13 +1,15 @@
 ## Change log
 ----------------------
 
-Version 8.1-SNAPSHOT
+Version 8.1
 -------------
 
 CHANGED:
 
 - removed deprecated classes
+- update of dependency swing-base-components to new minor version 2.6
 - removed all classes that have moved to the swing-base-components project
+- update of test dependency junit-jupiter to new minor version 5.10.0-RC2
 
 Version 8
 -------------
