@@ -7,6 +7,7 @@ Version 8.1-SNAPSHOT
 CHANGED:
 
 - removed deprecated classes
+- removed all classes that have moved to the swing-base-components project
 
 Version 8
 -------------
