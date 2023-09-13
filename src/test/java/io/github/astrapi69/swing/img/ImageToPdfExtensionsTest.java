@@ -35,9 +35,9 @@ import io.github.astrapi69.file.delete.DeleteFileExtensions;
 import io.github.astrapi69.file.search.PathFinder;
 
 /**
- * The class {@link ImageExtensionsTest}.
+ * The class {@link ImageToPdfExtensionsTest}.
  */
-public class ImageExtensionsTest
+public class ImageToPdfExtensionsTest
 {
 
 	/**

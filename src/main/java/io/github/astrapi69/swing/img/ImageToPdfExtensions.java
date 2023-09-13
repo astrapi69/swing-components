@@ -44,10 +44,10 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 /**
- * The class {@link ImageExtensions}.
+ * The class {@link ImageToPdfExtensions}
  */
 @Log
-public class ImageExtensions
+public class ImageToPdfExtensions
 {
 
 	/**
