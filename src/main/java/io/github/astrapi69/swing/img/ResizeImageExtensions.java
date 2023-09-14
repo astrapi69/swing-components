@@ -75,8 +75,8 @@ public class ResizeImageExtensions
 		final Method scalingMethod, final Mode resizeMode, final String formatName,
 		final int targetWidth, final int targetHeight) throws IOException
 	{
-		return ImageExtensions.read(resize(originalImage, scalingMethod, resizeMode, formatName, targetWidth,
-			targetHeight));
+		return ImageExtensions.read(resize(originalImage, scalingMethod, resizeMode, formatName,
+			targetWidth, targetHeight));
 	}
 
 	/**

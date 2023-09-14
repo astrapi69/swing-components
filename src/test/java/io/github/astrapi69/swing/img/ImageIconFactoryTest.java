@@ -53,7 +53,8 @@ class ImageIconFactoryTest
 {
 
 	/**
-	 * Test for method {{@link BatikImageIconFactory#newImageIconFromSVG(String, float, float, String)}
+	 * Test for method
+	 * {{@link BatikImageIconFactory#newImageIconFromSVG(String, float, float, String)}
 	 *
 	 * @throws TranscoderException
 	 *             is thrown when a transcoder is not able to transcode its input
@@ -71,8 +72,8 @@ class ImageIconFactoryTest
 		targetWidth = 10f;
 		targetHeight = 10f;
 		description = "A description";
-		actual = BatikImageIconFactory.newImageIconFromSVG(relativeImagePath, targetWidth, targetHeight,
-			description);
+		actual = BatikImageIconFactory.newImageIconFromSVG(relativeImagePath, targetWidth,
+			targetHeight, description);
 		assertNotNull(actual);
 	}
 
@@ -99,8 +100,8 @@ class ImageIconFactoryTest
 		targetWidth = 10f;
 		targetHeight = 10f;
 		description = "A description";
-		actual = BatikImageIconFactory.newImageIconFromSVG(svgImageAsStream, targetWidth, targetHeight,
-			description);
+		actual = BatikImageIconFactory.newImageIconFromSVG(svgImageAsStream, targetWidth,
+			targetHeight, description);
 		assertNotNull(actual);
 	}
 
@@ -121,7 +122,8 @@ class ImageIconFactoryTest
 		relativeImagePath = "img/xmas/greendices.svg";
 		targetWidth = 10f;
 		targetHeight = 10f;
-		actual = BatikImageIconFactory.newImageIconFromSVG(relativeImagePath, targetWidth, targetHeight);
+		actual = BatikImageIconFactory.newImageIconFromSVG(relativeImagePath, targetWidth,
+			targetHeight);
 		assertNotNull(actual);
 	}
 

@@ -33,7 +33,6 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-import io.github.astrapi69.icon.SvgImageTranscoder;
 import org.apache.batik.anim.dom.SVGDOMImplementation;
 import org.apache.batik.transcoder.TranscoderException;
 import org.apache.batik.transcoder.TranscoderInput;
@@ -45,7 +44,8 @@ import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 /**
- * The factory class {@link BatikImageIconFactory} provides factory methods for create ImageIcon objects
+ * The factory class {@link BatikImageIconFactory} provides factory methods for create ImageIcon
+ * objects
  */
 public class BatikImageIconFactory
 {
