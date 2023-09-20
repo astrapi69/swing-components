@@ -31,7 +31,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 
 import io.github.astrapi69.model.PropertyModel;
-import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 
 public class JCheckBoxWithPropertyModelTest
 {

@@ -24,6 +24,7 @@
  */
 package io.github.astrapi69.swing.component;
 
+import javax.swing.JTextArea;
 import javax.swing.event.DocumentEvent;
 
 import lombok.AccessLevel;
@@ -31,8 +32,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
-
-import org.jdesktop.swingx.JXTextArea;
 
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
@@ -42,7 +41,7 @@ import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class JMTextArea extends JXTextArea
+public class JMTextArea extends JTextArea
 {
 
 	/** The model. */

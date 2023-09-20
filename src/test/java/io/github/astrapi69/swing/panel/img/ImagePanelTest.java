@@ -29,6 +29,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 
 import org.jdesktop.swingx.JXFrame;
 
@@ -54,7 +55,7 @@ public class ImagePanelTest
 			.read(ClassExtensions.getResourceAsStream("img/xmas/bell.png"));
 		final ImagePanel pnlIconPanel = new ImagePanel(BaseModel.of(img1));
 
-		final JXFrame frame = TestComponentFactory.newTestJXFrameWithComponent("ImagePanelTest",
+		final JFrame frame = TestComponentFactory.newTestJFrameWithComponent("ImagePanelTest",
 			pnlIconPanel, new Rectangle(0, 0, 820, 820));
 		frame.setVisible(true);
 	}

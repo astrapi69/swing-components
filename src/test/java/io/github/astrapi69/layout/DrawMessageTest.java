@@ -29,13 +29,13 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.WindowListener;
 
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
+import io.github.astrapi69.awt.window.adapter.DisposeWindow;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import io.github.astrapi69.window.adapter.CloseWindow;
-import io.github.astrapi69.window.adapter.DisposeWindow;
 
 /**
  * The unit test class for the class DrawMessage.

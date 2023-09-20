@@ -27,39 +27,38 @@ package io.github.astrapi69.swing.panel.output;
 import java.awt.BorderLayout;
 import java.io.PrintStream;
 
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import org.jdesktop.swingx.JXPanel;
-import org.jdesktop.swingx.JXTextArea;
+import javax.swing.JTextArea;
 
 /**
- * The class {@link ConsolePanel} provides a {@link JXTextArea} that prints the output from system
+ * The class {@link ConsolePanel} provides a {@link JTextArea} that prints the output from system
  * out and error output stream
  */
-public class ConsolePanel extends JXPanel
+public class ConsolePanel extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 
 	final JScrollPane jScrollPane;
-	final JXTextArea textArea;
+	final JTextArea textArea;
 
 	public ConsolePanel()
 	{
 		super(new BorderLayout());
-		textArea = newJXTextArea();
+		textArea = newJTextArea();
 		jScrollPane = new JScrollPane(textArea);
 		add(jScrollPane);
 	}
 
 	/**
-	 * Factory method that creates a new {@link JXTextArea} that prints the output from system out
+	 * Factory method that creates a new {@link JTextArea} that prints the output from system out
 	 * and error output stream. For custom
 	 * 
 	 * @return the JX text area
 	 */
-	protected JXTextArea newJXTextArea()
+	protected JTextArea newJTextArea()
 	{
-		JXTextArea textArea = new JXTextArea();
+		JTextArea textArea = new JTextArea();
 		JTextAreaOutputStream taout = new JTextAreaOutputStream(textArea, 60);
 		PrintStream ps = new PrintStream(taout);
 		System.setOut(ps);

@@ -44,7 +44,7 @@ import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExce
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.model.combobox.GenericComboBoxModel;
-import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 
 /**
  * GUI unit test for component {@link JMComboBox} with assertj-swing module

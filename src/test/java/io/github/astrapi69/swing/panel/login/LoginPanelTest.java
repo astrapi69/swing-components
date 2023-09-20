@@ -27,7 +27,7 @@ package io.github.astrapi69.swing.panel.login;
 import java.awt.Frame;
 import java.awt.Dialog.ModalityType;
 
-import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 
 public class LoginPanelTest
 {

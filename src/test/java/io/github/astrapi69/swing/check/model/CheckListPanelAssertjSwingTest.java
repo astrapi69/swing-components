@@ -29,6 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.Frame;
 
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import org.assertj.swing.fixture.FrameFixture;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,7 +41,6 @@ import io.github.astrapi69.model.check.CheckableItem;
 import io.github.astrapi69.model.check.CheckableListModel;
 import io.github.astrapi69.model.check.CheckableValue;
 import io.github.astrapi69.swing.list.JListExtensions;
-import io.github.astrapi69.window.adapter.CloseWindow;
 
 /**
  * GUI unit test with assertj-swing module

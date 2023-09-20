@@ -32,7 +32,7 @@ import javax.swing.JButton;
 import io.github.astrapi69.model.LambdaModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.model.check.CheckedModel;
-import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 
 public class JMCheckBoxTest
 {

@@ -32,7 +32,7 @@ import io.github.astrapi69.model.check.CheckableItem;
 import io.github.astrapi69.model.check.CheckableListModel;
 import io.github.astrapi69.model.check.CheckableValue;
 import io.github.astrapi69.swing.list.JListExtensions;
-import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 
 public class CheckListPanelTest
 {

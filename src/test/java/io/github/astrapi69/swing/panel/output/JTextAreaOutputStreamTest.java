@@ -27,6 +27,7 @@ package io.github.astrapi69.swing.panel.output;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import org.jdesktop.swingx.JXFrame;
@@ -37,7 +38,7 @@ public class JTextAreaOutputStreamTest
 {
 	public static void main(String[] args) throws InterruptedException
 	{
-		final JXFrame frame = TestComponentFactory.newTestJXFrameWithComponent("ConsolePanel",
+		final JFrame frame = TestComponentFactory.newTestJFrameWithComponent("ConsolePanel",
 			new ConsolePanel(), new Dimension(600, 400));
 		frame.add(new JLabel(" Console"), BorderLayout.NORTH);
 		frame.setVisible(true);

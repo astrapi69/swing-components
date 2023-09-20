@@ -79,7 +79,6 @@ public class JMStringTextField extends JMGenericTextField<String>
 
 	protected <T> void onInitialize()
 	{
-
 		getDocument().addDocumentListener(new DocumentListenerAdapter()
 		{
 			@Override

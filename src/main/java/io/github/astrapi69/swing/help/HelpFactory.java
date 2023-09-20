@@ -140,4 +140,5 @@ public class HelpFactory
 		miHelpContent.addActionListener(displayHelpFromSource);
 		return miHelpContent;
 	}
+
 }

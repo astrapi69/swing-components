@@ -25,6 +25,7 @@
 package io.github.astrapi69.swing.component;
 
 import javax.swing.ComboBoxModel;
+import javax.swing.JComboBox;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -32,15 +33,13 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 
-import org.jdesktop.swingx.JXComboBox;
-
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class JMComboBox<T, CMB extends ComboBoxModel<T>> extends JXComboBox
+public class JMComboBox<T, CMB extends ComboBoxModel<T>> extends JComboBox
 {
 	IModel<T> propertyModel = BaseModel.of();
 

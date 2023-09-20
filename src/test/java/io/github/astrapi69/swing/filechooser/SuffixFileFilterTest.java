@@ -29,7 +29,7 @@ import java.awt.Frame;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
-import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 
 public class SuffixFileFilterTest
 {

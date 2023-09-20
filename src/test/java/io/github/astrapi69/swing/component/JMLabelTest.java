@@ -31,7 +31,7 @@ import javax.swing.plaf.metal.MetalIconFactory;
 
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.swing.model.label.LabelModel;
-import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 
 public class JMLabelTest
 {

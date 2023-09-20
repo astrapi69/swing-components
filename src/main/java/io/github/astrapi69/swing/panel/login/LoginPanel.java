@@ -27,6 +27,7 @@ package io.github.astrapi69.swing.panel.login;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
@@ -34,12 +35,9 @@ import javax.swing.LayoutStyle;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.jdesktop.swingx.JXPanel;
-
-
 @Getter
 @Setter
-public class LoginPanel extends JXPanel
+public class LoginPanel extends JPanel
 {
 
 	private static final long serialVersionUID = -1773660900716220066L;

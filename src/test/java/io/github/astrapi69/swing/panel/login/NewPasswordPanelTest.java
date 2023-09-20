@@ -33,7 +33,7 @@ import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.listener.document.StringBindingListener;
 import io.github.astrapi69.swing.panel.login.pw.ChangePasswordModelBean;
 import io.github.astrapi69.swing.panel.login.pw.NewPasswordPanel;
-import io.github.astrapi69.window.adapter.CloseWindow;
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 
 public class NewPasswordPanelTest
 {

@@ -30,15 +30,15 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 
-import org.jdesktop.swingx.JXTextField;
-
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
+
+import javax.swing.JTextField;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public abstract class JMGenericTextField<T> extends JXTextField
+public abstract class JMGenericTextField<T> extends JTextField
 {
 
 	/** The model. */

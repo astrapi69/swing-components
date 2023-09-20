@@ -31,6 +31,8 @@ import org.jdesktop.swingx.JXFrame;
 
 import io.github.astrapi69.swing.test.TestComponentFactory;
 
+import javax.swing.JFrame;
+
 public class NetworkSettingsPanelTest
 {
 
@@ -44,8 +46,8 @@ public class NetworkSettingsPanelTest
 	 */
 	public static void main(final String[] args) throws IOException
 	{
-		final JXFrame frame = TestComponentFactory.newTestJXFrameWithComponent(
-			"NetworkSettingsPanel", new NetworkSettingsPanel(), new Rectangle(0, 0, 1020, 420));
+		final JFrame frame = TestComponentFactory.newTestJFrameWithComponent("NetworkSettingsPanel",
+			new NetworkSettingsPanel(), new Rectangle(0, 0, 1020, 420));
 		frame.setVisible(true);
 	}
 }
