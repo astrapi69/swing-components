@@ -32,12 +32,12 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import io.github.astrapi69.awt.screen.ScreenSizeExtensions;
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.button.ButtonFactory;
 import io.github.astrapi69.swing.panel.login.pw.ChangePasswordModelBean;
 import io.github.astrapi69.swing.panel.login.pw.NewPasswordPanel;
-import io.github.astrapi69.awt.window.adapter.CloseWindow;
 
 public class PanelDialogExample extends PanelDialog<ChangePasswordModelBean>
 {

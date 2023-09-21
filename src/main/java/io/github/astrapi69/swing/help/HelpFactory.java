@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2021 Asterios Raptis
+ * Copyright (C) 2015 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -34,9 +34,9 @@ import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
 import javax.swing.JMenuItem;
 
+import lombok.NonNull;
 import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.swing.menu.factory.JMenuItemFactory;
-import lombok.NonNull;
 
 /**
  * A factory {@link HelpFactory} provides factory methods for create all components for the help

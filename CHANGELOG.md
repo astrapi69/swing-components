@@ -7,6 +7,7 @@ Version 8.2-SNAPSHOT
 CHANGED:
 
 - added all classes from new modules that do not fit to a module system
+- update of dependency swing-base-components to new minor version 4.1
 
 Version 8.1
 -------------

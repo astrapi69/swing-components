@@ -30,8 +30,6 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import org.jdesktop.swingx.JXFrame;
-
 import io.github.astrapi69.swing.test.TestComponentFactory;
 
 public class JTextAreaOutputStreamTest

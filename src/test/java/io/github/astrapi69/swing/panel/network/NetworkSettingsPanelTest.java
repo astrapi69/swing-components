@@ -27,11 +27,9 @@ package io.github.astrapi69.swing.panel.network;
 import java.awt.Rectangle;
 import java.io.IOException;
 
-import org.jdesktop.swingx.JXFrame;
+import javax.swing.JFrame;
 
 import io.github.astrapi69.swing.test.TestComponentFactory;
-
-import javax.swing.JFrame;
 
 public class NetworkSettingsPanelTest
 {

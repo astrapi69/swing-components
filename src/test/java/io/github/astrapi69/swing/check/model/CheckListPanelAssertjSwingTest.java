@@ -29,11 +29,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.Frame;
 
-import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import org.assertj.swing.fixture.FrameFixture;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExceptionExtension;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;

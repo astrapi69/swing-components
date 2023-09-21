@@ -32,9 +32,8 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 import io.github.astrapi69.awt.screen.ScreenSizeExtensions;
-
-import io.github.astrapi69.swing.component.factory.JComponentFactory;
 import io.github.astrapi69.awt.window.adapter.CloseWindow;
+import io.github.astrapi69.swing.component.factory.JComponentFactory;
 
 public final class TestComponentFactory
 {

@@ -31,8 +31,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-import org.jdesktop.swingx.JXFrame;
-
 import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.swing.test.TestComponentFactory;

@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2021 Asterios Raptis
+ * Copyright (C) 2015 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,21 +26,14 @@ package io.github.astrapi69.swing.img;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import org.apache.batik.transcoder.TranscoderException;
 import org.junit.jupiter.api.Test;
 import org.meanbean.test.BeanTester;
 
-import io.github.astrapi69.file.search.PathFinder;
 import io.github.astrapi69.icon.ImageIconFactory;
 import io.github.astrapi69.lang.ClassExtensions;
 

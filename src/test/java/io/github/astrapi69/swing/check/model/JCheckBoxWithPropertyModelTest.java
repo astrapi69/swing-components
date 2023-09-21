@@ -30,8 +30,8 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 
-import io.github.astrapi69.model.PropertyModel;
 import io.github.astrapi69.awt.window.adapter.CloseWindow;
+import io.github.astrapi69.model.PropertyModel;
 
 public class JCheckBoxWithPropertyModelTest
 {

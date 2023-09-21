@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2021 Asterios Raptis
+ * Copyright (C) 2015 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -31,12 +31,13 @@ import java.util.logging.Level;
 
 import javax.imageio.ImageIO;
 
-import io.github.astrapi69.img.ImageExtensions;
 import lombok.extern.java.Log;
 
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
+
+import io.github.astrapi69.img.ImageExtensions;
 
 /**
  * The class {@link ResizeImageExtensions} provides extension methods for several operations with

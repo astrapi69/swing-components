@@ -39,8 +39,8 @@ import io.github.astrapi69.collection.list.ListFactory;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
-import io.github.astrapi69.swing.model.combobox.GenericMutableComboBoxModel;
 import io.github.astrapi69.swing.listener.document.EnableButtonBehavior;
+import io.github.astrapi69.swing.model.combobox.GenericMutableComboBoxModel;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
 /**
