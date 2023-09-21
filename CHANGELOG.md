@@ -8,6 +8,7 @@ CHANGED:
 
 - added all classes from new modules that do not fit to a module system
 - update of dependency swing-base-components to new minor version 4.1
+- remove all model components from package component to its own module swing-model-components
 
 Version 8.1
 -------------
