@@ -4,11 +4,18 @@
 Version 8.2-SNAPSHOT
 -------------
 
+ADDED:
+
+- new dependency component-model in major version 2
+
 CHANGED:
 
 - added all classes from new modules that do not fit to a module system
 - update of dependency swing-base-components to new minor version 4.1
 - remove all model components from package component to its own module swing-model-components
+- update of dependency jobj-core to new major version 8
+- update of dependency randomizer to new minor version 10.1
+- update of dependency swing-renderer to new minor version 3
 
 Version 8.1
 -------------

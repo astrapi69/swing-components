@@ -31,8 +31,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 
-import lombok.Getter;
 import io.github.astrapi69.swing.base.BasePanel;
+import lombok.Getter;
 
 /**
  * The class {@link FieldPanel} for create a new field.

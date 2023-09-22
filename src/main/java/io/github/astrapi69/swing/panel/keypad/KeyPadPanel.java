@@ -32,8 +32,8 @@ import java.awt.Insets;
 import java.awt.Panel;
 import java.awt.TextArea;
 
-import lombok.Getter;
 import io.github.astrapi69.layout.LayoutExtensions;
+import lombok.Getter;
 
 /**
  * Panel for a number keypad.

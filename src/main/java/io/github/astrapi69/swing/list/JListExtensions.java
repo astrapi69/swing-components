@@ -37,9 +37,9 @@ import javax.swing.plaf.metal.MetalIconFactory;
 
 import io.github.astrapi69.collection.list.ListExtensions;
 import io.github.astrapi69.collection.list.ListFactory;
-import io.github.astrapi69.model.check.CheckableItem;
-import io.github.astrapi69.model.check.CheckableValue;
-import io.github.astrapi69.swing.tree.renderer.list.CheckBoxListRenderer;
+import io.github.astrapi69.component.model.check.CheckableItem;
+import io.github.astrapi69.component.model.check.CheckableValue;
+import io.github.astrapi69.swing.renderer.tree.renderer.list.CheckBoxListRenderer;
 
 public class JListExtensions
 {

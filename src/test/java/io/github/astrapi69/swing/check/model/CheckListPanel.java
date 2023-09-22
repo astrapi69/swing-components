@@ -34,11 +34,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ListModel;
 
+import io.github.astrapi69.component.model.check.CheckableItem;
+import io.github.astrapi69.component.model.check.CheckableListModel;
+import io.github.astrapi69.component.model.check.CheckableValue;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
-import io.github.astrapi69.model.check.CheckableItem;
-import io.github.astrapi69.model.check.CheckableListModel;
-import io.github.astrapi69.model.check.CheckableValue;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.list.JListExtensions;
 
@@ -129,4 +129,3 @@ public class CheckListPanel extends BasePanel<CheckableListModel>
 	}
 
 }
-

@@ -26,13 +26,12 @@ package io.github.astrapi69.swing.img;
 
 import java.io.File;
 
-import net.lingala.zip4j.ZipFile;
-import net.lingala.zip4j.model.ZipParameters;
-
 import org.junit.jupiter.api.Test;
 
 import io.github.astrapi69.file.delete.DeleteFileExtensions;
 import io.github.astrapi69.file.search.PathFinder;
+import net.lingala.zip4j.ZipFile;
+import net.lingala.zip4j.model.ZipParameters;
 
 /**
  * The class {@link ImageToPdfExtensionsTest}.

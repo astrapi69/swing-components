@@ -31,13 +31,12 @@ import java.util.logging.Level;
 
 import javax.imageio.ImageIO;
 
-import lombok.extern.java.Log;
-
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.imgscalr.Scalr.Mode;
 
 import io.github.astrapi69.img.ImageExtensions;
+import lombok.extern.java.Log;
 
 /**
  * The class {@link ResizeImageExtensions} provides extension methods for several operations with

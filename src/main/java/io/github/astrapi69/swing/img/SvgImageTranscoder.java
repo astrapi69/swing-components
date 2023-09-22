@@ -26,10 +26,10 @@ package io.github.astrapi69.swing.img;
 
 import java.awt.image.BufferedImage;
 
-import lombok.Getter;
-
 import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.image.ImageTranscoder;
+
+import lombok.Getter;
 
 /**
  * The class {@link SvgImageTranscoder} can transcode a svg image

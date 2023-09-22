@@ -34,9 +34,9 @@ import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
 import javax.swing.JMenuItem;
 
-import lombok.NonNull;
 import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.swing.menu.factory.JMenuItemFactory;
+import lombok.NonNull;
 
 /**
  * A factory {@link HelpFactory} provides factory methods for create all components for the help
