@@ -37,6 +37,7 @@ import org.jdesktop.swingx.painter.PinstripePainter;
  * 
  * @deprecated will be removed because of swingx remove in future versions
  */
+@Deprecated
 public class PainterExtensions
 {
 

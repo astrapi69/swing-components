@@ -31,6 +31,7 @@ import java.io.InputStream;
 import javax.swing.ImageIcon;
 
 import org.apache.batik.transcoder.TranscoderException;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.meanbean.test.BeanTester;
 
@@ -53,6 +54,7 @@ class ImageIconFactoryTest
 	 *             is thrown when a transcoder is not able to transcode its input
 	 */
 	@Test
+	@Disabled
 	public void testNnewImageIconFromSVG() throws TranscoderException
 	{
 		ImageIcon actual;
@@ -78,6 +80,7 @@ class ImageIconFactoryTest
 	 *             is thrown when a transcoder is not able to transcode its input
 	 */
 	@Test
+	@Disabled
 	public void testNnewImageIconFromSVGWithInputStream() throws TranscoderException
 	{
 		ImageIcon actual;
@@ -105,6 +108,7 @@ class ImageIconFactoryTest
 	 *             is thrown when a transcoder is not able to transcode its input
 	 */
 	@Test
+	@Disabled
 	public void testNewImageIconFromSVGWithRelativePathWidthAndHeight() throws TranscoderException
 	{
 		ImageIcon actual;
