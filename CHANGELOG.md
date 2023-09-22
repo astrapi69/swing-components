@@ -1,7 +1,7 @@
 ## Change log
 ----------------------
 
-Version 8.2
+Version 9
 -------------
 
 ADDED:
@@ -10,6 +10,7 @@ ADDED:
 
 CHANGED:
 
+- update of JDK to newer version 17
 - added all classes from new modules that do not fit to a module system
 - update of dependency swing-base-components to new minor version 4.1
 - remove all model components from package component to its own module swing-model-components
