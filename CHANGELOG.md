@@ -8,6 +8,16 @@ ADDED:
 
 - new libs.versions.toml file for new automatic catalog versions update
 
+CHANGED:
+
+- update of gradle to new version 8.9-rc-1
+- update of lombok dependency to new patch version 1.18.34
+- update of gradle-plugin dependency with id 'com.github.ben-manes.versions' to new patch version 0.51.0
+- update of gradle-plugin dependency with id 'org.ajoberstar.grgit' to new patch version 5.2.2
+- update of gradle-plugin dependency with id 'io.freefair.lombok' to new patch version 8.6
+- update of gradle-plugin dependency with id 'com.diffplug.spotless' to new beta version 7.0.0.BETA1
+- update of test dependency junit-jupiter to new minor version 5.11.0-M2
+
 Version 9
 -------------
 

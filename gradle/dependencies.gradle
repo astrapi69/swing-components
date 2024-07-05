@@ -27,6 +27,7 @@ dependencies {
     implementation libs.swing.renderer
     implementation libs.component.model
     implementation libs.swing.model.components
+
     testImplementation libs.awt.extensions
     testImplementation libs.silly.io
     testImplementation libs.beansbinding
