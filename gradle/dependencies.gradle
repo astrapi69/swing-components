@@ -1,42 +1,45 @@
-
 dependencies {
-    compileOnly("org.projectlombok:lombok:$lombokVersion")
-    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
-    implementation("javax.help:javahelp:$javahelpVersion")
-    implementation("org.swinglabs.swingx:swingx-all:$swingxAllVersion")
-    implementation("org.imgscalr:imgscalr-lib:$imgscalrLibVersion")
-    implementation("org.apache.xmlgraphics:batik-transcoder:$batikVersion")
-    implementation("org.apache.xmlgraphics:batik-codec:$batikVersion")
-    implementation("com.itextpdf:itextpdf:$itextpdfVersion")
-    implementation("com.miglayout:miglayout-swing:$miglayoutSwingVersion")
-    implementation("org.apache.commons:commons-lang3:$commonsLang3Version")
-    implementation("io.github.astrapi69:silly-collection:$sillyCollectionVersion")
-    implementation("io.github.astrapi69:silly-bean:$sillyBeanVersion")
-    implementation("io.github.astrapi69:randomizer:$randomizerVersion")
-    implementation("io.github.astrapi69:state:$stateVersion")
-    implementation("io.github.astrapi69:observer:$observerVersion")
-    implementation("io.github.astrapi69:model-data:$modelDataVersion")
-    implementation("io.github.astrapi69:jobj-core:$jobjCoreVersion")
-    implementation("io.github.astrapi69:throwable:$throwableVersion")
-    implementation("io.github.astrapi69:silly-math:$sillyMathVersion")
-    implementation("io.github.astrapi69:menu-action:$menuActionVersion")
-    implementation("io.github.astrapi69:swing-base-components:$swingBaseComponentsVersion")
-    implementation("io.github.astrapi69:icon-img-extensions:$iconImgExtensionsVersion")
-    implementation("io.github.astrapi69:swing-renderer:$swingRendererVersion")
-    implementation("io.github.astrapi69:component-model:$componentModelVersion")
-    implementation("io.github.astrapi69:swing-model-components:$swingModelComponentsVersion")
-    testImplementation("io.github.astrapi69:awt-extensions:$awtExtensionsVersion")
-    testImplementation("io.github.astrapi69:silly-io:$sillyIoVersion")
-    testImplementation("org.jdesktop:beansbinding:$beansbindingVersion")
-    testImplementation("io.github.astrapi69:crypt-api:$cryptApiVersion")
-    testImplementation("io.github.astrapi69:file-worker:$fileWorkerVersion")
-    testImplementation("io.github.astrapi69:test-objects:$testObjectsVersion")
-    testImplementation("org.freedesktop.tango:tango-icon-theme:$tangoIconThemeVersion")
-    testImplementation("io.github.astrapi69:silk-icon-theme:$silkIconThemeVersion")
-    testImplementation("net.lingala.zip4j:zip4j:$zip4jVersion")
-    testImplementation("org.assertj:assertj-swing:$assertjSwingVersion")
-    testImplementation("com.github.meanbeanlib:meanbean:$meanbeanVersion")
-    testImplementation("io.github.astrapi69:junit-jupiter-extensions:$junitJupiterExtensionsVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+    testCompileOnly libs.lombok
+    testAnnotationProcessor libs.lombok
+
+    implementation libs.javahelp
+    implementation libs.swingx.all
+    implementation libs.imgscalr.lib
+    implementation libs.batik.transcoder
+    implementation libs.batik.codec
+    implementation libs.itextpdf
+    implementation libs.miglayout.swing
+    implementation libs.commons.lang3
+    implementation libs.silly.collection
+    implementation libs.silly.bean
+    implementation libs.randomizer
+    implementation libs.state
+    implementation libs.observer
+    implementation libs.model.data
+    implementation libs.jobj.core
+    implementation libs.throwable
+    implementation libs.silly.math
+    implementation libs.menu.action
+    implementation libs.swing.base.components
+    implementation libs.icon.img.extensions
+    implementation libs.swing.renderer
+    implementation libs.component.model
+    implementation libs.swing.model.components
+    testImplementation libs.awt.extensions
+    testImplementation libs.silly.io
+    testImplementation libs.beansbinding
+    testImplementation libs.crypt.api
+    testImplementation libs.file.worker
+    testImplementation libs.test.objects
+    testImplementation libs.tango.icon.theme
+    testImplementation libs.silk.icon.theme
+    testImplementation libs.zip4j
+    testImplementation libs.assertj.swing
+    testImplementation libs.meanbean
+    testImplementation libs.junit.jupiter.extensions
+    // Note: use of bundles...
+    testImplementation libs.bundles.unit.testing
+    testRuntimeOnly libs.junit.platform.launcher
 }

@@ -4,7 +4,9 @@
 Version 9.1-SNAPSHOT
 -------------
 
+ADDED:
 
+- new libs.versions.toml file for new automatic catalog versions update
 
 Version 9
 -------------
