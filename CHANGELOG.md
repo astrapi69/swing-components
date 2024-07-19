@@ -17,6 +17,7 @@ CHANGED:
 - update of gradle-plugin dependency with id 'io.freefair.lombok' to new patch version 8.6
 - update of gradle-plugin dependency with id 'com.diffplug.spotless' to new beta version 7.0.0.BETA1
 - update of test dependency junit-jupiter to new minor version 5.11.0-M2
+- replaced obsolete package.html with package-info.java files
 
 Version 9
 -------------
