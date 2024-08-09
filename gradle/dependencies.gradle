@@ -40,6 +40,7 @@ dependencies {
     testImplementation libs.assertj.swing
     testImplementation libs.meanbean
     testImplementation libs.junit.jupiter.extensions
+    testImplementation libs.swing.mvvm
     // Note: use of bundles...
     testImplementation libs.bundles.unit.testing
     testRuntimeOnly libs.junit.platform.launcher

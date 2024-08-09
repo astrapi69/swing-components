@@ -43,8 +43,10 @@ tango-icon-theme-version = "0.8.90"
 test-objects-version = "6.1"
 throwable-version = "3"
 zip4j-version = "2.11.5"
+swing-mvvm-version = "1.0.0"
 
 [libraries]
+swing-mvvm = { module = "com.github.sergeds:swing-mvvm", version.ref = "swing-mvvm-version" }
 assertj-swing = { module = "org.assertj:assertj-swing", version.ref = "assertj-swing-version" }
 awt-extensions = { module = "io.github.astrapi69:awt-extensions", version.ref = "awt-extensions-version" }
 batik-codec = { module = "org.apache.xmlgraphics:batik-codec", version.ref = "batik-codec-version" }

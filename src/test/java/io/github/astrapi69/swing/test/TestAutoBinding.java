@@ -129,6 +129,40 @@ public class TestAutoBinding
 		actual = btnValue.isEnabled();
 		expected = employee.getPerson().getMarried();
 		assertNotSame(actual, expected); // Not equal!!!
+
+		// new scenario with AutoBinding.UpdateStrategy.READ_WRITE
+		// scenario is the same as READ
+		value = false;
+		updateStrategy = AutoBinding.UpdateStrategy.READ_WRITE;
+		employee = Employee.builder().person(Person.builder().married(value).build()).build();
+		employeeStringBeanProperty = BeanProperty.create("person.married");
+		btnValue = new JButton();
+		jButtonBeanProperty = BeanProperty.create("model.enabled");
+		autoBinding = Bindings.createAutoBinding(updateStrategy, employee,
+			employeeStringBeanProperty, btnValue, jButtonBeanProperty);
+		autoBinding.bind();
+
+		actual = btnValue.isEnabled();
+		expected = value;
+		assertEquals(actual, expected);
+		// set enabled from JButton will not update source, because of strategy only READ
+		enabled = true;
+		btnValue.setEnabled(enabled);
+		actual = employee.getPerson().getMarried();
+		expected = enabled;
+		assertNotSame(actual, expected); // Not equal!!!
+
+		enabled = false;
+		btnValue.setEnabled(enabled);
+		actual = employee.getPerson().getMarried();
+		expected = enabled;
+		assertEquals(actual, expected);
+		// set value from Employee
+		enabled = true;
+		employee.getPerson().setMarried(enabled);
+		actual = btnValue.isEnabled();
+		expected = employee.getPerson().getMarried();
+		assertNotSame(actual, expected); // Not equal!!!
 	}
 
 	@Test
