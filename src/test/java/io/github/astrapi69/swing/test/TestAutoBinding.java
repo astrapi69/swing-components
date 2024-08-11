@@ -58,8 +58,8 @@ public class TestAutoBinding
 
 		// new scenario with AutoBinding.UpdateStrategy.READ
 		value = "foo";
-		updateStrategy = AutoBinding.UpdateStrategy.READ;
 		employee = Employee.builder().person(Person.builder().nickname(value).build()).build();
+		updateStrategy = AutoBinding.UpdateStrategy.READ;
 		employeeStringBeanProperty = BeanProperty.create("person.nickname");
 		lblValue = new JLabel();
 		jLabelBeanProperty = BeanProperty.create("text");
