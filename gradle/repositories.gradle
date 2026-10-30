@@ -2,13 +2,6 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven {
-        name "$projectRepositoriesReleasesName"
-        url "$projectRepositoriesReleasesRepoUrl"
-        mavenContent {
-            releasesOnly()
-        }
-    }
-    maven {
         name "$projectRepositoriesSnapshotsName"
         url "$projectRepositoriesSnapshotsRepoUrl"
         mavenContent {
