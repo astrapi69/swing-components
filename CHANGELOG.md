@@ -10,6 +10,12 @@ ADDED:
 
 CHANGED:
 
+- releases go to Maven Central through the Central Portal, as in the rest of the family: the
+  `com.gradleup.nmcp` plugin uploads, the maintainer releases each deployment in the Portal, and a
+  `RELEASE-*` tag runs the new `publish.yml`, which signs with the signing subkey that the secret
+  `GPG_KEY_ID` names. The OSSRH staging endpoint this project published to is shut down; its
+  settings are gone, among them the switch that held the checksums to md5 and sha1, and snapshots
+  resolve from the Central Portal's snapshot repository (#24)
 - update of gradle to new version 8.9-rc-1
 - update of lombok dependency to new patch version 1.18.34
 - update of gradle-plugin dependency with id 'com.github.ben-manes.versions' to new patch version 0.51.0

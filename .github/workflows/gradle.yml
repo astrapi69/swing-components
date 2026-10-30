@@ -30,9 +30,6 @@ jobs:
       uses: gradle/actions/setup-gradle@v3
     - name: Execute Gradle build
       run: ./gradlew build
-      env:
-        ossrhUsername: ${{secrets.OSSRHUSERNAME}}
-        ossrhPassword: ${{secrets.OSSRHPASSWORD}}
     - uses: codecov/codecov-action@v4
       with:
         token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos

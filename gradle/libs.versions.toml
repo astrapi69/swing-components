@@ -11,6 +11,7 @@ file-worker-version = "17.3"
 gradle-plugin-grgit-version = "5.2.2"
 gradle-plugin-license-version = "0.16.1"
 gradle-plugin-lombok-version = "8.6"
+gradle-plugin-nmcp-version = "1.6.1"
 gradle-plugin-spotless-version = "7.0.0.BETA1"
 gradle-plugin-version-catalog-update-version = "0.8.4"
 gradle-plugin-versions-version = "0.51.0"
@@ -97,5 +98,6 @@ gradle-versions-plugin = { id = "com.github.ben-manes.versions", version.ref = "
 grgit-gradle = { id = "org.ajoberstar.grgit", version.ref = "gradle-plugin-grgit-version" }
 license-gradle-plugin = { id = "com.github.hierynomus.license", version.ref = "gradle-plugin-license-version" }
 lombok-plugin = { id = "io.freefair.lombok", version.ref = "gradle-plugin-lombok-version" }
+nmcp-gradle-plugin = { id = "com.gradleup.nmcp", version.ref = "gradle-plugin-nmcp-version" }
 spotless-plugin-gradle = { id = "com.diffplug.spotless", version.ref = "gradle-plugin-spotless-version" }
 version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "gradle-plugin-version-catalog-update-version" }
