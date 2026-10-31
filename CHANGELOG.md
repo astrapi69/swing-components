@@ -1,7 +1,7 @@
 ## Change log
 ----------------------
 
-Version 10 (unreleased)
+Version 10
 -------------
 
 **swing-components 10 requires JDK 25 or newer, at build and at runtime.** Its classes are compiled for JDK 25
