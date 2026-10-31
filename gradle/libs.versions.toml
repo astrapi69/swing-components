@@ -29,7 +29,6 @@ menu-action-version = "3.4"
 miglayout-swing-version = "11.4"
 model-data-version = "3.1"
 observer-version = "6"
-randomizer-version = "10.2"
 silk-icon-theme-version = "1"
 silly-bean-version = "2"
 silly-collection-version = "27.1"
@@ -71,7 +70,6 @@ menu-action = { module = "io.github.astrapi69:menu-action", version.ref = "menu-
 miglayout-swing = { module = "com.miglayout:miglayout-swing", version.ref = "miglayout-swing-version" }
 model-data = { module = "io.github.astrapi69:model-data", version.ref = "model-data-version" }
 observer = { module = "io.github.astrapi69:observer", version.ref = "observer-version" }
-randomizer = { module = "io.github.astrapi69:randomizer", version.ref = "randomizer-version" }
 silk-icon-theme = { module = "io.github.astrapi69:silk-icon-theme", version.ref = "silk-icon-theme-version" }
 silly-bean = { module = "io.github.astrapi69:silly-bean", version.ref = "silly-bean-version" }
 silly-collection = { module = "io.github.astrapi69:silly-collection", version.ref = "silly-collection-version" }
