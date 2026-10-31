@@ -14,7 +14,6 @@ dependencies {
     implementation libs.commons.lang3
     implementation libs.silly.collection
     implementation libs.silly.bean
-    implementation libs.randomizer
     implementation libs.state
     implementation libs.observer
     implementation libs.model.data
