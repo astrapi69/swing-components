@@ -21,6 +21,9 @@ CHANGED:
 - build plugins on their current releases (#40): spotless 8.10.4, from the beta 7.0.0.BETA1, freefair lombok
   9.8.3, versions 0.66.0 (now `io.github.ben-manes.versions`), version-catalog-update 1.1.2, grgit 5.3.3,
   nmcp 1.6.2
+- Spotless writes and checks the license headers, as in gen-tree, instead of the hierynomus license plugin,
+  which ran with ignoreFailures and brought plexus-utils 2.0.6 and spring-core 3.1.3 into the build classpath,
+  the source of 11 Dependabot alerts (#42); two test files get the header they lacked
 - the test task fails when a test class leaves no result: a test that closed a window with awt-extensions'
   CloseWindow ended the test JVM through System.exit(0), five of seven test classes never ran, and the build
   still reported green. The tests no longer use CloseWindow, and the Swing robot test is skipped without a

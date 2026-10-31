@@ -14,5 +14,6 @@ spotless {
         // export config file: https://github.com/diffplug/spotless/blob/main/ECLIPSE_SCREENSHOTS.md#creating-spotlessimportorder
         importOrderFile('src/test/resources/spotless/importorder.properties') // import order file as exported from eclipse
         eclipse("4.21").configFile("src/test/resources/spotless/alpharo-formatter.xml")
+        licenseHeaderFile(rootProject.file("src/main/resources/license-header.txt"))
     }
 }
