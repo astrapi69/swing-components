@@ -3,6 +3,9 @@ test {
     useJUnitPlatform()
 }
 
+// every test class leaves a result (#34)
+apply from: "gradle/test-results-complete.gradle"
+
 jacocoTestReport {
     reports {
         xml.required.set(true)

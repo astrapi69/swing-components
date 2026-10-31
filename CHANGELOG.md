@@ -4,6 +4,13 @@
 Version 9.1-SNAPSHOT
 -------------
 
+CHANGED:
+
+- the test task fails when a test class leaves no result: a test that closed a window with awt-extensions'
+  CloseWindow ended the test JVM through System.exit(0), five of seven test classes never ran, and the build
+  still reported green. The tests no longer use CloseWindow, and the Swing robot test is skipped without a
+  display instead of passing (#34)
+
 ADDED:
 
 - new libs.versions.toml file for new automatic catalog versions update

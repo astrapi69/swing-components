@@ -1,0 +1,70 @@
+// Every test class leaves a result, in every test task of this build.
+//
+// A test that ends the test JVM - System.exit(0), as awt-extensions' CloseWindow does when its window is closed -
+// leaves every class after it without a result, and Gradle still reports the task green, because the worker
+// exited with 0 (astrapi69/swing-components#34; the same in astrapi69/mystic-crypt-ui#288). So after each Test task,
+// every concrete compiled class that refers to a JUnit Jupiter test annotation must have left its result file in
+// the task's JUnit XML directory; otherwise the build fails and names the classes. A run narrowed with --tests or a
+// filter is not checked, and says so.
+//
+// The logic stays inside doLast, without a reference to this script, so that the configuration cache can store it.
+tasks.withType(Test).configureEach { Test testTask ->
+    def candidates = testTask.candidateClassFiles
+    def resultsDir = testTask.reports.junitXml.outputLocation
+    testTask.doLast { Test task ->
+        def filter = task.filter
+        if (!filter.commandLineIncludePatterns.isEmpty() || !filter.includePatterns.isEmpty()
+            || !filter.excludePatterns.isEmpty()) {
+            task.logger.lifecycle("${task.name}: narrowed by a filter, not checked for missing results")
+            return
+        }
+        def markers = ['org/junit/jupiter/api/Test', 'org/junit/jupiter/params/ParameterizedTest',
+                       'org/junit/jupiter/api/TestFactory', 'org/junit/jupiter/api/RepeatedTest',
+                       'org/junit/jupiter/api/TestTemplate']
+        def expected = [] as Set
+        candidates.visit { details ->
+            def f = details.file
+            if (details.directory || !f.name.endsWith('.class') || f.name.contains('$')) {
+                return
+            }
+            def bytes = f.bytes
+            def text = new String(bytes, 'ISO-8859-1')
+            if (!markers.any { text.contains(it) }) {
+                return
+            }
+            // the class's access flags follow the constant pool: walk it, then leave out abstract classes and
+            // interfaces, which never run on their own
+            def input = new DataInputStream(new ByteArrayInputStream(bytes))
+            input.readInt(); input.readUnsignedShort(); input.readUnsignedShort()
+            int count = input.readUnsignedShort()
+            for (int i = 1; i < count; i++) {
+                int tag = input.readUnsignedByte()
+                switch (tag) {
+                    case 1: input.skipBytes(input.readUnsignedShort()); break
+                    case 3: case 4: input.skipBytes(4); break
+                    case 5: case 6: input.skipBytes(8); i++; break
+                    case 7: case 8: case 16: case 19: case 20: input.skipBytes(2); break
+                    case 9: case 10: case 11: case 12: case 17: case 18: input.skipBytes(4); break
+                    case 15: input.skipBytes(3); break
+                    default: throw new GradleException("unknown constant pool tag ${tag} in ${f}")
+                }
+            }
+            int access = input.readUnsignedShort()
+            if ((access & 0x0400) != 0 || (access & 0x0200) != 0) {
+                return
+            }
+            expected << (details.relativePath.pathString - '.class').replace('/', '.')
+        }
+        def dir = resultsDir.get().asFile
+        def results = (dir.listFiles() ?: [] as File[])
+            .findAll { it.name.startsWith('TEST-') && it.name.endsWith('.xml') }
+            .collect { it.name - 'TEST-' - '.xml' } as Set
+        def missing = (expected - results).sort()
+        if (missing) {
+            throw new GradleException("${task.name}: ${missing.size()} of ${expected.size()} test classes left no "
+                + "result, so the test JVM ended before they ran or they were never run (System.exit?): "
+                + missing.join(', '))
+        }
+        task.logger.lifecycle("${task.name}: all ${expected.size()} test classes left a result")
+    }
+}
