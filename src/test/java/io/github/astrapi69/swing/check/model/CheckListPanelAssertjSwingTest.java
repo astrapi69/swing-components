@@ -26,18 +26,17 @@ package io.github.astrapi69.swing.check.model;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeFalse;
 
 import java.awt.Frame;
+import java.awt.GraphicsEnvironment;
 
 import org.assertj.swing.fixture.FrameFixture;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
-import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import io.github.astrapi69.component.model.check.CheckableItem;
 import io.github.astrapi69.component.model.check.CheckableListModel;
 import io.github.astrapi69.component.model.check.CheckableValue;
-import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExceptionExtension;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.list.JListExtensions;
@@ -51,11 +50,11 @@ public class CheckListPanelAssertjSwingTest
 	private FrameFixture underTest;
 	private CheckListPanel componentToTest;
 
-	@ExtendWith(IgnoreHeadlessExceptionExtension.class)
 	@Test
-	// @Disabled
 	public void test()
 	{
+		// without a display there is no window to drive: skipped, and reported as skipped (#34)
+		assumeFalse(GraphicsEnvironment.isHeadless(), "needs a display");
 		final Frame frame = new Frame("TestFrame");
 		String[] strs = { "root", "home", "kde", "mint", "ubuntu" };
 		CheckableItem<CheckableValue>[] checkableItems = JListExtensions.newCheckableItems(strs);
@@ -63,7 +62,6 @@ public class CheckListPanelAssertjSwingTest
 			.of(CheckableListModel.builder().values(checkableItems).build());
 		componentToTest = new CheckListPanel(model);
 		frame.add(componentToTest);
-		frame.addWindowListener(new CloseWindow());
 		frame.setSize(300, 200);
 		frame.setVisible(true);
 		underTest = new FrameFixture(frame);

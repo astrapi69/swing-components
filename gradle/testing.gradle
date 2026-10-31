@@ -3,6 +3,41 @@ test {
     useJUnitPlatform()
 }
 
+// A test that ends the test JVM - System.exit(0), as awt-extensions' CloseWindow does when its window is
+// closed - leaves every class after it without a result, and Gradle still reports the task green, since the
+// worker exited with 0 (#34). So every compiled test class that refers to JUnit Jupiter's @Test must have
+// left its result file. Not checked when the run was narrowed with --tests.
+def testClassDirs = sourceSets.test.output.classesDirs
+def testResultsDir = layout.buildDirectory.dir("test-results/test")
+tasks.named('test') {
+    doLast { task ->
+        if (!task.filter.commandLineIncludePatterns.isEmpty()) {
+            return
+        }
+        def expected = [] as Set
+        testClassDirs.each { dir ->
+            if (!dir.exists()) {
+                return
+            }
+            dir.eachFileRecurse(groovy.io.FileType.FILES) { f ->
+                if (f.name.endsWith('.class') && !f.name.contains('$')
+                    && new String(f.bytes, 'ISO-8859-1').contains('org/junit/jupiter/api/Test')) {
+                    expected << dir.toPath().relativize(f.toPath()).toString().replace(File.separator, '.') - '.class'
+                }
+            }
+        }
+        def results = (testResultsDir.get().asFile.listFiles() ?: [])
+            .findAll { it.name.startsWith('TEST-') && it.name.endsWith('.xml') }
+            .collect { it.name - 'TEST-' - '.xml' } as Set
+        def missing = expected - results
+        if (missing) {
+            throw new GradleException("${missing.size()} of ${expected.size()} test classes left no result, so the "
+                + "test JVM ended before they ran (System.exit?): ${missing.sort().join(', ')}")
+        }
+        logger.lifecycle("test: all ${expected.size()} test classes left a result")
+    }
+}
+
 jacocoTestReport {
     reports {
         xml.required.set(true)

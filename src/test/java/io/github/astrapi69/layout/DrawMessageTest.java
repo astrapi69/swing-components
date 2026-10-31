@@ -27,14 +27,12 @@ package io.github.astrapi69.layout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
-import java.awt.event.WindowListener;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import io.github.astrapi69.awt.window.adapter.DisposeWindow;
 
 
@@ -81,9 +79,7 @@ public class DrawMessageTest
 	@Disabled
 	public void testPaintGraphics()
 	{
-		final WindowListener l = new CloseWindow();
 		final Frame f = new Frame("DrawMessage 2D Text");
-		f.addWindowListener(l);
 		final Color color = new Color(0, 180, 0);
 		final DrawMessage message = new DrawMessage("Drawed Message with DrawMessage", color);
 		f.add("Center", message);
