@@ -1,36 +1,42 @@
 ## Change log
 ----------------------
 
-Version 9.1-SNAPSHOT
+Version 10 (unreleased)
 -------------
+
+**swing-components 10 requires JDK 25 or newer, at build and at runtime.** Its classes are compiled for JDK 25
+(class file major 69) and do not load on an older JVM; stay on 9 for JDK 17 (#40).
 
 CHANGED:
 
+- JDK 25 and Gradle 9.7.0, from JDK 17 and the release candidate 8.9-rc-1 (#40); the workflows build on JDK 25,
+  and `.sdkmanrc` names the JDK
+- dependencies on their current releases (#40): awt-extensions 2.0, component-model 2.1, crypt-api 10.3,
+  file-worker 19.1, icon-img-extensions 4.2, jobj-core 9.1, menu-action 5.1, model-data 3.2.1, silly-bean 3.0,
+  silly-collection 28.2, silly-io 3.6, swing-base-components 5.2, swing-model-components 1.2, swing-renderer 3.2,
+  batik 1.20, commons-lang3 3.21.0, itextpdf 5.5.13.6, lombok 1.18.48, miglayout 11.5.2, zip4j 2.11.6; JUnit
+  6.1.3, from the milestone 5.11.0-M2. meanbean stays at 3.0.0-M9, the newest version it has
+- assertj-core 3.27.7 in the tests, over the 3.17.2 that assertj-swing 3.17.1 brings, which has the XXE of
+  GHSA-rqfh-9r24-8c9r (#40)
+- build plugins on their current releases (#40): spotless 8.10.4, from the beta 7.0.0.BETA1, freefair lombok
+  9.8.3, versions 0.66.0 (now `io.github.ben-manes.versions`), version-catalog-update 1.1.2, grgit 5.3.3,
+  nmcp 1.6.2
 - the test task fails when a test class leaves no result: a test that closed a window with awt-extensions'
   CloseWindow ended the test JVM through System.exit(0), five of seven test classes never ran, and the build
   still reported green. The tests no longer use CloseWindow, and the Swing robot test is skipped without a
   display instead of passing (#34)
-
-ADDED:
-
-- new libs.versions.toml file for new automatic catalog versions update
-
-CHANGED:
-
+- randomizer is gone, which no class used (#32)
 - releases go to Maven Central through the Central Portal, as in the rest of the family: the
   `com.gradleup.nmcp` plugin uploads, the maintainer releases each deployment in the Portal, and a
   `RELEASE-*` tag runs the new `publish.yml`, which signs with the signing subkey that the secret
   `GPG_KEY_ID` names. The OSSRH staging endpoint this project published to is shut down; its
   settings are gone, among them the switch that held the checksums to md5 and sha1, and snapshots
   resolve from the Central Portal's snapshot repository (#24)
-- update of gradle to new version 8.9-rc-1
-- update of lombok dependency to new patch version 1.18.34
-- update of gradle-plugin dependency with id 'com.github.ben-manes.versions' to new patch version 0.51.0
-- update of gradle-plugin dependency with id 'org.ajoberstar.grgit' to new patch version 5.2.2
-- update of gradle-plugin dependency with id 'io.freefair.lombok' to new patch version 8.6
-- update of gradle-plugin dependency with id 'com.diffplug.spotless' to new beta version 7.0.0.BETA1
-- update of test dependency junit-jupiter to new minor version 5.11.0-M2
 - replaced obsolete package.html with package-info.java files
+
+ADDED:
+
+- new libs.versions.toml file for new automatic catalog versions update
 
 Version 9
 -------------

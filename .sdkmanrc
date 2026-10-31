@@ -1,0 +1,3 @@
+# The JDK this repository builds with, the one the rest of the chain is gated on (#40). `sdk env` sets the
+# shell to it.
+java=25.0.4-tem
