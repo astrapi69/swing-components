@@ -3,12 +3,11 @@
 <div style="text-align: center">
 
 [![Java CI with Gradle](https://github.com/astrapi69/swing-components/actions/workflows/gradle.yml/badge.svg)](https://github.com/astrapi69/swing-components/actions/workflows/gradle.yml)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/swing-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/swing-components)
-[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/swing-components.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-components)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.astrapi69/swing-components)](https://central.sonatype.com/artifact/io.github.astrapi69/swing-components)
+[![Javadocs](https://javadoc.io/badge2/io.github.astrapi69/swing-components/javadoc.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-components)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
 [![Hits Of Code](https://hitsofcode.com/github/astrapi69/swing-components?branch=develop)](https://hitsofcode.com/github/astrapi69/swing-components/view?branch=develop)
-[![Lines Of Code](https://tokei.rs/b1/github/astrapi69/swing-components)](https://github.com/astrapi69/swing-components)
 
 </div>
 
@@ -58,8 +57,7 @@ and then add the dependency to the dependencies area
 
 ## Maven dependency
 
-Maven dependency is now on sonatype.
-Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~swing-components~~~) for latest snapshots and releases.
+The library is on Maven Central. Check out [Maven Central](https://central.sonatype.com/artifact/io.github.astrapi69/swing-components) for the latest release.
 
 Add the following maven dependency to your project `pom.xml` if you want to import the core functionality of swing-components:
 
@@ -154,20 +152,14 @@ Projects that list projects of awesome swing projects
 
 ## Credits
 
-|**Travis CI**|
+|**Maven Central**|
 |     :---:      |
-|[![Travis CI](https://travis-ci.com/images/logos/TravisCI-Full-Color.png)](https://travis-ci.com)|
-|Special thanks to [Travis CI](https://travis-ci.com) for providing a free continuous integration service for open source projects|
-|     <img width=1000/>     |
-
-|**Nexus Sonatype repositories**|
-|     :---:      |
-|[![sonatype repository](https://img.shields.io/nexus/r/https/oss.sonatype.org/io.github.astrapi69/swing-components.svg?style=for-the-badge)](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~swing-components~~~)|
+|[![Maven Central](https://img.shields.io/maven-central/v/io.github.astrapi69/swing-components?style=for-the-badge)](https://central.sonatype.com/artifact/io.github.astrapi69/swing-components)|
 |Special thanks to [sonatype repository](https://www.sonatype.com) for providing a free maven repository service for open source projects|
 |     <img width=1000/>     |
 
 |**javadoc.io**|
 |     :---:      |
-|[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/swing-components.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-components)|
+|[![Javadocs](https://javadoc.io/badge2/io.github.astrapi69/swing-components/javadoc.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-components)|
 |Special thanks to [javadoc.io](http://www.javadoc.io) for providing a free javadoc documentation for open source projects|
 |     <img width=1000/>     |
