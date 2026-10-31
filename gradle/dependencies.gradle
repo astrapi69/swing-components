@@ -43,4 +43,10 @@ dependencies {
     // Note: use of bundles...
     testImplementation libs.bundles.unit.testing
     testRuntimeOnly libs.junit.platform.launcher
+
+    constraints {
+        // assertj-swing 3.17.1, its last release, brings assertj-core 3.17.2, which has the XXE of
+        // GHSA-rqfh-9r24-8c9r; 3.27.7 is the release that fixes it
+        testImplementation(libs.assertj.core)
+    }
 }

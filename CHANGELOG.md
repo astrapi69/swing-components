@@ -16,6 +16,8 @@ CHANGED:
   silly-collection 28.2, silly-io 3.6, swing-base-components 5.2, swing-model-components 1.2, swing-renderer 3.2,
   batik 1.20, commons-lang3 3.21.0, itextpdf 5.5.13.6, lombok 1.18.48, miglayout 11.5.2, zip4j 2.11.6; JUnit
   6.1.3, from the milestone 5.11.0-M2. meanbean stays at 3.0.0-M9, the newest version it has
+- assertj-core 3.27.7 in the tests, over the 3.17.2 that assertj-swing 3.17.1 brings, which has the XXE of
+  GHSA-rqfh-9r24-8c9r (#40)
 - build plugins on their current releases (#40): spotless 8.10.4, from the beta 7.0.0.BETA1, freefair lombok
   9.8.3, versions 0.66.0 (now `io.github.ben-manes.versions`), version-catalog-update 1.1.2, grgit 5.3.3,
   nmcp 1.6.2

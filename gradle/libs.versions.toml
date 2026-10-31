@@ -1,4 +1,5 @@
 [versions]
+assertj-core-version = "3.27.7"
 assertj-swing-version = "3.17.1"
 awt-extensions-version = "2.0"
 batik-codec-version = "1.20"
@@ -47,6 +48,7 @@ swing-mvvm-version = "1.0.0"
 
 [libraries]
 swing-mvvm = { module = "com.github.sergeds:swing-mvvm", version.ref = "swing-mvvm-version" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj-core-version" }
 assertj-swing = { module = "org.assertj:assertj-swing", version.ref = "assertj-swing-version" }
 awt-extensions = { module = "io.github.astrapi69:awt-extensions", version.ref = "awt-extensions-version" }
 batik-codec = { module = "org.apache.xmlgraphics:batik-codec", version.ref = "batik-codec-version" }
