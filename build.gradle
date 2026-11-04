@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         maven {
-            url projectRepositoriesMavenUrl
+            url = projectRepositoriesMavenUrl
         }
     }
 }
@@ -13,10 +13,10 @@ plugins {
     id 'maven-publish'
     id 'signing'
     alias(libs.plugins.gradle.versions.plugin)
-    alias(libs.plugins.grgit.gradle)
     alias(libs.plugins.lombok.plugin)
     alias(libs.plugins.nmcp.gradle.plugin)
     alias(libs.plugins.spotless.plugin.gradle)
+    alias(libs.plugins.test.results.complete)
     alias(libs.plugins.version.catalog.update)
 }
 
@@ -27,10 +27,10 @@ description = "$rootProject.name"
 // import gradle files
 apply from: "gradle/dependencies.gradle"
 apply from: "gradle/formatting.gradle"
-apply from: "gradle/grgit.gradle"
 apply from: "gradle/packaging.gradle"
 apply from: "gradle/publishing.gradle"
 apply from: "gradle/repositories.gradle"
+apply from: "gradle/tagging.gradle"
 apply from: "gradle/testing.gradle"
 apply from: "gradle/version-catalog-update.gradle"
 
