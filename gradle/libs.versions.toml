@@ -28,7 +28,6 @@ meanbean-version = "3.0.0-M9"
 menu-action-version = "5.1"
 miglayout-swing-version = "11.5.2"
 model-data-version = "3.2.1"
-observer-version = "6"
 silk-icon-theme-version = "1"
 silly-bean-version = "3.0"
 silly-collection-version = "28.2"
@@ -69,7 +68,6 @@ meanbean = { module = "com.github.meanbeanlib:meanbean", version.ref = "meanbean
 menu-action = { module = "io.github.astrapi69:menu-action", version.ref = "menu-action-version" }
 miglayout-swing = { module = "com.miglayout:miglayout-swing", version.ref = "miglayout-swing-version" }
 model-data = { module = "io.github.astrapi69:model-data", version.ref = "model-data-version" }
-observer = { module = "io.github.astrapi69:observer", version.ref = "observer-version" }
 silk-icon-theme = { module = "io.github.astrapi69:silk-icon-theme", version.ref = "silk-icon-theme-version" }
 silly-bean = { module = "io.github.astrapi69:silly-bean", version.ref = "silly-bean-version" }
 silly-collection = { module = "io.github.astrapi69:silly-collection", version.ref = "silly-collection-version" }
