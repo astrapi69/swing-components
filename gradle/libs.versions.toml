@@ -34,7 +34,6 @@ silly-bean-version = "3.0"
 silly-collection-version = "28.2"
 silly-io-version = "3.6"
 silly-math-version = "2.3"
-state-version = "6"
 swing-base-components-version = "5.2"
 swing-model-components-version = "1.2"
 swing-renderer-version = "3.2"
@@ -76,7 +75,6 @@ silly-bean = { module = "io.github.astrapi69:silly-bean", version.ref = "silly-b
 silly-collection = { module = "io.github.astrapi69:silly-collection", version.ref = "silly-collection-version" }
 silly-io = { module = "io.github.astrapi69:silly-io", version.ref = "silly-io-version" }
 silly-math = { module = "io.github.astrapi69:silly-math", version.ref = "silly-math-version" }
-state = { module = "io.github.astrapi69:state", version.ref = "state-version" }
 swing-base-components = { module = "io.github.astrapi69:swing-base-components", version.ref = "swing-base-components-version" }
 swing-model-components = { module = "io.github.astrapi69:swing-model-components", version.ref = "swing-model-components-version" }
 swing-renderer = { module = "io.github.astrapi69:swing-renderer", version.ref = "swing-renderer-version" }
